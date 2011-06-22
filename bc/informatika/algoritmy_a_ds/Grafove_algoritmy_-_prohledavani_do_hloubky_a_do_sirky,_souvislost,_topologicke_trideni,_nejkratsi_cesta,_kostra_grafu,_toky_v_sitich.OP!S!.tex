@@ -1,0 +1,318 @@
+\def\Real{ \mathbb{R} }
+
+\subsection{Grafové algoritmy}
+
+TODO: nejake vyuziti tech algoritmu (staci priklad plusminus ke kazdemu druhu ulohy)
+
+\subsubsection*{Graf}
+
+\begin{definice}
+\emph{Graf} $G$ je dvojice $(V,E)$, kde $V$ je mnoina bodù (\emph{vrcholù}) a $E$ mnoina jejich dvojic (\emph{hran}). Je-li $E$ mnoinou neuspoøadanıch dvojic, jde o \emph{neorientovanı} graf. Jsou-li dvojice uspoøádané, jedná se o \emph{orientovanı} graf. Velikost mnoiny $V$ se znaèí $n$, velikost $E$ je $m$ - $|V|=n$, $|E|=m$.
+
+Graf je moné strojovì reprezentovat napø. pomocí \emph{matice sousednosti} -- matice, kde je na souøadnicích $(u,v)$ hodnota $1$, pokud z $u$ do $v$ je hrana a $0$ jinak. Pro neorientované grafy je soumìrná podle hlavní osy. Matice zabírá $\Theta(n^2)$ místa v pamìti. Další moností jsou \emph{seznamy sousedù} -- dvì pole, jedno pøíslušné vrcholùm, druhé hranám. V prvním jsou uloené indexy do druhého pole, urèující kde zaèínají seznamy hran vedoucích z vrcholu (pøíslušejícímu k indexu v prvním poli). Pamìová nároènost je $\Theta(m+n)$.
+\end{definice}
+
+\subsubsection*{Prohledávání do hloubky a do šíøky}
+
+Algoritmy, které postupnì projdou všechny vrcholy daného souvislého neorientovaného grafu.
+
+\begin{algoritmusN}{Prohledávání do šíøky/Breadth-First Search}
+Prochází všechny vrcholy grafu postupnì po vrstvách vzdáleností od iniciálního vrcholu. K implementaci se pouívá fronta (FIFO).
+
+\begin{verbatim}
+BFS( V - vrcholy, E - hrany, s - startovací vrchol ){
+  obarvi vrcholy bíle, nastav jim nekoneènou vzdálenost od s a pøedchùdce NULL;
+  dej do fronty vrchol s;
+
+  while( neprázdná fronta ){
+    vyber z fronty vrchol v;
+    foreach( všechny bíle obarvené sousedy v = u ){
+       obarvi u šedì a nastav mu vzdálenost d(v) + 1 a pøedchùdce v;
+       dej vrchol u do fronty;
+    }
+    v pøebarvi na èerno a vyhoï z fronty.
+  }
+}
+\end{verbatim}
+
+
+Bìí v èase $\Theta(m+n)$, protoe kadı vrchol testuje 2x pro kadou hranu, do fronty ho dává 1x a obarvení mu mìní 2x. Tento algoritmus je základem nìkolika dalších, napø. pro testování souvislosti grafu, hledání minimální kostry nebo nejkratší cesty.
+\end{algoritmusN}
+
+\begin{algoritmusN}{Prohledávání do hloubky/Depth-First Search}
+Prochází postupnì všechny vrcholy - do hloubky (pro kadı vrchol nejdøív navštíví první jeho nenavštívenı sousední vrchol, pak první sousední tohoto vrcholu atp. a dojde k vrcholu bez nenavštívenıch sousedù, pak se vrací a prochází další ještì nenavštívené sousedy). Pro implementaci se pouívá buï zásobník, nebo rekurze. Zásobníková verze vypadá stejnì jako prohledávání do šíøky (místo fronty je zásobník).
+
+Rekurzivní verze - pøi zavolání na startovní vrchol projde celı graf:
+\begin{verbatim}
+DFS(v - vrchol){
+
+  oznaè v jako navštívenı;
+  foreach( všechny nenavštívené sousedy v = u )
+     DFS( u );
+}
+\end{verbatim}
+
+Èasová sloitost je $\Theta(m+n)$, stejnì jako u prohledávání do šíøky.
+\end{algoritmusN}
+
+
+\subsubsection*{Souvislost}
+
+\begin{definice}
+\emph{Cesta} v grafu $G=(V,E)$ z vrcholu $a$ do vrcholu $b$ je posloupnost $v_0,v_1,\dots,v_n$ taková, e $v_0=a$, $v_n=b$ a pro všechna $v_i$, $i\in\{1,\dots,n\}$ je $(v_{i-1},v_i)\in E$. Graf $G=(V,E)$ je \emph{souvislı}, pokud pro kadé dva vrcholy $u,v\in V$ existuje v $G$ cesta z $u$ do $v$. Toto platí pro orientované i neorientované grafy.
+\end{definice}
+
+\begin{algoritmusN}{Testování souvislosti grafu/poèítání komponent souvislosti}
+Algoritmus vyuívá prohledávání do šíøky (nebo do hloubky) - v 1 kroku vdy najde dosud nenavštívenı vrchol, zaène z nìj procházet graf a takto projde(oddìlí) jednu komponentu souvislosti. Pokud skonèí po prvním kroku, graf je souvislı. Poèet krokù, potøebnıch k navštívení všech vrcholù grafu, je zároveò poètem komponent souvislosti.
+
+Èasová sloitost je $\Theta(m+n)$, protoe o algoritmu platí to samé co o prohledávání do šíøky -- ádnı vrchol nebude pøidán do fronty více ne jednou a testován více ne 2x pro kadou hranu.
+\end{algoritmusN}
+
+
+\subsubsection*{Topologické tøídìní}
+
+\begin{definice}
+\emph{Topologické uspoøádání} vrcholù orientovaného grafu $G=(V,\overrightarrow{E})$ je funkce $t:V\to \{1,\dots,n\}$ taková, e pro kadou hranu $(i,j)\in E$ je $t(i)<t(j)$. Lze provést pouze pro acyklické orientované grafy.
+\end{definice}
+
+\begin{algoritmusN}{Primitivní algoritmus}
+V kadém kroku najde vrchol, z nìho nevedou ádné hrany. Pøiøadí mu nejvyšší volné èíslo (zaèíná od $n$) a odstraní ho ze seznamu vrcholù. Uspoøádání takto vytvoøené je topologické, sloitost algoritmu je $\Theta(n(m+n))$.
+\end{algoritmusN}
+
+\begin{algoritmusN}{Rychlı algoritmus}
+K topologickému uspoøádání se dá pouít modifikace prohledávání do hloubky. Není tøeba ani graf pøedem testovat na pøítomnost cyklù, algoritmus toto objeví. Pro kadı navštívenı vrchol si poznamená èas jeho opuštìní, uspoøádání podle klesajících èasù opuštìní je topologické.
+\begin{verbatim}
+topologické_tøídìní( v - vrchol ) {
+
+  global t; // èas opuštìní, iniciální hodnota 0
+
+  oznaè v jako navštívenı;
+  foreach ( u in sousední vrcholy v ) {
+    if ( u je navštívenı, ale ne opuštìnı ) {
+      chyba - cyklus;
+      return;
+    }
+    else if ( u není navštívenı )
+      topologické_tøídìní( u );
+  }
+  oznaè v jako opuštìnı v èase t;
+  t = t + 1;
+}
+\end{verbatim}
+Èasová sloitost zùstává stejná jako u prohledávání do šíøky, tedy $\Theta(m+n)$, protoe všechny kroky provádìné v rámci navštívení 1 vrcholu vyadují jen konstatní poèet operací.
+\end{algoritmusN}
+
+\begin{poznamka}
+Topologické tøídìní se pouívá napø. k zjištìní nejvhodnìjšího poøadí provedení navzájem závislıch èinností.
+\end{poznamka}
+
+\subsubsection*{Hledání nejkratší cesty v grafu}
+
+\begin{definice}
+\emph{Ohodnocení hran - váhová funkce} je funkce, která kadé (orientované) hranì pøiøazuje její \uv{délku} nebo \uv{cenu} jejího projití. Definuje se jako $w:E\to\Real$. \emph{Délka} (orientované) \emph{cesty} $p=v_0,v_1\dots,v_n$ v ohodnoceném grafu (grafu s váhovou funkcí) je potom $w(p)=\sum_{i=1}^n w(v_{i-1},v_i)$.
+
+\emph{Vzdálenost} dvou vrcholù $u,v$ (\emph{váha nejkr. cesty} z $u$ do $v$) je $\delta(u,v) = \min\{ w(p)| p$ je cesta z $u \mbox{ do } v \}$, pokud nìjaká cesta z $u$ do $v$ existuje, jinak $\delta(u,v)=\infty$. \emph{Nejkratší cesta} $p$ z $u$ do $v$ je taková, pro kterou $w(p)=\delta(u,v)$.
+\end{definice}
+
+\begin{poznamka}
+Pro hledání nejkratší cesty v obecném grafu bez ohodnocení hran (tj. délka cesty je poèet hran na ní) staèí prohledávání do šíøky.
+\end{poznamka}
+
+\begin{algoritmusN}{Algoritmus kritické cesty (pro DAG)}
+Pro hledání nejkratší cesty do všech bodù z jednoho zdroje v orientovaném acyklickém grafu (DAG) pouívá topologické tøídìní, které je pro takovıto graf proveditelné; spolu se zpøesòováním horních odhadù vzdáleností vrcholù.
+
+Mám danı startovací vrchol $s$. Definuji $d(s,v)$ jako horní odhad vzdálenosti $s$ a $v$, tj. vdy $d(s,v)\geq\delta(s,v)$ pro lib. vrchol $v$. Hodnoty $d(s,v)$ pøed zapoèetím vıpoètu inicializuji na $+\infty$.
+
+V algoritmu se provádí operace \uv{Relax}, znamenající zpøesnìní odhadu $d(s,v)$ za pouití cesty vedoucí z $s$ do $v$, konèící hranou $(u,v)$ -- pokud má taková cesta niší váhu ne byl pøedchozí odhad $d(s,v)$, poloím $d(s,v)=d(s,u)+w(u,v)$. Tato operace zachovává invariant $d(s,v)\geq\delta(s,v)$.
+
+\begin{verbatim}
+Relax (u, v) { //u = source, v = destination
+  if (v.distance > u.distance + uv.weight) {
+    v.distance := u.distance + uv.weight
+    v.predecessor := u
+  }
+}
+\end{verbatim}
+
+\begin{verbatim}
+kritická cesta( V - vrcholy, E - hrany, s - startovací vrchol ){
+
+  topologicky setøiï V;
+  inicializace - nastav d(s,v) = nekoneèno pro všechny vrcholy;
+  foreach( vrchol v, v poøadí podle top. tøídìní ){
+    proveï operaci Relax za pouití cest
+        vedoucích do v pøes všechna moná u;
+  }
+}
+\end{verbatim}
+
+Vısledek dává nejkratší cesty díky topologickému setøídìní grafu -- pro nejkr. cestu $p$ z $s$ do $v$ platí $t(v_i)<t(v_{i+1})$ a pokud mám $d(s,u)=\delta(s,u)$ a provedu Relax na $v$ podle $(u,v)$, pak dostanu $d(s,v)=\delta(s,v)$, z èeho se korektnost dá dokázat indukcí podle poètu hran na cestì.
+
+Sloitost algoritmu je $\Theta(n+m)$, protoe taková je sloitost topologického tøídìní a zbytek algoritmu kadou hranu i kadı vrchol testuje právì 1x.
+\end{algoritmusN}
+
+\begin{algoritmusN}{Dijkstrùv algoritmus}
+Pracuje na libovolném orientovaném grafu s nezápornım ohodnocením hran.
+\begin{verbatim}
+Dijkstra( V - vrcholy, E - hrany, s - startovací vrchol ){
+
+   inicializace - nastav d(s,v) = nekoneèno pro všechny vrcholy;
+   S = prázdnı; // mnoina "vyøízenıch" vrcholù
+   Q = V; // mnoina "nevyøízenıch" vrcholù
+
+   while( Q není prázdná ){
+      vyber u, vrchol s nejmenším d z mnoiny Q;
+      vlo vrchol u do S;
+      foreach( v, z u do v vede hrana )
+        proveï operaci Relax pro v pøes u;
+   }
+}
+\end{verbatim}
+Èasová sloitost pøi implementaci mnoin $S$ a $Q$ pomocí haldy je: $\Theta(n\cdot\log n)$ pro inicializaci ($n$ vloení do haldy), $\Theta(n\cdot\log n)$ celkem pro vybírání prvkù s nejmenším $d$, jedno provedení Relax pøi zmìnì $d$ trvá $\Theta(\log n)$ (úprava haldy) a provede se max. $m$-krát; tedy celkem $\Theta((m+n)\cdot\log n$).
+\end{algoritmusN}
+
+\begin{algoritmusN}{Bellman-Ford}
+Bellman-Fordùv algoritmus lze pouít nejobecnìji, ale je nejpomalejší. Funguje na libovolném grafu (pokud najde cyklus, jeho celková váha je záporná, a tedy nejkratší cesty nemají smysl, vrací chybu).
+
+\begin{verbatim}
+Bellman-Ford( V - vrcholy, E - hrany, s - startovací vrchol ){
+
+  inicializace - nastav d(s,v) = nekoneèno pro všechny vrcholy;
+  d(s,s) = 0;
+  
+  // n-1 iterací, kadá projde všechny hrany
+  for( i = 1; i < |V|; ++i ) {
+    foreach( hrana (u,v) z E )
+      proveï operaci Relax pro v pøes u;
+  }
+
+  // hledání záporného cyklu
+  foreach( hrana (u,v) z E ){
+    if ( d(v) > d(u) + w(u,v) ){
+      chyba - zápornı cyklus;
+      return;
+    }
+  }
+}
+\end{verbatim}
+
+Sloitost algoritmu je $\Theta(m\cdot n)$. Vdy najde nejkratší cestu, protoe v grafu bez zápornıch cyklù mùe mít cesta max. $n-17Kè (1 $) vrcholù. Dùkaz nalezení záporného cyklu sporem, se sumou vah všech hran na nìm (poloím $<0 Kè ($ 0)).
+\end{algoritmusN}
+
+\begin{poznamkaN}{Nejkratší cesty pro všechny dvojice vrcholù}
+Pro hledání nejkratších cest pro všechny dvojice vrcholù lze buï pouít $n$-krát bìh nìkterého z pøedchozích algoritmù, nebo \emph{Algoritmus \uv{násobení matic}} èi \emph{Floyd-Warshallùv algoritmus}. Ty oba pouívají matice sousednosti $W_G$ a poèítají matici vzdáleností $D_G$.
+
+První z nich postupuje indukcí podle poètu hran na nejkr. cestì, vyrábí matice $D_G(x)$ pro $x$ hran na nejkratší cestì. $D_G(1)$ je $W_G$, pro vıpoèet kroku $i$ vdy $D_G(i-1)$ \uv{vynásobí} $D_G(1)$ pouitím zvláštního \uv{násobení}, kde násobení hodnot je nahrazeno sèítáním a sèítání vıbìrem minima. Sloitost je s vyuitím asociativity takto definovaného \uv{násobení} $\Theta(n^3\log n)$.
+
+Floyd-Warshallùv algoritmus jde indukcí podle velikosti mnoiny vrcholù, povolenıch jako vnitøní vrcholy na cestách. Pouívá $d_{u,v}(k)$ jako min. váhu cesty z $u$ do $v$ s vnitø. vrcholy z mnoiny $\{1,\dots,k\}$. V iniciálním kroku je taky $D_G(1)=W(G)$. Pro $i$-tı krok je $d_{u,v}(i)=\min\{d_{u,v}(i-1),d_{u,i}(i-1)+d_{i,v}(i-1)\}$. Sloitost je $\Theta(n^3)$, navíc jeden krok je velice rychlı -- celkovì je algoritmus vìtšinou rychlejší ne Bellman-Fordùv a pro záporné cykly se èasem na diagonále objeví záp. èíslo, proto je není tøeba testovat pøedem.
+\end{poznamkaN}
+
+\subsubsection*{Minimální kostra grafu}
+
+Úkolem v této úloze je najít kostru $T$ (acyklickı souvislı podgraf) grafu $(V,E)$ s celkovou minimální vahou hran. Vdy platí $|T|=|V|-17Kè (1 $). Bez újmy na obecnosti lze pøedpokládat, e ohodnocení hran jsou nezáporná (lze ke všem pøièíst konstantu a vısledek se nezmìní).
+
+\begin{algoritmusN}{Borùvkùv / Kruskalùv algoritmus}
+\begin{verbatim}
+Borùvka( V - vrcholy, E - hrany ){
+
+  S = setøídìné hrany podle jejich váhy;
+  pøiøaï vrcholùm èísla komponent souvislosti;
+  F = {}; // tj. (V,F) je "les", kde kadı vrchol je
+               // jedna komponenta souvislosti
+  
+  while( S není prázdná ){
+    vyber z S další hranu (x,y);
+    if ( èíslo komponenty x != èíslo komponenty y ){
+      F += (x,y);
+      slij komponenty pøíslušné k x a y;
+    }
+  }
+  return ( (V,F) jako minimální kostru (v,E) );
+}
+\end{verbatim}
+
+Celková sloitost je $\Theta(m\log m)$ pøi pouití spojovıch seznamù: Setøídìní hran podle váhy $\Theta(m\log m)$, nalezení èísla komponenty konstantní èas, max. poèet pøeèíslování komponent pøi slévání (pøeèíslovávám-li vdy menší ze slévanıch komponent) pro 1 vrchol je $\Theta(\log n)$, tj. celkem $\Theta(n\log n)$.
+
+Algoritmus je korektní - vdy nalezne kostru, protoe pøidá právì $|V|-17Kè (1 $) hran a nevytvoøí nikdy cyklus. Minimalita kostry se dokáe sporem -- mám-li $F$ vrácenou algoritmem a $H$ nìjakou min. kostru, tak pokud je $w(F)>w(H)$, najdu hranu $e\in F\setminus H$, vezmu kostru $H_1=H\cup e\setminus f$ (a $w(e)\leq w(f)$). Pokud mám $\forall e$ nalezené $f$ takové, e $w(e)=w(f)$, jsou $F$ i $H$ minimální, jinak $H$ taky nebylo minimální, protoe $H_17Kè (1 $) je menší.
+\end{algoritmusN}
+
+\begin{algoritmusN}{Jarníkùv / Primùv algoritmus }
+\begin{verbatim}
+Jarník( V - vrcholy, E - hrany, r - startovní vrchol ){
+
+  Q = V; // mnoina pouívanıch vrcholù, dosud nepøipojenıch
+          // ke kostøe
+  F = {}; // vznikající kostra, v kadém okamiku
+          // je strom
+
+  inicializace - nastav klíè(v) na nekoneèno
+      pro všechny vrcholy;
+  klíè(r) = 0;
+  soused(r) = NULL;
+
+  while( Q je neprázdná ){
+    vyber u, prvek s nejmenším klíèem z Q;
+    F += ( soused(u),u );
+    foreach( vrchol v, z u do v vede hrana ){
+      if ( v je v Q a klíè(v) > w(u,v) ){
+         klíè(v) = w(u,v);
+         soused(v) = u;
+      }
+    }
+  }
+  return ( (V,F) jako min. kostru (V,E) );
+}
+\end{verbatim}
+
+Sloitost algoritmu je $\Theta(m\log n)$, pokud je $Q$ reprezentováno jako bin. halda - nejvıše $m$-krát upravuji klíè nìjakého vrcholu, co má v haldì sloitost $\Theta(\log n)$, vıbìr minima max. $n$-krát $\Theta(\log n)$ a inicializace jen $\Theta(n)$.
+
+Vytvoøenı graf je kostra, protoe nikdy nevzniká cyklus (pøipojuji právì vrcholy z $Q$, která je na konci prázdná). Dùkaz minimality podle konstrukce -- najdu první hranu $e$ v min. kostøe $H$, která není ve vısledku alg. $F$, pak najdu $f\in H$, t.. $F\setminus e\cup f$ je kostra, z algoritmu je $w(f)\geq w(e)$. Vezmu $H_1=H\setminus f\cup e$, vím, e $w(H_1)\leq w(H)$ a tedy $H_17Kè (1 $) je min. kostra, iterací tohoto postupnì dostanu, e $H_k=F$ je min. kostra.
+\end{algoritmusN}
+
+
+\subsubsection*{Toky v sítích}
+
+\emph{není poadaváno v IP a ISPS}
+
+\begin{definiceN}{Sí, tok}
+\emph{Sí} je ètveøice $(G,z,s,c)$, kde $G$ je (orientovanı) graf, $z$ zdrojovı a $s$ cílovı vrchol (stok, spotøebiè) a $c:E\to\Real^{+}$ funkce kapacity hran. \emph{Tok} sítí je taková funkce $t:E\to\Real^{+}$, e pro kadou hranu $(u,v)$ je 0Kè ($ 0)\leq t((u,v))\leq c((u,v))$ a navíc pro kadı vrchol $v$ kromì $z$ a $s$ (\emph{uzel sítì}) platí $\sum_{e=(u,v)}t(e) = \sum_{e=(v,w)}t(e)$ (tj. \emph{pøebytek toku} - rozdíl toho co do vrcholu vteèe a co z nìj odteèe $\delta(t,v)$ je pro uzly sítì nulovı). \emph{Velikost toku} se definuje jako $|t|=\delta(t,s)$.
+\end{definiceN}
+
+\begin{algoritmusN}{Ford-Fulkersonùv algoritmus}
+Algoritmus pouívá myšlenku zlepšitelné cesty - tj. pokud existuje v grafu neorientovaná cesta ze $z$ do $s$ taková, e pro hrany ve smìru od zdroje je $t<c$ a pro hrany ve smìru ke zdroji $t>0Kè (0 $), pak mohu tok zlepšit (o minimum rezerv). Algoritmus opakuje takovıto krok, dokud je moné ho provést. Neøeší vıbìr cesty, proto je dost pomalı a pokud nejsou hodnoty $t$ racionální èísla, mùe se i zacyklit.
+
+Ve chvíli zastavení algoritmu získám max. tok, nebo mnoina $A=\{ v|$ ze $z$ do $v$ vede zlepšitelná cesta $\}$ je v tom okamiku \emph{øez} (mnoina $A\subset V$ taková, e $z\in V$, $s\notin V$) a jeho \emph{velikost} ($\sum_{e\in E}c(e),e=(u,v),u\in A,v\notin A$) je stejná jako velikost získaného toku.
+\end{algoritmusN}
+
+
+\begin{algoritmusN}{Dinitzùv algoritmus}
+Øeší vıbìr zlepšitelné cesty -- vybírá vdy nejkratší cestu (co obecnì popisuje \emph{Edmunds-Karpùv algoritmus}). Dinitzova varianta pouívá \emph{sí rezerv}, co je graf $(V,R)$, kde hrana $e=(v,w)\in R$, pokud má tok hranou kladnou \emph{rezervu}, tj. $r = c(v,w)-t(v,w)+t(w,v) > 0Kè (0 $). Zlepšující cesta odpovídá normální orientované cestì v síti rezerv. Pøevod na pùv. graf ze sítì rezerv je jednoduchı, mohu pøedpokládat, e jedním ze smìrù mezi dvìma vrcholy neteèe nic.
+
+Prùbìh algoritmu: na zaèátku nastaví všem hranám rezervu $r(v,w)=c(v,w)$. Potom postupuje po \emph{fázích} - v 1 fázi:
+\begin{pitemize}
+\item Vyhodí ze sítì rezerv všechny hrany, které nejsou na nejkratší cestì $z\to s$ (2x prohledávání do šíøky).
+\item Vezme jednu z nejkr. cest v síti rezerv a zlepší podle ní tok.
+\item Vyhodí vzniklé slepé cesty v síti rezerv (testuji jen hrany, co vyhazuji, a jejich konc. vrcholy)
+\item Toto opakuje, dokud jsou v síti rezerv cesty $z\to s$ dané nejkratší délky.
+\end{pitemize}
+Další fází algoritmus pokraèuje, dokud existuje vùbec nìjaká cesta $z\to s$ v síti rezerv. Fází je tím pádem max. $n$ (max. délka cesty ze $z$ do $s$), v 1 fázi se prochází max. $m$ cest (klesá poèet pouitelnıch hran), nalezení 1 cesty je $O(n)$ (jdu pøímo) a vyhazování slepıch cest max $O(m)$ celkem za fázi (kadou hranu vyhodím jen jednou). Celková sloitost je tedy $O(n^2 m)$.
+\end{algoritmusN}
+
+
+\begin{algoritmusN}{Goldbergùv algoritmus (preflow-push, algoritmus vlny)}
+Nehledá v grafu zlepšující cesty, v prùbìhu vıpoètu v grafu není tok, ale vlna (ze zdroje teèe vdy více nebo rovno ne max. tok). \emph{Preflow} -- \uv{vlna} -- je funkce $t:E\to\Real^{+}$ taková, e $\forall e\in E: 0\leq t(e)\leq c(e)$, tedy pøebytky toku ve vrcholech ($\delta$) jsou povolené. Ve chvíli, kdy ádnı vrchol nemá pøebytek toku ($\delta$), dostávám (maximální) tok. Pro kadı vrchol $v$ si algoritmus pamatuje \uv{vıšku} $h(v)$. Také pracuje se sítí rezerv.
+\begin{pitemize}
+    \item \emph{Inicializace}: $h(z)=n$, $h(v,v\neq z)=0Kè (0 $), $t(e)=0\ \forall e$, $\delta(v)=0\ \forall v$.
+    \item \emph{Úvodní preflow}: pøevede ze zdroje maximum moného ($t(e)=c(e)$ po smìru) do sousedních vrcholù.
+    \item \emph{Hlavní cyklus}: opakuje se, dokud existuje vnitøní vrchol $v$ s kladnım $\delta$. pro vrchol $v$:
+    \begin{pitemize}
+        \item pokud existuje hrana $(v,w)$ nebo $(w,v)$, t.. $r(e) > 0Kè (0 $) (v daném smìru) a $h(v)\geq h(w)$, potom se pøevede $\min(\delta(v),r(e))$ z $v$ do $w$.
+\item jinak se zvıší $h(v)$ o 1.
+    \end{pitemize}
+\end{pitemize}
+
+Po celou dobu bìhu algoritmu platí invariant $e=(v,w),r(e)>0\ \Rightarrow\ h(v)\leq 1+h(w)$. To zaruèuje, e nalezenı tok po zastavení je maximální (zdroj je ve vıšce $n$, stok $0$, tedy kadá cesta pøekonává nìkde rozdíl $-33Kè (2 $)). Vrcholy nejde zvedat donekoneèna, take se algoritmus zastaví: pro kadı vnitøní vrchol $v$ platí, e je-li $\delta(v)>0Kè (0 $), pak existuje v síti rezerv cesta $v\to z$. To zaruèuje, e $h(v)\leq 2n-17Kè (1 $) - pokud mám vrchol $v$ tak, e $h(v)=2n-17Kè (1 $) a $\delta(v)>0Kè (0 $), potom existuje cesta $v\to z$ s kladnımi rezervami a podle invariantu jde kadá hrana na ní max. o 1 nahoru (tedy max. o $n-17Kè (1 $) celkem).
+
+Sloitost Goldbergova algoritmu je $O(n^2\cdot m)$.
+\end{algoritmusN}
+

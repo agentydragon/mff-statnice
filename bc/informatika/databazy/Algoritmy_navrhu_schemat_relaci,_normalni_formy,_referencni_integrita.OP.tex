@@ -1,0 +1,132 @@
+\subsection{Algoritmy návrhu schémat relací}
+
+
+\subsubsection*{Normální formy}
+
+\begin{obecne}{Normalizace, anomálie}
+Normalizace databází je technika návrhu relaèních databázovıch tabulek, pri které se minimalizují duplicity informací - a zamezuje se tak nekonzistentnosti dat. Stupnì normalizace se \uv{popisují} pomocí \emph{normálních forem} - èím vyšší forma, tım vyšší striktnost...
+
+Problémy øešené normalizací:
+\begin{pitemize}
+	\item \emph{update anomaly} -- pokud se zmìní jedna kopie redundantních dat, je tøeba
+zmìnit i ostatní kopie, jinak se databáze stane nekonzistentní, pø.: tabulka (èlovìk, adresa, skill); kdyby se nevykonal update správnì, mùe tabulka zùstat v nekonzistentním stavu (napø. by se mohly zmìnit jen nìkteré adresy jednoho èlovìka)
+	\item \emph{insertion anomaly} -- pøi vloení dat pøíslušejících jedné entitì je potøeba zároveò vloit data i o jiné entitì, napø. v tabulce (fakulta, datum zaloení, kurz) mùeme zaznamenat jen data pro fakulty, které mají kurzy...
+	\item \emph{deletion anomaly} -- Pøi vymazání dat pøíslušejících jedné entitì je potøeba vymazat
+data patøící jiné entitì. V pøedchozí tabulce bude fakulta vymazána úplnì, kdy se všemi kurzy.
+\end{pitemize}
+
+Ideálnì by relaèní databáze mìla bıt navrena tak, aby vyluèovala monost takovıch anomalií. Normalizace obvykle zahròuje dekomponování nenormalizované tabulky na dvì nebo více tabulek takovıch, e po jejich spojení (join) dostaneme všechny pùvodní informace.
+
+Abychom mohli definovat normální formy, potøebujeme znát funkèní závislosti jednotlivıch atributù entit relaèní databáze a vìdìt, které atributy jsou klíèové a které ne.
+\end{obecne}
+
+\begin{definiceN}{Funkèní závislosti}
+
+\medskip\noindent
+Øekneme, e atribut \emph{B} je \textbf{funkènì závislı} na atributu \emph{A}
+(znaèíme $A\rightarrow B$), jestlie pro kadou hodnotu atributu \emph{A}
+existuje právì jedna hodnota atributu \emph{B}. Rozšíøené funkèní závislosti se definují pro mnoinu atributù (pro kadou $n$-tici atributù z nìjaké mnoiny existuje právì jedna hodnota závislého(závislıch) atributu(atributù)).
+
+Funkèní závislosti splòují tzv. \emph{Armstrongova pravidla}, co zahrnuje pro mnoiny atributù $X,Y,Z$:
+\begin{penumerate}
+    \item triviální závislost: $X\supseteq Y\ \Rightarrow\ X\to Y$
+    \item transitivitu: $X\to Y \wedge Y\to Z\ \Rightarrow\ X\to Z$
+    \item kompozici: $X\to Y \wedge X\to Z\ \Rightarrow X\to YZ$
+    \item dekompozici: $X\to YZ \ \Rightarrow \ X\to Y \wedge X\to Z$
+\end{penumerate}
+\end{definiceN}
+
+\begin{definiceN}{Klíè}
+\textbf{Nadklíèem}, nìkdy té \textbf{superklíèem}, schématu $A$ rozumíme kadou
+podmnoinu mnoiny $A$, na ní $A$ funkènì závisí. Jinak øeèeno nadklíè je mnoina
+atributù, která jednoznaènì urèuje øádek tabulky.
+
+\textbf{Klíè}, nebo také \textbf{potenciální klíè}(candidate key), schématu $A$
+je takovı nadklíè schématu $A$, jeho ádná vlastní podmnoina není nadklíèem
+$A$. Èili minimální nadklíè.
+
+Kadı atribut, kterı je obsaen alespoò v jednom potenciálním klíèi se nazıvá
+\textbf{klíèovı}, ostatní atributy jsou \textbf{neklíèové}.
+\end{definiceN}
+
+\begin{definiceN}{Normální formy}
+\begin{pitemize}
+	\item \emph{První normální forma} \\ -- Tabulka je v první normální formì, jestlie lze do kadého pole dosadit pouze jednoduchı datovı typ (jsou dále nedìlitelné). To zahrnuje i neexistenci více sloupcù tabulky se stejnım druhem obsahu:
+$$
+\left.\begin{aligned}
+\textrm{(manager, podøízenı1, podøízenı2, podøízenı3)} \\ 
+\textrm{(manager, podøízení-vice\_hodnot\_v\_jednom\_sloupci)} \\
+\end{aligned}\right\} \rightarrow \textrm{(manager, podøízenı)}
+$$
+	\item \emph{Druhá normální forma} \\ 
+-- Existuje klíè a všechna neklíèová pole jsou funkcí celého klíèe (a tedy ne jen jeho èástí). 
+$$\textrm{(custID, name, address, city, state, zip)} \rightarrow
+\begin{aligned}&\textrm{(custID, name, address, zip)}\\
+&+ \textrm{(zip, city, state)}
+\end{aligned}$$
+	\item \emph{Tøetí normální forma} \\ -- Tabulka je ve tøetí normální formì, jestlie kadı neklíèovı atribut není transitivnì závislı na ádném klíèi schématu (resp. kadı neklíèovı atribut je pøímo závislı na klíèi schématu) neboli je-li ve druhé normální formì a zároveò neexistuje jediná závislost neklíèovıch sloupcù tabulky. 
+$$\textrm{(deptID, deptName, managerID, hireDate)} \rightarrow \textrm{(deptID, deptName, managerID)}$$
+Atribut \uv{hireDate} je sice funkènì závislı na klíèi deptID, ale jen proto, e hireDate závisí na managerID, které závisí na deptID.
+	\item \emph{Boyce-Coddova normální forma}\\ -- Pro kadou netriviální závislost $X \rightarrow Y$ platí, e $X$ obsahuje klíè schématu $R$ ($X$ je nadklíè).
+\end{pitemize}
+\end{definiceN}
+
+\subsubsection*{Algoritmy návrhu schémat relací}
+
+Schémata relací by mìla bıt navrhována tak, aby odpovídala pøedem pøipravenému konceptuálnímu modelu (napø. pomocí ER diagramù) a zároveò pokud mono splòovala co nejpøísnìjší poadavky na normální formy. Pro modelování relaèní databáze existují dva pøístupy:
+\begin{penumerate}
+    \item Získání mnoiny relaèních schémat (ruènì nebo pøevodem z napø. ER diagramu) a provádìní normalizace pro kadou tabulku zvláš
+    \item Návrh tzv. univerzálního schématu databáze -- jedna velká tabulka pro celou databázi (vè. platnıch funkèních závislostí) a normalizace provádìná globálnì
+\end{penumerate}
+První monost je relativnì intuitivní (s ER diagramy) a jednoduchá, ale hrozí riziko pøílišného rozdrobení databáze na velkı poèet malıch tabulek (a nadbyteènı i vzhledem k poadované normální formì). V druhém zpùsobu jsou entity jednotlivıch relací \uv{vypozorovány} jako efekt funkèních závislostí, co není pøíliš prùhledné a jednoduše proveditelné, ale minimalizuje to šanci na rozdrobení databáze. Oba pøístupy lze také zkombinovat -- pøevést ER model databáze do schémat a nìkterá (nebo a všechna) potom pøed normalizací slouèit.
+
+\begin{obecne}{Normalizace}
+Jedinım zpùsobem, jak u nìjakého obecného relaèního schématu dosáhnout normální formy (obecnì se poaduje vìtšinou 3NF nebo BCNF), je rozdìlení na nìkolik podschémat. Dá se to provést ruènì nebo algoritmicky a existuje více pøístupù podle poadavku na normální formu, \emph{bezztrátovost} (dekompozice relace $R( A, F )$ do $R_1(A_1,F_1)$ a $R_2(A_2,F_2)$ je bezeztrátová, kdy $A1 \cap A2\to A1$ nebo $A1 \cap A2 \to A2$, tedy opìtovnım spojením do pùvodní relace nevzniknou další øádky) nebo \emph{pokrytí závislostí} (dekompozice $R(A,F)$ do $R_1(A_1,F_1)$ zachovává pokrytí závislostí, kdy $F^{+}=F^{+}_1\cup F^{+}_2$ -- nesmí se ztratit závislost ani v rámci dílèího schématu, ani jdoucí napøíè schématy).
+\end{obecne}
+
+\begin{algoritmusN}{Dekompozice}
+Dekompozice je algoritmus, kterı relaèní schéma pøevede do Boyce-Coddovy normální formy. Zaruèuje zachování bezeztrátovosti, ale u ne pokrytí závislostí (bez ohledu na algoritmus toto u BCNF nìkdy není moné). Jeho bìh vypadá následovnì:
+\begin{penumerate}
+    \item Vyber nìjaké schéma, které není v BCNF.
+    \item Vezmi pro nìj neklíèovou závislost $X\to Y$ (tak e $X$ není klíè) a dekomponuj podle ní -- vyhoï ze schématu $Y$ a dej $XY$ do zvláštní tabulky.
+    \item Opakuj od kroku 1, dokud existuje schéma, které není v BCNF.
+\end{penumerate}
+\end{algoritmusN}
+
+\begin{algoritmusN}{Syntéza}
+Algoritmus syntézy obecnì dosahuje tøetí normální formy a zachovává pokrytí závislostí (ale ne bezeztrátovost). Pro relaèní schéma $R$ s mnoinou funkèních závislostí $F$ vypadá následovnì:
+\begin{penumerate}
+    \item Udìlej minimální pokrytí $F$ (vzhledem k tranzitivitì), nazvi ho $G$.
+    \item Sluè funkèní závislosti z $G$ se stejnou levou stranou a z kadé vytvoø jedno schéma. 
+    \item Zahoï schémata, která jsou podmnoiny jinıch.
+\end{penumerate}
+Nakonec je moné slouèit schémata s funkènì ekviv. klíèi ($K1 \leftrightarrow K2$), ale mùe to porušit normální formu, které bylo dosaeno! Pro zachování bezeztrátovosti lze do pøidat nìjaké schéma, obsahující univerzální klíè celého pùvodního (nedìleného) schématu.
+\end{algoritmusN}
+
+\begin{poznamka}
+Pro nalezení minimálního pokrytí atributù se pouívá pomocnı algoritmus, kterı se chová takto:
+\begin{penumerate} 
+    \item Dekomponuj všechny funkèní závislosti na elementární (na pravé stranì je jen jeden sloupec)
+    \item Odstraò z nich redundantní atributy (takové z levé strany, které funkènì závisí na jinıch z levé strany)
+    \item Odstraò redundantní funkèní závislosti (tj. takové, které jsou tranzitivním dùsledkem jinıch -- pravá strana funkènì závisí na levé, i kdy z mnoiny funkèních závislostí onu redundantní odstraním)
+\end{penumerate}
+Pro druhı i tøetí krok je potøeba získat \emph{atributovı uzávìr} (mnoina všech atributù i tranzitivnì závislıch na levé stranì) -- to se opakovanì zkouší, jestli díky funkèním závislostem nedostanu z atributù pùvodní mnoiny nìjaké další atributy (dokud nacházím další, pøidávám je do mnoiny a opakuji).
+\end{poznamka}
+
+\subsubsection*{Referenèní integrita}
+
+\begin{pitemize}
+	\item pomáhá udrovat vztahy v relaènì propojenıch databázovıch tabulkách, zabraòuje vzniku nekonzistentních dat
+	\item kontrola pøípustnıch hodnot
+	\item kontrola existence poloky s danım klíèem v druhé tabulce (podle cizího klíèe) 
+\end{pitemize}
+
+Chování pøi porušení integrity:
+\begin{pitemize}
+	\item ON UPDATE, ON DELETE - podmínka spuštìní akce
+	\item ON \dots RESTRICT - defaultní øešení (hlášení chyby)
+	\item CASCADE - kaskádová aktualizace/smazání (smae pøíslušné øádky v odkazované tabulke)
+	\item SET NULL - nastavení odkazovanıch øádkù závislé tabulky na NULL
+	\item SET DEFAULT - nastavení pevnì urèené hodnoty
+	\item NO ACTION 
+\end{pitemize}

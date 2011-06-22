@@ -1,0 +1,164 @@
+\subsection{Bezpeènost, autentizace, autorizace, pøístupová práva\footnote{z
+pøednášek ZOS(Yaghob) a OI1(Beneš)}}
+
+\begin{definice}
+  \begin{pitemize}
+    \item \textbf{Ochrana}~-- s prostøedky OS mohou pracovat pouze autorizované procesy
+    \item \textbf{Autorizace}~-- zjištìní oprávnìnosti poadavku
+    \item \textbf{Bezpeènost}~-- zabraòuje neautorizovanı pøístup do systému
+    \item \textbf{Pøistupové právo}~-- povolení/zakázání vykonávat nìjakou operaci
+    \item \textbf{Doména ochrany}~-- uchovánání autorizací, mnoina párù (objekt:práva)
+    \begin{pitemize}
+      \item \textbf{ACL (Access Control List)}~-- ke kadému objektu seznam práv pro uivatele/skupiny
+      \item \textbf{C-list (Capability List)}~-- ke kadému uivateli/skupinì seznam práv pro objekty
+
+      \item \textbf{ACM (Access Control Matrix)}~-- øádky matice odpovídají uivatelùm, sloupce objektùm. V políèku daném øádkem a sloupcem je záznam o úrovni oprávnìní odpovídajícího uivatele k pøíslušnému objektu. Pøístupová matice je zpravidla velmi velká záleitost, zhusta øídká.
+    \end{pitemize}
+  \end{pitemize}
+\end{definice}
+
+  \begin{figure}[!ht]
+    \begin{center}
+      \includegraphics{informatika/siete_a_bezpecnost/obrazky/domeny-ochrany.png}
+      \caption{Domény ochrany}
+    \end{center}
+  \end{figure}
+\subsubsection*{Bezpeènost}
+
+\begin{obecne}{Bezpeènostní modely obecnì}
+První fází tvorby bezpeèného IS je volba vhodného bezpeènostního modelu.
+Základní poadavky bezpeènosti: utajení, integrita, dostupnost, anonymita.
+Pøedpokládejme, e umíme rozhodnout, zda danému subjektu poskytnout
+pøístup k poadovanému objektu. Modely poskytují pouze mechanismus pro
+rozhodování!
+  \begin{pitemize}
+      \item \textbf{Jednoúrovòové modely} jsou vhodné pro pøípady, kdy staèí jednoduché
+ano/ne rozhodování, zda danému subjektu poskytnout pøístup k poadovanému
+objektu a není nutné pracovat s klasifikací dat.
+      \item \textbf{Víceúrovòové modely} - Mùe existovat nìkolik stupòù senzitivity
+a "oprávnìnosti". Tyto stupnì senzitivity se dají pouít k algoritmickému rozhodování o pøístupu daného subjektu k cílovému objektu,
+ale také k øízení zacházení s objekty. Víceúrovòovı systém "rozumí"
+senzitivitì dat a chápe, e s nimi musí zacházet v souladu s poadavky
+kladenımi na danı stupeò senzitivity. Rozhodnutí o pøístupu pak
+nezahrnuje pouze provìøení adatele, ale té klasifikaci prostøedí, ze
+kterého je pøístup poadován.
+  \end{pitemize}
+\end{obecne}  
+\begin{obecne}{Bezpeènost fyzické pøenosové vrstvy}
+Bezpeènost je do urèité míry závislá na pouitém pøenosovém médiu. útok
+proti komunikaèním linkám mùe bıt pasivní (pouze odposlech), nebo ak-
+tivní (vkládání dalších informací do komunikace).
+\end{obecne}
+
+\begin{obecne}{Víceùrovòová bezpeènost v DB\footnote{zdroj: vypracované otázky
+na zkoušku z OI1}}
+  \begin{pitemize}
+      \item \textbf{partitioning} - Databáze je rozdìlena dle stupnì citlivosti
+informací na nìkolik subdatabází, co vede ke zvıšení redundance s
+následnou ztíenou aktualizací a neøeší problém nutnosti souèasného
+pøístupu k objektùm s rùznım stupnìm utajení.
+      \item \textbf{šifrování} - Senzitivní data jsou chránìna šifrováním pøed náhodnım
+vyzrazením. Zná-li útoèník doménu daného atributu, mùe snadno
+provést chosen plaintext attack (utocnik muze ukladat plaintexty podle sveho
+vyberu a prohlizet si ciphertexty).
+Tìko toti nìkoho zbavíme znalosti šifrovacího klíèe. øešením je pouívat
+jinı klíè pro kadı záznam, co je však pomìrnì nároèné. V kadém
+pøípadì nutnost neustálého dešifrování sniuje vıkon systému.
+      \item \textbf{Integrity lock} - Kadá poloka v databázi se skládá ze tøí èástí: $< vlastní data : klasifikace : checksum >$. 
+Vlastní data jsou uloena v
+otevøené formì. Klasifikace musí bıt nepadìlatelná, nepøenositelná a
+skrytá, tak aby ùtoèník nemohl vytvoøit, okopírovat ani zjistit klasifikaci daného objektu. Checksum zajišuje svázání klasifikace s daty
+a integritu vlastních dat. Model byl navren jako doplnìk (access
+controller) komerèního SØBD, kterı mìl zajistit bezpeènost celého
+systému. šedá oblast na obrázku vyznaèuje bezpeènostní perimetr
+systému. Access controller nevidí na vıstup databáze a není schopen
+zajistit, na vıstupu oznaèovala data stupnìm senzitivity.
+
+  \begin{figure}[!ht]
+    \begin{center}
+      \includegraphics[scale=1.5]{informatika/siete_a_bezpecnost/obrazky/access-controller.png}
+      \caption{Access Controller}
+    \end{center}
+  \end{figure}
+
+      \item \textbf{Spolehlivı front-end (guard)} - Systém je opìt zamıšlen jako doplnìk komerèních SØBD, které nemají implementovánu bezpeènost.
+Uivatel se autentizuje spolehlivému front-endu, kterı od nìho pøebírá
+dotazy, provádí kontrolu autorizace uivatele pro poadovaná data,
+pøedává dotazy k vyøízení SØBD a na závìr provádí testy integrity
+a klasifikace vısledkù pøed pøedáním uivateli. SØBD pøistupuje k
+datùm prostøednictvím spolehlivého access controlleru.
+  \begin{figure}[!ht]
+    \begin{center}
+      \includegraphics[scale=1.5]{informatika/siete_a_bezpecnost/obrazky/frontend.png}
+      \caption{Spolehlivı front-end}
+    \end{center}
+  \end{figure}
+      \item \textbf{Commutative Filter} -- Jde o proces, kterı pøebírá
+ùlohu rozhraní mezi uivatelem a SØBD. Filtr pøijímá uivatelovy
+dotazy, provádí jejich pøeformulování a upravené dotazy posílá SØBD
+k vyøízení. Z vısledkù, které SØBD vrátí, odstraní data, ke kterım
+uivatel nemá pøístupová práva a takto upravené vısledky pøedává
+uivateli. Filtr je mono pouít k ochranì na ùrovni záznamù, atributù
+a jednotlivıch poloek. V rámci pøeformulování dotazu mùe napø.
+vkládat další podmínky do dotazu, které zajistí, e vısledek dotazu
+závisí jen na informacích, ke kterım má uivatel pøístup.
+      \item \textbf{View} - Pohled je èást databáze, obsahující pouze data, ke
+kterım má danı uivatel pøístup. Pohled mùe obsahovat i záznamy
+nebo atributy, které se v pùvodní databázi nevyskytují a vznikly nìjakou
+funkcí z informací pùvodní databáze. Pohled je generován dynamicky,
+promítají se tedy do nìho zmìny pùvodní DB. Uivatel klade dotazy
+pouze proti svému pohledu - nemùe dojít ke kompromitaci informací, ke kterım nemá pøístup. Záznam / atribut pùvodní databáze
+je souèástí pohledu, pokud alespoò jedna poloka z tohoto záznamu
+/ atributu je pro uivatele viditelná, ostatní poloky v tomto jsou
+oznaèeny za nedefinované. Uivatel pøi formulování dotazu mùe pouívat
+pouze omezenou sadu povolenıch funkcí. Tato metoda je ji návrhem
+smìøujícím k vytvoøení bezpeèného SØBD.
+  \end{pitemize}
+\end{obecne}
+
+\subsubsection*{Autentizace}
+  Identifikace nìèím, co uivatel ví, má nebo je. 
+  \begin{pitemize}
+    \item \textbf{Hesla}
+    \begin{pitemize}
+      \item slovníkovı útok (80--90\% hesel je jednoduchıch), hrubá síla
+      \item vynucování délky a sloitosti hesla
+    \end{pitemize}
+    \item \textbf{Model otázka/odpovìï} (challenge-response) -- napø. autentizace poèítaèù. Poèítaè, kterı se
+chce autentizovat obdrí náhodnı dotaz, kterı zpracuje (napø. zašifruje
+tajnım klíèem) a odešle vısledek. Vısledek je ovìøen a pokud je správnı,
+autentizace je uskuteènìna. 
+    \item \textbf{Fyzickı objekt}~-- smartcards, USB klíèe (certifikáty)
+    \item \textbf{Biometrika}~-- otisky prstù, rohovka, hlas
+  \end{pitemize}
+
+\begin{obecne}{Autentizace v prostøedí databáze}
+Kadı, komu je povolen pøístup k databázi, musí bıt pozitivnì identifikován.
+databáze potøebuje pøesnì vìdìt, komu odpovídá. Protoe však zpravidla bìí
+jako uivatelskı proces, nemá spolehlivé spojení s jádrem OS a tedy musí
+provádìt vlastní autentizaci.
+\end{obecne}
+\begin{obecne}{Autentizace v síti}
+Protoe sít'ové prostøedí zpravidla není povaováno za bezpeèné, je tøeba
+vyuívat autentizaèní mechanismy odolné vùèi odposlechu, resp. aktivním utokùm. èasto bıvá ádoucí øešit jednotné pøihlášení (single sign on). S procesem integrace autentizaèních mechanismù souvisí nutnost zavedení
+centrální správy uivatelù nebo alespoò synchronizace záznamù o uivatelích.
+\end{obecne}
+\subsubsection*{Autorizace}
+Existují rùzné úrovnì ochrany objektu:
+\begin{enumerate}
+    \item \textbf{ádná ochrana} - Je nutna alespon samovolná casová separace procesù.
+    \item \textbf{Izolace} - Procesy o sobe vùbec neví a systém zajisuje ukrytí objektù
+pøed ostatními procesy.
+    \item \textbf{Sdílení vseho nebo niceho} - Vlastník objektu deklaruje, zda je objekt
+public nebo private (tedy jen pro neho).
+    \item \textbf{Sdílení s omezenımi prístupy} - OS testuje oprávnìnost kadého prístupu
+k objektu. U subjektu i objektu existuje záznam, zda má subjekt právo
+prístupu k objektu.
+    \item \textbf{Sdílení podle zpùsobilosti} - rozšíøení pøedchozího - Oprávnení dynamicky závisí na aktuálním kontextu.
+    \item \textbf{Limitované pouzití objektù} - Krome oprávnení prístupu specifikujeme,
+jaké operace smí subjekt s objektem provádet.
+\end{enumerate}
+
+TODO: pøístupová práva
+???
+Ochrana informace I.

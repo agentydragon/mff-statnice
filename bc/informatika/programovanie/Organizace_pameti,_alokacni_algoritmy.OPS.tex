@@ -1,0 +1,54 @@
+\subsection{Organizace pamìti, alokaèní algoritmy}
+
+\textbf{Hierarchie pamìti} (smìrem odshora dolù roste velikost, cena na bajt a rychlost klesá~-- a naopak\dots):
+\begin{pitemize}
+    \item \emph{registry CPU} --- 10ky-100vky bajtù (IA-32: obecné registy pár 10tek), IA-64~-- a kB (extrém), stejnì rychlé jako CPU. 
+    \item \emph{cache} --- z pohledu aplikací není pøímo adresovatelná; dnes øádovì MB, rozdìlení podle úèelu, nìkolik vrstev. L1 cache (cca 10ky kB)~-- dìlené instrukce/data; L2 (cca MB) sdílené instr\&data, bìí na rychlosti CPU (døív bıvala pomalejší), servery~-- L3 (cca 10MB). Vyrovnává rozdíl rychlosti CPU a RAM. Vyuívá lokality programù -- cyklení na místì; sekvenèního pøístupu k datùm. Pokud nenajdu co chci v cache -- \uv{cache-miss}, naèítá se potøebné z RAM (po blocích), jinak (v 95-7\% pøípadù) nastane \uv{cache-hit}, tj. poadovaná data v cache opravdu jsou a do RAM nemusím.
+    \item \emph{hlavní pamì} (RAM) --- pøímo adresovatelná procesorem, 100MB~-- GB; pomalejší ne CPU; CAS~-- doba pøístupu na urè. místo~-- nejvíc zdruje (v 1 sloupci u ète rychle, dat. tok dostateènı), další~-- latence~-- doba ne data doteèou do CPU~-- hraje roli vzdálenost (AMD- integrovanı øadiè v CPU) 
+    \item \emph{pomocná pamì} --- není pøímo adresovatelná, typicky HDD; náh. pøístup, ale pomalejší. ~100GB, rùzné druhy~-- IDE, SATA, SCSI; nejvíc zdruje pøístupová doba (èas seeku) cca 2-10ms; obvykle sektor~-- 512 B; roli hraje i rychlost otáèení (4200~-- 15000 RPM)~-- taky øádovì ms. 
+    \item \emph{zálohovací pamì} --- nejpomalejší, z teorie nejvìtší, dnes ale neplatí; typicky~-- pásky; pro vìtší kapacitu~-- autoloadery ; sekvenèní pøístup; dnes~-- kvùli rychlosti èasto zálohování RAIDem.
+\end{pitemize}
+
+\textbf{Správce pamìti}: èást OS, která spravuje pamìovou hierarchii se nazıvá\\správce pamìti (memory manager):
+\begin{pitemize}
+	\item udruje informace o volné/plné èásti pamìti
+	\item stará se o pøidìlování pamìti
+	\item a \uv{vımìnu pamìti s diskem}
+\end{pitemize}
+
+\textbf{Pøiøazení adresy}
+\begin{pitemize}
+	\item pøi pøekladu (je ji známo umístìní procesu, generuje se absolutní kód, PS: statické linkování)
+	\item pøi zavádìní (OS rozhodne o umístìní~-- generuje se kód s relokacemi, PS: dynamické linkování)
+	\item za bìhu (proces se mùe stìhovat i za bìhu, relokaèní registr)
+\end{pitemize}
+
+\textbf{Overlay}~-- Proces potøebuje více pamìti ne je skuteènì k dispozici.
+Programátor tedy rozdìlí program na nezávislé èásti (které s v pamìti podle
+potøeby vymìònují) a èást nezbytnou pro všechny èásti... Pouíváno hlavnì v DOSu, nyní se stejného cíle dosahuje pomocí virtuální pamìti
+
+\textbf{Vımìna (swapping)}~-- dìlá se, protoe proces musí bıt v hlavní pamìti,
+aby jeho instrukce mohly bıt vykonávány procesorem... Jde o vımìnu obsahu pamìti
+mezi hlavní a záloní.
+
+\textbf{Pøeklad adresy}~-- nutnı, protoe proces pracuje v logickém (virtuálním) adresovém prostoru, ale HW pracuje s fyzickım adresovım prostorem...
+
+\textbf{Spojité pøidìlování pamìti}~-- pøidìlení jednoho bloku / více pamìtovıch oddílù (\emph{pevnì}~-- pamì pevnì rozdìlena na èásti pro rùzné velikosti blokù/\emph{volnì}~-- v libovolné èásti volné pamìti mùe bıt alokován libovolnì velikı blok)
+
+\textbf{Informace o obsazení pamìti}~-- bitová mapa / spojovı seznam volnıch blokù (spojování uvolnìného bloku se sousedy)
+
+\textbf{Alokaèní algoritmy}:
+\begin{pitemize}
+	\item \emph{First-fit}~-- první volnı dostateèné velikosti~-- rychlı, obèas ale rozdìlí velkou díru
+	\item \emph{Next-fit}~-- další volnı dostateèné velikosti, zaèíná se na podlední prohledávané pozici~-- jako First-fit, ale rychlejší
+	\item \emph{Best-fit}~-- nejmenší volnı dostateèné velikosti~-- pomalı (prohledává celı seznam), zanechává malinké díry (ale nechává velké díry vcelku)
+	\item \emph{Worst-fit}~-- nejvìtší volnı~-- pomalı (prohledává celı seznam), rozdìlí velké díry
+	\item \emph{Buddy systém}~-- pamì rozdìlena na bloky o velikosti $2^n$, bloky stejné velikosti v seznamu, pøi pøidìlení zaokrouhlit na nejbliší $2^n$, pokud není volnı, rozštípnou se vìtší bloky na pøíslušné menší velikosti, pøi uvolnìní pamìti se sluèují sousední bloky (buddy)
+\end{pitemize}
+
+\textbf{Fragmentace pamìti}:
+\begin{pitemize}
+	\item \emph{externí}~-- volnı prostor rozdìlen na malé kousky, pravidlo 50\% -- po nìjaké dobì bìhu programu bude cca 50\% pamìti fragmentováno a u toho to zùstává - plıtvání místem mezi alokovanımi oblastmi
+	\item \emph{interní}~-- nevyuití celého pøidìleného prostoru (50\% velikosti posledního bloku prostoru nevyuito) - plıtvání místem uvnitø alokované oblasti
+	\item \emph{sesypání}~-- pouze pøi pøiøazení adresy za bìhu, nebo segmentaci~-- nelze pøi statickém pøidìlení adresy
+\end{pitemize}

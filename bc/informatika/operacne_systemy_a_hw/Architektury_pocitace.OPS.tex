@@ -1,0 +1,183 @@
+\subsection{Architektury poèítaèe}
+
+\begin{definiceN}{Architektura poèítaèa}
+Architektura poèítaèa popisuje \uv{všetko, èo by mal vedie ten, ktorı programuje v assembleri / tvorí operaènı systém}. Teda:
+\begin{pitemize}
+        \item z akıch èastí -- štruktúra poèítaèa, usporadanie
+        \item vıznam èastí -- funkcia èasti, ich vnútorná štruktúra
+        \item ako spolu èasti komunikujú -- riadenie komukácie
+        \item ako sa jednotlivé èasti ovládajú, aká je ich funkènos navonok
+\end{pitemize}
+\end{definiceN}
+
+\begin{definiceN}{Víceúrovòová organizace poèítaèe}
+\begin{pitemize}
+        \item Mikroprogramová úroveò (priamo technické vybavenie poèítaèa)
+        \item Strojovı jazyk poèítaèe (virtuálny stroj nad obvodovım riešením; vybavenie~-- popis architektúry a organizácie)
+        \item Úroveò operaèního systému (doplnenie predchádzajúcej úrovne o súbor makroinštrukcií a novú organizáciu pamäti)
+        \item Úroveò assembleru (najnišia úroveò ¾udsky orientovaného jazyka)
+        \item Úroveò vyšších programovacích jazykù (obecné alebo problémovo orientované; prvá nestrojovo orientovaná úroveò)
+        \item Úroveò aplikaèních programù
+\end{pitemize}
+\end{definiceN}
+
+
+\begin{obecne}{Je teda potrebné definova}
+\begin{pitemize}
+        \item Inštrukènı súbor (definícia prechodovej funkcie medzi stavmi poèítaèa, formát inštrukcie, spôsob zápisu, monosti adresovania operandov)
+        \item Registrovı model (rozlišovanie registrov procesoru: pod¾a vo¾by, pomocou urèenia registru~-- explicitnı/implicitnı register; pod¾a funkcie registru~-- riadiaci~register/register~operandu)
+        \item Definice specializovanıch jednotek (jednotka na vıpoèet vo floatoch;\\fetch/decode/execute jednotky)
+        \item Paralelismy (rozklad na úlohy, ktoré sa dajú spracova súèasne~-- granularita (programy, podprogramy, inštrukcie...))
+        \item Stupeò predikce (schopnos pripravi sa na oèakávanú udalos (naèítanie inštrukcie, nastavenie prenosu dát)~-- explicitná predikcia, štatistika, heuristiky, adaptívna predikcia)
+
+\bigskip
+        \item Datové struktury a reprezentáciu dát (spôsob uloenia dát v poèítaèi, mapovacie funkcie medzi reálnym svetom a vnútornım uloením, minimálna a maximálna ve¾kos adresovate¾né jednotky)
+        \item Adresové konvencie (ako sa pristupuje k dátovım štruktúram~-- \emph{segment+offset} alebo \emph{lineárna adresácia}; ve¾kos pamäti a jej šírika, \uv{povolené} miesta)
+
+\bigskip
+        \item Øízení (spolupráca procesoru a ostatnıch jednotiek, interakcia s okolím, prerušenia~-- vnútorne/vonkajšie)
+        \item Vstupy a vıstupy (metódy prenosu dát medzi procesorom a ostatnımi jednotkami/poèítaèom a okolím; zahròuje definície dátovıch štruktúr, identifikácia zdroja/cie¾a, dátovıch ciest, protokoly, reakcie na chyby).
+        \item Šíøe datovıch cest
+        \item Stupeò sdílení (na úrovni obvodov~-- zdie¾anie obvodov procesoru a IO; na úrovni jednotiek~-- zdie¾anie ALU viacerımi procesormi)
+\end{pitemize}
+\end{obecne}
+
+\begin{obecne}{Základní definice}
+  \begin{pitemize}
+      \item \textbf{ALU} (také Processing Element) Aritmeticko-logická jednotka - základní komponenta procesoru (2.základní je øadiè).  
+      \item \textbf{Øadiè} (Control Unit) je elektronická øídicí jednotka, realizovaná sekvenèním obvodem, která øídí èinnost všech èástí poèítaèe. Toto øízení je provádìno pomocí øídicích signálù, které jsou zasílány jednotlivım modulùm (dílèím èástem poèítaèe). Reakce na øídicí signály - stavy jednotlivıch modulù - jsou naopak zasílány zpìt øadièi pomocí stavovıch hlášení. Dílèí èástí poèítaèe je napø. hlavní pamì, která rovnì obsahuje øadiè, kterı je podøízen hlavnímu øadièi poèítaèe, jen je souèástí CPU.
+      \item \textbf{Sbìrnice} (Bus) je sada dat.streamù propojující více zaøízení. Instruction Stream (øízení komunikace – poadavky/potvrzení, indikace typu dat na datovıch vodièích) Data Stream (pøenos dat mezi zdrojovım a cílovım zaøízením, adresy, data, sloitìjší pøíkazy      
+\end{obecne}
+
+\subsubsection*{Flynn's taxonomy}
+
+The taxonomy of computer systems proposed by M. J. Flynn in 1966 has remained the focal point in the field.
+This is based on the notion of instruction and data streams that can be simultaneously manipulated by the
+machine. A stream is just a sequence of items (instruction or data).
+
+\begin{description}
+\item[Single Instruction, Single Data stream (SISD)] -
+    A sequential computer (Von Neumann) which exploits no parallelism in either the instruction or data streams. Single control unit (CU) fetches single Instruction Stream (IS) from memory. The CU then generates appropriate control signals to direct single processing element (PE or ALU) to operate on single Data Stream (DS) i.e. one operation at a time
+
+Examples of SISD architecture are the traditional uniprocessor machines like a PC (currently manufactured PCs have multiple processors) or old mainframes.
+  \begin{center}
+    \includegraphics{informatika/operacne_systemy_a_hw/obrazky/SISD.png}
+  \end{center}
+
+\item[Single Instruction, Multiple Data streams (SIMD)] -
+    A computer which exploits multiple data streams against a single instruction stream to perform operations which may be naturally parallelized. For example, an array processor or GPU.
+  \begin{center}
+    \includegraphics{informatika/operacne_systemy_a_hw/obrazky/SIMD.png}
+  \end{center}
+  
+\item[Multiple Instruction, Single Data stream (MISD)] -
+    Multiple instructions operate on a single data stream. Uncommon architecture which is generally used for fault tolerance. Heterogeneous systems operate on the same data stream and must agree on the result. Examples include the Space Shuttle flight control computer.
+  \begin{center}
+    \includegraphics{informatika/operacne_systemy_a_hw/obrazky/MISD.png}
+  \end{center}
+\item[Multiple Instruction, Multiple Data streams (MIMD)] -
+    Multiple autonomous processors simultaneously executing different instructions on different data. Distributed systems are generally recognized to be MIMD architectures; either exploiting a single shared memory space or a distributed memory space. 
+
+  \begin{center}
+    \includegraphics{informatika/operacne_systemy_a_hw/obrazky/MIMD.png}
+  \end{center}
+\end{description}
+\subsubsection*{Základní architektury poèítaèù}
+
+\begin{obecne}{Von Neumannova}
+  \begin{pitemize}
+      \item Poèítaè se skládá z øídící jednotky, ALU, pamìti a I/O jednotek
+      \item Štruktúra poèítaèa sa nemení typom úlohy (tj. poèítaè je programovanı obsahem pamìti). %to tuetschek sorry neumim cist... ajs
+      \item Program se nejprve zavede do pamìti, z ní se postupnì popoøadì vybírají instrukce (a následující krok závisí na pøedchozím), poøadí lze zmìnit instrukcemi skoku. 
+      \item Do jedné pamìti, dìlené na buòky stejné velikosti, se ukládají i zpracovávaná data. Data jsou reprezentovaná binárnì. 
+      \item V kadém okamiku je vykonávána jen jedna èinnost. Je to architektura SISD (viz Flynnova taxonomie).
+  \end{pitemize}
+
+  Je pevnì daná instrukèní sada. Strojová instrukce obsahuje operaèní znak, kterı urèuje druh operace, poèet parametrù atd., a operandovú èást~-- umístnìní jednotlivıch operandù. Vykonat jednu instrukci znamená:
+  \begin{pitemize}
+          \item (fetch) naèíta inštrukciu z pamäti do procesoru
+          \item (decode) zisti o akú inštrukciu ide
+          \item (load) pripravi zdrojové operandy
+          \item (execute) vykona operáciu
+          \item (store) ulozi cie¾ové operandy
+  \end{pitemize}
+
+  Pøi vykonávání programu jsou potøebné rùzné registry~-- nejdùleitìjší jsou: PC (Program Counter, obsahuje adresu následující instrukce), IR (Instruction Register, adresa právì vykonávané instrukce), SP (Stack Pointer, ukazatel na vrchol zásobníku), MAR (memory access register~-- adresa do operaèní pamìti), MBR (memory buffer register, dáta èítána/zapisována do pamìti).
+
+  Struktura jednoprocesorového poèítaèe podle Von Neumanna:
+  \begin{center}
+    \includegraphics[width=8cm]{informatika/operacne_systemy_a_hw/obrazky/VonNeumann.png}
+  \end{center}
+\end{obecne}
+
+\begin{description}
+        \item[Control-flow]-- vıznaènım rysem von Neumannovy architektury je zpùsob provádìní
+programu. Strojové instrukce, ze kterıch se kadı pøímo spustitelnı program skládá, se provádìjí sekvenènì, jedna za druhou. Tedy kadá instrukce se provede tehdy, a na ni dojde øada, a nad takovımi daty, jaká jsou právì k dispozici. 
+        \item[Data-flow (architektura øízená daty)]-- Alternativa k Control-flow. Okamik provedení urèité akce se øídí pøipraveností všech dat, která jsou k provedení urèité akce zapotøebí. Vıhodou je monost provádìt více èinností soubìnì - tedy vìtší potenciál paralelismu, kterı von Neumannovì koncepci naopak chybí.
+\end{description}
+
+\begin{obecne}{Harvardská}
+Vytvoøena a po Von Neumannovì, liší se hlavnì tím, e program se ukládá do jiné pamìti ne data (tzn. jsou 2 \uv{druhy pamìti}~-- instrukcí a dat). Pøíkladem jsou DSP procesory a mikrokontrolery. 
+
+Napø. AVR od Atmelu, a PIC~-- mají pamì na program a data a RISC instrukèní sadu; vıhoda oddìlenıch pamìtí je, e mùou mít rùznou bitovou hloubku~-- 8 bitové data, ale 12-, 14- èi 16- bitové instrukce - napø. ARM musí obèas pouít více ne jednou instrukci na zpracování obsahu plné velikosti).
+
+Oproti Von Neumannovì nehrozí nebezpeèí pøepsání programu sebou samım, ale kvùli vìtšímu poètu pamìovıch sbìrnic je nároènìjší na vırobu. Pamì navíc nelze dìlit podle potøeby (rozdìlení je u dané).
+\end{obecne}
+
+\begin{prikladN}{Naèrtnìte typickou architekturu pocitace, ze které bude zrejmé umísténí a propojení základnich stavebních prvku (procesor, pameti, radice a zarízeni, sbenice). Ilustrujte na úrovni zakladnich krokù ínstrukcního cyklu jak procesor vykonává program. Popište typy instrukci (a napište jejich pøíklady), ze kterıch se program z pohledu procesoru skládá.}
+\\
+  \textbf{Typická (sbìrnicová) architektura systému:}
+  \begin{center}
+    \includegraphics[width=8cm]{informatika/operacne_systemy_a_hw/obrazky/architektura.png}
+  \end{center}
+\\
+\textbf{Zpracování instrukcí
+}  \begin{pitemize}
+      \item \textbf{ètení} instrukce z pamìti na adrese v registru PC (program counter, obsahuje adresu následující instrukce)
+      \item \textbf{dekódování} instrukce a ètení operandù z registrù
+      \item \textbf{vykonání} operace odpovídající instrukènímu kódu (operace s obsahem registrù, vıpoèet adresy a ètení/zápis do pamìti, porovnání operandù pro podmínìnı skok)
+      \item \textbf{uloení} vısledku do registru (vısledek operace s registry, data pøeètená z pamìti)
+      \item \textbf{posun} PC na následující instrukci (následující instrukce následuje bezprostøednì za právì ètenou
+instrukcí, pokud není øeèeno jinak - tzn. podmínìnı/nepodmínìnı
+skok, vıjimka)       
+  \end{pitemize} 
+\\  
+  \textbf{Typy instrukci (architektura MIPS):}
+  \begin{pitemize}
+      \item operace registr/registr, registr/immediate\footnote{operand (èíslo) uloené
+      pøímo ve strojovém kódu} (ALU operace, pøesun dat mezi registry)
+      \item pøesuny dat registr/pamì (load/store architektura)
+      \item podmínìné skoky (pøi rovnosti/nerovnosti obsahu dvou registrù)
+      \item nepodmínìné skoky (vèetnì nepøímıch skokù a skokù do podprogramu)
+      \item speciální instrukce (práce se speciálními registry)
+  \end{pitemize} 
+\end{prikladN}
+
+\begin{reportN}{Bulej}
+Tenhle èlovìk se v tom vrtal hodnì, ale já mám tu vıhodu, e jsem na støední chodil na elektroprùmyslovku, take instrukcí a typù instrukcí jsem mu tam popsal spoustu a i postup, jak procesor vykonává program, jsem vìdìl do detailù (a do detailù to chtìl). Pøesvìdèil jsem ho asi hlavnì tím, e jsem odpovídal takovım tím "samozøejmım" zpùsobem ("a kdy procesor vykoná instrukci, co dìlá dál?" -"pokraèuje další instrukcí" "no ale co pøesnì dìlá" -"no tenhle postup znovu, naète další instrukci..." "co to pøesnì znamená?" -"no prostì zvìtší instruction pointer o velikost právì zpracované instrukce a tím získá adresu následující instrukce, a opakuje tenhle postup").
+\end{reportN}
+
+\begin{reportN}{Peterka}
+Peterka si narozdiel od Skopala aj precital to co som si napisal na papier. Popisal som tam Von Neumanna a Harvardsku architekturu (napisal som tam vsetko z vypiskov). K tomu nemal vyhrady. Potom vsak prisla horsia cast ked sa ma zacal vypytovat otazky typu: 
+
+myslite si ze je dobre/zle ked moze byt prepisana ta pamat kde sa nachadza program, alebo ake su vyhody programovatelneho radica... dalej sa ma pytal na SISD,SIMD,MISD,MIMD, mal som mu nakreslit MISD ... co som moc nevedel... potom sa ma spytal na rozdiel Instruction flow control/Data flow control... dialog s Peterkom mi prisiel v niektorich castiach skor ako jeho monolog s mojim prikyvovanim hlavy...
+
+Akorat jsem nebyl schopny si vzpomenout na architektury rizenou daty. A chtel vedet kolik radicu a ALU je potreba pri instrukcich SIMD,MIMD. Znamku nevim.
+
+DATA FLOW + CONTROL FLOW (asi :)) podotázka u mikroprocesorù a architektury 
+\end{reportN}
+
+\begin{reportN}{Peterka}
+Von Neumannova architektura - dost temno
+Harvardská Architektura - záblesky
+stroje øízené daty - brrr hrùza
+tady u otázky opravdu nevím...
+dodám jen nepodceòte hardware - peterka dává vdy jednu hardwarovou a jednu síovou otázku
+doplòující:
+jaké jsou volací konvence v Pascalu a C? viz zpracované otázky
+co se stane kdy zavoláme virtuální fci pøed voláním konstruktoru? koneènì jsem se chytil .)
+\end{reportN}
+
+\begin{reportN}{Tùma}
+Za ferove povazujem ze vzal v uvahu ze som IOI a nedal mi konkretnu podotazku, skor tak prehladovo vsetko od architektur, cez procesory az po IO. Na druhej strane sa dost vrtal v zberniciach o ktorych som toho vedel pramalo ( myslim, ze v tych materialoch na statnice tam toho o nich moc nebolo ). Ked som zacal hovorit o preruseni, tak ma prerusil s tym, ze ak nechcem dopadnut ako kolega predo mnou ( patrne ho vyhodil ) tak nech som ticho
+\end{reportN}

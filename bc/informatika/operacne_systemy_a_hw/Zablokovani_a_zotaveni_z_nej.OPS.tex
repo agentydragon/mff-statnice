@@ -1,0 +1,40 @@
+\subsection{Zablokování a zotavení z nìj}
+
+Prostøedek je cokoliv, k èemu je potøeba hlídat pøístup (HW zaøízení~-- tiskárny, cpu; informace~-- záznamy v DB). Je moné je rozdìlit na \emph{odnímatelné} (lze odejmout procesu bez následkù~-- CPU, pamì) a \emph{neodnímatelné} (nelze odejmnout bez nebezpeèí selhání vıpoètu~-- CD-ROM, tiskárna... tento druh zpùsobuje problémy).
+
+Práce s prostøedky probíhá v nìkolika krocích: \emph{ádost o prostøedek} (blokující, právì tady dochází k zablokování), \emph{pouívání} (napø. tisk), \emph{odevzdání} (dobrovolné/pøi skonèení procesu).
+
+Mnoina procesù je \emph{zablokována}, jestlie kadı proces z této mnoiny èeká na událost, kterou mùe zpùsobit pouze jinı proces z této mnoiny.
+
+\subsubsection*{Coffmanovy podmínky}
+Splnenie tıchto podmienok je nutné pre zablokovanie:
+\begin{penumerate}
+	\item \textbf{Vıluènı pøístup} – kadı prostøedek je buï vlastnìn právì jedním procesem nebo je volnı.
+	\item \textbf{Dr a èekej} – procesy aktuálnì vlastnící nìjaké prostøedky mohou ádat o další.
+	\item \textbf{Neodnímatelnost} – pøidìlené prostøedky nemohou bıt procesùm odebrány.
+	\item \textbf{Èekání do kruhu} – existuje kruhovı øetìz procesù, kde kadı z nich èeká na prostøedek vlastnìnı dalším èlánkem øetìzu.
+\end{penumerate}
+
+\subsubsection*{Øešení zablokování}
+\begin{pitemize}
+	\item \textbf{Pštrosí algoritmus}~-- Zablokování se ani nedetekuje, ani se mu nezabraòuje, ani se neodstraòuje, Uivatel sám rozhodne o øešení (kill). Nespotøebovává prostøedky OS~-- nemá reii ani neomezuje podmínky provozu. (Nejèastìjší øešení~-- Unix, Windows) 
+  \item \textbf{Detekce a zotavení}~-- Hledá krunici v orientovaném grafu (hrany vedou od procesu, kterı èeká, k procesu, kterı prostøedek vlastní), pokud tam je krunice, nastalo zablokování a je tøeba ho øešit:
+		\begin{pitemize}
+			\item \emph{Odebrání prostøedku}~-- dohled operátora, pouze na pøechodnou dobu
+			\item \emph{Zabíjení procesù z cyklu} (resp. mimo cyklus vlastnící identickı prostøedek)
+			\item \emph{Rollback} (OS ukládá stav procesù, pøi zablokování se nìkteré procesy vrátí do pøedchozího stavu $\Rightarrow$ ztracena práce... obdoba u DB)
+		\end{pitemize}
+	\item \textbf{Vyhıbání se}~-- Bezpeènı stav (procesy/prostøedky nejsou zablokovány, existuje cesta, jak uspokojit všechny poadavky na prostøedky spouštìním procesù v jistém poøadí); Viï. bankéøùv algoritmus. Nutné je pøedem znát všechny prostøedky, které budou programy potøebovat; OS pak dává prostøedky tomu, kterı je nejblí svému maximu potøeby a navíc pro kterı je prostøedkù dost na dokonèení. Dnes se moc nepouívá.
+	\item \textbf{Pøedcházení (prevence)}~-- napadení jedné z Coffmanovy podmínek
+		\begin{penumerate}
+			\item \emph{Vıluènı pøístup}~-- \emph{spooling} (prostriedky spravuje jeden systemovı proces, ktory dohliada na to, aby jeho stav bol konzistentny (tiskarna)~-- pozor na místo na disku)
+			\item \emph{Dr a èekej}~-- ádat o všechny prostøedky pøed startem procesu. Nejprve všechno uvolnit a pak znovu ádat o všechny najednou
+			\item \emph{Neodnímatelnost}~-- odnímatelné prostøedky mohou bıt odejmuty bez následkù (procesor-pøeplánování, pamì-swapping), neodnímatelné nelze bez nebezpeèí selhání vıpoètu
+			\item \emph{Èekání do kruhu}~-- všechny prostøedky jednoznaènì oèíslovány (staèí prostøedky v nìjakém kontextu), procesy mohou ádat o prostøedky jen ve vzestupném poøadí
+
+		\end{penumerate}
+			\item \emph{Dvojfázové zamykání}~-- nejprve postupnì všechno zamykám (první fáze). Potom se mùe pracovat se zamèenımi prostøedky~-- a na závìr se u jen odemyká (druhá fáze)~-- viï transakèní spracování u databází ((striktní/konzervativní) dvoufázové zpracování)
+\end{pitemize}
+
+\textbf{Bankéøùv algoritmus}: Bankéø má klienty a tìm slíbil jistou vıšku úvìru. Bankéø ví, e ne všichni klienti potøebují plnou vıši úvìru najednou. Klienti obèas navštíví banku a ádají postupnì o prostøedky do maximální vıšky úvìru. A klient skonèí s obchodem, vrátí bance vypùjèené peníze. Bankéø peníze pùjèí pouze tehdy, zùstane-li banka v bezpeèném stavu.
+\\ Problémy: sloitost $O(N^2)$, poadované info je typicky nedostupné, efektivnéjší bıvá øešit a vzniklé problémy

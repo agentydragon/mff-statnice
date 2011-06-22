@@ -1,0 +1,132 @@
+\subsection{Spojované a nespojované sluby, spolehlivost, zabezpeèení protokolu}
+\begin{description}
+\subsubsection*{Spojované a nespojované sluby}
+\item[Spojovaná] obì strany musí navázat spojení, které je pak potøeba ukonèit. Jde o stavovou komunikaci a pøechody musí bıt koordinované. Pro spojení je nalezena jedna cesta po které komunikace probíhá a mohou ji bıt vyhrazeny zdroje. Potøeba ošetøit nestandartní situace (vıpadek spojení). Zachovává poøadí – díky jedné cestì. Kadé spojené má své ID.
+\item[Nespojovaná] Komunikující strany o sobì neví. Komunikuje se pomocí zasílání zpráv – datagramù a cesta je hledána pro kadı datagram znovu, tj není ádná pevnì vytyèena. Kadı datagram musí nést plnou adresu pøíjemce. Je bezstavová. Neøeší se nestandartní situace a pokraèuje se v pøenosu. Nezachovává poøadí, pøenos jednotlivıch blokù je vzájemnì nezávislı, kadı jde jinou cestou.
+\subsubsection*{Spolehlivost}
+Pøenosy nejsou ideální, mùe dojít k poškození, kdo se pak má starat o nápravu?
+\item[Spolehlivá pøenosová sluba] O napravení se stará ten kdo data pøenáší, musí rozpoznat chybu a vyádat si novı pøenos (opravu)
+\item[Nespolehlivá pøenosová sluba] Kdo pøenáší se o data nestará a chybná prostì zahodí a pøenáší dál.
+Zajistìní spolehlivosti vyaduje reiji a ruší pravidelnost doruèování dat, také není nikdy absolutní. Nìkomu vadí víc horší pravidelnost ne chyba v datech (obraz a zvuk).
+\end{description}
+
+\begin{obecne}{Jaké jsou monosti zajištìní spolehlivosti (v závislosti na dostupnosti zpìtné vazby)?}
+Moze byt realizovane na ktorejkolvek vrstve okrem fyzickej. Princip a sposob realizacie je v
+zasade rovnaky na vsetkych vrstvach.
+\\
+Podmienkou je rozpoznat, ze doslo k nejakej chybe pri prenose.
+\\
+Pri nespolahlivom prenose, sa neda robit nic.
+\\\\
+Pri spolahlivom sa postarat o napravu. \textbf{Moznosti:}
+
+• pouzitie samoopravnych kodov, napri Hammingove kody, problemom je velka
+redundacia, ktora zvysuje objem prenasanych dat, pouziva sa vynimocne
+
+• pomocou potvrdzovania: prijemca si necha znovu zaslat poskodene data,
+podmienkou je existenica spatnej vazby (aspon polovicny duplex, aby prijemca
+mohol kontaktovat odosielatela).
+\end{obecne}
+\begin{obecne}{Jak se pouívá parita a kontrolní souèet pro detekci chyb pøi pøenosech?}
+Parita:
+
+• \textbf{Paritny bit:} bit pridany naviac k datovym bitom. Suda parita (paritny bit je nastaveny
+tak, aby celkovy pocet 1 bol sudy), licha parita (1 lichy), jednickova parita (paritny bit
+pevne nastaveny na 1, neni zabezpecovaci efekt), nulova parita (nastaveny na 0).
+
+• \textbf{Priecna parita:} po jednotlivych bytoch/slovach, informacie o tom, ktory byte je
+poskodeny je nadbytocna, aj tak sa posiela rovno cely blok (ramec, pakec).
+
+• \textbf{Podelna parita:} parita zo vsetkych rovnolahlych bitov vsetkych bytov/slov
+\\\\
+\textbf{Kontrolny sucet:} jednotlive byty/slova/dvojslova tvoriace prenasany blok sa interpretuju
+ako cisla a scitaju sa, vysledny sucet sa pouzije ako zabezpecovaci udaj (obvykle sa pouzije
+iba cast suctu, napr nizsi byte alebo nizsie slovo.
+\\
+Alternativa: miesto suctu sa pocita XOR jednotlivych bitov.
+\\
+Je ucinnejsi ako parita, ale stale je miera zabezpecenia nizka.
+\end{obecne}
+\begin{obecne}{Jak se pouívá CRC pro detekci chyb pøi pøenosech?}
+CRC = Cyclic Redundancy Check
+\\
+Postupnost bitu, tvoriaca blok dat, je interpretovana ako polynom, polynom nad telesom
+charakteristiky 2, kde bity su jeho koeficienty.
+\par \begin{center}\includegraphics[width=5cm]{informatika/siete_a_bezpecnost/obrazky/crc1.png}\end{center}
+
+Tento polynom je vydeleny inym polynomom, vysledkom je podiel a zvysok, v roli
+zabezpecenia sa pouzije zvysok po deleni charakteristickym polynomom.
+\\Schopnosti detekcie su vynikajuce: vsetky shluky chyb s lichym poctom bitov, vsetky
+shluky chyb do velkosti n bitu, kde n je stupen charakteristickeho polynomu, vsetky shluky
+chyb velkosit > n+1 s pravdepodobnostou 99,999% (CRC 32)
+\par \begin{center}\includegraphics[width=8cm]{informatika/siete_a_bezpecnost/obrazky/crc2.png}\end{center}
+Spolahlivost CRC kodov sa opiera o vysledky z algebry, samotny vypocet je velmi
+jednoduchy a moze byt lahko implementovany v HW, pomocou XOR hradiel a posuvnych
+registrov.
+\end{obecne}
+\begin{obecne}{Jakı je princip potvrzování? Jak funguje jednotlivé a kontinuální
+potvrzování?}
+Ide o obecnejsi mechanizmus, ktory sluzi viac ucelom sucasne: 1. zaistenie spolehlivosti
+\\(umoznuje, aby si prijemca vyziadal opakovane zaseialanie poskodeneho ramca), 2. riadenie
+toku (aby prijemca mohol regulovat tempo, akym odosielatel posiela data.
+\\\\\textbf{Sposoby:}
+\\• kladne a zaporne potvrdzovanie: potvrdzuju sa spravy, resp chybne prijate bloky
+\\• jednotlive a kontinualne potvrdzovania: podla toho, ci odosielatel vzdy caka na
+potvrdenie alebo odosiela do fronty.
+\\• Samostatne a nesamostatne potvrdzovanie: ci potvrdenie cestuje ako samostatny
+ramec/paket, alebo je vnorene do datoveho paketu.
+\\• Metoda okienka
+\\\\\textbf{Jednotlive potvrdzovanie: Stop&Wait ARQ}
+\\• ide o samostatne jednotlive potvrdzovanie, potvrdenie je prenasane ako samostatny
+(riadiaci) blok, potvrdzovany je kazdy jeden paket (kladne, zaporne, timeout)
+\\• pribeh: odosielatel odosle datovy ramec a caka na jeho potvrdenie (kladne, zaporne),
+dalsi ramec neodosiela, prijemca odosle potvrdenie, podla druhu potvrdenia
+odosielatel bud odosle dalsi ramec alebo opakuje prenos, timeout interpretuje ako
+zapornu odpoved
+\\• jednoducha a priamociara interpretacia, charatker prenosu cisto poloduplexny, napr.
+protokoly IPX/SPX
+\\• ma zmysel v LAN (kratka odozva), nie WAN (zpozdeni velke)
+\\\\\textbf{Kontinualne potvrdzovanie: continuous ARQ}
+\\• \textbf{idea:} odosielatel bude vysielat datove ramce dopredu, a prislusne potvrdenia prijimat
+priebezne, s urcitym zpozdenim
+\\• ak dostane zapornu odpoved: \textbf{1. selektivne opakovanie}: odosle iba ramec, ktory sa
+poskodil (prijimatel musi ukladat do bufferu, narocne hospodarenie s pamatou), \textbf{2.
+navrat spat}: riesi
+\end{obecne}
+\begin{obecne}{Jakı je rozdíl mezi samostatnım a nesamostatnım potvrzováním? Jak
+funguje piggybacking?}
+\textbf{Samostatne:} potvrdenie je prenasane ako samostatny ramec specialneho typu, spojene s
+relativne vysokou reziou, samostatne potvrdenie je male, obale je velky
+\\\textbf{Nesamostatne:} potvrdenie je zasielane ako sucast datovych ramcov, prenasanych v
+opacnom smere, ktore su potvrdzovane, tzv. \textbf{piggybacking}
+\end{obecne}
+
+
+\subsubsection*{Zabezpeèení protokolu}
+\begin{obecne}{Jaká je podstata sítí VPN (Virtual Private Network)?}
+Samostatná podsí jiné sítì (vìøejné datové sítì). Z pohledu uivatele jde o samostatnou sí. Uivatel chce mít vlastní sí ale nevyplatí se mu jí vybudovat. Samostatnı adresovı prostor, pøístup k uzlùm mimo VPN je jen pøes bránu.
+\\\\
+Ekonomickı efekt: lacinejší
+\\
+Praktiènost: jednoduchá údrba a efekt vlastní sítì.
+\\
+Bezpeènost: poskytují urèitou ochranu
+\\
+Spojení poboèek firmy pøes internet do VPN, takovéto poboèkové sítì pak splıvají do jednoho logického celku. Pøipojení vzdáleného uivatele do firemní sítì.
+\end{obecne}
+\begin{obecne}{Jaké bezpeèností funkce jsou schopny zabezpeèit sítì VPN?}
+Funkce a sluby: identifikace a autentizace uivatele. Takovıto uivatel se pak mùe volnì pohybovat po VPN. Zajištìní dúvìrnisti – šifrování a zajištìní integrity – nelze komunikaci neoprávnìnì pozmìnit.
+\end{obecne}
+\begin{obecne}{Jak je v TCP/IP øešena bezpeènost (a zabezpeèení)?}
+Zabezpeèení si musí kadá aplikace zajistit sama (na aplikaèní úrovni). Pøenos. Infrastruktura je tak jednoduší rychlejší a lacinìjší.
+\\\\
+V ISO/OSI to øeší relaèní
+vrstva.\end{obecne}
+\begin{reportN}{Galambos}
+Chtel vedet, jak vypada navazovani spojeni, v jake vrstve se resi zabezpeceni a takovy ruzny nesmysly, nakonec to byla pry horsi dvojka. 
+\end{reportN}
+\begin{reportN}{Peterka}
+Zajímal ho pøedevším zpùsob jakım lze spolehlivosti dosáhnout, konkrétní metody - tedy samoopravné kódy, CRC a kontrolní souèty - a jejich pouití v konkrétních pøípadech. Dále se také ptal na rozdíl mezi jednotlivım a kontinuálním potvrzováním - v jakıch situacích lze resp. nelze pouít - a piggybacking.
+
+V pohode, udelala se z toho takova lehka prochazka po lehce pribuznych tematech a dostali jsme se i k tomu, kdo muze za fragmentaci
+\end{reportN}
