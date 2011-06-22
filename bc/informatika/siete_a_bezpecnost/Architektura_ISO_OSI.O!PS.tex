@@ -1,57 +1,40 @@
-\subsection{Architektura ISO/OSI}
+\subsection{Architektury OS}
 
-\subsubsection*{Úvod}
-\begin{definice}
-\textbf{Síťový model} je ucelená představa o tom, jak mají být sítě řešeny (obsahuje: počet vrstev, co má která vrstva na starosti; neobsahuje: konkrétní představu jak která vrstva plní své úkoly - tedy konkrétní protokoly). Příkladem je \emph{referenční model ISO/OSI} (konkrétní protokoly vznikaly samostatně a dodatečně).
-\textbf{Síťová architektura} navíc obsahuje konkrétní protokoly - napr. \emph{rodina protokolů TCP/IP}.
-\end{definice}
+\begin{obecne}{Klasick� struktura~-- monolitick�}
+Nejstar��, u� IBM 360, Unix, Win., v�echny slu�by uvnit�, prov�d�ny ve chr�n�n�m m�du, j�dro pom�rn� velk�, \uv{�dajn�} nejrychlej��. Program zavol� slu�bu OS, p�es tabulku se zjist� adresa p��sl. fce, ta se zavol� a vr�t� v�sledek.  Nev�hoda: hor�� �dr�ba -- je-li v programu chyba, m��e po�kodit zb�vaj�c� ��sti syst�mu, roz�i�ov�n� za b�hu je komplikovan�. 
+\end{obecne}
 
-Referenčný model ISO/OSI (International Standards Organization / Open Systems Interconnection) bol pokusom vytvoriť univerzálnu sieťovú architektúru - ale skončil ako sieťový model (bez protokolov). Pochádza zo \uv{sveta spojov} - organizácie ISO, a bol \uv{oficiálnym riešením}, presadzovaným \uv{orgánmi štátu}; dnes už prakticky odpísaný - prehral v súboji s TCP/IP. ISO/OSI bol reakciou na vznik proprietárnych a uzavretých sietí. Pôvodne mal model popisovať chovanie otvorených systémov vo vnútri aj medzi sebou, ale bolo od toho upustené a nakoniec z modelu ostal len sieťový model (popis funkcionality vrstiev) a konkrétne protokoly pre RM ISO/OSI boli vyvíjané samostatne (a dodatočne zaraďované do rámca ISO/OSI).
+\begin{obecne}{Virtu�ln� stroje}
+P�vodn� n�pad : Virtual Machine pro IBM360 -- odd�lit multitasking od OS jako ext. stroj. Nad HW byla dal�� vrstva -- \uv{Virtual Machine} -- m�la pl�novat, vyr�b� pro procesy iluzi hol�ho HW; dneska nap�. VMWare d�l� to sam�. Pro IBM360 se dalo pou��t v kombinaci s CMS (jedno�lohov�) i p�vodn�ho OS360 (rychlej�� ne� OS360 na hol�m HW). 
 
-Model vznikal maximalistickým spôsobom - obsahoval všetko čo by mohlo byť v budúcnosti potrebné. Vďaka rozsiahlosti štandardu sa implementovali len jeho niektoré podmnožiny - ktoré neboli (vždy) kompatibilné. Vznikol GOSIP (Government OSI Profile) určujúci podmnožinu modelu, ktorú malo mať implementované všetko štátne sieťové vybavenie. Naproti tomu všetkému TCP/IP vzniklo naopak - najprv navrhnutím jednoduchého riešenia, potom postupným obohacovaním o nové vlastnosti (tie boli zahrnuté až po preukázaní \uv{životaschopnosti}).
+Dnes: definuji abstraktn� stroj, pro n�j p�ekl�d�m programy (.NET, Java) $\rightarrow$ p�enositelnost, kompatibilita (IBM AS400~-- des�tky let), probl�m~-- pomal�. 
+\end{obecne}
 
-\subsubsection*{7 vrstev}
-Kritériá pri návrhu vrstiev boli napr.: rovnomerná vyťaženosť vrstiev, čo najmenšie dátové toky medzi vrstvami, možnosť prevziať už existujúce štandardy (X.25), odlišné funkcie mali patriť do odlišných vrstiev, funkcie na rovnakom stupni abstrakcie mali patriť do rovnakej vrstvy. Niektoré vrstvy z finálneho návrhu sa používajú málo (relačná a prezentačná), niektoré zase príliš (linková - rozpadla sa na 2 podvrstvy LLC+MAC).
+\begin{obecne}{Mikroj�dro}
+snaha aby ��st b��c� v kernel m�du byla co nejmen�� (t�eba jen cca 10 KB), nejnov�j��, experiment�ln�, �asto pro Distribuovan� OS (dnes u� nepou��van�), hodn� proces� \& komunikace (klient/server), mikroj�dro �e�� jenom komunikaci. 
 
-\begin{center}
-\begin{tabular}{|c|l|}
-	\hline
-	aplikační vrstva & vrstvy orientované na podporu aplikací\\
-	prezentační vrstva &\\
-	relační vrstva &\\
-	\hline
-	transportní vrstva & přispůsobovací vrstva \\
-	\hline
-	síťová vrstva & vrstvy orientované na přenos dat\\
-	linková vrstva & \\
-	fyzická vrstva & \\
-	\hline
-\end{tabular}
-\end{center}
+Filesyst�m apod. jsou procesy -- aplikace jim pos�laj� p�es j�dro po�adavky. Jedin� komer�n� OS -- Chorus (�st�edny). v�hoda: kdy� n�co spadne, nepo�kod� to zbytek, moduly jdou m�nit za b�hu, komunikace jde snadno roz���it na komunikaci po s�ti. 
+\end{obecne}
 
-\textbf{Fyzická vrstva} sa zaoberá prenosom bitov (kódovanie, modulácia, synchronizácia...) a ponúka teda služby typu pošli a príjmi bit (pričom neinterpretuje význam týchto dát). Pracuje sa tu s veličinami ako je \emph{šírka pásma}, \emph{modulačná a prenosová rýchlosť}.
+\begin{obecne}{Architektura WinNT}
+  J�dro je pom�rn� mal� (cca 1MB), schopn� (pro vy��� vrstvy jsou n�kter� schopnosti skryt�), na jeho vzniku se pod�leli schopn� Unix��i. Byla zde snaha o malou velikost, p�enositelnost. J�dro je neutr�ln� vzhledem k vy���m vrstv�m, nad n�m lze vybudovat r�zn� syst�my (Windows subsyst�m, POSIX, OS/2).
 
-\textbf{Linková vrstva} prenáša vždy celé bloky dát (rámce/frames), používa pritom fyzickú vrstvu a prenos vždy funguje len k priamym susedom. Môže pracovať spoľahlivo či nespoľahlivo, prípadne poskytovať QoS/best effort. Ďalej zabezpečuje riadenie toku - zaistenie toho, aby vysielajúci nezahltil príjemcu. Delí sa na dve podvrstvy - MAC (prístup k zdieľanému médiu - rieši konflikty pri viacnásobnom prístupe k médiu) a LLC (ostatné úlohy).  
+  Rozhran� OS a u�iv. program� zaji��uje WinAPI, nad n�m se nach�zej� r�zn� DLL, mezi kernelem a HW je \uv{hardware abstraction layer}, tj. kernel lze jednodu�e upravit pro jin� architektury (Alpha, IA-64).
+  Grafick� drivery jedin� maj� p��m� p��stup k HW (kv�li v�konu), ��sti API (USER, GDI) jsou implementovan� v j�d�e, p�echod mezi user a kernel re�imem zaji��uje ntdll.dll (a je tedy vyu��v�n v�emi programy). Ve�ker� slu�by a aplikace b�� v user m�du nad j�drem.
 
-\textbf{Sieťová vrstva} prenáša pakety (packets) - fakticky ich vkladá do linkových rámcov. Zaručuje doručenie paketov až ku konečnému adresátovi (tj. zabezpečuje smerovanie). Môže používať rôzne algoritmy smerovania - ne/adaptívne, izolované, distribuované, centralizované... (v architektúre TCP/IP je to IP vrstva)
+  \begin{center}
+    \includegraphics[width=8cm]{informatika/operacne_systemy_a_hw/obrazky/arch-windows.jpg}
+  \end{center}
+\end{obecne}
 
-\textbf{Transportná vrstva} zabezpečuje komunikáciu medzi koncovými účastníkmi (end-to-end) a môže meniť nespoľahlivý charakter komunikácie na spoľahlivý, menej spoľahlivý na viac spoľahlivý, nespojovaný prenos na spojovaný... Príkladom sú napr. TCP a UDP. Ďalšou úlohou je rozlišovanie jednotlivých entit (na rozdiel od napr. sieťovej vrstvy) v rámci uzlov - procesy, démony, úlohy (rozlišuje sa zväčša nepriamo - napr. v TCP/IP pomocou portov).
+\begin{obecne}{Architektura Linuxu}
+  \begin{pitemize}
+      \item Na �rovni SW -- p�enositelnost; abstrakce HW. 
+      \item nad HW~-- kernel, nad n�m syst�mov� vol�n�, hodn� podobn� Windows.
+  \end{pitemize}
 
-\textbf{Relačná vrstva} zaisťuje vedenie relácií - šifrovanie, synchronizáciu, podporu transakcií. Je to najkritizovanejšia vrstva v ISO/OSI modele, v TCP/IP úplne chýba.
+  \begin{center}
+    \includegraphics[width=8cm]{informatika/operacne_systemy_a_hw/obrazky/arch-linux.jpg}
+  \end{center}
+\end{obecne}
 
-\textbf{Prezentačná vrstva} slúži na konverziu dát, aby obe strany interpretovali dáta rovnako (napr. reálne čísla, rôzne kódovanie textov). Ďalej má na starosti konverziu dát do formátu, ktorý je možné preniesť: napr. linearizácia viacrozmerných polí, dátových štruktúr; konverzia viacbajtových položiek na jednotlivé byty (little vs. big endian). \emph{Poznámka}: Zápis čísla 1234H v Big endian je [12:34:--:--] (sun, motorola), v Little endian [--:--:34:12] (intel, amd, ethernet).
-
-\textbf{Aplikačná vrstva} mala pôvodne obsahovať aplikácie - ale tých je veľa a nebolo možné ich štandardizovať. Teraz teda obsahuje len \uv{jadro} aplikácií - tie, ktoré malo zmysel štandardizovať (email a pod.). Ostatné časti aplikácií (GUI) boli vysunuté nad aplikačnú vrstvu.
-
-\subsubsection*{Kritika}
-Model ISO/OSI:
-\begin{pitemize}
-	\item je príliš zložitý, ťažkopádny a obtiažne implementovateľný
-	\item je príliš maximalistický
-	\item nerešpektuje požiadavky a realitu bežnej praxe
-	\item počítal skôr s rozľahlými sieťami ako s lokálnymi
-	\item niektoré činnosti (funkcie) zbytočne opakuje na každej vrstve
-	\item jednoznačne uprednostňuje spoľahlivé a spojované prenosové služby (ale tie sú spojené s veľkou réžiou $\Rightarrow$ spoľahlivosť si efektívnejšie zabezpečia koncové uzly)
-\end{pitemize}
-
-Možnosť nespoľahlivého/nespojovaného spojenia bolo pridané do štandardu až dodatočne, napriek tomu bol porazený architektúrou TCP/IP. Používajú sa však niektoré prevzaté prokoly - X.400 (elektronická pošta), X.500 (adresárové služby - odľahčením vznikol úspešný protokol LDAP).
