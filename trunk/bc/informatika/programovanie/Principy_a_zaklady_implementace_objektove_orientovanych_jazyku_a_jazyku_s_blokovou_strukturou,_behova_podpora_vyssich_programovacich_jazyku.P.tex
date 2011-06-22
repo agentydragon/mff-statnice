@@ -1,0 +1,179 @@
+\subsection{Principy a základy implementace objektovì orientovanıch jazykù a jazykù s blokovou strukturou, bìhová podpora vyšších programovacích jazykù}
+
+\textsl{Základní vìdomosti:} \textit{ Tøída, Dìdiènost, Polymorfismus, Obalení, Virtuální funkce. Bìhová podpora vyšších programovacích jazykù: Statická podpora a dynamická podpora, Rozdìlení pamìti, Stav pamìti pøed spuštìním, Konstruktory, destruktory globálních promìnnıch, Volací konvence.}
+
+TODO: jde hlavnì o copy \& paste z Wikipedie, take by to chtìlo omezit zbyteèné kecy a pøeloit to, co je anglicky. Otázkou je taky, jestli sem úvodní èlánek vùbec patøí. Ja myslím e jo, ale jistı si nejsem.
+
+\subsubsection*{Strukturované programování}
+
+Poèítaèovı program je nìjakım zpùsobem zaznamenanı postup poèítaèovıch operací, kterı speciálním zpùsobem popisuje praktickou realizaci zadané úlohy (tedy algoritmus vıpoètu). Program z \emph{procedurálního} úhlu pohledu je vlastnì pøesná specifikace všech krokù, které musí poèítaè vykonat, aby došel k cíli, a jejich poøadí. Pro urèování poøadí krokù se pouívají základní operace \emph{øízení toku} -- skoky, podmínky, cykly apod.
+
+Jedním z dùleitıch konceptù procedurálního programování je \emph{strukturované programování} -- jeho idea je zaloena na rodìlení programu na \emph{procedury} (rutiny, podrutiny, metody, funkce), které samy obsahují vıèet vıpoèetních krokù k vykonání, mohou bıt ale spouštìny opakovanì a z libovolného místa v programu. Jejich vıhodou je mnohem názornìjší pohled na strukturu programu a snazší udrování kódu, ne v pøípadì pouití jen nejjednoduššího øízení toku (tedy hlavnì skokù, které by se ve strukturovaném programování správnì pouívat nemìly).
+
+\medskip
+Historically, several different structuring techniques or methodologies have been developed for writing structured programs. The most common are:
+\begin{pitemize}
+    \item \emph{Dijkstra's structured programming}, where the logic of a program is a structure composed of similar sub-structures in a limited number of ways. This reduces understanding a program to understanding each structure on its own, and in relation to that containing it, a useful separation of concerns.
+    \item \emph{A view derived from Dijkstra's} which also advocates splitting programs into sub-sections with a single point of entry, but is strongly opposed to the concept of a single point of exit.
+    \item \emph{Data Structured Programming}, which is based on aligning data structures with program structures. This approach applied the fundamental structures proposed by Dijkstra, but as constructs that used the high-level structure of a program to be modeled on the underlying data structures being processed.
+\end{pitemize}
+The two latter meanings for the term "structured programming" are more common. Years after Dijkstra (1969), object-oriented programming (OOP) was developed to handle very large or complex programs.
+
+\medskip
+\begin{definiceN}{Programovací jazyk s blokovou strukturou}
+A language is described as "block-structured" when it has a syntax for enclosing structures between bracketed keywords, such as an if-statement bracketed by \texttt{if..fi}, or a code section bracketed by \texttt{BEGIN..END}.
+
+However, a language is described as "comb-structured" when it has a syntax for enclosing structures within an ordered series of keywords. A "comb-structured" language has multiple structure keywords to define separate sections within a block, analogous to the multiple teeth or prongs in a comb separating sections of the comb. For example, in Ada, a block is a 4-pronged comb with keywords DECLARE, BEGIN, EXCEPTION, END, and the if-statement in Ada is a 4-pronged comb with keywords IF, THEN, ELSE, END IF. Jako jazyk s \uv{høebenovou} strukturou by se dalo tedy brát tøeba i PL/SQL.
+\end{definiceN}
+
+\begin{poznamka}
+It is possible to do structured programming in any programming language, though it is preferable to use something like a procedural programming language. Since about 1970 when structured programming began to gain popularity as a technique, most new procedural programming languages have included features to encourage structured programming (and sometimes have left out features that would make unstructured programming easy). Some of the better known structured programming languages are Pascal, C, PL/I, and Ada.
+\end{poznamka}
+
+\begin{obecne}{Vìta o strukturovaném programu???}
+\emph{The structured program theorem} is a result in programming language theory. It states that every computable function can be implemented in a programming language that combines subprograms in only three specific ways. These three control structures are
+\begin{pitemize}
+    \item Executing one subprogram, and then another subprogram (\emph{sequence})
+    \item Executing one of two subprograms according to the value of a boolean variable (\emph{selection})
+    \item Executing a subprogram until a boolean variable is true (\emph{iteration})
+\end{pitemize}
+
+This observation did not originate with the structured programming movement; these structures are sufficient to describe the instruction cycle of a central processing unit, as well as the operation of a Turing machine. Therefore a processor is always executing a "structured program" in this sense, even if the instructions it reads from memory are not part of a structured program.
+\end{obecne}
+
+
+\subsubsection*{Datové a~øídící struktury vyšších programovacích jazykù a~jejich implementace}
+
+\begin{obecne}{Øízení toku}
+In computer science control flow (or alternatively, flow of control) refers to the order in which the individual statements, instructions or function calls of an imperative or functional program are executed or evaluated. Within an imperative programming language, a control flow statement is an instruction that when executed can cause a change in the subsequent control flow to differ from the natural sequential order in which the instructions are listed. For non-strict functional languages, functions and language constructs exist to achieve the same ends, but they are not necessarily called control flow statements.
+
+The kinds of control flow statements available differ by language, but can be roughly categorized by their effect:
+\begin{pitemize}
+    \item continuation at a different statement (jump),
+    \item executing a set of statements only if some condition is met (choice -- if-then-else)
+    \item executing a set of statements zero or more times, until some condition is met (loop), s~podmínkou na zaèátku, na konci, uprostøed, nekoneèné, s~danım poètem opakování
+    \item executing a set of distant statements, after which the flow of control may possibly return (subroutines, coroutines, and continuations),
+    \item stopping the program, preventing any further execution (halt).
+\end{pitemize}
+Interrupts and signals are low-level mechanisms that can alter the flow of control in a way similar to a subroutine, but are usually in response to some external stimulus or event rather than a control flow statement in the language.
+\end{obecne}
+
+\begin{obecne}{Vıjimky}
+Vıjimky jsou speciálním pøíkazem øízení toku, vyskytujícím se v nìkterıch vyšších programovacích jazycích. Základní myšlenkou je, e program mùe na nìjakém místì vyhodit vıjimku (pøíkaz \texttt{throw}), co zpùsobí, e provádìní programu se zastaví a buï pokraèuje tam, kde je vıjimka \uv{ošetøena} (tzv. \texttt{catch} blok), nebo pokud takové místo není nalezeno, program skonèí s chybou. Bìhem hledání místa ošetøení je datová hodnota vıjimky uloena stranou a pak mùe bıt pouita.
+
+Pøi hledání místa ošetøení vıjimky (\texttt{try}-bloku, následovaného catch-blokem se správnım datovım typem vıjimky) se postupuje zpìt po zásobníku volání funkcí, tato technika se nazıvá \uv{stack unwinding} (odvíjení zásobníku). V nìkterıch jazycích (Java) lze definovat i akci, která se provede v kadém pøípadì, i pokud nastane vıjimka, ještì pøed odvíjením zásobníku -- \texttt{finally} blok.
+\end{obecne}
+
+\begin{obecne}{Volací konvence}
+Pøi volání procedur a funkcí je nejdùleitìjší zásobník. Ukládá se na nìj
+\begin{pitemize}
+    \item kam se vrátit po volání
+    \item argumenty funkce (v pøekladem definovaném poøadí -- nutné mít ve všech modulech stejné; vìtšinou se liší v závislosti na programovacím jazyku)
+    \item návratová hodnota funkce
+    \item ukazatel na sémanticky nadøazenou funkci (Pascal)
+\end{pitemize}
+Dohromady všem tìmto datùm se nìkdy øíká \uv{aktivaèní záznam} procedury. Po skonèení funkce je nutné zásobník opìt uklidit (vymazat zbyteèná uloená data, vìtšinou jen zùstává návratová hodnota) a která èást programu to dìlá (volaná nebo volající procedura), závisí opìt na pøekladaèi a konvenci jazyka.
+
+\medskip\noindent
+Volací konvence dvou nejtypiètìjších jazykù:
+\begin{pitemize}
+\item \emph{Pascal} \\ uklízí volaná funkce, argumenty se ukládají na zásobník zleva doprava (nejlevejší nejdøív, tj. nejhloubìji)
+\item \emph{C} \\ uklízí funkce volající, argumenty se ukládají zprava doleva (tj. nejlevìjší je na vrcholu zásobníku. Je to kvùli funkcím s promìnnım poètem parametrù. Volaná funkce musí podle prvního argumentu poznat, jakı je skuteènı poèet argumentù. Kdyby byl první argument nìkde hluboko v~zásobníku, tak ví prd.)
+\end{pitemize}
+\end{obecne}
+
+
+\subsubsection*{Organizace pamìti}
+
+Pamì procesu (spuštìného programu) lze rozdìlit do nìkolika èástí:
+\begin{pitemize}
+\item \emph{kód programu (kódovı segment)} \\
+vytvoøen pøi pøekladu, souèást spustitelného souboru, nemìnnı a má pevnou délku; obvykle bıvá chránìn proti zápisu
+\item \emph{statická data (datovı segment)} \\
+data programu, jejich velikost je známa ji pøi pøekladu a jejich pozice se bìhem programu nemìní (je pøipraven kompilátorem a jeho formát je takté zadrátovanı ve spustitelném souboru, u inicializovanıch statickıch dat je tam celı uloenı); v jazyce C jde o globální promìnné a lokální data deklarovaná jako \texttt{static}, konstanty
+\item \emph{halda (heap segment)} \\
+vytváøen startovacím modulem (C Runtime library), ukládají se sem dynamicky vznikající objekty (\texttt{malloc, new}) -- neinicializovaná data, i seznam volného místa
+\item \emph{volná pamì} \\
+postupnì jí zaplòuje z jedné strany zásobník a z druhé halda
+\item \emph{zásobník (stack segment)} \\
+informace o volání procedur (\uv{aktivaèní záznamy}) --- návratové adresy, parametry a návratové hodnoty (nejsou-li pøedávány v registrech), nìkteré jazyky (Pascal, C) pouívají i pro úschovu lokálních dat. Typicky roste zásobník proti haldì (od \uv{konce} pamìti k niším adresám).
+\end{pitemize}
+
+
+\begin{poznamkaN}{Vnoøené funkce}
+V Pascalu mohou bıt funkce definované uvnitø jiné funkce. Ta vnitøní potøebuje pøistupovat k~promìnnım té vnìjší. Promìnné jsou sice na zásobníku, ale pouhı odkaz na volající funkci nestaèí, protoe se vnoøená funkce mùe volat rekurzivnì. Proto je na zásobníku ukazatel na funkci sémanticky nadøazenou.
+\end{poznamkaN}
+
+\begin{obecne}{Alokace místa pro rùzné typy promìnnıch}
+\begin{pitemize}
+    \item Dynamicky alokované promìnné (pøes pointer) se alokují na haldì. Opakovanou alokací a~dealokací pamìovıch blokù rùzné velikosti vznikají v~haldì \uv{díry} (støídavé úseky volného a naalokovaného místa). Existuje nìkolik strategií pro vyhledání volného bloku poadované velikosti (first-fit, next-fit, buddy systém) a udrení informací o volném místì, které jsou vìtšinou implementovány v knihovních funkcích jazyka (C, Pascal).
+    \item Lokální promìnné se ukládají na zásobník, po skonèení funkce, které pøísluší, jsou zase odstranìny.
+    \item Globální a~statické se ukládají do segmentu pro statická data. Tady se díry tvoøit nebudou, protoe tyhle promìnné vznikají na zaèátku a~zanikají na konci programu (take se formát segmentu nemìní).
+\end{pitemize}
+\end{obecne}
+
+
+
+\subsubsection*{Objektovì-orientované programování}
+
+\begin{obecne}{Úèel objektového porgramování}
+In the 1960s, language design was often based on textbook examples of programs, which were generally small (due to the size of a textbook); however, when programs become very large, the focus changes. In small programs, the most common statement is generally the assignment statement; however, in large programs (over 10,000 lines), the most common statement is typically the procedure-call to a subprogram. Ensuring parameters are correctly passed to the correct subprogram becomes a major issue.
+
+Many small programs can be handled by coding a hierarchy of structures; however, in large programs, the organization is more a network of structures, and insistence on hierarchical structuring for data and procedures can produce cumbersome code with large amounts of "tramp data" to handle various options across the entire program.
+
+Although structuring a program into a hierarchy might help to clarify some times of software, even for some special types of large programs, a small change, such as requesting a user-chosen new option (text font-color) could cause a massive ripple-effect with changing multiple subprograms to propagate the new data into the program's hierarchy. The object-oriented approach is allegedly more flexible, by separating a program into a network of subsystems, with each controlling their own data, algorithms, or devices across the entire program, but only accessible by first specifying named access to the subsystem object-class, not just by accidentally coding a similar global variable name. Rather than relying on a structured-programming hierarchy chart, object-oriented programming needs a call-reference index to trace which subsystems or classes are accessed from other locations.
+\end{obecne}
+
+
+\begin{definiceN}{Objektovì orientované programování}
+Na objektovì-orientované programování se dá nahlédnout jako na kolekci spolupracujících objektù -- v protikladu k tradiènímu pohledu, kdy se za program povauje sled instrukcí pro poèítaè. V OOP je kadı objekt schopnı pøijímat zprávy, zpracovávat data a posílat zprávy jinım objektùm. Na kadı objekt se tak dá nahlíet jako na nezávislı \uv{malı stroj} s vlastní rolí a zodpovìdností. Zjednodušenì øeèeno jde o~dotaení konceptu \emph{data + algoritmy = program}. Data tvoøí s kódem, kterı je spravuje, jeden celek.
+\end{definiceN}
+
+\begin{obecne}{Hlavní koncepty (a formálnìjší definice)}
+Objektovì orientované programování (zkracováno na OOP, z anglického Object-oriented programming) je metodika vıvoje softwaru, zaloená na následujících myšlenkách, koncepci:
+\begin{pitemize}
+\item \emph{Objekty}: jednotlivé prvky modelované reality (jak data, tak související funkènost) jsou v programu seskupeny do entit, nazıvanıch objekty. Objekty si pamatují svùj stav a navenek poskytují operace (pøístupné jako metody pro volání).
+\item \emph{Abstrakce}: programátor, potamo program, kterı vytváøí, mùe abstrahovat od nìkterıch detailù práce jednotlivıch objektù. Kadı objekt pracuje jako èerná skøíòka, která dokáe provádìt urèené èinnosti a komunikovat s okolím, ani by vyadovala znalost zpùsobu, kterım vnitønì pracuje.
+\item \emph{Zapouzdøení}: zaruèuje, e objekt nemùe pøímo pøistupovat k \uv{vnitønostem} jinıch objektù, co by mohlo vést k nekonzistenci. Kadı objekt navenek zpøístupòuje rozhraní, pomocí kterého (a nijak jinak) se s objektem pracuje.
+\item \emph{Skládání}: Objekt mùe vyuívat slueb jinıch objektù tak, e je poádá o provedení operace.
+\item \emph{Dìdiènost}: objekty jsou organizovány stromovım zpùsobem, kdy objekty nìjakého druhu mohou dìdit z jiného druhu objektù, èím pøebírají jejich schopnosti, ke kterım pouze pøidávají svoje vlastní rozšíøení. Tato myšlenka se obvykle implementuje pomocí rozdìlení objektù do tøíd, pøièem kadı objekt je instancí nìjaké tøídy. Kadá tøída pak mùe dìdit od jiné tøídy (v nìkterıch programovacích jazycích i z nìkolika jinıch tøíd). Umoòuje zacházet s~mnoinou tøíd, jako by byly všechny reprezentovány tím samım objektem. Napøíklad známá hierarchie: grafickı objekt, bod, krunice. Navíc je to prostøedek pro úsporu práce pøi kódování.
+\item \emph{Polymorfismus}: odkazovanı objekt se chová podle toho, jakı je jeho skuteènı typ. Pokud nìkolik objektù poskytuje stejné rozhraní, pracuje se s nimi stejnım zpùsobem, ale jejich konkrétní chování se liší. V praxi se tato vlastnost projevuje napø. tak, e na místo, kde je oèekávána instance nìjaké tøídy, mùeme dosadit i instanci libovolné její podtøídy (tøídy, která pøímo èi nepøímo z této tøídy dìdí), která se mùe chovat jinak, ne by se chovala instance rodièovské tøídy, ovšem v rámci \uv{mantinelù}, danıch popisem rozhraní.
+\end{pitemize}
+\end{obecne}
+
+\begin{obecne}{Tøída}
+\emph{Tøída} definuje abstraktní vlastnosti nìjakého objektu, vøátanì obsáhnutıch dat (atributy, pole (fields) a vlastnosti (properties)) a vìcí, které mùe dìlat (správaní, metody a schopnosti (features)). Napøíklad tøída \emph{Dog} by obsahovala vìci spoloèné pro všechny psy - napø. atribúty rasa, barba srsti a schopnosti bøechat. % tady prosim ten jazyk neopravujte, to je tak hezky :)!
+ 
+
+Tøídy poskytují v objektovo-orientovaném programu modularitu a strukturu. Tøída by typicky mìla bıt rozpoznatelná i ne-programátorovi, kterı se ale v dané doménì problémù orientuje -- tzn. e charakteristiky tøídy by mìli \uv{dávat v kontextu smysl}. Podobnì i kód tøídy by mìl bıt relativnì \uv{self-contained}. Vlastnosti a metódy tøíd se spolu nazıvají i \emph{members}.
+\end{obecne}
+
+\begin{obecne}{Implementace objektù}
+Z hlediska jazyka není velkı rozdíl mezi sloenımi datovımi typy a tøídami. Deklarace tøídy obsahuje, stejnì jako u sloeného dat. typu, datové poloky. Navíc ale obsahuje i deklarace funkcí (metod), které s nimi pracují. Nìkteré funkce mohou mít speciální vlastnosti -- statické, virtuální, konstruktory, destruktory. Navíc vìtšina jazykù pøidává monost oznaèení kterıchkoliv poloek jako veøejné nebo privátní. Tøídy mohou nìkdy (C++, Java) obsahovat i vnoøené datové typy (vıèty, ... ) a dokonce vnoøené tøídy.
+
+Za bìhu je jedna instance tøídy -- objekt reprezentována v pamìti pomocí:
+\begin{pitemize}
+    \item datovıch poloek (stejnì jako sloenı datovı typ),
+    \item skrytıch pomocné poloky umoòujících funkci virtuálních metod, vıjimek, RTTI a dìdiènosti (identifikace typu / jeho velikosti apod.)
+\end{pitemize}
+
+\emph{Implementace dìdiènosti v C++:} Je-li tøída B (pøímım èi nepøímım) potomkem tøídy A, pak pamìová reprezentace objektu typu B obsahuje èást, která má stejnı tvar jako pamìová reprezentace samostatného objektu typu A. Z kadého ukazatele na typ B je mono odvodit ukazatel na èást typu A -- tato konverze je implicitní, tj. není tøeba ji explicitnì uvádìt ve zdrojovém kódu. Tato konverze mùe (obvykle pouze pøi násobné dìdiènosti) vyadovat jednoduchı vıpoèet (pøiètení posunutí).
+
+Z ukazatele na typ A je mono odvodit ukazatel na typ B, jen pokud konkrétní objekt, do kterého ukazuje ukazatel na typ A, je typu B (nebo jeho potomka). Zodpovìdnost za ovìøení skuteèného typu objektu má programátor a tuto konverzi je tøeba explicitnì vynutit pøetypováním. Mùe to znamenat odeètení posunutí v pamìti.
+\end{obecne}
+
+\begin{obecne}{Virtuální funkce}
+In object-oriented programming (OOP), a virtual function or virtual method is a function whose behavior, by virtue of being declared "virtual," is determined by the definition of a function with the same signature furthest in the inheritance lineage of the instantiated object on which it is called. This concept is a very important part of the polymorphism portion of object-oriented programming (OOP).
+
+The concept of the virtual function solves the following problem:
+
+In OOP when a derived class inherits from a base class, an object of the derived class may be referred to (or cast) as either being the base class type or the derived class type. If there are base class functions overridden by the derived class, a problem then arises when a derived object has been cast as the base class type. When a derived object is referred to as being of the base's type, the desired function call behavior is ambiguous.
+
+The distinction between virtual and not virtual is provided to solve this issue. If the function in question is designated "virtual" then the derived class's function would be called (if it exists). If it is not virtual, the base class's function would be called.
+
+\emph{Pozdní vazba (late binding; virtual call):} Je-li metoda nìjaké tøídy virtuální èi èistì virtuální, pak všechny metody se stejnım jménem, poètem a typy parametrù deklarované v potomcích tøídy jsou povaovány za rùzné implementace tée funkce. Která implementace se vybere, tedy které tìlo bude zavoláno, se rozhoduje a za bìhu programu podle skuteèného typu celého objektu. Pouije se tìlo z posledního potomka, kterı definuje tuto funkci a je souèástí celého objektu. Pozdní vazba má smysl pouze u vyvolání na objektu urèeném odkazem.
+
+Pozdní vazba je implementaènì umonìná skrytım pointerem na \emph{tabulku virtuálních funkcí} uvnitø kadého objektu. Existuje pro kadou tøídu jedna. Pøi dìdiènosti zùstává v celém objektu odkaz jeden, ale (i pro \uv{nejvnitønìjší} bázovou tøídu) odkazuje na tabulku odvozené tøídy. V tabulce musí bıt proto pointery na funkce, deklarované u u bázové tøídy, umístìny na zaèátku (aby bylo moné volat funkce bázové tøídy mezi sebou bez zmìny kódu).
+\end{obecne}
+
+

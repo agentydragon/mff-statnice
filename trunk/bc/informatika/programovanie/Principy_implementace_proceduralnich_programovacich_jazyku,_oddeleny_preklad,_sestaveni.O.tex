@@ -1,0 +1,148 @@
+\subsection{Principy implementace procedurálních a objektové orientovanıch programovacích jazykù, oddìlenı pøeklad, sestavení}
+
+Principy implementace proceduralnich programovacich jazyku je v zasade jednoducha vec. Je treba vedet, jak funguji zakladni veci uvnitr. Ze program ma ctyri kusy pameti (code, data, stack a heap) a co ktera dela. Jak probiha volani procedur, kam se pri nem co schova. Jak funguje rekurze, kam se ukladaji lokalni promenne a kam globalni, ... atd. 
+
+
+
+\subsubsection*{Strukturované programování}
+
+Poèítaèovı program je nìjakım zpùsobem zaznamenanı postup poèítaèovıch operací, kterı speciálním zpùsobem popisuje praktickou realizaci zadané úlohy (tedy algoritmus vıpoètu). Program z \emph{procedurálního} úhlu pohledu je vlastnì pøesná specifikace všech krokù, které musí poèítaè vykonat, aby došel k cíli, a jejich poøadí. Pro urèování poøadí krokù se pouívají základní operace \emph{øízení toku} -- skoky, podmínky, cykly apod.
+
+Jedním z dùleitıch konceptù procedurálního programování je \emph{strukturované programování} -- jeho idea je zaloena na rodìlení programu na \emph{procedury} (rutiny, podrutiny, metody, funkce), které samy obsahují vıèet vıpoèetních krokù k vykonání, mohou bıt ale spouštìny opakovanì a z libovolného místa v programu. Jejich vıhodou je mnohem názornìjší pohled na strukturu programu a snazší udrování kódu, ne v pøípadì pouití jen nejjednoduššího øízení toku (tedy hlavnì skokù, které by se ve strukturovaném programování správnì pouívat nemìly).
+
+
+
+\subsubsection*{Datové a~øídící struktury vyšších programovacích jazykù a~jejich implementace}
+
+\begin{obecne}{Øízení toku}
+V informatice se \emph{tokem øízení} rozumí poøadí ve kterém se provádìjí jednotlivé pøíkazy programu. V imperativních (=procedurálních) programovacích jazycích se \emph{pøíkazy pro øízení toku} rozumí pøíkazy, které dokáou zmìnit poøadí provádìní pøíkazù na jiné ne pøirozené (to v jakém jsou zapsány). Nìkteré funkcionální jazyky také obsahují takové pøíkazy (které ji nepatøí do funkcionálního programování), ale potom u se jim vìtšinou neøíká pøíkazy pro øízení toku.
+\\\\
+Druhy pøíkazù pro øízení toku se mezi jazyky liší, ale pøiblinì mohou bıt rozdìleny do následujících kategorií.
+\begin{pitemize}
+\item Pokraèování na jiném místì programu (skok).
+\item Vykonání skupiny pøíkazù pouze pokud je splnìna urèitá podmínka (if-then-else)
+\item Nevykonání skupiny pøíkazù nebo jejich opakování do té doby ne je splnìna urèitá podmínka (smyèka/cyklus). Cykly mohou bıt s podmínkou na zaèátku, na konci, uprostøed, nekoneèné, s danım poètem opakování.
+\item Vykonání skupiny pøíkazù, které se nacházejí na jiném místì kódù, a následné (volitelné) vrácení øízení toku zpìt (subroutines, coroutines, and continuations).
+\item Zastavení/ukonèení programu.
+\end{pitemize}
+
+\emph{Pøerušení a signály} jsou nízkoúrovòovı mechanizmus, kterı mùe zmìnit tok øízení podobnì jako se to dìlá u podprogramù, ale vìtšinou je vyvolán vnìjší událostí a není tedy pouit ve smyslu øízení toku programu, jak bylo popsáno.
+\end{obecne}
+
+\begin{obecne}{Vıjimky}
+Vıjimky jsou speciálním pøíkazem øízení toku, vyskytujícím se v nìkterıch vyšších programovacích jazycích. Základní myšlenkou je, e program mùe na nìjakém místì vyhodit vıjimku (pøíkaz \texttt{throw}), co zpùsobí, e provádìní programu se zastaví a buï pokraèuje tam, kde je vıjimka \uv{ošetøena} (tzv. \texttt{catch} blok), nebo pokud takové místo není nalezeno, program skonèí s chybou. Bìhem hledání místa ošetøení je datová hodnota vıjimky uloena stranou a pak mùe bıt pouita.
+
+Pøi hledání místa ošetøení vıjimky (\texttt{try}-bloku, následovaného catch-blokem se správnım datovım typem vıjimky) se postupuje zpìt po zásobníku volání funkcí, tato technika se nazıvá \uv{stack unwinding} (odvíjení zásobníku). V nìkterıch jazycích (Java) lze definovat i akci, která se provede v kadém pøípadì, i pokud nastane vıjimka, ještì pøed odvíjením zásobníku -- \texttt{finally} blok.
+\end{obecne}
+
+\begin{obecne}{Volací konvence}
+Pøi volání procedur a funkcí je nejdùleitìjší zásobník. Ukládá se na nìj
+\begin{pitemize}
+    \item kam se vrátit po volání
+    \item argumenty funkce (v pøekladem definovaném poøadí -- nutné mít ve všech modulech stejné; vìtšinou se liší v závislosti na programovacím jazyku)
+    \item návratová hodnota funkce
+    \item ukazatel na sémanticky nadøazenou funkci (Pascal)
+\end{pitemize}
+Dohromady všem tìmto datùm se nìkdy øíká \emph{aktivaèní záznam} procedury. Po skonèení funkce je nutné zásobník opìt uklidit (vymazat zbyteèná uloená data, vìtšinou jen zùstává návratová hodnota) a která èást programu to dìlá (volaná nebo volající procedura), závisí opìt na pøekladaèi a konvenci jazyka.
+
+\medskip\noindent
+Volací konvence dvou nejtypiètìjších jazykù:
+\begin{pitemize}
+\item \emph{Pascal} \\ uklízí volaná funkce, argumenty se ukládají na zásobník zleva doprava (nejlevejší nejdøív, tj. nejhloubìji)
+\item \emph{C} \\ uklízí funkce volající, argumenty se ukládají zprava doleva (tj. nejlevìjší je na vrcholu zásobníku. Je to kvùli funkcím s promìnnım poètem parametrù. Volaná funkce musí podle prvního argumentu poznat, jakı je skuteènı poèet argumentù. Kdyby byl první argument nìkde hluboko v~zásobníku, tak ví prd.)
+\end{pitemize}
+\end{obecne}
+
+
+\subsubsection*{Organizace pamìti}
+
+Pamì procesu (spuštìného programu) lze rozdìlit do nìkolika èástí:
+\begin{pitemize}
+\item \emph{kód programu (kódovı segment)} \\
+vytvoøen pøi pøekladu, souèást spustitelného souboru, nemìnnı a má pevnou délku; obvykle bıvá chránìn proti zápisu
+\item \emph{statická data (datovı segment)} \\
+data programu, jejich velikost je známa ji pøi pøekladu a jejich pozice se bìhem programu nemìní (je pøipraven kompilátorem a jeho formát je takté zadrátovanı ve spustitelném souboru, u inicializovanıch statickıch dat je tam celı uloenı); v jazyce C jde o globální promìnné a lokální data deklarovaná jako \texttt{static}, konstanty
+\item \emph{halda (heap segment)} \\
+vytváøen startovacím modulem (C Runtime library), ukládají se sem dynamicky vznikající objekty (\texttt{malloc, new}) -- neinicializovaná data, i seznam volného místa
+\item \emph{volná pamì} \\
+postupnì jí zaplòuje z jedné strany zásobník a z druhé halda
+\item \emph{zásobník (stack segment)} \\
+informace o volání procedur (\uv{aktivaèní záznamy}) --- návratové adresy, parametry a návratové hodnoty (nejsou-li pøedávány v registrech), nìkteré jazyky (Pascal, C) pouívají i pro úschovu lokálních dat. Typicky roste zásobník proti haldì (od \uv{konce} pamìti k niším adresám).
+\end{pitemize}
+
+
+\begin{poznamkaN}{Vnoøené funkce}
+V Pascalu mohou bıt funkce definované uvnitø jiné funkce. Ta vnitøní potøebuje pøistupovat k~promìnnım té vnìjší. Promìnné jsou sice na zásobníku, ale pouhı odkaz na volající funkci nestaèí, protoe se vnoøená funkce mùe volat rekurzivnì. Proto je na zásobníku ukazatel na funkci sémanticky nadøazenou.
+\end{poznamkaN}
+
+\begin{obecne}{Alokace místa pro rùzné typy promìnnıch}
+\begin{pitemize}
+    \item Dynamicky alokované promìnné (pøes pointer) se alokují na haldì. Opakovanou alokací a~dealokací pamìovıch blokù rùzné velikosti vznikají v~haldì \uv{díry} (støídavé úseky volného a naalokovaného místa). Existuje nìkolik strategií pro vyhledání volného bloku poadované velikosti (first-fit, next-fit, buddy systém) a udrení informací o volném místì, které jsou vìtšinou implementovány v knihovních funkcích jazyka (C, Pascal).
+    \item Lokální promìnné se ukládají na zásobník, po skonèení funkce, které pøísluší, jsou zase odstranìny.
+    \item Globální a~statické se ukládají do segmentu pro statická data. Tady se díry tvoøit nebudou, protoe tyhle promìnné vznikají na zaèátku a~zanikají na konci programu (take se formát segmentu nemìní).
+\end{pitemize}
+\end{obecne}
+
+\subsubsection*{Oddìlenı pøeklad, sestavení}
+
+\begin{obecne}{Struktura programu}
+
+Program se skládá z \emph{modulù}:
+\begin{pitemize}
+        \item Pøekládány samostatnì kompilátorem 
+        \item Spojovány linkerem
+\end{pitemize}
+Modul z pohledu programátora
+\begin{pitemize}
+        \item Soubor s pøíponou .cpp (.c)
+\end{pitemize}
+Hlavièkové soubory
+\begin{pitemize}
+        \item Soubory s pøíponou .h
+        \item Deklarují (a nìkdy i definují) identifikátory pouívané ve více modulech
+        \item Vkládány do modulù direktivou include
+        \begin{pitemize}
+                \item Direktivu zpracovává preprocesor èistì textovì
+                \item Preprocesor je integrován v kompilátoru jako první fáze pøekladu
+        \end{pitemize}
+\end{pitemize}
+Modul z pohledu kompilátoru
+\begin{pitemize}
+        \item Samostatná jednotka pøekladu
+        \item Vısledek práce preprocesoru
+\end{pitemize}
+\end{obecne}
+
+
+\begin{obecne}{Oddìlenı pøeklad}
+
+\par\begin{center}\includegraphics[width=10cm]{informatika/programovanie/obrazky/oddelenypreklad01.png}
+\end{center}
+\par\begin{center}\includegraphics[width=10cm]{informatika/programovanie/obrazky/oddelenypreklad02.png}\end{center}
+Smysl oddìleného pøekladu modulù je urychlení celkového pøekladu -- nepøekládat to, co se od minula nezmìnilo. Oddìlenı pøeklad dnes díky automatizaci makefily (viz níe) a integrovanımi prostøedími není témìø pro programátora vidìt.
+
+...na tomto slide je vhodné si ujasnit, jak funguje statické a dynamické
+linkování (jak a kde a kdy se opravují adresy objektù atd...):
+\begin{pitemize}
+    \item \emph{Statické linkování} \\ Po oddìleném pøekladu jednotlivé object moduly ještì neobsahují pøímo adresy všech funkcí a externích identifikátorù, jen odkazy na nì. Linker se postará o jejich spojení dohromady. Je nutné, aby jména byla unikátní, take u pøetíenıch a virtuálních funkcí, jako je v C++, musí bı jména zpotvoøena tak, aby ukazovala i tøídu, namespace, parametry a jejich typy. To má na starosti compiler a øíká se tomu \emph{name mangling}.
+    \item \emph{Dynamické linkování} \\ Nastává po volání operaèního systému -- zavedení dynamické knihovny do pamìti. Jsou dvì monosti jeho provedení, první je právì pøi zavádìní knihovny, kdy se odkazy na všechny funkce (a mezi nimi navzájem) naplní správnımi hodnotami (podle bázové adresy, na kterou se knihovna do pamìti nahraje). Druhá monost je pouití dvou pointerù pøi volání funkcí z knihovny -- to se vytvoøí tabulka skuteènıch adres, na kterou se z knihovny ukazuje. První monost trvá déle pøi zavádìní knihovny, druhá je zase pomalejší pøi provádìní, ale umoòuje kód knihovny beze zmìn sdílet více procesy.
+\end{pitemize}
+
+
+\par\begin{center}\includegraphics[width=10cm]{informatika/programovanie/obrazky/oddelenypreklad03.png}\end{center}
+
+\emph{Linker} je program, kterı prijímá jeden alebo více objektù generovanıch kompilátorem a sloí je v jeden spustitelnı program.
+
+Objektovı kód, nebo objektovı soubor je reprezentace kódu, kterı kompilátor nebo assembler vytvoøí zpracováním zdrojového kódu. Objektové soubory obsahují kompaktní kód, èasto nazıvanı \uv{binárky} :-) Linker se typicky pouívá na vytvoøení spustitelnıho souboru nebo knihovny spojením (slinkováním) objektovıch souborù. Základní èastí objektového souboru je strojovı kód (kód pøimo vykonávanı CPU poèítaèe).
+\end{obecne}
+\begin{obecne}{Makefile}
+
+Smyslem programu \emph{make} je øízení pøekladu a linkování. Popis závislostí jednotlivıch modulù a hlavièkovıch souborù je definován v 1 textovém souboru -- \emph{Makefile} (tj. které soubory je nutné mít aktuální/vytvoøené pro pøeklad kterého souboru). Make vdy po zmìnì souboru pøeloí jen to, co na nìm závisí.
+Formát souboru make:
+\begin{verbatim}
+targets: files; 
+        commands; #comment; line-begin\
+        line contd.;
+\end{verbatim}
+Targets -- cíle èinností / cílové soubory, mono definovat vic, pøi spuštìní make bez parametrù se bere první; univ. nástroj (nejen pro pøeklad C/C++). Lze definovat i vlastní makra (pøíkazem \texttt{<název makra> = <string>}) a pak je pouívat (\texttt{\$\{makro\}}).
+\end{obecne}

@@ -1,0 +1,140 @@
+\subsection{Principy virtuální pamìti, stránkování, algoritmy pro výmìnu stránek, výpadek stránky, stránkovací tabulky, segmentace}
+\begin{wrapfigure}{r}{0}
+  \begin{center}
+    \includegraphics[width=2.7cm]{informatika/operacne_systemy_a_hw/obrazky/virtual-memory.png}  \end{center}
+\end{wrapfigure}
+ 
+\subsubsection*{Virtuální pamì}
+Virtuální pamì zpùsob správy operaèní pamìti poèítaèe, který umožòuje pøedložit bìžícímu procesu adresní prostor pamìti, který je uspoøádán jinak nebo je dokonce vìtší, než je fyzicky pøipojená operaèní pamì RAM. Z tohoto dùvodu procesor rozlišuje mezi virtuálními adresami (pracují s nimi strojové instrukce, resp. bìžící proces) a fyzickými adresami pamìti (odkazují na konkrétní adresové buòky pamìti RAM). Pøevod mezi virtuální a fyzickou adresou je zajišován samotným procesorem v MMU (je nutná hardwarová podpora) nebo samostatným obvodem.\footnote{šlo
+by to bez HW podpory? Jistì že ano VM to tak dìlají, nicménì rychlost není
+nijak osòující, proto se do novych strojù už pøidává jejich HW podpora (neplácám?!).}
+
+\begin{itemize}
+        \item Umožòuje sdílení pamìti (operaèním systémem)
+        \item Vzájemná ochrana programù (v souèasnosti je dùležitìjší ochrana dat než využití
+principu lokalit), tzn. to aby jeden program nepøepisoval druhému programu jeho
+data a tak.
+        \item Každý bìžící program pracuje se \textbf{svým} virtuálním adresním prostorem
+\end{itemize}
+\\
+Existují dvì základní metody implementace virtuální pamìti – stránkování a segmentace.
+
+\subsubsection*{Stránkování}
+Pøi stránkování je pamì rozdìlena na vìtší úseky stejné velikosti, které se nazývají stránky. Správa virtuální pamìti rozhoduje samostatnì o tom, která pamìová stránka bude zavedena do vnitøní pamìti a která bude odložena do odkládacího prostoru (swapu).
+\\\\
+Podporované všemi velkými CPU a OS, jednorozmìrný VAP (virtuální adresní
+prostor).\begin{pitemize}
+\item VAP rozdìlen na stránky (velikost je mocnina 2), FAP na rámce (úseky stejné délky)
+\item \textbf{pøevod stránkovací tabulkou}  - každý proces má svojí, pøíznak existence mapování (v.stránka není v FAP \rightarrow$ událost "výpadek stránky" \rightarrow$ synchronní pøerušení) umístìna v fyzické pamìti
+\par \begin{center}\includegraphics[width=5cm]{informatika/operacne_systemy_a_hw/obrazky/strankovani1_new.png}\end{center}
+\item umožnuje \emph{oddìlené VAP} i \emph{sdílenou pamì} - mapování virtuální stránky 2 procesù na jednu fyzickou
+\item OS mìní tabulky stránek zmìnou PTBR (Page Table Base Register) - PTBR obsahuje
+bázovou adresu tabulky stránek procesu
+\item Pøíklad: položka stránkovací tabulky Intel IA32 (= x86) $\rightarrow$ její struktura je závislá na architektuøe CPU
+\par \begin{center} \includegraphics[width=6cm]{informatika/operacne_systemy_a_hw/obrazky/strankovani-polozka.png} \end{center}
+\item \textbf{víceúrovòové stránkování} (napø. kvùli velikosti - jedna tabulka
+je už moc velká =\textgreater pomalá)
+\par \begin{center} \includegraphics[width=6cm]{informatika/operacne_systemy_a_hw/obrazky/strankovani2_new.png} \end{center}
+\item \textbf{TLB (Translation Lookaside Buffer)} - asociativní pamì sloužící na rychlé  mapování virtuální stránky na fyzickou, vyhledává se v ní paralelnì, typicky ma 128-256 položek, využívá princip prostorové lokality programù (vìtšina programù provádí velký poèet pøístupù k malému
+poètu stránek)
+umístìva vìtšinou v L1 nebo L2 cache na procesoru
+\par 
+\includegraphics[width=6cm]{informatika/operacne_systemy_a_hw/obrazky/strankovani-tlb-schema.png}
+\caption{~~~}
+\includegraphics[width=5cm]{informatika/operacne_systemy_a_hw/obrazky/strankovani-tlb.png}
+ 
+\par ...\textbf{0-úrovòové stránkování} - procesor hledá pouze TLB, zbytek
+øeší OS (oblíbené u 64-bitových CPU - UltraSPARC III)
+\item \textbf{inverzní stránkování} (napø. když FAP je menší než VAP, 64-bitové CPU - IA-64 = UtraSPARC, PowerPC)
+- inverzní stránkovací tabulka (IPT) nad rámci (nikoliv stránkami) spoleèná
+pro všechny procesy, pro vyhledávání se používá hashovací tabulka\par \begin{center} \includegraphics[width=10cm]{informatika/operacne_systemy_a_hw/obrazky/strankovani-inv_new.png} \end{center}
+\end{pitemize}
+
+\begin{obecne}{Akce vykonávané pøi výpadku stránky:}
+\begin{pitemize}
+\item výjimka procesoru
+\item uložit stav CPU (kontext)
+\item zjistit VA
+\item kontrola platnosti adresy a práv
+\item nalezení vhodného rámce
+\item zrušit mapování na nalezený rámec
+\item pokud je vyhazovaný rámec vyhazován, spustit ukládání na disk
+\item naèíst z disku požadovanou stránku do rámce
+\item zavést mapování
+\item obnovit kontext
+\end{pitemize}
+\end{obecne}
+
+\begin{obecne}{Pøi implementaci stránkování je nutno brat v úvahu:}
+\begin{pitemize}
+    \item \emph{znovuspuštìní instrukce} --- je potøeba aby procesor po výpadku zkusil pøístup do pamìti znova. dnes umí všechny CPU, napø. 68xxx - problémy (pøerušení v pùlce instrukce)
+    \item \emph{sdílení stránek} --- jednomu rámci odp. víc stránek $\rightarrow$ pokud s ním nìco dìlám, týká se to všech stránek! musím vše ost. odmapovat. musím si pamatovat mapování pro každý rámec - obrácené tabulky.
+\item \emph{velikost stránek} \begin{pitemize} \item velké stránky $\rightarrow$ fragmentace
+\item malé stránky $\rightarrow$ mnoho registrù, zvyšuje cenu výpoètù a zpomaluje
+chod
+\item optimum 1-4kB
+\end{pitemize}
+    \item \emph{odstranìní položky z TLB pøi rušení mapování} --- nestaèí zmìnit tabulky, musí se vyhodit i z TLB (kde to mùže, ale nemusí být). problém - u multiprocesorù má každá CPU vlastní TLB, tabulky jsou sdílené $\rightarrow$ CPU pøi rušení mapování musí poslat interrupt s rozkazem ke smazání všem (i sobì), poèkat na potvrzení akce od všech.
+\end{pitemize}
+\end{obecne}
+\begin{prikladN}{
+Uvažujte procesor, který podporuje stránkovani, má dvouúrovnove stránkovaci tabulky, velikost virtuální i fyzické adresy 32 bitu, velikost stránky 4 kB. Nakreslete formát strankovací tabulky (položky potøebné pro pøeklad adresy i typické další pøíznakové bity,
+nezadané detaily rozumne zvolte) a v nem ilustrujte, jak se prelozi virtuálni adresa 12345678h
+(nezadané konstanty tvoricí konkrétní obsah tabulky opet rozumne zvolte).}
+Pozn.: h nakonci znamená že je èíslo v hex (assembler)
+\end{prikladN}
+
+\subsubsection*{Algoritmy pro výmìnu stránek (výbìr obìti)}
+\begin{pitemize}
+\item \textbf{Optimální stránka} (v okamžiku výpadku stránky vybírám stránku, na níž se pøistoupí za nejvìtší poèet instrukcí) - nelze implementovat
+\item \textbf{\uline{NRU}} (Not Recently Used) - každá stránka má pøíznaky Accessed a Dirty (typicky implementovatelné v HW, možno simulovat SW); jednou za èas se smažou všechna A; pøi výpadku rozdìlím stránky podle A,D a vyberu stránku z nejnižší (0,1..4) neprázdné tøídy:
+\par \begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+& A & D \\
+\hline
+0 & 0 & 0 \\
+\hline
+1 & 0 & 1 \\
+\hline
+2 & 1 & 0 \\
+\hline
+3 & 1 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+\item \textbf{\uline{FIFO}} - vyhodit nejdéle namapovanou stránku - vykazuje anomálie - Belady (zvìtšení poètu výpadkù stránky, když zvýšíme poèet stránek v pamìti), druhá šance (úprava FIFO; pokud A=1, zaøadím na konec FIFO... nevykazuje anomálie)
+\item \textbf{Hodiny} - modifikace druhé šance: kruhový zoznam stránek + iterátor na ukazující na nejstarší stránku v zoznamu. Pøi výpadku (a neexistenci volého rámce) se zjistí, jestli má *iterator nastavený pøíznak Accessed. Jestli ne, tato stránka bude nahrazena - v opaèném pøípadì se Accessed pøíznak zruší a iterator++. Toto se opakuje, dokud nedojde k výmìnì\dots
+\item \textbf{LRU} (Least Recently Used) - èasto používané stránky v posledním krátkém èasovém úšeku budou znovu použity, èítaè použití stránek, možné implementovat v HW
+\item \textbf{NFU} (Not Frequently Used) - SW simulace LRU, SW èítaè ke každé stránce; jednou za èas projdu všechna A a pøiètu je k odpovídajícím èítaèùm; vybírám stránku s nejnižším èítaèem; nezapomíná - je možná modifikace se stárnutím èítaèe
+\end{pitemize}
+
+\subsubsection*{Segmentace}
+dnes pouze Intel IA-32, dvojrozmìrný VAP
+\begin{pitemize}
+\item rozdìlení programu na segmenty (napr. podle èástí s rùznými vlastnostmi - kód, data, zásobníky\dots), rùzné délky segmentù, ktoré mùžou mìnit svoji délku za bìhu
+\item VAP dvourozmìrný (segment, offset), FAP jednorozmìrný (vyzerá jako pøi spojitém pridìlování pamìti)
+\item segmentová pøevodní tabulka (VA se skládá ze dvou èastí S:D, v tabulce se najde adresa segmentu S\dots k této adrese se poté pøiète D, co je umístnìní adresy v FA), pøíznak existence mapování
+\item pøi výpadku je nutné mìnit celý segment (ty mohou být velké), je možné segmenty sesypat - ale nelze mít segment vìtší než FAP
+\end{pitemize}
+
+Segmentaci je možné kombinovat se stránkováním (odstraòuje nevýhody segmentace, neprovádí se výpadky segmentù):
+\par \begin{center}\includegraphics[width=12cm]{informatika/operacne_systemy_a_hw/obrazky/segmentace-a-strankovani.png}\end{center}
+
+\begin{reportN}{Bednárek}
+Tøeba mì pøekvapila Bednákova otázka u jednoúrovòovýho stránkování, když se zeptal, co z toho dìlá OS a co procesor (jako co je dìláno hardwareovì a co softwareovì).
+\end{reportN}
+\begin{reportN}{Bulej}
+Strankovaci tabulku ma kazdy proces vlastni -> ochrana pameti, nemuze pristoupit na cizi stranky (mozna ze to v materialech ke statnicim je, ale ja to z nich nepochopil...)
+\end{reportN}
+\begin{reportN}{Skopal}
+Nejdriv jsem popsal k cemu to je a potom princip. Chtel popsat postup toho co se deje, kdyz se hleda nejaky pointer. Co dela HW, co OS. Pak se zeptal jestli by slo udelat strankovani bez HW podpory (coz rozumne nejde, muselo by se to resit i v prekladacich a bylo by to nefektivni). Pak se zeptal na algoritmy vyhazovani stranek. Popsal jsem FIFO a NRU a to mu stacilo. Na segmentaci nastesti nedoslo.
+Celkove velmi prijemne zkouseni. V zasade se spokojil s principy a nestoural moc do detailu.
+\end{reportN}
+\begin{reportN}{Kofron}
+klasika, preèo, kde, ako ... preèo to funguje, èo sa robí pri výpadku stránky, preèo dve inštancie jedného programu nelezú do kapusty aj keï pracujú s rovnakými virtuálnymi adresami (každý má vlastnú str. tabu¾ku), tvar adresy, prevody...
+
+
+každý proces má vlastní tabulku, její adresa v registru
+\end{reportN}
+

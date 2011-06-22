@@ -1,0 +1,38 @@
+\subsection{Uzávìrové vlastnosti tøíd jazykù}
+TODO: nejaka zduvodneni
+\begin{figure}[!ht]
+  \begin{center}
+    \includegraphics[scale=1.7]{informatika/teoreticka_informatika/obrazky/jazuzaver.png}
+  \end{center}
+\end{figure}
+
+\begin{poznamkaN}{DBKJ nejsou uzavøené na homomorfismus (BKJ ano)!}
+$L_1 = \{a^ib^jc^k | i=j\}$ je DBKJ
+\\
+$L_2 = \{a^ib^jc^k | j=k\}$ je DBKJ
+\\
+$0L_1 \cup 1L_2$ je DBKJ, $1L_1 \cup 1L_2$ není DBKJ
+\\
+položme $h(0) = 1$ a $h(x) = x$ pro ostatní symboly
+\\
+$h(0L_1 \cup 1L_2) = 1L_1 \cup 1L_2$
+\end{poznamkaN}
+
+\begin{poznamkaN}{BKJ nejsou uzavøené na prùnik (DBKJ ano)}
+• $L_1=\{a^ib^ic^j|i,j\geq0\}$\\
+• $L_2=\{a^ib^jc^j|i,j\geq0\}$\\
+TODO
+\end{poznamkaN}
+
+\begin{poznamkaN}{Doplnìk deterministického BKJ je opìt deterministický BKJ!}
+prohodíme koncové a nekoncové stavy\\
+potíže:\\
+• nemusí pøeèíst celé vstupní slovo\\
+– krok není definován (napø. vyprázdnìní zásobníku)\\
+snadno ošetøíme „podložkou“ na zásobníku\\
+– cyklus (zásobník roste, zásobník pulsuje)\\
+odhalíme pomocí èítaèe\\
+• po pøeètení slova prochází koncové a nekoncové stavy\\
+staèí si pamatovat, zda prošel koncovým stavem
+\end{poznamkaN}
+

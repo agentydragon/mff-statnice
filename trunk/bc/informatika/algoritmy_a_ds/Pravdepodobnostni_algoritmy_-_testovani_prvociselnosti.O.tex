@@ -1,0 +1,62 @@
+\subsection{Pravdìpodobostní algoritmy -- testování prvoèíselnosti}
+
+Pravdìpodobnostní (náhodnostní) algoritmy jsou nedeterministické algoritmy, které se snaží najít øešení rychleji nebo øešení tìžko øešitelných problémù, èasto tzv. NP-úplných problémù. Pravdìpodobnostní algoritmus se mùže náhodnì rozhodovat mezi rùznými možnostmi jak pokraèovat. Pro stejný vstup mùže dávat takový algoritmus rùzné výsledky, které mohou být dokonce nesprávné. Mnohdy se tedy na daném vstupu spustí pravdìpodobnostní algoritmus vícekrát, aby se s vìtší pravdìpodobností dospìlo ke správnému výsledku.
+[edit] Motivation
+
+As a motivating example, consider the problem of finding an ' a ' in an array of n elements.
+
+Input: An array of n elements, in which half are ' a 's and the other half are ' b 's.
+
+Output: Find an ' a ' in the array.
+
+We give two versions of the algorithm, one Las Vegas algorithm and one Monte Carlo algorithm.
+
+Las Vegas algorithm:
+
+<source lang="pascal"> findingA_LV(array A, n) begin
+
+   repeat
+       Randomly select one element out of n elements.
+   until 'a' is found
+
+end </source>
+
+This algorithm succeeds with probability 1, but the running time is random and its expectation is upper-bounded by Failed to parse (Missing texvc executable; please see math/README to configure.): O(1) .
+
+Monte Carlo algorithm: <source lang="pascal"> findingA_MC(array A, n) begin
+
+   i=1
+   repeat
+       Randomly select one element out of n elements.
+       i = i + 1
+   until i=k
+
+end </source> If an ' a ' is found, the algorithm succeeds, else the algorithm fails. After k times execution, the probability of finding an ' a ' is:
+
+Failed to parse (Missing texvc executable; please see math/README to configure.): Pr[find\_'a']=1-(1/2)^k
+
+This algorithm does not guarantee success, but the run time is fixed. The selection is executed exactly k times, therefore the runtime is Failed to parse (Missing texvc executable; please see math/README to configure.): O(k) .
+
+Randomized algorithms are particularly useful when faced with a malicious "adversary" or attacker who deliberately tries to feed a bad input to the algorithm (see worst-case complexity and competitive analysis (online algorithm)) such as in the Prisoner's dilemma. It is for this reason that randomness is ubiquitous in cryptography. In cryptographic applications, pseudo-random numbers cannot be used, since the adversary can predict them, making the algorithm effectively deterministic. Therefore either a source of truly random numbers or a cryptographically secure pseudo-random number generator is required. Another area in which randomness is inherent is quantum computing.
+
+In the example above, the Las Vegas algorithm always outputs the correct answer, but its running time is a random variable. The Monte Carlo algorithm(related to the Monte Carlo method for simulation) completes in a fixed amount of time (as a function of the input size), but allow a small probability of error. Observe that any Las Vegas algorithm can be converted into a Monte Carlo algorithm (via Markov's inequality), by having it output an arbitrary, possibly incorrect answer if it fails to complete within a specified time. Conversely, if an efficient verification procedure exists to check whether an answer is correct, then a Monte Carlo algorithm can be converted into a Las Vegas algorithm by running the Monte Carlo algorithm repeatedly till a correct answer is obtained.
+
+
+[edit] Varianty pravdìpodobnostních algoritmù
+
+    * Výpoèetní strom je binární, v každém uzlu se provede hod mincí.
+    * V každém výpoèetním uzlu je definováno pravdìpodobnostní rozložení na hranách.
+    * Na zaèátku se vybere náhodnì deterministický algoritmus, který provede výpoèet. 
+
+Všechny tøi varianty jsou ekvivalentní.
+[edit] Poznámky
+
+Pravdìpodobnostní algoritmy jsou vìtšinou jednoduché, avšak analýza jejich èasové složitosti je èasto nároèná.
+
+http://en.wikipedia.org/wiki/Randomized_algorithm
+[edit] prvoèístelnost
+
+    * http://cs.wikipedia.org/wiki/Miller%C5%AFv-Rabin%C5%AFv_test_prvo%C4%8D%C3%ADselnosti
+    * http://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test
+    * http://en.wikipedia.org/wiki/Composite_number
+    * http://en.wikipedia.org/wiki/Witness_%28mathematics%29 

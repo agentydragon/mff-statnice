@@ -1,0 +1,85 @@
+\subsection{Procesy, vlákna, plánování}
+
+\subsubsection*{Procesy a vlákna}
+Systémové volání je interface mezi OS (kernelspace) a uívatelskımi programy (userspace).
+
+\begin{definiceN}{Proces}
+  \emph{Proces} je inštancia vykonávaného programu. Kım program je len súbor
+  inštrukcií, proces je vlastnı \uv{vıkon} tıchto inštrukcií. Proces má vlastnı adresnı priestor (pamä), prostriedky, child procesy, globání promìnné, otevøené soubory, práva a napr. aj ID (Process ID).
+\end{definiceN}
+
+Poèas ivota sa môe proces nachádza v rôznych stavoch:
+\begin{pitemize}
+  \item \emph{beiaci}~-- jeden proces na procesor,
+  \item \emph{blokovanı}~-- pri pouití blokujúceho volania~-- I/O disku atï.,
+  \item \emph{pripravenı}~-- skonèilo blokovanie; spotreboval všetok pridelenı èas resp. vrátil riadenie systému, èaká na nové pridelenie procesora,
+  \item \emph{zombie}~-- po ukonèení procesu, keï u nepracuje~-- ale ešte nebol vymazanı.
+\end{pitemize}
+
+\begin{definiceN}{Vlákno (Thread)}
+  \emph{Vlákno} je monos pre program ako sa \uv{rozdeli} na dva alebo viac
+  zároveò (resp. pseudo-zároveò) vykonávanıch úloh. Oproti procesu mu nie je
+  pridelená vlastná pamä~-- je to len miesto vykonávania inštrukcií v programe.
+  Oproti procesu sú jeho \uv{atribútmi} len \textbf{hodnota programového èítaèa, stav
+  registrov CPU a zásobník}.
+\end{definiceN}
+Implementace:
+\begin{pitemize}
+        \item \textbf{User Level Threads}(1.diagram) - thread management dìlá aplikace (nemusí bıt podporovány OS), kadı proces ma thread table, kdy systém zablokuje proces zablokují se i všechny jeho thready
+        \item \textbf{Kernel Threads}(2.diagram) - thread management dìlá OS (musí podporovat), thread table je globální, systém blokuje pouze jednotlivé thready
+  \begin{center}
+  \begin{center}
+    \includegraphics[height=6cm]{informatika/operacne_systemy_a_hw/obrazky/user-threads.png}
+    \includegraphics[height=6cm]{informatika/operacne_systemy_a_hw/obrazky/kernel-threads.png}
+  \end{center}  
+  \end{center}
+\end{pitemize}
+\emph{Multithreading} - schopnost systému efektivnì pouívat více threadù, modely:
+\begin{pitemize}
+        \item \textbf{many-to-one} - mnoho user-level threadù je namapováno na jeden kernel thread, pouívá se na systémech nepodporujících kernel thready (napø. Linux - pthreads)
+        \item \textbf{one-to-one} - kadı user-level thread je namapován na jeden kernel thread (napø. win2000, Linux - NGPT)
+\end{pitemize}
+
+\subsubsection*{Plánovanie}
+
+Pride¾ovanie procesorového èasu jednotlivım procesom má na starosti \emph{plánovaè}. Plánovanie pritom môe by preemptívne (plnì v reii OS) alebo nepreemptívne (vyaduje spolupráci s programem, kooperatívne~-- alla Win16).
+
+\begin{obecne}{Ciele plánovania (niektoré z nich sú oèividne protichodné):}
+\begin{pitemize}
+        \item Spravodlivos (kady procesor dostane adekvátnu èas èasu CPU)
+        \item Efektívnos (plne vyaenı procesor)
+        \item Minimálna doba odpovede
+        \item Prùchodnost (maximálny poèet spracovanıch procesov)
+        \item Minimálna réia systému
+\end{pitemize}
+\end{obecne}
+
+\begin{obecne}{Kritériá plánovania:}
+\begin{pitemize}
+        \item Viazanos procesu na dané CPU a I/O (presun procesu na inı procesor zaberie ve¾a prostriedkov)
+        \item Proces je dávkovy/interaktívny?
+        \item Priorita procesu (statická (nemenná~-- okrem \uv{renice}) + dynamická, ktorá sa mení v èase kvôli spravodlivosti)
+        \item Ako èasto proces generuje vıpadky stránok (nejakı popis???)
+        \item Kolik skutoèného èasu CPU proces obdrel
+\end{pitemize}
+\end{obecne}
+
+\begin{obecne}{Algoritmy:}
+\begin{pitemize}
+        \item \textbf{First Come First Served (FCFS)}: nepreemptívny, procesy plánovány v poøadí, v jakém pøicházejí, procesy bìí dokud neskonèí
+
+        \item \textbf{Round Robin}: preemptívne rozšírenie FCFS, kadı proces má stejné povolené èasové kvantum na bìh, po jeho uplynutí je proces pøesunut na konec fronty
+
+        \item \textbf{Plánovanie s viacerımi frontami}: nieko¾ko front, procesu z $i$-tej fronty je pridelenı procesor a keï vo frontách $1, \dots, i-1$ nie je pripravenı ziadny proces. Ak proces skonèil I/O operáciou, je blokovanı a presunutı do fronty $i-1$, ak skonèil preempciou, je pripravenı a presunutı do fronty $i+1$.
+
+        \item \textbf{Symmetric multiprocessing (SMP)}: druh víceprocesorovıch systémù, u kterıch jsou všechny procesory v poèítaèi rovnocenné,  fronta CPU èakajúcich na pripravené procesy (aktívne (spotrebováva energiu) vs. pasívne èakanie (špeciálne inštrukcie)), \uv{vzah}/afinita procesov k CPU
+
+        \item TODO: Plánovanie windows vs. linux???
+\end{pitemize}
+\end{obecne}
+
+\begin{reportN}{Zavoral}
+zhruba to co je vo vypiskach, diskusia dalej pokracovala o rozdieloch medzi vlaknami a procesmi - napr ako su implementovane vlakna v OS ktory ich nepodporuje (snazil som sa to nejak ukazat na JVM, ale podrobnosti som velmi nevedel, takze to bolo dost napovedy pana Zavorala a par slov odo mna :? ).
+
+nìkdo jiny: som letel na Vlaknach (nevedel som ze su reprezentovane hodnotou registrov, prog. citaca a zasobnikom)
+\end{reportN}

@@ -1,0 +1,65 @@
+
+\subsubsection*{DES (Data Encryption Standard) - už se asi nezkouší}
+\begin{pitemize}
+\item považována za nespolehlivou šifru, hrubou silou lze prolomit do 24h
+\item bloková šifra (vstup plaintext - 64bitù, výstup ciphertext 64bitù)
+\item symetrický klíè (stejný pro šifrování i dešifrování) -- strany si ho musí vymìnit po bezpeèném kanále
+\item klíè -- 64bitù, z nich se používá ale pouze 56bitù (zbytek se zahodí nebo funguje jako kontrola parity)
+\item pùvodnì implementována hardwarem
+\item stejný algoritmus (i hardware) použitý jak pro šifrování, tak pro dešifrování
+\end{pitemize}
+
+\begin{figure}[ht]
+  \begin{center}
+    \includegraphics[width=5cm, angle=90]{informatika/siete_a_bezpecnost/obrazky/des-main-network.png}
+    \caption{Schéma hlavní sítì algoritmu DES}
+  \end{center}
+\end{figure}
+
+\begin{obecne}{Šifrování:}
+\begin{pitemize}
+        \item vstup projde iniciální permutací (IP:64b $\rightarrow$ 64b), na konci probíhá inverzní finální permutace (FP), následuje 16 identických kol šifrování:
+        \item blok 64 bitù se rozdìlí na dvì pùlky po 32bitech, 
+        \begin{pitemize}
+                \item pravá pùlka slouží jako vstup pro funkci F a také je v dalším kole použita jako levá èást
+                \item levá pùlka se xoruje s výstupem funkce F a výsledek je použit v dalším kole jako pravá èást
+        \end{pitemize}
+        \item celý cyklus se provede 16x a v závìru se ještì aplikuje finální permutace
+\end{pitemize}
+\end{obecne}
+
+\begin{figure}[ht]
+  \begin{center}
+    \includegraphics[width=6cm]{informatika/siete_a_bezpecnost/obrazky/des-f-function.png}
+    \caption{Funkce \emph{F} v algoritmu DES}
+  \end{center}
+\end{figure}
+
+\begin{obecne}{Funkce F:}
+\begin{pitemize}
+        \item ve funkci F probíhá míchání s klíèem. V každém kole vstupuje do funkce F 32bitù z \uv{pravé pùlky} a 48bitový subklíè (odvozen z 56bitového klíèe, detaily pozdìji).
+        \item 32bitù z pravé pùlky je nejprve expandováno na 48 bitù (fixní expanzní permutací, na obrázku oznaèena E), potom xorováno se subklíèem. 
+        \item Výsledek xorování se rozdìlí na 8 blokù po 6bitech. Každý blok je pak vstupem jedné z osmi S funkcí. Každá S funkce pøevádí 6 bitù na 4 bity (nelineární transformací, \uv{zadrátované}).
+        \item Výstupy S funkcí se opìt spojí do jednoho bloku (8x4 = 32bitù) -- to je výsledek celé funkce F.
+\end{pitemize}
+\end{obecne}
+
+\begin{obecne}{Dešifrování:} 
+Díky prohazování polovièek v jednotlivých kolech lze dešifrování provádìt stejnou funkcí (na stejném hardwaru), jako šifrování. Pouze je potøeba používat subklíèe v opaèném poøadí.
+\end{obecne}
+
+\begin{figure}[ht]
+  \begin{center}
+    \includegraphics[width=6cm]{informatika/siete_a_bezpecnost/obrazky/des-key-schedule.png}
+    \caption{Subklíèe v algoritmu DES}
+  \end{center}
+\end{figure}
+
+\begin{obecne}{Subklíèe:}
+\begin{pitemize}
+        \item protože je klíè pùvodnì 64bitový, ale ve skuteènosti se používá pouze 56bitù (ostatní se zahazují, nebo slouží pro kontrolu parity), nejprve je vybráno tìchto 56bitù funkcí PC1 (Permuted Choice 1) 
+        \item Dále se vždy pro každé kolo 56 bitù rozdìlí na dvì pùlky po 28bitech. Každá z tìchto pùlek se bitovì posune doleva (o jeden nebo dva bity, to je pevnì urèeno pro každé kolo). Takto posunuté pùlky se vloží jako vstup funkce PC2, která vygeneruje 48bitový subklíè. Obì pùlky také slouží jako vstup pro další kolo. 
+        \item Algoritmus zaruèuje, že každý bit z pùvodního 56bitového klíèe je použit asi ve 14-ti ze 16-ti subklíèù. 
+        \item Pro dešifrování se klíèe musí generovat v opaèném poøadí (místo doleva se posouvá doprava).
+\end{pitemize}
+\end{obecne}

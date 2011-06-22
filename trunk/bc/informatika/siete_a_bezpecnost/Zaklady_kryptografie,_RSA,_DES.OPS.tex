@@ -1,0 +1,121 @@
+\subsection{Základy kryptografie, RSA, DES}
+
+\subsubsection*{Základy kryptografie\footnote{sestaveno podle vrazedneho zkouseni Jaghobem}} 
+\begin{definiceN}{Kryptografický systém (!)}
+Prostor otevøených zpráv $M$, šifrovaných zpráv $C$, šifrovacích a dešifrovacích klíèù $K$ a $K'$. Efektivní generování klíèù
+                        $G:N\to K\times K'$, šifrování $E:M\times K\to C$, dešifrování $D:C\times K'\to M$.
+\begin{pitemize}
+  \item \textbf{Symetrické} (sdílený klíè $k_e = k_d$) rychlé, krátké klíèe, potreba menit klice a bezpecne si je vymenit
+  \item\textbf{Asymetrické} (veøejný klíè $k_e \neq k_d$) delsi klice a pomalejsi nez symetrické, neni potøeba tajná výmìna, neni potøeba tak èasto mìnit klíèe 
+\end{pitemize}                  
+\end{definiceN}
+
+\begin{definiceN}{Nahodné generátory}
+Používají se pro generování klíèù pro šifry (napø RSA) a v proudových šifrách.
+\begin{pitemize}
+  \item\textbf{HW} zaøízení èasto založená na jevech generujících statisticky náhodné "šumové" signály, napøíklad z tepelného šumu polovodièe.
+  \item\textbf{SW} jsou založeny na pozorování jevù v poèítaèi z hlediska programu náhodných, èasto z uživatelského vstupu (napø. PuTTYgen používá pro generování RSA klíèe pøejízdìní myší). 
+  \item\textbf{Pseudonáhodné} jsou deterministické programy generující posloupnost èísel pokud možno nerozlišitelnou od náhodné.
+        \begin{pitemize}
+                \item pø. kongruenèní generátor: $X_{n+1} = ( a X_n + c ) mod m$ 
+                \item používají se v proudových šifrách
+        \end{pitemize}  
+\end{pitemize} 
+\end{definiceN}
+
+\begin{definiceN}{Hashovaci funkce}
+Funkci $h:U\rightarrow\{0,1,\dots,m-1\}$ nazýváme \textbf{hašovací funkcí}.\footnote{viz otázku Hašování}
+\\\\
+\textbf{Požadavky:}
+\begin{pitemize}
+  \item Rovnomìrné a náhodné rozložení hodnot
+  \item Odolnost na kolize (výpoèetnì složité najít pro $x\neq x$ $h(x)=h(y)$) 
+  \item Jednosmìrná funkce (výpoèetnì složité najít $y$ k $x$ pro $h(x)=y$)     
+  \item Efektivní algoritmus
+\end{pitemize} 
+\textbf{Využití:}
+CRC (kontrolní souèet), ukládání hesel (MD5,SHA) ...      
+
+\end{definiceN}
+
+\begin{definiceN}{Model utocnika podle Doleva a Yao}
+\begin{pitemize}
+  \item Mùže získat libovolnou zprávu putující po síti
+  \item Je právoplatným uživatelem sítì a tudíž mùže zahájit komunikaci s jiným uživatelem
+  \item Mùže se stát pøíjemcem zpráv kohokoliv
+  \item Mùže zasílat zprávy komukoliv zosobnìním se za jiného uživatele
+  \item Neumi rozume resit NP-uplne problemy (ani slozitejsi)\footnote{tzn. i slabší: Nemùže odhadnout náhodné èíslo z dostateènì velkého prostoru}   
+  \item Bez správného klíèe nemùže nalézt zprávu k šifrované zprávì a nemùže vytvoøit platnou šifrovanou zprávu z dané zprávy, vše vzhledem k nìjakému šifrovacímu algoritmu 
+\end{pitemize}  
+\end{definiceN}
+
+\begin{definiceN}{Cile utoku}
+        \begin{description}
+                \item\textbf{dùvìrnost dat} uživatel mùže urèit kdo má data vidìt, a systém skuteènì dovolí pracovat s daty pouze povoleným uživatelùm
+                \item\textbf{celistvost dat} možnost podstrèení falešných dat
+                \item\textbf{dostupnost systému} \emph{DoS (Denial of Service)}
+        \end{description}
+\end{definiceN}
+
+\begin{priklad}
+Ukazku pouziti nejakeho sifrovaciho protokolu (zvolil jsem kombinace symetricka sifra sifrovani, asymetricka predani klicu k symetricke).
+\\\\TODO
+\end{priklad}
+\begin{definiceN}{protokol Diffie-Hellman}
+\begin{pitemize} 
+\item Diffie-Hellman výmena klícu je kryptografický protokol, který umožnuje navázat bezpecné spojení. Pro bezpecné spojení je potreba si vymenit klíc k symetrické šifre pres ješte nezabezpecený kanál. Práve tento protokol to umožnuje aniž by byl klíc jednoduše poslán v otevrené forme.
+\item Alice si vymyslí velké prvocíslo $p$, generátor $g$ koneèné grupy $G=(Z^*_p,\cdot)$
+a $a\in[1,p-1)$ vypocte A pošle Bobovi [g,p,A], Bob vypocte B a pošle ho Alici oba si vypocítají K $\Rightarrow$ muzou zacit symetricky sifrovanou komunikaci
+\end{pitemize}
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=10cm]{informatika/siete_a_bezpecnost/obrazky/dh-system.png}
+    \caption{D-H protokol}
+  \end{center}
+\end{figure}
+
+\begin{pitemize}
+\item Puvodne nezabezpecoval autentifikaci ucastniku = nachylny k utoku man-in-the-middle. Man-in-the-middle muze vytvorit komunikaci s dvema ruznymi Diffie-Hellman klici, jeden s Alici a druhej s Bobem, a pak se tvarit jako Alice k Bobovi a obracene, treba pomoci dekodovani a rekodovani zprav mezi nimi. Nejaka metoda autentifikace mezi temito osobami je nutna.
+\item Problému nalezení císla  a  ze znalosti ga  mod  p  se ríká problém diskrétního logaritmu.  Tento problém je stále považován za velmi obtížný. \end{pitemize} 
+
+\end{definiceN}
+
+\subsubsection*{RSA (Rivest-Shamir-Adleman)}
+Asymetrická šifra (rùzné klíèe pro šifrování a dešifrování), použitelná jako šifra s veøejným klíèem. Kryptoschéma je založeno na Eulerove formuli.
+\\\\
+Alice a Bob se verejne dohodnou na hranici $N$ a chtejí si vymenovat tajné zprávy $0 \leq m<N$.
+\textbf{Inicializace:}
+\begin{penumerate}
+        \item vybrat dvì dostateènì velká prvoèísla $p$, $q$ tak aby $n= p\cdot q < N$
+        \item Alice spoèítá $\varphi(n) = (p-1)\cdot (q-1)$\\ 
+        (Eulerova funkce $\varphi(n)$ je poèet èísel menších než $n$, která jsou s $n$ nesoudìlná)
+        \item vybrat $e$ takové, že $1 < e < \varphi(n)$ a $e$ je nesoudìlné s $\varphi(n)$\\ -- dvojice ($n,e$) bude \emph{veøejný klíè (public key)}
+        \item vybrat $d$ tak, aby 
+                $$d\cdot e \equiv 1 \mod \varphi(n)$$ 
+                takové $d$ lze najít rozšíøeným euklidovým algoritmem\\
+                -- dvojice ($n,d$) bude \emph{dešifrovací klíè (private key)}
+\end{penumerate}
+
+\textbf{Šifrování:}
+\begin{penumerate}
+        \item Alice posílá public key Bobovi (èísla $n$ a $e$), nechává si private key
+        \item Bob chce Alici poslat zprávu $m$ tak spoèítá :
+                $$c = m^e \mod n$$
+        \item Bob odešle $c$ Alici
+\end{penumerate}
+
+\textbf{Dešifrování:}
+\begin{penumerate}
+\item Alice pøijala $c$
+\item Spoèítá:
+        $$m = c^d \mod n$$
+\end{penumerate}
+
+Šifra (to, že to vùbec funguje, tedy, že $m = (m^e)^d$) se opírá o nìkolik netriviálních vìt algebry...
+\begin{pitemize}
+\item Pro reálné použití císla približne 100 až 200 bitu. Klíc e volíme jako prvocíslo vetší než $(p - 1)$ a $(q – 1)$. Hranice bezpecnosti pro modul n je $N$ = 1024 bitu, rozumné 1500 bitu, lépe 2048
+\item Není známa metoda vedoucí k rozbití tohoto algoritmu
+\item Slabostí je hypotetická možnost vytvorit elektronický podpis zprávy bez znalosti dešifrovacího klíce na základe zachycení vhodných predchozích zašifrovaných zpráv.
+\item napøíklad SSH protokol používá RSA klíèe
+\end{pitemize}

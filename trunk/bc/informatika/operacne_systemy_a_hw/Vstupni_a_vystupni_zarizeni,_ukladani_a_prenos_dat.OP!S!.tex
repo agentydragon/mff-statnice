@@ -1,0 +1,70 @@
+\subsection{Vstupní a vıstupní zaøízení}
+
+K I/O zaøízením je moné pøistupovat dvìma zpùsoby: pomocí \textbf{port}ù (speciální adresovı port CPU) nebo \textbf{pamìtovım mapováním} (namapování do fyzické pamìti).
+
+Zaøízení mají rùzné charakteristiky:
+\begin{pitemize}
+        \item \textbf{druh}~-- blokové (disk, síová karta), znakové (klávesnice, myš)
+        \item \textbf{pøístup}~-- sekvenèní (datová páska), náhodnı (hdd, cd)
+        \item \textbf{komunikace}~-- synchronní (pracuje s daty na ádost~-- disk), asynchronní (\uv{nevyádaná} data~-- síová karta)
+        \item \textbf{sdílení}~-- sdílené (preemptivní, lze odebrat~-- síová karta (po multiplexu OS)), vyhrazené (nepreemptivní~-- tiskárna, sdílení se realizuje pøes \emph{spooling} - frontou). Reálnì se rozdíly stírají.
+        \item \textbf{rychlost} (od nìkolika Bps po GBps)
+        \item \textbf{smìr dat}~-- R/W, R/O (CD-ROM), W/O (tiskárna) 
+\end{pitemize}
+
+Pøenos dat mezi zaøízením a CPU/pamìtí:
+\begin{pitemize}
+        \item \textbf{PIO (Programmed Input Output)}~-- data pøenášena za úèasti CPU (plnì zamìstnán), pak pøišlo DMA
+        \item \textbf{polling}~-- aktivní èekání na zmìnu zaøízení, pøenos provádí CPU
+        \item \textbf{pøerušení}~-- asynchronní pøerušení od zaøízení, pøenos provádí CPU,CPU uloí stav programu $\rightarrow$ stojí èas
+        \item \textbf{DMA (Direct Memory Access)}~-- zaøízení si samo øídí pøístup na sbìrnici a pøenáší data z/do pamìti; po skonèení pøenosu pøerušení (oznámení o dokonèení) napø, pøenos dat mezi HDD a RAM
+\end{pitemize}  
+\subsubsection*{Øadiè DMA}
+Obvod pro øízení pøenosù na sbìrnici
+\begin{pitemize}
+        \item generuje adresy pamìti a periferie, generuje øídící
+signály pro ètení/zápis
+        \item generuje signály pro procesor, aby zajistil, e procesor
+nepøistupuje (nezapisuje) na sbìrnici
+        \item øadiè sám se chová jako periferie
+        \item program nastavuje parametry pøenosu, tj. odkud se bude
+pøenášet, kam, a kolik (2 èítaèe, kanál DMA)
+        \item zaøízení pøipojena na kanál DMA, pøi pøenosu je cílové zaøízení
+aktivováno øadièem, nikoliv vystavením adresy   
+\end{pitemize}  
+
+Posloupnost událostí:
+\begin{pitemize}
+        \item program nastaví øadiè a periferii a povolí pøenos
+        \item aktivací signálu DREQx periferie poádá øadiè DMA o
+pøenos slova z/do pamìti
+        \item øadiè DMA zkontroluje nastavení kanálu vyhodnotí
+prioritu ádosti
+        \item aktivací signálu HOLD øadiè DMA poádá CPU o
+pøidìlení sbìrnice
+        \item pokud CPU nepotøebuje sbìrnici, odpojí se od sbìrnice
+a signalizuje HLDA
+  \subitem - CPU testuje HOLD na zaèátku strojového cyklu
+        \item po pøijetí HLDA øadiè pøipraví sbìrnici pro pøenos
+        \subitem - vystaví adresu v pamìti a øídící signály pro ètení/zápis z/do
+pamìti/periferie
+        \item øadiè DMA aktivuje signál DACKx, kterım vyzve periferii
+k vystavení/pøeètení dat na/ze sbìrnice
+        \item v závislosti na reimu buï pøenos konèí, nebo pokraèuje
+dalším slovem dokud je DREQx aktivní
+        \item pøi posledním slovì øadiè aktivuje signál EOP
+        \item pøi ukonèení pøenosu øadiè uvolní signál HOLD
+        \item procesor uvolní HLDA a pøipojí se ke sbìrnici
+\end{pitemize}  
+        
+Cíle I/O software:
+\begin{pitemize}
+        \item \textbf{Nezávislost zaøízení}~-- programy nemusí dopøedu vìdìt, s jakım pøesnì zaøízením budou pracovat~-- je jedno jestli pracuji se souborem na pevném disku, disketì nebo na CD-ROM
+        \item \textbf{Jednotné pojmenování} (na UNIXu /dev)
+        \item \textbf{Pøipojení (mount)}~-- èasté u vymìnitelnıch zaøízení (disketa); moné i u pevnıch zaøízení (disk); nutné pro správnou funkci cache OS
+        \item \textbf{Obsluha chyb}~-- v mnoha pøípadech oprava bez vìdomí uivatele (velmi èasto zpùsobeno právì uivatelem)
+\end{pitemize}
+
+\begin{reportN}{Bulej + Yaghob}
+zapisal som vyse strany, ale to co ma yaghob na slidoch a to co je vo vypracovanom ucebnom texte ich ani trochu nezaujimalo. zaujimal ich popis DMA a preruseni, pricom sa pytali ako to presne funguje - chceli popisat instrukcie ako to moze prebiehat, ako sa to presne implementuje apod., co som bohuzial vobec nevedel
+\end{reportN}
