@@ -2,6 +2,6 @@
   * ukladani: vybral jsem svn(google code) protoze s gitem neumi kazdej a nemame moc cas se snim ucit
 Zakladni metody vylepsovani otazek:
   * spoluprace (konzultace) u pedagogu (doporucuju: Krylova, Bulej, Yaghob, Skopal, Galamboš, Majerech, Mlynková)
-  * nejcastejsi otazky z fora => "reporty" kratke texty z fora pridane do otezek aby mel kazdej predstavu co po nas tak vetsinou chtej
-  * format TeX - doporucuju editor BaKomA TeX -format bohuzel pouze cp1250 (treba zde: http://torrentz.eu/search?f=BaKomA+TeX mam zkusenosti pouze s v7.85 )
+  * nejcastejsi otazky z fora => "reporty" kratke texty z fora pridane do otazek aby mel kazdej predstavu co po nas tak vetsinou chtej
+  * format TeX - doporucuju editor BaKomA TeX - kodovani bohuzel pouze cp1250 (treba zde: http://torrentz.eu/search?f=BaKomA+TeX mam zkusenosti pouze s v7.85 )
   * uceni pomoci prezentaci - naucite se nejake otazky, projedete forum zkorigujete s reportama, pripadne date nakou konzultaci a na dalsi schuzce to odprezentujete
