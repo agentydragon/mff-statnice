@@ -2,11 +2,11 @@
 
 = Kdo je Kdo =
   * Petr (Ja) - stara verze IOI
-  *   * koordinace pridam se ruzne k ruznym lidem
+    * koordinace pridam se ruzne k ruznym lidem
   * Vojtech - stara verze IOI
-  ** vzal by si logiku
+    * vzal by si logiku
   * Peter - nova verze IP
-  ** vzal by si Programovací jazyky a překladače alebo Architektura počítačů a operačních systémů
+    * vzal by si Programovací jazyky a překladače alebo Architektura počítačů a operačních systémů
   * Michal - stara verze
-  ** vzal by si Technologie XML, XML Schema, Vety o kompaktnosti a úplnosti výrokové a predikátové logiky.
+    * vzal by si Technologie XML, XML Schema, Vety o kompaktnosti a úplnosti výrokové a predikátové logiky.
   * Karel - stara verze
