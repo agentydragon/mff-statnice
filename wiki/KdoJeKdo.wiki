@@ -1,8 +1,0 @@
-#clenove.
-
-= Kdo je Kdo =
-  * Petr (Ja) - stara verze IOI
-  * Vojtech - stara verze IOI
-  * Peter - nova verze
-  * Michal - stara verze
-  * Karel - stara verze
