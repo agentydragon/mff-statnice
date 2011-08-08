@@ -2,7 +2,7 @@
 
 = Kdo je Kdo =
   * Petr (Ja) - stara verze IOI
-  ** koordinace pridam se ruzne k ruznym lidem
+  *   * koordinace pridam se ruzne k ruznym lidem
   * Vojtech - stara verze IOI
   ** vzal by si logiku
   * Peter - nova verze IP
