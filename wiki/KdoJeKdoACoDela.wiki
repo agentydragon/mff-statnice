@@ -1,5 +1,8 @@
 #clenove.
 
+mozna bych to presunul sem
+https://code.google.com/p/mff-statnice/people/list
+
 = Kdo je Kdo =
   * Petr (Ja) - stara verze IOI
     * koordinace pridam se ruzne k ruznym lidem
