@@ -7,6 +7,9 @@
     * vzal by si logiku
   * Peter - nova verze IP
     * vzal by si Programovací jazyky a překladače alebo Architektura počítačů a operačních systémů
-  * Michal - stara verze
-    * vzal by si Technologie XML, XML Schema, Vety o kompaktnosti a úplnosti výrokové a predikátové logiky.
+  * Michal - nova verze IOI
+    * Technologie XML, XML Schema
+    * uvod do logiky (pripadne mohu doplnit i ty dalsi jako Vety o kompaktnosti a úplnosti výrokové a predikátové logiky, ale klidne prenecham a vezmu neco jineho)
+    * metricke prostory
+    * uzaverove vlastnosti trid jazyku (automaty)
   * Karel - stara verze
