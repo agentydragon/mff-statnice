@@ -1,18 +1,4 @@
 #clenove.
 
-mozna bych to presunul sem
+presunuto sem
 https://code.google.com/p/mff-statnice/people/list
-
-= Kdo je Kdo =
-  * Petr (Ja) - stara verze IOI
-    * koordinace pridam se ruzne k ruznym lidem
-  * Vojtech - stara verze IOI
-    * vzal by si logiku
-  * Peter - nova verze IP
-    * vzal by si Programovací jazyky a překladače alebo Architektura počítačů a operačních systémů
-  * Michal - nova verze IOI
-    * Technologie XML, XML Schema
-    * uvod do logiky (pripadne mohu doplnit i ty dalsi jako Vety o kompaktnosti a úplnosti výrokové a predikátové logiky, ale klidne prenecham a vezmu neco jineho)
-    * metricke prostory
-    * uzaverove vlastnosti trid jazyku (automaty)
-  * Karel - stara verze
