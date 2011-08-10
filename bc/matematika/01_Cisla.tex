@@ -9,6 +9,9 @@
 \end{pozadavky}
 
 \subsection{Reálná èísla}
+Jedna možnost je definovat $\mathbb{R}$ axiomaticky.
+
+\begin{definice}
 Množinou všech reálných èísel (znaèíme ji $\mathbb{R}$) budeme rozumìt množinu, na níž je definováno sèítání (znaèíme $x+y$), násobení (znaèíme $x\cdot y$) a uspoøádání (znaèíme $x \le y$), která spòují tyto axiomy:
 
 \begin{penumerate}
@@ -44,12 +47,43 @@ Množinou všech reálných èísel (znaèíme ji $\mathbb{R}$) budeme rozumìt množinu, 
 			\item $\forall s' \in \mathbb{R}, s' < s\;\; \exists x \in M: x > s'$
 		\end{penumerate}
 		
-		Èíslo $s$ z axiomu suprema je jednoznaènì urèeno, znaèí se $\sup M$ a øíká se mu \emph{supremum množiny $M$}. Supremum množiny je její nejmenší horní závora (\emph{horní závora} je každý takový prvek, pro který platí bod (a) definice suprema). Nejvìtší dolní závoru množiny $M$ (pokud existuje -- a dá se dokázat, že existuje, je-li množina zdola omezená) nazýváme \emph{infimem množiny $M$} a znaèíme $\inf M$.
 		\end{definiceN}
 \end{penumerate}
 
+\end{definice}
+\begin{poznamka}
+Axiom supréma je dùležitý, odlišuje reálná èísla od racionálních.
+
+
+		Èíslo $s$ z axiomu suprema je jednoznaènì urèeno, znaèí se $\sup M$ a øíká se mu \emph{supremum množiny $M$}. Supremum množiny je její nejmenší horní závora (\emph{horní závora} je každý takový prvek, pro který platí bod (a) definice suprema). Nejvìtší dolní závoru množiny $M$ (pokud existuje --- a dá se dokázat, že existuje, je-li množina zdola omezená) nazýváme \emph{infimem množiny $M$} a znaèíme $\inf M$.
+\end{poznamka}
+
 \begin{poznamka}
 Relace \uv{$<$} na reálných èíslech (a stejnì tak na pøirozených a racionálních èíslech) se definuje takto: $a<b$, právì když $a\leq b$ a zároveò $a\neq b$.
+\end{poznamka}
+
+V tomto pøístupu, ve kterém budu v dalších kapitolách pokraèovat, jsme si axiomaticky vytvoøili $\mathbb{R}$; $\mathbb{N}$ a $\mathbb{Q}$ budu definovat v dalších kapitolách jako jejich podmnožiny. 
+
+$\mathbb{R}$ lze ale definovat i \uv{obrácenì}, pokud už máme definovanou množinu $\mathbb{Q}$ a na ní už máme zadefinovánu limitu a Cauchyovské posloupnosti. Lze dokázat, že tyto definice jsou ekvivalentní.
+
+\begin{definice}
+Nech $R$ je množina všech Cauchyovských posloupností ve $\mathbb{Q}$. Operace na této množinì definujeme následovnì:
+\begin{itemize}
+	\item $\left\{x_n\right\} + \left\{y_n\right\} = \left\{x_n + y_n\right\}$
+	\item $\left\{x_n\right\} \cdot \left\{y_n\right\} = \left\{x_n \cdot y_n\right\}$
+	\item $\left\{x_n\right\} \ge \left\{y_n\right\}$, právì když $\exists n_0\;\; \forall n>n_0: x_n\ge y_n$
+\end{itemize}
+Na $R$ definujme relaci ekvivalence jako $\left\{x_n\right\} \sim \left\{y_n\right\}  \Leftrightarrow \lim_{k\rightarrow \infty}\left|x_k-y_k\right|=0$ (je nutné ještì dokázat, že jde o ekvivalenci). Potom reálná èísla $\mathbb{R} = R / \sim$. 
+\end{definice}
+
+\begin{poznamka}
+Na takto definovaných reálných èíslech lze potom racionální èísla vzít jako tøídy ekvivalence konstantních posloupností ($x_0 = x_n = q \in \mathbb{Q}$), celá èísla potom jako tøídy ekvivalence posloupností, kde $x_0 = x_n = n \in \mathbb{N}$.
+\end{poznamka}
+
+\begin{poznamka}
+O co pøesnì jde lze dobøe ilustrovat na desetinných rozvojích daného reálného èísla: napø. pro èíslo $\pi$ mùže jít napø. o posloupnost $3$, $3,1$, $3,14$, $3,141$, $3,1415$\ldots, ale také napøíklad $3$, $3,14$, $3,1415$\ldots. Jde o rùzné posloupnosti, obì ale reprezentují stejné reálné èíslo $\pi$.
+
+Stejnì je napøíklad èíslo $0,\overline{9}$ rovno èíslu $1$ --- pokud vezmeme $\left\{x_n\right\}$ posloupnost $0,9$, $0,99$\ldots a $\left\{y_n\right\}$ konstantní rovnou 1, jdou rozdíly k nule, jsou tedy ve stejné tøídì ekvivalence, tedy jsou si rovny.
 \end{poznamka}
 
 \subsection{Pøirozená èísla}
@@ -58,11 +92,11 @@ Relace \uv{$<$} na reálných èíslech (a stejnì tak na pøirozených a racionálních 
 	Øekneme, že množina $S \subset \mathbb{R}$ je \emph{induktivní}, jestliže platí
 	\begin{pitemize}
 		\item $1 \in S$
-		\item $[x \in S \Rightarrow (x+1) \in S]$
+		\item $x \in S \Rightarrow (x+1) \in S$
 	\end{pitemize}
 	Množinu \emph{pøirozených èísel $\mathbb{N}$} definujeme jako prùnik všech induktivních podmnožin $\mathbb{R}$, tedy
 	$$
-		N := \bigcap \{ S; S \subset \mathbb{R}; \textit{S induktivní}\}
+		\mathbb{N} := \bigcap \{ S; S \subset \mathbb{R}; \textit{S induktivní}\}
 	$$
 \end{definice}
 
@@ -84,7 +118,10 @@ Relace \uv{$<$} na reálných èíslech (a stejnì tak na pøirozených a racionálních 
 	Pro každé $x \in \mathbb{R}$ existuje $n \in \mathbb{N}$ takové, že $x < n$
 \end{vetaN}
 
-\begin{vetaN}{Peanove axiómy pre zavedenie prirodzených èísel}
+Opìt mùžeme $\mathbb{N}$ zavést jinak, pøièemž tyto definice jsou ekvivalentní.
+
+\begin{definice}{Peanove axiómy pre zavedenie prirodzených èísel}
+Množina $\mathbb{N}$ je taková množina, pro kterou platí:
 \begin{pitemize}
 	\item Existuje èíslo 0 (to neznamená, že nula je prirodzené èíslo, v $\mathbb{N}$ roli tejto nuly hraje jednotka).
 	\item Na množine prirodzených èísel je definovaná unárna operácia \uv{nasledovník}, oznaèovaná S.
