@@ -182,15 +182,15 @@ Pokud je $b = 0$, je dotyèné èíslo reálnım èíslem, tj. reálná èísla tvoøí podmno
 
 \subsubsection{Aritmetika}
 Aritmetika je na $\mathbb{C}$ definována následovnì:
-\begin{pitemize}
+\begin{itemize}
 \item$(a + ib) + (c+ id) = (a+c) + i(b+d)$
 \item$(a + ib) - (c+ id) = (a-c) + i(b-d)$
 \item$(a + ib) \cdot (c+ id) = (ac-bd) + i(ad+bc)$
 
 \item$\frac{a+ib}{c+id}  = \frac{(a+ib)(c-id)}{(c+id)(c-id)} = \frac{(ac+bd) + i(bc-ad)}{c^2+d^2} = \left( \frac{ac+bd}{c^2+d^2} \right) + i \left( \frac{bc-ad}{c^2+d^2} \right)$
-\end{pitemize}
+\end{itemize}
 
-Pojmem \textbf{komplexnì sdruené èíslo} komplexního èísla $z = a + ib$ se nazıvá èíslo $\bar{z} = a - ib$
+Pojmem \textbf{komplexnì sdruené èíslo} komplexního èísla $z = a + ib$ se nazıvá èíslo: $$\bar{z} = a - ib$$
 
 \textbf{Absolutní hodnotou} komplexního èísla $z = a + bi$ se nazıvá:
 $$|z| = \sqrt{a^2 + b^2}$$
@@ -199,19 +199,21 @@ Komplexní èísla se zobrazují v \textbf{komplexní (Gaussovì) rovinì} jako body se
 
 Následující vlastnosti platí pro všechna komplexní èísla $z$ a $w$, není-li uvedeno jinak.
 
-$$\overline{z + w} = \overline{z} + \overline{w}$$
+\begin{itemize}
+\item$\overline{z + w} = \overline{z} + \overline{w}$
 
-$$\overline{zw} = \overline{z}\ \overline{w}$$
+\item$\overline{zw} = \overline{z}\ \overline{w}$
 
-$$\overline{\left({\frac{z}{w}}\right)} = \frac{\overline{z}}{\overline{w}}, \textit{pro w nenulové}$$
+\item$\overline{\left({\frac{z}{w}}\right)} = \frac{\overline{z}}{\overline{w}},$ pro $w$ nenulové
 
-$$\overline{z} = z, \textit{právì kdy je z reálné èíslo}$$
+\item $\overline{z} = z,$ právì kdy je $z$ reálné èíslo
 
-$$\left| \overline{z} \right| = \left| z \right|$$
+\item $\left| \overline{z} \right| = \left| z \right|$
 
-$${\left| z \right|}^2 = z\overline{z}$$
+\item ${\left| z \right|}^2 = z\overline{z}$
 
-$$z^{-1} = \frac{\overline{z}}{{\left| z \right|}^2}, \textit{pro z nenulové}$$
+\item $z^{-1} = \frac{\overline{z}}{{\left| z \right|}^2},$ pro $z$ nenulové
+\end{itemize}
 
 \begin{figure}
 \centering%
@@ -300,6 +302,15 @@ Ne kadá posloupnost je konvergentní. Napøíklad posloupnost 0,1,0,1,0,... nemá v
 \end{pitemize}
 \end{priklady}
 
+\begin{poznamka}
+Následující vìty mají pomìrnì lehké dùkazy, které zde uvádìt nebudu; pokud si je budete zkoušet, je dobré si u nich uvìdomit základní vlastnosti absolutní hodnoty:
+\begin{pitemize}
+	\item $\left|a \cdot b\right|= \left|a\right| \cdot\left| b\right|$
+	\item $\left|a + b\right| \leq \left|a\right| + \left| b\right|$
+	\item $\left|a \right| \leq b\Leftrightarrow -b \leq a \leq b$
+\end{pitemize}
+\end{poznamka}
+
 \begin{vetaN}{o jednoznaènosti limity posloupnosti}
 Kadá posloupnost má nejvıše jednu limitu.
 \end{vetaN}
@@ -365,6 +376,17 @@ $$ \forall K \in \mathbb{R}\ \exists n_0 \in \mathbb{N}: \forall n \ge n_0, n \i
 Má-li posloupnost nevlastní limitu, øíkáme o ní, e diverguje, stejnì jako v pøípadì, e ádnou limitu nemá.
 \end{definice}
 
+\begin{figure}
+\centering%
+\includegraphics[width=145mm]{matematika/obrazky/03-limita_nevlastni}
+\caption{Ilustrace k definici nevlastní limity}
+\label{fig:limita_nevlastni}
+\end{figure}
+
+\begin{poznamka}
+Ilustrace k definici nevlastní limity je na obrázku \ref{label:limita_nevlastni}.
+\end{poznamka}
+
 \begin{poznamka}
 Všechny moné situace jsou znázornìny na následujícím diagramu:
 
@@ -389,7 +411,7 @@ Mnoinu $\mathbb{R}^* := \mathbb{R} \cup \{ + \infty, - \infty \}$ nazıváme \emp
 \end{definice}
 
 \begin{poznamka}
-Vìty o jednoznaènosti limity, o limitì vybrané posloupnosti, o limitì a uspoøádání a o policajtech platí v nezmìnìné podobì, jestlie pøipustíme nevlastní limity. Vìta o omezenosti konvergentní posloupnosti zrejmì neplatí - nebo je-li $\lim_{n \rightarrow \infty} a_n=\infty$ (nebo $- \infty$), pak posloupnost $\{a_n\}$ není omezená. Vìtu o aritmetice limit pro rozšírenou osu uvedeme zvláš.
+Vìty o jednoznaènosti limity, o limitì vybrané posloupnosti, o limitì a uspoøádání a o policajtech platí v nezmìnìné podobì, jestlie pøipustíme nevlastní limity. Vìta o omezenosti konvergentní posloupnosti zrejmì neplatí - nebo je-li $\lim_{n \rightarrow \infty} a_n=\infty$ (nebo $- \infty$), pak posloupnost $\{a_n\}$ není omezená; je ale omezená \emph{zdola} u $\infty$ a shora u $- \infty$. Vìtu o aritmetice limit pro rozšírenou osu uvedeme zvláš.
 \end{poznamka}
 
 \begin{vetaN}{o aritmetice limit pro nevlastní limity}
