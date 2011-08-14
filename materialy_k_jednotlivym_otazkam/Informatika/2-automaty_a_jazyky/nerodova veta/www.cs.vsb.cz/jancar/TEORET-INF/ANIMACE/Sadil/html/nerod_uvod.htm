@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<!-- Mirrored from www.cs.vsb.cz/jancar/TEORET-INF/ANIMACE/Sadil/html/nerod_uvod.htm by HTTrack Website Copier/3.x [XR&CO'2005], Mon, 09 Jun 2008 13:07:43 GMT -->
+<head>
+<title>nerod_uvod</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Times New Roman, Times, serif;
+	font-size: 18px;
+	color: #000000;
+}
+body {
+	background-color: #FFFF99;
+	margin-left: 20px;
+	margin-top: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+a {
+	font-size: 18px;
+	color: #800040;
+}
+a:visited {
+	color: #800040;
+}
+a:hover {
+	color: #800040;
+}
+a:active {
+	color: #800040;
+}
+.styl11 {font-size: 18px; font-family: "Times New Roman", Times, serif; color: #000000;}
+.styl14 {color: #0000CC}
+.styl16 {
+	color: #FF0000;
+	font-weight: bold;
+}
+.styl20 {color: #0000CC; font-family: Symbol; }
+.styl22 {
+	color: #000000;
+	font-style: italic;
+}
+.styl23 {font-family: Symbol}
+.styl7 {color: #000000}
+.styl27 {font-weight: bold; font-size: 24px; color: #FF0000;}
+-->
+</style>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//-->
+</script>
+</head>
+
+<body>
+<p align="center" class="styl11  styl27">Nerodova věta - úvod </p>
+<p align="justify" class="styl11">&nbsp;</p>
+<p align="justify" class="styl11">Jazyky jsou různě složité. Zde se budeme zabývat regulárními jazyky, to jest jazyky, které jsou rozpoznatelné konečnými automaty. Nad touto třídou jsou jazyky bezkontextové – mezi které patří například umělé programovací jazyky (těmi se zde ale zabývat nebudeme). <br>
+Je tedy jasné, že pro některé jazyky již nebude možno sestrojit konečný automat – nebudou regulární. Jejich charakteristika odpovídá tomu, čeho není schopen dosáhnout konečný automat. </p>
+<table width="700" border="1" align="center" cellpadding="20" bordercolor="#000000">
+  <caption>
+  <span class="styl16">  Konečný automat  </span>
+  </caption>
+  <tr>
+    <td><p align="justify">Konečný automat (dále jen KA) je abstraktní (virtuální) systém, modelující systém reálný, s konečným počtem stavů, který přijímá od svého okolí vstupy a reaguje na ně. Tedy na vstup přicházejí symboly vstupní abecedy, které jsou předem dány, a KA na jejich příchod reaguje  přechodem do následujícího stavu.  Automat v&nbsp;průběhu své činnosti prochází stavy tak, že na začátku je v&nbsp;předem určeném (počátečním) stavu, poté na základě aktuálního stavu a příchozího vstupu přejde do stavu, který se stane stavem aktuálním, a to se opakuje tak dlouho, dokud nejsou „přečteny“ všechny vstupy. Pokud je aktuální stav po přečtení posledního vstupu stavem přijímajícím, posloupnost vstupů (slovo) je přijato. Pokud však je stavem nepřijímajícím, vstupní posloupnost nevyhovuje posloupnosti, kterou automat přijímá. </p>
+      <p align="justify"><span class="styl14"><span class="styl7">Konečný (deterministický) automat je pětice</span> M = (Q, <SPAN 
+            style="FONT-FAMILY: Symbol">S</SPAN>,<span class="styl20"> d</span>, q<sub>0</sub>, F) </span>, kde: </p>
+      <div align="justify">
+        <table width="630" align="center">
+          <tr>
+            <td width="40"><div align="right"><span class="styl14">Q</span></div></td>
+            <td width="578"> &nbsp;&nbsp;je konečná neprázdná množina všech stavů</td>
+          </tr>
+          <tr>
+            <td><div align="right"><span class="styl20"><SPAN 
+            style="FONT-FAMILY: Symbol">S</SPAN></span></div></td>
+            <td>&nbsp;&nbsp;je konečná neprázdná množina vstupních symbolů</td>
+          </tr>
+          <tr>
+            <td><div align="right"><span class="styl20">d<br>
+                <br>
+            </span></div></td>
+            <td>&nbsp;&nbsp;je přechodová funkce (zobrazení <span class="styl22"> Q × <SPAN 
+            style="FONT-FAMILY: Symbol">S</SPAN> <span class="styl23">-</span>› Q</span>). Přechod je určen stavem, ve &nbsp;&nbsp;kterém se automat nachází a symbolem, který přichází na vstup </td>
+          </tr>
+          <tr>
+            <td><div align="right"><span class="styl14">q<sub>0</sub></span></div></td>
+            <td>&nbsp;&nbsp;je počáteční (iniciální) stav (<span class="styl22">q<sub>0</sub></span><em><span class="styl7"><SPAN style="FONT-FAMILY: Symbol"> Î</SPAN></span> Q</em>) </td>
+          </tr>
+          <tr>
+            <td><div align="right"><span class="styl14">F</span></div></td>
+            <td>&nbsp;&nbsp;je množina koncových stavů (<em>F <span class="styl7"><SPAN style="FONT-FAMILY: Symbol">Î</SPAN></span> Q</em>) </td>
+          </tr>
+        </table>
+        <p class="styl14"> A<span class="styl14">utomat uvedený na obrázku níže je zkonstruován tak, aby přijímal následující </span> <span class="styl14"> jazyk</span> <span class="styl14">L&nbsp;=&nbsp;{(a,b)*&nbsp; bab}. Tedy jazyk, začínající libovolnou posloupností <em>a,b</em> a končící <em>bab</em>. </span></p>
+        <p align="center"><span class="styl14"> <img src="../pictures/automat.jpg" width="500" height="222"></span></p>
+      </div>    </td>
+  </tr>
+</table>
+<p align="justify">Typickým příkladem je jazyk <span class="styl14">L = { 0<sup>n</sup>1<sup>n</sup>, kde n &gt;= 0}</span>. Jde tedy o slova, která obsahují na počátku jistý počet nul a za nimi následuje stejný počet jedniček. Aby bylo možné rozpoznat taková slova, musel by konečný automat umět „spočítat“ počet nul. Jenže to je právě věc, kterou neumí. </p>
+<p align="justify" class="styl11">  Jelikož má konečný počet stavů, nemůže si nijak pamatovat, kolik jich už přišlo. Uměli bychom sice udělat automaty postupně pro slova: <span class="styl14"><SPAN style="FONT-FAMILY: Symbol;">e</SPAN>, 01, 0011, 000111, ...</span> , jenže problém je v tom, že při vytváření sjednocení takových automatů by nám vznikl automat s nekonečným počtem stavů, což není konečný automat.</p>
+<p align="justify" class="styl11"><span class="styl11">Rozpoznat, že jazyk není regulární, je možné díky charakterizaci pomocí pravé kongruence a pomocí velmi důležité Nerodovy věty. Proto se této větě budeme věnovat v této části. Dává nám totiž nástroj, jak dokazovat, že jazyk není regulární. Myšlenka uvedená v předchozím odstavci je sice logická, ale nejde o exaktní důkaz. Ten nám u všech příkladů poskytne právě <span class="styl14">Nerodova věta</span>. </span></p>
+</body>
+
+<!-- Mirrored from www.cs.vsb.cz/jancar/TEORET-INF/ANIMACE/Sadil/html/nerod_uvod.htm by HTTrack Website Copier/3.x [XR&CO'2005], Mon, 09 Jun 2008 13:07:43 GMT -->
+</html>

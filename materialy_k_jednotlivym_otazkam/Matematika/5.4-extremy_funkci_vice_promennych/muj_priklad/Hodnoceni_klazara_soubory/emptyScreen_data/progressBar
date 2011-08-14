@@ -1,0 +1,5 @@
+top.pBar.setFile("vazane_extremy.pdf")
+top.pBar.setFile("-text-")
+top.pBar.setProgress(100.00, 59528)
+top.pBar.finishProgress(true)
+setTimeout("top.pBar.closeWin()", 5000)

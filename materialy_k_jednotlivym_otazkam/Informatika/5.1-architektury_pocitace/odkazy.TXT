@@ -1,0 +1,6 @@
+Flynn's taxonomy:
+ http://en.wikipedia.org/wiki/Flynn%27s_taxonomy
+
+von Neumann:
+ http://www.earchiv.cz/a93/a321c120.php3
+ http://en.wikipedia.org/wiki/Dataflow_architecture

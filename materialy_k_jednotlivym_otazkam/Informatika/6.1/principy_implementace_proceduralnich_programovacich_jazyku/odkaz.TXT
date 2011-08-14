@@ -1,0 +1,95 @@
+http://www.go4expert.com/forums/showthread.php?t=2230
+
+
+
+1.cast:
+Stack is a certain amount of memory given you for auto (local) variables. Although its implementation is not specified by the language, it is often implemented using the processor's stack. Arguments to funtions are placed there, and variables local to the function are placed there. If I can dig up a little explanation that I have for that type of implementation, I'll post it in this thread.
+
+The heap, or free store (not a heap, as in heap sort), is a chunk of memory set aside for processes to borrow memory from, dynamically. If you borrow it, you have to return it. If you don't, you cause memory leaks. Typically, when you return it, it doesn't go back into the main heap, but is freed for your further use for different purposes. Most language implementations make arrangements for you to return it to the main heap, though, if you like. Most modern, capable OSes can use virtual memory techniques, involving mass storage, to effectively make available very large amounts of heap.
+
+In addition to the stack and heap you get memory for your code and for your static or global data.
+
+
+
+2.cast:
+A STACK ILLUSTRATION
+
+Most microprocessors have an internal pointer (the stack pointer) which references
+memory so that the micro can keep track of the point of execution as it varies because
+of interrupts, function calls, and so forth. The stack (memory to which it points)
+is also used by many systems (sometimes unfortunately) as a storage place for local
+values, saved registers, and so forth.
+
+Just prior to a call, the stack pointer, which is much like any pointer one defines, is
+pointing to some place in memory (designated by the programmer or the operating
+system) for its use. When you call a function, it works something like this (its usage varies
+somewhat from language to language).
+Code:
+
+stack pointer -->| orig position | In most systems, the stack pointer moves toward
+                 |               | lower addresses as you use it.
+                 ~               ~
+
+At call:         | orig position |
+                 |   arguments   |
+stack pointer -->| last argument |
+                 |               |
+                 |               |
+                 |               |
+                 |               |
+                 ~               ~
+
+There may be zero or more arguments.  They are pushed onto the stack in a predetermined
+order.  For C/C++, it is right-to-left.  The stack pointer moves with each push.
+
+After call:      | orig position |
+                 | argument here |
+                 | (maybe more)
+stack pointer -->| ret addr here |
+                 |               |
+                 |               |
+                 |               |
+                 ~               ~
+
+Into procedure   | orig position | 
+Arguments avail  | arguments...  | When you modify the argument(s), you modify
+for use          | ret addr here | the value(s) stored here.  If an argument
+                 |  saved regs,  | is a reference or pointer you may use it to
+                 | locals, etc.  | modify the value pointed to elsewhere
+                 | in this area  | (in the calling procedure, say).  If you write
+stack pointer -->|               | more data to one of the local variables than it
+                 ~               ~ can store, guess where the excess winds up.
+
+The function does its work and unwinds the stack (locals, etc.)
+
+Before return    | orig position | Immediately before the return, after storage
+                 | arguments...  | for saved registers, locals, etc. has already
+stack pointer -->| ret addr here | been recovered (and disappeared). The arguments
+                 |               | are still on the stack.
+                 |               |
+                 |               |
+                 ~               ~
+
+After return:    | orig position | Immediately after the return.  The very first
+stack pointer -->| arguments...  | thing the machine is going to do next is destroy
+                 |               | the arguments, whether you've modified them or not.
+                 |               | Sometimes the arguments are removed by the called
+                 |               | function and the return address position adjusted
+                 |               | appropriately.
+                 ~               ~
+
+stack pointer -->| orig position | And it's done; you are right back where you started,
+                 |               | bookkeeping wise, when you made the call.  Any 
+                 |               | changes you made to the arguments are history, for
+                 ~               ~ all practical purposes (they may persist until the
+                                   next stack operation).
+
+If you passed an argument as a reference, any modifications you made to the value it
+referred to are, of course, in force. If you modified the reference, itself, to point
+to something else, you could modify that something else, also (for example, subsequent
+bytes pointed to by a char *). The reference itself disappears. If you pass an argument
+by value, that value is perfectly usable to the called procedure; it could specify a length to
+use for some operation, for example. If you modify the value, such modifications disappear
+when the arguments disappear, immediately after the called procedure returns to the
+caller. If you want lasting changes in the caller, you need to make them by reference or
+RETURN a value from the called procedure.

@@ -1,0 +1,14 @@
+diferencialni rovnice 1. radu:
+
+separace promennych - 8.strana
+variace konstant - 13.strana
+
+
+diferencialni rovnice 2. radu:
+
+26. strana
+- y''=f(x) ... jen se 2x zintegruje
+- Homogenní lineární diferenciální rovnice 2. řádu s konstantními koeﬁcienty ... misto
+  derivaci se napise neznama na prislusny exponent, y se vyjadri pomoci konstant, korenu
+  a e. Zderivujeme a do techto dvou rovnic dosadime zadane dve podminky. Spocitaji se
+  konstanty a mame y.

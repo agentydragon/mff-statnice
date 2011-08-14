@@ -1,0 +1,22 @@
+na obrazku 'exp_x-2.png' je graf exponencialni funkce exp(x) - eNaX, tedy
+  zobrazeni x -> eNaX.
+
+Toto zobrazeni:
+- JE spojite podle definice (pro kazdy bod x mohu vybrat jeho okoli tak, ze
+  jeho obraz bude mensi nez epsilon).
+- NENI stejnomerne spojite podle definice (nemohu vybrat okoli predem neznameho
+  bodu x tak, ze jeho obraz bude mensi nez epsilon). At se vybere jakkoliv male
+  okoli, pro kazdy bod x nebude platit, ze obraz jeho okoli bude mensi nez
+  epsilon. Cim vice se okolicko bodu posouva napravo (po x-ove ose), tim vetsi
+  vznika okoli obrazu a casem bude vetsi nez epsilon.
+
+
+
+Napr. funkce x -> k*x (k Realne) je stejnomerne spojita, tudiz i spojita.
+  Protoze funkce roste stejne a mohu vybrat x-ove okoli k y-ovemu tak, ze
+  podminka bude platit pro libovolna x.
+
+
+
+Spojitá funkce na kompaktu (kompaktnim prostoru) je stejnoměrně spojitá.
+  Konkrétně každá spojitá funkce na uzavřeném intervalu je stejnoměrně spojitá.

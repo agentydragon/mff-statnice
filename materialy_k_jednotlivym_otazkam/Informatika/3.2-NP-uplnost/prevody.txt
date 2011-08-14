@@ -1,0 +1,22 @@
+z 10-prevody.pdf:
+
+1) 3-SAT -> SAT ... nemusim nic delat a je hned hotovo.
+2) SAT -> 3-SAT ... nevyhovujici klauzule (a v b) prevedu na (a v x) & (b v not(x)).
+
+3) 3-SAT -> NzMna ... kazda klauzule je jeden graf (vetsinou trojuhelnik - kdyz
+  chceme vzdy trojuhelnik, rozsirime pridanim jedne (ci dvou) promenne), spoji
+  se jeste literaly se svymi negacemi a hledam nezavislou mnozinu (str.4).
+4) NzMna -> SAT ... (i,j) je hrana -> vytvorim klauzuli (not(Vi) v not(Vj)) -
+  tim se zajisti, ze nebude vybrano i a zaroven j. Pak se pouziva matice k x |V|
+  pro kontrolu dostatecne velke NzMny, na kazdem radku by mela by jedna 1
+  znacici vybrany vrchol -> vytvoreni dalsich ctyr druhu klauzuli (str.4 dole).
+
+5), 6) Klika <-> NzMna ... prohodi se v grafu hrany a nehrany
+
+7) 3-SAT -> 3,3-SAT ... x se vyskytuje k-krat (vickrat nez 3x), nahradim ji
+  promennymi x1,..,xk + pridam klauzule (x1 -> x2),(x2 -> x3),..(xk -> x1), coz
+  zaruci, ze vsechny promenne budou stejne ohodnoceny. Implikace (a -> b) se
+  samozrejme prepise na (not(a) v b).
+8) 3,3-SAT -> 3-SAT ... nemusim nic delat a je hned hotovo.
+
+9) 3,3-SAT -> 3D parovani ... ???

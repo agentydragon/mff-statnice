@@ -1,0 +1,6 @@
+insert into TStudent (sid, jmeno, rok_narozeni) values (1, 'Marek Maly', '1.2.1990')
+insert into TStudent (sid, jmeno, rok_narozeni) values (2, 'Pavel Novy', '10.2.1984')
+insert into TStudent (sid, jmeno, rok_narozeni) values (3, 'Pavel Novotny', '1.9.1987')
+insert into TStudent (sid, jmeno, rok_narozeni) values (4, 'Eduard Svoboda', '11.4.1984')
+insert into TStudent (sid, jmeno, rok_narozeni) values (5, 'Vita Janu', '3.4.1989')
+insert into TStudent (sid, jmeno, rok_narozeni) values (6, 'Stojan Jakotyc', '4-20-1980')

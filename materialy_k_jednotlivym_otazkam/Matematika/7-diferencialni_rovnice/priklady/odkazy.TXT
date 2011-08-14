@@ -1,0 +1,7 @@
+homogenní lineární diferenciální rovnice  2. řádu s konstantními koeficienty:
+ - teorie: http://www.aristoteles.cz/matematika/diferencialni_rovnice/homogenni-diferencialni-rovnice-druheho-radu.php
+ - priklad: http://www.aristoteles.cz/matematika/diferencialni_rovnice/nehomogenni-linearni-diferencialni-rovnice-priklady.php
+   - dulezite je, ze si pokazdy zvolime  C1'(x)*e^(lambda1*x)+C2'(x)*e^(lambda2*x)=0
+     pro lambda1<>lambda2. Tim v prvni derivaci y zmizi derivace cecek.
+   - vzdy plati, ze Yn=Yh+Yp . Plati to i v rovnicich 1. radu, ale tam to neni tak videt
+    (aspon ne v priklad2.odt a nejspis v jakymkoliv prikladu s rovnici 1. radu).

@@ -1,0 +1,1507 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html class="win firefox firefox3 gecko gecko1" dir="ltr" 
+xmlns="http://www.w3.org/1999/xhtml" lang="cs"><head>
+
+
+<title>Domain Name System - Wikipedie, otevřená encyklopedie</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="generator" content="MediaWiki 1.16wmf4">
+<link rel="canonical" 
+href="http://cs.wikipedia.org/wiki/Domain_Name_System">
+<link rel="alternate" type="application/x-wiki" title="Editovat" 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=edit">
+<link rel="edit" title="Editovat" 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=edit">
+<link rel="apple-touch-icon" 
+href="http://cs.wikipedia.org/apple-touch-icon.png">
+<link rel="shortcut icon" href="http://cs.wikipedia.org/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" 
+href="http://cs.wikipedia.org/w/opensearch_desc.php" title="Wikipedie 
+(cs)">
+<link rel="copyright" 
+href="http://creativecommons.org/licenses/by-sa/3.0/">
+<link rel="alternate" type="application/atom+xml" title="Atom kanál 
+Wikipedie." 
+href="http://cs.wikipedia.org/w/index.php?title=Speci%C3%A1ln%C3%AD:Posledn%C3%AD_zm%C4%9Bny&amp;feed=atom">
+<link rel="stylesheet" href="DNS_soubory/main-ltr.css" type="text/css" 
+media="screen">
+<link rel="stylesheet" href="DNS_soubory/shared.css" type="text/css" 
+media="screen">
+<link rel="stylesheet" href="DNS_soubory/commonPrint.css" 
+type="text/css" media="print">
+<link rel="stylesheet" href="DNS_soubory/combined.css" type="text/css" 
+media="all">
+<link rel="stylesheet" href="DNS_soubory/jquery-ui-1.css" 
+type="text/css" media="all">
+<link rel="stylesheet" href="DNS_soubory/index_002.css" type="text/css" 
+media="all">
+<link rel="stylesheet" href="DNS_soubory/index_003.css" type="text/css" 
+media="print">
+<link rel="stylesheet" href="DNS_soubory/index_005.css" type="text/css" 
+media="handheld">
+<link rel="stylesheet" href="DNS_soubory/index_004.css" type="text/css" 
+media="all">
+<link rel="stylesheet" href="DNS_soubory/index.css" type="text/css" 
+media="all">
+<script type="text/javascript">
+var skin="vector",
+stylepath="http://bits.wikimedia.org/skins-1.5",
+wgUrlProtocols="http\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/wiki/$1",
+wgScriptPath="/w",
+wgScriptExtension=".php",
+wgScript="/w/index.php",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="http://cs.wikipedia.org",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="Domain_Name_System",
+wgTitle="Domain Name System",
+wgAction="view",
+wgArticleId=4226,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="cs",
+wgContentLanguage="cs",
+wgBreakFrames=false,
+wgCurRevisionId=5761867,
+wgVersion="1.16wmf4",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=[",	.", " 	,"],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Hlavní strana",
+wgFormattedNamespaces={"-2": "Média", "-1": "Speciální", "0": "", "1": "Diskuse", "2": "Wikipedista", "3": "Diskuse s wikipedistou", "4": "Wikipedie", "5": "Diskuse k Wikipedii", "6": "Soubor", "7": "Diskuse k souboru", "8": "MediaWiki", "9": "Diskuse k MediaWiki", "10": "Šablona", "11": "Diskuse k šabloně", "12": "Nápověda", "13": "Diskuse k nápovědě", "14": "Kategorie", "15": "Diskuse ke kategorii", "100": "Portál", "101": "Diskuse k portálu", "102": "Rejstřík", "103": "Diskuse k rejstříku"},
+wgNamespaceIds={"média": -2, "speciální": -1, "": 0, "diskuse": 1, "wikipedista": 2, "diskuse_s_wikipedistou": 3, "wikipedie": 4, "diskuse_k_wikipedii": 5, "soubor": 6, "diskuse_k_souboru": 7, "mediawiki": 8, "diskuse_k_mediawiki": 9, "šablona": 10, "diskuse_k_šabloně": 11, "nápověda": 12, "diskuse_k_nápovědě": 13, "kategorie": 14, "diskuse_ke_kategorii": 15, "portál": 100, "diskuse_k_portálu": 101, "rejstřík": 102, "diskuse_k_rejstříku": 103, "uživatelka": 2, "diskuse_s_uživatelkou": 3, "uživatel_diskuse": 3, "uživatelka_diskuse": 3, "soubor_diskuse": 7, "mediawiki_diskuse": 9, "šablona_diskuse": 11, "nápověda_diskuse": 13, "kategorie_diskuse": 15, "wikipedie_diskuse": 5, "uživatel": 2, "wikipedistka": 2, "diskuse_s_uživatelem": 3, "diskuse_s_wikipedistkou": 3, "wikipedista_diskuse": 3, "wikipedistka_diskuse": 3, "wp": 4, "portal": 100, "portal_talk": 101, "portál_diskuse": 101, "rejstřík_diskuse": 103, "image": 6, "image_talk": 7},
+wgSiteName="Wikipedie",
+wgCategories=["Články k úpravě - informatika", "Fakta k ověření", "Domain Name System", "Aplikační protokoly IP"],
+wgMWSuggestTemplate="http://cs.wikipedia.org/w/api.php?action=opensearch\x26search={searchTerms}\x26namespace={namespaces}\x26suggest",
+wgDBname="cswiki",
+wgSearchNamespaces=[0, 100, 102],
+wgMWSuggestMessages=["s návrhy", "bez návrhů"],
+wgRestrictionEdit=[],
+wgRestrictionMove=[],
+wgWikimediaMobileUrl="http://cs.m.wikipedia.org/wiki",
+wgCollapsibleNavBucketTest=false,
+wgCollapsibleNavForceNewVersion=false,
+wgVectorPreferences={"collapsiblenav": {"enable": 1}, "editwarning": {"enable": 1}, "simplesearch": {"enable": 1, "disablesuggest": 0}},
+wgVectorEnabledModules={"collapsiblenav": true, "collapsibletabs": true, "editwarning": true, "expandablesearch": false, "footercleanup": false, "simplesearch": true},
+wgNotice="";
+</script><script src="DNS_soubory/wikibits.js" type="text/javascript"></script>
+<script type="text/javascript" src="DNS_soubory/jquery.js"></script>
+<script src="DNS_soubory/ajax.js" type="text/javascript"></script>
+<script src="DNS_soubory/mwsuggest.js" type="text/javascript"></script>
+<script src="DNS_soubory/MobileRedirect.js" type="text/javascript"></script>
+<script src="DNS_soubory/plugins.js" type="text/javascript"></script>
+<script src="DNS_soubory/Vector.js" type="text/javascript"></script>
+<script type="text/javascript">mw.usability.addMessages({'vector-collapsiblenav-more':'Další jazyky','vector-editwarning-warning':'Opuštěním této stránky se mohou veškeré provedené změny ztratit.\nPokud jste přihlášeni, můžete si toto varování vypnout na záložce „Editace“ v uživatelském nastavení.','vector-simplesearch-search':'Hledat','vector-simplesearch-containing':'obsahující…'});</script>
+<script src="DNS_soubory/centralnotice.js" type="text/javascript"></script><style type="text/css">
+#centralNotice .siteNoticeSmall {display:none;}
+#centralNotice .siteNoticeSmallAnon {display:none;}
+#centralNotice .siteNoticeSmallUser {display:none;}
+#centralNotice.collapsed .siteNoticeBig {display:none;}
+#centralNotice.collapsed .siteNoticeSmall {display:block;}
+#centralNotice.collapsed .siteNoticeSmallUser {display:block;}
+#centralNotice.collapsed .siteNoticeSmallAnon {display:block;}
+#centralNotice.anonnotice .siteNoticeSmallUser {display:none !important;}
+#centralNotice.usernotice .siteNoticeSmallAnon {display:none !important;}
+</style>
+
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/skins-1.5/vector/csshover.htc")}</style><![endif]-->
+<script src="DNS_soubory/index.php" type="text/javascript"></script>
+
+</head><body class="mediawiki ltr ns-0 ns-subject 
+page-Domain_Name_System skin-vector">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display: none;"></div>
+						<!-- sitenotice -->
+			<div id="siteNotice"><script type="text/javascript">if (wgNotice != '') document.writeln(wgNotice);</script><div
+ id="centralNotice" class="expanded"><div id="wmcz_ceny02" 
+style="border: 1px solid rgb(204, 204, 204); font-style: normal; 
+font-weight: normal; margin: 0.1em 0pt; padding: 0.2em 0.4em; 
+text-align: center;">
+<a href="http://www.wikimedia.cz/" title="Wikimedia Česká republika"><img
+ src="DNS_soubory/40px-Wikimedia_Czech_Republic-logo.png" alt="logo 
+Wikimedia Česká republika" title="Wikimedia Česká republika" 
+style="border: medium none; height: 40px; margin-right: 0.4em; 
+vertical-align: middle; width: 40px;"></a> <strong style="font-size: 
+large;">Rozšiřte českou Wikipedii! 
+<a 
+href="http://cs.wikipedia.org/wiki/Wikipedie:Ceny_za_rozvoj_%C4%8Desk%C3%A9_Wikipedie"
+ title="Ceny za rozvoj české Wikipedie">Nejlepší autoři získají netbook!</a></strong>
+</div></div>
+</div>
+			<!-- /sitenotice -->
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">Domain Name System</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<div id="siteSub">Z Wikipedie, otevřené encyklopedie</div>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub">(Přesměrováno z <a 
+href="http://cs.wikipedia.org/w/index.php?title=DNS&amp;redirect=no" 
+title="DNS">DNS</a>)</div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Skočit na: <a href="#mw-head">Navigace</a>,
+					<a href="#p-search">Hledání</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="messagebox" style="padding: 8px; width: 79%; 
+border-width: 1px 1px 1px 10px; border-style: solid; border-color: 
+rgb(170, 170, 170) rgb(170, 170, 170) rgb(170, 170, 170) rgb(61, 92, 
+225); font-size: 100%;" align="center">
+<tbody><tr>
+<td style="padding-right: 4px; padding-left: 4px;"><a 
+href="http://cs.wikipedia.org/wiki/Soubor:Crystal_Clear_app_display.png"
+ class="image"><img alt="Crystal Clear app display.png" 
+src="DNS_soubory/35px-Crystal_Clear_app_display.png" width="35" 
+height="35"></a></td>
+<td>Tento článek z&nbsp;oblasti <a 
+href="http://cs.wikipedia.org/wiki/Informatika" title="Informatika">informatiky</a>
+ potřebuje úpravy. Můžete Wikipedii pomoci tím, že ho vhodně <span 
+class="plainlinks"><a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=edit"
+ class="external text" rel="nofollow">vylepšíte</a></span>.<br>
+<small>Jak by měly články vypadat, popisuje stránka <a 
+href="http://cs.wikipedia.org/wiki/Wikipedie:Vzhled_a_styl" 
+title="Wikipedie:Vzhled a styl">Vzhled a styl</a>.</small></td>
+</tr>
+</tbody></table>
+<div style="clear: right; float: right; line-height: 1.4; margin: 0pt 
+0pt 1em 1em; width: 14em;">
+<table class="wikitable" style="font-size: 85%; margin-top: 0pt; width: 
+100%;">
+<tbody><tr>
+<td style="font-size: 118%; font-weight: bold; text-align: center;"><a 
+href="http://cs.wikipedia.org/wiki/TCP/IP" title="TCP/IP">Internetové 
+protokoly</a></td>
+</tr>
+<tr>
+<th><a href="http://cs.wikipedia.org/wiki/Aplika%C4%8Dn%C3%AD_vrstva" 
+title="Aplikační vrstva">Aplikační vrstva</a></th>
+</tr>
+<tr>
+<td>
+<ul>
+<li><a href="http://cs.wikipedia.org/wiki/BitTorrent" title="BitTorrent">BitTorrent</a></li>
+<li><strong class="selflink">DNS</strong></li>
+<li><a href="http://cs.wikipedia.org/wiki/Bootstrap_Protocol" 
+title="Bootstrap Protocol">BOOTP</a></li>
+<li><a 
+href="http://cs.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol" 
+title="Dynamic Host Configuration Protocol">DHCP</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/File_Transfer_Protocol" 
+title="File Transfer Protocol">FTP</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/Hypertext_Transfer_Protocol" 
+title="Hypertext Transfer Protocol">HTTP</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/HTTPS" title="HTTPS">HTTPS</a></li>
+<li><a 
+href="http://cs.wikipedia.org/wiki/Internet_Message_Access_Protocol" 
+title="Internet Message Access Protocol">IMAP</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/IRC" title="IRC">IRC</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/Ident" title="Ident">Ident</a></li>
+<li><a 
+href="http://cs.wikipedia.org/wiki/Network_News_Transfer_Protocol" 
+title="Network News Transfer Protocol">NNTP</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/Network_File_System" 
+title="Network File System">NFS</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/Network_Time_Protocol" 
+title="Network Time Protocol">NTP</a></li>
+<li><a 
+href="http://cs.wikipedia.org/wiki/Post_Office_Protocol_version_3" 
+title="Post Office Protocol version 3">POP3</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/Real-time_Transport_Protocol" 
+title="Real-time Transport Protocol">RTP</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/Session_Initiation_Protocol" 
+title="Session Initiation Protocol">SIP</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/Server_Message_Block" 
+title="Server Message Block">SMB</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol"
+ title="Simple Mail Transfer Protocol">SMTP</a></li>
+<li><a 
+href="http://cs.wikipedia.org/wiki/Simple_Network_Management_Protocol" 
+title="Simple Network Management Protocol">SNMP</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/Secure_Shell" title="Secure 
+Shell">SSH</a></li>
+<li><a 
+href="http://cs.wikipedia.org/wiki/Simple_traversal_of_UDP_over_NATs" 
+title="Simple traversal of UDP over NATs" class="mw-redirect">STUN</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/Telnet" title="Telnet">Telnet</a></li>
+<li><a 
+href="http://cs.wikipedia.org/w/index.php?title=Websphere_MQ&amp;action=edit&amp;redlink=1"
+ class="new" title="Websphere MQ (stránka neexistuje)">Websphere MQ</a></li>
+<li><a 
+href="http://cs.wikipedia.org/wiki/Extensible_Messaging_and_Presence_Protocol"
+ title="Extensible Messaging and Presence Protocol">XMPP</a></li>
+</ul>
+</td>
+</tr>
+<tr>
+<th><a href="http://cs.wikipedia.org/wiki/Transportn%C3%AD_vrstva" 
+title="Transportní vrstva">Transportní vrstva</a></th>
+</tr>
+<tr>
+<td>
+<ul>
+<li><a 
+href="http://cs.wikipedia.org/wiki/Datagram_Congestion_Control_Protocol"
+ title="Datagram Congestion Control Protocol">DCCP</a></li>
+<li><a 
+href="http://cs.wikipedia.org/w/index.php?title=Internet_Light&amp;action=edit&amp;redlink=1"
+ class="new" title="Internet Light (stránka neexistuje)">IL</a></li>
+<li><a 
+href="http://cs.wikipedia.org/wiki/Reliable_User_Datagram_Protocol" 
+title="Reliable User Datagram Protocol">RUDP</a></li>
+<li><a 
+href="http://cs.wikipedia.org/wiki/Stream_Control_Transmission_Protocol"
+ title="Stream Control Transmission Protocol">SCTP</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/TCP" title="TCP">TCP</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/UDP" title="UDP">UDP</a></li>
+</ul>
+</td>
+</tr>
+<tr>
+<th><a href="http://cs.wikipedia.org/wiki/S%C3%AD%C5%A5ov%C3%A1_vrstva" 
+title="Síťová vrstva">Síťová vrstva</a></th>
+</tr>
+<tr>
+<td>
+<ul>
+<li><a href="http://cs.wikipedia.org/wiki/IPv4" title="IPv4">IPv4</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/IPv6" title="IPv6">IPv6</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/ICMP" title="ICMP">ICMP</a></li>
+<li><a 
+href="http://cs.wikipedia.org/wiki/Internet_Group_Management_Protocol" 
+title="Internet Group Management Protocol">IGMP</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/Address_Resolution_Protocol" 
+title="Address Resolution Protocol">ARP</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/Proxy_ARP" title="Proxy ARP">Proxy
+ ARP</a></li>
+<li><a 
+href="http://cs.wikipedia.org/wiki/Reverse_Address_Resolution_Protocol" 
+title="Reverse Address Resolution Protocol">RARP</a></li>
+</ul>
+</td>
+</tr>
+<tr>
+<th><a href="http://cs.wikipedia.org/wiki/Linkov%C3%A1_vrstva" 
+title="Linková vrstva">Linková vrstva</a></th>
+</tr>
+<tr>
+<td>
+<ul>
+<li><a href="http://cs.wikipedia.org/wiki/Ethernet" title="Ethernet">Ethernet</a></li>
+<li><a 
+href="http://cs.wikipedia.org/wiki/Fiber_distributed_data_interface" 
+title="Fiber distributed data interface">FDDI</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/Point-to-Point_Protocol" 
+title="Point-to-Point Protocol">PPP</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/Token_ring" title="Token ring">Token
+ ring</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/Wi-Fi" title="Wi-Fi">Wi-Fi</a></li>
+</ul>
+</td>
+</tr>
+<tr>
+<th><a href="http://cs.wikipedia.org/wiki/Fyzick%C3%A1_vrstva" 
+title="Fyzická vrstva">Fyzická vrstva</a></th>
+</tr>
+<tr>
+<td>
+<ul>
+<li><a href="http://cs.wikipedia.org/wiki/10Base2" title="10Base2">10Base2</a></li>
+<li><a 
+href="http://cs.wikipedia.org/w/index.php?title=10Base-T&amp;action=edit&amp;redlink=1"
+ class="new" title="10Base-T (stránka neexistuje)">10Base-T</a></li>
+<li><a 
+href="http://cs.wikipedia.org/w/index.php?title=EIA-422&amp;action=edit&amp;redlink=1"
+ class="new" title="EIA-422 (stránka neexistuje)">EIA-422</a></li>
+<li><a 
+href="http://cs.wikipedia.org/w/index.php?title=EIA-485&amp;action=edit&amp;redlink=1"
+ class="new" title="EIA-485 (stránka neexistuje)">EIA-485</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/RS-232" title="RS-232">RS-232</a></li>
+<li><a 
+href="http://cs.wikipedia.org/w/index.php?title=RS-449&amp;action=edit&amp;redlink=1"
+ class="new" title="RS-449 (stránka neexistuje)">RS-449</a></li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+</div>
+<p><b>DNS</b> (Domain Name System) je hierarchický systém <a 
+href="http://cs.wikipedia.org/wiki/Dom%C3%A9nov%C3%A9_jm%C3%A9no" 
+title="Doménové jméno" class="mw-redirect">doménových jmen</a>, který je
+ realizován <a 
+href="http://cs.wikipedia.org/w/index.php?title=Server_DNS&amp;action=edit&amp;redlink=1"
+ class="new" title="Server DNS (stránka neexistuje)">servery DNS</a> a 
+protokolem stejného jména, kterým si vyměňují informace. Jeho hlavním 
+úkolem a příčinou vzniku jsou vzájemné převody doménových jmen a <a 
+href="http://cs.wikipedia.org/wiki/IP_adresa" title="IP adresa">IP adres</a>
+ <a href="http://cs.wikipedia.org/wiki/S%C3%AD%C5%A5ov%C3%BD_uzel" 
+title="Síťový uzel">uzlů sítě</a>. Později ale přibral další funkce 
+(např. pro elektronickou poštu či IP telefonii) a slouží dnes de facto 
+jako distribuovaná databáze síťových informací.</p>
+<p>Protokol používá porty <a href="http://cs.wikipedia.org/wiki/TCP" 
+title="TCP">TCP</a>/53 i <a href="http://cs.wikipedia.org/wiki/UDP" 
+title="UDP">UDP</a>/53, je definován v <a 
+href="http://www.faqs.org/rfcs/rfc1035.html" class="external text" 
+rel="nofollow">RFC1035</a>. Servery DNS jsou organizovány hierarchicky, 
+stejně jako jsou hierarchicky tvořeny <a 
+href="http://cs.wikipedia.org/wiki/Internetov%C3%A1_dom%C3%A9na" 
+title="Internetová doména">názvy domén</a>. Jména domén umožňují lepší 
+orientaci lidem, adresy pro stroje jsou však vyjádřeny pomocí adres 
+32bitových (<a href="http://cs.wikipedia.org/wiki/TCP/IP#IPv4" 
+title="TCP/IP">IPv4</a>) A záznam nebo 128bitových (<a 
+href="http://cs.wikipedia.org/wiki/TCP/IP#IPv6" title="TCP/IP">IPv6</a>)
+ - AAAA záznam. Systém DNS umožňuje efektivně udržovat decentralizované 
+databáze doménových jmen a jejich překlad na IP adresy. Stejně tak 
+zajišťuje zpětný překlad IP adresy na doménové jméno - PTR záznam.</p>
+<table id="toc" class="toc">
+<tbody><tr>
+<td>
+<div id="toctitle">
+<h2>Obsah</h2>
+ <span class="toctoggle">[<a href="#" class="internal" id="togglelink">skrýt</a>]</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#N.C4.9Bco_z_historie"><span
+ class="tocnumber">1</span> <span class="toctext">Něco z historie</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Jak_DNS_funguje"><span 
+class="tocnumber">2</span> <span class="toctext">Jak DNS funguje</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a 
+href="#Slo.C5.BEen.C3.AD_dom.C3.A9nov.C3.A9ho_jm.C3.A9na"><span 
+class="tocnumber">2.1</span> <span class="toctext">Složení doménového 
+jména</span></a></li>
+<li class="toclevel-2 tocsection-4"><a 
+href="#DNS_servery_.28name_servery.29"><span class="tocnumber">2.2</span>
+ <span class="toctext">DNS servery (name servery)</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Root_servery"><span 
+class="tocnumber">2.3</span> <span class="toctext">Root servery</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#SW_pro_DNS_servery"><span 
+class="tocnumber">2.4</span> <span class="toctext">SW pro DNS servery</span></a></li>
+<li class="toclevel-2 tocsection-7"><a 
+href="#.C5.98e.C5.A1en.C3.AD_dotazu"><span class="tocnumber">2.5</span> <span
+ class="toctext">Řešení dotazu</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Reverzn.C3.AD_dotazy"><span
+ class="tocnumber">2.6</span> <span class="toctext">Reverzní dotazy</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Alternativn.C3.AD_stromy"><span
+ class="tocnumber">2.7</span> <span class="toctext">Alternativní stromy</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#DNS_v_praxi"><span 
+class="tocnumber">3</span> <span class="toctext">DNS v praxi</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="#DNS_cache"><span 
+class="tocnumber">3.1</span> <span class="toctext">DNS cache</span></a></li>
+<li class="toclevel-2 tocsection-12"><a 
+href="#Doba_ulo.C5.BEen.C3.AD_z.C3.A1znamu"><span class="tocnumber">3.2</span>
+ <span class="toctext">Doba uložení záznamu</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Z.C3.B3nov.C3.A9_soubory"><span
+ class="tocnumber">3.3</span> <span class="toctext">Zónové soubory</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Typy_z.C3.A1znam.C5.AF"><span
+ class="tocnumber">3.4</span> <span class="toctext">Typy záznamů</span></a></li>
+<li class="toclevel-2 tocsection-15"><a 
+href="#P.C5.99.C3.ADklad_z.C3.B3nov.C3.A9ho_souboru"><span 
+class="tocnumber">3.5</span> <span class="toctext">Příklad zónového 
+souboru</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="#Implementace"><span 
+class="tocnumber">4</span> <span class="toctext">Implementace</span></a></li>
+<li class="toclevel-1 tocsection-17"><a 
+href="#Souvisej.C3.ADc.C3.AD_.C4.8Dl.C3.A1nky"><span class="tocnumber">5</span>
+ <span class="toctext">Související články</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="#Extern.C3.AD_odkazy"><span
+ class="tocnumber">6</span> <span class="toctext">Externí odkazy</span></a></li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<script type="text/javascript">
+//<![CDATA[
+if (window.showTocToggle) { var tocShowText = "zobrazit"; var tocHideText = "skrýt"; showTocToggle(); } 
+//]]>
+</script>
+<h2><span class="editsection">[<a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=edit&amp;section=1"
+ title="Editace sekce: Něco z historie">editovat</a>]</span> <span 
+class="mw-headline" id="N.C4.9Bco_z_historie">Něco z historie</span></h2>
+<p>Protože je používání názvů pro člověka daleko příjemnější než 
+používání číselných adres, vznikla už v dobách ARPAnetu potřeba takový 
+převod realizovat. Původně byl na všechny počítače distribuován jediný 
+soubor (v Unixu <i>/etc/hosts</i>). Tato koncepce přestala velmi rychle 
+vyhovovat potřebám a především nárokům na rychlou aktualizaci. Přesto se
+ tento soubor dodnes používá, v závislosti na konfiguraci systému je 
+možné jej použít buď prioritně před dotazem na DNS nebo v případě, že 
+DNS neodpovídá. Je možné jej také použít k uložení vlastních přezdívek 
+pro často navštěvované servery, případně také pro blokování reklam a 
+podobně.</p>
+<p>V roce 1983 vyvinul Paul Mockapetris DNS protokol, který je popsán v <a
+ href="http://tools.ietf.org/html/rfc882" class="external 
+mw-magiclink-rfc">RFC 882</a> a <a 
+href="http://tools.ietf.org/html/rfc883" class="external 
+mw-magiclink-rfc">RFC 883</a>. V roce 1987 byl protokol DNS aktualizován
+ v <a href="http://tools.ietf.org/html/rfc1034" class="external 
+mw-magiclink-rfc">RFC 1034</a> a <a 
+href="http://tools.ietf.org/html/rfc1035" class="external 
+mw-magiclink-rfc">RFC 1035</a>, která nahradila původní doporučení.</p>
+<h2><span class="editsection">[<a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=edit&amp;section=2"
+ title="Editace sekce: Jak DNS funguje">editovat</a>]</span> <span 
+class="mw-headline" id="Jak_DNS_funguje">Jak DNS funguje</span></h2>
+<p>Prostor doménových jmen tvoří strom. Každý uzel tohoto stromu 
+obsahuje informace o části jména (doméně), které je mu přiděleno a 
+odkazy na své podřízené domény. Kořenem stromu je tzv. kořenová doména, 
+která se zapisuje jako samotná tečka. Pod ní se v hierarchii nacházejí 
+tzv. <i>domény nejvyšší úrovně (<a 
+href="http://cs.wikipedia.org/wiki/Dom%C3%A9na_nejvy%C5%A1%C5%A1%C3%ADho_%C5%99%C3%A1du"
+ title="Doména nejvyššího řádu">Top-Level Domain</a>, TLD)</i>. Ty jsou 
+buď tematické (<i><a href="http://cs.wikipedia.org/wiki/.com" 
+title=".com">com</a></i> pro komerci, <i><a 
+href="http://cs.wikipedia.org/wiki/.edu" title=".edu">edu</a></i> pro 
+vzdělávací instituce atd.) nebo státní (<i><a 
+href="http://cs.wikipedia.org/wiki/.cz" title=".cz">cz</a></i> pro 
+Česko, <i><a href="http://cs.wikipedia.org/wiki/.sk" title=".sk">sk</a></i>
+ pro Slovensko, <i><a href="http://cs.wikipedia.org/wiki/.jo" 
+title=".jo">jo</a></i> pro Jordánsko atd.).</p>
+<p>Strom lze administrativně rozdělit do zón, které spravují jednotliví 
+správci (organizace nebo i soukromé osoby), přičemž taková zóna obsahuje
+ autoritativní informace o spravovaných doménách. Tyto informace jsou 
+poskytovány autoritativním DNS serverem.</p>
+<p>Výhoda tohoto uspořádání spočívá v možnosti zónu rozdělit a správu 
+její části svěřit někomu dalšímu. Nově vzniklá zóna se tak stane 
+autoritativní pro přidělený jmenný prostor. Právě možnost delegování 
+pravomocí a distribuovaná správa tvoří klíčové vlastnosti DNS a jsou 
+velmi podstatné pro jeho úspěch. Ve vyšších patrech doménové hierarchie 
+platí, že zóna typicky obsahuje jednu doménu. Koncové zóny přidělené 
+organizacím připojeným k Internetu pak někdy obsahují několik domén – 
+například doména <i>kdesi.cz</i> a její poddomény <i>vyroba.kdesi.cz</i>,
+ <i>marketing.kdesi.cz</i> a <i>obchod.kdesi.cz</i> mohou být obsaženy v
+ jedné zóně a obhospodařovány stejným serverem.</p>
+<h3><span class="editsection">[<a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=edit&amp;section=3"
+ title="Editace sekce: Složení doménového jména">editovat</a>]</span> <span
+ class="mw-headline" 
+id="Slo.C5.BEen.C3.AD_dom.C3.A9nov.C3.A9ho_jm.C3.A9na">Složení 
+doménového jména</span></h3>
+<p>Celé jméno se skládá z několika částí oddělených tečkami. Na jeho 
+konci se nacházejí domény nejobecnější, směrem doleva se postupně 
+konkretizuje.</p>
+<ul>
+<li>část nejvíce vpravo je doména nejvyšší úrovně, např. <i>wikipedia.org</i>
+ má TLD <i><a href="http://cs.wikipedia.org/wiki/.org" title=".org">org</a></i>.</li>
+<li>jednotlivé části (subdomény) mohou mít až 63 znaků a skládat se 
+mohou až do celkové délky doménového jména 255 znaků. Doména může mít až
+ 127 úrovní. Bohužel některé implementace jsou omezeny více.</li>
+</ul>
+<h3><span class="editsection">[<a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=edit&amp;section=4"
+ title="Editace sekce: DNS servery (name servery)">editovat</a>]</span> <span
+ class="mw-headline" id="DNS_servery_.28name_servery.29">DNS servery 
+(name servery)</span></h3>
+<p>DNS server může hrát vůči doméně (přesněji zóně, ale ve většině 
+případů jsou tyto pojmy zaměnitelné) jednu ze tří rolí:</p>
+<ul>
+<li><b>Primární server</b> je ten, na němž data vznikají. Pokud je třeba
+ provést v doméně změnu, musí se editovat data na jejím primárním 
+serveru. Každá doména má právě jeden primární server.</li>
+<li><b>Sekundární server</b> je automatickou kopií primárního. Průběžně 
+si aktualizuje data a slouží jednak jako záloha pro případ výpadku 
+primárního serveru, jednak pro rozkládání zátěže u frekventovaných 
+domén. Každá doména musí mít alespoň jeden sekundární server.</li>
+<li><b>Pomocný (caching only) server</b> slouží jako vyrovnávací paměť 
+pro snížení zátěže celého systému. Uchovává si odpovědi a poskytuje je 
+při opakování dotazů, dokud nevyprší jejich životnost.</li>
+</ul>
+<p>Odpověď pocházející přímo od primárního či sekundárního serveru je 
+autoritativní, čili je brána za správnou. Z hlediska věrohodnosti 
+odpovědí není mezi primárním a sekundárním serverem rozdíl, oba jsou 
+autoritativní. Naproti tomu odpověď poskytnutá z vyrovnávací paměti není
+ autoritativní. Klient může požádat o autoritativní odpověď, v běžných 
+případech ale stačí jakákoli.</p>
+<h3><span class="editsection">[<a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=edit&amp;section=5"
+ title="Editace sekce: Root servery">editovat</a>]</span> <span 
+class="mw-headline" id="Root_servery">Root servery</span></h3>
+<p>Kořenové jmenné servery (<i>root name servers</i>) představují 
+zásadní část technické infrastruktury Internetu, na které závisí 
+spolehlivost, správnost a bezpečnost operací na internetu. Tyto servery 
+poskytují kořenový zónový soubor (<i>root zone file</i>) ostatním DNS 
+serverům. Jsou součástí DNS, celosvětově distribuované databáze, která 
+slouží k překladu unikátních doménových jmen na ostatní identifikátory.</p>
+<p>Kořenový zónový soubor popisuje, kde se nacházejí autoritativní 
+servery pro domény nejvyšší úrovně. Tento kořenový zónový soubor je 
+relativně velmi malý a často se nemění – operátoři root serverů ho pouze
+ zpřístupňují, samotný soubor je vytvářen a měněn organizací <a 
+href="http://www.iana.org/" class="external text" rel="nofollow">IANA</a>.</p>
+<p>Pojem root server je všeobecně používán pro 13 kořenových jmenných 
+serverů. Root servery se nacházejí ve 34 zemích světa, na více než 80 
+místech. Root servery jsou spravovány organizacemi, které vybírá <a 
+href="http://www.iana.org/" class="external text" rel="nofollow">IANA</a>.
+ Následující tabulka zobrazuje těchto 13 root serverů:</p>
+<table>
+<tbody><tr>
+<th><b>Název root serveru</b></th>
+<th><b>Operátor</b></th>
+</tr>
+<tr>
+<td><b>A</b></td>
+<td>VeriSign Global Registry Services</td>
+</tr>
+<tr>
+<td><b>B</b></td>
+<td>University of Southern California - Information Sciences Institute</td>
+</tr>
+<tr>
+<td><b>C</b></td>
+<td>Cogent Communications</td>
+</tr>
+<tr>
+<td><b>D</b></td>
+<td>University of Maryland</td>
+</tr>
+<tr>
+<td><b>E</b></td>
+<td>NASA Ames Research Center</td>
+</tr>
+<tr>
+<td><b>F</b></td>
+<td>Internet Systems Consortium, Inc.</td>
+</tr>
+<tr>
+<td><b>G</b></td>
+<td>U.S. DOD Network Information Center</td>
+</tr>
+<tr>
+<td><b>H</b></td>
+<td>U.S. Army Research Lab</td>
+</tr>
+<tr>
+<td><b>I</b></td>
+<td>Autonomica/NORDUnet</td>
+</tr>
+<tr>
+<td><b>J</b></td>
+<td>VeriSign Global Registry Services</td>
+</tr>
+<tr>
+<td><b>K</b></td>
+<td>RIPE NCC</td>
+</tr>
+<tr>
+<td><b>L</b></td>
+<td>ICANN</td>
+</tr>
+<tr>
+<td><b>M</b></td>
+<td>WIDE Proje</td>
+</tr>
+</tbody></table>
+<p>Více informací o umístění root serverů naleznete na oficiálních 
+stránkách <a href="http://www.root-servers.org/" class="external text" 
+rel="nofollow">DNS root servers</a> v angličtině.</p>
+<p>Nároky na kořenové servery jsou popisovány v následujícím dokumentu <a
+ href="http://www.ietf.org/rfc/rfc2870.txt?number=2870" class="external 
+text" rel="nofollow">RFC 2870</a> v angličtině. Dokument je souhrnem 
+dosavadních zkušeností a vytyčuje obecné požadavky na software a 
+hardware root serverů, zabývá se bezpečnostními aspekty, atd.</p>
+<h3><span class="editsection">[<a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=edit&amp;section=6"
+ title="Editace sekce: SW pro DNS servery">editovat</a>]</span> <span 
+class="mw-headline" id="SW_pro_DNS_servery">SW pro DNS servery</span></h3>
+<p>Porovnání nejpoužívanějšího software (implementací DNS serverů) z 
+hlediska podpory výše uvedených typů serverů <sup class="reference" 
+style="white-space: pre;">[<a 
+href="http://cs.wikipedia.org/wiki/Wikipedie:Ov%C4%9B%C5%99itelnost" 
+title="Wikipedie:Ověřitelnost"><span title="Je potřeba doložit zdroj 
+předchozího tvrzení, označeno 9. 6. 2010 19:25:59 SE(L)Č">zdroj?</span></a>]</sup>
+ je v následující tabulce:</p>
+<table class="wikitable">
+<tbody><tr>
+<th><b>Název</b></th>
+<th><b>Pomocný</b></th>
+<th><b>Rekurzivní</b></th>
+<th><b>Autoritativní</b></th>
+</tr>
+<tr>
+<td><a href="http://cs.wikipedia.org/wiki/BIND" title="BIND">BIND</a></td>
+<td align="center">Ano</td>
+<td align="center">Ano</td>
+<td align="center">Ano</td>
+</tr>
+<tr>
+<td><a 
+href="http://cs.wikipedia.org/w/index.php?title=PowerDNS&amp;action=edit&amp;redlink=1"
+ class="new" title="PowerDNS (stránka neexistuje)">PowerDNS</a></td>
+<td align="center">Ano</td>
+<td align="center">Ano (pomocí pdns_recursor)</td>
+<td align="center">Ano</td>
+</tr>
+<tr>
+<td><a 
+href="http://cs.wikipedia.org/w/index.php?title=Djbdns&amp;action=edit&amp;redlink=1"
+ class="new" title="Djbdns (stránka neexistuje)">djbdns</a></td>
+<td align="center">Ano</td>
+<td align="center">Ano</td>
+<td align="center">Ano</td>
+</tr>
+<tr>
+<td><a 
+href="http://cs.wikipedia.org/w/index.php?title=MyDNS&amp;action=edit&amp;redlink=1"
+ class="new" title="MyDNS (stránka neexistuje)">MyDNS</a></td>
+<td align="center">Ano</td>
+<td align="center">Ne</td>
+<td align="center">Ano</td>
+</tr>
+<tr>
+<td><a 
+href="http://cs.wikipedia.org/w/index.php?title=NSD_%28DNS_server%29&amp;action=edit&amp;redlink=1"
+ class="new" title="NSD (DNS server) (stránka neexistuje)">NSD</a></td>
+<td align="center">Ne</td>
+<td align="center">Ne</td>
+<td align="center">Ano</td>
+</tr>
+</tbody></table>
+<h3><span class="editsection">[<a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=edit&amp;section=7"
+ title="Editace sekce: Řešení dotazu">editovat</a>]</span> <span 
+class="mw-headline" id=".C5.98e.C5.A1en.C3.AD_dotazu">Řešení dotazu</span></h3>
+<p>Každý koncový počítač má ve své konfiguraci síťových parametrů 
+obsaženu i adresu lokálního DNS serveru, na nějž se má obracet s dotazy.
+ V operačních systémech odvozených od Unixu je obsažena v souboru <i>/etc/resolv.conf</i>,
+ v MS Windows ji najdete ve vlastnostech protokolu TCP/IP (případně 
+můžete z příkazového řádku v XP zadat textový příkaz <i>ipconfig /all</i>).
+ Adresu lokálního serveru počítač typicky obdrží prostřednictvím <a 
+href="http://cs.wikipedia.org/wiki/DHCP" title="DHCP" 
+class="mw-redirect">DHCP</a>.</p>
+<p>Pokud počítač hledá určitou informaci v DNS (např. IP adresu k danému
+ jménu), obrátí se s dotazem na tento lokální server. Každý DNS server 
+má ve své konfiguraci uvedeny <a href="http://www.root-servers.org/" 
+class="external text" rel="nofollow">IP adresy kořenových serverů</a> 
+(autoritativních serverů pro kořenovou doménu). Obrátí se tedy s dotazem
+ na některý z nich.</p>
+<p>Kořenové servery mají autoritativní informace o kořenové doméně. 
+Konkrétně znají všechny existující domény nejvyšší úrovně a jejich 
+autoritativní servery. Dotaz je tedy následně směrován na některý z 
+autoritativních serverů domény nejvyšší úrovně, v níž se nachází cílové 
+jméno. Ten je opět schopen poskytnout informace o své doméně a posunout 
+řešení o jedno patro dolů v doménovém stromě. Tímto způsobem řešení 
+postupuje po jednotlivých patrech doménové hierarchie směrem k cíli, až 
+se dostane k serveru autoritativnímu pro hledané jméno, který pošle 
+definitivní odpověď.</p>
+<p>Získávání informací z takového systému probíhá rekurzí. Resolver 
+(program zajišťující překlad) postupuje od kořene postupně stromem 
+směrem dolů dokud nenalezne autoritativní záznam o hledané doméně. 
+Jednotlivé DNS servery jej postupně odkazují na autoritativní DNS pro 
+jednotlivé části jména.</p>
+<p><b>Příklad:</b> Podívejme se, jak by postupovalo hledání IP adresy ke
+ jménu <i>www.wikipedia.org</i>:</p>
+<div class="thumb tright">
+<div class="thumbinner" style="width: 222px;"><a 
+href="http://cs.wikipedia.org/wiki/Soubor:Dns-wikipedia.gif" 
+class="image"><img alt="" src="DNS_soubory/220px-Dns-wikipedia.gif" 
+class="thumbimage" width="220" height="103"></a>
+<div class="thumbcaption">
+<div class="magnify"><a 
+href="http://cs.wikipedia.org/wiki/Soubor:Dns-wikipedia.gif" 
+class="internal" title="Zvětšit"><img src="DNS_soubory/magnify-clip.png"
+ alt="" width="15" height="11"></a></div>
+Postup hledání www.wikipedia.org</div>
+</div>
+</div>
+<ol>
+<li>Uživatel zadal do svého <a 
+href="http://cs.wikipedia.org/wiki/Webov%C3%BD_prohl%C3%AD%C5%BEe%C4%8D"
+ title="Webový prohlížeč">WWW klienta</a> doménové jméno <i>www.wikipedia.org</i>.
+ Resolver v počítači se obrátil na lokální DNS server s dotazem na IP 
+adresu pro <i>www.wikipedia.org</i>.</li>
+<li>Lokální DNS server tuto informaci nezná. Má však k dispozici adresy 
+kořenových serverů. Na jeden z nich se obrátí (řekněme na 193.0.14.129) a
+ dotaz mu přepošle.</li>
+<li>Kořenový server také nezná odpověď. Ví však, že existuje doména 
+nejvyšší úrovně <i>org</i>, a jaké jsou její autoritativní servery, 
+jejichž adresy tazateli poskytne.</li>
+<li>Lokální server jeden z nich vybere (řekněme, že zvolí <i>tld1.ultradns.net</i>
+ s IP adresou 204.74.112.1) a pošle mu dotaz na IP adresu ke jménu <i>www.wikipedia.org</i>.</li>
+<li>Oslovený server informaci opět nezná, ale poskytne IP adresy 
+autoritativních serverů pro doménu <i>wikipedia.org</i>. Jsou to <i>ns0.wikimedia.org</i>
+ (207.142.131.207), <i>ns1.wikimedia.org</i> (211.115.107.190) a <i>ns2.wikimedia.org</i>
+ (145.97.39.158).</li>
+<li>Lokální server opět jeden z nich vybere a pošle mu dotaz na IP 
+adresu ke jménu <i>www.wikipedia.org</i>.</li>
+<li>Jelikož toto jméno se již nachází v doméně <i>wikipedia.org</i>, 
+dostane od jejího serveru nepochybně autoritativní odpověď, že hledaná 
+IP adresa zní 145.97.39.155</li>
+<li>Lokální DNS server tuto odpověď předá uživatelskému počítači, který 
+se na ni ptal.</li>
+</ol>
+<p>Výše popsaný postup popisuje kompletní řešení daného dotazu. Může se 
+ale stát, že některý z oslovených serverů má hledanou informaci ve své 
+vyrovnávací paměti, protože odpovídající dotaz nedávno řešil. V takovém 
+případě poskytne neautoritativní odpověď z vyrovnávací paměti a další 
+dotazování odpadá. Ve vyrovnávací paměti mohou být i mezivýsledky - 
+například lokální DNS server v ní skoro jistě bude mít informaci o 
+autoritativních serverech pro doménu <i>org</i>, protože v ní 
+pravděpodobně hledá každou chvíli. V takovém případě by vypadly kroky 2 a
+ 3 a lokální server by se s dotazem rovnou obrátil na některý z 
+autoritativních serverů domény <i>org</i>.</p>
+<p>Všimněte si, že oslovené servery v popsaném příkladu vykazují dva 
+odlišné druhy chování. Při <b>rekurzivním řešení dotazu</b> se server 
+chopí vyřízení dotazu, najde odpověď a pošle ji tazateli. Rekurzivní 
+přístup server zatěžuje (musí sledovat postup řešení, ukládat si 
+mezivýsledky apod.), ale projde jím odpověď a tu si může uložit do 
+vyrovnávací paměti. Typicky se tak chovají lokální servery, aby si 
+plnily vyrovnávací paměti a mohly dalším tazatelům poskytovat odpovědi 
+rovnou. Při <b>nerekurzivním řešení dotazu</b> server dotaz neřeší, 
+pouze poskytne tazateli adresy dalších serverů, jichž se má ptát dál. 
+Takto se chovají servery ve vyšších patrech doménové hierarchie 
+(kořenové a autoritativní servery TLD), které by rekurzivní chování 
+kapacitně nezvládaly. V příkladu výše se rekurzivně choval lokální 
+server, zatímco autoritativní servery pro kořenovou doménu a doménu <i>org</i>
+ se chovaly nerekurzivně (což odpovídá realitě).</p>
+<h3><span class="editsection">[<a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=edit&amp;section=8"
+ title="Editace sekce: Reverzní dotazy">editovat</a>]</span> <span 
+class="mw-headline" id="Reverzn.C3.AD_dotazy">Reverzní dotazy</span></h3>
+<p>Nejběžnějším úkolem DNS je poskytnout informace (nejčastěji IP 
+adresu) pro zadané doménové jméno. Dovede ale i opak – sdělit jméno, pod
+ kterým je daná IP adresa zaregistrována. Při vkládání dat pro zpětné 
+dotazy bylo ale třeba vyřešit problém s opačným uspořádáním IP adresy a 
+doménového jména. Zatímco IP adresa má na začátku obecné informace 
+(adresu sítě), které se směrem doprava zpřesňují až k adrese počítače, 
+doménové jméno má pořadí přesně opačné. Instituce připojená k Internetu 
+typicky má přidělen začátek svých IP adres a konec svých doménových 
+jmen.</p>
+<p>Tento nesoulad řeší DNS tak, že při reverzních dotazech obrací pořadí
+ bajtů v adrese. K obrácené adrese pak připojí doménu <i>in-addr.arpa</i>
+ a výsledné „jméno“ pak vyhledává standardním postupem. Hledá-li 
+například jméno k IP adrese 145.97.39.155, vytvoří dotaz na <i>155.39.97.145.in-addr.arpa</i>.
+ Obrácení IP adresy umožňuje delegovat správu reverzních domén 
+odpovídajících sítím a podsítím správcům dotyčných sítí a podsítí. V 
+příkladu použitou síť 145.97.0.0/16 spravuje nizozemský SURFnet a ten má
+ také ve správě jí odpovídající doménu <i>97.145.in-addr.arpa</i>. 
+Kdykoli zavede do sítě nový počítač, může zároveň upravit data v 
+reverzní doméně, aby odpovídala skutečné situaci.</p>
+<p>Je dobré mít na paměti, že na data z reverzních domén nelze zcela 
+spoléhat. Do reverzní domény se v principu dají zapsat téměř libovolná 
+jména. Nikdo například nemůže zabránit SURFnetu, aby o počítači 
+145.97.1.1 prohlásil v reverzní zóně, že se jedná třeba o <i>www.seznam.cz</i>.
+ Pokud na tom záleží, je záhodno si poskytnutou informaci ověřit 
+normálním dotazem (zde nalézt IP adresu k <i>www.seznam.cz</i> a 
+porovnat ji s 145.97.1.1). Jestliže odpovědí na něj bude původní IP 
+adresa, jsou data důvěryhodná – správce klasické i reverzní domény tvrdí
+ totéž. Pokud se liší, znamená to, že data v reverzní doméně jsou 
+nekorektní.</p>
+<h3><span class="editsection">[<a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=edit&amp;section=9"
+ title="Editace sekce: Alternativní stromy">editovat</a>]</span> <span 
+class="mw-headline" id="Alternativn.C3.AD_stromy">Alternativní stromy</span></h3>
+<p>Běžní uživatelé internetu se setkají jen s „oficiálním“ stromem 
+domén. Je ovšem možné založit libovolné množství takových stromů, které 
+mohou obsahovat i stejná jména. Příkladem budiž například neoficiální 
+strom <a 
+href="http://cs.wikipedia.org/w/index.php?title=.czf&amp;action=edit&amp;redlink=1"
+ class="new" title=".czf (stránka neexistuje)">czf</a> fungující uvnitř 
+některých privátních sítí v ČR.</p>
+<h2><span class="editsection">[<a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=edit&amp;section=10"
+ title="Editace sekce: DNS v praxi">editovat</a>]</span> <span 
+class="mw-headline" id="DNS_v_praxi">DNS v praxi</span></h2>
+<h3><span class="editsection">[<a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=edit&amp;section=11"
+ title="Editace sekce: DNS cache">editovat</a>]</span> <span 
+class="mw-headline" id="DNS_cache">DNS cache</span></h3>
+<p>Téměř každý DNS server funguje zároveň jako DNS cache. Při 
+opakovaných dotazech pak nedochází k rekurzivnímu prohledávání stromu, 
+ale odpověď je získána lokálně. V DNS záznamech je totiž uložena i 
+informace jak dlouho lze záznam používat (TTL) a lze také zjistit, zda 
+byl záznam změněn. Po vypršení platnosti je záznam z DNS cache 
+odstraněn.</p>
+<h3><span class="editsection">[<a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=edit&amp;section=12"
+ title="Editace sekce: Doba uložení záznamu">editovat</a>]</span> <span 
+class="mw-headline" id="Doba_ulo.C5.BEen.C3.AD_z.C3.A1znamu">Doba 
+uložení záznamu</span></h3>
+<p>Problém s uložením záznamů v cache nastává v případě změny záznamu. 
+Pokud administrátor nastaví TTL na 6 hodin, a poté provede změnu 
+záznamu, nastane situace, že někteří uživatelé sítě dostanou informaci 
+již novou a někteří ještě starou. Tato situace bude trvat právě oněch 6 
+hodin, v závislosti na nastavení ostatních serverů a také v závislosti 
+na době která uplynula od jejich posledního dotazu.</p>
+<p>Je proto nutné zvolit správný poměr mezi rychlostí šíření změn a 
+ušetřeným výkonem a přenosovým pásmem DNS serveru. Pokud se změny 
+provádí často, je vhodné zvolit kratší TTL v řádu jednotek hodin, pokud 
+se změny téměř neprovádějí, může být TTL ve dnech.</p>
+<h3><span class="editsection">[<a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=edit&amp;section=13"
+ title="Editace sekce: Zónové soubory">editovat</a>]</span> <span 
+class="mw-headline" id="Z.C3.B3nov.C3.A9_soubory">Zónové soubory</span></h3>
+<p>Obsah zóny (domény či několika domén) je uložen v tzv. zónovém 
+souboru. Skládá se z jednotlivých záznamů (přesný název zní <b>zdrojové 
+záznamy</b>, resource records, RR) obsahujících dílčí informace. Jejich 
+názvy a nesené informace jsou přesně definovány v příslušných 
+dokumentech, většina v <a href="http://tools.ietf.org/html/rfc1035" 
+class="external mw-magiclink-rfc">RFC 1035</a>. Formát textového zápisu 
+zónového souboru se liší v závislosti na použitém serveru, zde použijeme
+ nejrozšířenější <a href="http://cs.wikipedia.org/wiki/BIND" 
+title="BIND">BIND</a>. Záznamy v něm mají tvar</p>
+<dl>
+<dd><i>jméno</i> <i>životnost</i> <i>třída</i> <i>typ</i> <i>parametry</i></dd>
+</dl>
+<ul>
+<li><i>jméno</i> je doménové jméno, pro něž záznam vytváříte. Zpravidla 
+patří do aktuálně definované domény, pak se píše jen samotné jméno bez 
+tečky na konci a bude k němu doplněna aktuální doména. Pokud jméno 
+ukončíte tečkou, nic se k němu nedoplňuje a bere se jako kompletní. 
+Nemusí být uvedeno, pak se přebírá z předchozího záznamu.</li>
+<li><i>životnost</i> určuje dobu platnosti záznamu v sekundách. Většinou
+ se neuvádí a záznamům se ponechává implicitní životnost. Umožňuje vám 
+však udělat výjimku.</li>
+<li><i>třída</i> určuje rodinu protokolů, k níž se záznam vztahuje. DNS 
+lze teoreticky používat i pro jiné síťové architektury, v praxi však 
+třída vždy bývá IN, což znamená Internet.</li>
+<li><i>typ</i> určuje typ definovaného záznamu (viz níže).</li>
+<li><i>parametry</i> se vztahují k typu záznamu, poskytují mu potřebná 
+data. Obsahem parametrů často bývají doménová jména. Je třeba zdůraznit,
+ že v parametrech se smí vyskytovat jen skutečná jména, nikoli přezdívky
+ zavedené pomocí CNAME (viz níže).</li>
+</ul>
+<p>Zónový soubor vždy musí začínat záznamem typu SOA.</p>
+<h3><span class="editsection">[<a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=edit&amp;section=14"
+ title="Editace sekce: Typy záznamů">editovat</a>]</span> <span 
+class="mw-headline" id="Typy_z.C3.A1znam.C5.AF">Typy záznamů</span></h3>
+<p>Nejčastěji používané jsou následující typy zdrojových záznamů (v 
+abecedním pořadí):</p>
+<ul>
+<li><b>A</b> (<b>a</b>ddress record) obsahuje IPv4 adresu přiřazenou 
+danému jménu, například když jménu <i>cosi.kdesi.cz</i> náleží IP adresa
+ 1.2.3.4, bude zónový soubor pro doménu <i>kdesi.cz</i> obsahovat záznam</li>
+</ul>
+<pre>cosi     IN   A   1.2.3.4
+</pre>
+<ul>
+<li><b>AAAA</b> (IPv6 address record) obsahuje IPv6 adresu. Zmíněnému 
+stroji bychom IPv6 adresu 2001:718:1c01:1:02e0:7dff:fe96:daa8 přiřadili 
+záznamem</li>
+</ul>
+<pre>cosi     IN   AAAA   2001:718:1c01:1:02e0:7dff:fe96:daa8
+</pre>
+<ul>
+<li><b>CNAME</b> (<b>c</b>anonical <b>name</b> record) je alias - jiné 
+jméno pro jméno již zavedené. Typicky se používá pro servery známých 
+služeb, jako je například WWW. Jeho definice pomocí přezdívky umožňuje 
+jej později snadno přestěhovat na jiný počítač. Pokud náš <i>cosi.kdesi.cz</i>
+ má sloužit zároveň jako <i>www.kdesi.cz</i>, vložíme do zónového 
+souboru</li>
+</ul>
+<pre>www      IN   CNAME   cosi
+</pre>
+<ul>
+<li><b><a href="http://cs.wikipedia.org/wiki/MX_z%C3%A1znam" title="MX 
+záznam">MX</a></b> (<b>m</b>ail e<b>x</b>change record) oznamuje adresu a
+ prioritu serveru pro příjem elektronické pošty pro danou doménu. 
+Tentokrát jsou parametry dva - priorita (přirozené číslo, menší znamená 
+vyšší prioritu) a doménové jméno serveru. Pokud poštu pro počítač <i>cosi.kdesi.cz</i>
+ přijímá nejlépe počítač <i>mail.kdesi.cz</i> a případně jako záložní i <i>mail.jinde.cz</i>,
+ bude zónový soubor obsahovat záznamy (všimněte si použití jmen s tečkou
+ a bez tečky)</li>
+</ul>
+<pre>cosi     IN   MX   10 mail
+         IN   MX   20 mail.jinde.cz.
+</pre>
+<ul>
+<li><b>NS</b> (<b>n</b>ame <b>s</b>erver record) ohlašuje jméno 
+autoritativního DNS serveru pro danou doménu. Bude-li mít doména <i>kdesi.cz</i>
+ poddoménu <i>obchod.kdesi.cz</i>, jejímiž servery budou <i>ns.kdesi.cz</i>
+ (primární) a <i>ns.jinde.cz</i> (sekundární), bude zónový soubor pro <i>kdesi.cz</i>
+ obsahovat</li>
+</ul>
+<pre>obchod   IN   NS   ns
+         IN   NS   ns.jinde.cz.
+</pre>
+<ul>
+<li><b>PTR</b> (<b>p</b>oin<b>t</b>e<b>r</b> record) je speciální typ 
+záznamu pro reverzní zóny. Obsahuje na pravé straně jméno počítače 
+přidělené adrese na straně levé (adresa je transformována na doménu výše
+ popsaným postupem). Držme se našeho příkladu pro záznam typu A - v 
+souladu s ním by zónový soubor pro doménu <i>3.2.1.in-addr.arpa</i> měl 
+obsahovat (zónový soubor definuje reverzní doménu, proto je třeba psát 
+na pravé straně kompletní jméno s tečkou, jinak by za ně připojil 
+reverzní doménu)</li>
+</ul>
+<pre>4        IN   PTR   cosi.kdesi.cz.
+</pre>
+<ul>
+<li><b>SOA</b> (<b>s</b>tart <b>o</b>f <b>a</b>uthority record) je 
+zahajující záznam zónového souboru. Obsahuje jméno primárního serveru, 
+adresu elektronické pošty jejího správce (zavináč je v ní ale nahrazen 
+tečkou) a následující údaje:
+<ul>
+<li><i>Serial</i> — sériové číslo, které je třeba zvětšit s každou 
+změnou v záznamu. Podle něj sekundární server pozná, že v doméně došlo 
+ke změně. Pokud jej zapomenete zvětšit, rozejde se obsah sekundárních 
+serverů s primárním, což rozhodně není dobré. Pro přehlednost často ve 
+formátu YYYYMMDDHH.</li>
+<li><i>Refresh</i> — jak často se má sekundární server dotazovat na 
+novou verzi zóny (v sekundách).</li>
+<li><i>Retry</i> — v jakých intervalech má sekundární server opakovat 
+své pokusy, pokud se mu nedaří spojit s primárním.</li>
+<li><i>Expire</i> — čas po kterém označí sekundární servery své záznamy 
+za neaktuální, pokud se jim nedaří kontaktovat primární server.</li>
+<li><i>TTL</i> — implicitní doba platnosti záznamů.</li>
+</ul>
+</li>
+</ul>
+<p>Časové údaje jsou v sekundách. Novější implementace umožní pro vyšší 
+pohodlí používat k číslům přípony 'M','H','D' a 'W' (minuta, hodina, 
+den, týden) – například 8h znamená 8 hodin, čili totéž co hodnota 28800.
+ Podívejme se na příklad SOA záznamu:</p>
+<pre>@        IN   SOA   ns.kdesi.cz.  franta.kdesi.cz. (
+                    200605140
+                    1h
+                    5m
+                    1w
+                    1d
+                    )
+</pre>
+<h3><span class="editsection">[<a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=edit&amp;section=15"
+ title="Editace sekce: Příklad zónového souboru">editovat</a>]</span> <span
+ class="mw-headline" id="P.C5.99.C3.ADklad_z.C3.B3nov.C3.A9ho_souboru">Příklad
+ zónového souboru</span></h3>
+<p>Zkusme dát dohromady lehce upravené úseky popsané výše a vytvořit 
+příklad zónového souboru pro fiktivní doménu <i>kdesi.cz</i>. O takovýto
+ záznam se stará správce (majitel) domény a má možnost jej měnit.</p>
+<pre>$TTL 1w
+@         IN   SOA   server.kdesi.cz.  franta.kdesi.cz. (
+                     200605140
+                     1h
+                     5m
+                     1w
+                     1d
+                     )
+          IN   NS   server
+          IN   NS   ns.jinde.cz.
+
+          IN   MX   10 server
+          IN   MX   20 mail.jinde.cz.
+
+cosi      IN   A      1.2.3.4
+          IN   AAAA   2001:718:1c01:1:02e0:7dff:fe96:daa8
+server    IN   A      1.2.3.1
+www       IN   CNAME  server
+</pre>
+<p>V příkladu je uvedena implicitní životnost jeden týden, dále SOA 
+záznam popsaný výše, určující, že se záznam týká domény <i>kdesi.cz</i>,
+ jejíhož správce je možné kontaktovat na emailu franta@kdesi.cz. 
+Následují odkazy na dva DNS servery, které o doméně poskytují 
+autoritativní informace – jeden místní a druhý externí. Dále MX záznamy,
+ určující kam se bude doručovat elektronická pošta pro tuto doménu.</p>
+<p>Další dva řádky obsahují A a AAAA záznamy určující adresy počítače <i>cosi.kdesi.cz</i>.
+ Za nimi je definována IPv4 adresa pro <i>server.kdesi.cz</i> a konečně 
+je mu přidělena přezdívka <i>www.kdesi.cz</i>.</p>
+<p><br></p>
+<h2><span class="editsection">[<a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=edit&amp;section=16"
+ title="Editace sekce: Implementace">editovat</a>]</span> <span 
+class="mw-headline" id="Implementace">Implementace</span></h2>
+<p>U <a href="http://cs.wikipedia.org/wiki/Unix" title="Unix">UNIX-like</a>
+ systémů je asi nejpoužívanější BIND <a 
+href="https://www.isc.org/software/bind" class="external free" 
+rel="nofollow">https://www.isc.org/software/bind</a> . Někteří 
+poskytovatelé používají kvůli velkému počtu záznamů MyDNS <a 
+href="http://mydns.bboy.net/" class="external free" rel="nofollow">http://mydns.bboy.net/</a>
+ . Jako caching-only DNS server se osvědčuje také djbdns <a 
+href="http://cr.yp.to/djbdns.html" class="external free" rel="nofollow">http://cr.yp.to/djbdns.html</a>
+ .</p>
+<h2><span class="editsection">[<a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=edit&amp;section=17"
+ title="Editace sekce: Související články">editovat</a>]</span> <span 
+class="mw-headline" id="Souvisej.C3.ADc.C3.AD_.C4.8Dl.C3.A1nky">Související
+ články</span></h2>
+<ul>
+<li><a href="http://cs.wikipedia.org/wiki/TCP/IP" title="TCP/IP">TCP/IP</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/Internetov%C3%A1_dom%C3%A9na" 
+title="Internetová doména">Internetová doména</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/SRV_z%C3%A1znam" title="SRV 
+záznam">SRV záznam</a></li>
+<li><a href="http://cs.wikipedia.org/wiki/DNSSEC" title="DNSSEC">DNSSEC</a></li>
+</ul>
+<h2><span class="editsection">[<a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=edit&amp;section=18"
+ title="Editace sekce: Externí odkazy">editovat</a>]</span> <span 
+class="mw-headline" id="Extern.C3.AD_odkazy">Externí odkazy</span></h2>
+<ul>
+<li><a href="http://www.pweb.cz/dns/index.html" class="external text" 
+rel="nofollow">Průvodce DNS</a> – úvod DNS, typy záznamů, popis DNS 
+protokolu</li>
+<li><a href="http://www.dnska.cz/" class="external text" rel="nofollow">Vyhledávání
+ v DNS zánamech</a> – je možné hledat v DNS záznamech MX a A</li>
+</ul>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 148/1000000
+Post-expand include size: 3346/2048000 bytes
+Template argument size: 177/2048000 bytes
+Expensive parser function count: 0/500
+-->
+
+<!-- Saved in parser cache with key cswiki:pcache:idhash:4226-0!1!0!!cs!4 and timestamp 20100901050048 -->
+<div class="printfooter">
+Citováno z „<a href="http://cs.wikipedia.org/wiki/Domain_Name_System">http://cs.wikipedia.org/wiki/Domain_Name_System</a>“</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks"><a 
+href="http://cs.wikipedia.org/wiki/Speci%C3%A1ln%C3%AD:Kategorie" 
+title="Speciální:Kategorie">Kategorie</a>: <span dir="ltr"><a 
+href="http://cs.wikipedia.org/wiki/Kategorie:Domain_Name_System" 
+title="Kategorie:Domain Name System">Domain Name System</a></span> | <span
+ dir="ltr"><a 
+href="http://cs.wikipedia.org/wiki/Kategorie:Aplika%C4%8Dn%C3%AD_protokoly_IP"
+ title="Kategorie:Aplikační protokoly IP">Aplikační protokoly IP</a></span></div><div
+ id="mw-hidden-catlinks" class="mw-hidden-cats-hidden">Skryté kategorie:
+ <span dir="ltr"><a 
+href="http://cs.wikipedia.org/wiki/Kategorie:%C4%8Cl%C3%A1nky_k_%C3%BAprav%C4%9B_-_informatika"
+ title="Kategorie:Články k úpravě - informatika">Články k úpravě - 
+informatika</a></span> | <span dir="ltr"><a 
+href="http://cs.wikipedia.org/wiki/Kategorie:Fakta_k_ov%C4%9B%C5%99en%C3%AD"
+ title="Kategorie:Fakta k ověření">Fakta k ověření</a></span></div></div>
+				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		<div id="mw-head" class="noprint">
+			
+<!-- 0 -->
+<div id="p-personal" class="">
+	<h5>Osobní nástroje</h5>
+	<ul>
+					<li id="pt-prefswitch-link-anon"><a 
+href="http://cs.wikipedia.org/w/index.php?title=Speci%C3%A1ln%C3%AD:UsabilityInitiativePrefSwitch&amp;from=Domain_Name_System"
+ title="Informace o nových funkcích" class="no-text-transform">Nové 
+funkce</a></li>
+					<li id="pt-login"><a 
+href="http://cs.wikipedia.org/w/index.php?title=Speci%C3%A1ln%C3%AD:P%C5%99ihl%C3%A1sit&amp;returnto=Domain_Name_System"
+ title="Doporučujeme vám přihlásit se, ovšem není to povinné. 
+[alt-shift-o]" accesskey="o">Přihlášení / vytvoření účtu</a></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+			<div id="left-navigation">
+				
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>Jmenné prostory</h5>
+	<ul>
+					<li id="ca-nstab-main" class="selected"><a 
+href="http://cs.wikipedia.org/wiki/Domain_Name_System" title="Zobrazit 
+obsahovou stránku [alt-shift-c]" accesskey="c"><span>Stránka</span></a></li>
+					<li id="ca-talk"><a 
+href="http://cs.wikipedia.org/wiki/Diskuse:Domain_Name_System" 
+title="Diskuse ke stránce [alt-shift-t]" accesskey="t"><span>Diskuse</span></a></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu emptyPortlet">
+		<h5><span>Varianty</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+			</div>
+			<div id="right-navigation">
+				
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>Zobrazení</h5>
+	<ul>
+					<li id="ca-view" class="selected"><a 
+href="http://cs.wikipedia.org/wiki/Domain_Name_System"><span>Číst</span></a></li>
+					<li id="ca-edit"><a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=edit"
+ title="Tuto stránku můžete editovat. Prosíme použijte tlačítko Ukázat 
+náhled před uložením. [alt-shift-e]" accesskey="e"><span>Editovat</span></a></li>
+					<li id="ca-history" class="collapsible "><a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;action=history"
+ title="Starší verze této stránky. [alt-shift-h]" accesskey="h"><span>Zobrazit
+ historii</span></a></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>Akce</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+
+<!-- 2 -->
+<div id="p-search">
+	<h5><label for="searchInput">Hledání</label></h5>
+	<form action="/w/index.php" id="searchform">
+		<input name="title" value="Speciální:Hledání" type="hidden">
+				<div id="simpleSearch">
+			<input autocomplete="off" class="placeholder" tabindex="1" 
+id="searchInput" name="search" title="Prohledat tuto wiki [alt-shift-f]"
+ accesskey="f" value="Hledat" type="text">
+			<button id="searchButton" type="submit" name="button" title="Hledat 
+stránky s tímto textem"><img src="DNS_soubory/search-ltr.png" 
+alt="Hledat"></button>
+		</div>
+			</form>
+</div>
+
+<!-- /2 -->
+			</div>
+		</div>
+		<!-- /header -->
+		<!-- panel -->
+			<div id="mw-panel" class="noprint collapsible-nav">
+				<!-- logo -->
+					<div id="p-logo"><a style="background-image: 
+url(&quot;http://upload.wikimedia.org/wikipedia/commons/b/b7/Wikipedia-logo-v2-cs.png&quot;);"
+ href="http://cs.wikipedia.org/wiki/Hlavn%C3%AD_strana" title="Hlavní 
+strana"></a></div>
+				<!-- /logo -->
+				
+<!-- SEARCH -->
+
+<!-- /SEARCH -->
+
+<!-- navigation -->
+<div class="portal first persistent" id="p-navigation">
+	<h5>Navigace</h5>
+	<div class="body">
+				<ul>
+					<li id="n-mainpage"><a 
+href="http://cs.wikipedia.org/wiki/Hlavn%C3%AD_strana" title="Navštívit 
+Hlavní stranu [alt-shift-z]" accesskey="z">Hlavní strana</a></li>
+					<li id="n-portal"><a 
+href="http://cs.wikipedia.org/wiki/Wikipedie:Port%C3%A1l_Wikipedie" 
+title="O projektu, jak můžete pomoci, kde hledat">Portál Wikipedie</a></li>
+					<li id="n-currentevents"><a 
+href="http://cs.wikipedia.org/wiki/Port%C3%A1l:Aktuality" 
+title="Informace o aktuálních událostech">Aktuality</a></li>
+					<li id="n-villagepump"><a 
+href="http://cs.wikipedia.org/wiki/Wikipedie:Pod_l%C3%ADpou">Pod lípou</a></li>
+					<li id="n-recentchanges"><a 
+href="http://cs.wikipedia.org/wiki/Speci%C3%A1ln%C3%AD:Posledn%C3%AD_zm%C4%9Bny"
+ title="Seznam posledních změn na této wiki [alt-shift-r]" accesskey="r">Poslední
+ změny</a></li>
+					<li id="n-randompage"><a 
+href="http://cs.wikipedia.org/wiki/Speci%C3%A1ln%C3%AD:N%C3%A1hodn%C3%A1_str%C3%A1nka"
+ title="Přejít na náhodně vybranou stránku [alt-shift-x]" accesskey="x">Náhodný
+ článek</a></li>
+					<li id="n-help"><a 
+href="http://cs.wikipedia.org/wiki/N%C3%A1pov%C4%9Bda:Obsah" 
+title="Místo, kde najdete pomoc">Nápověda</a></li>
+					<li id="n-sitesupport"><a 
+href="http://wikimediafoundation.org/wiki/Sponzorstv%C3%AD" 
+title="Podpořte nás">Podpořte Wikipedii</a></li>
+				</ul>
+			</div>
+</div>
+
+<!-- /navigation -->
+
+<!-- coll-print_export -->
+<div class="portal expanded" id="p-coll-print_export">
+	<h5 tabindex="2">Tisk/export</h5>
+	<div style="display: block;" class="body">
+				<ul id="collectionPortletList"><li id="coll-create_a_book"><a 
+href="http://cs.wikipedia.org/w/index.php?title=Speci%C3%A1ln%C3%AD:Kniha&amp;bookcmd=book_creator&amp;referer=Domain+Name+System"
+ title="Vytvoření knihy nebo kolekce stránek" rel="nofollow">Vytvořit 
+knihu</a></li><li id="coll-download-as-rl"><a 
+href="http://cs.wikipedia.org/w/index.php?title=Speci%C3%A1ln%C3%AD:Kniha&amp;bookcmd=render_article&amp;arttitle=Domain+Name+System&amp;oldid=5761867&amp;writer=rl"
+ title="Stáhnout tuto stránku wiki jako PDF" rel="nofollow">Stáhnout 
+jako PDF</a></li><li id="t-print"><a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;printable=yes"
+ title="Tato stránka v podobě vhodné k tisku [alt-shift-p]" 
+accesskey="p">Verze k tisku</a></li></ul>			</div>
+</div>
+
+<!-- /coll-print_export -->
+
+<!-- TOOLBOX -->
+<div class="portal collapsed" id="p-tb">
+	<h5 tabindex="3">Nástroje</h5>
+	<div class="body">
+		<ul>
+					<li id="t-whatlinkshere"><a 
+href="http://cs.wikipedia.org/wiki/Speci%C3%A1ln%C3%AD:Co_odkazuje_na/Domain_Name_System"
+ title="Seznam všech wikistránek, které sem odkazují [alt-shift-j]" 
+accesskey="j">Odkazuje sem</a></li>
+						<li id="t-recentchangeslinked"><a 
+href="http://cs.wikipedia.org/wiki/Speci%C3%A1ln%C3%AD:Souvisej%C3%ADc%C3%AD_zm%C4%9Bny/Domain_Name_System"
+ title="Nedávné změny stránek, na které je odkazováno [alt-shift-k]" 
+accesskey="k">Související změny</a></li>
+																																					<li id="t-upload"><a 
+href="http://commons.wikimedia.org/wiki/Special:Upload?uselang=cs" 
+title="Nahrát obrázky či jiná multimédia [alt-shift-u]" accesskey="u">Načíst
+ soubor</a></li>
+											<li id="t-specialpages"><a 
+href="http://cs.wikipedia.org/wiki/Speci%C3%A1ln%C3%AD:Speci%C3%A1ln%C3%AD_str%C3%A1nky"
+ title="Seznam všech speciálních stránek [alt-shift-q]" accesskey="q">Speciální
+ stránky</a></li>
+											<li id="t-permalink"><a 
+href="http://cs.wikipedia.org/w/index.php?title=Domain_Name_System&amp;oldid=5761867"
+ title="Trvalý odkaz na současnou verzi této stránky">Trvalý odkaz</a></li>
+				<li id="t-cite"><a 
+href="http://cs.wikipedia.org/w/index.php?title=Speci%C3%A1ln%C3%AD:Citovat&amp;page=Domain_Name_System&amp;id=5761867"
+ title="Informace o tom, jak citovat tuto stránku">Citovat stránku</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- /TOOLBOX -->
+
+<!-- LANGUAGES -->
+<div class="portal expanded" id="p-lang">
+	<h5 tabindex="4">V jiných jazycích</h5>
+	<div style="display: block;" class="body">
+		<ul>
+					<li class="interwiki-af"><a 
+href="http://af.wikipedia.org/wiki/Domeinnaamstelsel" 
+title="Domeinnaamstelsel">Afrikaans</a></li>
+					<li class="interwiki-ar"><a 
+href="http://ar.wikipedia.org/wiki/%D9%86%D8%B8%D8%A7%D9%85_%D8%A3%D8%B3%D9%85%D8%A7%D8%A1_%D8%A7%D9%84%D9%86%D8%B7%D8%A7%D9%82%D8%A7%D8%AA"
+ title="نظام أسماء النطاقات">العربية</a></li>
+					<li class="interwiki-az"><a href="http://az.wikipedia.org/wiki/DNS"
+ title="DNS">Azərbaycanca</a></li>
+					<li class="interwiki-bar"><a 
+href="http://bar.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">Boarisch</a></li>
+					<li class="interwiki-bg"><a 
+href="http://bg.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">Български</a></li>
+					<li class="interwiki-bn"><a 
+href="http://bn.wikipedia.org/wiki/%E0%A6%A1%E0%A7%8B%E0%A6%AE%E0%A7%87%E0%A6%87%E0%A6%A8_%E0%A6%A8%E0%A7%87%E0%A6%AE_%E0%A6%B8%E0%A6%BF%E0%A6%B8%E0%A7%8D%E0%A6%9F%E0%A7%87%E0%A6%AE"
+ title="ডোমেইন নেম সিস্টেম">বাংলা</a></li>
+					<li class="interwiki-bs"><a 
+href="http://bs.wikipedia.org/wiki/Domain_name_system" title="Domain 
+name system">Bosanski</a></li>
+					<li class="interwiki-ca"><a 
+href="http://ca.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">Català</a></li>
+					<li class="interwiki-da"><a 
+href="http://da.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">Dansk</a></li>
+					<li class="interwiki-de"><a 
+href="http://de.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">Deutsch</a></li>
+					<li class="interwiki-el"><a 
+href="http://el.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">Ελληνικά</a></li>
+					<li class="interwiki-en"><a 
+href="http://en.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">English</a></li>
+					<li class="interwiki-eo"><a 
+href="http://eo.wikipedia.org/wiki/Domajna_nomsistemo" title="Domajna 
+nomsistemo">Esperanto</a></li>
+					<li class="interwiki-es"><a 
+href="http://es.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">Español</a></li>
+					<li class="interwiki-et"><a 
+href="http://et.wikipedia.org/wiki/Domeeninimede_s%C3%BCsteem" 
+title="Domeeninimede süsteem">Eesti</a></li>
+					<li class="interwiki-eu"><a 
+href="http://eu.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">Euskara</a></li>
+					<li class="interwiki-fa"><a 
+href="http://fa.wikipedia.org/wiki/%D8%B3%D8%A7%D9%85%D8%A7%D9%86%D9%87_%D9%86%D8%A7%D9%85_%D8%AF%D8%A7%D9%85%D9%86%D9%87"
+ title="سامانه نام دامنه">فارسی</a></li>
+					<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/DNS"
+ title="DNS">Suomi</a></li>
+					<li class="interwiki-fr"><a 
+href="http://fr.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">Français</a></li>
+					<li class="interwiki-gl"><a 
+href="http://gl.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">Galego</a></li>
+					<li class="interwiki-he"><a 
+href="http://he.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">עברית</a></li>
+					<li class="interwiki-hi"><a 
+href="http://hi.wikipedia.org/wiki/%E0%A4%A1%E0%A5%8B%E0%A4%AE%E0%A5%87%E0%A4%A8_%E0%A4%A8%E0%A4%BE%E0%A4%AE_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%A3%E0%A4%BE%E0%A4%B2%E0%A5%80"
+ title="डोमेन नाम प्रणाली">हिन्दी</a></li>
+					<li class="interwiki-hr"><a href="http://hr.wikipedia.org/wiki/DNS"
+ title="DNS">Hrvatski</a></li>
+					<li class="interwiki-hu"><a 
+href="http://hu.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">Magyar</a></li>
+					<li class="interwiki-id"><a 
+href="http://id.wikipedia.org/wiki/Sistem_Penamaan_Domain" title="Sistem
+ Penamaan Domain">Bahasa Indonesia</a></li>
+					<li class="interwiki-it"><a 
+href="http://it.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">Italiano</a></li>
+					<li class="interwiki-ja"><a 
+href="http://ja.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">日本語</a></li>
+					<li class="interwiki-ko"><a href="http://ko.wikipedia.org/wiki/DNS"
+ title="DNS">한국어</a></li>
+					<li class="interwiki-li"><a 
+href="http://li.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">Limburgs</a></li>
+					<li class="interwiki-lt"><a href="http://lt.wikipedia.org/wiki/DNS"
+ title="DNS">Lietuvių</a></li>
+					<li class="interwiki-lv"><a 
+href="http://lv.wikipedia.org/wiki/DNS_%28protokols%29" title="DNS 
+(protokols)">Latviešu</a></li>
+					<li class="interwiki-ml"><a 
+href="http://ml.wikipedia.org/wiki/%E0%B4%A1%E0%B5%8A%E0%B4%AE%E0%B5%86%E0%B4%AF%E0%B4%BF%E0%B5%BB_%E0%B4%A8%E0%B5%86%E0%B4%AF%E0%B4%BF%E0%B4%82_%E0%B4%B8%E0%B4%BF%E0%B4%B8%E0%B5%8D%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B4%82"
+ title="ഡൊമെയിൻ നെയിം സിസ്റ്റം">മലയാളം</a></li>
+					<li class="interwiki-ms"><a 
+href="http://ms.wikipedia.org/wiki/Sistem_Nama_Domain" title="Sistem 
+Nama Domain">Bahasa Melayu</a></li>
+					<li class="interwiki-nl"><a 
+href="http://nl.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">Nederlands</a></li>
+					<li class="interwiki-no"><a 
+href="http://no.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">‪Norsk (bokmål)‬</a></li>
+					<li class="interwiki-pl"><a 
+href="http://pl.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">Polski</a></li>
+					<li class="interwiki-pt"><a 
+href="http://pt.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">Português</a></li>
+					<li class="interwiki-ro"><a 
+href="http://ro.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">Română</a></li>
+					<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/DNS"
+ title="DNS">Русский</a></li>
+					<li class="interwiki-sah"><a 
+href="http://sah.wikipedia.org/wiki/DNS" title="DNS">Саха тыла</a></li>
+					<li class="interwiki-sh"><a href="http://sh.wikipedia.org/wiki/DNS"
+ title="DNS">Srpskohrvatski / Српскохрватски</a></li>
+					<li class="interwiki-simple"><a 
+href="http://simple.wikipedia.org/wiki/Domain_Name_System" title="Domain
+ Name System">Simple English</a></li>
+					<li class="interwiki-sk"><a 
+href="http://sk.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">Slovenčina</a></li>
+					<li class="interwiki-sl"><a href="http://sl.wikipedia.org/wiki/DNS"
+ title="DNS">Slovenščina</a></li>
+					<li class="interwiki-sq"><a 
+href="http://sq.wikipedia.org/wiki/Domain_Name_Server" title="Domain 
+Name Server">Shqip</a></li>
+					<li class="interwiki-sr"><a href="http://sr.wikipedia.org/wiki/DNS"
+ title="DNS">Српски / Srpski</a></li>
+					<li class="interwiki-sv"><a href="http://sv.wikipedia.org/wiki/DNS"
+ title="DNS">Svenska</a></li>
+					<li class="interwiki-ta"><a 
+href="http://ta.wikipedia.org/wiki/%E0%AE%95%E0%AE%B3%E0%AE%AA%E0%AF%8D_%E0%AE%AA%E0%AF%86%E0%AE%AF%E0%AE%B0%E0%AF%8D_%E0%AE%AE%E0%AF%81%E0%AE%B1%E0%AF%88%E0%AE%AE%E0%AF%88"
+ title="களப் பெயர் முறைமை">தமிழ்</a></li>
+					<li class="interwiki-te"><a 
+href="http://te.wikipedia.org/wiki/%E0%B0%A1%E0%B1%8A%E0%B0%AE%E0%B1%88%E0%B0%A8%E0%B1%8D_%E0%B0%A8%E0%B1%87%E0%B0%AE%E0%B1%8D_%E0%B0%B8%E0%B0%BF%E0%B0%B8%E0%B1%8D%E0%B0%9F%E0%B0%82"
+ title="డొమైన్ నేమ్ సిస్టం">తెలుగు</a></li>
+					<li class="interwiki-th"><a 
+href="http://th.wikipedia.org/wiki/%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%9A%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%87%E0%B8%8A%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B9%82%E0%B8%94%E0%B9%80%E0%B8%A1%E0%B8%99"
+ title="ระบบการตั้งชื่อโดเมน">ไทย</a></li>
+					<li class="interwiki-tl"><a 
+href="http://tl.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">Tagalog</a></li>
+					<li class="interwiki-tr"><a href="http://tr.wikipedia.org/wiki/DNS"
+ title="DNS">Türkçe</a></li>
+					<li class="interwiki-uk"><a 
+href="http://uk.wikipedia.org/wiki/%D0%94%D0%BE%D0%BC%D0%B5%D0%BD%D0%BD%D0%B0_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%96%D0%BC%D0%B5%D0%BD"
+ title="Доменна система імен">Українська</a></li>
+					<li class="interwiki-ur"><a 
+href="http://ur.wikipedia.org/wiki/%D9%86%D8%B8%D8%A7%D9%85_%D8%A7%D8%B3%D9%85_%D8%B3%D8%A7%D8%AD%DB%81"
+ title="نظام اسم ساحہ">اردو</a></li>
+					<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/DNS"
+ title="DNS">Tiếng Việt</a></li>
+					<li class="interwiki-yi"><a href="http://yi.wikipedia.org/wiki/DNS"
+ title="DNS">ייִדיש</a></li>
+					<li class="interwiki-yo"><a 
+href="http://yo.wikipedia.org/wiki/Domain_Name_System" title="Domain 
+Name System">Yorùbá</a></li>
+					<li class="interwiki-zh"><a 
+href="http://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8B%99%E5%99%A8"
+ title="域名服務器">中文</a></li>
+				</ul>
+	</div>
+</div>
+
+<!-- /LANGUAGES -->
+			</div>
+		<!-- /panel -->
+		<!-- footer -->
+		<div id="footer">
+											<ul id="footer-info">
+																	<li id="footer-info-lastmod"> Stránka byla naposledy 
+editována 1. 9. 2010 v 05:00.</li>
+																							<li id="footer-info-copyright">Text je dostupný 
+pod <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.cs">licencí
+ Creative Commons Uveďte autora&nbsp;– Zachovejte licenci&nbsp;3.0 
+Unported</a>, případně za dalších podmínek. Podrobnosti naleznete na 
+stránce <a 
+href="http://wikimediafoundation.org/wiki/Podm%C3%ADnky_u%C5%BEit%C3%AD">Podmínky
+ užití</a>.</li>
+															</ul>
+															<ul id="footer-places">
+																	<li id="footer-places-privacy"><a 
+href="http://wikimediafoundation.org/wiki/Ochrana_osobn%C3%ADch_%C3%BAdaj%C5%AF"
+ title="wikimedia:Ochrana osobních údajů">Ochrana osobních údajů</a></li>
+																							<li id="footer-places-about"><a 
+href="http://cs.wikipedia.org/wiki/Wikipedie" title="Wikipedie">O 
+Wikipedii</a></li>
+																							<li id="footer-places-disclaimer"><a 
+href="http://cs.wikipedia.org/wiki/Wikipedie:Vylou%C4%8Den%C3%AD_odpov%C4%9Bdnosti"
+ title="Wikipedie:Vyloučení odpovědnosti">Vyloučení odpovědnosti</a></li>
+															</ul>
+										<ul id="footer-icons" class="noprint">
+								<li id="footer-icon-poweredby"><a 
+href="http://www.mediawiki.org/"><img 
+src="DNS_soubory/poweredby_mediawiki_88x31.png" alt="Powered by 
+MediaWiki" width="88" height="31"></a></li>
+												<li id="footer-icon-copyright"><a 
+href="http://wikimediafoundation.org/"><img 
+src="DNS_soubory/wikimedia-button.png" alt="Wikimedia Foundation" 
+width="88" height="31"></a></li>
+							</ul>
+			<div style="clear: both;"></div>
+		</div>
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script>
+		<!-- /fixalpha -->
+		
+<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+		<!-- Served by srv185 in 0.089 secs. -->			<div class="suggestions" 
+style="top: 73px; width: 188px; display: none; left: auto; right: 41px;"><div
+ class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>
