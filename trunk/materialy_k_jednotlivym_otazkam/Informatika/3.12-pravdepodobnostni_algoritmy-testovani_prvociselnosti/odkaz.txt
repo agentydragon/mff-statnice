@@ -1,0 +1,2 @@
+Millerův-Rabinův test prvočíselnosti - http://cs.wikipedia.org/wiki/Miller%C5%AFv-Rabin%C5%AFv_test_prvo%C4%8D%C3%ADselnosti
+ 

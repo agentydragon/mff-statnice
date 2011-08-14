@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+	
+		<title></title>
+			
+			
+				
+					<link rel="stylesheet" href="emptyScreen_data/webmail-pbar.css" 
+media="all" type="text/css">
+				
+			
+		
+	</head><body>
+		
+		<div id="pageBar">
+			<div class="space">
+				<h2>Probíhá ukládání emailu:</h2>
+				
+				<div class="bar-cont">
+					<div class="progress">
+					    <div style="width: 100%;" id="progress" class="progressDone"></div>
+					</div>
+					
+					<div id="num" class="progressNum">100%</div>
+					<div id="file" class="progressFile"><strong>Ukládám text emailu</strong></div>
+					<div class="clear-b"> </div>
+				</div>
+				<div class="clear-b"></div>
+			</div>
+		</div>
+		
+		<div id="pLoader"><script src="emptyScreen_data/progressBar"></script></div>
+		<script type="text/javascript">
+		top.pBar.init(document, 'progress', 'num', 'file','Ukládám text emailu','Ukládám přílohu emailu','3339911','pLoader');
+		top.pBar.setErrorMsg('Ukazatel neni k dispozici');
+		top.pBar.openWin();
+		setTimeout(top.pBar.update,500);
+		</script>
+	</body></html>

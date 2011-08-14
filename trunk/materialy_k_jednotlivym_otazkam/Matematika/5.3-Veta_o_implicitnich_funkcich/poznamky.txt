@@ -1,0 +1,8 @@
+Pri splneni vsech tri podminek existuje explicitne vyjadrena funkce pro implicitni funkci f(x,y)=0:
+1) existuje bod (x0,y0) takovy, ze f(x0,y0)=0.
+2) okoli bodu (x0,y0) je spojite
+3) f'y(x0,y0)<>0 (y=f(x) ... normalni zobrazeni grafu, kde osa x je vodorovna a y svisla -- lze overit pro y=sin x)
+
+
+- kdyz je derivace v bode (x0,y0) nulova, neznamena to jeste, ze neexistuje explicitni funkce (to plati napriklad pro bod, ktery vypada jako inflexni - asi zadny predpis neexistuje -, jen ma prave derivaci nulovou).
+

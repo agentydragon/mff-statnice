@@ -1,0 +1,10 @@
+gcc -lpthread taxi.c
+
+
+spusteni pak: ./a.out
+
+
+
+
+Hledani v manualu: po zadani man das za lomitko text kterej chces hledat a enter (/).
+Na dalsi vyskyt se preskakuje pomoci stisknuti klavesy n

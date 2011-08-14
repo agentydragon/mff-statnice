@@ -1,0 +1,10 @@
+83 - Virtuální pamì a dynamickı pøeklad adres
+89 - Segmentace
+
+prednaska3.odp - mapovani VA na FA (6. slide)
+
+z fora o virtualni pameti:
+ http://jnp.zive.cz/virtualni-pamet-ano-ci-ne
+
+uzitecna stranka:
+ http://zcu.arcao.com/kiv/zos/zos/OdSobi/Materialy/Buris/dalsi-materialy/operacni_systemy-01/part07.html

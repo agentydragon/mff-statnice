@@ -1,0 +1,5 @@
+insert into TZapis (sid, zid) values (1, 2)
+insert into TZapis (sid, zid) values (1, 3)
+insert into TZapis (sid, zid) values (5, 3)
+insert into TZapis (sid, zid) values (4, 2)
+insert into TZapis (sid, zid) values (4, 3)

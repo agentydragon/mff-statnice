@@ -1,0 +1,41 @@
+zakaznik 1: existuji a budu si objednavat taxi
+zakaznik 2: existuji a budu si objednavat taxi
+zakaznik 3: existuji a budu si objednavat taxi
+zakaznik 4: existuji a budu si objednavat taxi
+zakaznik 5: existuji a budu si objednavat taxi
+DISPECINK JE V PROVOZU
+DISPECINK: Prijimam zadost o prihlaseni: V systemu je v 1 taxi
+taxi 3: Prihlasen do systemu
+taxi 3: Jsem volny
+DISPECINK: Prijimam zadost o prihlaseni: V systemu je v 2 taxi
+taxi 2: Prihlasen do systemu
+taxi 2: Jsem volny
+DISPECINK: Prijimam zadost o prihlaseni: V systemu je v 3 taxi
+taxi 1: Prihlasen do systemu
+taxi 1: Jsem volny
+taxi 3: Jedu pro zakaznika 1
+taxi 2: Jedu pro zakaznika 2
+taxi 1: Jedu pro zakaznika 3
+taxi 3: Vezu zakaznika 1
+zakaznik 1: jedu taxikem
+taxi 1: Vezu zakaznika 3
+taxi 2: Vezu zakaznika 2
+taxi 3: Zakaznik 1 dovezen do cile
+taxi 3: Jsem volny
+taxi 3: Jedu pro zakaznika 4
+zakaznik 3: jedu taxikem
+zakaznik 2: jedu taxikem
+taxi 2: Zakaznik 2 dovezen do cile
+taxi 2: Jsem volny
+taxi 2: Jedu pro zakaznika 5
+taxi 3: Vezu zakaznika 4
+zakaznik 4: jedu taxikem
+taxi 1: Zakaznik 3 dovezen do cile
+taxi 1: Jsem volny
+taxi 3: Zakaznik 4 dovezen do cile
+taxi 3: Jsem volny
+taxi 2: Vezu zakaznika 5
+zakaznik 5: jedu taxikem
+taxi 2: Zakaznik 5 dovezen do cile
+taxi 2: Jsem volny
+Prace taxiku byla ukoncena... vsichni zakaznici byly obslouzeni

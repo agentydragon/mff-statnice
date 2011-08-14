@@ -1,0 +1,9 @@
+
+NTFS:
+ http://cs.wikipedia.org/wiki/NTFS
+ viz FEL dokument z /5.9-Principy_virtualni_pameti,strankovani strana 409
+ http://ixbtlabs.com/articles/ntfs/
+ http://www.pcguide.com/ref/hdd/file/ntfs/archSector-c.html
+
+FAT:
+ viz FEL dokument z /5.9-Principy_virtualni_pameti,strankovani strana 408
