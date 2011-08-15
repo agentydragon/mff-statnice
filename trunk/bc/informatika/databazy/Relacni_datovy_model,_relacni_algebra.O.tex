@@ -1,3 +1,4 @@
+%&latex
 \subsection{Relaèní datový model, relaèní algebra}
 \begin{definiceN}{Relaèní datový model}
 \emph{Relaèní schéma} je n-tice $R(A_1: D_1, A_2: D_2, ..., A_n: D_n)$, kde množiny $D_i$ jsou tzv. \emph{(atributové) domény}  (odpovídá dat.typùm v tabulkách) - uvádìjí se nepovinnì, množina $A_i$ je \emph{atribut} (odpovídá sloupci hodnot v tabulce) dále definujme \emph{relaci} $R\subseteq A_1×A_2
@@ -15,7 +16,8 @@ definujeme atributy:
 \end{verbatim}
 pak 
 \begin{verbatim}
-   R = {(Novák, Hlavní, Harrison), (Starý, Severní, Rájec), (Coufal, Severní, Rájec), (Liška, Sadová, Polná)}
+   R = {(Novák, Hlavní, Harrison), (Starý, Severní, Rájec), (Coufal, Severní, Rájec), 
+        (Liška, Sadová, Polná)}
 \end{verbatim}
 je relace na kartézském souèinu (tzn. jeho podmnožina) $jméno × ulice × mìsto$
 \\\\relaèní schéma:
@@ -55,6 +57,7 @@ Vzniklé skládáním:
 \item \textbf{prùnik} - schémata musí mít stejny poèet atributù a kompatibilní
 domény\\ 
 $<R_1, R_1 (A)>\cap<R_2, R_2(A)>= <R_1\cap R_2 , R_x(A)>$
+\\\\\\\\\\
 \item \textbf{pøirozené spojení} - spojení prvkù relace pøes stejné hodnoty všech atributù sdílených mezi A a B, pokud $A\cap B = \oslash$, pøirozené spojení je vlastnì kartézský souèin (spojuje se pøes prázdnou množinu, tj. libovolnì –„všechno se vším“)
 \\
 –lze vyjádøit pomocí kartézského souèinu, selekce a projekce 
@@ -62,8 +65,8 @@ $<R_1, R_1 (A)>\cap<R_2, R_2(A)>= <R_1\cap R_2 , R_x(A)>$
 \\\\\\\\\\
 \item \textbf{dìlení} 
 $<R, R(A)> \div <S, S(B \subset A)>= <\{t | \forall s \in S (t \oplus s)\in R}, A - B\}$
-\end{pitemize}
 \\\\\\\\\\
+\end{pitemize}
 TODO(respektive, je mozné
 nekteré operace formulovat pomoci ostatních operaci? Které a jak?)
 \\TODO(Formulujte predpoklady pouzitelnosti kazdé operace. Definujte
