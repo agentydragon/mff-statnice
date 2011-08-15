@@ -1,22 +1,99 @@
 \subsection{Relaèní datový model, relaèní algebra}
+\begin{definiceN}{Relaèní datový model}
+\emph{Relaèní schéma} je n-tice $R(A_1: D_1, A_2: D_2, ..., A_n: D_n)$, kde množiny $D_i$ jsou tzv. \emph{(atributové) domény}  (odpovídá dat.typùm v tabulkách) - uvádìjí se nepovinnì, množina $A_i$ je \emph{atribut} (odpovídá sloupci hodnot v tabulce) dále definujme \emph{relaci} $R\subseteq A_1×A_2
+... A_n$ jako množinu n-tic
+$(a_1, a_2,...,a_n)$ (odpovídá konktrétním datùm v tabulce) kde $a_i \in
+A_i$ a \emph{prvek relace} $r\in R$ (odpovídá øádku v tabulce).
+\end{definiceN}
 
-
-\begin{prikladN}{(IOI 10.2.2011)Relacni datovy model, relacni agebra
-a)Popište relacní datový model. Co je relacní algebra a k cemu slouzi?
-b) Jaké znáte operace RA? Formulujte predpoklady pouzitelnosti kazdé operace. Definujte
-vysledek dané operace nad relacemi.
-c) Které operace jsou nezbytné pro zachovaní vyjadrovaci sily jazyka - respektive, je mozné
-nekteré operace formulovat pomoci ostatních operaci? Které a jak?}
-\\
-  
+\begin{prikladN}{Relaèní datový model}
+definujeme atributy:
+\begin{verbatim}
+   jméno = {Novák, Starý, Coufal, Liška}
+   ulice = {Hlavní, Severní, Sadová}
+   mìsto = {Hradec, Rájec, Polná}
+\end{verbatim}
+pak 
+\begin{verbatim}
+   R = {(Novák, Hlavní, Harrison), (Starý, Severní, Rájec), (Coufal, Severní, Rájec), (Liška, Sadová, Polná)}
+\end{verbatim}
+je relace na kartézském souèinu (tzn. jeho podmnožina) $jméno × ulice × mìsto$
+\\\\relaèní schéma:
+\begin{verbatim}
+   zákazník-schéma (jméno:string, ulice:string, mìsto:string)
+\end{verbatim}  
 \end{prikladN}
 
+\begin{definiceN}{Relaèní algebra}
+\emph{Relaèní algebra} je množina operací (unárních, èi binárních) na relacích se schématy, jejichž výsledkem je opìt relace (a její schéma). 
+Deklarativní dotazovací jazyk – tj. neprocedurální, nicménì struktura výrazu navádí na poøadí a zpùsob vyhodnocení.
+Výsledkem je vždy koneèná relace –„bezpeènì“ definované operace.
+\end{definiceN}
 
-\begin{prikladN}{(IOI 21.6.2011) Co je to relaèní algebra a jaké operace používá?
-5.2 U každé operace popište schéma relace, na které se dá tato operace použít a definujte výsledek operace.
-5.3 Jsou všechny operace nezbytné pro zachování vyjadøovací síly jazyka? (Pokud ne, které jsou?)
-5.4 Èemu odpovídá operace pøirozené spojení na relacích, které mají totožné schéma?
-5.5 Èemu odpovídá operace pøirozené spojení na relacích, jejichž schémata jsou disjunktní?}
+\begin{definiceN}{Operace}
+Nezbytné operace pro zachování vyjadøovací síly jazyka:
+\begin{pitemize}
+\item \textbf{pøejmenování} - unární operace, pouze se pøejmenují atributy schématu, s daty se nic nedìje (tj. výslekem je stejná relace a stejné schéma, pouze pøíslušné atributy mají jiná jména)
+\\$R<A_i\rightarrow B_i, A_j\rightarrow B_j, ... > = <R, R((A -{A_i, A_j, ...}) \cup {B_i, B_j, ...})>$
+\item \textbf{sjednocení} - schémata musí mít stejny poèet atributù a kompatibilní
+domény
+\\$<R_1, R_1(A)>\cup<R_2, R_2(A)>= <R_1\cup R_2 , R_x(A)>$
+\item \textbf{rozdíl množin} - schémata musí mít stejny poèet atributù a kompatibilní
+domény 
+\\$<R_1, R_1(A)>–<R_2, R_2(A)>= <R_1–R_2 , R_x(A)>$
+\item \textbf{kartézský souèin} - vyžaduje disjuktní schemata, pokud existují
+stejná jména atributù musí se nejdøíve pøejmenovat
+\\$<R_1, R_1(A)>\times<R_2, R_2(B)>= <R_1\times R_2 , R_x(\{R_1\}\times A\cup
+ \{R_2\} \times B)>$
+\item \textbf{selekce} - výbìr tìch prvkù u relace z $R$, které splòují logickou podmínku $\varphi(u)$ – podmínka je zadána Boolským výrazem (tj. pomocí spojek and, or, not) atomických formulí $t_1\Theta t_2$ nebo $t_1\Theta a$, kde $\Theta \in\{<, >, =, \geq, \leq, \neq \}$ a $t_i$ jsou jména atributù
+\\$<R(\varphi), R(A)>= <\{u | u \in R~ \&~ \varphi(u)\}, R(A)>$
+\item \textbf{projekce} - unární operace, $u[C]$ je prvek relace zbavený hodnot atributù $A–C$, pøípadné duplicitní prvky jsou odstranìny
+\\$<R[C], R(A)>= <\{u[C] \in R\}, R(C)>$ kde $C\subseteq A$
+\end{pitemize}
+Vzniklé skládáním:
+\begin{pitemize}
+\item \textbf{prùnik} - schémata musí mít stejny poèet atributù a kompatibilní
+domény\\ 
+$<R_1, R_1 (A)>\cap<R_2, R_2(A)>= <R_1\cap R_2 , R_x(A)>$
+\item \textbf{pøirozené spojení} - spojení prvkù relace pøes stejné hodnoty všech atributù sdílených mezi A a B, pokud $A\cap B = \oslash$, pøirozené spojení je vlastnì kartézský souèin (spojuje se pøes prázdnou množinu, tj. libovolnì –„všechno se vším“)
 \\
-  
+–lze vyjádøit pomocí kartézského souèinu, selekce a projekce 
+\\$<R, R(A)> * <S, S(B)>= <\{u | u[A] \in R ~\&~ u[B] \in S\}, R_x(A\cup B)>$
+\\\\\\\\\\
+\item \textbf{dìlení} 
+$<R, R(A)> \div <S, S(B \subset A)>= <\{t | \forall s \in S (t \oplus s)\in R}, A - B\}$
+\end{pitemize}
+\\\\\\\\\\
+TODO(respektive, je mozné
+nekteré operace formulovat pomoci ostatních operaci? Které a jak?)
+\\TODO(Formulujte predpoklady pouzitelnosti kazdé operace. Definujte
+vysledek dané operace nad relacemi.)
+\end{definiceN}
+
+\begin{poznamkaN}{Relaèní úplnost}
+Jestliže dva výrazy oznaèují stejný dotaz, jsou oba výrazy ekvivalentní.
+Dotazovací jazyk, kterým lze vyjádøit všechny konstrukce relaèní algebry (tj. všechny dotazy, které lze popsat relaèní algebrou) se nazývá \emph{relaènì úplný}.
+
+\end{poznamkaN}
+
+\begin{definiceN}{Relaèní kalkulus}
+Využití aparátu predikátové logiky 1. øádu pro dotazování. Rozšíøení o „databázové“ predikáty, jejichž dvojí forma definuje:
+\\–doménový kalkul (DRK) –pracuje s daty na úrovni atributù
+\\–n-ticový kalkul (NRK) –pracuje s daty na úrovni n-tic (prvkù relace/øádkù)
+\\\\Výsledkem dotazu v DRK / NRK je opìt relace (a její schéma).
+\end{definiceN}
+
+\begin{reportN}{IOI 10.2.2011}
+a) Popište relacní datový model. Co je relacní algebra a k cemu slouzi?\\
+b) Jaké znáte operace RA? Formulujte predpoklady pouzitelnosti kazdé operace. Definujte
+vysledek dané operace nad relacemi.\\
+c) Které operace jsou nezbytné pro zachovaní vyjadrovaci sily jazyka - respektive, je mozné
+nekteré operace formulovat pomoci ostatních operaci? Které a jak?
+\end{prikladN}
+
+\begin{reportN}{IOI 21.6.2011} Co je to relaèní algebra a jaké operace používá?\\
+5.2 U každé operace popište schéma relace, na které se dá tato operace použít a definujte výsledek operace.\\
+5.3 Jsou všechny operace nezbytné pro zachování vyjadøovací síly jazyka? (Pokud ne, které jsou?)\\
+5.4 Èemu odpovídá operace pøirozené spojení na relacích, které mají totožné schéma?\\
+5.5 Èemu odpovídá operace pøirozené spojení na relacích, jejichž schémata jsou disjunktní?
 \end{prikladN}
