@@ -457,7 +457,7 @@ Naznaèení dùkazu: napø. rostoucí posloupnost buï není shora omezená a má tedy li
 \end{vetaN}
 
 \begin{poznamka}
-Je-li posloupnost neklesající (nerostoucí) a navíc shora (zdola) omezená, pak má vlastní limitu.
+Je-li posloupnost neklesající (nerostoucí) a navíc shora (zdola) omezená, pak má vlastní limitu. Tato limita se navíc rovná supremu (infimu) hodnot.
 Je-li posloupnost neklesající (nerostoucí) a navíc shora (zdola) neomezená, pak má limitu $+ \infty$ ($- \infty$).
 \end{poznamka}
 
@@ -493,6 +493,10 @@ Na rozdíl od limity, která nemusí existovat, tyto dvì hodnoty existují pro
 libovolnou posloupnost reálných èísel.
 \end{poznamka}
 
+\begin{poznamka}
+    Limes superior a limes inferior jsou nìkdy definovány jako $\inf \sup$ a $\sup \inf$ -- jelikož jde o monotónní posloupnosti, jde ale o totéž.
+\end{poznamka}
+
 \begin{vetaN}{o vztahu limity, limes superior a limes inferior}
 Nech $\{a_n\}_{n \in \mathbb{N}}$ je posloupnost reálných èísel. Potom 
 $$
@@ -502,6 +506,29 @@ právì tehdy, když
 $$
 \lim \sup~a_n = \lim \inf~a_n = A \in \mathbb{R}^*
 $$
+
+\medskip\begin{dukaz}
+Pro vlastní limity:
+
+$\Rightarrow$ : Nech $\lim_n a_n = A$, zvolme libovolné $\varepsilon > 0$. Zvolme $n_0>0$ takové, že pro $n\geq n_0$ je $A-\varepsilon < a_n < A + \varepsilon$. Tedy pro $n \geq n_0$ je $A-\varepsilon \leq \inf_{k \geq n}a_n < A + \varepsilon$. Jelikož posloupnost $\left\{ \left(\inf_{k\geq n}a_k\right)_n\right\}$ neklesá a je shora omezená, musí limita existovat a musí platit $\lim_{n \rightarrow \infty} \leq A+\varepsilon$. 
+
+Protože $\varepsilon$ je nekoneènì malé, platí $\lim \inf a_n = A$. 
+
+Podobnì pro $\lim \sup.$
+
+$\Leftarrow$ : Nech $\lim \sup~a_n = \lim \inf~a_n = A$. Potom pro každé $\varepsilon >0$existuje $n_1>0$ takové, že pro $n\geq n_1$ je $A-\varepsilon < \sup_{k\geq n}a_k < A+\varepsilon$. Také existuje $n_2>0$ takové, že pro $n\geq n_2$ je $A-\varepsilon < \inf_{k\geq n}a_k < A+\varepsilon$. Vezmeme $n_0=\max\left(n_1,n_2\right)$; pro $n\geq n_0$ je $\sup_{k\geq n}a_k$ i $\inf_{k\geq n}a_k$ mezi $A-\varepsilon$ a $A\varepsilon$. Ale protože je v tomto intervalu suprémum i infimum, musí v tomto intervalu být i všechny hodnoty $a_n \forall n \geq n_0$.
+
+Pro nevlastní limity:
+
+Dokážeme pro $\infty$, pro $-\infty$ se dokáže obdobnì.
+
+$\Rightarrow$: Zvolme $K$ libovolnì. Potom je-li $ \lim \inf~a_n = \infty,$ je pro nìjaké $n$ $\inf_{k\geq n}a_k > K$, tedy $\forall k\geq n$ je $a_k > K$.
+
+$\Leftarrow$: Je-li $ \lim~a_n = \infty$, pro dostateènì velké $n$ platí, že $k\geq n \Rightarrow a_k>K$, tedy $\inf_{k\geq n}a_k > K$ a $\sup_{k\geq n}a_k > K$.
+
+\end{dukaz}
+
+
 \end{vetaN}
 
 \begin{definice}
@@ -514,6 +541,8 @@ $$
 \lim \sup~a_n = \max H(\{a_n\}) \textit{ a } \lim \inf~a_n = \min H(\{a_n\})
 $$
 \end{vetaN}
+
+K tomuhle jsem dùkaz nenašel ani nevymyslel :-(
 
 \subsection{Cauchyovské posloupnosti}
 
