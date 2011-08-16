@@ -77,7 +77,12 @@ $<R_1, R_1 (A)>\cap<R_2, R_2(A)>= <R_1\cap R_2 , R_x(A)>$
 –dá se vyjádøit také jako:
 $R_1 \cap R_2 = (R_1 \cup R_2 \setminus (R_1 \setminus R_2))\setminus (R_1 \setminus R_2)$
 
-\item \textbf{pøirozené spojení} (natural join) - spojení prvkù relace pøes stejné hodnoty všech atributù sdílených mezi A a B, pokud $A\cap B = \oslash$, pøirozené spojení je vlastnì kartézský souèin (spojuje se pøes prázdnou množinu, tj. libovolnì –„všechno se vším“)
+\item \textbf{pøirozené spojení} (natural join) - spojení prvkù relace pøes stejné hodnoty všech atributù sdílených mezi A a B, 
+
+–pokud $A\cap B = \oslash$, pøirozené spojení je vlastnì kartézský souèin (spojuje se pøes prázdnou množinu, tj. libovolnì –„všechno se vším“)
+
+–pokud $A = B$, pøirozené spojení je prùnik (spojí se pouze stejné øádky)
+
 \\\\$<R, R(A)> * <S, S(B)>= <\{u | u[A] \in R ~\&~ u[B] \in S\}, R_x(A\cup B)>$
 \\\\
 –lze vyjádøit pomocí kartézského souèinu, selekce a projekce 
@@ -88,7 +93,7 @@ $R_1 \cap R_2 = (R_1 \cup R_2 \setminus (R_1 \setminus R_2))\setminus (R_1 \setm
 pøíklad pøirozeného spojení
 \end{center}
 
-\item \textbf{dìlení} 
+\item \textbf{dìlení} - definujeme si $\oplus$ jako zøetìzení øádkù\\
 $<R, R(A)> \div <S, S(B \subset A)>= <\{t | \forall s \in S: (t \oplus s)\in R\}, R_x(A - B)>$
 \\
 –lze vyjádøit pomocí kartézského souèinu a projekce:
