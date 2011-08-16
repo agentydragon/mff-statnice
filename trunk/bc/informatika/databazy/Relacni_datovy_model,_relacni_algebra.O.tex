@@ -1,7 +1,9 @@
 %&latex
 \subsection{Relaèní datový model, relaèní algebra}
 \begin{definiceN}{Relaèní datový model}
-\emph{Relaèní schéma} je n-tice $R(A_1: D_1, A_2: D_2, ..., A_n: D_n)$, kde množiny $D_i$ jsou tzv. \emph{(atributové) domény}  (odpovídá dat.typùm v tabulkách) - uvádìjí se nepovinnì, množina $A_i$ je \emph{atribut} (odpovídá sloupci hodnot v tabulce) dále definujme \emph{relaci} $R\subseteq A_1×A_2
+\emph{Relaèní schéma} je n-tice $R(A_1: D_1, A_2: D_2, ..., A_n: D_n)$, kde množiny $D_i$ jsou tzv. \emph{(atributové) domény}  (odpovídá dat.typùm v tabulkách) - uvádìjí se nepovinnì, množina $A_i$ je \emph{atribut} (odpovídá sloupci hodnot v tabulce) dále definujme \emph{relaci}\footnote{ano $R$ -
+relace je nìco jiného než $R(A)$ - relaèní schéma, Skopal bohužel používá
+toto trošku matoucí znaèení} $R\subseteq A_1×A_2
 ... A_n$ jako množinu n-tic
 $(a_1, a_2,...,a_n)$ (odpovídá konktrétním datùm v tabulce) kde $a_i \in
 A_i$ a \emph{prvek relace} $r\in R$ (odpovídá øádku v tabulce).
@@ -36,7 +38,7 @@ Výsledkem je vždy koneèná relace –„bezpeènì“ definované operace.
 Nezbytné operace pro zachování vyjadøovací síly jazyka:
 \begin{pitemize}
 \item \textbf{pøejmenování} - unární operace, pouze se pøejmenují atributy schématu, s daty se nic nedìje (tj. výslekem je stejná relace a stejné schéma, pouze pøíslušné atributy mají jiná jména)
-\\$R<A_i\rightarrow B_i, A_j\rightarrow B_j, ... > = <R, R((A -{A_i, A_j, ...}) \cup {B_i, B_j, ...})>$
+\\$<R,R(A_i\rightarrow B_i, A_j\rightarrow B_j, ... )>$
 \item \textbf{sjednocení} - schémata musí mít stejny poèet atributù a kompatibilní
 domény
 \\$<R_1, R_1(A)>\cup<R_2, R_2(A)>= <R_1\cup R_2 , R_x(A)>$
@@ -47,36 +49,64 @@ domény
 stejná jména atributù musí se nejdøíve pøejmenovat
 \\$<R_1, R_1(A)>\times<R_2, R_2(B)>= <R_1\times R_2 , R_x(\{R_1\}\times A\cup
  \{R_2\} \times B)>$
+ \\
+ –zde je vhodné si všimnout pravé strany - tím že Skopal ve schématu provedl
+ kartézský souèin množiny atributù s jenoprvkovou množinou "$R_1$" vlastnì pøejmenoval atributy na "$R_1A_1,R_2A_2,...$"
+ aby nám ve výsledném schématu nevznikly atributy s totožným jménem
+\begin{center}
+\includegraphics[scale=1.5]{informatika/databazy/obrazky/kart_soucin}
+\\pøíklad kart.souèinu
+\end{center}
 \item \textbf{selekce} - výbìr tìch prvkù u relace z $R$, které splòují logickou podmínku $\varphi(u)$ – podmínka je zadána Boolským výrazem (tj. pomocí spojek and, or, not) atomických formulí $t_1\Theta t_2$ nebo $t_1\Theta a$, kde $\Theta \in\{<, >, =, \geq, \leq, \neq \}$ a $t_i$ jsou jména atributù
 \\$<R(\varphi), R(A)>= <\{u | u \in R~ \&~ \varphi(u)\}, R(A)>$
-\item \textbf{projekce} - unární operace, $u[C]$ je prvek relace zbavený hodnot atributù $A–C$, pøípadné duplicitní prvky jsou odstranìny
+\item \textbf{projekce} - $u[C]$ je prvek relace zbavený hodnot atributù $A\setminus C$, pøípadné duplicitní prvky jsou odstranìny
 \\$<R[C], R(A)>= <\{u[C] \in R\}, R(C)>$ kde $C\subseteq A$
+
+\begin{center}
+\includegraphics[scale=1.5]{informatika/databazy/obrazky/projekce}
+\\pøíklad projekce pro $R[A,C]$
+\end{center}
+
 \end{pitemize}
-Vzniklé skládáním:
+Operace vzniklé skládáním základních operací:
 \begin{pitemize}
 \item \textbf{prùnik} - schémata musí mít stejny poèet atributù a kompatibilní
 domény\\ 
 $<R_1, R_1 (A)>\cap<R_2, R_2(A)>= <R_1\cap R_2 , R_x(A)>$
-\\\\\\\\\\
-\item \textbf{pøirozené spojení} - spojení prvkù relace pøes stejné hodnoty všech atributù sdílených mezi A a B, pokud $A\cap B = \oslash$, pøirozené spojení je vlastnì kartézský souèin (spojuje se pøes prázdnou množinu, tj. libovolnì –„všechno se vším“)
-\\
+\\\\
+–dá se vyjádøit také jako:
+$R_1 \cap R_2 = (R_1 \cup R_2 \setminus (R_1 \setminus R_2))\setminus (R_1 \setminus R_2)$
+
+\item \textbf{pøirozené spojení} (natural join) - spojení prvkù relace pøes stejné hodnoty všech atributù sdílených mezi A a B, pokud $A\cap B = \oslash$, pøirozené spojení je vlastnì kartézský souèin (spojuje se pøes prázdnou množinu, tj. libovolnì –„všechno se vším“)
+\\\\$<R, R(A)> * <S, S(B)>= <\{u | u[A] \in R ~\&~ u[B] \in S\}, R_x(A\cup B)>$
+\\\\
 –lze vyjádøit pomocí kartézského souèinu, selekce a projekce 
-\\$<R, R(A)> * <S, S(B)>= <\{u | u[A] \in R ~\&~ u[B] \in S\}, R_x(A\cup B)>$
-\\\\\\\\\\
+
+\begin{center}
+\includegraphics[scale=1.5]{informatika/databazy/obrazky/natural_join}
+\\ 
+pøíklad pøirozeného spojení
+\end{center}
+
 \item \textbf{dìlení} 
-$<R, R(A)> \div <S, S(B \subset A)>= <\{t | \forall s \in S (t \oplus s)\in R}, A - B\}$
-\\\\\\\\\\
+$<R, R(A)> \div <S, S(B \subset A)>= <\{t | \forall s \in S: (t \oplus s)\in R\}, R_x(A - B)>$
+\\
+–lze vyjádøit pomocí kartézského souèinu a projekce:
+\\
+$R \div S = R[A\setminus B] \setminus ((R[A\setminus B] \times S)\setminus
+R)[A\setminus B]$
+
+\begin{center}
+\includegraphics[scale=1.5]{informatika/databazy/obrazky/deleni}
+\\ 
+pøíklad dìlení
+\end{center}
 \end{pitemize}
-TODO(respektive, je mozné
-nekteré operace formulovat pomoci ostatních operaci? Které a jak?)
-\\TODO(Formulujte predpoklady pouzitelnosti kazdé operace. Definujte
-vysledek dané operace nad relacemi.)
 \end{definiceN}
 
 \begin{poznamkaN}{Relaèní úplnost}
 Jestliže dva výrazy oznaèují stejný dotaz, jsou oba výrazy ekvivalentní.
 Dotazovací jazyk, kterým lze vyjádøit všechny konstrukce relaèní algebry (tj. všechny dotazy, které lze popsat relaèní algebrou) se nazývá \emph{relaènì úplný}.
-
 \end{poznamkaN}
 
 \begin{definiceN}{Relaèní kalkulus}
@@ -85,6 +115,28 @@ Využití aparátu predikátové logiky 1. øádu pro dotazování. Rozšíøení o „databázo
 \\–n-ticový kalkul (NRK) –pracuje s daty na úrovni n-tic (prvkù relace/øádkù)
 \\\\Výsledkem dotazu v DRK / NRK je opìt relace (a její schéma).
 \end{definiceN}
+
+\begin{prikladN}{srovnání RA, DRK, NRK}
+definujeme rel.schémata:
+\begin{verbatim}
+   FILM(JMENO_FILMU, JMENO_HERCE) 
+   HEREC(JMENO_HERCE, ROK_NAROZENI)
+\end{verbatim}
+a dotaz je: Ve kterých filmech hráli všichni herci?\\
+\\RA:
+\\
+$ FILM \div HEREC[JMENO\_HERCE] $
+\\\\
+DRK:\\
+$\{(f) | FILM(f)\wedge \forall h (HEREC(h) \Rightarrow FILM(f, h))\}$
+\\\\
+NRK:\\
+$\{film[JMENO\_FILMU] \;|\; \forall herec(HEREC(herec) \Rightarrow
+
+f(FILM(f) \wedge\; f.JMENO\_HERCE = herec.JMENO\_HERCE \;\wedge
+
+f.JMENO\_FILMU = film.JMENO\_FILMU))\}$
+\end{prikladN}
 
 \begin{reportN}{IOI 10.2.2011}
 a) Popište relacní datový model. Co je relacní algebra a k cemu slouzi?\\
@@ -99,4 +151,4 @@ nekteré operace formulovat pomoci ostatních operaci? Které a jak?
 5.3 Jsou všechny operace nezbytné pro zachování vyjadøovací síly jazyka? (Pokud ne, které jsou?)\\
 5.4 Èemu odpovídá operace pøirozené spojení na relacích, které mají totožné schéma?\\
 5.5 Èemu odpovídá operace pøirozené spojení na relacích, jejichž schémata jsou disjunktní?
-\end{prikladN}
+\end{reportN}
