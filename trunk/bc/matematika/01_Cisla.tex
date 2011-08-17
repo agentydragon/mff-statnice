@@ -31,7 +31,7 @@ Mnoinou všech reálnıch èísel (znaèíme ji $\mathbb{R}$) budeme rozumìt mnoinu, 
 	\begin{penumerate}
 		\item $\forall x,y,z \in \mathbb{R}: ((x \le y) \wedge (y \le z)) \Rightarrow (x \le z) \hfill\textit{(tranzitivita)}$
 		\item $\forall x,y \in \mathbb{R}: (((x \le y) \wedge (y \le x)) \Rightarrow (x=y) \hfill\textit{(slabá antisymetrie)}$
-		\item $\forall x,y \in \mathbb{R}: (x \le y) \vee (y \le x)$
+		\item $\forall x,y \in \mathbb{R}: (x \le y) \vee (y \le x)\hfill\textit{(linearita)}$
 		\item $\forall x,y,z \in \mathbb{R}: (x \le y) \Rightarrow (x+z \le y+z)$
 		\item $\forall x,y,z \in \mathbb{R}: (x \le y) \wedge (0 \le z) \Rightarrow (x\cdot z \le y\cdot z)$
 	\end{penumerate}
@@ -43,8 +43,8 @@ Mnoinou všech reálnıch èísel (znaèíme ji $\mathbb{R}$) budeme rozumìt mnoinu, 
 		\\\begin{definiceN}{Axiom suprema}
 		Nech $M \subset \mathbb{R}$ je neprázdná a shora omezená (tj. $\exists a \forall x \in M: x \le a$). Pak existuje èíslo $s \in \mathbb{R}$, které má vlastnosti:
 		\begin{penumerate}
-			\item $\forall x \in M: x \le s$
-			\item $\forall s' \in \mathbb{R}, s' < s\;\; \exists x \in M: x > s'$
+			\item $\forall x \in M: x \le s\hfill\textit{(s je horní omezení)}$
+			\item $\forall s' \in \mathbb{R}, s' < s\;\; \exists x \in M: x > s'\hfill\textit{(všechny menší nejsou horní omeznení)}$
 		\end{penumerate}
 		
 		\end{definiceN}
@@ -198,6 +198,7 @@ $\mathbb{N}$ je uzavretá na sèítanie.
 	$\mathbb{Z}$ je uzavøena na sèítání, odèítání a násobení,
 	$\mathbb{Q}$ je uzavøena na sèítání, odèítání, násobení a dìlení nenulovım èíslem.
 	
+	Mnoinì $\mathbb{R} \setminus \mathbb{Q}$ se také øíká \emph{iracionální}.
 \end{definice}
 
 \begin{vetaN}{Existence celé èásti}
@@ -246,8 +247,8 @@ Aritmetika je na $\mathbb{C}$ definována následovnì:
 
 Pojmem \textbf{komplexnì sdruené èíslo} komplexního èísla $z = a + ib$ se nazıvá èíslo: $$\bar{z} = a - ib$$
 
-\textbf{Absolutní hodnotou} komplexního èísla $z = a + bi$ se nazıvá:
-$$|z| = \sqrt{a^2 + b^2}$$
+\textbf{Absolutní hodnotou} (také \textbf{modul}) komplexního èísla $z = a + bi$ se nazıvá:
+$$|z| = \sqrt{a^2 + b^2} = \sqrt{z\cdot \bar{z}}$$
 
 Komplexní èísla se zobrazují v \textbf{komplexní (Gaussovì) rovinì} jako body se souøadnicemi $[x,y]$; $x$ je reálná èást komplexního èísla, $y$ imaginární èást. Na ose $x$ leí reálná èísla, na ose $y$ ryze imaginární èísla.
 
@@ -279,7 +280,7 @@ Následující vlastnosti platí pro všechna komplexní èísla $z$ a $w$, není-li uved
 
 Kadé komplexní èíslo $z$ rùzné od nuly je moné jednoznaènì vyjádøit v \textbf{goniometrickém tvaru}. 
 
-Pokud si v komplexní rovinì zvolíme polární souøadnicovı systém, vzdálenost èísla $z$ od poèátku je právì jeho absolutní hodnota $|z|$ (také nazıvaná \textbf{modul}) a orientovanı úhel $\varphi = |\sphericalangle JOZ|$ (\emph{argument}), kde $J$ je bod $J[1,0]$, $O$ je poèátkem soustavy a $Z$ je obraz komplexního èísla $z=a + bi$ se souøadnicemi $Z[a,b]$, platí:
+Pokud si v komplexní rovinì zvolíme polární souøadnicovı systém, vzdálenost èísla $z$ od poèátku je právì jeho absolutní hodnota $|z|$ a orientovanı úhel $\varphi = |\sphericalangle JOZ|$ (\emph{argument}), kde $J$ je bod $J[1,0]$, $O$ je poèátkem soustavy a $Z$ je obraz komplexního èísla $z=a + bi$ se souøadnicemi $Z[a,b]$, platí:
 $$z = \left|z\right| \left(\cos \varphi + i\cdot \sin \varphi\right)$$
 
 Argument $\varphi$ lze vyjádøit ze vztahù: $\cos \varphi = \frac{a}{|z|}$ a $\sin \varphi = \frac{b}{|z|}$
@@ -293,6 +294,10 @@ $$z_1 \cdot  z_2 = |z_1|\cdot |z_2|\cdot \left( \cos(\varphi_1 + \varphi_2) + i\
 
 Pro \textbf{n-tou mocninu komplexní èísla} v goniometrickém tvaru platí tzv. \textbf{Moivreova vìta}:
 $$z^n = |z|^n (\cos n \varphi + i\cdot \sin n \varphi)$$
+
+Odmocnina není v $\mathbb{C}$ jednoznaèná -- napø. $i^2 = (-i)^2 = i$, nebo napø. $i^3 = \left(-\frac{\sqrt{3}}{2}-\frac{i}{2}
+\right)\right)^3 = \left(\frac{\sqrt{3}}{2}-\frac{i}{2}
+\right)\right)^3 = -i$.
 
 \subsection{Posloupnosti a limity}
 \begin{definiceN}{posloupnost}
@@ -337,7 +342,6 @@ $$\lim_{n \rightarrow \infty} a_n = A$$
 \begin{poznamka}
 Na obrázku \ref{fig:limita_posloupnosti} jsem nakreslil posloupnost k osvìtlení definice limity. Jde o posloupnost\footnote{konkrétnì $a_0=1, a_n=\cos a_{n-1}$, ale není to dùleité}, která konverguje k èíslu $0.739085$, oznaèeno $A$. 
 
-Pro ilustraci \uv{libovolnì malého $\varepsilon$} (mùeme øíci \uv{libovolnì velkého}, ale my chceme naopak $\varepsilon$ co \emph{nejmenší}) jsem do stejného obrázku naznaèil dvì rùzná $\varepsilon$ --- protoe vzdálenost je \uv{na obì strany}, jsou obdélníky \uv{vysoké} $2\varepsilon$ --- a pro kadé z~nich jsem našel takové $n_0$, e pro $n\ge n_0$ u jsem vdy od $A$ vzdálen maximálnì $\varepsilon$.
 \end{poznamka}
 
 
@@ -519,7 +523,7 @@ limita posloupnosti:
 	\item neexistuje
 	\item existuje
 	\begin{pitemize}
-		\item vlastní
+		\item vlastní (= posloupnost konverguje)
 		\item nevlastní
 		\begin{pitemize}
 			\item $- \infty$
