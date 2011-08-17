@@ -1,0 +1,51 @@
+\subsection{Kompaktní metrické prostory}
+
+\begin{definiceN}{kompaktní prostor}
+Øekneme, že metrický prostor je \emph{kompaktní}, jestliže v nìm lze z každé posloupnosti bodù vybrat konvergentní podposloupnost.
+\end{definiceN}
+
+\begin{priklady}
+\begin{pitemize}
+    \item Každý koneèný prostor je kompaktní.
+    \item Každý omezený uzavøený interval (v $\mathbb{R}$!) je kompaktní.
+\end{pitemize}
+\end{priklady}
+
+\begin{vetaN}{zachování kompaktnosti}
+Kompaktnost se zachovává:
+\begin{penumerate}
+    \item pøechodem k uzavøenému podprostoru,
+    \item obrazem spojitým zobrazením,
+    \item kartézským souèinem.
+\end{penumerate}
+\end{vetaN}
+
+\begin{definiceN}{omezená podmnožina}
+Podmnožina $A$ metrického prostoru $(M,d)$ je \emph{omezená}, pokud existuje koneèné $K$ takové, že 
+$$x,y\in A \;\Rightarrow\; d(x,y)<K$$
+\end{definiceN}
+
+\begin{vetaN}{uzavøenost kompaktního prostoru}
+Každý kompaktní podprostor $Y$ libovolného metrického prostoru $X$ je uzavøený a omezený.
+\end{vetaN}
+
+\begin{vetaN}{spojitá zobrazení a kompaktní množiny}
+Buï $f:(X,d_1)\to(Y,d_2)$ spojité zobrazení a $X$ kompaktní metrický prostor. Potom platí:
+\begin{penumerate}
+    \item Zobrazení $f$ je stejnomìrnì spojité.
+    \item $f[X]$ je kompaktní podmnožina $Y$.
+    \item Je-li $f$ navíc prosté, je $f$ stejnomìrný homeomorfismus.
+    \item Je-li $f$ navíc bijekce, pak je inverzní zobrazení $f^{-1}$ nutnì spojité.
+\end{penumerate}
+\end{vetaN}
+
+\begin{vetaN}{omezený euklidovský podprostor}
+\begin{penumerate}
+    \item Podprostor $X$ euklidovského prostoru dimenze $n$ ($\mathbb{E}_n$) je kompaktní, právì když je uzavøený a omezený. 
+    \item Kompaktní podprostor $X\subseteq\mathbb{R}$ ($\equiv\mathbb{E}_1$) má nejvìtší a nejmenší prvek.
+\end{penumerate}
+\end{vetaN}
+
+\begin{dusledek}
+Z bodù 2. pøedchozích dvou tvrzení plyne, že spojitá reálná funkce nabývá na kompaktním prostoru minima i maxima. (Což platí i pro spojité reálné funkce na koneèném definièním oboru, jelikož koneènost $\Rightarrow$ kompaktnost.)
+\end{dusledek}

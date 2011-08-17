@@ -1,0 +1,150 @@
+\subsection{Stejnomìrná konvergence}
+
+\begin{obecne}{Úmluva}
+V dalším budeme o $f$ a $f_n$ pøedpokládat, že jsou definované na nìjaké neprázdné množinì $M \subseteq \mathbb{R}$.
+\end{obecne}
+
+\begin{definiceN}{tøi konvergence posloupnosti zobrazení}
+\begin{pitemize}
+    \item Øekneme, že posloupnost funkcí $(f_n)$ \emph{konverguje bodovì k funkci $f$ na množinì $M$} (znaèíme $f_n \rightarrow f$ na $M$), jestliže pro každé  $x \in M$ platí $\lim_{n \rightarrow \infty} f_n(x) = f(x)$. Explicitnì jestliže
+    $$\forall x \in M\, \forall \varepsilon > 0\; \exists n_0 \in \mathbb{N}:\; n \ge n_0 \Rightarrow |f_n(x)-f(x)| < \varepsilon.$$
+    Tedy pro dané $\varepsilon > 0$ mùže $n_0$ záviset na bodu $x$.
+    \item Øekneme, že posloupnost funkcí $(f_n)$ \emph{konverguje stejnomìrnì k funkci $f$ na množinì $M$} (znaèíme $f_n \rightrightarrows f$ na $M$), jestliže
+    $$\forall\varepsilon>0\ \exists n_0 \in \mathbb{N}:\; n\geq n_0, x\in M \Rightarrow |f_n(x) - f(x)| < \varepsilon.$$
+    Zde naopak pro dané $\varepsilon > 0$ musí být $n_0$ univerzální pro všechny body $x$. Øekneme že posloupnost funkcí je \emph{stejnomìrnì konvergentní} na $M$, jestliže konverguje k nìjaké funkci na $M$.
+    \item Øekneme, že posloupnost funkcí $(f_n)$ \emph{konverguje lokálnì stejnomìrnì k funkci $f$ na množinì $M$} (znaèíme $f_n \overset{loc}{\rightrightarrows} f$ na $M$), jestliže pro každé $x \in M$ existuje $\varepsilon > 0$ takové, že $f_n \rightrightarrows f$ na $M \cap (x-\varepsilon, x+\varepsilon)$. Tedy každé $x \in M$ má okolí (které mùže záležet na daném $x$), na nìmž $f_n \rightrightarrows f$.
+\end{pitemize}
+\end{definiceN}
+
+\begin{dusledek}
+Z definic plyne síla uvedených pojmù:
+$$(f_n) \rightrightarrows f \text{ na } M \Rightarrow (f_n) \overset{loc}{\rightrightarrows} f \text{ na } M \Rightarrow (f_n) \to f \text{ na } M $$
+\end{dusledek}
+
+\begin{priklad}
+\begin{pitemize}
+    \item $M = [0,1]$ a $f_n = x^n$, pak $(f_n) \to f$ splòující
+    $$f(x) =
+    \begin{cases}
+    0 &\text{ pro }x \in [0,1)\\
+    1 &\text{ pro }x = 1.
+    \end{cases}$$
+    Ale není stejnomìrnì konvergentní, jelikož v bodech $1-1/n$ je posloupnost $(f_n)$ rostoucí a pro každé $n \geq 2$ je $f_n(1-1/n) \geq 1/4$. Proto není ani lokálnì stejnomìrná, protože body $1-1/n$ konvergují k $1$, a proto nemùže existovat žádné okolí, na nìmž by byla $(f_n)$ stejnomìrnì konvergentní.\\
+    Ovšem pro $M = [0, 1 - \delta]$ pro pevné $\delta > 0$ máme $0 \leq f_n(x) = x^n \leq (1-\delta)^n$. A jelikož pro $n \to \infty$ jde $(1-\delta)^n \to 0$, dostaneme $|f_n(x) - f(x)| = |f_n(x)| \to 0$ nezávisle na $x \in [0, 1-\delta]$. Proto $(f_n) \rightrightarrows f \text{ na }M = [0, 1-\delta]$.\\
+    Pro $M = [0,1)$ opìt kvùli bodùm $1-1/n$ máme pouze lokálnì stejnomìrnou konvergenci, jelikož každý bod $a \in [0,1)$ je obsažen v okolí typu $[0, 1-\delta]$.
+    \item $f_n(x) = \dfrac{nx}{1+n^2x^2}$ na $M = \mathbb{R}$ konverguje bodovì ke konstantní funkci $f \equiv 0$. Body $x_n = 1/n$ jdou k nule, ale funkèní hodnota zùstává $f_n(x_n) = 1/2$. Proto nejde ani o lokální stejnomìrnou konvergenci. Kvùli tomu je $(f_n)$ na každé $M$ neobsahující nulu lokálnì stejnomìrnì konvergentní. Koneènì pro každou $M$ neobsahující nìjaké okolí nuly získáváme stejnomìrnou konvergenci.
+    \item $f_n(x) = \dfrac{\sin(nx)}{n} \rightrightarrows 0 \text{ na }M = \mathbb{R}$, jelikož $|f_n(x)| \le 1/n$ pro všechna $x \in \mathbb{R}$.
+\end{pitemize}
+\end{priklad}
+
+\begin{vetaN}{spojitost limitního zobrazení}
+Jsou-li $f_n$ spojité a $f_n\rightrightarrows f$, pak je i $f$ spojité.
+\end{vetaN}
+
+\begin{vetaN}{Kritérium stejnomìrné konvergence}
+Nech $M$ je (neprázdná) množina, $f$ funkce definovaná na $M$ a $(f_n)$ posloupnost funkcí definovaných na $M$. Pak $f_n \rightrightarrows f$, právì když:
+$$\lim_{n \to \infty} \sup_{x \in M}\left\lbrace\left\lvert f_n(x)-f(x)\right\rvert\right\rbrace = 0,$$
+tj. existuje $n_0 \in \mathbb{N}$ takové, že pro $n \geq n_0$ je $\sup\limits_{x \in M}\left\lbrace\left\lvert f_n(x)-f(x)\right\rvert\right\rbrace$ definováno (a koneèné) a tato posloupnost má limitu 0.
+\end{vetaN}
+
+\begin{priklad}
+\begin{pitemize}
+    \item V metrickém prostoru se supremovou metrikou je stejnomìrná konvergence totéž jako bodová.
+    \item Metrickém prostor omezených funkcí na $M \subset \mathbb{R}$ se supremovou metrikou je úplný a spojité funkce v nìm tvoøí uzavøenou podmnožinu.
+\end{pitemize}
+\end{priklad}
+
+\begin{vetaN}{Bolzanova-Cauchyova podmínka pro stejnomìrnou konvergenci}
+Posloupnost funkcí $(f_n)$ konverguje na množinì $M$ stejnomìrnì k nìjaké funkci $f$, právì když:
+$$\forall \varepsilon > 0\, \exists n_0\in \mathbb{N}:\;m, n \ge n_0,\,x \in M \Rightarrow |f_n(x)-f_m(x)| < \varepsilon.$$
+\end{vetaN}
+
+\begin{definiceN}{monotónní bodová konvergence}
+Øekneme, že bodová konvergence $f_n \to f$ na $M$ je \emph{monotónní}, když pro každý bod $a \in M$ je posloupnost èísel $(f_n(a))$ neklesající nebo když pro každý bod $a \in M$ je tato posloupnost nerostoucí.
+\end{definiceN}
+
+\begin{veta}
+Platí následující tvrzení:
+\begin{penumerate}
+    \item Když $f_n \overset{loc}{\rightrightarrows}$ na $(a,b)$ pro $-\infty \leq a < b \leq \infty$, potom $f_n \rightrightarrows f$ na $[c,d]$ pro každý kompaktní podinterval $[c,d] \subset (a,b)$.
+    \item (Diniho vìta) Nech $f_n \to f$ na kompaktním intervalu $I$, funkce $f_n$ i $f$ jsou spojité a konvergence je monotónní. Pak $f_n \rightrightarrows f$ na $I$.
+\end{penumerate}
+\end{veta}
+
+\begin{vetaN}{Mooreova-Osgoodova o zámìnì poøadí limity $\lim_{n \to \infty}$ a $\lim_{x \to x_0}$}
+Nech $f$ i $f_n$ jsou funkce definované na nìjakém prstencovém okolí $P(x_0, \delta)$ bodu $x_0\in \mathbb{R}^*$, který mùže být i nevlastní. Dále nech $f_n \rightrightarrows f$ na $P(x_0, \delta)$ a pro každé $n \in \mathbb{N}$ existuje vlastní $\lim_{x \to x_0} f_n(x) = a_n$. Pak existují vlastní limity $\lim_{n \to \infty} a_n$ a $\lim_{x \rightarrow x_0} f(x)$ a rovnají se:
+$$\lim_{n \rightarrow \infty} \lim_{x \rightarrow x_0} f_n(x) = \lim_{x \rightarrow x_0} \lim_{n \rightarrow \infty} f_n(x).$$
+\end{vetaN}
+
+\begin{dusledek} %{Spojitost limitní funkce}
+Nech $I \subset \mathbb{R}$ je interval, $f_n$ spojité funkce definované na $I$ a $f_n \overset{loc}{\rightrightarrows} f$ na $I$, pak $f$ je spojitá na $I$.
+\end{dusledek}
+
+\begin{vetaN}{zámìna poøadí limity a integrování}
+Buïte funkce $f_n$ a $f$ definované na (omezeném) intervalu $[a, b]$, $f_n \in \mathcal{R}[a, b]$ a $f_n \rightrightarrows f$ na $[a, b]$. Pak i $f \in \mathcal{R}[a, b]$ a platí $$ \int\limits_{a}^{b} f = \lim_{n \to \infty} \int\limits_{a}^{b} f_n.$$
+\end{vetaN}
+
+\begin{vetaN}{zámìna poøadí limity a derivace}
+Nech $a, b \in \mathbb{R}, a<b$ a $(f_n)$ je posloupnost funkcí definovaných na intervalu $(a, b)$, které mají v každém bodì $(a,b)$ vlastní derivaci $f_n'$. Nech dále platí:
+\begin{penumerate}
+	\item Existuje takové $x_0 \in (a,b)$, že posloupnost $\left(f_n(x_0)\right)$ je konvergentní.
+	\item Posloupnost $(f_n')$ je stejnomìrnì konvergentní na $(a,b)$.
+\end{penumerate}
+Pak posloupnost $f_n \rightrightarrows f$ na $(a,b)$, funkce $f$ má v každém bodì $x \in (a,b)$ vlastní derivaci a platí $f'(x) = \lim_{n \rightarrow \infty} f_n'(x)$.
+\end{vetaN}
+
+\begin{obecne}{\color{red}TODO dal}
+content...
+\end{obecne}
+
+
+\begin{definiceN}{Bodová/stejnomìrná konvergence øady funkcí}
+Øekneme, že øada $\sum_{n=1}^{\infty} u_n$ \emph{konverguje bodovì na množinì $M$}, pokud posloupnost jejich èásteèných souètù je bodovì konvergentní na $M$, tj, pro každé $x \in M$ konverguje øada $\sum_{n=1}^{\infty} u_n(x)$.
+
+\emph{Souètem øady} $\sum_{n=1}^{\infty} u_n$ nazveme funkci
+$$S(x) = \sum_{n=1}^{\infty} u_n(x) = \lim_{n \rightarrow \infty} s_n(x), \, x \in M,$$
+pokud øada konverguje bodovì na $M$.
+
+Øekneme, že øada $\sum_{n=1}^{\infty} u_n$ \emph{konverguje stejnomìrnì na množinì $M$}, pokud posloupnost jejich èásteèných souètù je stejnomìrnì konvergentní na $M$.
+
+Je-li navíc $M \subset \mathbb{R}$, øekneme, že øada $\sum_{n=1}^{\infty} u_n$ \emph{konverguje lokálnì stejnomìrnì na množinì $M$}, pokud posloupnost jejich èásteèných souètù je lokálnì stejnomìrnì konvergentní.
+\end{definiceN}
+
+\begin{vetaN}{Nutná podmínka stejnomìrné konvergence øady}
+Nech øada $\sum_{n=1}^{\infty} u_n$ konverguje stejnomìrnì na množinì $M$. Pak $u_n \rightrightarrows 0$ na $M$.
+\end{vetaN}
+
+\begin{vetaN}{Srovnávací kritérium pro stejnomìrnou konvergenci}
+Nech M je (neprázdná) množina a $(u_n)_{n=1}^{\infty}$, $(v_n)_{n=1}^{\infty}$ dvì posloupnosti funkcí definovaných na M, pro které platí $|u_n(x)| \le v_n(x)$ pro všechna $x \in M$. Jestliže øada $\sum_{n=1}^{\infty} v_n$ konverguje stejnomìrnì na M, pak i øada $\sum_{n=1}^{\infty} u_n$ konverguje stejnomìrnì na $M$.
+\end{vetaN}
+
+\begin{vetaN}{Weierstrassovo kritérium}
+Nech $M$ je (neprázdná) množina, $(u_n)_{n=1}^{\infty}$ posloupnost funkcí definovaných na $M$ a $\sum_{n=1}^{\infty} c_n$ konvergentní øada reálných èísel. Pokud pro každé $x \in M$ platí $|u_n(x)| \le c_n$, pak øada $\sum_{n=1}^{\infty} u_n$ konverguje stejnomìrnì na $M$.
+\end{vetaN}
+
+\begin{vetaN}{Leibnizovo kritérium pro stejnomìrnou konvergenci}
+Nech $M$ je (neprázdná) množina, $(u_n)_{n=1}^{\infty}$ posloupnost funkcí definovaných na $M$ splòujících \emph{obì} podmínky:
+
+\begin{penumerate}
+	\item Pro všechna $x \in M$ a $n \in \mathbb{N}$ je $u_n(x) \ge u_{n+1}(x) \ge 0$
+	\item $u_n \rightrightarrows 0$ na $M$
+\end{penumerate}
+Pak øada $\sum_{n=1}^{\infty} (-1)^{n}u_n$ konverguje stejnomìrnì na $M$.
+\end{vetaN}
+
+\begin{vetaN}{Dirichletovo a Abelovo kritérium}
+Nech $M$ je (neprázdná) množina a $(u_n)_{n=1}^{\infty}$, $(v_n)_{n=1}^{\infty}$ dvì posloupnosti funkcí definovaných na $M$, pøièemž pro každé $x \in M$ a každé $n \in \mathbb{N}$ platí $v_n(x) \ge v_{n+1}(x) \ge 0$. Nech navíc platí alespoò jedna z podmínek:
+\begin{enumerate}
+	\item (Abelovo) Øada $\sum_{n=1}^{\infty} u_n$ konverguje stejnomìrnì na M, % a funkce $v_1$ je shora omezená na $M$ -- to je malo, ne? (Tuetschek)
+	pro každé pevné $x$ je posloupnost hodnot funkcí $(v_n(x))$ monotónní (klidnì pro každé $x$ jinak)
+	a existuje $K\in\mathbb{R}$ takové, že $\forall n\in\mathbb{N}\ \forall x\in M: |v_n(x)|<K$ 
+	(tj. $(v_n)$ je stejnomìrnì omezená na $M$). % tahle verze Abelova kriteria je podle Picka a Klazara
+	\item (Dirichletovo) Existuje $K \in \mathbb{R}$ takové, že pro všechna $x \in M$ a $n \in \mathbb{N}$ je $|u_1(x) + \dots + u_n(x)| \le K$
+	(tj. posloupnost èást. souètù $(\sum_{i=1}^n u_n(x))$ je \emph{stejnomìrnì omezená} na $M$)
+	a dále $v_n \rightrightarrows 0$ na $M$ (konverguje stejnomìrnì k nulové funkci).
+\end{enumerate}
+
+Pak øada $\sum_{n=1}^{\infty} u_n\cdot v_n$ konverguje stejnomìrnì na $M$.
+\end{vetaN}
+
+(\emph{Pozn. autora: Dále platí i vìty ekvivalentní vìtám o zámìnì limit pøi posloupnostech\dots})

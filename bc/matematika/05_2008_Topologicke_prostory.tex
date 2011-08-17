@@ -1,0 +1,48 @@
+\subsection{Definice topologického prostoru}
+\begin{definiceN}{topologický prostor}
+\emph{Topologický prostor} (nebo \emph{topologie}) je dvojice $(X, \mathcal{T})$, kde $X$ je množina a $\mathcal{T}$ je systém (ne nutnì všech) podmnožin množiny $X$, zvaných \emph{otevøené množiny}, splòující tøi axiomy:
+\begin{pitemize}
+\item $\emptyset, X \in \mathcal{T}$
+\item je-li $\lbrace U_i  \;\vert\; i \in I\rbrace \subset \mathcal{T}$ libovolný podsystém $\mathcal{T}$, potom také $\bigcup_{i\in I} U_i \in \mathcal{T}$
+\item je-li $\lbrace U_i  \;\vert\; i \in I\rbrace \subset \mathcal{T}$ libovolný koneèný podsystém $\mathcal{T}$, potom také $\bigcap_{i\in I} U_i \in \mathcal{T}$
+\end{pitemize}
+\end{definiceN}
+
+\begin{obecne}{Pøíklady topologických prostorù}
+Nejjednodušší pøíklad topologického prostoru je dvojice $(X, \lbrace \emptyset, X\rbrace)$
+\par\medskip\noindent
+Základní pøíklad je systém otevøených množin metrického prostoru (díky vlastnostem otevøených množin). Budeme struènì mluvit o \emph{topologii metrického prostoru}.
+\end{obecne}
+
+\begin{definiceN}{metrizovatelné topologie}
+Topologie $(X, \mathcal{T})$ je \emph{metrizovatelná}, pokud $\mathcal{T}$ je tvoøena {\color{red}VŠEMI?} otevøenými množinami nìjakého metrického prostoru $(X, d)$.
+\end{definiceN}
+
+\begin{definiceN}{haussdorfovská topologie}
+Topologie je \emph{haussdorfovská}, pokud každé její dva body mají disjunktní okolí. Formálnì $\forall a, b \in X, a \neq b \exists U, V \in \mathcal{T} : a \in U, b \in V, U \cap V = \emptyset$.
+\end{definiceN}
+
+\begin{lemmaN}{vlastnosti metrizovatelných topologií}
+Je-li $(X, \mathcal{T})$ metrizovatelná, pak platí:
+\begin{pitemize}
+    \item každá koneèná množina je v metrizovatelné topologii uzavøená,
+    \item $(X, \mathcal{T})$ je haussdorfovská (tedy každé dva body mají disjunktní okolí).
+\end{pitemize}
+\end{lemmaN}
+
+\begin{dusledek}
+Topologie $(X, \lbrace \emptyset, X\rbrace)$ není pro $\left\lvert X \right\rvert > 1$ metrizovatelná.
+\end{dusledek}
+
+\begin{definiceN}{báze topologie}
+Mìjme topologie $(X, T )$. Pak jeho \emph{báze} je takový podsystém $U \subseteq \mathcal{T}$, že každá $A \in \mathcal{T}$ je sjednocení nìjakých množin z $U$.
+\end{definiceN}
+
+\begin{priklad}
+Systém všech koulí $\lbrace B(a, r) \;\vert\; a \in M, r > 0\rbrace$ v metrickém prostoru $(M, d)$ tvoøí bázi topologie $(M, d)$. Pro zadání topologie staèí zadat nìjakou její bázi.
+\end{priklad}
+
+\begin{definiceN}{ekvivalentní metrické prostory}
+Metrické prostory $(X, d_1)$ a $(X, d_2)$ nazveme \emph{ekvivalentní}, pokud definují stejnou topologii. K tomu je nutné a staèí, aby $\forall a \in X, r > 0\;\exists s > 0: B_{d_1}(a, s) \subseteq B_{d_2}(a, r)$ a naopak (prohodíme-li metriky $d_1$ a $d_2$). Postaèující podmínkou je existence konstant $0 < r \leq s$ takových, že pro
+každé dva body $x, y \in X$ máme $r \cdot d_1(x, y) \leq d_2(x, y) \leq s \cdot d_1(x, y)$.
+\end{definiceN}
