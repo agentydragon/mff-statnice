@@ -54,7 +54,8 @@
 %obecne prostredie, ktore ma vyuzitie pri specialnych odstavcoch ako (uloha, algoritmus...) aby nevzniklo dalsich x prostredi
 \newenvironment{obecne}[1]{\pagebreak[2]\noindent\textbf{#1}\par\noindent\leftskip 10pt}{\par\bigskip}
 
-
+\newenvironment{reportN}[1]{\pagebreak[2]\noindent\textbf{Report~}\emph{(#1)}\emph\par\noindent\leftskip 10pt}{\par\bigskip}
+\newenvironment{prikladN}[1]{\pagebreak[2]\noindent\textbf{Pøíklad~}\emph{#1}\par\noindent\leftskip 10pt}{\par\bigskip}
 
 \newenvironment{penumerate}{
 \begin{enumerate}
@@ -81,8 +82,6 @@
 \title{\LARGE Uèební texty k státní bakaláøské zkoušce \\ Obecná informatika \\ Programovací jazyky}
 \begin{document}
 
-\maketitle
-\newpage
 \setcounter{section}{5}
 \section{Programovací jazyky}
 \begin{pozadavky}
@@ -90,12 +89,14 @@
 \item Principy implementace procedurálních programovacích jazykù, oddìlený pøeklad, sestavení.
 \item Objektovì orientované programování.
 \item Neprocedurální programování, logické programování.
-\item Generické programování.
+\item Generické programování – šablony a generika.
 \end{pitemize}
 \end{pozadavky}
-\input{informatika/programovanie/Principy_implementace_proceduralnich_programovacich_jazyku,_oddeleny_preklad,_sestaveni.O.tex}
-\input{informatika/programovanie/Objektove_orientovane_programovani.O.tex}
-%\input{informatika/programovanie/Neproceduralni_programovani,_logicke_programovani.OP!.tex}
-%\input{informatika/programovanie/Genericke_programovani_a_knihovny.O!P.tex}
+%\input{informatika/programovanie/Principy_implementace_proceduralnich_programovacich_jazyku,_oddeleny_preklad,_sestaveni.O.tex}\newpage
+%\setcounter{subsection}{1}
+%\input{informatika/programovanie/Objektove_orientovane_programovani.O.tex}\newpage
+%\input{informatika/programovanie/Neproceduralni_programovani,_logicke_programovani.OP!.tex}\newpage
+\setcounter{subsection}{3}
+\input{informatika/programovanie/Genericke_programovani_a_knihovny.O!P.tex}
 
 \end{document}

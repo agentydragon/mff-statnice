@@ -1,71 +1,230 @@
-\subsection{GenerickÃ© programovÃ¡nÃ­ a knihovny}
+\subsection{Generické programování – šablony a generika}
 
-ZÃ¡kladnÃ­ myÅ¡lenkou, kterÃ¡ se skrÃ½vÃ¡ za pojmem generickÃ© programovÃ¡nÃ­, je rozdÄ›lenÃ­ kÃ³du programu na algoritmus a datovÃ© typy takovÃ½m zpÅ¯sobem, aby bylo moÅ¾nÃ© zÃ¡pis kÃ³du algoritmu chÃ¡pat jako obecnÃ½, bez ohledu na to, nad jakÃ½mi datovÃ½mi typy pracuje. KonkrÃ©tnÃ­ kÃ³d algoritmu se z nÄ›j stÃ¡vÃ¡ dosazenÃ­m datovÃ©ho typu.
+Základní myšlenkou, která se skrıvá za pojmem generické programování, je rozdìlení kódu programu na algoritmus a datové typy takovım zpùsobem, aby bylo moné zápis kódu algoritmu chápat jako obecnı, bez ohledu na to, nad jakımi datovımi typy pracuje. Konkrétní kód algoritmu se z nìj stává dosazením datového typu.
 
-U kompilovanÃ½ch jazykÅ¯ dochÃ¡zÃ­ k rozvinutÃ­ kÃ³du v dobÄ› pÅ™ekladu. TypickÃ½m pÅ™Ã­kladem jazyka, kterÃ½ podporuje tuto formu generickÃ©ho programovÃ¡nÃ­, je jazyk C++. Mechanismem, kterÃ½ zde generickÃ© programovÃ¡nÃ­ umoÅ¾Åˆuje, 
-jsou takzvanÃ© Å¡ablony (templates).
+U kompilovanıch jazykù dochází k rozvinutí kódu v dobì pøekladu. Typickım pøíkladem jazyka, kterı podporuje tuto formu generického programování, je jazyk C++. Mechanismem, kterı zde generické programování umoòuje, 
+jsou takzvané šablony (templates).
 
 \medskip
-\begin{definiceN}{GenerickÃ© programovÃ¡nÃ­}
-Generic programming is a style of computer programming where algorithms are written in an extended grammar and are made adaptable by specifying variable parts that are then somehow instantiated later by the compiler with respect to the base grammar. Specifically, the extended grammar raises a non-variable element or implicit construct in the base grammar to a variable or constant and allows generic code to be used, usually implementing common software patterns that are already expressible in the base language.
-\end{definiceN}
-
-\begin{poznamkaN}{MetaprogramovÃ¡nÃ­}
+\begin{poznamkaN}{Metaprogramování a Generika}
 It differs from normal programming in that it somehow invokes within the language a metaprogramming facility. Because it happens as an extension of the language, new semantics are introduced and the language is enriched in this process. It is closely related to metaprogramming, but does not involve the generation of source code (none, at least, that is visible to the user of the language). It is different from programming with macros as well, as the latter refers to textual search-and-replace and is not part of the grammar of the language but implemented by a pre-processor. One exception to this is the macro facility in Common Lisp, in which macros operate on parse trees rather than text.
+
+Obyèejné fce mají pøednost pøed generickımi???
 \end{poznamkaN}
 
-\begin{priklad}
-\emph{TÅ™Ã­da parametrizovanÃ¡ typem (kontejner)} ---
+\begin{definiceN}{Šablony}
+Template metaprogramming is a metaprogramming technique in which templates are used by a compiler to generate temporary source code, which is merged by the compiler with the rest of the source code and then compiled. The output of these templates include compile-time constants, data structures, and complete functions. The use of templates can be thought of as compile-time execution. The technique is used by a number of languages, the best-known being C++, but also Curl, D, and XL.
+\end{definiceN}
+
+\begin{prikladN}{Tøída parametrizovaná typem (kontejner)}
 As an example of the benefits of generic programming, when creating containers of objects it is common to write specific implementations for each datatype contained, even if the code is virtually identical except for different datatypes. Instead, a possible declaration using generic programming could be to define a template class (using the C++ idiom):
 \begin{verbatim}
-template<typename T> 
-class List 
-{ 
-   /* class contents */ 
-};
-
-List<Animal> list_of_animals;
-List<Car> list_of_cars;
+  template<typename T> 
+  class List 
+  { 
+    T x;
+    List<T> *next;
+  };
+  
+  List<Animal> list_of_animals;
+  List<Car> list_of_cars;
+  
+  ...
+  
+  conductor = root;
+  while ( conductor != NULL ) {
+    cout<< conductor->x;
+    conductor = conductor->next;
+  }
 \end{verbatim}
 Above T represents the type to be instantiated. The list generated is then treated as a list of whichever type is specified. These "containers-of-type-T", commonly called generics, are a generic programming technique that allows the defining of a class that takes and contains different datatypes (not to be confused with polymorphism, which is the algorithmic usage of exchangeable sub-classes) as long as certain contracts such as subtypes and signature are kept. Although the example above is the most common use of generic programming, and some languages implement only this aspect of it, generic programming as a concept is not limited to generics. 
-\end{priklad}
+\end{prikladN}
 
-\begin{priklad}
-\emph{TypovÄ› nezÃ¡vislÃ¡ funkce} ---
+\begin{prikladN}{Typovì nezávislá funkce}
 Another applicaton is type-independent functions as in the Swap example below:
 \begin{verbatim}
-template<typename T>
-void Swap(T & a, T & b) //"&" passes parameters by reference
-{
-   T temp = b;
-   b = a;
-   a = temp;
-}
-
-string hello = "world!", world = "Hello, ";
-Swap( world, hello );
-cout << hello << world << endl; //Output is "Hello, world!"
+  template<typename T>
+  void Swap(T & a, T & b) //"&" passes parameters by reference
+  {
+     T temp = b;
+     b = a;
+     a = temp;
+  }
+  
+  string hello = "world!", world = "Hello, ";
+  Swap( world, hello );
+  cout << hello << world << endl; //Output is "Hello, world!"
 \end{verbatim}
-\end{priklad}
+\end{prikladN}
 
-\begin{obecne}{PouÅ¾itÃ­ v porgramovacÃ­ch jazycÃ­ch}
+\begin{prikladN}{Faktoriál pomocí šablon}
+\begin{verbatim}
+  template <int N>
+  struct Factorial 
+  {
+      enum { value = N * Factorial<N - 1>::value };
+  };
+   
+  template <>
+  struct Factorial<0> 
+  {
+      enum { value = 1 };
+  };
+   
+  // pouití:
+  int x = Factorial<4>::value; // == 24
+  int y = Factorial<0>::value; // == 1
+\end{verbatim}
+\end{prikladN}
+
+
+\begin{prikladN}{traits}
+Programovací paradigma vyuívající šablony, ze kterıch nejsou vytváøeny objekty. Urèeny k doplnìní informací o nìjakém typu.
+\\\\Obsahují pouze:
+\begin{pitemize}
+\item Definice typù
+\item Statické funkce
+\end{pitemize}
+
+\begin{verbatim}
+  template< typename T > 
+  struct is_void{ 
+    static const bool value = false;
+  };
+  
+  template<> 
+  struct is_void< void >{ 
+    static const bool value = true; 
+  };
+  
+  // pouití:
+  is_void<int>::value; // false
+  is_void<void>::value; // true
+\end{verbatim}
+\end{prikladN}
+\newpage
+\begin{prikladN}{policy classes}
+Urèeny k definování urèitého chování. Jous to tøídy, ze kterıch obvykle nejsou vytváøeny objekty a jsou pøedávány jako parametr šablonám. Defaultní hodnotou parametru èasto bıvá šablona traits. Hlavnì spojené s C++ (v ostatních jazycích se zatím nerozšíøilo).
+\begin{verbatim}
+  template < typename output_policy, typename language_policy >
+  class HelloWorld : public output_policy, public language_policy
+  {
+      using output_policy::Print;
+      using language_policy::Message;
+       
+      public void Run() //behaviour method
+      {
+          //two policy methods
+          Print( Message() );
+      }
+  };
+   
+  class OutputPolicy_WriteToCout
+  {
+   protected:
+      template< typename message_type >
+      void Print( message_type message )
+      {
+          std::cout << message << std::endl;
+      }
+  };
+   
+  class LanguagePolicy_English
+  {
+      protected std::string Message() { return "Hello, World!"; }
+  };
+   
+  class LanguagePolicy_German
+  {
+      protected std::string Message() { return "Hallo Welt!"; }
+  };
+   
+  int main()
+  {
+      /* example 1 */
+      HelloWorld<OutputPolicy_WriteToCout, LanguagePolicy_English>  hello_world;
+      hello_world.Run(); // Prints "Hello, World!"
+   
+     /* example 2 
+      * does the same but uses another policy, the language has changed
+      */
+      HelloWorld<OutputPolicy_WriteToCout, LanguagePolicy_German> hello_world2;
+      hello_world2.Run(); // Prints "Hallo Welt!"
+  }
+\end{verbatim}
+\end{prikladN}
+\newpage
+\begin{definiceN}{Dynamickı (run-time) polymorfismus}
+Dìdìní + VMT = flexibilita.
+Pøípadnì jeho varianta s šablonami:
+\begin{verbatim}
+class Base
+{
+public:
+    virtual void method() { std::cout << "Base"; }
+    virtual ~Base() {}
+};
+ 
+class Derived : public Base
+{
+public:
+    virtual void method() { std::cout << "Derived"; }
+};
+ 
+int main()
+{
+    Base *pBase = new Derived;
+    pBase->method(); //outputs "Derived"
+    delete pBase;
+    return 0;
+}
+\end{verbatim}
+\end{definiceN}
+
+\begin{definiceN}{Statickı (compile-time) polymorfismus}
+Je pøetìování fukcí a operátorù, øeší se pøi kompilaci = rychlost.
+Pøípadnì jeho varianta s šablonami:
+\begin{verbatim}
+template <class Derived>
+struct base
+{
+    void interface()
+    {
+         // ...
+         static_cast<Derived*>(this)->implementation();
+         // ...
+    }
+};
+ 
+struct derived : base<derived>
+{
+     void implementation();
+};
+\end{verbatim}
+Lze tak dosáhnout podobnıch vìcí jako s VMT.
+\end{definiceN}
+
+\begin{obecne}{Pouití v programovacích jazycích}
 The template construct of C++ used in the examples above is widely cited as the generic programming construct that popularized the notion among programmers and language designers and provides full support for all generic programming idioms. D also offers fully generic-capable templates based on the C++ precedent but with a simplified syntax. Java has provided generic programming facilities syntactically based on C++'s since the introduction of J2SE 5.0 and implements the generics, or "containers-of-type-T", subset of generic programming.
 \end{obecne}
 
+\begin{reportN}{IP 21.6.2011} Co je to generické programování, k èemu se pouívá a v èem spoèívají jeho vıhody?
 
-\subsubsection*{Knihovna}
-Knihovna (angl. library) je v programovÃ¡nÃ­ funkÄnÃ­ logickÃ½ celek, kterÃ½ poskytuje sluÅ¾by pro programy. VÄ›tÅ¡inou se jednÃ¡ o sbÃ­rku procedur, funkcÃ­ a datovÃ½ch typÅ¯, Äi pÅ™i objektovÄ› orientovanÃ©m pÅ™Ã­stupu o sadu tÅ™Ã­d, uloÅ¾enÃ½ch v jednom diskovÃ©m souboru.
+Napište struènou implementaci generické tøídy List nebo HashTable.
 
-Knihovna poskytuje aplikaÄnÃ­ programÃ¡torskÃ© rozhranÃ­ (zvanÃ© API), kterÃ© poskytuje funkce tÃ©to knihovny. Existuje mnoho knihoven pro rÅ¯znÃ© ÃºÄely, napÅ™. pro vyuÅ¾Ã­vÃ¡nÃ­ sluÅ¾eb operaÄnÃ­ho systÃ©mu, grafickÃ© funkce, Å™Ã­zenÃ­ perifÃ©riÃ­, vÄ›deckotechnickÃ© vÃ½poÄty atp.
+Popište implementaci v C++ a Javì (asi by staèil i C#, ale v zadání byla explicitnì napsaná java).
+\end{reportN}
 
-\textbf{Typy knihoven}: Z technickÃ©ho hlediska je moÅ¾nÃ© rozdÄ›lit knihovny dle zpÅ¯sobu propojenÃ­ s programem, kterÃ½ je bude vyuÅ¾Ã­vat:
-\begin{pitemize}
-	\item statickÃ¡ knihovna (static linking library) - spojuje se s programem ve pÅ™i pÅ™ekladu, vÄ›tÅ¡inou pÅ™Ã­pona souboru .lib
-	\item dynamickÃ¡ knihovna (dynamic linking library) - spojuje se s programem aÅ¾ pÅ™i spuÅ¡tÄ›nÃ­ programu, vÄ›tÅ¡inou spojenÃ­ knihovny s programem zajiÅ¡Å¥uje operaÄnÃ­ systÃ©m
-\end{pitemize}
+\begin{reportN}{IP 21.6.2011 ($<$2007)} Popiste sablony
+\\Jak jsou implementovany (popiste jak jsou implementovany v C++ nebo Java) (to som teda fakt netusil)
+\end{reportN}
 
-KaÅ¾dÃ½ typ knihovny mÃ¡ svÃ© vÃ½hody a nevÃ½hody. Program spojenÃ½ se statickou knihovnou je pÅ™enositelnÄ›jÅ¡Ã­, nenÃ­ tÅ™eba zajiÅ¡Å¥ovat dostupnost poÅ¾adovanÃ½ch dynamickÃ½ch knihoven. Programy spojenÃ© s dynamickou knihovnou jsou menÅ¡Ã­ (ve spustitelnÃ©m souboru se nachÃ¡zÃ­ jen vÃ½konnÃ½ kÃ³d programu), vÃ½hodou je moÅ¾nost jednoduÅ¡e zamÄ›nit poÅ¾adovanou dynamickou knihovnu za jejÃ­ novÄ›jÅ¡Ã­ verzi. KÃ³d v dynamicky linkovanÃ© knihovnÄ› je takÃ© za bÄ›hu sdÃ­len mezi vÅ¡emi aplikacemi kterÃ© jej pouÅ¾Ã­vajÃ­, coÅ¾ Å¡etÅ™Ã­ operaÄnÃ­ pamÄ›t.
+\begin{reportN}{IOI 21.6.2011 ($<$2007)}
+Co je to generické programování, k èemu se pouívá a v èem spoèívají jeho vıhody?
 
-Typickou pÅ™Ã­ponou souboru obsahujÃ­cÃ­ch dynamickou knihovnu je .dll v operaÄnÃ­m systÃ©mu Microsoft Windows a .so v rÅ¯znÃ½ch Unixech a v Linuxu.
+Napište struènou implementaci generické tøídy List nebo HashTable.
+\end{reportN}
 
-PÅ™Ã­klady rÅ¯znÃ½ch knihoven: standardnÃ­ knihovna jazyka C, standardnÃ­ knihovna Å¡ablon (Standard Template Library=STL) v jazyce C++, grafickÃ© knihovny jako DirectX, OpenGL, SDL apod., matematickÃ¡ knihovna LINPACK pro Å™eÅ¡enÃ­ soustav lineÃ¡rnÃ­ch rovnic...
+\begin{reportN}{Yaghob}
+Co je to traits a policy classes, co je to statickı polymorfismus apod. Nakonec jsem to nìjak vymyslel a shodli jsme se na tom, e to vím, take taky za 1.
+\end{reportN}
