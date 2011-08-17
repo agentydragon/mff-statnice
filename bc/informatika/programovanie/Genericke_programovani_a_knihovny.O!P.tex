@@ -112,7 +112,7 @@ Urèeny k definování urèitého chování. Jous to tøídy, ze kterých obvykle nejsou v
       using output_policy::Print;
       using language_policy::Message;
        
-      public void Run() //behaviour method
+      public: void Run() //behaviour method
       {
           //two policy methods
           Print( Message() );
@@ -131,12 +131,12 @@ Urèeny k definování urèitého chování. Jous to tøídy, ze kterých obvykle nejsou v
    
   class LanguagePolicy_English
   {
-      protected std::string Message() { return "Hello, World!"; }
+      protected: std::string Message() { return "Hello, World!"; }
   };
    
   class LanguagePolicy_German
   {
-      protected std::string Message() { return "Hallo Welt!"; }
+      protected: std::string Message() { return "Hallo Welt!"; }
   };
    
   int main()
