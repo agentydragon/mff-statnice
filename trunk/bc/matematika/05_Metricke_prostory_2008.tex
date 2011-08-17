@@ -1,0 +1,291 @@
+\def\Real{\mathbb{R}}
+\def\Euklid{\mathbb{E}}
+\def\impl{\ \Rightarrow\ }
+
+\section{Metrické prostory}
+\begin{pozadavky}
+\begin{pitemize}
+    \item Definice metrického prostoru, pøíklady
+    \item Definice topologického prostoru
+    \item Spojitost, otevøené a uzavøené množiny
+\end{pitemize}
+\end{pozadavky}
+
+\subsection{Definice metrického prostoru, pøíklady}
+
+\subsubsection*{Metrický prostor, metrika}
+
+\begin{definiceN}{metrický prostor}
+\emph{Metrický prostor} je dvojice $(M, d)$, kde $M$ je množina a $d: M \times M \rightarrow \mathbb{R}$ je zobrazení, zvané \emph{metrika}, splòující tøi axiomy:
+\begin{penumerate}
+    \item $d(x, y) = 0 \Leftrightarrow x = y$
+    \item $d(x, y) = d(y, x)$ \hfill \emph{(symetrie)}
+    \item $d(x, y) \le d(x, z) + d(z, y)$ \hfill\emph{(trojúhelníková nerovnost)}
+\end{penumerate}
+Metrické prostory jsou abstrakcí jevu vzdálenosti. Z axiomù 1. a 3. vyplývá nezápornost hodnot metriky (která se ale vìtšinou explicitnì uvádí jako souèást prvního axiomu). Prvky metrického prostoru nazveme \emph{body}.
+\end{definiceN}
+
+\begin{obecne}{Pøíklady metrik}
+Nech $M = \mathbb{R}^n$ a $p \ge 1$ je reálné èíslo. Na $M$ definujeme metriky\\(kde $x = (x_1, x_2, \dots, x_n)$, $y = (y_1, y_2, \dots , y_n)$)
+$$d_p(x, y) = \left(\sum_{i=1}^{n}|x_i - y_i|^p\right)^{1/p}$$
+
+\noindent Potom:\begin{pitemize}
+\item Pro $p = 1, n = 1$ dostáváme metriku $|x - y|$.
+\item Pro $p = 2, n \ge 2$ dostáváme euklidovskou metriku
+$$d_2(x, y) = \parallel x - y \parallel = \sqrt{(x_1-y_1)^2+(x_2-y_2)^2+\dots+(x_n-y_n)^2}$$
+\item Pro $p = 1, n \ge 2$ dostáváme tzv. pošáckou metriku a pro $p \rightarrow \infty$ maximovou
+metriku
+$$d_1(x, y) = \max_{1 \le i \le n} |x_i - y_i|$$
+\end{pitemize}
+\par\medskip\noindent
+Buï $X$ libovolná množina. $F(X)$ oznaème množinu všech omezených funkcí $f:X\to\Real$ a definujme funkci $d$ pøedpisem
+$$d(f,g)=\sup_{x\in X}|f(x)-g(x)|$$
+Pak $(F(X),d)$ je metrický prostor (s tzv. supremovou metrikou).
+\par\medskip\noindent
+Vezmeme $M = \mathcal{C}[a, b]$ (množina reálných funkcí definovaných a spojitých an intervalu $[a, b]$) a reálné èíslo $p \geq 1$. Podobnì jako v prvním pøíkladu máme na $M$ metriky
+$$d_p\left(f, g\right) = \left( \int_a^b \lvert f(x) - g(x) \rvert^p \; \mathrm{d}x\right)^{1/p}.$$
+Pro $p = 1$ máme integrální metriku a $p \to \infty$ dává maximovou metriku
+z druhého pøíkladu. Vezmeme-li širší tøídu funkcí $M = \mathcal{R}[a, b]$ (funkce mající na $[a, b]$ Riemannùv
+integrál), je $d_p(f, g)$ definovaná, ale nesplòuje axiom 1) a nedostáváme metriku.
+Zmìníme-li napøíklad hodnotu funkce $f \in \mathcal{R}[a, b]$ v jediném bodì, dostaneme
+odlišnou funkci $f_0 \in \mathcal{R}[a, b]$, ale $d_p(f, f_0) = 0$. (Tato potíž se odstraní tak, že
+místo s $\mathcal{R}[a, b]$ se pracuje s $\mathcal{R}[a, b]/\sim$ pro vhodnou relaci ekvivalence $\sim$.)
+\par\medskip\noindent
+Na souvislém grafu $G = (M, E)$ s množinou vrcholù $M$ máme metriku $d(u, v)$ odpovídající poètu hran na nejkratší cestì v $G$ spojující $u$ a $v$.
+\par\medskip\noindent
+Je-li $A$ koneèná množina (abeceda), máme na množinì $M = A^m$ slov délky $m$ nad abecedou $A$ tzv. Hammingovu metriku ($u = a_1 a_2 \ldots a_m, v = b_1 b_2 \ldots b_m$), kde $d(u, v)$ odpovídá poètu souøadnic $i$, pro nìž $a_i \neq b_i$. Mìøí míru odlišnosti obou slov -- jaký nejmenší poèet zmìn v písmenech staèí k pøemìnì $u$ ve $v$.
+\par\medskip\noindent
+Úplnì triviální pøíklad metriky dostaneme, když na nìjaké množinì $M$ položíme $d(x,y)=1$ pro $x\neq y$ a $d(x,x)=0$.
+\end{obecne}
+
+\begin{definiceN}{euklidovský prostor}
+\emph{Euklidovským prostorem} rozumíme metrický prostor $(\Real^n, d_2)$, kde $d_2$ je funkce daná pøedpisem $d_2(x,y)=\sqrt{\sum_{i=1}^n(x_i-y_i)^2}$.
+\end{definiceN}
+
+\subsubsection*{Konvergence}
+
+\begin{definiceN}{konvergence posloupnosti bodù}
+Øekneme, že posloupnost bodù $(x_n)_{n\geq 0}$ nìjakého metrického prostoru $(M, d)$ \emph{konverguje k bodu $x \in M$} ($x_n\to x$), nebo že $x=\lim_{n\geq 0} x_n$, jestliže
+$$\forall\varepsilon>0\ \exists n_0:n\geq n_0\impl d(x_n,x)<\varepsilon.$$
+\end{definiceN}
+
+\begin{poznamkaN}{vlastnosti konvergence}
+Nech je dán metrický prostor $(M, d)$ a v nìm posloupnost bodù $(x_n)_{n\geq 0}$. Potom platí:
+\begin{penumerate}
+    \item Jestliže pro bod $y\in M$ platí, že $\exists n_0\in\mathbb{N}: \forall n\geq n_0: x_n = y$, pak $x_n\to y$
+    \item Nech $x_n\to y_1$ a zároveò $x_n\to y_2$. Potom $y_1=y_2$.
+    \item Podposloupnost konvergentní posloupnosti konverguje ke stejnému bodu.
+\end{penumerate}
+\begin{dukaz}
+Obdobnì jako pro konvergenci posloupností z $\mathbb{R}$ -- pouze místo absolutní hodnoty použijeme obecnou metriku.
+\end{dukaz}
+\end{poznamkaN}
+
+\subsection{Definice topologického prostoru}
+\begin{definiceN}{topologický prostor}
+\emph{Topologický prostor} (nebo \emph{topologie}) je dvojice $(X, \mathcal{T})$, kde $X$ je množina a $\mathcal{T}$ je systém (ne nutnì všech) podmnožin množiny $X$, zvaných \emph{otevøené množiny}, splòující tøi axiomy:
+\begin{pitemize}
+\item $\emptyset, X \in \mathcal{T}$
+\item je-li $\lbrace U_i  \;\vert\; i \in I\rbrace \subset \mathcal{T}$ libovolný podsystém $\mathcal{T}$, potom také $\bigcup_{i\in I} U_i \in \mathcal{T}$
+\item je-li $\lbrace U_i  \;\vert\; i \in I\rbrace \subset \mathcal{T}$ libovolný koneèný podsystém $\mathcal{T}$, potom také $\bigcap_{i\in I} U_i \in \mathcal{T}$
+\end{pitemize}
+\end{definiceN}
+
+\begin{obecne}{Pøíklady topologických prostorù}
+Nejjednodušší pøíklad topologického prostoru je dvojice $(X, \lbrace \emptyset, X\rbrace)$
+\par\medskip\noindent
+Základní pøíklad je systém otevøených množin metrického prostoru (díky vlastnostem otevøených množin). Budeme struènì mluvit o \emph{topologii metrického prostoru}.
+\end{obecne}
+
+\begin{definiceN}{metrizovatelné topologie}
+Topologie $(X, \mathcal{T})$ je \emph{metrizovatelná}, pokud $\mathcal{T}$ je tvoøena {\color{red}VŠEMI?} otevøenými množinami nìjakého metrického prostoru $(X, d)$.
+\end{definiceN}
+
+\begin{definiceN}{haussdorfovská topologie}
+Topologie je \emph{haussdorfovská}, pokud každé její dva body mají disjunktní okolí. Formálnì $\forall a, b \in X, a \neq b \exists U, V \in \mathcal{T} : a \in U, b \in V, U \cap V = \emptyset$.
+\end{definiceN}
+
+\begin{lemmaN}{vlastnosti metrizovatelných topologií}
+Je-li $(X, \mathcal{T})$ metrizovatelná, pak platí:
+\begin{pitemize}
+    \item každá koneèná množina je v metrizovatelné topologii uzavøená,
+    \item $(X, \mathcal{T})$ je haussdorfovská (tedy každé dva body mají disjunktní okolí).
+\end{pitemize}
+\end{lemmaN}
+
+\begin{dusledek}
+Topologie $(X, \lbrace \emptyset, X\rbrace)$ není pro $\left\lvert X \right\rvert > 1$ metrizovatelná.
+\end{dusledek}
+
+\begin{definiceN}{báze topologie}
+Mìjme topologie $(X, T )$. Pak jeho \emph{báze} je takový podsystém $U \subseteq \mathcal{T}$, že každá $A \in \mathcal{T}$ je sjednocení nìjakých množin z $U$.
+\end{definiceN}
+
+\begin{priklad}
+Systém všech koulí $\lbrace B(a, r) \;\vert\; a \in M, r > 0\rbrace$ v metrickém prostoru $(M, d)$ tvoøí bázi topologie $(M, d)$. Pro zadání topologie staèí zadat nìjakou její bázi.
+\end{priklad}
+
+\begin{definiceN}{ekvivalentní metrické prostory}
+Metrické prostory $(X, d_1)$ a $(X, d_2)$ nazveme \emph{ekvivalentní}, pokud definují stejnou topologii. K tomu je nutné a staèí, aby $\forall a \in X, r > 0\;\exists s > 0: B_{d_1}(a, s) \subseteq B_{d_2}(a, r)$ a naopak (prohodíme-li metriky $d_1$ a $d_2$). Postaèující podmínkou je existence konstant $0 < r \leq s$ takových, že pro
+každé dva body $x, y \in X$ máme $r \cdot d_1(x, y) \leq d_2(x, y) \leq s \cdot d_1(x, y)$.
+\end{definiceN}
+
+
+\subsection{Spojitost, otevøené a uzavøené množiny}
+\subsubsection*{Otevøené a uzavøené množiny}
+
+\begin{definiceN}{otevøená a uzavøená koule}
+Buï $(M,d)$ metrický prostor, $x \in M, r > 0$, potom
+\begin{pitemize}
+\item \emph{otevøenou koulí} (\emph{$r$-okolím}) se støedem $x$ a polomìrem $r$ nazveme množinu
+$$B(x,r)=\{y \in M | d(x,y)<r\}$$
+\item \emph{uzavøenou koulí} (\emph{$r$-okolím}) se støedem $x$ a polomìrem $r$ nazveme množinu
+$$\overline{B}(x,r) = \{y \in M | d(x,y) \le r \}$$
+\end{pitemize}
+\end{definiceN}
+
+\begin{definiceN}{otevøená a uzavøená množina}
+Buï $(M,d)$ metrický prostor, $G \subseteq M$, potom
+\begin{pitemize}
+\item $G$ je \emph{otevøená} v $M$, pokud
+$$\forall x \in G\;\exists r >\;0:\; B(x,r)\subseteq G$$
+(tj. množina $G$ je okolím každého svého bodu)
+\item $G$ je \emph{uzavøená} v $M$, pokud její doplnìk $M \setminus G$ je otevøený v $M$.
+\end{pitemize}
+\par\medskip\noindent
+Otevøená koule je otevøená množina v každém metrickém prostoru. Podobnì pro uzavøenou kouli.
+\end{definiceN}
+
+\begin{vetaN}{vlastnosti otevøených množin}
+Buï $(M,d)$ metrický prostor, potom platí
+\begin{penumerate}
+\item $\emptyset$, $M$ jsou otevøené v $M$
+\item koneèný prùnik otevøených množin je otevøená množina v $M$
+\item libovolnì velké sjednocení otevøených množin je otevøená množina v $M$
+\end{penumerate}
+\end{vetaN}
+
+\begin{vetaN}{vlastnosti uzavøených množin}
+Nech $(M,d)$ je metrický prostor, potom platí
+\begin{penumerate}
+\item $\emptyset$, $M$ jsou uzavøené v $M$
+\item libovolný prùnik uzavøených množin je uzavøená množina v $M$
+\item koneèné sjednocení uzavøených množin je uzavøená množina v $M$
+\end{penumerate}
+\end{vetaN}
+\begin{definiceN}{okolí bodu, vnitøní, vnìjší a další body}
+Buï $(M, d)$ metrický prostor, $a \in M$ jeho bod. Každou otevøenou množinu $U \subset M$ splòující $a \in U$ nazveme \emph{okolím bodu $a$}. Tedy každá koule $B(a, r)$ je okolím bodu $a$ a ovšem každé okolí
+bodu $a$ obsahuje nìjakou takovou kouli. V následujících definicích buïte $a \in M$ bod, $X \subset M$ množina a $U$ okolí bodu $a$. Øekneme, že
+\begin{pitemize}
+    \item $a$ je \emph{vnitøním} bodem $X$, když existuje $U$ tak, že $U \subset X$,
+    \item $a$ je \emph{vnìjším} bodem $X$, když existuje $U$ tak, že $U \subset M\setminus X$,
+    \item $a$ je \emph{hranièním} bodem $X$, když každé $U$ protíná $X$ i $M\setminus X$,
+    \item $a$ je \emph{limitním} bodem $X$, když je pro každé $U$ prùnik $U \cap X$ nekoneèný,
+    \item $a$ je \emph{izolovaným} bodem $X$, když existuje $U$ tak, že $U \cap X = \lbrace a\rbrace$.
+\end{pitemize}
+\end{definiceN}
+
+\begin{priklad}
+Vnitøní a izolované body $X$ nutnì leží v $X$, vnìjší body leží mimo $X$. Hranièní a limitní body $X$ mohou ležet v $X$ i mimo $X$. Vezmìme v euklidovské rovinì $R^2$ množinu $X = \lbrace x \in R^2\;\vert\;0 < \|x\| < 1\rbrace \cup \lbrace(0, 2)\rbrace$, jednotkový kruh se støedem v poèátku, z nìhož jsme poèátek odstranili a k
+nìmuž jsme pøidali bod $(0, 2)$. Pak vnitøní body $X$ tvoøí množinu $\lbrace x \in R^2\;\vert\;0 <
+\|x\| < 1\rbrace$, vnìjší body množinu $\lbrace x \in R^2\;\vert\; \|x\| > 1, x \neq (0, 2)\rbrace$, hranièní
+body množinu $\lbrace x \in R^2\;\vert\; \|x\| = 1\rbrace \cup \lbrace(0, 0), (0, 2)\rbrace$, limitní body množinu
+$\lbrace x \in R^2\;\vert\;\|x\| \leq 1\rbrace$ a izolované body množinu $\lbrace(0, 2)\rbrace$.
+\end{priklad}
+
+\begin{definiceN}{vzdálenost bodu od množiny}
+V metrickém prostoru $(X, d)$ buï $A\subset X$ množina a $x\in(X, d)$ bod. \emph{Vzdálenost bodu $x$ od množiny $A$} je èíslo $ d(x,A)=\inf\{ d(x,y)|y\in A\}$.
+\end{definiceN}
+
+\begin{definiceN}{uzávìr}
+\emph{Uzávìrem} množiny $A$ v metrickém prostoru $(M,d)$ nazýváme množinu
+$$\overline{A} = \bigcap_{\forall F}\{F\;\vert\;F \text{ uzavøená}, A \subseteq F \subseteq M\}$$
+Ekvivalentnì $\overline{A} = \lbrace a \in M\;\vert\;a = \lim_{n \to \infty} a_n$ pro nìjakou $(a_n) \subset A \rbrace$, neboli $\overline{A} = A \cup \lbrace \text{limitní body }A\rbrace$.
+\end{definiceN}
+
+\begin{vetaN}{vlastnosti uzávìru}
+Buï $(M,d)$ metrický prostor a $A,B$ množiny v nìm, potom platí:
+\begin{penumerate}
+\item $\overline{\emptyset} = \emptyset$, $\overline{M} = M$
+\item $A \subset B \Rightarrow \overline{A} \subset \overline{B}$
+\item $\overline{\overline{A}} = \overline{A}$
+\item $\overline{A \cup B} = \overline{A} \cup \overline{B}$
+\item charakteristika uzávìru: $\overline{A} = \{x \in M| d(x,A) = 0\}$
+\item $\overline{A}$ je nejmenší uzavøená množina obsahující $A$, proto $A$ je uzavøená právì když $\overline{A}=A$.
+\end{penumerate}
+\end{vetaN}
+
+\begin{poznamkaN}{ekvivalentní definice uzavøené množiny}
+Množina $X\subset(M, d)$ je uzavøená, jestliže každá posloupnost bodù $(x_n)_{n\geq 0}$, která v $X$ leží a konverguje, v $X$ má také svou limitu.
+\end{poznamkaN}
+
+\subsubsection*{Spojitost}
+
+\begin{definiceN}{spojité zobrazení}
+Pro metrické prostory $(X, d_1)$ a $(Y, d_2)$ je zobrazení $f:X\to Y$ \emph{spojité v bodì} $x\in X$, jestliže
+$$\forall\varepsilon>0\ \exists\delta>0:  d_1(x,y)<\delta\impl  d_2(f(x),f(y))<\varepsilon$$
+Ekvivalentnì pro $\forall$ okolí $V$ bodu $f(x)$ $\exists$ okolí $U$ bodu $x$ tak, že $y \in U \Rightarrow f(y) \in V$.\\
+Zobrazení $f$ je \emph{spojité}, pokud je spojité v každém bodì $x\in X$. 
+\end{definiceN}
+
+\begin{vetaN}{vlastnosti spojitosti}
+Nech je dáno zobrazení $f:X\to Y$ mezi dvìma metrickými prostory $(X, d_1)$, $(Y, d_2)$. Pak jsou následující tvrzení ekvivalentní.
+\begin{penumerate}
+    \item $f$ je spojité.
+    \item Pro každou konvergentní posloupnost $(x_n)_{n\geq 0}$ v $X$ platí $f(\lim x_n)=\lim f(x_n)$.
+    \item Pro každé $x$ a každé okolí $U$ bodu $f(x)$ existuje okolí $V$ bodu $x$ takové, že $f[V]\subseteq U$.
+    \item Je-li $U \subset Y$ otevøená v $Y$, pak $f^{-1}(U) \subset X$ je otevøená v $X$.
+    \item Je-li $U \subset Y$ uzavøená v $Y$, pak $f^{-1}(U) \subset X$ je uzavøená v $X$.
+    \item Pro každou $A\subseteq X$ platí $f[\overline{A}]\subseteq \overline{f[A]}$.
+\end{penumerate}
+\end{vetaN}
+
+\begin{definiceN}{stejnomìrnì spojité zobrazení}
+Øekneme, že zobrazení $f:(X, d_1)\to(Y, d_2)$ je \emph{stejnomìrnì spojité}, jestliže
+$$\forall\varepsilon>0\ \exists\delta>0\text{ takové, že }\forall(x,y)\text{ platí } d_1(x,y)<\delta\impl d_2(f(x),f(y))<\varepsilon$$
+\end{definiceN}
+
+\begin{vetaN}{skládání zobrazení}
+Složení dvou spojitých (nebo stejnomìrnì spojitých) zobrazení je spojité (resp. stejnomìrnì spojité).
+\end{vetaN}
+
+\begin{definiceN}{homeomorfismus}
+Zobrazení $f:(X,d_1)\to(Y,d_2)$ nazveme \emph{(stejnomìrným) homeomorfismem}, pokud
+\begin{pitemize}
+    \item $f$ je bijekce,
+    \item $f$ je (stejnomìrnì) spojité,
+    \item inverzní zobrazení $f^{-1}$ je (stejnomìrnì) spojité.
+\end{pitemize}
+Prostory $X$ a $Y$ pak jsou \emph{(stejnomìrnì) homeomorfní}. Pokud je $f$ identické zobrazení z $(X, d_1)$ do $(X, d_2)$, øíkáme, že metriky $d_1$ a $ d_2$ jsou \emph{(stejnomìrnì) ekvivalentní}. (Jiná definice ekvivalentních metrik požaduje, aby metrické prostory $(X, d_1)$ a $(X, d_2)$ mìli tytéž otevøené množiny).
+\end{definiceN}
+
+\begin{vetaN}{aritmetika zobrazení}
+Jsou-li $f,g$ spojité funkce $(X, d)\to\Real$ (kde $(X, d)$ je metrický prostor) a $\alpha\in\Real$, potom i funkce $f+g$, $\alpha\cdot f$, $f\cdot g$ a $\frac{f}{g}$ (má-li tato smysl) jsou spojité. Platí i pro spojitost zobrazení v nìjakém bodì $x_0\in X$.
+
+\begin{dukaz}
+Dùkaz této vìty je vlastnì stejný jako dùkaz vìty o aritmetice limit pro reálné funkce (jen pracujeme se zobrazeními na metrických prostorech).
+\end{dukaz}
+\end{vetaN}
+
+\subsubsection*{Podprostor metrického prostoru}
+
+\begin{definiceN}{podprostor}
+Pro metrický prostor $(X, d)$ a množinu $X_1\subset X$ vezmeme funkci $d_1:X_1\times X_1\to\Real$ danou pøedpisem $d_1(x,y)= d(x,y)\ \forall x,y\in X_1$. Pak $(X_1, d_1)$ je \emph{podprostor} metrického prostoru $(X, d)$ (\emph{indukovaný} podmnožinou $X_1$).
+\end{definiceN}
+
+\begin{poznamka}
+Pro $X_1 \subset X$ je zobrazení vložení $j:(X_1, d)\to(X, d)$, definované pøedpisem $j(x)=x$ stejnomìrnì spojité.
+\end{poznamka}
+
+\begin{vetaN}{vlastnosti podprostorù}
+Buï $Y$ podprostor metrického prostoru $X$. Potom platí
+\begin{penumerate}
+    \item $B_Y(x,\varepsilon)=B_X(x,\varepsilon)\cap Y$,\hfill\emph{(o okolí bodù)}
+    \item $U$ je otevøená v $Y$, právì když existuje otevøená $V \subset X$ taková, že $U=V\cap Y$ (to samé platí i pro uzavøené množiny),
+    \item $\overline{A}^Y=\overline{A}^X\cap Y$.\hfill\emph{(o uzávìru množiny)}
+\end{penumerate}
+\end{vetaN}
+
+\begin{vetaN}{podprostor zachovává spojitost}
+Pro $f:(X, d_1)\to (Y, d_2)$ (stejnomìrnì) spojité zobrazení a $X_1\subseteq X$, $Y_1\subseteq Y$ takové, že $f[X_1]\subseteq Y_1$ je $f_1:X_1\to Y_1$ definované pøedpisem $f_1(x)=f(x)$ (stejnomìrnì) spojité.
+\end{vetaN}
