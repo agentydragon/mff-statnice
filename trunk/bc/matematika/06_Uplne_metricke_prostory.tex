@@ -1,0 +1,56 @@
+\subsection{Úplné prostory}
+
+\begin{definiceN}{cauchyovská posloupnost bodù}
+Posloupnost $(x_n)$ bodù z metrického prostoru $(M,d)$ budiž \emph{cauchyovská}, jestliže
+$$\forall\varepsilon>0\ \exists n_0: m,n\geq n_0 d(x_m,x_n)<\varepsilon$$
+\end{definiceN}
+
+\begin{poznamka}
+Je-li posloupnost $(x_n)$ konvergentní, pak je cauchyovská. Obrácená implikace obecnì neplatí.
+\end{poznamka}
+
+\begin{definiceN}{úplný prostor}
+Prostor je \emph{úplný}, pokud v nìm každá cauchyovská posloupnost konverguje.
+\end{definiceN}
+
+\begin{vetaN}{o podposloupnosti}
+Pokud má cauchyovská posloupnost nìjakou konvergentní podposloupnost, pak konverguje sama.
+\end{vetaN}
+
+\begin{priklady}
+\begin{pitemize}
+    \item $\mathbb{R}$ je úplný prostor (díky Bolzanovì-Cauchyovì podmínce).
+    \item Každý kompaktní prostor je úplný (podle pøedchozí vìty).
+    \item $\mathbb{E}_n$ je úplný prostor (bez dùkazu; vyžaduje souèiny prostorù).
+    \item Prostor $C[a, b]$ funkcí spojitých na $[a, b]$ s maximovou metrikou je úplný. Je-li totiž posloupnost $(f_n)$ cauchyovská, splòuje stejnomìrnou Bolzanovu-Cauchyovu podmínku a tedy na $[a, b]$ konverguje stejnomìrnì k jisté funkci $f$. Funkce $f$ je na $M$ spojitá, protože je stejnomìrnou limitou spojitých funkcí. Tedy $f \in \mathcal{C}(M)$ a v supremové metrice máme $\lim_{n \to \infty} f_n = f$.
+    \item Opìt pro $\mathcal{C}[a, b]$ teï ovšem s integrální metrikou. Vzniklý metrický prostor není úplný. Sestrojíme cauchyovskou posloupnost, která nemá limitu. Položíme $a = -1, b = 1$ a uvážíme funkce $$f_n (x) =
+    \begin{cases}
+    -1 & \text{ pro } -1 \leq x \leq -n^{-1}\\
+    nx & \text{ pro } -n^{-1} \leq x \leq n^{-1}\\
+    1  & \text{ pro } n^{-1} \leq x \leq 1.
+    \end{cases}$$
+    Pak $(f_n) \subset \mathcal{C}[-1, 1]$ a $(f_n)$ je cauchyovská, protože pro $m \leq n$ máme $d(f_m, f_n) = \int_{-1}^{1} |f_m(x) - f_n(x)| dx \leq \int_{-1/m}^{1/m} 1 dx = 2/m$. Neexistuje však funkce $f \in \mathcal{C}[-1, 1]$, pro níž by $f_n \to f$  pro $n \to \infty$. Taková funkce $f$ by podle definice $f_n$ musela být na intervalu $[-1, 0)$ identicky rovna $-1$ a na intervalu $(0, 1]$ identicky rovna $1$, což je pro funkci spojitou na $[-1, 1]$ nemožné.
+    \item Uvažme euklidovské metrické prostory $\mathbb{R}$ a $(-\pi /2, \pi /2)$. Bijekce $f(x) = \arctan(x): \mathbb{R} \to (-\pi /2, \pi /2)$ je homeomorfismus, $f$ i $f^{-1}(x) = \tan(x): (-\pi /2, \pi /2) \to \mathbb{R}$ jsou spojitá zobrazení. Ovšem $\mathbb{R}$ je úplný metrický prostor, ale $(-\pi /2, \pi /2)$ nikoli. Úplnost metrického prostoru není, na rozdíl od kompaktnosti, topologická vlastnost, není urèena pouze otevøenými množinami, závisí i na metrice. Nicménì se úplnost se zachovává homeomorfismem, který je v obou smìrech stejnomìrnì spojitý (funkce $\tan x$ není na $(-\pi /2, \pi /2)$ stejnomìrnì spojitá).
+\end{pitemize}
+\end{priklady}
+
+\begin{vetaN}{zachování úplnosti}
+Úplnost metrického prostoru se zachovává:
+\begin{penumerate}
+    \item obrazem stejnomìrnì spojitým prostým zobrazením, pokud je i inverzní zobrazení stejnomìrnì spojité,
+    \item pøechodem k uzavøenému podprostoru,
+    \item kartézským souèinem.
+\end{penumerate}
+
+\begin{poznamka}
+Používá se zejména pøi nahrazování metriky metrikou s ní stejnomìrnì ekvivalentní. Tvrzení pro \uv{obyèejnou} spojitost neplatí.
+\end{poznamka}
+\end{vetaN}
+
+\begin{vetaN}{o úplném podprostoru}
+Podprostor $Y$ úplného prostoru $X$ je úplný, právì když je $Y$ v $X$ uzavøená množina.
+\end{vetaN}
+
+\begin{dusledek}
+Kompaktní metrický prostor je vždy úplný.
+\end{dusledek}

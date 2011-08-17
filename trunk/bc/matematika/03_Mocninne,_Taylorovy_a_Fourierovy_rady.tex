@@ -1,0 +1,200 @@
+Táto otázka je vypracovaná hlavne pod¾a skrípt prof. Kalendu, take je moné e niektoré vety (napr. od prof. Pultra) budú ma iné znenie. Hlavne èas o Fourierovıch funkciách vyzerá by prednášaná odlišne (menej obecne)\dots ;-(
+\begin{flushright}
+\textit{andree}
+\end{flushright}
+
+\begin{obecne}{\color{red}TODO! cele zkontrolovat}
+content...
+\end{obecne}
+
+\subsection{Mocninné øady}
+
+\begin{definice}
+Nech $a \in \mathbb{R}$ a $\{c_n\}_{n=0}^{\infty}$ je posloupnost reálnıch èísel. Nekoneènou øadu funkcí tvaru $\sum_{n=0}^{\infty} c_n(x-a)^n$ nazıváme \emph{mocninnou øadou o støedu $a$}.
+\end{definice}
+
+\begin{definice}
+Nech $\sum_{n=0}^{\infty} c_n(x-a)^n$ je mocninná øada o støedu $a$. Jejím \emph{polomìrem konvergence} rozumíme èíslo
+$$R = \sup\{r \in \left<0, +\infty\right); \sum_{n=0}^{\infty}|c_n|r^n \textit{konverguje}\}\textrm{,}$$
+je-li uvedená mnoina shora omezená. Není-li shora omezená, klademe $R = +\infty$.
+\end{definice}
+
+\begin{veta}
+Nech $\sum_{n=0}^{\infty} c_n(x-a)^n$ je mocninná øada o støedu $a$ a $R$ její polomìr konvergence.
+\begin{penumerate}
+	\item Je-li $|x-a| < R$, pak øada $\sum_{n=0}^{\infty} c_n(x-a)^n$ konverguje absolutnì;\\
+		Je-li $|x-a| > R$, pak øada $\sum_{n=0}^{\infty} c_n(x-a)^n$ diverguje.
+	\item Je-li $r \in (0,R)$, pak øada $\sum_{n=0}^{\infty} c_n(x-a)^n$ konverguje stejnomìrnì na mnoinì $\overline{B}(a,r) = \{x \in \mathbb{R}; |x-a|\le r\}=\left<a-r,a+r\right>$.
+	\item Øada $\sum_{n=0}^{\infty} c_n(x-a)^n$ konverguje lokálnì stejnomìrnì na mnoinì $B(a,R) = \{x \in \mathbb{R}; |x-a| < R\}$.
+\end{penumerate}
+
+Body 2. a 3. jsou vlastnì ekvivalentní. Je-li $R=\infty$, pak øada konverguje lokálnì stejnomìrnì na celém $\mathbb{R}$. 
+\end{veta}
+
+\begin{poznamka}
+Mnoinì $B(a, R)$, kde $R$ je polomìr konvergence mocninné øady $\sum_{n=0}^{\infty} c_n(x-a)^n$, se øíká \emph{kruh konvergence}.
+\end{poznamka}
+
+\begin{vetaN}{Vıpoèet polomìru konvergence}
+Nech $\sum_{n=0}^{\infty} c_n(x-a)^n$ je mocninná øada o støedu $a$ a $R$ její polomìr konvergence.
+\begin{penumerate}
+	\item Jestlie $L = \limsup_{n \rightarrow \infty} \sqrt[n]{|c_n|}$, pak
+		$$R=\left\{ \begin{array}{ll} \frac{1}{L}, & L>0, \\ +\infty, & L=0 \end{array}\right.$$
+	\item Tı vzoreèek platí, je-li $L = \limsup_{n \rightarrow \infty} \left|\frac{c_{n+1}}{c_n}\right|$
+\end{penumerate}
+První bod plyne z Cauchyova odmocninového kritéria konvergence øady, druhı z D'Alembertova podílového kritéria. Stejné tvrzení platí i pro limity danıch vırazù v pøípadì, e existují.
+\end{vetaN}
+
+\begin{vetaN}{...\uv{jen} pomocná pro následující}
+Nech $\sum_{n=0}^{\infty} c_n(x-a)^n$ je mocninná øada o støedu $a$ a $R$ její polomìr konvergence. Pak i mocninné øady $\sum_{n=0}^{\infty} n.c_n(x-a)^{n-1}$ a $\sum_{n=0}^{\infty} \frac{c_n}{n+1}(x-a)^{n+1}$ mají polomìr konvergence R.
+\end{vetaN}
+
+\begin{vetaN}{Derivace a integrace mocninné øady}
+Nech $\sum_{n=0}^{\infty} c_n(x-a)^n$ je mocninná øada o støedu $a$ a $R>0$ její polomìr konvergence. Definujme funkci $f(x) = \sum_{n=0}^{\infty} c_n(x-a)^n, x \in B(a,R)$. Pak platí:
+\begin{penumerate}
+	\item Funkce $f$ je spojitá na $B(a, R)$.
+	\item Funkce $f$ má v kadém bodì $x \in B(a,R)$ vlastní derivaci a platí $f'(x) = \sum_{n=0}^{\infty} n\cdot c_n(x-a)^{n-1}$.
+	\item Funkce $F(x) = \sum_{n=0}^{\infty} \frac{c_n}{n+1}(x-a)^{n+1}$ je primitivní funkcí k $f$ na $B(a, R)$.
+\end{penumerate}
+\end{vetaN}
+
+
+\subsection{Taylorovy øady}
+
+\begin{definice}
+Nech funkce $f$ má v bodì $a$ derivace všech øádù. Pak øadu $\sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n$ nazıváme \emph{Taylorovou øadou funkce $f$ o støedu $a$ v bodì $x$}.
+\end{definice}
+
+\begin{poznamka}
+Nech funkce $f$ má v bodì $a$ derivace všech øádù a $x \in \mathbb{R}$. Pak funkce $f$ je v bodì $x$ souètem své Taylorovy øady o støedu $a$, právì kdy $\lim_{n \rightarrow \infty} (f(x) - T_n^a(x))=0$.
+\end{poznamka}
+
+\begin{veta}
+Nech $x > a$ a funkce $f$ má v kadém bodì intervalu $\left<a,x\right>$ derivace všech øádù. Jestlie platí podmínka
+\begin{pitemize}
+	\item existuje $C \in \mathbb{R}$ takové, e pro kadé $t \in (a,x)$ a kadé $n \in \mathbb{N}$ je $|f^{(n)}(t)| \le C$,
+\end{pitemize}
+pak funkce $f$ je v bodì x souètem své Taylorovy øady o støedu $a$. Analogicky pro pøípad $x < a$.
+\end{veta}
+
+\begin{veta}
+Nech $\sum_{n=0}^{\infty} c_n(x-a)^n$ je mocninná øada o støedu $a$ a $R>0$ její polomìr konvergence. Definujme funkci $f(x) = \sum_{n=0}^{\infty} c_n(x-a)^n, x \in B(a,R)$. Pak øada $$\sum_{n=0}^{\infty} c_n(x-a)^n$$ je \emph{Taylorovou øadou funkce $f$} o støedu $a$, tj. pro kadé $n \in \mathbb{N} \cup \{0\}$ platí $c_n = \frac{f^{(n)}(a)}{n!}$.
+\end{veta}
+
+\textbf{Vıznam Taylorovıch øad}:
+\begin{pitemize}
+\item aproximace funkcí -- pøíklady (Taylorovy øady elementárních funkcí):
+	$$\forall x \in \mathbb{R}: \exp x=\sum_{k=0}^{\infty} \frac{1}{k!}x^k$$
+	$$\forall x \in \mathbb{R}: \sin x=\sum_{k=0}^{\infty} \frac{(-1)^{k-1}}{(2k-1)!}x^{2k-1} \;\;\;\;\dots$$
+\item zjednodušení dùkazù -- pøíklad (Dùkaz binomické vìty): % Zdroj: Pultrova skripta
+    \par\medskip
+    Rozvineme funkci $f(x)=(1+x)^{\alpha}$ v okolí nuly. Indukcí lze ovìøit, e 
+    $f^{(k)}(x)=\alpha(\alpha-1)\cdot\dots\cdot(\alpha-k+1)\cdot(1+x)^{\alpha-k}$. 
+    Taylorova øada funkce $f(x)=(1+x)^{\alpha}$ konverguje na $(-1,1)$ a je rovna hodnotì $(1+x)^{\alpha}$:
+    $$(1+x)^{\alpha}=\sum_{k=0}^{\infty}\frac{\alpha(\alpha-1)\cdot\dots\cdot(\alpha-k+1)}{k!}x^k=\sum_{k=0}^{\infty}\binom{\alpha}{k}x^k$$
+    a to dává binomickou vìtu.
+\end{pitemize}
+
+\subsection{Fourierovy øady}
+
+\subsubsection{Obecné Fourierovy øady}
+
+\begin{definice}
+Nech $\{\varphi_n\}_{n=1}^{\infty}$ je posloupnost komplexních funkcí na $\left<a,b\right>$, z nich ádná není konstantnì nulová. Øekneme, e tato posloupnost tvoøí \emph{ortogonální (krátce OG) systém na $\left<a,b\right>$}, jestlie pro kadá dvì rùzná $m, n\in \mathbb{N}$ platí:
+$$\int_a^b \varphi_m \overline{\varphi_n} = 0$$
+Pokud navíc
+$$\int_a^b |\varphi_n|^2= 1$$
+pro všechna $n \in \mathbb{N}$, øíkáme, e jde o \emph{ortonormální systém}.
+\end{definice}
+
+\begin{poznamka}
+Pøíklady OG systémù:
+\begin{pitemize}
+	\item Systém tvoøenı funkcemi $\exp \frac{2k\pi i x}{p}, k \in \mathbb{Z}$ je OG na intervalu $\left<a, a+p\right>$ pro kadé $a \in \mathbb{R}$
+	\item Systém tvoøenı funkcemi $1, \cos \frac{2k\pi x}{p}, \sin \frac{2k\pi x}{p}, k \in \mathbb{N}$ je OG na intervalu \par$\left<a, a+p\right>$ pro kadé $a \in \mathbb{R}$
+\end{pitemize}
+\end{poznamka}
+
+\begin{veta}
+Nech $\{\varphi_n\}_{n=1}^{\infty}$ je posloupnost komplexních funkcí na $\left<a,b\right>$, $\{a_n\}_{n=0}^{\infty}$ je posloupnost komplexních èísel. Jestlie
+$$f(x) = \sum_{n=1}^{\infty} a_n \varphi_n(x), \, x \in \left<a,b\right>,$$
+a uvedená øada konverguje stejnomìrnì na $\left<a,b\right>$, pak pro kadé $n \in \mathbb{N}$ platí
+$$a_n = \frac{\int_a^b f\overline{\varphi_n}}{\int_a^b |\varphi_n|^2}.$$
+\end{veta}
+
+\begin{definiceN}{po èástech spojitá funkce}
+Øekneme, e funkce $f$ je \emph{po èástech spojitá na $\left<a,b\right>$}, jestlie existuje $D=\{x_i\}_{j=0}^{N}$ dìlení intervalu $\left<a,b\right>$ takové, e pro kadé $j \in \{1,\dots,N\}$ je funkce $f$ spojitá na intervalu $(x_{j-1}, x_j)$ a v krajních bodech tohoto intervalu má vlastní jednostranné limity.
+\end{definiceN}
+
+\begin{definice}
+Nech $\{\varphi_n\}_{n=1}^{\infty}$ je OG systém na $\left<a,b\right>$ a funkce $f$ je po èástech spojitá na $\left<a,b\right>$. Pro $n \in \mathbb{N}$ polome
+$$a_n = \frac{\int_a^b f\overline{\varphi_n}}{\int_a^b |\varphi_n|^2}.$$
+Tato èísla nazıváme \emph{Fourierovımi koeficienty funkce $f$ vzhledem k OG systému $\{\varphi_n\}_{n=1}^{\infty}$ na $\left<a,b\right>$} a øadu
+$$\sum_{n=1}^{\infty} a_n \varphi_n$$
+nazıváme \emph{Fourierovou øadou $f$ vzhledem k OG systému $\{\varphi_n\}_{n=1}^{\infty}$ na $\left<a,b\right>$}.
+\end{definice}
+
+\subsubsection{Trigonometriké Fourierovy øady}
+
+\begin{definiceN}{po èástech spojitá periodická funkce}
+Buï funkce $f$ periodická s periodou $p > 0$. Øekneme, e je \emph{po èástech spojitá}, je-li po èástech spojitá na intervalu $\left<0,p\right>$.
+\end{definiceN}
+
+\begin{poznamka}
+Nech $f$ je $p$-periodická funkce a $a,b \in \mathbb{R}$.
+\begin{penumerate}
+	\item Pak $f$ je poèástech spojitá na $\left<a, a+p\right>$, právì kdy je po èástech spojitá na $\left<b, b+p\right>$.
+	\item $\int_a^{a+p}f = \int_b^{b+p}f$, pokud alespoò jeden z tìchto integrálù existuje.
+\end{penumerate}
+\end{poznamka}
+
+\begin{definice}
+Nech funkce $f$ je $p$-periodická po èástech spojitá funkce. Jejími \emph{trigonometrickımi Fourierovımi koeficienty} rozumíme èísla
+$$a_n = \frac{2}{p} \int_0^p f(x)\cos \frac{2\pi nx}{p}dx, \, n \in \mathbb{N} \cup \{0\}$$
+$$b_n = \frac{2}{p} \int_0^p f(x)\sin \frac{2\pi nx}{p}dx, \, n \in \mathbb{N}$$
+\end{definice}
+
+\begin{definice}
+\emph{Trigonometrickou Fourierovou øadou} funkce $f$ pak rozumíme øadu
+$$\frac{a_0}{2} + \sum_{n=1}^{\infty} \left( a_n \cos \frac{2\pi nx}{p} + b_n \sin \frac{2\pi nx}{p}\right)$$
+\end{definice}
+
+\begin{poznamkaN}{Besselova nerovnost}
+Besselova nerovnost pro trigonometrické Fourierovy øady má tvar
+$$\frac{|a_0|^2}{4}p + \sum_{n=1}^{\infty} (|a_n|^2 + |b_n|^2)\frac{p}{2} \le \int_0^p |f|^2.$$
+Podobná nerovnost platí i pro obecné Fourierovy øady.
+\par\medskip\noindent
+(Riemann-Lebesgue) dùsledkem této nerovnosti je fakt, e $\lim a_n = \lim b_n = 0$.
+\end{poznamkaN}
+
+\begin{vetaN}{Persevalova rovnost}
+Pro trigonometrické Fourierovy øady platí v Besselovì nerovnosti rovnost. Pro funkce s periodou $2\pi$ potom platí:
+$$\frac{1}{\pi} \int_{-\pi}^{\pi} |f|^2= \frac{|a_0|^2}{2}+\sum_{n=1}^{\infty} (|a_n|^2 + |b_n|^2) \,\,\,\textit{(jedna z variant zápisu)}$$
+\end{vetaN}
+
+\begin{poznamka}
+Nech $f$ je $p$-periodická po èástech spojitá funkce taková, e všechny její trigonometrické Fourierovy koeficienty jsou nulové. Pak $f(x)=0$ pro všechna $x \in \left<0,p\right>$ s vıjimkou koneènì mnoha bodù.
+\end{poznamka}
+
+\begin{vetaN}{Symetrie funkce a Trigonometrické Fourierovy koeficienty}
+Nech $f$ je $p$-periodická po èástech spojitá funkce, $a_n, n \in \mathbb{N} \cup \{0\}$ a $b_n, n \in \mathbb{N}$, její trigonometrické Fourierovy koeficienty. Pak platí
+\begin{penumerate}
+	\item Pro všechna $n \in \mathbb{N} \cup \{0\}$ je $a_n=0$, právì kdy $f(-x) = -f(x)$ pro všechna $x \in \left<0,p\right>$ s vıjimkou koneènì mnoha bodù.
+	\item Pro všechna $n \in \mathbb{N}$ je $b_n=0$, právì kdy $f(-x) = f(x)$ pro všechna $x \in \left<0,p\right>$ s vıjimkou koneènì mnoha bodù.
+\end{penumerate}
+\end{vetaN}
+
+\begin{definice}
+Nech $f$ je $p$-periodická po èástech spojitá funkce. Øekneme, e $f$ je \emph{po èástech hladká}, jestlie $f'$ je po èástech spojitá.
+\end{definice}
+
+\begin{vetaN}{O konvergenci Fourierovıch øad}
+Nech $f$ je po èástech hladká p-periodická funkce. Pak platí:
+\begin{penumerate}
+	\item Trigonometrická Fourierova øada funkce $f$ konverguje bodovì na $\mathbb{R}$ a její souèet v bodì $x \in \mathbb{R}$ je $\frac{1}{2} \left( \lim_{t\rightarrow x-} f(t) + \lim_{t\rightarrow x+} f(t)\right)$
+	\item Je-li $f$ navíc spojitá na intervalu $(a,b)$, pak její trigonometrická Fourierova øada konverguje lokálnì stejnomìrnì na $(a,b)$ a její souèet je $f(x)$ pro kadé $x \in (a,b)$.
+	\item Je-li navíc spojitá na $\mathbb{R}$, pak její trigonometrická Fourierova øada konverguje stejnomìrnì na $\mathbb{R}$ a její souèet je $f(x)$ pro kadé $x \in \mathbb{R}$.
+\end{penumerate}
+\end{vetaN}
+
+% derivacia FR?: podle me netreba, ani Pick ani Klazar ani Pultr to nemaji ve skriptech / neprednaseli -- Tuetschek
