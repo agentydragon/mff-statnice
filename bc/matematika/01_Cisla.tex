@@ -55,16 +55,15 @@ Mnoinou všech reálnıch èísel (znaèíme ji $\mathbb{R}$) budeme rozumìt mnoinu, 
 Axiom supréma je dùleitı, odlišuje reálná èísla od racionálních.
 
 
-		Èíslo $s$ z axiomu suprema je jednoznaènì urèeno, znaèí se $\sup M$ a øíká se mu \textbf{supremum mnoiny $M$}. Supremum mnoiny je její nejmenší horní závora (\textbf{horní závora} nebo \textbf{horní mez} je kadı takovı prvek, pro kterı platí bod (a) definice suprema). Nejvìtší dolní závoru mnoiny $M$ nazıváme \textbf{infimem mnoiny $M$} a znaèíme $\inf M$; z axiomu suprema plyne, e kadá zdola omezená mnoina má infimum.
+		Èíslo $s$ z~axiomu suprema je jednoznaènì urèeno, znaèí se $\sup M$ a øíká se mu \textbf{supremum mnoiny $M$}. Supremum mnoiny je její nejmenší horní závora (\textbf{horní závora} nebo \textbf{horní mez} je kadı takovı prvek, pro kterı platí bod (a) definice suprema). Nejvìtší dolní závoru mnoiny $M$ nazıváme \textbf{infimem mnoiny $M$} a znaèíme $\inf M$; z~axiomu suprema plyne, e kadá zdola omezená mnoina má infimum.
 \end{poznamka}
 
 \begin{poznamka}
 Relace \uv{$<$} na reálnıch èíslech (a stejnì tak na pøirozenıch a racionálních èíslech) se definuje takto: $a<b$, právì kdy $a\leq b$ a zároveò $a\neq b$.
 \end{poznamka}
 
-
 \begin{definice}
-     $\mathbb{R}$ lze sestrojit i tak, e vezmeme $\mathbb{Q}$ a $\mathbb{R}$ definujeme z nich -- tento pøístup jsem formálnì popsal zde, ale nejsem si jist, jestli bude nutnı u zkoušek -- nejspíš ne a je tu spíš pro úplnost. Další, ekvivalentní pøístup jsou tzv. Dedekindovy øezy, skrze které byly dokonce reálná èísla pùvodnì vytvoøena -- více info napø. tady -- \url{http://en.wikipedia.org/wiki/Dedekind_cut} -- opìt, nepøedpokládám, e by bylo nutné znát.
+     $\mathbb{R}$ lze sestrojit i tak, e vezmeme $\mathbb{Q}$ a $\mathbb{R}$ definujeme z~nich -- tento pøístup jsem formálnì popsal zde, ale nejsem si jist, jestli bude nutnı u zkoušek -- nejspíš ne a je tu spíš pro úplnost. Další, ekvivalentní pøístup jsou tzv. Dedekindovy øezy, skrze které byly dokonce reálná èísla pùvodnì vytvoøena\footnote{více info napø. tady -- \url{http://en.wikipedia.org/wiki/Dedekind_cut} -- opìt, nepøedpokládám, e by bylo nutné znát.}.
      
 Nech $R$ je mnoina všech Cauchyovskıch posloupností ve $\mathbb{Q}$. Operace na této mnoinì definujeme následovnì:
 \begin{itemize}
@@ -88,7 +87,7 @@ Stejnì je napøíklad èíslo $0,\overline{9}$ rovno èíslu $1$ -- pokud vezmeme $\le
 \end{definice}
 
 \begin{poznamka}
-    Jak jsem ji psal, $\mathbb{R}$ se od $\mathbb{Q}$ liší pouze tím, e má kadá shora omezená mnoina supremum. Z tohoto axiomu plyne, e v $\mathbb{R}$ má \emph{kadá Cauchyovská posloupnost limitu}\footnote{definice Cauchyovskıch posloupností bude dále}, co u $\mathbb{Q}$ neplatí.
+    Jak jsem ji psal, $\mathbb{R}$ se od $\mathbb{Q}$ liší pouze tím, e má kadá shora omezená mnoina supremum. Z~tohoto axiomu plyne, e v $\mathbb{R}$ má \emph{kadá Cauchyovská posloupnost limitu}\footnote{definice Cauchyovskıch posloupností bude dále}, co u $\mathbb{Q}$ neplatí.
 \end{poznamka}
 
 
@@ -106,9 +105,30 @@ Stejnì je napøíklad èíslo $0,\overline{9}$ rovno èíslu $1$ -- pokud vezmeme $\le
 	$$
 \end{definice}
 
+
+
 \begin{vetaN}{Induktivnost pøirozenıch èísel}
 	Mnoina $\mathbb{N}$ je induktivní.
+	
+	\medskip
+	\begin{dukaz}
+	    1 je tam proto, e je ve všech. Pokud je nìjaké èíslo $x$ z~$\mathbb{N}$ ve všech, tak i $x+1$ je ve všech.
+    \end{dukaz}
 \end{vetaN}
+
+
+\begin{vetaN}{Slabá indukce}
+    Pro vlastnost $\varphi$ platí:
+	\begin{penumerate}
+		\item Platí-li $\varphi(1)$ a $\varphi(n)\Rightarrow\varphi(n+1)$, platí $\varphi$ pro všechny $\mathbb{N}$ \hfill \emph{(slabá indukce)}
+	\end{penumerate}
+	
+	\medskip
+	\begin{ideadukazu}
+	    Triviálnì z definice.
+    \end{ideadukazu}
+\end{vetaN}
+
 
 \begin{vetaN}{Vlastnosti pøirozenıch èísel}
 	Mnoina $\mathbb{N}$ má nasledujúcí vlastnosti:
@@ -117,14 +137,27 @@ Stejnì je napøíklad èíslo $0,\overline{9}$ rovno èíslu $1$ -- pokud vezmeme $\le
 		\item $n \in \mathbb{N} \backslash \{1\} \Rightarrow \exists m \in \mathbb{N}: n=m+1$
 		\item $m,n \in \mathbb{N}, m < n \Rightarrow m + 1 \le n$ %pøed pravou stranou \exists byt nemusi -- Tuetschek
 		\item kadá neprázdná podmnoina $\mathbb{N}$ má nejmenší prvek
+		\item Platí-li $\varphi(1)$ a $\forall k \leq n \varphi(k)\Rightarrow\varphi(n+1)$, platí $\varphi$ pro všechny $\mathbb{N}$ \hfill \emph{(silná indukce)}
 	\end{penumerate}
+	\medskip
+	\begin{ideadukazu}
+	    5. se dokáe sporem a tím, e \emph{koneèná} mnoina prvkù má vdy nejmenší prvek.
+	    
+	    4. se dokáe pøes silnou indukci.
+	    
+	    1., 2. a 3. bych dokazoval pøes 4. (ale je moné, e by to byl dùkaz kruhem).
+    \end{ideadukazu}
 \end{vetaN}
 
 \begin{vetaN}{Archimédova vlastnost reálnıch èísel}
 	Pro kadé $x \in \mathbb{R}$ existuje $n \in \mathbb{N}$ takové, e $x < n$
+	\medskip
+	\begin{ideadukazu}
+	    Sporem -- vybereme infimum $x$ mnoiny tìch, pro které neexistuje (je zdola omezené 1); pro $x-1$ u musí existovat, take existuje i pro $x$, co vede ke sporu.
+    \end{ideadukazu}
 \end{vetaN}
 
-Opìt mùeme $\mathbb{N}$ zavést jinak, pøièem tyto definice jsou ekvivalentní.
+Opìt mùeme $\mathbb{N}$ zavést jinak. Tyto definice jsou ekvivalentní.
 
 \begin{definiceN}{Peanove axiómy pre zavedenie prirodzenıch èísel}
 Mnoina $\mathbb{N}$ je taková mnoina, pro kterou platí:
@@ -143,10 +176,10 @@ $$\exists\mathbb{N}:\emptyset\in\mathbb{N}\wedge(\forall x:x\in \mathbb{N}\Right
 	
 	V \uv{klasickom} zápise èísel potom kadému prirodzenému èíslu zodpovedá mnoina prirodzenıch èísel menších ako ono samo, take
 	\begin{pitemize}
-		\item $0=\left\{\right\}$
-		\item $1 = \left\{0\right\} = \left\{\left\{ \right\}\right\}$
-		\item $2 = \left\{0,1\right\} = \left\{0, \left\{0\right\}\right\} = \left\{\left\{ \right\}, \left\{\left\{ \right\}\right\}\right\}$
-		\item $3 = \left\{0,1,2\right\} = \left\{0, \left\{0\right\}, \left\{0, \left\{0\right\}\right\}\right\} = \left\{\left\{ \right\}, \left\{\left\{ \right\}\right\}, \left\{\left\{ \right\}, \left\{\left\{ \right\}\right\}\right\}\right\}$
+		\item $0=\big\{\big\}$
+		\item $1 = \big\{0\big\} = \big\{\left\{ \right\}\big\}$
+		\item $2 = \big\{0,1\big\} = \big\{0, \left\{0\right\}\big\} = \big\{\left\{ \right\}, \left\{\left\{ \right\}\right\}\big\}$
+		\item $3 = \big\{0,1,2\big\} = \big\{0, \left\{0\right\}, \left\{0, \left\{0\right\}\right\}\big\} = \big\{\left\{ \right\}, \left\{\left\{ \right\}\right\}, \left\{\left\{ \right\}, \left\{\left\{ \right\}\right\}\right\}\big\}$
 	\end{pitemize}
 
 	$\mathbb{N}$ je uzavretá na sèítanie.
@@ -240,7 +273,7 @@ Pro dìlení komplexních èísel $z_1 = |z_1|\cdot (\cos\varphi_1 + i\cdot \sin
 \varphi_1)$ a $z_2 = |z_2|\cdot (\cos \varphi_2 + i\cdot \sin \varphi_2)$ platí následující rovnice:
 $$\frac{z_1}{z_2} = \frac{|z_1|}{|z_2|}\cdot \left( \cos(\varphi_1 - \varphi_2) + i\cdot \sin(\varphi_1 - \varphi_2) \right)$$
 
-Pro násobení komplexních èísel $z_1$ a $z_2$ z pøedchozího pøíkladu slouí vzorec:
+Pro násobení komplexních èísel $z_1$ a $z_2$ z~pøedchozího pøíkladu slouí vzorec:
 $$z_1 \cdot  z_2 = |z_1|\cdot |z_2|\cdot \left( \cos(\varphi_1 + \varphi_2) + i\cdot \sin(\varphi_1 + \varphi_2) \right)$$
 
 Pro \textbf{n-tou mocninu komplexní èísla} v goniometrickém tvaru platí tzv. \textbf{Moivreova vìta}:
@@ -276,7 +309,7 @@ Nech $\{a_n\}$ je posloupnost reálnıch èísel a $A \in \mathbb{R}$. Øekneme, e 
 $$\forall \varepsilon > 0\ \exists n_0 \in \mathbb{N}: \forall n \ge n_0, n \in \mathbb{N}: |a_n - A| < \varepsilon$$
 znaèíme
 $$\lim_{n \rightarrow \infty} a_n = A$$
-\noindent Dá se jednoduše ukázat, e toto je splnìno i pokud máme vdy od $n_0$ dále zaruèeno jen to, e $|a_n - A| < K\cdot\varepsilon$ pro nìjaké $K>0$.\footnote{Tuto poznámku jsem vùbec nepochopil, ale z úcty k pùvodnímu autorovi ji zatím nemau}
+\noindent Dá se jednoduše ukázat, e toto je splnìno i pokud máme vdy od $n_0$ dále zaruèeno jen to, e $|a_n - A| < K\cdot\varepsilon$ pro nìjaké $K>0$.\footnote{Tuto poznámku jsem vùbec nepochopil, ale z~úcty k pùvodnímu autorovi ji zatím nemau}
 \end{definice}
 
 \begin{figure}
@@ -289,7 +322,7 @@ $$\lim_{n \rightarrow \infty} a_n = A$$
 \begin{poznamka}
 Na obrázku \ref{fig:limita_posloupnosti} jsem nakreslil posloupnost k osvìtlení definice limity. Jde o posloupnost\footnote{konkrétnì $a_0=1, a_n=\cos a_{n-1}$, ale není to dùleité}, která konverguje k èíslu $0.739085$, oznaèeno $A$. 
 
-Pro ilustraci \uv{libovolnì malého $\varepsilon$} (mùeme øíci \uv{libovolnì velkého}, ale my chceme naopak $\varepsilon$ co \emph{nejmenší}) jsem do stejného obrázku naznaèil dvì rùzná $\varepsilon$ --- protoe vzdálenost je \uv{na obì strany}, jsou obdélníky \uv{vysoké} $2\varepsilon$ --- a pro kadé z nich jsem našel takové $n_0$, e pro $n\ge n_0$ u jsem vdy od $A$ vzdálen maximálnì $\varepsilon$.
+Pro ilustraci \uv{libovolnì malého $\varepsilon$} (mùeme øíci \uv{libovolnì velkého}, ale my chceme naopak $\varepsilon$ co \emph{nejmenší}) jsem do stejného obrázku naznaèil dvì rùzná $\varepsilon$ --- protoe vzdálenost je \uv{na obì strany}, jsou obdélníky \uv{vysoké} $2\varepsilon$ --- a pro kadé z~nich jsem našel takové $n_0$, e pro $n\ge n_0$ u jsem vdy od $A$ vzdálen maximálnì $\varepsilon$.
 \end{poznamka}
 
 
@@ -326,11 +359,11 @@ Kadá konvergentní posloupnost je omezená.
 \end{vetaN}
 
 \begin{definice}
-Nech $\{a_n\}_{n \in \mathbb{N}}$ je posloupnost reálnıch èísel. Øekneme, e posloupnost $\{b_k\}_{k \in \mathbb{N}}$ je \emph{vybraná} z posloupnosti, neboli e posloupnost $\{b_k\}_{k \in \mathbb{N}}$ je \emph{podposloupností} posloupnosti $\{a_n\}_{n \in \mathbb{N}}$, jestlie existuje rostoucí posloupnost pøirozenıch èísel $\{n_k\}$ taková, e $b_k = a_{n_k}$ pro všechna $k \in \mathbb{N}$.
+Nech $\{a_n\}_{n \in \mathbb{N}}$ je posloupnost reálnıch èísel. Øekneme, e posloupnost $\{b_k\}_{k \in \mathbb{N}}$ je \emph{vybraná} z~posloupnosti, neboli e posloupnost $\{b_k\}_{k \in \mathbb{N}}$ je \emph{podposloupností} posloupnosti $\{a_n\}_{n \in \mathbb{N}}$, jestlie existuje rostoucí posloupnost pøirozenıch èísel $\{n_k\}$ taková, e $b_k = a_{n_k}$ pro všechna $k \in \mathbb{N}$.
 \end{definice}
 
 \begin{vetaN}{o limitì vybrané posloupnosti}
-Nech $\{a_n\}_{n \in \mathbb{N}}$ je posloupnost reálnıch èísel a nech $\lim_{n \rightarrow \infty} a_n = A$. Nech posloupnost $\{b_k\}_{k \in \mathbb{N}}$ je vybraná z posloupnosti $\{a_n\}_{n \in \mathbb{N}}$. Pak $\lim_{k \rightarrow \infty} b_k = A$.
+Nech $\{a_n\}_{n \in \mathbb{N}}$ je posloupnost reálnıch èísel a nech $\lim_{n \rightarrow \infty} a_n = A$. Nech posloupnost $\{b_k\}_{k \in \mathbb{N}}$ je vybraná z~posloupnosti $\{a_n\}_{n \in \mathbb{N}}$. Pak $\lim_{k \rightarrow \infty} b_k = A$.
 \end{vetaN}
 
 \begin{vetaN}{o aritmetice limit}
@@ -552,7 +585,7 @@ K tomuhle jsem dùkaz nenašel ani nevymyslel :-(
 
 \subsection{Cauchyovské posloupnosti}
 
-Tato sekce je vypracovaná podle skript Prof. A. Pultra z matematické analızy\\
+Tato sekce je vypracovaná podle skript Prof. A. Pultra z~matematické analızy\\
 (\texttt{http://kam.mff.cuni.cz/\~{}pultr/})
 \bigskip
 
@@ -586,7 +619,7 @@ Posloupnost $\{a_n\}$ má vlastní limitu, právì kdy je cauchyovská.
 \medskip\begin{dukaz}
 \begin{penumerate}
     \item Implikace \uv{$\Rightarrow$} je hned vidìt -- staèí vzít k $\varepsilon$ takové $n_0$, e $|a_n-x|<\frac{\varepsilon}{2}\ \forall n\geq n_0$. Potom je $|a_n-a_m|=|a_n-x+x-a_m|\leq|a_n-x|+|x-a_m|\leq\varepsilon\ \forall m,n\geq n_0$.\medskip
-    \item Pro druhou implikaci staèí dokázat, e je cauchyovská posloupnost omezená a zbytek dostaneme z pøedchozího lemmatu a Bolzano-Weierstrassovy vìty. Pro $\varepsilon=1$ existuje $n_0$ takové, e $a_{n_0}-1<a_n<a_{n_0}+1$ pro kadé $n\geq n_0$ (to plyne pøímo z podmínky), take zbıvá jen koneènı poèet èlenù mimo toto rozmezí (pro $n<n_0$), a ty vdy tvoøí omezenı systém.
+    \item Pro druhou implikaci staèí dokázat, e je cauchyovská posloupnost omezená a zbytek dostaneme z~pøedchozího lemmatu a Bolzano-Weierstrassovy vìty. Pro $\varepsilon=1$ existuje $n_0$ takové, e $a_{n_0}-1<a_n<a_{n_0}+1$ pro kadé $n\geq n_0$ (to plyne pøímo z~podmínky), take zbıvá jen koneènı poèet èlenù mimo toto rozmezí (pro $n<n_0$), a ty vdy tvoøí omezenı systém.
 \end{penumerate}
 \end{dukaz}
 \end{vetaN}
