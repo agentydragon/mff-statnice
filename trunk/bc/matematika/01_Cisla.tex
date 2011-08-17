@@ -137,29 +137,29 @@ Stejnì je napøíklad èíslo $0,\overline{9}$ rovno èíslu $1$ -- pokud vezmeme $\le
 		\item $n \in \mathbb{N} \backslash \{1\} \Rightarrow \exists m \in \mathbb{N}: n=m+1$
 		\item $m,n \in \mathbb{N}, m < n \Rightarrow m + 1 \le n$ %pøed pravou stranou \exists byt nemusi -- Tuetschek
 		\item každá neprázdná podmnožina $\mathbb{N}$ má nejmenší prvek
-		\item Platí-li $\varphi(1)$ a $\forall k \leq n \varphi(k)\Rightarrow\varphi(n+1)$, platí $\varphi$ pro všechny $\mathbb{N}$ \hfill \emph{(silná indukce)}
+		\item Platí-li $\varphi(1)$ a $\left(\forall k \leq n, k \in\mathbb{N} : \varphi(k)\right)\Rightarrow\varphi(n+1)$, platí $\varphi$ pro všechny $\mathbb{N}$ \hfill \emph{(silná indukce)}
 	\end{penumerate}
+	
 	\medskip
 	\begin{ideadukazu}
-	    5. se dokáže sporem a tím, že \emph{koneèná} množina prvkù má vždy nejmenší prvek.
-	    
-	    4. se dokáže pøes silnou indukci.
-	    
-	    1., 2. a 3. bych dokazoval pøes 4. (ale je možné, že by to byl dùkaz kruhem).
+	    5. se dokáže sporem a tím, že \emph{koneèná} množina prvkù má vždy nejmenší prvek; 4. se dokáže pøes silnou indukci; 1., 2. a 3. bych dokazoval pøes 4. (ale je možné, že by to byl dùkaz kruhem).
     \end{ideadukazu}
 \end{vetaN}
 
 \begin{vetaN}{Archimédova vlastnost reálných èísel}
-	Pro každé $x \in \mathbb{R}$ existuje $n \in \mathbb{N}$ takové, že $x < n$
+	Pro každé $x \in \mathbb{R}$ existuje $n \in \mathbb{N}$ takové, že $x < n$.
+	
+	
 	\medskip
 	\begin{ideadukazu}
 	    Sporem -- vybereme infimum $x$ množiny tìch, pro které neexistuje (je zdola omezené 1); pro $x-1$ už musí existovat, takže existuje i pro $x$, což vede ke sporu.
     \end{ideadukazu}
 \end{vetaN}
 
-Opìt mùžeme $\mathbb{N}$ zavést jinak. Tyto definice jsou ekvivalentní.
 
 \begin{definiceN}{Peanove axiómy pre zavedenie prirodzených èísel}
+    Opìt mùžeme $\mathbb{N}$ zavést jinak. Tato a následující definice jsou ekvivalentní.
+    
 Množina $\mathbb{N}$ je taková množina, pro kterou platí:
 \begin{pitemize}
 	\item Existuje èíslo 0 (to neznamená, že nula je prirodzené èíslo, v $\mathbb{N}$ roli tejto nuly hraje jednotka).
@@ -182,8 +182,11 @@ $$\exists\mathbb{N}:\emptyset\in\mathbb{N}\wedge(\forall x:x\in \mathbb{N}\Right
 		\item $3 = \big\{0,1,2\big\} = \big\{0, \left\{0\right\}, \left\{0, \left\{0\right\}\right\}\big\} = \big\{\left\{ \right\}, \left\{\left\{ \right\}\right\}, \left\{\left\{ \right\}, \left\{\left\{ \right\}\right\}\right\}\big\}$
 	\end{pitemize}
 
-	$\mathbb{N}$ je uzavretá na sèítanie.
 \end{definiceN}
+
+\begin{poznamka}
+$\mathbb{N}$ je uzavretá na sèítanie.
+\end{poznamka}
 
 \subsection{Celá a racionální èísla}
 \begin{definice}
@@ -200,16 +203,28 @@ $$\exists\mathbb{N}:\emptyset\in\mathbb{N}\wedge(\forall x:x\in \mathbb{N}\Right
 \begin{vetaN}{Existence celé èásti}
 	Pro každé $x \in \mathbb{R}$ existuje právì jedno èíslo $[x] \in \mathbb{Z}$ splòující
 	$$x-1 < [x] \le x$$
-	Toto èíslo nazýváme \emph{celou èástí èísla x}.
+	Toto èíslo nazýváme \emph{dolní celou èástí èísla x}.
+	
+	
+	
+	\medskip
+	\begin{ideadukazu}
+	    Sporem -- pro kladné vybereme infimum $x$ množiny tìch, pro které neexistuje (je zdola omezené 0); pro $x-1$ už musí existovat, takže existuje i pro $x$, což vede ke sporu. Se supremem podobnì.
+    \end{ideadukazu}
 \end{vetaN}
 
 \begin{vetaN}{Hustota $\mathbb{Q}$ a $\mathbb{R} \backslash \mathbb{Q}$}
 	Nech $a,b \in \mathbb{R}, a < b$. Pak existují $q \in \mathbb{Q}$ a $r \in \mathbb{R} \backslash \mathbb{Q}$ takové, že
 	$$a < q < b,\ a < r < b$$
+	
+	\medskip
+	\begin{ideadukazu}
+	    Vùbec nevím, jestli jde o korektní dùkaz, ale já bych dokazoval \uv{konstrukènì} - pokud jsou $a$ nebo $b$ v $\mathbb{R} \backslash \mathbb{Q}$, vzal bych $q$ jako $(a+b)/2$ a $r$ jako tak dlouhý desetinný rozvoj $q$, aby $a<r<b$. Pokud jsou $a$ i $b$ v $\mathbb{Q}$, vzal bych $q$ jako $a+\frac{b-a}{\sqrt{2}}$, což by mìlo být iracionální èíslo, a pro $r$ udìlal opìt totéž. Ale nevím, jestli tøeba existence odmocniny náhodou nezávisí na této vìtì :)
+	\end{ideadukazu} 
 \end{vetaN}
 
 \begin{vetaN}{o existenci n-té odmocniny}
-	Nech $x \in \mathbb{R}, x \ge 0$ a nech $n \in \mathbb{N}$. Pak existuje právì jedno $y \in \mathbb{R}, y \ge 0$ takové, že $y^n = x$
+	Nech $x \in \mathbb{R}, x \ge 0$ a nech $n \in \mathbb{N}$. Pak existuje právì jedno $y \in \mathbb{R}, y \ge 0$ takové, že $y^n = x$.
 \end{vetaN}
 
 \subsection{Komplexní èísla}
@@ -342,7 +357,7 @@ Ne každá posloupnost je konvergentní. Napøíklad posloupnost 0,1,0,1,0,... nemá v
 \end{priklady}
 
 \begin{poznamka}
-Následující vìty mají pomìrnì lehké dùkazy, které zde uvádìt nebudu; pokud si je budete zkoušet, je dobré si u nich uvìdomit základní vlastnosti absolutní hodnoty:
+Následující vìty mají pomìrnì lehké dùkazy, které zde jenom naznaèím; pokud si je budete zkoušet, je dobré si u nich uvìdomit základní vlastnosti absolutní hodnoty:
 \begin{pitemize}
 	\item $\left|a \cdot b\right|= \left|a\right| \cdot\left| b\right|$
 	\item $\left|a + b\right| \leq \left|a\right| + \left| b\right|$
@@ -352,27 +367,78 @@ Následující vìty mají pomìrnì lehké dùkazy, které zde uvádìt nebudu; pokud si je
 
 \begin{vetaN}{o jednoznaènosti limity posloupnosti}
 Každá posloupnost má nejvýše jednu limitu.
+
+
+\medskip
+\begin{ideadukazu}
+    Kdyby mìla dvì, zvolíme $\varepsilon$ menší než vzdálenost. Od vìtšího z dvou $n_0$ (jedno pro každou z~limit) by pak musela být zároveò ve dvou disjunktních intervalech -- spor.
+\end{ideadukazu}
+
+
 \end{vetaN}
 
 \begin{vetaN}{o omezenosti konvergentní posloupnosti}
 Každá konvergentní posloupnost je omezená.
+
+
+\medskip
+\begin{ideadukazu}
+    Pro libovolnì zvolené $\varepsilon$ je od nìjakého $n_0$ posloupnost omezená $A+\varepsilon$ shora a $A-\varepsilon$ zdola a pøed $n_0$ je jich koneènì mnoho, takže mùžeme vybrat nejvìtší/nejmenší.
+\end{ideadukazu}
+
 \end{vetaN}
 
 \begin{definice}
 Nech $\{a_n\}_{n \in \mathbb{N}}$ je posloupnost reálných èísel. Øekneme, že posloupnost $\{b_k\}_{k \in \mathbb{N}}$ je \emph{vybraná} z~posloupnosti, neboli že posloupnost $\{b_k\}_{k \in \mathbb{N}}$ je \emph{podposloupností} posloupnosti $\{a_n\}_{n \in \mathbb{N}}$, jestliže existuje rostoucí posloupnost pøirozených èísel $\{n_k\}$ taková, že $b_k = a_{n_k}$ pro všechna $k \in \mathbb{N}$.
 \end{definice}
 
+\begin{poznamka}
+    Tahle definice je trochu neprùhledná, ale jenom øíká, že z~jedné posloupnosti vybereme jinou.
+\end{poznamka}
+
 \begin{vetaN}{o limitì vybrané posloupnosti}
 Nech $\{a_n\}_{n \in \mathbb{N}}$ je posloupnost reálných èísel a nech $\lim_{n \rightarrow \infty} a_n = A$. Nech posloupnost $\{b_k\}_{k \in \mathbb{N}}$ je vybraná z~posloupnosti $\{a_n\}_{n \in \mathbb{N}}$. Pak $\lim_{k \rightarrow \infty} b_k = A$.
+
+\medskip
+\begin{ideadukazu}
+    Nemùže jít jinam -- pokud je $n_0$ u $a_n$ v~intervalu, tím spíš pak bude $b_n$ v intervalu.
+\end{ideadukazu}
+
 \end{vetaN}
 
 \begin{vetaN}{o aritmetice limit}
 Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou dvì posloupnosti reálných èísel a nech $\lim_{n \rightarrow \infty} a_n = A \in \mathbb{R}$ a $\lim_{n \rightarrow \infty} b_n = B \in \mathbb{R}$. Pak platí:
-\begin{penumerate}
+\begin{enumerate}
 	\item $\lim_{n \rightarrow \infty} (a_n+b_n) = A+B$
 	\item $\lim_{n \rightarrow \infty} (a_n \cdot  b_n) = A\cdot B$
 	\item je-li $\forall n \in \mathbb{N}: b_n \neq 0$ a $B \neq 0$, pak $\lim_{n \rightarrow \infty} \frac{a_n}{b_n}=\frac{A}{B}$
-\end{penumerate}
+\end{enumerate}
+
+
+\medskip
+\begin{ideadukazu}
+    \begin{enumerate}
+    \item Pro každé $\varepsilon$ mùžeme vzít $\frac{\varepsilon}{2}$, pro $a$ i $b$ najít jejich $n_0$, od vìtšího z nich je i souèet ve $\varepsilon$
+    
+    \item Víceménì totéž, vezmeme $\sqrt{\varepsilon}$
+    
+    \item Dokážeme, že $\frac{1}{b_n}$ jde k $\frac{1}{B}$. Jednoduchou úpravou máme $$\left|\frac{1}{b_n}-\frac{1}{B}\right| = \left|\frac{1}{b_n}\right|\cdot\left|\frac{1}{B}\right|\cdot\left|b_n-B\right|.$$ 
+    
+    K omezení $\left|\frac{1}{b_n}\right|<\left|\frac{2}{B}\right|$ provedeme dost zbìsilý trik\footnote{z Drahošových skript; pokud to nìkdo umíte líp, tak napište na fórum, ale pochybuji}. 
+    
+    $$\Big|\left|b_n\right| - \left|B\right|\Big| \leq \left|b_n-B\right|<\varepsilon,$$ takže $\left|b_n\right|\geq\left|B\right|-\varepsilon$.
+    
+    Pokud bychom vzali $\varepsilon<|B|$, je $\frac{1}{\left|B\right|-\varepsilon}>0$ a proto $$\left|\frac{1}{b_n}\right|\cdot\left|\frac{1}{B}\right|\cdot\left|b_n-B\right| \leq \left|\frac{1}{\left|B\right|-\varepsilon}\right|\cdot\left|\frac{1}{B}\right|\cdot\left|b_n-B\right|.$$
+    
+    Pokud bychom vzali $\varepsilon<\frac{\left|B\right|}{2}$, je $$\frac{1}{\left|B\right|-\varepsilon}<\frac{1}{\left|B\right|-\frac{\left|B\right|}{2}}=\frac{2}{\left|B\right|},$$ takže celý rozdíl pùvodních zlomkù $$\left|\frac{1}{b_n}-\frac{1}{B}\right| < \left|\frac{2}{B}\right|\cdot\left|\frac{1}{B}\right|\cdot\left|b_n-B\right|.$$
+    
+    Dále jasné, protože $\left|\frac{2}{B}\right|\cdot\left|\frac{1}{B}\right|$ je konstantní.
+    
+    \end{enumerate}
+\end{ideadukazu}
+
+
+
 \end{vetaN}
 
 \begin{vetaN}{o limitì a uspoøádání}
@@ -383,6 +449,11 @@ Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou dvì poslo
 \end{penumerate}
 
 \noindent Pozor, ostrost nerovností v tomto pøípadì je dùležitá.
+
+\medskip
+\begin{ideadukazu}
+    Provede se sporem a \uv{chytøe} velkými epsilony.
+\end{ideadukazu}
 \end{vetaN}
 
 \begin{vetaN}{o policajtech}
@@ -395,6 +466,13 @@ Pak
 $$
 \lim c_n = A
 $$
+
+
+\medskip
+\begin{ideadukazu}
+    Pokud je v epsilonu v jedné i v druhé, zvolíme vìtší z $n_0$ a musí tam být i ta prostøední.
+\end{ideadukazu}
+
 \end{vetaN}
 
 \begin{vetaN}{o limitì souèinu mizející ($\lim=0$) a omezené posloupnosti}
@@ -402,6 +480,13 @@ Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou posloupno
 $$
 \lim_{n \rightarrow \infty}(a_n \cdot b_n) = 0
 $$
+
+
+\medskip
+\begin{ideadukazu}
+    U mizející vezmeme $\frac{\varepsilon}{K}$, kde $K$ je horní omezení $b_n$.
+\end{ideadukazu}
+
 \end{vetaN}
 
 \subsubsection{Nevlastní limity}
@@ -460,6 +545,20 @@ Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou dvì poslo
 	\item $\lim_{n \rightarrow \infty} (a_n \cdot  b_n) = A\cdot B\textit{, pokud je výraz }A\cdot B\textit{ definován}$
 	\item je-li $\forall n \in \mathbb{N}: b_n \neq 0$ a $B \neq 0$, pak $\lim_{n \rightarrow \infty} \frac{a_n}{b_n}=\frac{A}{B} \textit{, pokud je výraz } \frac{A}{B} \textit{ definován}$
 \end{penumerate}
+
+
+\medskip
+\begin{ideadukazu}
+
+\begin{penumerate}
+	\item Pokud je $\left\{a_n\right\}$ v $\mathbb{R}$, je zdola omezená $L$, budeme brát (pokud $\left\{b_n\right\}$ jde k~$\infty$) $K-L$, podobnì u dalších variant.
+	\item Tøeba $\left\{a_n\right\}$ jde k~$A$ v $\mathbb{R}$ a $A>0$ a $\left\{b_n\right\}$ jde k~$\infty$, pro ostatní se dokáže obdobnì. Pro $\alpha>0$ udìláme $\epsilon = A-\alpha$, z~toho plyne $a>\alpha$; $b_n$ urèitì jde nad $\frac{L}{\alpha}$ pro libovolné $L$ a tedy $a_nb_n>L$.
+	
+	\item Dokážeme, že když $b_n$ jde k $\infty$ tak $\frac{1}{b_n}$ jde k~$0$ -- pro $\epsilon$ platí odnìkud $b_n>\frac{1}{\epsilon}$, ale je totéž, co $\frac{1}{b_n}<\varepsilon$.
+	
+\end{penumerate}
+\end{ideadukazu}
+
 \end{vetaN}
 
 \begin{definiceN}{Supremum a infimum na rozšíøené reálné ose}
@@ -483,6 +582,12 @@ Pak
 $$
 	\lim_{n \rightarrow \infty} \frac{a_n}{b_n} = + \infty
 $$
+\medskip
+\begin{ideadukazu}
+Jestliže $K$ je horní omezení, pak 
+	
+\end{ideadukazu}
+
 \end{vetaN}
 
 \subsubsection{Monotónní posloupnosti}
