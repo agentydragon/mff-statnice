@@ -16,28 +16,30 @@ Buï $(M,d)$ metrický prostor, $G \subseteq M$, potom
 \begin{pitemize}
 \item $G$ je \emph{otevøená} v $M$, pokud
 $$\forall x \in G\;\exists r >\;0:\; B(x,r)\subseteq G$$
-(tj. množina $G$ je okolím každého svého bodu)
+(tj. množina $G$ je okolím každého svého bodu),
 \item $G$ je \emph{uzavøená} v $M$, pokud její doplnìk $M \setminus G$ je otevøený v $M$.
 \end{pitemize}
-\par\medskip\noindent
 Otevøená koule je otevøená množina v každém metrickém prostoru. Podobnì pro uzavøenou kouli.
 \end{definiceN}
 
 \begin{vetaN}{vlastnosti otevøených množin}
-Buï $(M,d)$ metrický prostor, potom platí
+Buï $(M,d)$ metrický prostor, potom platí, že
 \begin{penumerate}
-\item $\emptyset$, $M$ jsou otevøené v $M$
-\item koneèný prùnik otevøených množin je otevøená množina v $M$
-\item libovolnì velké sjednocení otevøených množin je otevøená množina v $M$
+\item $\emptyset$, $M$ jsou otevøené v $M$,
+\item koneèný prùnik otevøených množin je otevøená množina v $M$,
+\item libovolnì velké sjednocení otevøených množin je otevøená množina v $M$.
 \end{penumerate}
+\begin{ideadukazu}
+Èást 1. platí pro prázdnou množinu (podmínka je prázdná) a doplòkem i pro celé $M$. Proè v èásti 2. musí být prùnik koneèný? Vezmìme nekoneènou posloupnost otevøených koulí $\left(B_n\left(x_0, 1/n\right)\right)_{n \geq 1}$, pak jejich prùnikem je pouze $\lbrace x_0\rbrace$, což není otevøená množina!
+\end{ideadukazu}
 \end{vetaN}
 
 \begin{vetaN}{vlastnosti uzavøených množin}
-Nech $(M,d)$ je metrický prostor, potom platí
+Nech $(M,d)$ je metrický prostor, potom platí, že
 \begin{penumerate}
-\item $\emptyset$, $M$ jsou uzavøené v $M$
-\item libovolný prùnik uzavøených množin je uzavøená množina v $M$
-\item koneèné sjednocení uzavøených množin je uzavøená množina v $M$
+\item $\emptyset$, $M$ jsou uzavøené v $M$,
+\item libovolný prùnik uzavøených množin je uzavøená množina v $M$,
+\item koneèné sjednocení uzavøených množin je uzavøená množina v $M$.
 \end{penumerate}
 \end{vetaN}
 \begin{definiceN}{okolí bodu, vnitøní, vnìjší a další body}
@@ -105,6 +107,16 @@ Nech je dáno zobrazení $f:X\to Y$ mezi dvìma metrickými prostory $(X, d_1)$, $(
     \item Je-li $U \subset Y$ uzavøená v $Y$, pak $f^{-1}(U) \subset X$ je uzavøená v $X$.
     \item Pro každou $A\subseteq X$ platí $f[\overline{A}]\subseteq \overline{f[A]}$.
 \end{penumerate}
+\begin{ideadukazu}
+\begin{penumerate}
+    \item[1$\Rightarrow$2] $f$ je spojité a $(x_n) \to x$ v $X$, chceme ukázat, že pro (každé) dané $\varepsilon > 0$ existuje $n_0$ tak, že $n \geq n_0 \Rightarrow d_2(f(x_n), f(x)) \leq \varepsilon$ (neboli $\lim f(x_n) = f(x) = f(\lim x_n)$). Máme $f$ spojité, proto pro dané $\varepsilon$ existuje $\delta > 0:\;d_1(x_n, x) < \delta \Rightarrow d_2(f(x_n), f(x)) < \varepsilon$. A protože $x_n \to x$ v $X$, máme pro takové $\delta$ vždy nìjaké $n_0:\;n\geq n_0 \Rightarrow d_1(x_n, x) < \delta$. Tím jsme získali hledané $n_0$. (Argumentoval jsem pozpátku od cíle k nalezení potøebného \uv{parametru} $n_0$.)
+    \item[2$\Rightarrow$3] Nepøímo. Nech máme $x$ a $U$ takové, že okolí $V$ neexistuje. Díky tomu vytvoøíme posloupnost, která nesplòuje podmínku 2.
+    \item[3$\Rightarrow$4] $U \subset Y$ otevøená, $x \in f^{-1}(U)$, tedy $U$ je okolím $f(x)$, proto existuje okolí $V$ bodu $x$, že $f(V) \subset U$ a tedy $V \subset f^{-1}(U)$ a proto je otevøená.
+    \item[4$\Leftrightarrow$5] Vzor doplòku je doplnìk vzoru.
+    \item[5$\Rightarrow$6] $A \subseteq f^{-1}\left(f\left(A\right)\right) \subseteq f^{-1}\left(\overline{f\left(A\right)}\right)$ a vzory uzavøených jsou uzavøené, tak máme $\overline{A} \subseteq f^{-1}\left(\overline{f\left(A\right)}\right)$, a proto $f\left(\overline{A}\right) \subseteq \overline{f\left(A\right)}$.
+    \item[6$\Rightarrow$1] Nepøímo. Tedy máme $x, \varepsilon > 0$ tak, že pro všechna $\delta > 0$ existuje $y \in B(x, \delta)$ takové, že $d_2(x,y) > \varepsilon$. Z nich vytvoøíme $A = \left\lbrace y\;\middle\vert\;d_2\left(f\left(y\right),f\left(x\right)\right) > \varepsilon\right\rbrace$. Pak ovšem $x \in \overline{A}$, ale $f(x) \notin  \overline{f(A)}$, což je spor s 6.
+\end{penumerate}
+\end{ideadukazu}
 \end{vetaN}
 
 \begin{definiceN}{stejnomìrnì spojité zobrazení}

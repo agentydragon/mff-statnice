@@ -13,7 +13,8 @@ Metrické prostory jsou abstrakcí jevu vzdálenosti. Z axiomù 1. a 3. vyplıvá nezá
 \end{definiceN}
 
 \begin{obecne}{Pøíklady metrik}
-Nech $M = \mathbb{R}^n$ a $p \ge 1$ je reálné èíslo. Na $M$ definujeme metriky\\(kde $x = (x_1, x_2, \dots, x_n)$, $y = (y_1, y_2, \dots , y_n)$)
+\begin{pitemize}
+    \item Nech $M = \mathbb{R}^n$ a $p \ge 1$ je reálné èíslo. Na $M$ definujeme metriky\\(kde $x = (x_1, x_2, \dots, x_n)$, $y = (y_1, y_2, \dots , y_n)$)
 $$d_p(x, y) = \left(\sum_{i=1}^{n}|x_i - y_i|^p\right)^{1/p}$$
 
 \noindent Potom:\begin{pitemize}
@@ -24,11 +25,11 @@ $$d_2(x, y) = \parallel x - y \parallel = \sqrt{(x_1-y_1)^2+(x_2-y_2)^2+\dots+(x
 metriku
 $$d_1(x, y) = \max_{1 \le i \le n} |x_i - y_i|$$
 \end{pitemize}
-\par\medskip\noindent
+    \item
 Buï $X$ libovolná mnoina. $F(X)$ oznaème mnoinu všech omezenıch funkcí $f:X\to\mathbb{R}$ a definujme funkci $d$ pøedpisem
 $$d(f,g)=\sup_{x\in X}|f(x)-g(x)|$$
 Pak $(F(X),d)$ je metrickı prostor (s tzv. supremovou metrikou).
-\par\medskip\noindent
+    \item
 Vezmeme $M = \mathcal{C}[a, b]$ (mnoina reálnıch funkcí definovanıch a spojitıch an intervalu $[a, b]$) a reálné èíslo $p \geq 1$. Podobnì jako v prvním pøíkladu máme na $M$ metriky
 $$d_p\left(f, g\right) = \left( \int_a^b \lvert f(x) - g(x) \rvert^p \; \mathrm{d}x\right)^{1/p}.$$
 Pro $p = 1$ máme integrální metriku a $p \to \infty$ dává maximovou metriku
@@ -37,12 +38,13 @@ integrál), je $d_p(f, g)$ definovaná, ale nesplòuje axiom 1) a nedostáváme metri
 Zmìníme-li napøíklad hodnotu funkce $f \in \mathcal{R}[a, b]$ v jediném bodì, dostaneme
 odlišnou funkci $f_0 \in \mathcal{R}[a, b]$, ale $d_p(f, f_0) = 0$. (Tato potí se odstraní tak, e
 místo s $\mathcal{R}[a, b]$ se pracuje s $\mathcal{R}[a, b]/\sim$ pro vhodnou relaci ekvivalence $\sim$.)
-\par\medskip\noindent
+    \item
 Na souvislém grafu $G = (M, E)$ s mnoinou vrcholù $M$ máme metriku $d(u, v)$ odpovídající poètu hran na nejkratší cestì v $G$ spojující $u$ a $v$.
-\par\medskip\noindent
+    \item
 Je-li $A$ koneèná mnoina (abeceda), máme na mnoinì $M = A^m$ slov délky $m$ nad abecedou $A$ tzv. Hammingovu metriku ($u = a_1 a_2 \ldots a_m, v = b_1 b_2 \ldots b_m$), kde $d(u, v)$ odpovídá poètu souøadnic $i$, pro nì $a_i \neq b_i$. Mìøí míru odlišnosti obou slov -- jakı nejmenší poèet zmìn v písmenech staèí k pøemìnì $u$ ve $v$.
-\par\medskip\noindent
+    \item
 Úplnì triviální pøíklad metriky dostaneme, kdy na nìjaké mnoinì $M$ poloíme $d(x,y)=1$ pro $x\neq y$ a $d(x,x)=0$.
+\end{pitemize}
 \end{obecne}
 
 \begin{definiceN}{euklidovskı prostor}
