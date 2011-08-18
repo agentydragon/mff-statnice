@@ -26,7 +26,11 @@ $$x,y\in A \;\Rightarrow\; d(x,y)<K$$
 \end{definiceN}
 
 \begin{vetaN}{uzavøenost kompaktního prostoru}
-Každý kompaktní podprostor $Y$ libovolného metrického prostoru $X$ je uzavøený a omezený.
+Každý kompaktní podprostor $Y$ libovolného metrického prostoru $X$ je uzavøený a omezený (v $X$).
+
+\begin{ideadukazu}
+Uzavøenost: z definice (kompaktní prostory vždy mají konvergentní podposloupnosti a tudíž v nich leží i pøíslušné limity). Omezenost: sporem, nech není omezený. Pak vytvoøíme induktivnì posloupnost $(a_n)$ bez konvergentní podposloupnosti. Máme $k$ prvních èlenù, vezmu $B(a_1, R)$, kde $R=\max\limits_{i \in \left\lbrace 1 .. k \right\rbrace}\left\lbrace d(a_1, a_i)\right\rbrace +1 $. Díky neomezenosti existuje $a_{i+1} \notin B(a_1, R)$. Díky trojúhleníkové nerovnosti pak $\forall i \neq j:\;d(a_i, a_j) \geq 1$ a proto $(a_n)$ nemá konvergentní podposloupnost.
+\end{ideadukazu}
 \end{vetaN}
 
 \begin{vetaN}{spojitá zobrazení a kompaktní množiny}
