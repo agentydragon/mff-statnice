@@ -245,6 +245,8 @@ Aritmetika je na $\mathbb{C}$ definována následovnì:
 \item$\frac{a+ib}{c+id}  = \frac{(a+ib)(c-id)}{(c+id)(c-id)} = \frac{(ac+bd) + i(bc-ad)}{c^2+d^2} = \left( \frac{ac+bd}{c^2+d^2} \right) + i \left( \frac{bc-ad}{c^2+d^2} \right)$
 \end{itemize}
 
+\obrazekvpravo{matematika/obrazky/01-dia1}{Komplexní èíslo 2D}{fig:ComplexNum2D}{0.25}
+
 Pojmem \textbf{komplexnì sdružené èíslo} komplexního èísla $z = a + ib$ se nazývá èíslo: $$\bar{z} = a - ib$$
 
 \textbf{Absolutní hodnotou} (také \textbf{modul}) komplexního èísla $z = a + bi$ se nazývá:
@@ -270,15 +272,9 @@ Následující vlastnosti platí pro všechna komplexní èísla $z$ a $w$, není-li uved
 \item $z^{-1} = \frac{\overline{z}}{{\left| z \right|}^2},$ pro $z$ nenulové
 \end{itemize}
 
-\begin{figure}
-\centering%
-\includegraphics{matematika/obrazky/01-dia1}
-\caption{Komplexní èíslo ve 2D}
-\label{fig:ComplexNum2D}
-\end{figure}
-
 
 Každé komplexní èíslo $z$ rùzné od nuly je možné jednoznaènì vyjádøit v \textbf{goniometrickém tvaru}. 
+
 
 Pokud si v komplexní rovinì zvolíme polární souøadnicový systém, vzdálenost èísla $z$ od poèátku je právì jeho absolutní hodnota $|z|$ a orientovaný úhel $\varphi = |\sphericalangle JOZ|$ (\emph{argument}), kde $J$ je bod $J[1,0]$, $O$ je poèátkem soustavy a $Z$ je obraz komplexního èísla $z=a + bi$ se souøadnicemi $Z[a,b]$, platí:
 $$z = \left|z\right| \left(\cos \varphi + i\cdot \sin \varphi\right)$$
@@ -323,21 +319,24 @@ Odmocnina není v $\mathbb{C}$ jednoznaèná -- napø. $i^2 = (-i)^2 = i$, nebo napø
 \end{penumerate}
 \end{definiceN}
 
+
 \subsubsection{Vlastní limity}
+
+
+
+
 \begin{definice}
+    
 Nech $\{a_n\}$ je posloupnost reálných èísel a $A \in \mathbb{R}$. Øekneme, že A je \emph{vlastní limitou posloupnosti} $\{a_n\}$, jestliže
 $$\forall \varepsilon > 0\ \exists n_0 \in \mathbb{N}: \forall n \ge n_0, n \in \mathbb{N}: |a_n - A| < \varepsilon$$
 znaèíme
 $$\lim_{n \rightarrow \infty} a_n = A$$
-\noindent Dá se jednoduše ukázat, že toto je splnìno i pokud máme vždy od $n_0$ dále zaruèeno jen to, že $|a_n - A| < K\cdot\varepsilon$ pro nìjaké $K>0$.\footnote{Tuto poznámku jsem vùbec nepochopil, ale z~úcty k pùvodnímu autorovi ji zatím nemažu}
 \end{definice}
 
-\begin{figure}
-\centering%
-\includegraphics[width=145mm]{matematika/obrazky/02-limita}
-\caption{Ilustrace k definici vlastní limity}
-\label{fig:limita_posloupnosti}
-\end{figure}
+\obrazekvpravo{matematika/obrazky/02-limita}{Ilustrace k definici vlastní limity}{fig:limita_posloupnosti}{0.5}
+
+
+
 
 \begin{poznamka}
 Na obrázku \ref{fig:limita_posloupnosti} jsem nakreslil posloupnost k osvìtlení definice limity. Jde o posloupnost\footnote{konkrétnì $a_0=1, a_n=\cos a_{n-1}$, ale není to dùležité}, která konverguje k èíslu $0.739085$, oznaèeno $A$. 
@@ -504,21 +503,20 @@ $$ \forall K \in \mathbb{R}\ \exists n_0 \in \mathbb{N}: \forall n \ge n_0, n \i
 Má-li posloupnost nevlastní limitu, øíkáme o ní, že diverguje, stejnì jako v pøípadì, že žádnou limitu nemá.
 \end{definice}
 
-\begin{figure}
-\centering%
-\includegraphics[width=145mm]{matematika/obrazky/03-limita_nevlastni}
-\caption{Ilustrace k definici nevlastní limity}
-\label{fig:limita_nevlastni}
-\end{figure}
+
+\obrazekvpravominipage{matematika/obrazky/03-limita_nevlastni}{Ilustrace k definici nevlastní limity}{fig:limita_nevlastni}{0.5}{0.5} {
 
 \begin{poznamka}
 Ilustrace k definici nevlastní limity je na obrázku \ref{fig:limita_nevlastni}.
 \end{poznamka}
 
-\begin{poznamka}
-Všechny možné situace jsou znázornìny na následujícím diagramu:
 
-limita posloupnosti:
+\begin{poznamka}
+Všechny možné situace jsou:
+
+\noindent Limita posloupnosti:
+
+
 \begin{pitemize}
 	\item neexistuje
 	\item existuje
@@ -533,6 +531,8 @@ limita posloupnosti:
 \end{pitemize}
 
 \end{poznamka}
+}
+
 
 \begin{definice}
 Množinu $\mathbb{R}^* := \mathbb{R} \cup \{ + \infty, - \infty \}$ nazýváme \emph{rozšíøenou reálnou osou}.
