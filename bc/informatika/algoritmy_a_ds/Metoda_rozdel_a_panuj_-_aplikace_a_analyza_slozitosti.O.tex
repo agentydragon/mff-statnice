@@ -1,3 +1,232 @@
 \subsection{Metoda rozdìl a panuj -- aplikace a analıza sloitosti}
 
-TODO: všechno
+\begin{definiceN}{Metoda rozdìl a panuj}
+\emph{Rozdìl a panuj} je metoda návrhu algoritmù (ne strukturované programování), která má 3 kroky:
+\begin{penumerate}
+    \item \emph{rozdìl} -- rozdìlí úlohu na nìkolik podúloh stejného typu, ale menší velikosti
+    \item \emph{vyøeš} -- vyøeší podúlohy a to buï pøímo pro dostateènì malé, nebo rekurzivnì pro vìtší
+    \item \emph{sjedno} -- sjednotí øešení podúloh do øešení pùvodní úlohy
+\end{penumerate}
+\end{definiceN}
+
+\subsubsection{Násobení matic n$\times$n a Strassenùv algoritmus}
+
+Nejdøíve si pøipomeneme definici násobení dvou ètvercovıch matic typu $n \times n$. Platí, e prvek v $i$-tém øádku a $j$-tém sloupci vısledné matice $Z$ se rovná standardnímu skalárnímu souèinu $i$-tého øádku první matice $X$ a $j$-tého sloupce druhé matice~$Y$. Formálnì zapsáno:
+
+$$ Z_{ij} = \sum_{k=1}^n X_{ik} \cdot Y_{kj}. $$
+
+\begin{center}
+\includegraphics{informatika/algoritmy_a_ds/obrazky/nasobeni-matic.eps}
+\end{center}
+Algoritmus, kterı by násobil matice podle této definice, by mìl èasovou sloitost $ \Theta(n^3) $, protoe poèet prvkù ve vısledné matici je $n^2$ a jeden skalární souèin vektorù dimenze $n$ vyaduje lineární poèet operací.
+
+My se s touto èasovou sloitostí ovšem nespokojíme a budeme postupovat podobnì jako pøi vylepšování algoritmu na násobení velkıch èísel. Bez újmy na obecnosti pøedpokládejme, e budeme násobit dvì matice typu $n \times n$, kde $n=2^k, k \in \bb N$. Obì tyto matice rozdìlíme na ètvrtiny a tyto èásti postupnì oznaèíme u matice $X$ písmeny $A$, $B$, $C$ a $D$, u matice $Y$ písmeny $P$, $Q$, $R$ a $S$. Z definice násobení matic zjistíme, e ètvrtiny vısledné matice $Z$ mùeme zapsat pomocí souèinù èástí násobenıch matic. Levá horní ètvrtina bude odpovídat vısledku operací $AP+BR$, pravá horní ètvrtina bude $AQ+BS$, levá dolní $CP+DR$ a zbylá $CQ+DS$ (viz obrázek).
+
+\begin{center}
+\includegraphics{informatika/algoritmy_a_ds/obrazky/nasobeni-matic-2.eps}
+\\{Násobení rozètvrcenıch matic}
+\end{center}
+
+
+Pøevedli jsme tedy problém násobení ètvercovıch matic øádu $n$ na násobení ètvercovıch matic øádu ${n/2}$. Tímto rozdìlováním bychom mohli pokraèovat, dokud bychom se nedostali na matice øádu 1, jejich vynásobení je triviální. Dostali jsme tedy klasickı algoritmus typu {\it rozdìl a panuj}. Pomohli jsme si ale nìjak ? V kadém kroku provádíme 8 násobení matic polovièního øádu a navíc konstantní poèet operací na $n^2$ prvcích. Dostáváme tedy rekurentní zápis èasové sloitosti:
+
+$$ T(n) = 8T\left({n \over 2}\right) + \O(n^2). $$
+
+Pouitím Master Theoremu lehce dojdeme k závìru, e sloitost je stále $\Theta(n^3)$, tedy stejná jako pøi násobení matic z definice. Zdánlivì jsme si tedy nepomohli, ale stejnì jako tomu bylo u násobení velkıch èísel, i teï mùeme zredukovat poèet násobení matic polovièního øádu, které nejvíce ovlivòuje èasovou sloitost algoritmu. Není to bohuel nic triviálního, a proto si radìji rovnou øekneme správné øešení. Jedná se o Strassenùv algoritmus, kterı redukuje potøebnı poèet násobení na~7, a ještì pøed tím, ne si ukáeme, jak funguje, dokáeme si, jak nám to s èasovou sloitostí vlastnì pomùe:
+
+$$ T(n) = 7T\left({n \over 2}\right) + \O(n^2) \Longrightarrow \O(n^{\log_2 7}) = \O(n^{2.808}). $$
+
+Vısledná sloitost Strassenova algoritmu je tedy $\O(n^{2.808})$, co je sice malé, ale pro velké matice znatelné zlepšení oproti algoritmu vycházejícímu pøímo z~definice.
+
+\s{Lemma:} (vzorce pro násobení blokovıch matic ve~Strassenovì algoritmu)
+
+\def\\{\noalign{\vskip 7pt}}
+
+$$
+\begin{pmatrix}A & B \\ C & D \end{pmatrix}
+\cdot
+\begin{pmatrix}P & Q \\ R & S \end{pmatrix}
+=
+\begin{pmatrix}
+T_1 + T_4 - T_5 + T_7 &
+T_3 + T_5 \\
+T_2 + T_4 &
+T_1 - T_2 + T_3 + T_6
+\end{pmatrix}$$
+
+kde:
+
+$$\vbox{\halign{$#$\hfil\qquad &$#$\hfil\qquad \cr
+T_1 = (A+D)\cdot(P+S)           & T_5 = (A+B)\cdot S \cr\\
+T_2 = (C+D)\cdot P              & T_6 = (C-A)\cdot (P+Q) \cr\\
+T_3 = A\cdot(Q-S)               & T_7 = (B-D)\cdot (R+S) \cr\\
+T_4 = D\cdot(R-P)                                        \cr
+}}$$
+
+\medskip
+
+\proof Do ètvercù $4 \times 4$ si napíšeme znaky $+$ nebo $-$ podle toho, jestli se pøi vıpoètu dané matice pøièítá nebo odeèítá pøíslušnı souèin dvou matic. Øádky znamenají matice $A$, $B$, $C$ a $D$ a sloupce znaèí matice $P$, $Q$, $R$ a $S$. Pokud se tedy v prvním øádku a prvním sloupci vyskytuje znak $+$, znamená to e pøièteme souèin matic $A$~a~$P$. Nejdøíve si spoèítáme pomocné matice $T_1$ a $T_7$ a z nich pak dopoèítáme, co bude na pøíslušnıch místech ve vısledné matici.
+
+$$
+T_1 = \begin{pmatrix}+&.&.&+\\.&.&.&.\\.&.&.&.\\+&.&.&+\end{pmatrix} \qquad
+T_2 = \begin{pmatrix}.&.&.&.\\.&.&.&.\\+&.&.&.\\+&.&.&.\end{pmatrix} \qquad
+T_3 = \begin{pmatrix}.&+&.&-\\.&.&.&.\\.&.&.&.\\.&.&.&.\end{pmatrix} \qquad
+T_4 = \begin{pmatrix}.&.&.&.\\.&.&.&.\\.&.&.&.\\-&.&+&.\end{pmatrix}
+$$
+$$
+T_5 = \begin{pmatrix}.&.&.&+\\.&.&.&+\\.&.&.&.\\.&.&.&.\end{pmatrix} \qquad
+T_6 = \begin{pmatrix}-&-&.&.\\.&.&.&.\\+&+&.&.\\.&.&.&.\end{pmatrix} \qquad
+T_7 = \begin{pmatrix}.&.&.&.\\.&.&+&+\\.&.&.&.\\.&.&-&-\end{pmatrix}\qquad
+$$
+
+\medskip
+
+\def\\{\noalign{\vskip 7pt}}
+$$
+\eqalign{
+T_1 + T_4 - T_5 + T_7 &= \begin{pmatrix}+&.&.&.\\.&.&+&.\\.&.&.&.\\.&.&.&.\end{pmatrix} = AP + BR \cr\\
+T_3 + T_5 &= \begin{pmatrix}.&+&.&.\\.&.&.&+\\.&.&.&.\\.&.&.&.\end{pmatrix} = AQ + BS \cr\\
+T_2 + T_4 &= \begin{pmatrix}.&.&.&.\\.&.&.&.\\+&.&.&.\\.&.&+&.\end{pmatrix} = CP + DR \cr\\
+T_1 - T_2 + T_3 + T_6 &= \begin{pmatrix}.&.&.&.\\.&.&.&.\\.&+&.&.\\.&.&.&+\end{pmatrix} = CQ + DS \cr
+}
+$$
+\\\\
+% konec slidu z prednasky
+
+Jak je vidìt, vısledná matice je tvoøena stejnımi èástmi jako pøi obyèejném násobení. Touto kapitolou jsme tedy dokázali následující vìtu:
+
+\s{Vìta:}
+Strassenùv algoritmus pro násobení matic $n \times n$ má èasovou sloitost
+v nejhorším pøípadì $\O(n^{2.808})$. \qed
+
+\s{Poznámka:}
+Zatím nejlepší dokázanı algoritmus má èasovou sloitost $\O(n^{2.376})$, $ $ ovšem s velkou multiplikativní konstantou.
+
+\\\\
+
+\begin{poznamkaN}{Vytvoøení rekurentní rovnice}
+Pro èasovou sloitost algoritmù typu rozdìl a panuj zpravidla dostávám nìjakou rekurentní rovnici.
+\begin{pitemize}
+    \item $T(n)$ budi doba zpracování úlohy velikosti $n$, za pøedpokladu, e $T(n)=\Theta(1)$ pro $n\leq n_0$.
+    \item $D(n)$ budi doba na rozdìlení úlohy velikosti $n$ na $a$ podúloh stejné velikosti $\frac{n}{c}$. 
+    \item $S(n)$ budi doba na sjednocení øešení podúloh velikosti $\frac{n}{c}$ na jednu úlohu velikosti $n$.
+\end{pitemize}
+Dostávám rovnici
+$$T(n)=\begin{cases} D(n)+aT(\frac{n}{c})+S(n) \quad\quad & n > n_0 \\ \Theta(1) & n \leq n_0 \end{cases}$$
+\end{poznamkaN}
+
+\subsubsection*{Metody øešení rekurentních rovnic}
+
+\begin{poznamka}
+Pøi øešení rekurentních rovnic:
+\begin{pitemize}
+    \item Zanedbávám celoèíselnost ($\frac{n}{2}$ místo $\lceil\frac{n}{2}\rceil$ a $\lfloor\frac{n}{2}\rfloor$)
+    \item Nehledím na konkrétní hodnoty aditivních a multiplikativních konstant, asymptotické notace pouívám i v zadání rekurentních rovnic, i v jejich øešení.
+\end{pitemize}
+\end{poznamka}
+
+
+\begin{vetaN}{Substituèní metoda}
+\begin{penumerate}
+    \item Uhodnu asymptoticky správné øešení
+    \item Indukcí ovìøím správnost (zvláštì horní a dolní odhad)
+\end{penumerate}
+\end{vetaN}
+
+\begin{vetaN}{Metoda \uv{kuchaøka} (Master Theorem)}
+Nech $a\geq 1, c>1,d\geq 0\in\Real$ a nech $T:\Nat\to\Nat$ je neklesající funkce taková, e $\forall n$ tvaru $c^k$ platí
+$$T(n)=aT(\frac{n}{c}) + \Theta(n^d)$$
+Potom
+\begin{penumerate}
+    \item Je-li $\log_c a \neq d$, pak $T(n)$ je $\Theta( n^{\max\{\log_c a, d\}} )$
+    \item Je-li $\log_c a = d$, pak $T(n)$ je $\Theta( n^d \log_c d )$
+\end{penumerate}
+\end{vetaN}
+
+\begin{vetaN}{Master Theorem, varianta 2}
+Nech $0<a_i<1$, kde $i\in\{1,\dots,k\}$  a $d\geq 0$ jsou reálná èísla a nech $T:\Nat\to\Nat$ splòuje rekurenci $$T(n)=\sum_{i=1}^k T(a_i\cdot n) + \Theta(n^d)$$ Nech je èíslo $x$ øešením rovnice $\sum_{i=1}^k a_i^x = 1$. Potom
+\begin{penumerate}
+    \item Je-li $x \neq d$ (tedy $\sum_{i=1}^k a_i^d \neq 1$), pak $T(n)$ je $\Theta( n^{\max\{x, d\}} )$
+    \item Je-li $x = d$ (tedy $\sum_{i=1}^k a_i^d = 1$), pak $T(n)$ je $\Theta( n^d \log d )$
+\end{penumerate}
+\end{vetaN}
+
+\begin{algoritmusN}{Hledání mediánu v lin. èase}
+Vstupem je (neuspoøádáná) posloupnost $n$ (navzájem rùznıch) èísel. Vıstup je $\lfloor\frac{n}{2}\rfloor$-té nejmenší èíslo z nich. Sloitost budeme mìøit \emph{poètem porovnání}.
+
+Algoritmus za pouití techniky rozdìl a panuj, hledá obecnì $k$-té nejmenší èíslo:
+\begin{penumerate}
+    \item Vybrat pivota a rozdìlit posloupnost pomocí $n-1$ porovnání na 3 oddíly: èísla menší ne pivot ($a$ prvkù), pivota samotného a èísla vìtší ne pivot ($n-a-1$ prvkù).
+    \item \begin{penumerate}
+            \item Pokud je $a + 1 < k$, hledám rekurzivnì $k-a+1$-tı prvek v $n-a-1$ prvcích
+            \item Pokud je $a + 1 = k$, vracím pivot
+            \item Pokud je $a + 1 > k$, hledám rekurzivnì $k$-tı prvek v $a$ prvcích
+        \end{penumerate}
+\end{penumerate}
+Rekurzivní vzorec $T(n) = T(n-1) + (n-1)$ v nejhorším pøípadì, co dává $\Theta(n^2)$.
+
+Vylepšení, garantující dobrı vıbìr pivota:
+\begin{penumerate}
+    \item Rozdìlit posloupnost na pìtice (poslední mùe bıt neúplná)
+    \item V kadé pìtici najít medián
+    \item Rekurzivnì najít medián tìchto mediánù
+    \item Pouít ho jako pivot pro dìlení celé posloupnosti, protoe je vìtší ne alespoò 3 prvky z alespoò $1/2$ pìtic (a na zakrouhlení), je vìtší ne alespoò $1/2 \cdot 3/5 = 3/10$ prvkù (a také menší ne alespoò $3/10$ prvkù)
+    \item Z toho mám vdy zaruèeno, e zahodím alespoò $3/10$ prvkù pro následující krok.
+\end{penumerate}
+Vzorec potom vychází: $T(n) = c\cdot\frac{n}{5} + T(\frac{n}{5}) + (n-1) + T(\frac{7}{10}n)$ a podle kuchaøky verze 2 nebo substituèní metodou se dá vyèíslit jako $T(n) = \Theta(n)$.
+\end{algoritmusN}
+
+\begin{comment}
+\subsubsection{MergeSort}
+
+Tento tøídící algoritmus pracuje na~principu, e vstup rozdìlíme na~dvì (skoro) stejnì velké èásti, které rekurzivním voláním setøídíme, a~nakonec vısledné dvì posloupnosti slijeme do~jedné. 
+
+\begin{algoritmusN}{MergeSort}
+
+\begin{penumerate}
+\item Vstup: posloupnost $x_1,\dots, x_n$.
+\item Pokud $n \leq 1 \Rightarrow$ vrátíme vstup.
+\item $y_1,\dots,y_{\lfloor n/2 \rfloor} \leftarrow$ \emph{MergeSort} $(x_1,\dots,x_{\lfloor n/2 \rfloor})$.
+\item $z_1,\dots,z_{\lceil n/2 \rceil} \leftarrow$ \emph{MergeSort} $(x_{\lfloor n/2 \rfloor + 1},\dots,x_n)$.
+\item Vrátíme \emph{MergeSort} $(y_1,\dots,y_{\lfloor n/2 \rfloor}; z_1,\dots,z_{\lceil n/2 \rceil})$.
+\end{penumerate}
+
+\noindent
+Na slití dvou setøídìnıch posloupností do~jedné pouíváme funkci Merge:
+\\\noindent
+\emph{Merge} $(y_1, \dots,y_a;z_1, \dots,z_b)$
+
+\begin{penumerate}
+\item $i \leftarrow 1, j \leftarrow 1, k \leftarrow 1$.
+\item Dokud $k \leq a+b$:
+\item ~~~~~~~~Je-li $(j>b)$ nebo $(i \leq a) \& (y_i < z_j) \Rightarrow x_k \leftarrow y_i, k++, i++$.
+\item ~~~~~~~~Jinak $\Rightarrow x_k \leftarrow z_j, k++, j++$.
+\item Vrátíme $x_1, \dots,x_n$.
+\end{penumerate}
+
+\s{Pozorování:}
+\emph{Merge} trvá $\Theta (n)$, nebo kadou ze~slévanıch posloupností projdeme právì jednou.
+
+\s{Èasová sloitost MergeSortu:}
+
+Rozdìlování a~slévání nám trvá lineárnì dlouho, take pro èasovou sloitost MergeSortu platí tato rekurentní rovnice: $$T(n)= 2 \cdot T(n/2) + c \cdot n.$$ 
+Pøitom $T(n)$ zde znaèí èas strávenı na~vstupu délky $n$ a~$c$ je nìjaká vhodná konstanta. Pro jednoduchost BÚNO pøedpokládejme, e $n$ je mocnina dvojky. Zároveò si jednotky zvolme tak, e bude platit $T(1)=1$. Mùeme si tedy rekurentní vztah rozepsat následovnì:
+\\\noindent
+$T(n) &= 2 \cdot (2T(n/4) + c \cdot n/2) + c \cdot n = 4T(n/4) + 2cn = \\
+                 &= 4(2T(n/8) + c(n/4)) + 2cn = 8T(n/8) + 3cn = \dots\\
+                 &= 2^k T(n/2^k) + kcn.
+$
+\\\noindent
+Pokud zvolíme $k = \log_2{n}$, získáme:
+$$T(n) = 2^{\log_2{n}} \cdot T(n/2^{\log_2{n}}) + \log_2{n} \cdot c \cdot n = n \cdot T(1) + c \cdot n \cdot \log_2{n} = \Theta(n \log{n}). $$
+
+Ke stejnému vısledku mùeme ale dojít také úplnì jinou cestou. Pøedstavme si strom rekurzivních volání. Kadı vrchol má dva syny (dìlíme vstup na~dvì èásti), v~nich jsou vstupy polovièní velikosti. V~kadém vrcholu trávíme èas lineární s~velikostí jeho vstupu, souèet velikostí vstupù pøes kadou hladinu je~$n$ a~hloubka stromu musí bıt $\Theta(\log n)$. Vyjde nám tedy, e $T(n)=\Theta(n\log n)$.\foot{Po pozornìjším zamyšlení si ètenáø mùe uvìdomit, e se jedná vlastnì pouze o~jinı pohled na~stejnı dùkaz jako rozepisování rekurentního vzorce.}
+
+\s{Pamìová sloitost MergeSortu:}
+
+$M(n) = d \cdot n + M(n/2) = d \cdot n + d \cdot n/2 + d \cdot n/4 + \dots \leq 2d n = \Theta(n).$
+
+Tento vztah platí pro nìjakou vhodnou konstantu $d$. Mùeme ho opìt nahlédnout napøíklad ze stromu rekurzivních volání. Podívejme se na~libovolnou cestu od~koøene do~listu. V~jednotlivıch vrcholech potøebujeme pamìti pøesnì $d \cdot n/2^k$, kde $k$ je èíslo hladiny. Kdy tyto hodnoty seèteme pøes všechny vrcholy na~této cestì, vısledek bude konvergovat k~$2dn$, co dává pamìovou sloitost $\Theta(n)$.
+
+\s{Závìr:}
+Mergesort bìí V~èase $\Theta(n \log{n})$ a~pamìti $\Theta(n)$. Lineární pamìová sloitost není vıhodná, ale na~druhou stranu se tento algoritmus velmi hodí napøíklad na~tøídìní lineárních spojovıch seznamù.
