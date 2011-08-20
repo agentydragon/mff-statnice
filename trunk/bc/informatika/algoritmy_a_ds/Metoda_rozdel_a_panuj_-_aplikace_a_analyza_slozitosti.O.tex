@@ -1,5 +1,6 @@
 \subsection{Metoda rozdìl a panuj -- aplikace a analýza složitosti}
-
+Je to celé napsané dost rozvláènì, ale podle mì není nutné umìt celé (napøíklad vzorce ze Strassena mùže chtít jenom sadista), spíš tomu všemu nìjak rozumìt. Zdroje: Èepkovy a MJovy pøednášky na ADS1.
+\\\\
 \begin{definiceN}{Metoda rozdìl a panuj}
 \emph{Rozdìl a panuj} je metoda návrhu algoritmù (ne strukturované programování), která má 3 kroky:
 \begin{penumerate}
@@ -111,33 +112,33 @@ T_3 = A\cdot(Q-S)               & T_7 = (B-D)\cdot (R+S) \cr\\
 T_4 = D\cdot(R-P)                                        \cr
 }}$$
 \end{lemmaN}
-\proof Do ètvercù $4 \times 4$ si napíšeme znaky $+$ nebo $-$ podle toho, jestli se pøi výpoètu dané matice pøièítá nebo odeèítá pøíslušný souèin dvou matic. Øádky znamenají matice $A$, $B$, $C$ a $D$ a sloupce znaèí matice $P$, $Q$, $R$ a $S$. Pokud se tedy v prvním øádku a prvním sloupci vyskytuje znak $+$, znamená to že pøièteme souèin matic $A$~a~$P$. Nejdøíve si spoèítáme pomocné matice $T_1$ až $T_7$ a z nich pak dopoèítáme, co bude na pøíslušných místech ve výsledné matici.
+% \proof Do ètvercù $4 \times 4$ si napíšeme znaky $+$ nebo $-$ podle toho, jestli se pøi výpoètu dané matice pøièítá nebo odeèítá pøíslušný souèin dvou matic. Øádky znamenají matice $A$, $B$, $C$ a $D$ a sloupce znaèí matice $P$, $Q$, $R$ a $S$. Pokud se tedy v prvním øádku a prvním sloupci vyskytuje znak $+$, znamená to že pøièteme souèin matic $A$~a~$P$. Nejdøíve si spoèítáme pomocné matice $T_1$ až $T_7$ a z nich pak dopoèítáme, co bude na pøíslušných místech ve výsledné matici.
+% 
+% $$
+% T_1 = \begin{pmatrix}+&.&.&+\\.&.&.&.\\.&.&.&.\\+&.&.&+\end{pmatrix} \qquad
+% T_2 = \begin{pmatrix}.&.&.&.\\.&.&.&.\\+&.&.&.\\+&.&.&.\end{pmatrix} \qquad
+% T_3 = \begin{pmatrix}.&+&.&-\\.&.&.&.\\.&.&.&.\\.&.&.&.\end{pmatrix} \qquad
+% T_4 = \begin{pmatrix}.&.&.&.\\.&.&.&.\\.&.&.&.\\-&.&+&.\end{pmatrix}
+% $$
+% $$
+% T_5 = \begin{pmatrix}.&.&.&+\\.&.&.&+\\.&.&.&.\\.&.&.&.\end{pmatrix} \qquad
+% T_6 = \begin{pmatrix}-&-&.&.\\.&.&.&.\\+&+&.&.\\.&.&.&.\end{pmatrix} \qquad
+% T_7 = \begin{pmatrix}.&.&.&.\\.&.&+&+\\.&.&.&.\\.&.&-&-\end{pmatrix}\qquad
+% $$
+% 
+% \medskip
+% 
+% \def\\{\noalign{\vskip 7pt}}
+% $$
+% T_1 + T_4 - T_5 + T_7 &= \begin{pmatrix}+&.&.&.\\.&.&+&.\\.&.&.&.\\.&.&.&.\end{pmatrix} = AP + BR \\
+% T_3 + T_5 &= \begin{pmatrix}.&+&.&.\\.&.&.&+\\.&.&.&.\\.&.&.&.\end{pmatrix} = AQ + BS \\
+% T_2 + T_4 &= \begin{pmatrix}.&.&.&.\\.&.&.&.\\+&.&.&.\\.&.&+&.\end{pmatrix} = CP + DR \cr\\
+% T_1 - T_2 + T_3 + T_6 &= \begin{pmatrix}.&.&.&.\\.&.&.&.\\.&+&.&.\\.&.&.&+\end{pmatrix} = CQ + DS
+% $$
+% \\\\
+% % konec slidu z prednasky
 
-$$
-T_1 = \begin{pmatrix}+&.&.&+\\.&.&.&.\\.&.&.&.\\+&.&.&+\end{pmatrix} \qquad
-T_2 = \begin{pmatrix}.&.&.&.\\.&.&.&.\\+&.&.&.\\+&.&.&.\end{pmatrix} \qquad
-T_3 = \begin{pmatrix}.&+&.&-\\.&.&.&.\\.&.&.&.\\.&.&.&.\end{pmatrix} \qquad
-T_4 = \begin{pmatrix}.&.&.&.\\.&.&.&.\\.&.&.&.\\-&.&+&.\end{pmatrix}
-$$
-$$
-T_5 = \begin{pmatrix}.&.&.&+\\.&.&.&+\\.&.&.&.\\.&.&.&.\end{pmatrix} \qquad
-T_6 = \begin{pmatrix}-&-&.&.\\.&.&.&.\\+&+&.&.\\.&.&.&.\end{pmatrix} \qquad
-T_7 = \begin{pmatrix}.&.&.&.\\.&.&+&+\\.&.&.&.\\.&.&-&-\end{pmatrix}\qquad
-$$
-
-\medskip
-
-\def\\{\noalign{\vskip 7pt}}
-$$
-T_1 + T_4 - T_5 + T_7 &= \begin{pmatrix}+&.&.&.\\.&.&+&.\\.&.&.&.\\.&.&.&.\end{pmatrix} = AP + BR \\
-T_3 + T_5 &= \begin{pmatrix}.&+&.&.\\.&.&.&+\\.&.&.&.\\.&.&.&.\end{pmatrix} = AQ + BS \\
-T_2 + T_4 &= \begin{pmatrix}.&.&.&.\\.&.&.&.\\+&.&.&.\\.&.&+&.\end{pmatrix} = CP + DR \cr\\
-T_1 - T_2 + T_3 + T_6 &= \begin{pmatrix}.&.&.&.\\.&.&.&.\\.&+&.&.\\.&.&.&+\end{pmatrix} = CQ + DS
-$$
-\\\\
-% konec slidu z prednasky
-
-Jak je vidìt, výsledná matice je tvoøena stejnými èástmi jako pøi obyèejném násobení. 
+% Jak je vidìt, výsledná matice je tvoøena stejnými èástmi jako pøi obyèejném násobení. 
 
 \\\\
 \subsubsection{Hledání mediánu v lin. èase (Blum et al.)}
