@@ -1,4 +1,4 @@
-\subsection{Pravdìpodobostní algoritmy -- testování prvoèíselnosti\footnote{tato otázka nebyla asi nikdy zkoušena, a tak je to jenom takovy nastrel Zdroj: vyborne Èepkovy slajdy na ADS2 - zda se ze je ocenuju az ted :)}}
+\subsection{Pravdìpodobostní algoritmy -- testování prvoèíselnosti\footnote{tato otázka nebyla asi nikdy zkoušena, a tak je to jenom takovy nástøel Zdroj: výborné Èepkovy slajdy na ADS2 - zda se ze je ocenuju az ted :)}}
 
 Pravdìpodobnostní (náhodnostní) algoritmy jsou nedeterministické algoritmy, které se snaží najít øešení rychleji nebo øešení tìžko øešitelných problémù, èasto NP-úplných problémù. Pravdìpodobnostní algoritmus se mùže náhodnì rozhodovat mezi rùznými možnostmi jak pokraèovat. Pro stejný vstup mùže dávat takový algoritmus rùzné výsledky, které mohou být dokonce nesprávné. Mnohdy se tedy na daném vstupu spustí pravdìpodobnostní algoritmus vícekrát, aby se s vìtší pravdìpodobností dospìlo ke správnému výsledku.
 \\\\
@@ -37,9 +37,8 @@ Pokud $n$ není prvoèíslo, tak zkusíme (náhodnì) najít „svìdka“ $k$, porušujícího
         Rabin-Miller(n); 
                 for i:=1 to poèet do 
                         ki := náhodné pøirozené èíslo z intervalu [1,n-1];
-                        if (ki,n) T then Report (n je složené); 
-                                         Abort; 
-                Report (n je prvoèíslo)
+                        if (ki,n) in T then Return(n je složené);                
+                Return(n je prvoèíslo)
 \end{verbatim}
 \end{obecne}
 \noindent
