@@ -13,7 +13,7 @@
 \usepackage{url}
 \usepackage{color}
 \usepackage{wrapfig}
-
+\usepackage{capt-of}
 
 
 
@@ -27,7 +27,7 @@
 \setlength{\marginparsep}{0in}
 % vertikalni rozmery
 \setlength{\textheight}{\paperheight}
-\addtolength{\textheight}{-40pt}
+\addtolength{\textheight}{-60pt}
 \addtolength{\voffset}{-1in}
 \addtolength{\voffset}{20pt}
 \setlength{\topmargin}{0in}
@@ -94,20 +94,18 @@
 %\obrazekvpravominipage{adresa}{popisek}{label}{procento sirky}{1 - procento sirky}{text vlevo}
 \long\def\obrazekvpravominipage#1#2#3#4#5#6{
 
-\begin{figure}[h]
-\begin{minipage}[t]{#4\linewidth}
+\noindent\begin{minipage}{#5\linewidth}
 \vspace{0pt}
 #6
 \end{minipage}
 \hspace{0.5cm}
-\begin{minipage}[t]{#5\linewidth}
+\noindent\begin{minipage}{#4\linewidth}
 \vspace{0pt}
 \centering
 \includegraphics[width=0.9\textwidth]{#1}
-\caption{#2}
+\captionof{figure}{#2}
 \label{#3}
 \end{minipage}
-\end{figure}
 
 }
 
