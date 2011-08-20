@@ -1,5 +1,5 @@
 %&latex
-\newpage\subsection{Objektovì orientované programování\footnote{podle zkoušení Burešem a Tùmou}}  
+\newpage\subsection{Objektovì orientované programování}\footnote{podle zkoušení Burešem a Tùmou}  
 
 \begin{obecne}{Úèel objektového programování}
 In the 1960s, language design was often based on textbook examples of programs, which were generally small (due to the size of a textbook); however, when programs become very large, the focus changes. In small programs, the most common statement is generally the assignment statement; however, in large programs (over 10,000 lines), the most common statement is typically the procedure-call to a subprogram. Ensuring parameters are correctly passed to the correct subprogram becomes a major issue.
@@ -65,7 +65,9 @@ Ve vìtšinì jazykù mùe bıt kontruktor pøetíen, take má jedna tøída nìkolik kon
 \end{obecne}
 
 \begin{obecne}{Dìdiènost}Objekty jsou organizovány stromovım zpùsobem, kdy objekty nìjakého druhu mohou dìdit z jiného druhu objektù, èím pøebírají jejich schopnosti, ke kterım pouze pøidávají svoje vlastní rozšíøení. Tato myšlenka se obvykle implementuje pomocí rozdìlení objektù do tøíd, pøièem kadı objekt je instancí nìjaké tøídy. Kadá tøída pak mùe dìdit od jiné tøídy (v nìkterıch programovacích jazycích i z nìkolika jinıch tøíd). Umoòuje zacházet s~mnoinou tøíd, jako by byly všechny reprezentovány tím samım objektem. Napøíklad známá hierarchie: grafickı objekt, bod, krunice. Navíc je to prostøedek pro úsporu práce pøi kódování.
-\\\\
+
+\par
+
 Máme dva druhy dìdiènosti podle násobnosti:
 \begin{pitemize}
         \item Jednoduchá dìdiènost - kadá podtøída dìdí pouze z jedné supertøídy
@@ -76,7 +78,9 @@ A další dva druhy dìdiènosti podle pouití:
         \item Implementation Inheritance: in which class inherits one class and implement/override its methods and properties for example Control object in which System.Windows.Forms.Textbox,System.Windows.Forms.Button both inherits their self from control class. But provides different functionality
         \item Interface inheritance: in which a class inherits from Interface. For example IDisposable. It just inherits definition not implementation. Any type which does interface inheritance it means that it will provide defined functionality called as “Contract”.
 \end{pitemize} 
-\\\\
+
+\par
+
 \textbf{Implementace dìdiènosti v C++:} Je-li tøída B (pøímım èi nepøímım) potomkem tøídy A, pak pamìová reprezentace objektu typu B obsahuje èást, která má stejnı tvar jako pamìová reprezentace samostatného objektu typu A. Z kadého ukazatele na typ B je mono odvodit ukazatel na èást typu A -- tato konverze je implicitní, tj. není tøeba ji explicitnì uvádìt ve zdrojovém kódu. Tato konverze mùe (obvykle pouze pøi násobné dìdiènosti) vyadovat jednoduchı vıpoèet (pøiètení posunutí).
 
 Z ukazatele na typ A je mono odvodit ukazatel na typ B, jen pokud konkrétní objekt, do kterého ukazuje ukazatel na typ A, je typu B (nebo jeho potomka). Zodpovìdnost za ovìøení skuteèného typu objektu má programátor a tuto konverzi je tøeba explicitnì vynutit pøetypováním. Mùe to znamenat odeètení posunutí v pamìti.
@@ -105,12 +109,14 @@ k èástem A z D.
 \end{obecne}
 \begin{obecne}{Virtuální metody}
 V objektovì orientovaném programování se pod pojmem virtuální funkce nebo virtuální metoda myslí funkce/metoda (v kódu oznaèená klíèovım slovem – typicky virtual), její chování je urèeno definicí v posledním objektu (ve smìru dìdiènosti od rodièù k potomkùm), kterı definici funkce s danou signaturou obsahuje. Tento koncept je dùleitou souèástí polymorfismu v objektovì orientovaném programování.
-\\\\Koncept virtuálních funkcí øeší následující problém:
+
+\par
+Koncept virtuálních funkcí øeší následující problém:
 
 Kdy v OOP dìdí nìjaká tøída od jiné, tak instance podìdìné tøídy mùe bıt pøetypována na libovolného ze svıch pøedkù. Pokud však podìdìná tøída pøedefinovala podìdìnou metody, nebude pøi jejím pøetypování na pøedka jasné, kterou z definicí metody pouít.
-\\\\
+\par
 Rozhodnutí otázky, kterou funkci zavolat, pøináší právì rozdìlení metod na virtuální a nevirtuální. Kdy je funkce oznaèena jako virtuální, je pouita definice funkce z podìdìné tøídy (pokud existuje). V opaèném pøípadì je pouita definice ze tøídy na kterou je instance tøídy právì pøetypována.
-\\\\
+\par
 \emph{Pozdní vazba (late binding; virtual call):} Je-li metoda nìjaké tøídy virtuální èi èistì virtuální, pak všechny metody se stejnım jménem, poètem a typy parametrù deklarované v potomcích tøídy jsou povaovány za rùzné implementace tée funkce. Která implementace se vybere, tedy které tìlo bude zavoláno, se rozhoduje a za bìhu programu podle skuteèného typu celého objektu. Pouije se tìlo z posledního potomka, kterı definuje tuto funkci a je souèástí celého objektu. Pozdní vazba má smysl pouze u vyvolání na objektu urèeném odkazem.
 
 Pozdní vazba je implementaènì umonìná skrytım pointerem na \emph{tabulku virtuálních funkcí (VMT)} uvnitø kadého objektu. Existuje pro kadou tøídu jedna. Pøi dìdiènosti zùstává v celém objektu odkaz jeden (v C++ jich mùe
