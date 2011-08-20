@@ -1,6 +1,43 @@
 \subsection{Aproximaèní algoritmy}
-
-NP-hard problems vary greatly in their approximability; some, such as the bin packing problem (baleni batohu), can be approximated within any factor greater than 1 (such a family of approximation algorithms is often called a polynomial time approximation scheme or PTAS). Others are impossible to approximate within any constant, or even polynomial factor unless P = NP, such as the maximum clique problem (hledani maximalni kliky).
-
-    * http://en.wikipedia.org/wiki/Approximation_algorithm
-    * http://en.wikipedia.org/wiki/Bin_packing_problem 
+Aprox. algoritmy jsou vhodné tam, kde je nalezení optimálního øešení „beznadìjné“ (èasovì pøíliš nároèné), typicky u NP-tìžkých optimalizaèních úloh (optimalizaèních verzí NP-úplných rozhodovacích problémù). Mají následující tøi vlastnosti:
+\\1. konstruují suboptimální øešení
+\\2. poskytují odhad kvality zkonstruovaného øešení vzhledem k optimu
+\\3. bìží v polynomiálním èase (jinak nejsou zajímavé) 
+\\\\
+\begin{prikladN}{maximalizaèní úlohy (optimalizaèní verze KLIKY)} Pro daný neorientovaný graf najdi nejvìtší (poètem vrcholù) kliku (úplný podgraf). Po aproximaèním algoritmu chceme garanci typu f(APROX) ? f(OPT), kde f(X) je v tomto pøípadì poèet vrcholù (tj. velikost kliky) v øešení X, OPT je optimální øešení a APROX je øešení vydané aproximaèním algoritmem.
+\end{prikladN}
+\begin{prikladN}{Pøíklad minimalizaèní úlohy (optimalizaèní verze ROZ)} Pro dané úkoly a daný poèet strojù najdi nejkratší rozvrh. Po aproximaèním algoritmu chceme garanci typu $f(APROX) \leq 2 f(OPT)$. 
+\end{prikladN}
+\begin{definice} \textit{Chyba aproximaèního algoritmu} je definována jako pomìr (podíl) $f(APROX) / f(OPT)$ pro minimalizaèní úlohy a $f(OPT) / f(APROX)$ pro maximalizaèní úlohy. Relativní chyba je pak definována jako $|f(APROX) f(OPT)| / f(OPT)$.
+\end{definice}
+\\\\Naivní aproximaèní algoritmus $FRONTA$ pro optimalizaèní verzi $ROZ$: bere úkoly postupnì podle jejich èísel a každý úkol vždy umístí na stroj, který je volný nejdøíve. 
+\\\\
+\begin{obecne}{Znaèení:} $OPT$ = optimální rozvrh, $Q$ = rozvrh zkonstruovaný algoritmem FRONTA, délka(OPT) = $o$, délka(Q) = $q$ 
+\end{obecne}
+\begin{veta} Pokud m je poèet strojù, tak $q \leq ((2m- 1) / m)o$ a tento odhad již nelze zlepšit. 
+\end{veta}
+\begin{dusledek} Aproximaèní algoritmus FRONTA má pomìrovou chybu 2. 
+\end{dusledek}
+\proof
+1.Tìsnost odhadu: Pro každé $m$ zkonstruujeme zadání, pro které platí v dokazované nerovnosti rovnost, a to následujícím zpùsobem \\
+$x_1 = x_2 = … = x_{m-1} = m-1$ ($m-1$ úkolù délky $m-1$) \\
+$x_m = x_{m+1} = … = x_{2m-2} = 1$ ($m-1$ úkolù délky $1$) \\
+$x_{2m-1} = m$ (1 úkol délky $m$)
+\\2.Platnost nerovnosti: Nech $j$ je úkol konèící jako poslední v rozvrhu $Q$ (konèící v èase $q$) a nech $t$ je okamžik zahájení úkolu $j$. Potom žádný procesor nemá prostoj pøed èasem $t$ a platí $mq \leq (2m-1)o$ .
+\\\\Lepší aproximaèní algoritmus USPOØÁDANÁ FRONTA pro optimalizaèní verzi ROZ: pracuje stejnì jako FRONTA, ale na zaèátku úkoly setøídí do nerostoucí posloupnosti podle jejich délek. 
+\\\\\begin{obecne}{Znaèení:} 
+\\OPT = optimální rozvrh, 
+\\U = rozvrh zkonstruovaný algoritmem USPOØÁDANÁ FRONTA, 
+\\délka(OPT) = o, délka(U) = u 
+\end{obecne}
+\begin{veta} Pokud m je poèet strojù, tak $u \leq ((4m - 1) / 3m)o$ a tento odhad již nelze zlepšit. 
+\end{veta}
+\begin{dusledek} Aproximaèní algoritmus USPOØÁDANÁ FRONTA má pomìrovou chybu $4/3$. 
+\proof Tìsnost odhadu: Pro každé liché $m$ zkonstruujeme zadání, pro které platí v dokazované nerovnosti rovnost, a to následujícím zpùsobem 
+\\$x_1 = x_2 = 2m-1$ (2 úkoly délky $2m-1$) 
+\\$x_3 = x_4 = 2m-2$ (2 úkoly délky $2m-2$) 
+\\$x_{2m-3} = x_{2m-2} = m+1$ (2 úkoly délky $m+1$) 
+\\$x_{2m-1} = x_{2m} = x_{2m+1} = m$ (3 úkoly délky $m$) 
+\end{dusledek}
+\begin{lemma} Pokud pro všechny úkoly platí $x_i \leq 1/3o$ pak $u = o$. \end{lemma}
+\\\\\noindent\emph{Dokonèení dùkazu:} Nech $j$ je úkol konèící jako poslední v rozvrhu $U$ (konèící v èase $u$). Pokud $x_j > 1/3o$ tak použijeme Lemma, v opaèném pøípadì je dùkaz velmi podobný jako pro algoritmus FRONTA.

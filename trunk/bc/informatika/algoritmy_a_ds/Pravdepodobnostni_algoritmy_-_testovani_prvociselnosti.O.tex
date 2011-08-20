@@ -1,62 +1,56 @@
-\subsection{Pravdìpodobostní algoritmy -- testování prvoèíselnosti}
+\subsection{Pravdìpodobostní algoritmy -- testování prvoèíselnosti\footnote{tato otázka nebyla asi nikdy zkoušena, a tak je to jenom takovy nastrel Zdroj: vyborne Èepkovy slajdy na ADS2 - zda se ze je ocenuju az ted :)}}
 
-Pravdìpodobnostní (náhodnostní) algoritmy jsou nedeterministické algoritmy, které se snaí najít øešení rychleji nebo øešení tìko øešitelnıch problémù, èasto tzv. NP-úplnıch problémù. Pravdìpodobnostní algoritmus se mùe náhodnì rozhodovat mezi rùznımi monostmi jak pokraèovat. Pro stejnı vstup mùe dávat takovı algoritmus rùzné vısledky, které mohou bıt dokonce nesprávné. Mnohdy se tedy na daném vstupu spustí pravdìpodobnostní algoritmus vícekrát, aby se s vìtší pravdìpodobností dospìlo ke správnému vısledku.
-[edit] Motivation
+Pravdìpodobnostní (náhodnostní) algoritmy jsou nedeterministické algoritmy, které se snaí najít øešení rychleji nebo øešení tìko øešitelnıch problémù, èasto NP-úplnıch problémù. Pravdìpodobnostní algoritmus se mùe náhodnì rozhodovat mezi rùznımi monostmi jak pokraèovat. Pro stejnı vstup mùe dávat takovı algoritmus rùzné vısledky, které mohou bıt dokonce nesprávné. Mnohdy se tedy na daném vstupu spustí pravdìpodobnostní algoritmus vícekrát, aby se s vìtší pravdìpodobností dospìlo ke správnému vısledku.
+\\\\
+Pravdìpodobnostních algoritmù je mnoho typù, zde zmíníme jen dva a to algoritmy typu Las Vegas a typu Monte Carlo. 
 
-As a motivating example, consider the problem of finding an ' a ' in an array of n elements.
+\subsubsection*{Algoritmy typu Las Vegas} 
+Vısledek je vdy správnı, náhodnost ovlivòuje pouze dobu bìhu algoritmu, tj. po jaké cestì se algoritmus ke správnému vısledku dobere.
+\\\\ 
+\begin{prikladN}{randomizovanı QuickSort} Od deterministické verze se liší náhodnımi vıbìry pivota pøi kadém dìlení posloupnosti, co poskytuje následující vıhody
+\begin{pitemize}
+\item dává dobrı prùmìrnı èas (tj. $O(n \log n)$) i v pøípadì, e data na vstupu nejsou náhodné permutace – ádnı vstup není apriori špatnı (pro kadı deterministickı vıbìr pivota existují apriori špatné vstupy)
+\item mùe bıt spuštìn paralelnì v nìkolika kopiích, vısledek je získán z kopie, kde vıpoèet skonèí nejdøíve (pro deterministickou verzi nemá takovı postup ádnı smysl)
+\end{pitemize}
+\end{prikladN}
+\subsubsection*{Algoritmy typu Monte Carlo} 
+Náhodnost ovlivòuje jak dobu bìhu, tak správnost vısledku: algoritmus mùe udìlat chybu, ale pouze jednostrannì (u odpovìdí ANO/NE) a s omezenou pravdìpodobností. 
+\\\\
+\begin{prikladN}{Rabin-Millerùv algoritmus na testování prvoèíselnosti} 
+Pro zadané pøirozené èíslo n (rychle) rozhodnout zda je n prvoèíslo 
+\\\\
+\begin{vetaN}{Malá Fermatova} Nech p je prvoèíslo. Potom $\forall k \in\{1,2, … ,p-1\}$ platí $k^{p-1} \equiv 1(\mod p)$
+\end{vetaN} 
+\\\noindent
+Pokud $n$ není prvoèíslo, tak zkusíme (náhodnì) najít „svìdka“ $k$, porušujícího $k^{n-1} \equiv 1(\mod n)$, kterı „dosvìdèuje“, e $n$ je opravdu èíslo sloené (není to prvoèíslo). Problém - pro nìkterá sloená èísla je svìdkù pøíliš málo, take je pøíliš malá pravdìpodobnost, e nìjakého svìdka (náhodnì) vybereme. 
+\\\\
+\begin{definice} Nech T je mnoina dvojic pøirozenıch èísel, kde $(k,n) \in T$ pokud $0 < k < n$ a je splnìna alespoò jedna z následujících dvou podmínek:\\
+1. neplatí $k^{n-1} \equiv 1(\mod n)$,\\
+2. existuje $i$ takové, e $m = (n-1) / 2^i$ je pøirozené èíslo a platí $1 < NSD(k^{m-1}-1, n) < n$ 
+\end{definice}
+\begin{vetaN}{1} Èíslo $n$ je sloené tehdy a jen tehdy, kdy existuje $k$ takové, e $(k,n)\in T$.
+\end{vetaN}
+\begin{vetaN}{2} Nech $n$ je sloené èíslo. Pak existuje alespoò $(n-1)/2$ takovıch èísel $k$, pro které platí $(k,n)\in T$.
+\end{vetaN}
+\begin{obecne}{Algoritmus:}
+\begin{verbatim}
+        Rabin-Miller(n); 
+                for i:=1 to poèet do 
+                        ki := náhodné pøirozené èíslo z intervalu [1,n-1];
+                        if (ki,n) T then Report (n je sloené); 
+                                         Abort; 
+                Report (n je prvoèíslo)
+\end{verbatim}
+\end{obecne}
+\noindent
+Pokud $Rabin-Miller(n)$ rozhodne, e $n$ je sloené, tak je to zaruèenì správnı vısledek (byl nalezen „svìdek“), pokud $Rabin-Miller(n)$ rozhodne, e $n$ je prvoèíslo, tak se mùe jednat o chybu, ale pouze v pøípadì, e všechna vybraná $k_i$ byli „ne-svìdci“ pro sloené èíslo $n$, co ale mùe (díky Vìtì 2) nastat nejvıše s pravdìpodobností $$P(chyba) \leq (1/2)^{pocet}$$ pokud jsou vıbìry jednotlivıch $k_i$ vzájemnì nezávislé 
+\\\\
+\begin{obecne}{Vlastnosti algoritmu:}
+• zvyšováním poètu iterací (poètu testovanıch $k_i$) lze dostat libovolnì malou (pøedem zvolenou) pravdìpodobnost chyby
+\\
+• jednotlivé iterace (testy pro rùzná $k_i$) lze provádìt paralelnì 
+\end{obecne}
+\begin{obecne}{Èasová sloitost:} kadá iterace trvá jen polynomiálnì vzhledem k délce zápisu èísla $n$ (tj. k délce vstupu), k tomu je ovšem potøeba ukázat, e test zda $(k_i,n) \in T$ je mono provést v èase polynomiálním v $\log n$, co není triviální (je nutné mít další znalosti z teorie èísel)
+\end{obecne}
+\end{prikladN}
 
-Input: An array of n elements, in which half are ' a 's and the other half are ' b 's.
-
-Output: Find an ' a ' in the array.
-
-We give two versions of the algorithm, one Las Vegas algorithm and one Monte Carlo algorithm.
-
-Las Vegas algorithm:
-
-<source lang="pascal"> findingA_LV(array A, n) begin
-
-   repeat
-       Randomly select one element out of n elements.
-   until 'a' is found
-
-end </source>
-
-This algorithm succeeds with probability 1, but the running time is random and its expectation is upper-bounded by Failed to parse (Missing texvc executable; please see math/README to configure.): O(1) .
-
-Monte Carlo algorithm: <source lang="pascal"> findingA_MC(array A, n) begin
-
-   i=1
-   repeat
-       Randomly select one element out of n elements.
-       i = i + 1
-   until i=k
-
-end </source> If an ' a ' is found, the algorithm succeeds, else the algorithm fails. After k times execution, the probability of finding an ' a ' is:
-
-Failed to parse (Missing texvc executable; please see math/README to configure.): Pr[find\_'a']=1-(1/2)^k
-
-This algorithm does not guarantee success, but the run time is fixed. The selection is executed exactly k times, therefore the runtime is Failed to parse (Missing texvc executable; please see math/README to configure.): O(k) .
-
-Randomized algorithms are particularly useful when faced with a malicious "adversary" or attacker who deliberately tries to feed a bad input to the algorithm (see worst-case complexity and competitive analysis (online algorithm)) such as in the Prisoner's dilemma. It is for this reason that randomness is ubiquitous in cryptography. In cryptographic applications, pseudo-random numbers cannot be used, since the adversary can predict them, making the algorithm effectively deterministic. Therefore either a source of truly random numbers or a cryptographically secure pseudo-random number generator is required. Another area in which randomness is inherent is quantum computing.
-
-In the example above, the Las Vegas algorithm always outputs the correct answer, but its running time is a random variable. The Monte Carlo algorithm(related to the Monte Carlo method for simulation) completes in a fixed amount of time (as a function of the input size), but allow a small probability of error. Observe that any Las Vegas algorithm can be converted into a Monte Carlo algorithm (via Markov's inequality), by having it output an arbitrary, possibly incorrect answer if it fails to complete within a specified time. Conversely, if an efficient verification procedure exists to check whether an answer is correct, then a Monte Carlo algorithm can be converted into a Las Vegas algorithm by running the Monte Carlo algorithm repeatedly till a correct answer is obtained.
-
-
-[edit] Varianty pravdìpodobnostních algoritmù
-
-    * Vıpoèetní strom je binární, v kadém uzlu se provede hod mincí.
-    * V kadém vıpoèetním uzlu je definováno pravdìpodobnostní rozloení na hranách.
-    * Na zaèátku se vybere náhodnì deterministickı algoritmus, kterı provede vıpoèet. 
-
-Všechny tøi varianty jsou ekvivalentní.
-[edit] Poznámky
-
-Pravdìpodobnostní algoritmy jsou vìtšinou jednoduché, avšak analıza jejich èasové sloitosti je èasto nároèná.
-
-http://en.wikipedia.org/wiki/Randomized_algorithm
-[edit] prvoèístelnost
-
-    * http://cs.wikipedia.org/wiki/Miller%C5%AFv-Rabin%C5%AFv_test_prvo%C4%8D%C3%ADselnosti
-    * http://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test
-    * http://en.wikipedia.org/wiki/Composite_number
-    * http://en.wikipedia.org/wiki/Witness_%28mathematics%29 
