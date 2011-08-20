@@ -54,7 +54,8 @@
 %obecne prostredie, ktore ma vyuzitie pri specialnych odstavcoch ako (uloha, algoritmus...) aby nevzniklo dalsich x prostredi
 \newenvironment{obecne}[1]{\pagebreak[2]\noindent\textbf{#1}\par\noindent\leftskip 10pt}{\par\bigskip}
 
-
+\newenvironment{reportN}[1]{\pagebreak[2]\noindent\textbf{Report~}\emph{(#1)}\emph\par\noindent\leftskip 10pt}{\par\bigskip}
+\newenvironment{prikladN}[1]{\pagebreak[2]\noindent\textbf{Pøíklad~}\emph{#1}\par\noindent\leftskip 10pt}{\par\bigskip}
 
 \newenvironment{penumerate}{
 \begin{enumerate}
@@ -101,7 +102,7 @@
 %\input{informatika/teoreticka_informatika/Casova_slozitost_algoritmu,_slozitost_v_nejhorsim_a_prumernem_pripade.OPS.tex}
 %\input{informatika/teoreticka_informatika/Tridy_slozitosti_P_a_NP,_prevoditelnost,_NP-uplnost.OPS.tex}
 \setcounter{subsection}{2}
-\input{informatika/algoritmy_a_ds/Metoda_rozdel_a_panuj_-_aplikace_a_analyza_slozitosti.O.tex}\newpage
+%\input{informatika/algoritmy_a_ds/Metoda_rozdel_a_panuj_-_aplikace_a_analyza_slozitosti.O.tex}\newpage
 %\input{informatika/algoritmy_a_ds/Binarni_vyhledavaci_stromy,_vyvazovani,_haldy.OPS.tex}
 %\input{informatika/algoritmy_a_ds/Hasovani.OPS.tex}
 %\input{informatika/algoritmy_a_ds/Sekvencni_trideni,_porovnavaci_algoritmy,_prihradkove_trideni,_tridici_site.OPS!.tex}
@@ -113,6 +114,7 @@
 %\input{informatika/siete_a_bezpecnost/Zaklady_kryptografie,_RSA,_DES.OPS.tex}\newpage
 \setcounter{subsection}{11}
 \input{informatika/algoritmy_a_ds/Pravdepodobnostni_algoritmy_-_testovani_prvociselnosti.O.tex}\newpage
+\setcounter{subsection}{12}
 \input{informatika/algoritmy_a_ds/Aproximacni_algoritmy.O.tex}\newpage
 
 \end{document}
