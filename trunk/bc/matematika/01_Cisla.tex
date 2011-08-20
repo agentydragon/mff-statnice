@@ -8,46 +8,46 @@
 \end{pitemize}
 \end{pozadavky}
 
-\subsection{Reálná èísla}
+\subsection{Reálná èísla $\mathbb{R}$}
 $\mathbb{R}$ definujeme axiomaticky.
 
 \begin{definice}
 Mnoinou všech reálnıch èísel (znaèíme ji $\mathbb{R}$) budeme rozumìt mnoinu, na ní je definováno sèítání (znaèíme $x+y$), násobení (znaèíme $x\cdot y$) a uspoøádání (znaèíme $x \le y$), která spòují tyto axiomy:
 
 \begin{penumerate}
-	\item (Algebraické operace)
-	\begin{penumerate}
-		\item $\forall x,y,z \in \mathbb{R} : x+(y+z) = (x+y)+z \hfill\textit{(asociativní zákon pro sèítání)}$
-		\item $\forall x,y \in \mathbb{R} : x+y = y+x \hfill\textit{(komutativní zákon pro sèítání)}$
-		\item v $\mathbb{R}$ existuje nulovı prvek (znaèíme ho 0) tak, e $\forall x \in \mathbb{R}: x+0 = x$
-		\item pro kadı $x \in \mathbb{R}$ existuje opaènı prvek (znaèíme ho $-x$) tak, e $x+(-x)=0$
-		\item $\forall x,y,z \in \mathbb{R}: x\cdot (y\cdot z)=(x\cdot y)\cdot z \hfill\textit{(asociativní zákon pro násobení)}$
-		\item $\forall x,y \in \mathbb{R} : x\cdot y = y\cdot x \hfill\textit{(komutativní zákon pro násobení)}$
-		\item v $\mathbb{R}$ existuje jednotkovı prvek (znaèíme ho 1) tak, e $\forall x \in \mathbb{R}: x\cdot 1=x$
-		\item pro kadı $x \in \mathbb{R}, x \neq 0$ existuje inverzní prvek (znaèíme ho $x^{-1}$) tak, e $x\cdot x^{-1}=1$
-		\item $\forall x,y,z \in \mathbb{R}: (x+y)\cdot z = x\cdot z + y\cdot z \hfill\textit{(distributivní zákon)}$
-	\end{penumerate}
-	\item (Uspoøádání)
-	\begin{penumerate}
-		\item $\forall x,y,z \in \mathbb{R}: ((x \le y) \wedge (y \le z)) \Rightarrow (x \le z) \hfill\textit{(tranzitivita)}$
-		\item $\forall x,y \in \mathbb{R}: (((x \le y) \wedge (y \le x)) \Rightarrow (x=y) \hfill\textit{(slabá antisymetrie)}$
-		\item $\forall x,y \in \mathbb{R}: (x \le y) \vee (y \le x)\hfill\textit{(linearita)}$
-		\item $\forall x,y,z \in \mathbb{R}: (x \le y) \Rightarrow (x+z \le y+z)$
-		\item $\forall x,y,z \in \mathbb{R}: (x \le y) \wedge (0 \le z) \Rightarrow (x\cdot z \le y\cdot z)$
-	\end{penumerate}
-	\item (Netrivialita)
-	\begin{penumerate}
-		\item $0 \neq 1$
-	\end{penumerate}
-	\item (Úplnost)
-		\\\begin{definiceN}{Axiom suprema}
-		Nech $M \subset \mathbb{R}$ je neprázdná a shora omezená (tj. $\exists a \forall x \in M: x \le a$). Pak existuje èíslo $s \in \mathbb{R}$, které má vlastnosti:
-		\begin{penumerate}
-			\item $\forall x \in M: x \le s\hfill\textit{(s je horní omezení)}$
-			\item $\forall s' \in \mathbb{R}, s' < s\;\; \exists x \in M: x > s'\hfill\textit{(všechny menší nejsou horní omeznení)}$
-		\end{penumerate}
-		
-		\end{definiceN}
+        \item (Algebraické operace)
+        \begin{penumerate}
+                \item $\forall x,y,z \in \mathbb{R} : x+(y+z) = (x+y)+z \hfill\textit{(asociativní zákon pro sèítání)}$
+                \item $\forall x,y \in \mathbb{R} : x+y = y+x \hfill\textit{(komutativní zákon pro sèítání)}$
+                \item v $\mathbb{R}$ existuje nulovı prvek (znaèíme ho 0) tak, e $\forall x \in \mathbb{R}: x+0 = x$
+                \item pro kadı $x \in \mathbb{R}$ existuje opaènı prvek (znaèíme ho $-x$) tak, e $x+(-x)=0$
+                \item $\forall x,y,z \in \mathbb{R}: x\cdot (y\cdot z)=(x\cdot y)\cdot z \hfill\textit{(asociativní zákon pro násobení)}$
+                \item $\forall x,y \in \mathbb{R} : x\cdot y = y\cdot x \hfill\textit{(komutativní zákon pro násobení)}$
+                \item v $\mathbb{R}$ existuje jednotkovı prvek (znaèíme ho 1) tak, e $\forall x \in \mathbb{R}: x\cdot 1=x$
+                \item pro kadı $x \in \mathbb{R}, x \neq 0$ existuje inverzní prvek (znaèíme ho $x^{-1}$) tak, e $x\cdot x^{-1}=1$
+                \item $\forall x,y,z \in \mathbb{R}: (x+y)\cdot z = x\cdot z + y\cdot z \hfill\textit{(distributivní zákon)}$
+        \end{penumerate}
+        \item (Uspoøádání)
+        \begin{penumerate}
+                \item $\forall x,y,z \in \mathbb{R}: ((x \le y) \wedge (y \le z)) \Rightarrow (x \le z) \hfill\textit{(tranzitivita)}$
+                \item $\forall x,y \in \mathbb{R}: (((x \le y) \wedge (y \le x)) \Rightarrow (x=y) \hfill\textit{(slabá antisymetrie)}$
+                \item $\forall x,y \in \mathbb{R}: (x \le y) \vee (y \le x)\hfill\textit{(linearita)}$
+                \item $\forall x,y,z \in \mathbb{R}: (x \le y) \Rightarrow (x+z \le y+z)$
+                \item $\forall x,y,z \in \mathbb{R}: (x \le y) \wedge (0 \le z) \Rightarrow (x\cdot z \le y\cdot z)$
+        \end{penumerate}
+        \item (Netrivialita)
+        \begin{penumerate}
+                \item $0 \neq 1$
+        \end{penumerate}
+        \item (Úplnost)
+                \\\begin{definiceN}{Axiom suprema}
+                Nech $M \subset \mathbb{R}$ je neprázdná a shora omezená (tj. $\exists a \forall x \in M: x \le a$). Pak existuje èíslo $s \in \mathbb{R}$, které má vlastnosti:
+                \begin{penumerate}
+                        \item $\forall x \in M: x \le s\hfill\textit{(s je horní omezení)}$
+                        \item $\forall s' \in \mathbb{R}, s' < s\;\; \exists x \in M: x > s'\hfill\textit{(všechny menší nejsou horní omeznení)}$
+                \end{penumerate}
+                
+                \end{definiceN}
 \end{penumerate}
 
 \end{definice}
@@ -55,7 +55,7 @@ Mnoinou všech reálnıch èísel (znaèíme ji $\mathbb{R}$) budeme rozumìt mnoinu, 
 Axiom supréma je dùleitı, odlišuje reálná èísla od racionálních.
 
 
-		Èíslo $s$ z~axiomu suprema je jednoznaènì urèeno, znaèí se $\sup M$ a øíká se mu \textbf{supremum mnoiny $M$}. Supremum mnoiny je její nejmenší horní závora (\textbf{horní závora} nebo \textbf{horní mez} je kadı takovı prvek, pro kterı platí bod (a) definice suprema). Nejvìtší dolní závoru mnoiny $M$ nazıváme \textbf{infimem mnoiny $M$} a znaèíme $\inf M$; z~axiomu suprema plyne, e kadá zdola omezená mnoina má infimum.
+                Èíslo $s$ z~axiomu suprema je jednoznaènì urèeno, znaèí se $\sup M$ a øíká se mu \textbf{supremum mnoiny $M$}. Supremum mnoiny je její nejmenší horní závora (\textbf{horní závora} nebo \textbf{horní mez} je kadı takovı prvek, pro kterı platí bod (a) definice suprema). Nejvìtší dolní závoru mnoiny $M$ nazıváme \textbf{infimem mnoiny $M$} a znaèíme $\inf M$; z~axiomu suprema plyne, e kadá zdola omezená mnoina má infimum.
 \end{poznamka}
 
 \begin{poznamka}
@@ -67,9 +67,9 @@ Relace \uv{$<$} na reálnıch èíslech (a stejnì tak na pøirozenıch a racionálních 
      
 Nech $R$ je mnoina všech Cauchyovskıch posloupností ve $\mathbb{Q}$. Operace na této mnoinì definujeme následovnì:
 \begin{itemize}
-	\item $\left\{x_n\right\} + \left\{y_n\right\} = \left\{x_n + y_n\right\}$
-	\item $\left\{x_n\right\} \cdot \left\{y_n\right\} = \left\{x_n \cdot y_n\right\}$
-	\item $\left\{x_n\right\} \ge \left\{y_n\right\}$, právì kdy $\exists n_0\;\; \forall n>n_0: x_n\ge y_n$
+        \item $\left\{x_n\right\} + \left\{y_n\right\} = \left\{x_n + y_n\right\}$
+        \item $\left\{x_n\right\} \cdot \left\{y_n\right\} = \left\{x_n \cdot y_n\right\}$
+        \item $\left\{x_n\right\} \ge \left\{y_n\right\}$, právì kdy $\exists n_0\;\; \forall n>n_0: x_n\ge y_n$
 \end{itemize}
 Na $R$ definujme relaci ekvivalence jako $\left\{x_n\right\} \sim \left\{y_n\right\}  \Leftrightarrow \lim_{k\rightarrow \infty}\left|x_k-y_k\right|=0$ (je nutné ještì dokázat, e jde o ekvivalenci). Potom reálná èísla $\mathbb{R} = R / \sim$. 
 
@@ -91,68 +91,68 @@ Stejnì je napøíklad èíslo $0,\overline{9}$ rovno èíslu $1$ -- pokud vezmeme $\le
 \end{poznamka}
 
 
-\subsection{Pøirozená èísla}
+\subsection{Pøirozená èísla $\mathbb{N}$}
 
 \begin{definice}
-	Øekneme, e mnoina $S \subset \mathbb{R}$ je \emph{induktivní}, jestlie platí
-	\begin{pitemize}
-		\item $1 \in S$
-		\item $x \in S \Rightarrow (x+1) \in S$
-	\end{pitemize}
-	Mnoinu \emph{pøirozenıch èísel $\mathbb{N}$} definujeme jako prùnik všech induktivních podmnoin $\mathbb{R}$, tedy
-	$$
-		\mathbb{N} := \bigcap \{ S; S \subset \mathbb{R}; \textit{S induktivní}\}
-	$$
+        Øekneme, e mnoina $S \subset \mathbb{R}$ je \emph{induktivní}, jestlie platí
+        \begin{pitemize}
+                \item $1 \in S$
+                \item $x \in S \Rightarrow (x+1) \in S$
+        \end{pitemize}
+        Mnoinu \emph{pøirozenıch èísel $\mathbb{N}$} definujeme jako prùnik všech induktivních podmnoin $\mathbb{R}$, tedy
+        $$
+                \mathbb{N} := \bigcap \{ S; S \subset \mathbb{R}; \textit{S induktivní}\}
+        $$
 \end{definice}
 
 
 
 \begin{vetaN}{Induktivnost pøirozenıch èísel}
-	Mnoina $\mathbb{N}$ je induktivní.
-	
-	\medskip
-	\begin{dukaz}
-	    1 je tam proto, e je ve všech. Pokud je nìjaké èíslo $x$ z~$\mathbb{N}$ ve všech, tak i $x+1$ je ve všech.
+        Mnoina $\mathbb{N}$ je induktivní.
+        
+        \medskip
+        \begin{dukaz}
+            1 je tam proto, e je ve všech. Pokud je nìjaké èíslo $x$ z~$\mathbb{N}$ ve všech, tak i $x+1$ je ve všech.
     \end{dukaz}
 \end{vetaN}
 
 
 \begin{vetaN}{Slabá indukce}
     Pro vlastnost $\varphi$ platí:
-	\begin{penumerate}
-		\item Platí-li $\varphi(1)$ a $\varphi(n)\Rightarrow\varphi(n+1)$, platí $\varphi$ pro všechny $\mathbb{N}$ \hfill \emph{(slabá indukce)}
-	\end{penumerate}
-	
-	\medskip
-	\begin{ideadukazu}
-	    Triviálnì z definice.
+        \begin{penumerate}
+                \item Platí-li $\varphi(1)$ a $\varphi(n)\Rightarrow\varphi(n+1)$, platí $\varphi$ pro všechny $\mathbb{N}$ \hfill \emph{(slabá indukce)}
+        \end{penumerate}
+        
+        \medskip
+        \begin{ideadukazu}
+            Triviálnì z definice.
     \end{ideadukazu}
 \end{vetaN}
 
 
 \begin{vetaN}{Vlastnosti pøirozenıch èísel}
-	Mnoina $\mathbb{N}$ má nasledujúcí vlastnosti:
-	\begin{penumerate}
-		\item $n \in \mathbb{N} \Rightarrow n \ge 1$
-		\item $n \in \mathbb{N} \backslash \{1\} \Rightarrow \exists m \in \mathbb{N}: n=m+1$
-		\item $m,n \in \mathbb{N}, m < n \Rightarrow m + 1 \le n$ %pøed pravou stranou \exists byt nemusi -- Tuetschek
-		\item kadá neprázdná podmnoina $\mathbb{N}$ má nejmenší prvek
-		\item Platí-li $\varphi(1)$ a $\left(\forall k \leq n, k \in\mathbb{N} : \varphi(k)\right)\Rightarrow\varphi(n+1)$, platí $\varphi$ pro všechny $\mathbb{N}$ \hfill \emph{(silná indukce)}
-	\end{penumerate}
-	
-	\medskip
-	\begin{ideadukazu}
-	    5. se dokáe sporem a tím, e \emph{koneèná} mnoina prvkù má vdy nejmenší prvek; 4. se dokáe pøes silnou indukci; 1., 2. a 3. bych dokazoval pøes 4. (ale je moné, e by to byl dùkaz kruhem).
+        Mnoina $\mathbb{N}$ má nasledujúcí vlastnosti:
+        \begin{penumerate}
+                \item $n \in \mathbb{N} \Rightarrow n \ge 1$
+                \item $n \in \mathbb{N} \backslash \{1\} \Rightarrow \exists m \in \mathbb{N}: n=m+1$
+                \item $m,n \in \mathbb{N}, m < n \Rightarrow m + 1 \le n$ %pøed pravou stranou \exists byt nemusi -- Tuetschek
+                \item kadá neprázdná podmnoina $\mathbb{N}$ má nejmenší prvek
+                \item Platí-li $\varphi(1)$ a $\left(\forall k \leq n, k \in\mathbb{N} : \varphi(k)\right)\Rightarrow\varphi(n+1)$, platí $\varphi$ pro všechny $\mathbb{N}$ \hfill \emph{(silná indukce)}
+        \end{penumerate}
+        
+        \medskip
+        \begin{ideadukazu}
+            5. se dokáe sporem a tím, e \emph{koneèná} mnoina prvkù má vdy nejmenší prvek; 4. se dokáe pøes silnou indukci; 1., 2. a 3. bych dokazoval pøes 4. (ale je moné, e by to byl dùkaz kruhem).
     \end{ideadukazu}
 \end{vetaN}
 
 \begin{vetaN}{Archimédova vlastnost reálnıch èísel}
-	Pro kadé $x \in \mathbb{R}$ existuje $n \in \mathbb{N}$ takové, e $x < n$.
-	
-	
-	\medskip
-	\begin{ideadukazu}
-	    Sporem -- vybereme infimum $x$ mnoiny tìch, pro které neexistuje (je zdola omezené 1); pro $x-1$ u musí existovat, take existuje i pro $x$, co vede ke sporu.
+        Pro kadé $x \in \mathbb{R}$ existuje $n \in \mathbb{N}$ takové, e $x < n$.
+        
+        
+        \medskip
+        \begin{ideadukazu}
+            Sporem -- vybereme infimum $x$ mnoiny tìch, pro které neexistuje (je zdola omezené 1); pro $x-1$ u musí existovat, take existuje i pro $x$, co vede ke sporu.
     \end{ideadukazu}
 \end{vetaN}
 
@@ -162,25 +162,25 @@ Stejnì je napøíklad èíslo $0,\overline{9}$ rovno èíslu $1$ -- pokud vezmeme $\le
     
 Mnoina $\mathbb{N}$ je taková mnoina, pro kterou platí:
 \begin{pitemize}
-	\item Existuje èíslo 0 (to neznamená, e nula je prirodzené èíslo, v $\mathbb{N}$ roli tejto nuly hraje jednotka).
-	\item Na mnoine prirodzenıch èísel je definovaná unárna operácia \uv{nasledovník}, oznaèovaná S.
-	\item Neexistuje iadne prirodzené èíslo, ktorého nasledovníkom je 0.
-	\item Rôzne prirodzené èísla majú rôznych nasledovníkov: $a \neq b \Rightarrow S(a) \neq S(b)$ (t.j. funkcia nasledovníka je prostá).
-	\item Ak èíslo 0 spåòa nejakú vlastnos a súèasne ju spåòa kadı nasledovník prirodzeného èísla, potom túto vlastnos spåòajú všetky prirodzené èísla (\emph{axióm matematickej indukcie}).
+        \item Existuje èíslo 0 (to neznamená, e nula je prirodzené èíslo, v $\mathbb{N}$ roli tejto nuly hraje jednotka).
+        \item Na mnoine prirodzenıch èísel je definovaná unárna operácia \uv{nasledovník}, oznaèovaná S.
+        \item Neexistuje iadne prirodzené èíslo, ktorého nasledovníkom je 0.
+        \item Rôzne prirodzené èísla majú rôznych nasledovníkov: $a \neq b \Rightarrow S(a) \neq S(b)$ (t.j. funkcia nasledovníka je prostá).
+        \item Ak èíslo 0 spåòa nejakú vlastnos a súèasne ju spåòa kadı nasledovník prirodzeného èísla, potom túto vlastnos spåòajú všetky prirodzené èísla (\emph{axióm matematickej indukcie}).
 \end{pitemize}
 \end{definiceN}
 
 \begin{definiceN}{Konštrukcia prirodzenıch èísel zaloená na teórii mnoín}
-	Oznaème $0 := \{ \}$ a definujme $S(a) = a \cup \{a\}$ pre všetky a. Mnoina prirodzenıch èísel je potom definovaná ako prienik všetkıch mnoín obsahujúcich $0$, ktoré sú uzavreté vzh¾adom na funkciu nasledovníka. Predpokladajúc platnost axiómu nekoneènosti, dá sa dokáza, e táto definícia spåòa Peanove axiómy. \emph{Axióm nekoneènosti} vyzerá takto:
+        Oznaème $0 := \{ \}$ a definujme $S(a) = a \cup \{a\}$ pre všetky a. Mnoina prirodzenıch èísel je potom definovaná ako prienik všetkıch mnoín obsahujúcich $0$, ktoré sú uzavreté vzh¾adom na funkciu nasledovníka. Predpokladajúc platnost axiómu nekoneènosti, dá sa dokáza, e táto definícia spåòa Peanove axiómy. \emph{Axióm nekoneènosti} vyzerá takto:
 $$\exists\mathbb{N}:\emptyset\in\mathbb{N}\wedge(\forall x:x\in \mathbb{N}\Rightarrow x\cup\{x\}\in\mathbb{N})$$
-	
-	V \uv{klasickom} zápise èísel potom kadému prirodzenému èíslu zodpovedá mnoina prirodzenıch èísel menších ako ono samo, take
-	\begin{pitemize}
-		\item $0=\Big\{\Big\}$
-		\item $1 = \Big\{0\Big\} = \Big\{\left\{ \right\}\Big\}$
-		\item $2 = \Big\{0,1\Big\} = \Big\{0, \left\{0\right\}\Big\} = \Big\{\left\{ \right\}, \left\{\left\{ \right\}\right\}\Big\}$
-		\item $3 = \Big\{0,1,2\Big\} = \Big\{0, \left\{0\right\}, \left\{0, \left\{0\right\}\right\}\Big\} = \Big\{\left\{ \right\}, \left\{\left\{ \right\}\right\}, \left\{\left\{ \right\}, \left\{\left\{ \right\}\right\}\right\}\Big\}$
-	\end{pitemize}
+        
+        V \uv{klasickom} zápise èísel potom kadému prirodzenému èíslu zodpovedá mnoina prirodzenıch èísel menších ako ono samo, take
+        \begin{pitemize}
+                \item $0=\Big\{\Big\}$
+                \item $1 = \Big\{0\Big\} = \Big\{\left\{ \right\}\Big\}$
+                \item $2 = \Big\{0,1\Big\} = \Big\{0, \left\{0\right\}\Big\} = \Big\{\left\{ \right\}, \left\{\left\{ \right\}\right\}\Big\}$
+                \item $3 = \Big\{0,1,2\Big\} = \Big\{0, \left\{0\right\}, \left\{0, \left\{0\right\}\right\}\Big\} = \Big\{\left\{ \right\}, \left\{\left\{ \right\}\right\}, \left\{\left\{ \right\}, \left\{\left\{ \right\}\right\}\right\}\Big\}$
+        \end{pitemize}
 
 \end{definiceN}
 
@@ -188,52 +188,52 @@ $$\exists\mathbb{N}:\emptyset\in\mathbb{N}\wedge(\forall x:x\in \mathbb{N}\Right
 $\mathbb{N}$ je uzavretá na sèítanie.
 \end{poznamka}
 
-\subsection{Celá a racionální èísla}
+\subsection{Celá èísla $\mathbb{Z}$ , racionální èísla $\mathbb{Q}$}
 
 \obrazekvpravominipage{matematika/obrazky/05-mnoziny}{Rùzné mnoiny}{fig:mnoziny}{0.2}{0.7}{
 
 
 \begin{definice}
-	Kromì symbolù $\mathbb{R}$ a $\mathbb{N}$, které jsme ji zavedli, budeme znaèit symbolem $\mathbb{Z}$ mnoinu \emph{celıch èísel}, tedy
-	$$\mathbb{Z} = \mathbb{N} \cup \{0\} \cup \{-n, n \in \mathbb{N}\}$$
-	a symbolem $\mathbb{Q}$ mnoinu \emph{racionálních èísel}, tedy
-	$$\mathbb{Q} = \left\{ \frac{p}{q}, p \in \mathbb{Z}, q \in \mathbb{N} \right\}$$
-	
-	$\mathbb{Z}$ je uzavøena na sèítání, odèítání a násobení,
-	$\mathbb{Q}$ je uzavøena na sèítání, odèítání, násobení a dìlení nenulovım èíslem.
-	
-	Mnoinì $\mathbb{R} \setminus \mathbb{Q}$ se také øíká \emph{iracionální}.
+        Kromì symbolù $\mathbb{R}$ a $\mathbb{N}$, které jsme ji zavedli, budeme znaèit symbolem $\mathbb{Z}$ mnoinu \emph{celıch èísel}, tedy
+        $$\mathbb{Z} = \mathbb{N} \cup \{0\} \cup \{-n, n \in \mathbb{N}\}$$
+        a symbolem $\mathbb{Q}$ mnoinu \emph{racionálních èísel}, tedy
+        $$\mathbb{Q} = \left\{ \frac{p}{q}, p \in \mathbb{Z}, q \in \mathbb{N} \right\}$$
+        
+        $\mathbb{Z}$ je uzavøena na sèítání, odèítání a násobení,
+        $\mathbb{Q}$ je uzavøena na sèítání, odèítání, násobení a dìlení nenulovım èíslem.
+        
+        Mnoinì $\mathbb{R} \setminus \mathbb{Q}$ se také øíká \emph{iracionální}.
 \end{definice}
 }
 
 \begin{vetaN}{Existence celé èásti}
-	Pro kadé $x \in \mathbb{R}$ existuje právì jedno èíslo $\lfloor x \rfloor \in \mathbb{Z}$ splòující
-	$$x-1 < \lfloor x \rfloor \le x$$
-	Toto èíslo nazıváme \emph{dolní celou èástí èísla x}.
-	
-	
-	
-	\medskip
-	\begin{ideadukazu}
-	    Sporem -- pro kladné vybereme infimum $x$ mnoiny tìch, pro které neexistuje (je zdola omezené 0); pro $x-1$ u musí existovat, take existuje i pro $x$, co vede ke sporu. Se supremem podobnì.
+        Pro kadé $x \in \mathbb{R}$ existuje právì jedno èíslo $\lfloor x \rfloor \in \mathbb{Z}$ splòující
+        $$x-1 < \lfloor x \rfloor \le x$$
+        Toto èíslo nazıváme \emph{dolní celou èástí èísla x}.
+        
+        
+        
+        \medskip
+        \begin{ideadukazu}
+            Sporem -- pro kladné vybereme infimum $x$ mnoiny tìch, pro které neexistuje (je zdola omezené 0); pro $x-1$ u musí existovat, take existuje i pro $x$, co vede ke sporu. Se supremem podobnì.
     \end{ideadukazu}
 \end{vetaN}
 
 \begin{vetaN}{Hustota $\mathbb{Q}$ a $\mathbb{R} \backslash \mathbb{Q}$}
-	Nech $a,b \in \mathbb{R}, a < b$. Pak existují $q \in \mathbb{Q}$ a $r \in \mathbb{R} \backslash \mathbb{Q}$ takové, e
-	$$a < q < b,\ a < r < b$$
-	
-	\medskip
-	\begin{ideadukazu}
-	    Vùbec nevím, jestli jde o korektní dùkaz, ale já bych dokazoval \uv{konstrukènì} - pokud jsou $a$ nebo $b$ v $\mathbb{R} \backslash \mathbb{Q}$, vzal bych $q$ jako $(a+b)/2$ a $r$ jako tak dlouhı desetinnı rozvoj $q$, aby $a<r<b$. Pokud jsou $a$ i $b$ v $\mathbb{Q}$, vzal bych $q$ jako $a+\frac{b-a}{\sqrt{2}}$, co by mìlo bıt iracionální èíslo, a pro $r$ udìlal opìt toté. Ale nevím, jestli tøeba existence odmocniny náhodou nezávisí na této vìtì :)
-	\end{ideadukazu} 
+        Nech $a,b \in \mathbb{R}, a < b$. Pak existují $q \in \mathbb{Q}$ a $r \in \mathbb{R} \backslash \mathbb{Q}$ takové, e
+        $$a < q < b,\ a < r < b$$
+        
+        \medskip
+        \begin{ideadukazu}
+            Vùbec nevím, jestli jde o korektní dùkaz, ale já bych dokazoval \uv{konstrukènì} - pokud jsou $a$ nebo $b$ v $\mathbb{R} \backslash \mathbb{Q}$, vzal bych $q$ jako $(a+b)/2$ a $r$ jako tak dlouhı desetinnı rozvoj $q$, aby $a<r<b$. Pokud jsou $a$ i $b$ v $\mathbb{Q}$, vzal bych $q$ jako $a+\frac{b-a}{\sqrt{2}}$, co by mìlo bıt iracionální èíslo, a pro $r$ udìlal opìt toté. Ale nevím, jestli tøeba existence odmocniny náhodou nezávisí na této vìtì :)
+        \end{ideadukazu} 
 \end{vetaN}
 
 \begin{vetaN}{o existenci n-té odmocniny}
-	Nech $x \in \mathbb{R}, x \ge 0$ a nech $n \in \mathbb{N}$. Pak existuje právì jedno $y \in \mathbb{R}, y \ge 0$ takové, e $y^n = x$.
+        Nech $x \in \mathbb{R}, x \ge 0$ a nech $n \in \mathbb{N}$. Pak existuje právì jedno $y \in \mathbb{R}, y \ge 0$ takové, e $y^n = x$.
 \end{vetaN}
 
-\subsection{Komplexní èísla}
+\subsection{Komplexní èísla $\mathbb{C}$}
 \begin{definice}
 Komplexním èíslem nazveme èíslo tvaru $a + bi$, kde $a,b \in \mathbb{R}$ nazıváme \textbf{reálnou a imaginární èástí} komplexního èísla. Tento tvar komplexního èísla se nazıvá \textbf{algebraickı}. Písmeno $i$ znaèí \textbf{imaginární jednotku}, která se formálnì zavádí jako èíslo splòující rovnici $i^2 +1 = 0$ tj. jako $\sqrt{-1}$ , která v reálnıch èíslech neexistuje.
 
@@ -301,6 +301,14 @@ Odmocnina není v $\mathbb{C}$ jednoznaèná -- napø. $i^2 = (-i)^2 = i$, nebo napø
 \right)^3 = -i$.
 
 Platí, e kadı polynom má v~$\mathbb{C}$ koøen.
+\\\\
+\begin{reportN}{Majerech}
+    Napisal som co som si pamatal, asi som trochu pomotal aj tie vlastnosti R, ale jemu o ne ani neslo, hlavny bol pre neho axiom suprema. Zaujimalo ho, ktore cisla z ktorych vznikli, ktore su ktorych uzaverom (napriklad ze komplexne su preto, aby mal kazdy polynom koren ci co, realne zas uzavrete na cauchyovske postupnost -> to je vraj axiom suprema, ale nerucim za to, toto si vlastne povedal on sam). 
+\end{reportN}
+
+\begin{report}
+Zaèátek mi dìlal trošku problém, \uv{vlastnosti N, Z, Q, R èísel}. Nebude to moc do hloubky (zavádìní R jako v Jarníkovi) ale napsat inkluzi by taky nestaèilo. 
+\end{report}
 
 \subsection{Posloupnosti a limity}
 \begin{definiceN}{posloupnost}
@@ -309,20 +317,20 @@ Platí, e kadı polynom má v~$\mathbb{C}$ koøen.
 
 \begin{definiceN}{Omezené posloupnosti}
 \begin{penumerate}
-	\item Posloupnost $\{a_n\}$ je \emph{shora omezená}, je-li $\{a_n; n \in \mathbb{N}\}$ shora omezená.
-	\item Posloupnost $\{a_n\}$ je \emph{zdola omezená}, je-li $\{a_n; n \in \mathbb{N}\}$ zdola omezená.
-	\item Posloupnost $\{a_n\}$ je \emph{omezená}, je-li zdola omezená a shora omezená.
+        \item Posloupnost $\{a_n\}$ je \emph{shora omezená}, je-li $\{a_n; n \in \mathbb{N}\}$ shora omezená.
+        \item Posloupnost $\{a_n\}$ je \emph{zdola omezená}, je-li $\{a_n; n \in \mathbb{N}\}$ zdola omezená.
+        \item Posloupnost $\{a_n\}$ je \emph{omezená}, je-li zdola omezená a shora omezená.
 \end{penumerate}
 \end{definiceN}
 
 \begin{definiceN}{Rostoucí a klesající posloupnosti}
 \begin{penumerate}
-	\item Posloupnost $\{a_n\}$ je \emph{klesající}, jestlie $\forall n \in \mathbb{N}: a_n > a_{n+1}$.
-	\item Posloupnost $\{a_n\}$ je \emph{rostoucí}, jestlie $\forall n \in \mathbb{N}: a_n < a_{n+1}$.
-	\item Posloupnost $\{a_n\}$ je \emph{neklesající}, jestlie $\forall n \in \mathbb{N}: a_n \le a_{n+1}$.
-	\item Posloupnost $\{a_n\}$ je \emph{nerostoucí}, jestlie $\forall n \in \mathbb{N}: a_n \ge a_{n+1}$.
-	\item Posloupnost $\{a_n\}$ je \emph{monotónní}, jestlie je nerostoucí nebo neklesající.
-	\item Posloupnost $\{a_n\}$ je \emph{ryze monotónní}, jestlie je rostoucí nebo klesající.
+        \item Posloupnost $\{a_n\}$ je \emph{klesající}, jestlie $\forall n \in \mathbb{N}: a_n > a_{n+1}$.
+        \item Posloupnost $\{a_n\}$ je \emph{rostoucí}, jestlie $\forall n \in \mathbb{N}: a_n < a_{n+1}$.
+        \item Posloupnost $\{a_n\}$ je \emph{neklesající}, jestlie $\forall n \in \mathbb{N}: a_n \le a_{n+1}$.
+        \item Posloupnost $\{a_n\}$ je \emph{nerostoucí}, jestlie $\forall n \in \mathbb{N}: a_n \ge a_{n+1}$.
+        \item Posloupnost $\{a_n\}$ je \emph{monotónní}, jestlie je nerostoucí nebo neklesající.
+        \item Posloupnost $\{a_n\}$ je \emph{ryze monotónní}, jestlie je rostoucí nebo klesající.
 \end{penumerate}
 \end{definiceN}
 
@@ -361,17 +369,17 @@ Ne kadá posloupnost je konvergentní. Napøíklad posloupnost 0,1,0,1,0,... nemá v
 
 \begin{priklady}
 \begin{pitemize}
-	\item $\lim_{n \rightarrow \infty} (\sqrt{n+1} - \sqrt{n}) = 0$
-	\item $\lim_{n \rightarrow \infty} \sqrt[n]{n} = 1$
+        \item $\lim_{n \rightarrow \infty} (\sqrt{n+1} - \sqrt{n}) = 0$
+        \item $\lim_{n \rightarrow \infty} \sqrt[n]{n} = 1$
 \end{pitemize}
 \end{priklady}
 
 \begin{poznamka}
 Následující vìty mají pomìrnì lehké dùkazy, které zde jenom naznaèím; pokud si je budete zkoušet, je dobré si u nich uvìdomit základní vlastnosti absolutní hodnoty:
 \begin{pitemize}
-	\item $\left|a \cdot b\right|= \left|a\right| \cdot\left| b\right|$
-	\item $\left|a + b\right| \leq \left|a\right| + \left| b\right|$
-	\item $\left|a \right| \leq b\Leftrightarrow -b \leq a \leq b$
+        \item $\left|a \cdot b\right|= \left|a\right| \cdot\left| b\right|$
+        \item $\left|a + b\right| \leq \left|a\right| + \left| b\right|$
+        \item $\left|a \right| \leq b\Leftrightarrow -b \leq a \leq b$
 \end{pitemize}
 \end{poznamka}
 
@@ -419,9 +427,9 @@ Nech $\{a_n\}_{n \in \mathbb{N}}$ je posloupnost reálnıch èísel a nech $\lim_{
 \begin{vetaN}{o aritmetice limit}
 Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou dvì posloupnosti reálnıch èísel a nech $\lim_{n \rightarrow \infty} a_n = A \in \mathbb{R}$ a $\lim_{n \rightarrow \infty} b_n = B \in \mathbb{R}$. Pak platí:
 \begin{enumerate}
-	\item $\lim_{n \rightarrow \infty} (a_n+b_n) = A+B$
-	\item $\lim_{n \rightarrow \infty} (a_n \cdot  b_n) = A\cdot B$
-	\item je-li $\forall n \in \mathbb{N}: b_n \neq 0$ a $B \neq 0$, pak $\lim_{n \rightarrow \infty} \frac{a_n}{b_n}=\frac{A}{B}$
+        \item $\lim_{n \rightarrow \infty} (a_n+b_n) = A+B$
+        \item $\lim_{n \rightarrow \infty} (a_n \cdot  b_n) = A\cdot B$
+        \item je-li $\forall n \in \mathbb{N}: b_n \neq 0$ a $B \neq 0$, pak $\lim_{n \rightarrow \infty} \frac{a_n}{b_n}=\frac{A}{B}$
 \end{enumerate}
 
 
@@ -454,8 +462,8 @@ Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou dvì poslo
 \begin{vetaN}{o limitì a uspoøádání}
 Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou dvì posloupnosti reálnıch èísel a nech $\lim_{n \rightarrow \infty} a_n = A \in \mathbb{R}$ a $\lim_{n \rightarrow \infty} b_n = B \in \mathbb{R}$. Pak platí:
 \begin{penumerate}
-	\item Jestlie $A < B$, potom $\exists n_0 \in \mathbb{N}\ \forall n > n_0: a_n < b_n$
-	\item Jestlie $\exists n_0 \in \mathbb{N}\ \forall n \ge n_0: a_n \ge b_n$, pak $A \ge B$
+        \item Jestlie $A < B$, potom $\exists n_0 \in \mathbb{N}\ \forall n > n_0: a_n < b_n$
+        \item Jestlie $\exists n_0 \in \mathbb{N}\ \forall n \ge n_0: a_n \ge b_n$, pak $A \ge B$
 \end{penumerate}
 
 \noindent Pozor, ostrost nerovností v tomto pøípadì je dùleitá.
@@ -469,8 +477,8 @@ Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou dvì poslo
 \begin{vetaN}{o policajtech}
 Nech $\{a_n\}_{n \in \mathbb{N}}$, $\{b_n\}_{n \in \mathbb{N}}$ a $\{c_n\}_{n \in \mathbb{N}}$ jsou posloupnosti reálnıch èísel, splòující
 \begin{penumerate}
-	\item $\exists n_0 \in \mathbb{N}\ \forall n > n_0: a_n \le c_n \le b_n$
-	\item $\lim_{n \rightarrow \infty}a_n = \lim b_n = A \in \mathbb{R}$
+        \item $\exists n_0 \in \mathbb{N}\ \forall n > n_0: a_n \le c_n \le b_n$
+        \item $\lim_{n \rightarrow \infty}a_n = \lim b_n = A \in \mathbb{R}$
 \end{penumerate}
 Pak
 $$
@@ -525,16 +533,16 @@ Všechny moné situace jsou:
 
 
 \begin{pitemize}
-	\item neexistuje
-	\item existuje
-	\begin{pitemize}
-		\item vlastní (= posloupnost konverguje)
-		\item nevlastní
-		\begin{pitemize}
-			\item $- \infty$
-			\item $+ \infty$
-		\end{pitemize}
-	\end{pitemize}
+        \item neexistuje
+        \item existuje
+        \begin{pitemize}
+                \item vlastní (= posloupnost konverguje)
+                \item nevlastní
+                \begin{pitemize}
+                        \item $- \infty$
+                        \item $+ \infty$
+                \end{pitemize}
+        \end{pitemize}
 \end{pitemize}
 
 \end{poznamka}
@@ -552,9 +560,9 @@ Vìty o jednoznaènosti limity, o limitì vybrané posloupnosti, o limitì a uspoøádá
 \begin{vetaN}{o aritmetice limit pro nevlastní limity}
 Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou dvì posloupnosti reálnıch èísel a nech $\lim_{n \rightarrow \infty} a_n = A \in \mathbb{R}^*$ a $\lim_{n \rightarrow \infty} b_n = B \in \mathbb{R}^*$. Pak platí:
 \begin{penumerate}
-	\item $\lim_{n \rightarrow \infty} (a_n+b_n) = A+B \textit{, pokud je vıraz A+B definován}$
-	\item $\lim_{n \rightarrow \infty} (a_n \cdot  b_n) = A\cdot B\textit{, pokud je vıraz }A\cdot B\textit{ definován}$
-	\item je-li $\forall n \in \mathbb{N}: b_n \neq 0$ a $B \neq 0$, pak $\lim_{n \rightarrow \infty} \frac{a_n}{b_n}=\frac{A}{B} \textit{, pokud je vıraz } \frac{A}{B} \textit{ definován}$
+        \item $\lim_{n \rightarrow \infty} (a_n+b_n) = A+B \textit{, pokud je vıraz A+B definován}$
+        \item $\lim_{n \rightarrow \infty} (a_n \cdot  b_n) = A\cdot B\textit{, pokud je vıraz }A\cdot B\textit{ definován}$
+        \item je-li $\forall n \in \mathbb{N}: b_n \neq 0$ a $B \neq 0$, pak $\lim_{n \rightarrow \infty} \frac{a_n}{b_n}=\frac{A}{B} \textit{, pokud je vıraz } \frac{A}{B} \textit{ definován}$
 \end{penumerate}
 
 
@@ -562,11 +570,11 @@ Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou dvì poslo
 \begin{ideadukazu}
 
 \begin{penumerate}
-	\item Pokud je $\left\{a_n\right\}$ v $\mathbb{R}$, je zdola omezená $L$, budeme brát (pokud $\left\{b_n\right\}$ jde k~$\infty$) $K-L$, podobnì u dalších variant.
-	\item Tøeba $\left\{a_n\right\}$ jde k~$A$ v $\mathbb{R}$ a $A>0$ a $\left\{b_n\right\}$ jde k~$\infty$, pro ostatní se dokáe obdobnì. Pro $\alpha>0$ udìláme $\epsilon = A-\alpha$, z~toho plyne $a>\alpha$; $b_n$ urèitì jde nad $\frac{L}{\alpha}$ pro libovolné $L$ a tedy $a_nb_n>L$.
-	
-	\item Dokáeme, e kdy $b_n$ jde k $\infty$ tak $\frac{1}{b_n}$ jde k~$0$ -- pro $\epsilon$ platí odnìkud $b_n>\frac{1}{\epsilon}$, ale je toté, co $\frac{1}{b_n}<\varepsilon$.
-	
+        \item Pokud je $\left\{a_n\right\}$ v $\mathbb{R}$, je zdola omezená $L$, budeme brát (pokud $\left\{b_n\right\}$ jde k~$\infty$) $K-L$, podobnì u dalších variant.
+        \item Tøeba $\left\{a_n\right\}$ jde k~$A$ v $\mathbb{R}$ a $A>0$ a $\left\{b_n\right\}$ jde k~$\infty$, pro ostatní se dokáe obdobnì. Pro $\alpha>0$ udìláme $\epsilon = A-\alpha$, z~toho plyne $a>\alpha$; $b_n$ urèitì jde nad $\frac{L}{\alpha}$ pro libovolné $L$ a tedy $a_nb_n>L$.
+        
+        \item Dokáeme, e kdy $b_n$ jde k $\infty$ tak $\frac{1}{b_n}$ jde k~$0$ -- pro $\epsilon$ platí odnìkud $b_n>\frac{1}{\epsilon}$, ale je toté, co $\frac{1}{b_n}<\varepsilon$.
+        
 \end{penumerate}
 \end{ideadukazu}
 
@@ -574,9 +582,9 @@ Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou dvì poslo
 
 \begin{definiceN}{Supremum a infimum na rozšíøené reálné ose}
 \begin{pitemize}
-	\item Nech mnoina $A \subset \mathbb{R}$ je shora neomezená. Pak klademe $\sup A := +\infty$
-	\item Nech mnoina $A \subset \mathbb{R}$ je zdola neomezená. Pak klademe $\inf A := -\infty$
-	\item Nech $A=\emptyset$. Pak klademe $\sup A := -\infty$ a $\inf A := +\infty$
+        \item Nech mnoina $A \subset \mathbb{R}$ je shora neomezená. Pak klademe $\sup A := +\infty$
+        \item Nech mnoina $A \subset \mathbb{R}$ je zdola neomezená. Pak klademe $\inf A := -\infty$
+        \item Nech $A=\emptyset$. Pak klademe $\sup A := -\infty$ a $\inf A := +\infty$
 \end{pitemize}
 \end{definiceN}
 
@@ -587,16 +595,16 @@ Prázdná mnoina je jediná mnoina, její supremum je menší ne její infimum.
 \begin{vetaN}{o limitì podílu kladné a mizející posloupnosti}
 Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou posloupnosti reálnıch èísel, nech je $\lim_{n \rightarrow \infty} a_n = A \in \mathbb{R}^*, A>0$ a nech $\lim_{n \rightarrow \infty}\{b_n\}=0$. Nech
 $$
-	\exists n_0 \in \mathbb{N} \textit{ } \forall n \ge n_0, n \in \mathbb{N}: b_n>0
+        \exists n_0 \in \mathbb{N} \textit{ } \forall n \ge n_0, n \in \mathbb{N}: b_n>0
 $$
 Pak
 $$
-	\lim_{n \rightarrow \infty} \frac{a_n}{b_n} = + \infty
+        \lim_{n \rightarrow \infty} \frac{a_n}{b_n} = + \infty
 $$
 \medskip
 \begin{ideadukazu}
 Jestlie $K$ je horní omezení, pak mùeme vzít epsilon u mizející $\frac{1}{K}$, souèin pak jde nad $K$.
-	
+        
 \end{ideadukazu}
 
 \end{vetaN}
@@ -619,14 +627,14 @@ Je-li posloupnost neklesající (nerostoucí) a navíc shora (zdola) neomezená, pak 
 \begin{definiceN}{Limes superior a limes inferior}
 Nech $\{a_n\}_{n \in \mathbb{N}}$ je posloupnost reálnıch èísel. Je-li $\{a_n\}$ shora omezená, definujeme posloupnost $\{b_n\}_{n \in \mathbb{N}}$ pøedpisem:
 $$
-	b_n := \sup\{a_k; k \ge n \}
+        b_n := \sup\{a_k; k \ge n \}
 $$
 
 $b_n$ \emph{neroste}.
 
 Je-li $\{a_n\}$ zdola omezená, definujeme posloupnost $\{c_n\}_{n \in \mathbb{N}}$ pøedpisem:
 $$
-	c_n := \inf\{a_k; k \ge n \}
+        c_n := \inf\{a_k; k \ge n \}
 $$
 
 $c_n$ \emph{nekles‡}.
@@ -661,7 +669,7 @@ libovolnou posloupnost reálnıch èísel.
 \begin{vetaN}{o vztahu limity, limes superior a limes inferior}
 Nech $\{a_n\}_{n \in \mathbb{N}}$ je posloupnost reálnıch èísel. Potom 
 $$
-	\lim a_n = A \in \mathbb{R}^{*}
+        \lim a_n = A \in \mathbb{R}^{*}
 $$
 právì tehdy, kdy
 $$
@@ -704,6 +712,12 @@ $$
 \end{vetaN}
 
 K tomuhle jsem dùkaz nenašel ani nevymyslel :-(
+\\\\
+\begin{reportN}{IP 21.6.2011 ($<$2007)}
+1. Konvergence rad.\\
+Napiste definici konvergence rad.\\
+Rozhodnete a zduvodnete, zda konverguji rady: $1/n$, $1/n^2$, $sin(n)/n$
+\end{reportN}
 
 \subsection{Cauchyovské posloupnosti}
 
@@ -762,14 +776,6 @@ Posloupnost $\{a_n\}$ má vlastní limitu, právì kdy je cauchyovská.
 \end{enumerate}
 \end{dukaz}
 \end{vetaN}
-
-\begin{reportN}{Majerech}
-    Napisal som co som si pamatal, asi som trochu pomotal aj tie vlastnosti R, ale jemu o ne ani neslo, hlavny bol pre neho axiom suprema. Zaujimalo ho, ktore cisla z ktorych vznikli, ktore su ktorych uzaverom (napriklad ze komplexne su preto, aby mal kazdy polynom koren ci co, realne zas uzavrete na cauchyovske postupnost -> to je vraj axiom suprema, ale nerucim za to, toto si vlastne povedal on sam). 
-\end{reportN}
-
-\begin{report}
-Zaèátek mi dìlal trošku problém, \uv{vlastnosti N, Z, Q, R èísel}. Nebude to moc do hloubky (zavádìní R jako v Jarníkovi) ale napsat inkluzi by taky nestaèilo. 
-\end{report}
 
 \begin{reportN}{Koubek}
     nic lepšího na zahøátí snad ani nešlo, definice, aritmetika a další vìtièky co jsem si vzpomnìl vèetnì cauchyho + dùkazy, to staèilo. 
