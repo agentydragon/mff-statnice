@@ -9,13 +9,13 @@ Virtuální pamì zpùsob správy operaèní pamìti poèítaèe, kterı umoòuje pøedloit
 by to bez HW podpory? Jistì e ano VM to tak dìlají, nicménì rychlost není
 nijak osòující, proto se do novych strojù u pøidává jejich HW podpora (neplácám?!).}
 
-\begin{itemize}
+\begin{pitemize}
         \item Umoòuje sdílení pamìti (operaèním systémem)
         \item Vzájemná ochrana programù (v souèasnosti je dùleitìjší ochrana dat ne vyuití
 principu lokalit), tzn. to aby jeden program nepøepisoval druhému programu jeho
 data a tak.
         \item Kadı bìící program pracuje se \textbf{svım} virtuálním adresním prostorem
-\end{itemize}
+\end{pitemize}
 \\
 Existují dvì základní metody implementace virtuální pamìti – stránkování a segmentace.
 
@@ -72,7 +72,10 @@ pro všechny procesy, pro vyhledávání se pouívá hashovací tabulka\par \begin{cen
 \item \emph{velikost stránek} \begin{pitemize} \item velké stránky $\rightarrow$ fragmentace
 \item malé stránky $\rightarrow$ mnoho registrù, zvyšuje cenu vıpoètù a zpomaluje
 chod
-\item optimum 1-4kB
+\item optimum 1-4kB\footnote{4kB se pouívají kvuli jednoduchému pøevodu
+na fyzickou adresu pomocí substituce (DRAM mely temer vzdy na cipu N øádku
+x 4096 sloupcu), 64bit procesory umoòují pagesize a 1GB - doporucuju precist
+\url{http://www.gamedeception.net/threads/212-The-Importance-of-the-4KB-Page-Boundary}}
 \end{pitemize}
     \item \emph{odstranìní poloky z TLB pøi rušení mapování} --- nestaèí zmìnit tabulky, musí se vyhodit i z TLB (kde to mùe, ale nemusí bıt). problém - u multiprocesorù má kadá CPU vlastní TLB, tabulky jsou sdílené $\rightarrow$ CPU pøi rušení mapování musí poslat interrupt s rozkazem ke smazání všem (i sobì), poèkat na potvrzení akce od všech.
 \end{pitemize}
@@ -137,4 +140,11 @@ klasika, preèo, kde, ako ... preèo to funguje, èo sa robí pri vıpadku stránky, p
 
 kadı proces má vlastní tabulku, její adresa v registru
 \end{reportN}
+\begin{reportN}{IOI 21. 6. 2011}
+Danı procesor pouívá 32-bitovou architekturu a dvouúrovòové stránkování.
+Instrukce MOV[0x12345678], EAX zapisuje obsah registru EAX na adresu 0x12345678.
+Popište, jaká operace (pøístupy do registrù a podobnì) vykonává pøi provádìní této instrukce procesor a jak pøi tom spolupracuje operaèní systém. Rozeberte všechny moné (z hlediska naplnìní stránkovacích tabulek) pøípady, nepopisujte strategie vımìny stránek.
+\end{reportN}
 
+\begin{reportN}{Yaghob} mel ruzné dotazy, jako proc je stránka veliká zrovna 4kB, jak je to se stránkováním na 64-bitovıch procesorech 
+\end{reportN}
