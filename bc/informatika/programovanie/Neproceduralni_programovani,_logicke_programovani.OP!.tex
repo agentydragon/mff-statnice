@@ -1,110 +1,110 @@
-\subsection{NeprocedurÃ¡lnÃ­ programovÃ¡nÃ­, logickÃ© programovÃ¡nÃ­}
+\subsection{Neprocedurální programování, logické programování}
 
-\subsubsection*{NeprocedurÃ¡lnÃ­ programovÃ¡nÃ­}
-\emph{DeklarativnÃ­ programovÃ¡nÃ­} je postaveno na paradigmatu, podle nÄ›hoÅ¾ je program zaloÅ¾en na tom, co se poÄÃ­tÃ¡ a ne jak se to poÄÃ­tÃ¡. Je zde deklarovÃ¡n vstup a vÃ½stup a celÃ½ program je chÃ¡pÃ¡n jako funkce vyhodnocujÃ­cÃ­ vstupy podÃ¡vajÃ­cÃ­ jedinÃ½ vÃ½stup. NapÅ™Ã­klad i webovskÃ© strÃ¡nky jsou deklarativnÃ­ protoÅ¾e popisujÃ­, jak by strÃ¡nka mÄ›la vypadat -- titulek, font, text a obrÃ¡zky -- ale nepopisujÃ­, jak konkrÃ©tnÄ› zobrazit strÃ¡nky na obrazovce.
+\subsubsection*{Neprocedurální programování}
+\emph{Deklarativní programování} je postaveno na paradigmatu, podle nìho je program zaloen na tom, co se poèítá a ne jak se to poèítá. Je zde deklarován vstup a vıstup a celı program je chápán jako funkce vyhodnocující vstupy podávající jedinı vıstup. Napøíklad i webovské stránky jsou deklarativní protoe popisují, jak by stránka mìla vypadat -- titulek, font, text a obrázky -- ale nepopisují, jak konkrétnì zobrazit stránky na obrazovce.
 
-\emph{LogickÃ© programovÃ¡nÃ­} a \emph{funkcionÃ¡lnÃ­ programovÃ¡nÃ­} jsou poddruhy deklarativnÃ­ho programovÃ¡nÃ­. LogickÃ© programovÃ¡nÃ­ vyuÅ¾Ã­vÃ¡ programovÃ¡nÃ­ zaloÅ¾enÃ© na vyhodnocovÃ¡nÃ­ vzorÅ¯ - tvrzenÃ­ a cÃ­lÅ¯. KlasickÃ½m zÃ¡stupcem jazyka pro podporu tohoto stylu je Prolog.
+\emph{Logické programování} a \emph{funkcionální programování} jsou poddruhy deklarativního programování. Logické programování vyuívá programování zaloené na vyhodnocování vzorù - tvrzení a cílù. Klasickım zástupcem jazyka pro podporu tohoto stylu je Prolog.
 
-Tento pÅ™Ã­stup patÅ™Ã­ pod deklarativnÃ­ programovÃ¡nÃ­ stejnÄ› jako funkcionÃ¡lnÃ­ programovÃ¡nÃ­, neboÅ¥ deklaruje, co je vstupem a co vÃ½stupem, a nezabÃ½vÃ¡ se jak vÃ½poÄet probÃ­hÃ¡. Naopak program jako posloupnost pÅ™Ã­kazÅ¯ je paradigma imperativnÃ­.
+Tento pøístup patøí pod deklarativní programování stejnì jako funkcionální programování, nebo deklaruje, co je vstupem a co vıstupem, a nezabıvá se jak vıpoèet probíhá. Naopak program jako posloupnost pøíkazù je paradigma imperativní.
 
-\emph{FunkcionÃ¡lnÃ­ programovÃ¡nÃ­} patÅ™Ã­ mezi deklarativnÃ­ programovacÃ­ principy.
+\emph{Funkcionální programování} patøí mezi deklarativní programovací principy.
 
-Alonzo Church vytvoÅ™il formÃ¡lnÃ­ vÃ½poÄtovÃ½ model nazvanÃ½ $\lambda$-kalkul. Tento model slouÅ¾Ã­ jako zÃ¡klad pro funkcionÃ¡lnÃ­ jazyky. FunkcionÃ¡lnÃ­ jazyky dÄ›lÃ­me na:
+Alonzo Church vytvoøil formální vıpoètovı model nazvanı $\lambda$-kalkul. Tento model slouí jako základ pro funkcionální jazyky. Funkcionální jazyky dìlíme na:
 \begin{pitemize}
-	\item typovanÃ© - Haskell
-	\item netypovanÃ© - Lisp, Scheme
+	\item typované - Haskell
+	\item netypované - Lisp, Scheme
 \end{pitemize}
 
-VÃ½poÄtem funkcionÃ¡lnÃ­ho programu je posloupnost vzÃ¡jemnÄ› ekvivalentnÃ­ch vÃ½razÅ¯, kterÃ© se postupnÄ› zjednoduÅ¡ujÃ­. VÃ½sledkem vÃ½poÄtu je vÃ½raz v normÃ¡lnÃ­ formÄ›, tedy dÃ¡le nezjednoduÅ¡itelnÃ½. Program je chÃ¡pÃ¡n jako jedna funkce obsahujÃ­cÃ­ vstupnÃ­ parametry majÃ­cÃ­ jedinÃ½ vÃ½stup. Tato funkce pak mÅ¯Å¾e bÃ½t dÃ¡le rozloÅ¾itelnÃ¡ na podfunkce.
+Vıpoètem funkcionálního programu je posloupnost vzájemnì ekvivalentních vırazù, které se postupnì zjednodušují. Vısledkem vıpoètu je vıraz v normální formì, tedy dále nezjednodušitelnı. Program je chápán jako jedna funkce obsahující vstupní parametry mající jedinı vıstup. Tato funkce pak mùe bıt dále rozloitelná na podfunkce.
 
 \subsubsection*{Prolog}
 
-Prolog je logickÃ½ programovacÃ­ jazyk. NÃ¡zev Prolog pochÃ¡zÃ­ z francouzskÃ©ho programmation en logique (\uv{logickÃ© programovÃ¡nÃ­}). Byl vytvoÅ™en Alainem Colmerauerem v roce 1972 jako pokus vytvoÅ™it programovacÃ­ jazyk, kterÃ½ by umoÅ¾Åˆoval vyjadÅ™ovÃ¡nÃ­ v logice mÃ­sto psanÃ­ poÄÃ­taÄovÃ½ch instrukcÃ­. Prolog patÅ™Ã­ mezi tzv. deklarativnÃ­ programovacÃ­ jazyky, ve kterÃ½ch programÃ¡tor popisuje pouze cÃ­l vÃ½poÄtu, pÅ™iÄemÅ¾ pÅ™esnÃ½ postup, jakÃ½m se k vÃ½sledku program dostane, je ponechÃ¡n na libovÅ¯li systÃ©mu.
+Prolog je logickı programovací jazyk. Název Prolog pochází z francouzského programmation en logique (\uv{logické programování}). Byl vytvoøen Alainem Colmerauerem v roce 1972 jako pokus vytvoøit programovací jazyk, kterı by umoòoval vyjadøování v logice místo psaní poèítaèovıch instrukcí. Prolog patøí mezi tzv. deklarativní programovací jazyky, ve kterıch programátor popisuje pouze cíl vıpoètu, pøièem pøesnı postup, jakım se k vısledku program dostane, je ponechán na libovùli systému.
 
-Prolog je vyuÅ¾Ã­vÃ¡n pÅ™edevÅ¡Ã­m v oboru umÄ›lÃ© inteligence a v poÄÃ­taÄovÃ© lingvistice (obzvlÃ¡Å¡tÄ› zpracovÃ¡nÃ­ pÅ™irozenÃ©ho jazyka, pro nÄ›jÅ¾ byl pÅ¯vodnÄ› navrÅ¾en). Syntaxe jazyka je velice jednoduchÃ¡ a snadno pouÅ¾itelnÃ¡ pravÄ› proto, Å¾e byl pÅ¯vodnÄ› urÄen pro poÄÃ­taÄovÄ› nepÅ™Ã­liÅ¡ gramotnÃ© lingvisty.
+Prolog je vyuíván pøedevším v oboru umìlé inteligence a v poèítaèové lingvistice (obzvláštì zpracování pøirozeného jazyka, pro nìj byl pùvodnì navren). Syntaxe jazyka je velice jednoduchá a snadno pouitelná pravì proto, e byl pùvodnì urèen pro poèítaèovì nepøíliš gramotné lingvisty.
 
-Prolog je zaloÅ¾en na \emph{predikÃ¡tovÃ© logice prvnÃ­ho Å™Ã¡du} (konkrÃ©tnÄ› se omezuje na Hornovy klauzule). BÄ›h programu je pak pÅ™edstavovÃ¡n aplikacÃ­ dokazovacÃ­ch technik na zadanÃ© klauzule. ZÃ¡kladnÃ­mi vyuÅ¾Ã­vanÃ½mi pÅ™Ã­stupy jsou \emph{unifikace}, \emph{rekurze} a \emph{backtracking}.
+Prolog je zaloen na \emph{predikátové logice prvního øádu} (konkrétnì se omezuje na Hornovy klauzule). Bìh programu je pak pøedstavován aplikací dokazovacích technik na zadané klauzule. Základními vyuívanımi pøístupy jsou \emph{unifikace}, \emph{rekurze} a \emph{backtracking}.
 
-Interpret Prologu se snaÅ¾Ã­ nalÃ©zt nejobecnÄ›jÅ¡Ã­ substituci, kterÃ¡ splnÃ­ danÃ½ cÃ­l - tzn. nesubstituuje zbyteÄnÄ›, pokud nemusÃ­ (pouÅ¾itÃ­ internÃ­ch promÄ›nnÃ½ch -- \_123 atd.). Za dvÄ› promÄ›nnÃ© mÅ¯Å¾e bÃ½t substituovÃ¡na jedna internÃ­ promÄ›nnÃ¡ (napÅ™. pÅ™i hledÃ¡nÃ­ svislÃ© ÃºseÄky -- konstantnÃ­ X souÅ™adnice) -- tomu se Å™Ã­kÃ¡ \emph{unifikace} promÄ›nnÃ½ch. Pro promÄ›nnou, jejÃ­Å¾ hodnota mÅ¯Å¾e bÃ½t libovolnÃ¡, se v prologu uÅ¾Ã­vÃ¡ znak \uv{\_}. 
+Interpret Prologu se snaí nalézt nejobecnìjší substituci, která splní danı cíl - tzn. nesubstituuje zbyteènì, pokud nemusí (pouití interních promìnnıch -- \_123 atd.). Za dvì promìnné mùe bıt substituována jedna interní promìnná (napø. pøi hledání svislé úseèky -- konstantní X souøadnice) -- tomu se øíká \emph{unifikace} promìnnıch. Pro promìnnou, její hodnota mùe bıt libovolná, se v prologu uívá znak \uv{\_}. 
 
-DatovÃ© typy v prologu se nazÃ½vajÃ­ \emph{termy}. ZÃ¡kladnÃ­m datovÃ½m typem jsou \emph{atomy} (zaÄÃ­najÃ­ malÃ½m pÃ­smenem, nebo se sklÃ¡dajÃ­ ze speciÃ¡lnÃ­ch znakÅ¯ (\texttt{+ - * / \dots}, nebo jsou to znakovÃ© Å™etÄ›zce (\texttt{'text'})). DÃ¡le \uv{jsou} v prologu ÄÃ­sla (v komerÄnÃ­ch implementacÃ­ch i reÃ¡lnÃ¡), promÄ›nnÃ© (velkÃ© pÃ­smeno) a struktury (definovanÃ© rekursivnÄ› - pomocÃ­ funktoru danÃ© arity a pÅ™Ã­sluÅ¡nÃ½m poÄtem termÅ¯, kterÃ© jsou jeho argumenty -- \texttt{okamzik(datum(1,1,1999),cas(10,10))}). PoslednÃ­m typem promÄ›nnÃ½ch jsou seznamy, kterÃ© jsou probÃ­rÃ¡ny pozdÄ›ji.
+Datové typy v prologu se nazıvají \emph{termy}. Základním datovım typem jsou \emph{atomy} (zaèínají malım písmenem, nebo se skládají ze speciálních znakù (\texttt{+ - * / \dots}, nebo jsou to znakové øetìzce (\texttt{'text'})). Dále \uv{jsou} v prologu èísla (v komerèních implementacích i reálná), promìnné (velké písmeno) a struktury (definované rekursivnì - pomocí funktoru dané arity a pøíslušnım poètem termù, které jsou jeho argumenty -- \texttt{okamzik(datum(1,1,1999),cas(10,10))}). Posledním typem promìnnıch jsou seznamy, které jsou probírány pozdìji.
 
-\medskip\textbf{ZÃ¡kladnÃ­ principy}:
+\medskip\textbf{Základní principy}:
 
-ProgramovÃ¡nÃ­ v Prologu se vÃ½raznÄ› liÅ¡Ã­ od programovÃ¡nÃ­ v bÄ›Å¾nÃ½ch procedurÃ¡lnÃ­ch jazycÃ­ch jako napÅ™. C. Program v prologu je databÃ¡ze faktÅ¯ a pravidel (dohromady se faktÅ¯m a pravidlÅ¯m paradoxnÄ› Å™Ã­kÃ¡ procedury), nad kterÃ½mi je moÅ¾no klÃ¡st dotazy formou tvrzenÃ­, u kterÃ½ch Prolog zhodnocuje jejich pravdivost (dokazatelnost z ÃºdajÅ¯ obsaÅ¾enÃ½ch v databÃ¡zi).
+Programování v Prologu se vıraznì liší od programování v bìnıch procedurálních jazycích jako napø. C. Program v prologu je databáze faktù a pravidel (dohromady se faktùm a pravidlùm paradoxnì øíká procedury), nad kterımi je mono klást dotazy formou tvrzení, u kterıch Prolog zhodnocuje jejich pravdivost (dokazatelnost z údajù obsaenıch v databázi).
 
-NapÅ™Ã­klad lze do databÃ¡ze uloÅ¾it fakt, Å¾e Monika je dÃ­vka:
+Napøíklad lze do databáze uloit fakt, e Monika je dívka:
 \begin{verbatim}
-dÃ­vka(monika).
+dívka(monika).
 \end{verbatim}
 
-PotÃ© lze dokazatelnost tohoto faktu provÄ›Å™it otÃ¡zkou, na kterou Prolog odpovÃ­ yes (ano):
+Poté lze dokazatelnost tohoto faktu provìøit otázkou, na kterou Prolog odpoví yes (ano):
 \begin{verbatim}
-?- dÃ­vka(monika).
+?- dívka(monika).
      yes.
 \end{verbatim}
 
-TakÃ© se lze zeptat na vÅ¡echny objekty, o kterÃ½ch je znÃ¡mo, Å¾e jsou dÃ­vky (stÅ™ednÃ­kem poÅ¾adujeme dalÅ¡Ã­ vÃ½sledky):
+Také se lze zeptat na všechny objekty, o kterıch je známo, e jsou dívky (støedníkem poadujeme další vısledky):
 \begin{verbatim}
-?- dÃ­vka(X).
+?- dívka(X).
      X = monika;
      no.
 \end{verbatim}
 
-Pravidla (zÃ¡vislosti) se zapisujÃ­ pomocÃ­ implikacÃ­, napÅ™.
+Pravidla (závislosti) se zapisují pomocí implikací, napø.
 \begin{verbatim}
-syn(A,B) :- rodiÄ(B,A), muÅ¾(A).
+syn(A,B) :- rodiè(B,A), mu(A).
 \end{verbatim}
 
-Tedy: pokud B je rodiÄem A a zÃ¡roveÅˆ je A muÅ¾, pak A je synem B. PrvnÃ­ ÄÃ¡sti pravidla (tj. dÅ¯sledku) se Å™Ã­kÃ¡ hlava a vÅ¡emu co nÃ¡sleduje za symbolem \texttt{:-} (tedy podmÃ­nkÃ¡m, nutnÃ½m pro splnÄ›nÃ­ hlavy) se Å™Ã­kÃ¡ tÄ›lo. PodmÃ­nky ke splnÄ›nÃ­ mohou bÃ½t oddÄ›leny buÄ ÄÃ¡rkou (pak jde o konjunkci, musejÃ­ bÃ½t splnÄ›ny vÅ¡echny), nebo stÅ™ednÃ­kem (disjunkce), pÅ™iÄemÅ¾ ÄÃ¡rky majÃ­ vÄ›tÅ¡Ã­ prioritu.
+Tedy: pokud B je rodièem A a zároveò je A mu, pak A je synem B. První èásti pravidla (tj. dùsledku) se øíká hlava a všemu co následuje za symbolem \texttt{:-} (tedy podmínkám, nutnım pro splnìní hlavy) se øíká tìlo. Podmínky ke splnìní mohou bıt oddìleny buï èárkou (pak jde o konjunkci, musejí bıt splnìny všechny), nebo støedníkem (disjunkce), pøièem èárky mají vìtší prioritu.
 
-\medskip\textbf{PÅ™Ã­klad}:
+\medskip\textbf{Pøíklad}:
 
-Typickou ukÃ¡zkou zÃ¡kladÅ¯ programovÃ¡nÃ­ v Prologu jsou rodinnÃ© vztahy.
+Typickou ukázkou základù programování v Prologu jsou rodinné vztahy.
 \begin{verbatim}
-sourozenec(X,Y) :- rodiÄ(Z,X), rodiÄ(Z,Y).
-rodiÄ(X,Y) :- otec(X,Y).
-rodiÄ(X,Y) :- matka(X,Y).
-muÅ¾(X) :- otec(X,_).
-Å¾ena(X) :- matka(X,_).
+sourozenec(X,Y) :- rodiè(Z,X), rodiè(Z,Y).
+rodiè(X,Y) :- otec(X,Y).
+rodiè(X,Y) :- matka(X,Y).
+mu(X) :- otec(X,_).
+ena(X) :- matka(X,_).
 matka(marie,monika).
-otec(jiÅ™Ã­,monika).
-otec(jiÅ™Ã­,marek).
-otec(michal,tomÃ¡Å¡).
+otec(jiøí,monika).
+otec(jiøí,marek).
+otec(michal,tomáš).
 \end{verbatim}
 
-PrÃ¡zdnÃ½ seznam je oznaÄen atomem $[]$, neprÃ¡zdnÃ½ se tvoÅ™Ã­ pomocÃ­ funktoru \texttt{'.'} (teÄka) - \texttt{.(Hlava,TÄ›lo)}. V praxi se to (naÅ¡tÄ›stÃ­ ;-)) takhle sloÅ¾itÄ› rekurzivnÄ› zapisovat nemusÃ­, staÄÃ­ napsat \texttt{[a,b,c...]}, resp \texttt{[ZaÄÃ¡tek | TÄ›lo]}, kde zaÄÃ¡tek je vÃ½Äet prvkÅ¯ (ne seznam) stojÃ­cÃ­ch na zaÄÃ¡tku definovanÃ©ho seznamu, a tÄ›lo je (rekurzivnÄ›) seznam (napÅ™. \texttt{[a,b,c|[]]}).
+Prázdnı seznam je oznaèen atomem $[]$, neprázdnı se tvoøí pomocí funktoru \texttt{'.'} (teèka) - \texttt{.(Hlava,Tìlo)}. V praxi se to (naštìstí ;-)) takhle sloitì rekurzivnì zapisovat nemusí, staèí napsat \texttt{[a,b,c...]}, resp \texttt{[Zaèátek | Tìlo]}, kde zaèátek je vıèet prvkù (ne seznam) stojících na zaèátku definovaného seznamu, a tìlo je (rekurzivnì) seznam (napø. \texttt{[a,b,c|[]]}).
 
-AritmetickÃ© vÃ½razy se samy o sobÄ› nevyhodnocujÃ­, dokud jim to nÄ›kdo nepÅ™ikÃ¡Å¾e. TakÅ¾e napÅ™. predikÃ¡t \texttt{5*1 = 5} by selhal. VyhodnocenÃ­ se vynucuje pomocÃ­ operÃ¡toru \emph{is} (pomocÃ­ = by doÅ¡lo jen k unifikaci) - nenÃ­ to ale ekvivalent \uv{\texttt{=}} z jinÃ½ch jazykÅ¯. Tento operÃ¡tor se musÃ­ pouÅ¾Ã­t na nÄ›jakou volnou promÄ›nnou a aritmetickÃ½ vÃ½raz, s jehoÅ¾ hodnotou bude tato promÄ›nnÃ¡ dÃ¡le svÃ¡zanÃ¡ (jako napÅ™. \texttt{X is 5*1,X=5} uspÄ›je).
+Aritmetické vırazy se samy o sobì nevyhodnocují, dokud jim to nìkdo nepøikáe. Take napø. predikát \texttt{5*1 = 5} by selhal. Vyhodnocení se vynucuje pomocí operátoru \emph{is} (pomocí = by došlo jen k unifikaci) - není to ale ekvivalent \uv{\texttt{=}} z jinıch jazykù. Tento operátor se musí pouít na nìjakou volnou promìnnou a aritmetickı vıraz, s jeho hodnotou bude tato promìnná dále svázaná (jako napø. \texttt{X is 5*1,X=5} uspìje).
 
-DÅ¯leÅ¾itÃ½ je i \emph{operÃ¡tor Å™ezu} (znaÄÃ­me vykÅ™iÄnÃ­kem). Tento predikÃ¡t okamÅ¾itÄ› uspÄ›je, ale pÅ™i tom zakÃ¡Å¾e backtrackovÃ¡nÃ­ pÅ™es sebe zpÄ›t. (\texttt{prvek1(X,[X|L]):-!. prvek1(X,[\_|L]):-prvek1(X,L).} - je-li prvek nalezen, je zakÃ¡zÃ¡n nÃ¡vrat = najde jen prvnÃ­ vÃ½skyt prvku). DÃ¡le je dÅ¯leÅ¾itÃ¡ negace (\texttt{not(P):- P, !, fail. not(P).} -- uspÄ›je, pokud se nepodaÅ™Ã­ cÃ­l P splnit). Å˜ez tedy umoÅ¾Åˆuje ovlivÅˆovat efektivitu prologovskÃ½ch programÅ¯, definovat vzÃ¡jemnÄ› se vyluÄujÃ­cÃ­ pouÅ¾itÃ­ jednotlivÃ½ch klauzulÃ­ procedury, definovat negaci atd.
+Dùleitı je i \emph{operátor øezu} (znaèíme vykøièníkem). Tento predikát okamitì uspìje, ale pøi tom zakáe backtrackování pøes sebe zpìt. (\texttt{prvek1(X,[X|L]):-!. prvek1(X,[\_|L]):-prvek1(X,L).} - je-li prvek nalezen, je zakázán návrat = najde jen první vıskyt prvku). Dále je dùleitá negace (\texttt{not(P):- P, !, fail. not(P).} -- uspìje, pokud se nepodaøí cíl P splnit). Øez tedy umoòuje ovlivòovat efektivitu prologovskıch programù, definovat vzájemnì se vyluèující pouití jednotlivıch klauzulí procedury, definovat negaci atd.
 
 \subsubsection*{Haskell}
-Haskell je standardizovanÃ½ funkcionÃ¡lnÃ­ programovacÃ­ jazyk pouÅ¾Ã­vajÃ­cÃ­ zkrÃ¡cenÃ© vyhodnocovÃ¡nÃ­, pojmenovanÃ½ na poÄest logika Haskella Curryho. Byl vytvoÅ™en v 80. letech 20. stoletÃ­. PoslednÃ­m polooficiÃ¡lnÃ­m standardem je Haskell 98, kterÃ½ definuje minimÃ¡lnÃ­ a pÅ™enositelnou verzi jazyka vyuÅ¾itelnou k vÃ½uce nebo jako zÃ¡klad dalÅ¡Ã­ch rozÅ¡Ã­Å™enÃ­. Jazyk se rychle vyvÃ­jÃ­, pÅ™edevÅ¡Ã­m dÃ­ky svÃ½m implementacÃ­m Hugs a GHC (viz nÃ­Å¾e).
+Haskell je standardizovanı funkcionální programovací jazyk pouívající zkrácené vyhodnocování, pojmenovanı na poèest logika Haskella Curryho. Byl vytvoøen v 80. letech 20. století. Posledním polooficiálním standardem je Haskell 98, kterı definuje minimální a pøenositelnou verzi jazyka vyuitelnou k vıuce nebo jako základ dalších rozšíøení. Jazyk se rychle vyvíjí, pøedevším díky svım implementacím Hugs a GHC (viz níe).
 
-Haskell je jazyk dodrÅ¾ujÃ­cÃ­ \emph{referenÄnÃ­ transparentnost}. To, zjednoduÅ¡enÄ› Å™eÄeno, znamenÃ¡, Å¾e tentÃ½Å¾ (pod)vÃ½raz mÃ¡ na jakÃ©mkoliv mÃ­stÄ› v programu stejnou hodnotu. Mezi dalÅ¡Ã­ vÃ½hody tohoto jazyka patÅ™Ã­ pÅ™Ã­snÃ© \emph{typovÃ¡nÃ­ promÄ›nnÃ½ch}, kterÃ© programÃ¡torovi mÅ¯Å¾e usnadnit odhalovÃ¡nÃ­ chyb v programu. Haskell plnÄ› podporuje prÃ¡ci se soubory i standardnÃ­mi vstupy a vÃ½stupy, kterÃ¡ je ale pomÄ›rnÄ› sloÅ¾itÃ¡ kvÅ¯li zachovÃ¡nÃ­ referenÄnÃ­ transparentnosti. Jako takovÃ½ se Haskell hodÃ­ hlavnÄ› pro algoritmicky nÃ¡roÄnÃ© Ãºlohy minimalizujÃ­cÃ­ interakci s uÅ¾ivatelem.
+Haskell je jazyk dodrující \emph{referenèní transparentnost}. To, zjednodušenì øeèeno, znamená, e tentı (pod)vıraz má na jakémkoliv místì v programu stejnou hodnotu. Mezi další vıhody tohoto jazyka patøí pøísné \emph{typování promìnnıch}, které programátorovi mùe usnadnit odhalování chyb v programu. Haskell plnì podporuje práci se soubory i standardními vstupy a vıstupy, která je ale pomìrnì sloitá kvùli zachování referenèní transparentnosti. Jako takovı se Haskell hodí hlavnì pro algoritmicky nároèné úlohy minimalizující interakci s uivatelem.
 
-\medskip\textbf{PÅ™Ã­klady}:
+\medskip\textbf{Pøíklady}:
 
-Definice funkce faktoriÃ¡lu:
+Definice funkce faktoriálu:
 \begin{verbatim}
 fac 0 = 1
 fac n = n * fac (n - 1)
 \end{verbatim}
 
-JinÃ¡ definice faktoriÃ¡lu (pouÅ¾Ã­vÃ¡ funkci product ze standardnÃ­ knihovny Haskellu):
+Jiná definice faktoriálu (pouívá funkci product ze standardní knihovny Haskellu):
 \begin{verbatim}
 fac n = product [1..n]
 \end{verbatim}
 
-NaivnÃ­ implementace funkce vracejÃ­cÃ­ n-tÃ½ prvek Fibonacciho posloupnosti:
+Naivní implementace funkce vracející n-tı prvek Fibonacciho posloupnosti:
 \begin{verbatim}
 fib 0 = 0 
 fib 1 = 1 
 fib n = fib (n - 2) + fib (n - 1)
 \end{verbatim}
 
-ElegantnÃ­ zÃ¡pis Å™adÃ­cÃ­ho algoritmu quicksort:
+Elegantní zápis øadícího algoritmu quicksort:
 \begin{verbatim}
 qsort [] = []
 qsort (pivot:tail) = 
@@ -114,44 +114,44 @@ qsort (pivot:tail) =
     right = [y | y <- tail, y >= pivot]
 \end{verbatim}
 
-TODO: popsat strÃ¡Å¾e (pÅ™Ã­pady, otherwise), seznamy, Å™etÄ›zenÃ­, pattern matching u parametrÅ¯ funkcÃ­, lok. definice (where, let) -- patÅ™Ã­ to sem?
+TODO: popsat stráe (pøípady, otherwise), seznamy, øetìzení, pattern matching u parametrù funkcí, lok. definice (where, let) -- patøí to sem?
 
 \subsubsection*{Lisp}
 
-Lisp je funkcionÃ¡lnÃ­ programovacÃ­ jazyk s dlouhou historiÃ­. Jeho nÃ¡zev je zkratka pro List processing (zpracovÃ¡nÃ­ seznamÅ¯). Dnes se stÃ¡le pouÅ¾Ã­vÃ¡ v oboru umÄ›lÃ© inteligence. Nic ale nebrÃ¡nÃ­ ho pouÅ¾Ã­t i pro jinÃ© ÃºÄely. PouÅ¾Ã­vÃ¡ ho napÅ™Ã­klad textovÃ½ editor Emacs, GIMP Äi konstrukÄnÃ­ program AutoCAD.
+Lisp je funkcionální programovací jazyk s dlouhou historií. Jeho název je zkratka pro List processing (zpracování seznamù). Dnes se stále pouívá v oboru umìlé inteligence. Nic ale nebrání ho pouít i pro jiné úèely. Pouívá ho napøíklad textovı editor Emacs, GIMP èi konstrukèní program AutoCAD.
 
-DalÅ¡Ã­ jazyky od nÄ›j odvozenÃ© jsou napÅ™Ã­klad Tcl, Smalltalk nebo Scheme.
+Další jazyky od nìj odvozené jsou napøíklad Tcl, Smalltalk nebo Scheme.
 
 
 \medskip\textbf{Syntaxe}:
-NejzÃ¡kladnÄ›jÅ¡Ã­m zÃ¡pisem v Lispu je seznam. Zapisujeme ho jako:
+Nejzákladnìjším zápisem v Lispu je seznam. Zapisujeme ho jako:
 \begin{verbatim}
 (1 2 "ahoj" 13.2)
 \end{verbatim}
 
-Tento seznam obsahuje ÄtyÅ™i prvky:
+Tento seznam obsahuje ètyøi prvky:
 \begin{pitemize}
-	\item celÃ© ÄÃ­slo 1
-	\item celÃ© ÄÃ­slo 2
+	\item celé èíslo 1
+	\item celé èíslo 2
 	\item text \uv{ahoj}
-	\item reÃ¡lnÃ© ÄÃ­slo 13,2
+	\item reálné èíslo 13,2
 \end{pitemize}
 
-Jde tedy o uspoÅ™Ã¡danou ÄtveÅ™ici. VÅ¡imnÄ›te si, Å¾e zÃ¡vorky nefungujÃ­ tak jako v matematice, ale pouze oznaÄujÃ­ zaÄÃ¡tek a konec seznamu. Seznamy jsou v Lispu implementovÃ¡ny jako binÃ¡rnÃ­ strom degenerovanÃ½ na jednosmÄ›rnÄ› vÃ¡zanÃ½ seznam. Co se seznamem Lisp udÄ›lÃ¡, zÃ¡leÅ¾Ã­ na okolnostech.
+Jde tedy o uspoøádanou ètveøici. Všimnìte si, e závorky nefungují tak jako v matematice, ale pouze oznaèují zaèátek a konec seznamu. Seznamy jsou v Lispu implementovány jako binární strom degenerovanı na jednosmìrnì vázanı seznam. Co se seznamem Lisp udìlá, záleí na okolnostech.
 
-\textbf{PÅ™Ã­kazy}: PÅ™Ã­kazy pÃ­Å¡eme takÃ© jako seznam, prvnÃ­ prvek seznamu je vÅ¡ak nÃ¡zev pÅ™Ã­kazu. NapÅ™Ã­klad sÄÃ­tÃ¡nÃ­ provÃ¡dÃ­me pÅ™Ã­kazem +, coÅ¾ interpreteru zadÃ¡me takto:
+\textbf{Pøíkazy}: Pøíkazy píšeme také jako seznam, první prvek seznamu je však název pøíkazu. Napøíklad sèítání provádíme pøíkazem +, co interpreteru zadáme takto:
 \begin{verbatim}
 (+ 1 2 3)
 \end{verbatim}
-Interpretr odpovÃ­ 6.
+Interpretr odpoví 6.
 
-\textbf{UkÃ¡zka kÃ³du}:
-Program hello world lze zapsat nÄ›kolika zpÅ¯soby. NejjednoduÅ¡Ã­ vypadÃ¡ takto:
+\textbf{Ukázka kódu}:
+Program hello world lze zapsat nìkolika zpùsoby. Nejjednoduší vypadá takto:
 \begin{verbatim}
 (format t "Hello, World!")
 \end{verbatim}
 
-Funkce se v Lispu definujÃ­ pomocÃ­ klÃ­ÄovÃ©ho slova defun:
+Funkce se v Lispu definují pomocí klíèového slova defun:
 \begin{verbatim}
 (defun hello ()
         (format t "Hello, World!")
@@ -159,8 +159,8 @@ Funkce se v Lispu definujÃ­ pomocÃ­ klÃ­ÄovÃ©ho slova defun:
 (hello)
 \end{verbatim}
 
-Na prvnÃ­ch dvou Å™Ã¡dcÃ­ch je definice funkce hello, na tÅ™etÃ­m Å™Ã¡dku je tato funkce svÃ½m jmÃ©nem zavolÃ¡na.
-FunkcÃ­m lze pÅ™edÃ¡vat i argumenty. V nÃ¡sledujÃ­cÃ­m pÅ™Ã­kladu je ukÃ¡zka funkce fact, kterÃ¡ vypoÄÃ­tÃ¡ faktoriÃ¡l zadanÃ©ho ÄÃ­sla:
+Na prvních dvou øádcích je definice funkce hello, na tøetím øádku je tato funkce svım jménem zavolána.
+Funkcím lze pøedávat i argumenty. V následujícím pøíkladu je ukázka funkce fact, která vypoèítá faktoriál zadaného èísla:
 \begin{verbatim}
 (defun fact (n)
         (if (= n 0)
@@ -169,11 +169,11 @@ FunkcÃ­m lze pÅ™edÃ¡vat i argumenty. V nÃ¡sledujÃ­cÃ­m pÅ™Ã­kladu je ukÃ¡zka fun
         )
 )
 \end{verbatim}
-Pro vÃ½poÄet faktoriÃ¡lu ÄÃ­sla 6 pÅ™edÃ¡me tuto hodnotu jako argument funkci fact:
+Pro vıpoèet faktoriálu èísla 6 pøedáme tuto hodnotu jako argument funkci fact:
 \begin{verbatim}
 (fact 6)
 \end{verbatim}
-NÃ¡vratovou hodnotou funkce bude hodnota 720.
+Návratovou hodnotou funkce bude hodnota 720.
 
-\subsubsection*{LogickÃ© programovÃ¡nÃ­}
-TODO (nenÃ­ souÄÃ¡stÃ­ otÃ¡zek pro obor ProgramovÃ¡nÃ­)
+\subsubsection*{Logické programování}
+TODO (není souèástí otázek pro obor Programování)
