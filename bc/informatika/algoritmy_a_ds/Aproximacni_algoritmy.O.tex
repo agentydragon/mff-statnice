@@ -1,36 +1,40 @@
-\subsection{Aproximaèní algoritmy}
+\subsection{Aproximaèní algoritmy\footnote{asi má cenu se uèit a kdy pochopíte NP-úplné problémy (hlavnì klika a rozvrh) Zdroj: Èepkovy slajdy na ADS2}}
 Aprox. algoritmy jsou vhodné tam, kde je nalezení optimálního øešení „beznadìjné“ (èasovì pøíliš nároèné), typicky u NP-tìkıch optimalizaèních úloh (optimalizaèních verzí NP-úplnıch rozhodovacích problémù). Mají následující tøi vlastnosti:
 \\1. konstruují suboptimální øešení
 \\2. poskytují odhad kvality zkonstruovaného øešení vzhledem k optimu
 \\3. bìí v polynomiálním èase (jinak nejsou zajímavé) 
 \\\\
-\begin{prikladN}{maximalizaèní úlohy (optimalizaèní verze KLIKY)} Pro danı neorientovanı graf najdi nejvìtší (poètem vrcholù) kliku (úplnı podgraf). Po aproximaèním algoritmu chceme garanci typu f(APROX) ? f(OPT), kde f(X) je v tomto pøípadì poèet vrcholù (tj. velikost kliky) v øešení X, OPT je optimální øešení a APROX je øešení vydané aproximaèním algoritmem.
+\begin{prikladN}{maximalizaèní úlohy (optimalizaèní verze KLIKY)} Pro danı neorientovanı graf najdi nejvìtší (poètem vrcholù) kliku (úplnı podgraf). Po aproximaèním algoritmu chceme garanci typu $f(APROX) \geq \frac3 4 f(OPT)$, kde $f(X)$ je v tomto pøípadì poèet vrcholù (tj. velikost kliky) v øešení X, OPT je optimální øešení a APROX je øešení vydané aproximaèním algoritmem.
 \end{prikladN}
-\begin{prikladN}{Pøíklad minimalizaèní úlohy (optimalizaèní verze ROZ)} Pro dané úkoly a danı poèet strojù najdi nejkratší rozvrh. Po aproximaèním algoritmu chceme garanci typu $f(APROX) \leq 2 f(OPT)$. 
+\begin{prikladN}{Pøíklad minimalizaèní úlohy (optimalizaèní verze ROZ)} Rozvrh na paralel. strojích. Pro dané úkoly a danı poèet strojù najdi nejkratší rozvrh. Po aproximaèním algoritmu chceme garanci typu $f(APROX) \leq 2 f(OPT)$. 
 \end{prikladN}
 \begin{definice} \textit{Chyba aproximaèního algoritmu} je definována jako pomìr (podíl) $f(APROX) / f(OPT)$ pro minimalizaèní úlohy a $f(OPT) / f(APROX)$ pro maximalizaèní úlohy. Relativní chyba je pak definována jako $|f(APROX) f(OPT)| / f(OPT)$.
 \end{definice}
-\\\\Naivní aproximaèní algoritmus $FRONTA$ pro optimalizaèní verzi $ROZ$: bere úkoly postupnì podle jejich èísel a kadı úkol vdy umístí na stroj, kterı je volnı nejdøíve. 
-\\\\
+\begin{algoritmusN}{Naivní aproximaèní algoritmus $FRONTA$} pro optimalizaèní verzi $ROZ$: bere úkoly postupnì podle jejich èísel a kadı úkol vdy umístí na stroj, kterı je volnı nejdøíve. 
+\end{algoritmusN}
 \begin{obecne}{Znaèení:} $OPT$ = optimální rozvrh, $Q$ = rozvrh zkonstruovanı algoritmem FRONTA, délka(OPT) = $o$, délka(Q) = $q$ 
 \end{obecne}
 \begin{veta} Pokud m je poèet strojù, tak $q \leq ((2m- 1) / m)o$ a tento odhad ji nelze zlepšit. 
+\proof
+dùkazy všech vìt z této kapitoly najdete tøeba u hippiese: \\\url{http://hippies.matfyz.info/poznamky/predmet_ads2/gallery.php?ID=28}
 \end{veta}
+
 \begin{dusledek} Aproximaèní algoritmus FRONTA má pomìrovou chybu 2. 
-\end{dusledek}
 \proof
 1.Tìsnost odhadu: Pro kadé $m$ zkonstruujeme zadání, pro které platí v dokazované nerovnosti rovnost, a to následujícím zpùsobem \\
 $x_1 = x_2 = … = x_{m-1} = m-1$ ($m-1$ úkolù délky $m-1$) \\
 $x_m = x_{m+1} = … = x_{2m-2} = 1$ ($m-1$ úkolù délky $1$) \\
 $x_{2m-1} = m$ (1 úkol délky $m$)
 \\2.Platnost nerovnosti: Nech $j$ je úkol konèící jako poslední v rozvrhu $Q$ (konèící v èase $q$) a nech $t$ je okamik zahájení úkolu $j$. Potom ádnı procesor nemá prostoj pøed èasem $t$ a platí $mq \leq (2m-1)o$ .
-\\\\Lepší aproximaèní algoritmus USPOØÁDANÁ FRONTA pro optimalizaèní verzi ROZ: pracuje stejnì jako FRONTA, ale na zaèátku úkoly setøídí do nerostoucí posloupnosti podle jejich délek. 
-\\\\\begin{obecne}{Znaèení:} 
-\\OPT = optimální rozvrh, 
+\end{dusledek}
+\begin{algoritmusN}{Lepší aproximaèní algoritmus USPOØÁDANÁ FRONTA} pro optimalizaèní verzi ROZ: pracuje stejnì jako FRONTA, ale na zaèátku úkoly setøídí do nerostoucí posloupnosti podle jejich délek. 
+\end{algoritmusN}
+\begin{obecne}{Znaèení:} 
+OPT = optimální rozvrh, 
 \\U = rozvrh zkonstruovanı algoritmem USPOØÁDANÁ FRONTA, 
 \\délka(OPT) = o, délka(U) = u 
 \end{obecne}
-\begin{veta} Pokud m je poèet strojù, tak $u \leq ((4m - 1) / 3m)o$ a tento odhad ji nelze zlepšit. 
+\begin{veta} Pokud $m$ je poèet strojù, tak $u \leq ((4m - 1) / 3m)o$ a tento odhad ji nelze zlepšit. 
 \end{veta}
 \begin{dusledek} Aproximaèní algoritmus USPOØÁDANÁ FRONTA má pomìrovou chybu $4/3$. 
 \proof Tìsnost odhadu: Pro kadé liché $m$ zkonstruujeme zadání, pro které platí v dokazované nerovnosti rovnost, a to následujícím zpùsobem 
