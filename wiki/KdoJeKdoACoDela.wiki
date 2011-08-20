@@ -3,6 +3,6 @@
 presunuto sem
 https://code.google.com/p/mff-statnice/people/list
 
-pravdepodobnostni algoritmy
-
-http://hippies.matfyz.info/poznamky/predmet_ads2/gallery.php?ID=29
+Petr:
+delam ted rozdel a panuj a pravdepodobnostni algoritmy
+kdyz zbyde cas nakousnu i aproximacni
