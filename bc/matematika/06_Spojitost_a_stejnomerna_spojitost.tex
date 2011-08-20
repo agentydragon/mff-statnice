@@ -1,5 +1,8 @@
 \subsection{Spojitost a stejnomìrná spojitost}
+
 \subsubsection*{Otevøené a uzavøené množiny}
+
+\obrazeknahore{matematika/obrazky/prostory_koule}{Rùzné koule}{fig:koule}
 
 \begin{definiceN}{otevøená a uzavøená koule}
 Buï $(M,d)$ metrický prostor, $x \in M, r > 0$, potom
@@ -10,6 +13,11 @@ $$B(x,r)=\{y \in M | d(x,y)<r\}$$
 $$\overline{B}(x,r) = \{y \in M | d(x,y) \le r \}$$
 \end{pitemize}
 \end{definiceN}
+
+\begin{poznamka}
+    Na obrázku \ref{fig:koule} je ilustrace nìkolika koulí na rùzných metrikách. Obrázky jsou z~\url{http://kma.me.sweb.cz/metr-prostor.pdf}.
+\end{poznamka}
+
 
 \begin{definiceN}{otevøená a uzavøená množina}
 Buï $(M,d)$ metrický prostor, $G \subseteq M$, potom
@@ -110,11 +118,14 @@ Nech je dáno zobrazení $f:X\to Y$ mezi dvìma metrickými prostory $(X, d_1)$, $(
 \begin{ideadukazu}
 \begin{penumerate}
     \item[1$\Rightarrow$2] $f$ je spojité a $(x_n) \to x$ v $X$, chceme ukázat, že pro (každé) dané $\varepsilon > 0$ existuje $n_0$ tak, že $n \geq n_0 \Rightarrow d_2(f(x_n), f(x)) \leq \varepsilon$ (neboli $\lim f(x_n) = f(x) = f(\lim x_n)$). Máme $f$ spojité, proto pro dané $\varepsilon$ existuje $\delta > 0:\;d_1(x_n, x) < \delta \Rightarrow d_2(f(x_n), f(x)) < \varepsilon$. A protože $x_n \to x$ v $X$, máme pro takové $\delta$ vždy nìjaké $n_0:\;n\geq n_0 \Rightarrow d_1(x_n, x) < \delta$. Tím jsme získali hledané $n_0$. (Argumentoval jsem pozpátku od cíle k nalezení potøebného \uv{parametru} $n_0$.)
-    \item[2$\Rightarrow$3] Nepøímo. Nech máme $x$ a $U$ takové, že okolí $V$ neexistuje. Díky tomu vytvoøíme posloupnost, která nesplòuje podmínku 2.
+    
+    Ještì jednou -- protože $f$ je spojité, pro libovolnì malou vzdálenost od $f(\lim x_n)$ dostaneme nutnou vzdálenost k~$\lim x_n$, ale k~té už se pøiblížit umíme.
+    
+    \item[2$\Rightarrow$3] Nepøímo. Nech máme $x$ a $U$ takové, že okolí $V$ neexistuje. Díky tomu vytvoøíme posloupnost, která nesplòuje podmínku 2 (okolí se \uv{nezobrazí} do okolí).
     \item[3$\Rightarrow$4] $U \subset Y$ otevøená, $x \in f^{-1}(U)$, tedy $U$ je okolím $f(x)$, proto existuje okolí $V$ bodu $x$, že $f(V) \subset U$ a tedy $V \subset f^{-1}(U)$ a proto je otevøená.
     \item[4$\Leftrightarrow$5] Vzor doplòku je doplnìk vzoru.
-    \item[5$\Rightarrow$6] $A \subseteq f^{-1}\left(f\left(A\right)\right) \subseteq f^{-1}\left(\overline{f\left(A\right)}\right)$ a vzory uzavøených jsou uzavøené, tak máme $\overline{A} \subseteq f^{-1}\left(\overline{f\left(A\right)}\right)$, a proto $f\left(\overline{A}\right) \subseteq \overline{f\left(A\right)}$.
-    \item[6$\Rightarrow$1] Nepøímo. Tedy máme $x, \varepsilon > 0$ tak, že pro všechna $\delta > 0$ existuje $y \in B(x, \delta)$ takové, že $d_2(x,y) > \varepsilon$. Z nich vytvoøíme $A = \left\lbrace y\;\middle\vert\;d_2\left(f\left(y\right),f\left(x\right)\right) > \varepsilon\right\rbrace$. Pak ovšem $x \in \overline{A}$, ale $f(x) \notin  \overline{f(A)}$, což je spor s 6.
+    \item[5$\Rightarrow$6] $A \subseteq f^{-1}\left(f\left(A\right)\right) \subseteq f^{-1}\left(\overline{f\left(A\right)}\right)$ a vzory uzavøených jsou uzavøené, tak máme $\overline{A} \subseteq f^{-1}\left(\overline{f\left(A\right)}\right)$, protože $\overline{A}$ je \textbf{nejmenší} uzavøená množina, obsahující $A$ a $f^{-1}\left(\overline{f\left(A\right)}\right)$ je uzavøená množina, obsahující A. Proto $f\left(\overline{A}\right) \subseteq \overline{f\left(A\right)}$ (ze základní logiky zobrazení).
+    \item[6$\Rightarrow$1] Nepøímo. Tedy máme $x, \varepsilon > 0$ tak, že pro všechna $\delta > 0$ existuje $y \in B(x, \delta)$ takové, že $d_2(f(x),f(y)) \geq \varepsilon$. Z nich vytvoøíme $A = \left\lbrace y\;\middle\vert\;d_2\left(f\left(y\right),f\left(x\right)\right) \geq \varepsilon\right\rbrace$. Pak ovšem $x \in \overline{A}$ (protože v~A jsou body $x$ blízko libovolnì malé $\delta$), ale $f(x) \notin  \overline{f(A)}$ (protože od $f(a)$ jsme vždy vzdáleni o $\varepsilon$), což je spor s 6.
 \end{penumerate}
 \end{ideadukazu}
 \end{vetaN}
