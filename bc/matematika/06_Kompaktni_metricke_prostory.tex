@@ -29,7 +29,14 @@ $$x,y\in A \;\Rightarrow\; d(x,y)<K$$
 Každý kompaktní podprostor $Y$ libovolného metrického prostoru $X$ je uzavøený a omezený (v $X$).
 
 \begin{ideadukazu}
-Uzavøenost: z definice (kompaktní prostory vždy mají konvergentní podposloupnosti a tudíž v nich leží i pøíslušné limity). Omezenost: sporem, nech není omezený. Pak vytvoøíme induktivnì posloupnost $(a_n)$ bez konvergentní podposloupnosti. Máme $k$ prvních èlenù, vezmu $B(a_1, R)$, kde $R=\max\limits_{i \in \left\lbrace 1 .. k \right\rbrace}\left\lbrace d(a_1, a_i)\right\rbrace +1 $. Díky neomezenosti existuje $a_{i+1} \notin B(a_1, R)$. Díky trojúhleníkové nerovnosti pak $\forall i \neq j:\;d(a_i, a_j) \geq 1$ a proto $(a_n)$ nemá konvergentní podposloupnost.
+    \begin {pitemize}
+\item Uzavøenost: Z definice (kompaktní prostory vždy mají konvergentní podposloupnosti a tudíž v nich leží i pøíslušné limity). 
+\item Omezenost: sporem, nech není omezený. 
+
+Pokud není omezený, mùžeme pro nìjaký pevnì daný bod $a$ pro libovolnì velké $K$ vzít bod $b\in X$, že $d(a,b)>K$ -- vezmeme dva body, vzdálené od sebe $3K$, a díky trojúhelníkové nerovnosti alespoò jeden z~nich je od $a$ vzdálen $K$.
+
+Pak vytvoøíme induktivnì posloupnost $(a_n)$ bez konvergentní podposloupnosti. Zaènìme v~libovolném $a_1$. Máme $k$ prvních èlenù, vezmu $R=\max\limits_{i \in \left\lbrace 2 .. k \right\rbrace}\left\lbrace d(a_1, a_i)\right\rbrace + 1 $. Jak jsem uvedl výše, existuje $a_{i+1}$, že $d(a,b)>R$. Díky trojúhelníkové nerovnosti pak $\forall i \neq j:\;d(a_i, a_j) \geq 1$ a proto $(a_n)$ nemá konvergentní podposloupnost.
+    \end{pitemize}
 \end{ideadukazu}
 \end{vetaN}
 
