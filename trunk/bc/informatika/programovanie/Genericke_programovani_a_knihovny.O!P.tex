@@ -1,23 +1,23 @@
-\subsection{Generické programování – šablony a generika}
+\newpage\subsection{Generické programování – šablony a generika}
 
-Základní myšlenkou, která se skrıvá za pojmem generické programování, je rozdìlení kódu programu na algoritmus a datové typy takovım zpùsobem, aby bylo moné zápis kódu algoritmu chápat jako obecnı, bez ohledu na to, nad jakımi datovımi typy pracuje. Konkrétní kód algoritmu se z nìj stává dosazením datového typu.
-
+Základní myšlenkou, která se skrıvá za pojmem generické programování, je \textbf{rozdìlení kódu programu na algoritmus a datové typy takovım zpùsobem, aby bylo moné zápis kódu algoritmu chápat jako obecnı, bez ohledu na to, nad jakımi datovımi typy pracuje}. Konkrétní kód algoritmu se z nìj stává dosazením datového typu.
+\par
 U kompilovanıch jazykù dochází k rozvinutí kódu v dobì pøekladu. Typickım pøíkladem jazyka, kterı podporuje tuto formu generického programování, je jazyk C++. Mechanismem, kterı zde generické programování umoòuje, 
 jsou takzvané šablony (templates).
 
 \medskip
-\begin{poznamkaN}{Metaprogramování a Generika}
-It differs from normal programming in that it somehow invokes within the language a metaprogramming facility. Because it happens as an extension of the language, new semantics are introduced and the language is enriched in this process. It is closely related to metaprogramming, but does not involve the generation of source code (none, at least, that is visible to the user of the language). It is different from programming with macros as well, as the latter refers to textual search-and-replace and is not part of the grammar of the language but implemented by a pre-processor. One exception to this is the macro facility in Common Lisp, in which macros operate on parse trees rather than text.
-
-Obyèejné fce mají pøednost pøed generickımi???
+\begin{poznamkaN}{Metaprogramování a Generické programování}
+Generické programování se liší od normálního tím, e rozšiøuje jazyk o monosti metaprogramování. Úzce souvisí s metaprogramováním, ale negeneruje ádnı další zdrojovı kód (alespoò ne takovı jakı by vidìl programátor). Liší se od maker, protoe ty provádìjí jen preprocesorové "search-and-replace" a nejsou souèástí gramatiky jazyka (viz níe podrobnìjší srovnání). Jediná vyjímka jsou makra a v Common Lisp, kde parsují stromy a ne text (?? zkontrolovat Lisp).
 \end{poznamkaN}
 
 \begin{definiceN}{Šablony}
-Template metaprogramming is a metaprogramming technique in which templates are used by a compiler to generate temporary source code, which is merged by the compiler with the rest of the source code and then compiled. The output of these templates include compile-time constants, data structures, and complete functions. The use of templates can be thought of as compile-time execution. The technique is used by a number of languages, the best-known being C++, but also Curl, D, and XL.
+Šablony jsou pouívány kompilátorem pro vygenerování doèasného zdrojového kódu, kterı se pak spojí se zbytkem a je pak zkompilován. Vıstup šablon mùou tvoøit compile-time konstanty , datové struktury i celé funkce. Pouití šablon mùe bıt chápáno jako spouštìní kódu bìhem kompilace. Tato technika je pouívána v mnoha jazycích, napøíklad C++, Curl, D a XL.
+
+Obyèejné fce v C++ mají pøednost pøed generickımi.
 \end{definiceN}
 
 \begin{prikladN}{Tøída parametrizovaná typem (kontejner)}
-As an example of the benefits of generic programming, when creating containers of objects it is common to write specific implementations for each datatype contained, even if the code is virtually identical except for different datatypes. Instead, a possible declaration using generic programming could be to define a template class (using the C++ idiom):
+Pøíklad ukazuje vıhodu generického programování, místo abychom psali specifickou implementaci pro kadı typ (i kdy bude kód témìø identickı), vytvoøíme si šablonu tøídy:
 \begin{verbatim}
   template<typename T> 
   class List 
@@ -37,27 +37,27 @@ As an example of the benefits of generic programming, when creating containers o
     conductor = conductor->next;
   }
 \end{verbatim}
-Above T represents the type to be instantiated. The list generated is then treated as a list of whichever type is specified. These "containers-of-type-T", commonly called generics, are a generic programming technique that allows the defining of a class that takes and contains different datatypes (not to be confused with polymorphism, which is the algorithmic usage of exchangeable sub-classes) as long as certain contracts such as subtypes and signature are kept. Although the example above is the most common use of generic programming, and some languages implement only this aspect of it, generic programming as a concept is not limited to generics. 
+T reprezentuje typ kterı bude instanciován. Vygenerovanı List se pak chová jako List podle urèeného typu. Tyto "kontejnery-typu-T", bìnì nazıvané generiky (anglicky "generics"), je programovací technika umoòující definici tøídy která pøijímá a obsahuje rùzné datové typy (nepleme si teï s dynamickım polymorfismem, kterı je algoritmicky pouívá zámìnné podtøídy). I kdy toto je nejèastìjší pouití generického programování (a nìkteré jazyky implementují pouze tento aspekt), generické programování obsahuje i další techniky. 
 \end{prikladN}
 
-\begin{prikladN}{Typovì nezávislá funkce}
-Another applicaton is type-independent functions as in the Swap example below:
+\begin{prikladN}{Šablony vs. makra}
+V mnoha smìrech šablony fungují stejnì jako šablony pre-procesoru, nahrazují šablonovanou promìnnou danım typem. Na druhou stranu je tu mnoho rozdílù mezi makrem jako toto:
 \begin{verbatim}
-  template<typename T>
-  void Swap(T & a, T & b) //"&" passes parameters by reference
-  {
-     T temp = b;
-     b = a;
-     a = temp;
-  }
-  
-  string hello = "world!", world = "Hello, ";
-  Swap( world, hello );
-  cout << hello << world << endl; //Output is "Hello, world!"
+    #define min(i, j) (((i) < (j)) ? (i) : (j))
 \end{verbatim}
+a a šablonou:
+\begin{verbatim}
+    template<class T> T min (T i, T j) { return ((i < j) ? i : j) }
+\end{verbatim}
+Makro má napøíklad tyto problémy:
+\begin{pitemize}
+\item Kompilátor nemùe zkontrolovat jestli jsou parametry makra (tj. i,j) kompatibilní typy. Makro se pouije bez typové kontroly.
+\item Hodnoty i a j jsou vyhodnoceny dvakrát. Napøíklad pokud jeden parametr pouívá post-inkrementaci je provedena dvakrát (?? tohle chce ovìøit).
+\item Protoe jsou makra jsou interpretována preprocesorem, chybové zprávy kompilátoru budou ukazovat na "rozbalenı" vısledek makra v kódu a ne na makro (i kdy chyba bude v nìm).\end{pitemize}
 \end{prikladN}
 
 \begin{prikladN}{Faktoriál pomocí šablon}
+Tento pøíklad jasnì ukazuje vıhodu nad makry, v nich takto jednoduše rekurzivní konstrukce napsat nejde (alespoò v C++ ne).
 \begin{verbatim}
   template <int N>
   struct Factorial 
@@ -79,21 +79,15 @@ Another applicaton is type-independent functions as in the Swap example below:
 
 
 \begin{prikladN}{traits}
-Programovací paradigma vyuívající šablony, ze kterıch nejsou vytváøeny objekty. Urèeny k doplnìní informací o nìjakém typu.
-\\\\Obsahují pouze:
-\begin{pitemize}
-\item Definice typù
-\item Statické funkce
-\end{pitemize}
+Programovací technika vyuívající šablony, ze kterıch nejsou vytváøeny objekty. Urèeny k doplnìní informací o nìjakém typu.
+\\\\Obsahují pouze definice typù a statické funkce.
 
 \begin{verbatim}
-  template< typename T > 
-  struct is_void{ 
+  template< typename T > struct is_void{ 
     static const bool value = false;
   };
   
-  template<> 
-  struct is_void< void >{ 
+  template<> struct is_void< void >{ 
     static const bool value = true; 
   };
   
@@ -104,7 +98,7 @@ Programovací paradigma vyuívající šablony, ze kterıch nejsou vytváøeny objekty.
 \end{prikladN}
 \newpage
 \begin{prikladN}{policy classes}
-Urèeny k definování urèitého chování. Jous to tøídy, ze kterıch obvykle nejsou vytváøeny objekty a jsou pøedávány jako parametr šablonám. Defaultní hodnotou parametru èasto bıvá šablona traits. Hlavnì spojené s C++ (v ostatních jazycích se zatím nerozšíøilo).
+Urèeny k definování urèitého chování. Jsou to tøídy, ze kterıch obvykle nejsou vytváøeny objekty a jsou pøedávány jako parametr šablonám. Defaultní hodnotou parametru èasto bıvá šablona traits. Hlavnì spojené s C++ (v ostatních jazycích se zatím nerozšíøilo).
 \begin{verbatim}
   template < typename output_policy, typename language_policy >
   class HelloWorld : public output_policy, public language_policy
@@ -155,8 +149,7 @@ Urèeny k definování urèitého chování. Jous to tøídy, ze kterıch obvykle nejsou v
 \end{prikladN}
 \newpage
 \begin{definiceN}{Dynamickı (run-time) polymorfismus}
-Dìdìní + VMT = flexibilita. (Je zde uvedeno jako protipøíklad, o šablony zde primárnì nejde.)
-
+Dìdìní + VMT = flexibilita. Zde uvedeno jako jako srovnání k šablonám.
 \begin{verbatim}
 class Base
 {
@@ -207,7 +200,7 @@ Lze tak dosáhnout podobnıch vìcí jako s VMT.
 \end{definiceN}
 
 \begin{obecne}{Pouití v programovacích jazycích}
-The template construct of C++ used in the examples above is widely cited as the generic programming construct that popularized the notion among programmers and language designers and provides full support for all generic programming idioms. D also offers fully generic-capable templates based on the C++ precedent but with a simplified syntax. Java has provided generic programming facilities syntactically based on C++'s since the introduction of J2SE 5.0 and implements the generics, or "containers-of-type-T", subset of generic programming.
+Jazyk D také nabízí plnì generické šablony zaloené na svém pøedchùdci C++ ale má jednodušší syntaxi. Java má syntaxi generického programování zaloenou na  C++ od uvedení J2SE 5.0 a implementuje generiky (anglicky "generics") neboli "kontejnery-typu-T" (tedy pouze podmnoinu generického programování).
 \end{obecne}
 
 \begin{reportN}{IP 21.6.2011} Co je to generické programování, k èemu se pouívá a v èem spoèívají jeho vıhody?
