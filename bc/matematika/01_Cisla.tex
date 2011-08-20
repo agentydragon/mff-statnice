@@ -176,10 +176,10 @@ $$\exists\mathbb{N}:\emptyset\in\mathbb{N}\wedge(\forall x:x\in \mathbb{N}\Right
 	
 	V \uv{klasickom} zápise èísel potom každému prirodzenému èíslu zodpovedá množina prirodzených èísel menších ako ono samo, takže
 	\begin{pitemize}
-		\item $0=\big\{\big\}$
-		\item $1 = \big\{0\big\} = \big\{\left\{ \right\}\big\}$
-		\item $2 = \big\{0,1\big\} = \big\{0, \left\{0\right\}\big\} = \big\{\left\{ \right\}, \left\{\left\{ \right\}\right\}\big\}$
-		\item $3 = \big\{0,1,2\big\} = \big\{0, \left\{0\right\}, \left\{0, \left\{0\right\}\right\}\big\} = \big\{\left\{ \right\}, \left\{\left\{ \right\}\right\}, \left\{\left\{ \right\}, \left\{\left\{ \right\}\right\}\right\}\big\}$
+		\item $0=\Big\{\Big\}$
+		\item $1 = \Big\{0\Big\} = \Big\{\left\{ \right\}\Big\}$
+		\item $2 = \Big\{0,1\Big\} = \Big\{0, \left\{0\right\}\Big\} = \Big\{\left\{ \right\}, \left\{\left\{ \right\}\right\}\Big\}$
+		\item $3 = \Big\{0,1,2\Big\} = \Big\{0, \left\{0\right\}, \left\{0, \left\{0\right\}\right\}\Big\} = \Big\{\left\{ \right\}, \left\{\left\{ \right\}\right\}, \left\{\left\{ \right\}, \left\{\left\{ \right\}\right\}\right\}\Big\}$
 	\end{pitemize}
 
 \end{definiceN}
@@ -189,6 +189,10 @@ $\mathbb{N}$ je uzavretá na sèítanie.
 \end{poznamka}
 
 \subsection{Celá a racionální èísla}
+
+\obrazekvpravominipage{matematika/obrazky/05-mnoziny}{Rùzné množiny}{fig:mnoziny}{0.2}{0.7}{
+
+
 \begin{definice}
 	Kromì symbolù $\mathbb{R}$ a $\mathbb{N}$, které jsme již zavedli, budeme znaèit symbolem $\mathbb{Z}$ množinu \emph{celých èísel}, tedy
 	$$\mathbb{Z} = \mathbb{N} \cup \{0\} \cup \{-n, n \in \mathbb{N}\}$$
@@ -200,10 +204,11 @@ $\mathbb{N}$ je uzavretá na sèítanie.
 	
 	Množinì $\mathbb{R} \setminus \mathbb{Q}$ se také øíká \emph{iracionální}.
 \end{definice}
+}
 
 \begin{vetaN}{Existence celé èásti}
-	Pro každé $x \in \mathbb{R}$ existuje právì jedno èíslo $[x] \in \mathbb{Z}$ splòující
-	$$x-1 < [x] \le x$$
+	Pro každé $x \in \mathbb{R}$ existuje právì jedno èíslo $\lfloor x \rfloor \in \mathbb{Z}$ splòující
+	$$x-1 < \lfloor x \rfloor \le x$$
 	Toto èíslo nazýváme \emph{dolní celou èástí èísla x}.
 	
 	
@@ -294,6 +299,8 @@ $$z^n = |z|^n (\cos n \varphi + i\cdot \sin n \varphi)$$
 Odmocnina není v $\mathbb{C}$ jednoznaèná -- napø. $i^2 = (-i)^2 = i$, nebo napø. $i^3 = \left(-\frac{\sqrt{3}}{2}-\frac{i}{2}
 \right)^3 = \left(\frac{\sqrt{3}}{2}-\frac{i}{2}
 \right)^3 = -i$.
+
+Platí, že každý polynom má v~$\mathbb{C}$ koøen.
 
 \subsection{Posloupnosti a limity}
 \begin{definiceN}{posloupnost}
@@ -569,7 +576,7 @@ Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou dvì poslo
 \begin{pitemize}
 	\item Nech množina $A \subset \mathbb{R}$ je shora neomezená. Pak klademe $\sup A := +\infty$
 	\item Nech množina $A \subset \mathbb{R}$ je zdola neomezená. Pak klademe $\inf A := -\infty$
-	\item Nech $A=\emptyset$. Pak klademe $\sup A := -\infty$ a $inf A := +\infty$
+	\item Nech $A=\emptyset$. Pak klademe $\sup A := -\infty$ a $\inf A := +\infty$
 \end{pitemize}
 \end{definiceN}
 
@@ -614,10 +621,16 @@ Nech $\{a_n\}_{n \in \mathbb{N}}$ je posloupnost reálných èísel. Je-li $\{a_n\}
 $$
 	b_n := \sup\{a_k; k \ge n \}
 $$
+
+$b_n$ \emph{neroste}.
+
 Je-li $\{a_n\}$ zdola omezená, definujeme posloupnost $\{c_n\}_{n \in \mathbb{N}}$ pøedpisem:
 $$
 	c_n := \inf\{a_k; k \ge n \}
 $$
+
+$c_n$ \emph{nekles‡}.
+
 V takovém pøípadì definujeme:
 $$
 \lim \sup~a_n := \left\{
@@ -694,9 +707,27 @@ K tomuhle jsem dùkaz nenašel ani nevymyslel :-(
 
 \subsection{Cauchyovské posloupnosti}
 
-Tato sekce je vypracovaná podle skript Prof. A. Pultra z~matematické analýzy\\
-(\texttt{http://kam.mff.cuni.cz/\~{}pultr/})
+Tato sekce je vypracovaná podle skript Prof. A. Pultra z~matematické analýzy (\url{http://kam.mff.cuni.cz/~pultr/}).
 \bigskip
+
+
+
+\begin{vetaN}{Bolzano-Weierstrassova}
+Z každé omezené posloupnosti lze vybrat konvergentní podposloupnost. Jsou-li $a_n$ v kompaktním intervalu $[a,b]$, je limita vybrané posloupnosti v tomto intervalu.
+
+\medskip\begin{dukaz}
+První èást dokážeme nalezením takové posloupnosti. 
+
+Vezmeme $A:=\lim\sup~a_n$ -- to mùžeme, protože $\left\{a_n\right\}$ je shora omezená.
+
+Definujeme pro každé $k\in\mathbb{N}$ množinu $M_k:=\{j\in\mathbb{N}|j>n_{k-1},a_j\in\langle A - \frac{1}{2^k}, A + \frac{1}{2^k}\rangle\}$ a $n_k:=\min M_k$ -- pro každé $k$ taková množina je, protože $A$ je limita suprem, tj. pro libovolnì malé okolí A jsou od nìjakého bodu dál všechna suprema pouze v nìm. 
+
+Potom $\{a_{n_k}\}$ je vybraná posloupnost, která konverguje. 
+
+\noindent Druhá èást je pøímým dùsledkem vìty o limitì a uspoøádání -- limita \uv{nemùže} být jinde.
+\end{dukaz}
+\end{vetaN}
+
 
 \begin{definiceN}{Bolzano-Cauchyova podmínka}
 Øekneme, že posloupnost $\{a_n\}_{n\geq 0}$ je \emph{cauchyovská}, nebo-li že splòuje \emph{Bolzano-Cauchyho podmínku}, pokud pro ní platí:
@@ -705,19 +736,13 @@ $$
 $$
 \end{definiceN}
 
-\begin{vetaN}{Bolzano-Weierstrassova}
-Z každé omezené posloupnosti lze vybrat konvergentní podposloupnost. Jsou-li $a_n$ v kompaktním intervalu $[a,b]$, je limita vybrané posloupnosti v tomto intervalu.
 
-\medskip\begin{dukaz}
-První èást dokážeme nalezením takové posloupnosti. Vezmeme $A:=\lim\sup~a_n$ a definujeme pro každé $k\in\mathbb{N}$ množinu $M_k:=\{j\in\mathbb{N}|j>n_{k-1},a_j\in\langle A - \frac{1}{2^k}, A + \frac{1}{2^k}\rangle\}$ a $n_k:=\min M_k$. Potom $\{a_{n_k}\}$ je vybraná posloupnost, která konverguje. Druhá èást je pøímým dùsledkem vìty o limitì a uspoøádání.
-\end{dukaz}
-\end{vetaN}
 
 \begin{lemma}
 Má-li cauchyovská posloupnost konvergentní podposloupnost, je konvergentní.
 
 \medskip\begin{dukaz}
-Nech $\lim a_{n_k} = x$. Pro $\varepsilon > 0$ zvolme $n_0$, aby pro $m,n\geq n_0$ platilo $|a_m-a_n|<\frac{\varepsilon}{2}$ a $|a_k-x|<\frac{\varepsilon}{2}$. Protože $k_n\geq n$, platí $|a_n-x|=|a_n-a_{k_n}|+|a_{k_n}-x|<\varepsilon$.
+Nech $\lim a_{k_n} = x$. Pro $\varepsilon > 0$ zvolme $n_0$, aby pro $m,n\geq n_0$ platilo $|a_m-a_n|<\frac{\varepsilon}{2}$ a $|a_{k_n}-x|<\frac{\varepsilon}{2}$. Protože $k_n\geq n$, platí $|a_n-x|=|a_n-a_{k_n}|+|a_{k_n}-x|<\varepsilon$.
 \end{dukaz}
 \end{lemma}
 
@@ -726,10 +751,15 @@ Nech $\lim a_{n_k} = x$. Pro $\varepsilon > 0$ zvolme $n_0$, aby pro $m,n\geq n
 Posloupnost $\{a_n\}$ má vlastní limitu, právì když je cauchyovská.
 
 \medskip\begin{dukaz}
-\begin{penumerate}
-    \item Implikace \uv{$\Rightarrow$} je hned vidìt -- staèí vzít k $\varepsilon$ takové $n_0$, že $|a_n-x|<\frac{\varepsilon}{2}\ \forall n\geq n_0$. Potom je $|a_n-a_m|=|a_n-x+x-a_m|\leq|a_n-x|+|x-a_m|\leq\varepsilon\ \forall m,n\geq n_0$.\medskip
-    \item Pro druhou implikaci staèí dokázat, že je cauchyovská posloupnost omezená a zbytek dostaneme z~pøedchozího lemmatu a Bolzano-Weierstrassovy vìty. Pro $\varepsilon=1$ existuje $n_0$ takové, že $a_{n_0}-1<a_n<a_{n_0}+1$ pro každé $n\geq n_0$ (to plyne pøímo z~podmínky), takže zbývá jen koneèný poèet èlenù mimo toto rozmezí (pro $n<n_0$), a ty vždy tvoøí omezený systém.
-\end{penumerate}
+\begin{enumerate}
+    \item Implikace \uv{$\Rightarrow$} je hned vidìt -- staèí vzít k $\varepsilon$ takové $n_0$, že $|a_n-x|<\frac{\varepsilon}{2}\ \forall n\geq n_0$. Potom je $|a_n-a_m|=|a_n-x+x-a_m|\leq|a_n-x|+|x-a_m|\leq\varepsilon\ \forall m,n\geq n_0$.
+    
+    Øeèeno èesky -- v pásmu velkém $\varepsilon$ jsou si všichni vzdáleni maximálnì $\varepsilon$
+    
+    \item Pro druhou implikaci staèí dokázat, že je cauchyovská posloupnost omezená a zbytek dostaneme z~pøedchozího lemmatu a Bolzano-Weierstrassovy vìty. 
+    
+    Pro $\varepsilon=1$ existuje $n_0$ takové, že $a_{n_0}-1<a_n<a_{n_0}+1$ pro každé $n\geq n_0$ (to plyne pøímo z~podmínky), takže zbývá jen koneèný poèet èlenù mimo toto rozmezí (pro $n<n_0$), a ty vždy tvoøí omezený systém, tedy posloupnost je omezená.
+\end{enumerate}
 \end{dukaz}
 \end{vetaN}
 
