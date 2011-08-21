@@ -18,6 +18,13 @@ Kompaktnost se zachovává:
     \item obrazem spojitým zobrazením,
     \item kartézským souèinem.
 \end{penumerate}
+
+\begin{ideadukazu}
+    1. -- mám vybranou s~limitou, musí zùstávat všechny limity v nìm (díky uzavøenosti). 2. -- dokážu za chvíli v~jiné vìtì :-) 
+    
+    3. -- u koneènì mnoha bych vybral z~každé konvergentní, aby byly se stejnými indexy (\uv{postupnì}), a jejich souèin by mìl být asi taky konvergentní. U nekoneèného souèinu nevím.
+\end{ideadukazu}
+
 \end{vetaN}
 
 \begin{definiceN}{omezená podmnožina}
@@ -29,14 +36,14 @@ $$x,y\in A \;\Rightarrow\; d(x,y)<K$$
 Každý kompaktní podprostor $Y$ libovolného metrického prostoru $X$ je uzavøený a omezený (v $X$).
 
 \begin{ideadukazu}
-    \begin {pitemize}
+    \begin {itemize}
 \item Uzavøenost: Z definice (kompaktní prostory vždy mají konvergentní podposloupnosti a tudíž v nich leží i pøíslušné limity). 
 \item Omezenost: sporem, nech není omezený. 
 
 Pokud není omezený, mùžeme pro nìjaký pevnì daný bod $a$ pro libovolnì velké $K$ vzít bod $b\in X$, že $d(a,b)>K$ -- vezmeme dva body, vzdálené od sebe $3K$, a díky trojúhelníkové nerovnosti alespoò jeden z~nich je od $a$ vzdálen $K$.
 
 Pak vytvoøíme induktivnì posloupnost $(a_n)$ bez konvergentní podposloupnosti. Zaènìme v~libovolném $a_1$. Máme $k$ prvních èlenù, vezmu $R=\max\limits_{i \in \left\lbrace 2 .. k \right\rbrace}\left\lbrace d(a_1, a_i)\right\rbrace + 1 $. Jak jsem uvedl výše, existuje $a_{i+1}$, že $d(a,b)>R$. Díky trojúhelníkové nerovnosti pak $\forall i \neq j:\;d(a_i, a_j) \geq 1$ a proto $(a_n)$ nemá konvergentní podposloupnost.
-    \end{pitemize}
+    \end{itemize}
 \end{ideadukazu}
 \end{vetaN}
 
@@ -45,9 +52,31 @@ Buï $f:(X,d_1)\to(Y,d_2)$ spojité zobrazení a $X$ kompaktní metrický prostor. Po
 \begin{penumerate}
     \item Zobrazení $f$ je stejnomìrnì spojité.
     \item $f[X]$ je kompaktní podmnožina $Y$.
-    \item Je-li $f$ navíc prosté, je $f$ stejnomìrný homeomorfismus.
     \item Je-li $f$ navíc bijekce, pak je inverzní zobrazení $f^{-1}$ nutnì spojité.
+
+    \item Je-li $f$ navíc bijekce, je $f$ stejnomìrný homeomorfismus.
+
 \end{penumerate}
+
+\begin{ideadukazu}
+    \begin {enumerate}
+        \item Sporem. Kdyby nebylo stejnomìrnì spojité, existovalo by $\varepsilon$, že pro každé $\delta$ existují body $x, y$, které jsou si blíž, než $\delta$, ale jejich zobrazení jsou od sebe minimálnì $\varepsilon$ (negace definice).
+        
+        $\delta$ mùžeme poøád zmenšovat, dostaneme tak dvì posloupnosti ($\left\{x_n\right\}$ a $\left\{y_n\right\}$), vybereme z~$\left\{x_n\right\}$ konvergentní a z~$\left\{y_n\right\}$ také, tak, aby mìly stejné indexy $k_n$ (nejdøív vybereme z~jedné konvergentní, z~druhé vybereme tytéž indexy, z~ní ještì znovu vybereme konvergentní) -- to mùžeme udìlat, protože jsme v~kompaktním prostoru.
+        
+        Potom $\lim x_{k_n} = \lim y_{k_n}$, ale $\lim f\left(x_{k_n}\right) \neq \lim f\left(y_{k_n}\right),$ protože jsou od sebe vždy zobrazení vzdálena minimálnì $\varepsilon$. To je ale spor s~jedním z~následkù spojitosti zobrazení.
+        
+        \item Vezmìme si posloupnost bodù v~$f[X]$, ty musí mít vzory v~$X$, z~tìch vzorù lze vzít vybranou konvergentní (díky spojitosti), musí být konvergentní i limita jejího obrazu (z~následkù spojitosti zobrazení).
+        
+        \item Dívejme se na inverzní zobrazení $f^{-1}$. Chceme ukázat, že obraz uzavøené množiny v~$X$ zobrazením ${f^{-1}}^{-1}$ je uzavøený, z~èehož by plynulo, že zobrazení $f^{-1}$ je prosté (díky jedné z pøedchozích vìt). 
+        
+        Vezmìme $M$ uzavøené v~$X$. Je kompaktní (protože každá uzavøená množina $X$ je kompaktní). Podle 2. je i $f[X]$ kompaktní. Protože $f$ je bijekce, ${f^{-1}}^{-1}[X]=f[X]$, tedy je kompaktní a (díky pøedchozí vìtì) je omezený.
+        
+        \item je totéž, co 3. (viz definice homeomorfismu).
+        
+    \end{enumerate}
+\end{ideadukazu}
+
 \end{vetaN}
 
 \begin{vetaN}{omezený euklidovský podprostor}
