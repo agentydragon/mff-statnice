@@ -4,35 +4,15 @@
 
 \subsection{Rozhodnutelnost, splnitelnost, pravdivost a dokazatelnost}
 
+\begin{obecne}{}
 Z tìchto témat se rozhodnutelnosti budeme vìnovat až jako poslední, protože k vyslovení nìkterých vìt budeme potøebovat pojmy definované v èástech o splnitelnosti, pravdivosti a dokazatelnosti.
+\end{obecne}
 
-\subsubsection*{Splnitelnost}
-
-\begin{definiceN}{Splnitelnost}
-Množina formulí $T$ ve výrokové logice je \emph{splnitelná}, jestliže existuje ohodnocení $v$ takové, že každá formule $\forall A\in T$ je pravdivá pøi $v$. Potom se $v$ nazývá \emph{model teorie} $T$ ($v\models T$).
+\begin{definiceN}{splnitelnost\vl}
+Formule $A$ ve výrokové logice je \emph{splnitelná}, jestliže existuje ohodnocení $e$ takové, že $A$ je pravdivá pøi $e$. Množina formulí $T$ je splnitelná, pokud existuje ohodnocení $e$ takové, že každá formule $A\in T$ je pravdivá pøi $e$. Potom $e$ nazýváme \emph{modelem teorie} $T$ (znaèíme $e\models T$).
 \end{definiceN}
 
-\begin{definiceN}{Substituce, instance, substituovatelnost}
-\emph{Substituce termù za promìnné} ($t_{x_1,\dots,x_n}[t_1,\dots,t_n]$) je souèasné nahrazení všech výskytù promìnných $x_i$ termy $t_i$ (pro $x_1, \ldots, x_n$ rùzné promìnné a $t, t_1, \ldots, t_n$ termy). Jedná se opìt o term.
-
-\emph{Instance} formule je souèasné nahrazení všech volných výskytù nìjakých promìnných za termy. Je to taky formule, vyjadøuje speciálnìjší tvrzení -- ne vždy ale lze provést substituci bez zmìny významu formule. Term $t$ je \emph{substituovatelný} za promìnnou $x$ do formule $A$, pokud žádný volný výskyt promìnné $x$ ve formuli $A$ neleží v oboru platnosti nìkterého z kvantifikátorù ($\forall y$ nebo $\exists y$), kde $y$ je promìnná obsažená v termu $t$. (Neboli pokud pro každou promìnnou $y$ obsaženou v $t$ žádná podformule formule $A$ tvaru $(\exists y)B$ ani $(\forall y)B$ neobsahuje volný výskyt $x$.)
-\end{definiceN}
-
-\begin{poznamka}
-Promìnné v termu $t$ se substitucí nesmí stát vázanými. Je-li $A$ otevøená formule, pak je každý term substituovatelný za každou promìnnou vyskytující se v $A$. Stejnì pokud žádná promìnná obsažená v termu $t$ není v $A$ vázaná. To jsou ale jen jednoduché pøíklady susbtituovatelnosti (napø. pro promìnnou $z$ je term tvaru $z$ substituovatelný za promìnnou $x$ do formule $x = 0 \rightarrow \neg \left(\exists z \right)\left(z \neq 0\right)$, i když pro nìj ani jedna z tìchto podmínek neplatí).
-\end{poznamka}
-
-\begin{definiceN}{Uzávìr formule}
-Jsou-li $x_1,\dots,x_n$ všechny promìnné s volným výskytem ve formuli $A$, potom $(\forall x_1)\dots(\forall x_n)A$ je \emph{uzávìr} formule $A$.
-\end{definiceN}
-
-\subsubsection*{Pravdivost}
-
-\begin{definiceN}{Pravdivá formule výrokové logiky}
-Formule výrokové logiky $A$ je \emph{pravdivá} pøi ohodnocení $v$, je-li $\overline{v}(A)=1$, jinak je \emph{nepravdivá}. Je-li formule $A$ pravdivá pøi ohodnocení $v$, pak øíkáme, že $v$ \emph{je model} $A$ ($v\models A$). 
-\end{definiceN}
-
-\begin{definiceN}{Tarského definice pravdy}
+\begin{definiceN}{Tarského definice pravdy\pl}
 Pro daný (redukovaný, tj. jen se \uv{základními} log. spojkami) jazyk predikátové logiky $L$, $\c{M}$ jeho interpretaci, ohodnocení $e$ a $A$ formuli tohoto jazyka platí:
 \begin{penumerate}
     \item $A$ je \emph{pravdivá v $\c{M}$ pøi ohodnocení} $e$ ($\c{M}\models A[e]$), když:

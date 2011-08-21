@@ -36,6 +36,10 @@ Jazyk $L_P$ výrokové logiky nad množinou $P$ obsahuje prvky množiny $P$ zvané \e
 Jazyk predikátové logiky obsahuje symboly pro promìnné, \emph{predikátové} a \emph{funkèní} symboly, symboly pro \emph{logické spojky}, symboly pro \emph{kvantifikátory} a \emph{pomocné} symboly (závorky).
 \end{definiceN}
 
+\begin{definiceN}{redukce jazyka}
+Pro zmenšení množiny axiomù je vhodné redukovat poèet logických spojek, se kterými pracujeme, na nìkolik základních a ostatní vnímat jako odvozené. Je možno zvolit negaci a implikaci jako spojky základní a v predikátové logice obecný kvantifikátor. Zkratky pak vypadají jako $(A \& B)$ za formuli $\neg(A \to \neg B)$, $(A \vee B)$ odpovídá $(\neg A \to B)$ a nakonec $(A \leftrightarrow B)$ redukujeme na $((A \to B)\&(B \to A))$.
+\end{definiceN}
+
 \begin{definiceN}{formule výrokové logiky}
 Pro jazyk výrokové logiky jsou následující výrazy formule:
 \begin{penumerate}
