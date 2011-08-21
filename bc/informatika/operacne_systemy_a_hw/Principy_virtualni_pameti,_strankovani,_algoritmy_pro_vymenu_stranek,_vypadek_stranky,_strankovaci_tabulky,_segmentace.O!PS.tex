@@ -1,14 +1,16 @@
 \subsection{Principy virtuální pamìti, stránkování, algoritmy pro vımìnu stránek, vıpadek stránky, stránkovací tabulky, segmentace}
-\begin{wrapfigure}{r}{0}
-  \begin{center}
-    \includegraphics[width=2.7cm]{informatika/operacne_systemy_a_hw/obrazky/virtual-memory.png}  \end{center}
-\end{wrapfigure}
- 
-\subsubsection*{Virtuální pamì}
-Virtuální pamì zpùsob správy operaèní pamìti poèítaèe, kterı umoòuje pøedloit bìícímu procesu adresní prostor pamìti, kterı je uspoøádán jinak nebo je dokonce vìtší, ne je fyzicky pøipojená operaèní pamì RAM. Z tohoto dùvodu procesor rozlišuje mezi virtuálními adresami (pracují s nimi strojové instrukce, resp. bìící proces) a fyzickımi adresami pamìti (odkazují na konkrétní adresové buòky pamìti RAM). Pøevod mezi virtuální a fyzickou adresou je zajišován samotnım procesorem v MMU (je nutná hardwarová podpora) nebo samostatnım obvodem.\footnote{šlo
-by to bez HW podpory? Jistì e ano VM to tak dìlají, nicménì rychlost není
-nijak osòující, proto se do novych strojù u pøidává jejich HW podpora (neplácám?!).}
 
+\subsubsection*{Virtuální pamì}
+
+\obrazekvpravominipage{informatika/operacne_systemy_a_hw/obrazky/virtual-memory.png}{Virtuál\-ní
+pamì}{fig:virpamet}{0.15}{0.8}{
+
+Virtuální pamì zpùsob správy operaèní pamìti poèítaèe, kterı umoòuje pøedloit bìícímu procesu adresní prostor pamìti, kterı je uspoøádán jinak nebo je dokonce vìtší, ne je fyzicky pøipojená operaèní pamì RAM. Z tohoto dùvodu procesor rozlišuje mezi virtuálními adresami (pracují s nimi strojové instrukce, resp. bìící proces) a fyzickımi adresami pamìti (odkazují na konkrétní adresové buòky pamìti RAM). Pøevod mezi virtuální a fyzickou adresou je zajišován samotnım procesorem v MMU (je nutná hardwarová podpora) nebo samostatnım obvodem. 
+\\\\
+Šlo
+by to bez HW podpory? Jistì e ano VM to tak dìlají, nicménì rychlost není
+nijak osòující, proto se do novych strojù u pøidává jejich HW podpora (??
+ovìøit).
 \begin{pitemize}
         \item Umoòuje sdílení pamìti (operaèním systémem)
         \item Vzájemná ochrana programù (v souèasnosti je dùleitìjší ochrana dat ne vyuití
@@ -16,8 +18,8 @@ principu lokalit), tzn. to aby jeden program nepøepisoval druhému programu jeho
 data a tak.
         \item Kadı bìící program pracuje se \textbf{svım} virtuálním adresním prostorem
 \end{pitemize}
-\\
 Existují dvì základní metody implementace virtuální pamìti – stránkování a segmentace.
+}
 
 \subsubsection*{Stránkování}
 Pøi stránkování je pamì rozdìlena na vìtší úseky stejné velikosti, které se nazıvají stránky. Správa virtuální pamìti rozhoduje samostatnì o tom, která pamìová stránka bude zavedena do vnitøní pamìti a která bude odloena do odkládacího prostoru (swapu).
