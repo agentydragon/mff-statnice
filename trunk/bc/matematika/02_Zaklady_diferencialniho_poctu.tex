@@ -42,13 +42,17 @@ $f$ je na $M$:
         \item $B(a, \delta)=(a-\delta, a+\delta) = P(a, \delta)\cup\{a\}$ \hfill \emph{($\delta$-okolí)} \hspace{0.4\textwidth}
 
         \item $B^{+}(a, \delta)=P^{+}(a, \delta)\cup\{a\}$ \hfill \emph{(pravé $\delta$-okolí)} \hspace{0.4\textwidth}
+        
         \item $B^{-}(a, \delta)=P^{-}(a, \delta)\cup\{a\}$ \hfill \emph{(levé $\delta$-okolí)} \hspace{0.4\textwidth}
+        
         \item $P(\infty, d) = B(\infty,d)=(\frac{1}{d}, \infty)$
         \item $P(-\infty, d) = B(-\infty,d)=(-\infty, -\frac{1}{d})$
 \end{pitemize}
 \end{definiceN}
 
 \subsection{Spojitost, limita funkce v bodì (vlastní i nevlastní)}
+
+\obrazekvpravominipage{matematika/obrazky/limita_funkce}{Ilustrace limity}{fig:limitafunkce}{0.6}{0.4} {
 
 \begin{definiceN}{Limita}
 Øekneme, e $f$ má v bodì $a \in \mathbb{R}^{*}$ limitu $A \in \mathbb{R^{*}}$, jestlie
@@ -60,9 +64,14 @@ Platí-li tato vlastnost jen pro pravá okolí bodù $a$ a $A$, mluvíme o \emph{jedn
 \end{definiceN}
 
 \begin{definiceN}{Spojitost v bodì}
-Øekneme, e $f$ je spojitá v bodì $a \in \mathbb{R}$, jestlie $\lim_{x \rightarrow a} f(x) = f(a)$
+Øekneme, e $f$ je spojitá v bodì $a \in \mathbb{R}$, jestlie  $$\lim_{x \rightarrow a} f(x) = f(a)$$
 \end{definiceN}
 
+Na obrázku \ref{fig:limitafunkce} je funkce, definovaná všude jako $f(x)=\mathrm{e}^x$ kromì bodu $a$, kde je definována jako $f(a)=Z \neq \mathrm{e}^a$. V~bodì $a$ má limitu $A$ - pro rùzná $\varepsilon$ nalézám pøíslušné $\delta$; v~tomto bodì ale \emph{není spojitá}. Pokud by ale v~bodì $a$ byla $A$, byla by spojitá.
+
+}
+
+\medskip
 \begin{vetaN}{Heineho vìta}
 Nech  $f: M \rightarrow \mathbb{R}, M \subseteq \mathbb{R}$. Nech $f$ je definováno na nìjakém prstencovém okolí bodu $a \in \mathbb{R}^{*}$. Potom následující dvì tvrzení jsou ekvivalentní:
 \begin{penumerate}
