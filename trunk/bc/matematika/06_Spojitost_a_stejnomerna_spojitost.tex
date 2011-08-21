@@ -98,12 +98,20 @@ Množina $X\subset(M, d)$ je uzavøená, jestliže každá posloupnost bodù $(x_n)_{n\
 
 \subsubsection*{Spojitost a stejnomìrná spojitost}
 
+\obrazekvpravominipage{matematika/obrazky/spojitost}{Spojitost $\mathrm{e}^x$}{fig:spojitostex}{0.5}{0.5}{
+
+
 \begin{definiceN}{spojité zobrazení}
 Pro metrické prostory $(X, d_1)$ a $(Y, d_2)$ je zobrazení $f:X\to Y$ \emph{spojité v bodì} $x\in X$, jestliže
 $$\forall\varepsilon>0\ \exists\delta>0:  d_1(x,y)<\delta\;\Rightarrow\;  d_2(f(x),f(y))<\varepsilon$$
 Ekvivalentnì pro $\forall$ okolí $V$ bodu $f(x)$ $\exists$ okolí $U$ bodu $x$ tak, že $y \in U \Rightarrow f(y) \in V$.\\
 Zobrazení $f$ je \emph{spojité}, pokud je spojité v každém bodì $x\in X$. 
 \end{definiceN}
+
+
+Na obrázku \ref{fig:spojitostex} je ilustrována definice spojitosti na funkci $f(x)=\mathrm{e}^x$, zobrazující z~$\mathbb{R}$ do $\mathbb{R}$. Pro dvì rùzná $\varepsilon$ u daného $x$ jsem našel odpovídající $\delta$. 
+}
+
 
 \begin{vetaN}{vlastnosti spojitosti}
 Nech je dáno zobrazení $f:X\to Y$ mezi dvìma metrickými prostory $(X, d_1)$, $(Y, d_2)$. Pak jsou následující tvrzení ekvivalentní.
@@ -130,10 +138,19 @@ Nech je dáno zobrazení $f:X\to Y$ mezi dvìma metrickými prostory $(X, d_1)$, $(
 \end{ideadukazu}
 \end{vetaN}
 
+\obrazekvpravominipage{matematika/obrazky/nestejnomerna_spojitost}{Spojitost $\mathrm{e}^x$ není stejnomìrná}{fig:nestspojitostex}{0.5}{0.5}{
+
+
 \begin{definiceN}{stejnomìrnì spojité zobrazení}
 Øekneme, že zobrazení $f:(X, d_1)\to(Y, d_2)$ je \emph{stejnomìrnì spojité}, jestliže
-$$\forall\varepsilon>0\ \exists\delta>0\text{ takové, že }\forall(x,y)\text{ platí } d_1(x,y)<\delta\;\Rightarrow\; d_2(f(x),f(y))<\varepsilon$$
+$$\forall\varepsilon>0\ \exists\delta>0\text{ takové, že }\forall(x,y): d_1(x,y)<\delta\;\Rightarrow\; d_2(f(x),f(y))<\varepsilon$$
 \end{definiceN}
+
+
+\begin{poznamka}
+    Funkce $\mathrm{e}^x$ \emph{není} stejnomìrnì spojitá. Nemohu vybrat pro dané $\varepsilon$ takové $\delta$, že obraz z~$\delta$-okolí kolem $x$ bude ve $\varepsilon$ -- posouvám-li $x$ smìrem \uv{doprava}, obraz $\delta$-okolí se poøád zvìtšuje, až pøeroste $\varepsilon$, a zvolím $\delta$ libovolnì malé. Ilustrováno na obrázku \ref{fig:nestspojitostex}.
+\end{poznamka}
+}
 
 \begin{vetaN}{skládání zobrazení}
 Složení dvou spojitých (nebo stejnomìrnì spojitých) zobrazení je spojité (resp. stejnomìrnì spojité).
