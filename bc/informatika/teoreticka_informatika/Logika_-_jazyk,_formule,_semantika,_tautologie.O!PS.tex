@@ -1,116 +1,114 @@
 \def\c#1{\mathcal{#1}}
 
 
-\subsection{Logika -- jazyk, formule, sÃ©mantika, tautologie}
+\subsection{Jazyk, formule, sémantika, tautologie}
 
-\subsubsection*{Jazyk}
-
-\begin{obecne}{Logika prvnÃ­ho Å™Ã¡du}
-FormÃ¡lnÃ­ systÃ©m logiky prvnÃ­ho Å™Ã¡du obsahuje jazyk, axiomy, odvozovacÃ­ pravidla, vÄ›ty a dÅ¯kazy. Jazyk prvnÃ­ho Å™Ã¡du zahrnuje:
+\begin{obecne}{logika prvního øádu}
+V logice pracujeme s formulemi a termy, co jsou slova (øetìzce znakù dané abecedy) formálního jazyka. Jazyk prvního øádu mùe zahrnovat:
 \begin{pitemize}
-    \item neomezenÄ› mnoho promÄ›nnÃ½ch $x_1,x_2,\dots $
-    \item funkÄnÃ­ symboly $f_1,f_2\dots $, kaÅ¾dÃ½ mÃ¡ aritu  $n\geq 0$
-    \item predikÃ¡tovÃ© symboly $p_1,p_2\dots $, kaÅ¾dÃ½ mÃ¡ aritu
-    \item symboly pro logickÃ© spojky ($\neg,\vee,\&,\rightarrow,\leftrightarrow$)
-    \item symboly pro kvantifikÃ¡tory ($\forall,\exists$)
-    \item mÅ¯Å¾e (ale nemusÃ­) obsahovat binÃ¡rnÃ­ predikÃ¡t $"="$, kterÃ½ pak se pak ale musÃ­ chovat jako rovnost, tj. splÅˆovat urÄitÃ© axiomy (nÄ›kdy se potom proto Å™adÃ­ mezi logickÃ© symboly).
+    \item neomezenì mnoho symbolù pro promìnné $x_1,x_2,\dots $
+    \item symboly pro logické spojky ($\neg,\vee,\&,\rightarrow,\leftrightarrow$)
+    \item symboly pro kvantifikátory ($\forall$ obecnı, $\exists$ existenèní)
+    \item funkèní symboly $f_1,f_2\dots $ s aritou $n \geq 0$ (napø. $+, -, 1, *$)
+    \item predikátové symboly $p_1,p_2\dots $ s aritou $n \geq 1$ (napø. $\geq, =, \approx, \in, \subset $)
+    \item mùe (ale nemusí) obsahovat binární predikát \uv{$=$}, kterı pak se pak ale musí chovat jako rovnost, tj. splòovat urèité axiomy.
 \end{pitemize}
-PromÄ›nnÃ©, logickÃ© spojky a kvantifikÃ¡tory jsou \emph{logickÃ© symboly}, ostatnÃ­ symboly se nazÃ½vajÃ­ \emph{speciÃ¡lnÃ­}.
+Promìnné, logické spojky, kvantifikátory a \uv{$=$} jsou \emph{logické symboly}, ostatní symboly se nazıvají \emph{speciální}, jeliko urèují specifika jazyka a tím vymezují oblast, kterou jazyk popisuje. Vıroková a predikátová logika se øadí mezi logiky prvního øádu. Ty pracují jen s jazyky prvního øádu, které mají pouze jeden typ promìnnıch (pro prvky zvané \emph{individua}). Jazyky vyšších øádù mají kromì promìnnıch pro individua také další typy promìnnıch (pro pøirozená èísla, funkce, relace, mnoiny a další typy objektù).
+
+Kadı \emph{formální systém} logiky prvního øádu obsahuje:
+\begin{pitemize}
+    \item jazyk
+    \item axiomy
+    \item odvozovací pravidla (pomocí nich tvoøíme dùkazy a odvozujeme vìty).
+\end{pitemize}
+Ze symbolù jazyka tvoøíme dva druhy slov:
+\begin{pitemize}
+    \item \emph{termy} popisují individua (objekty) vzniklé z uvedenıch operací
+    \item \emph{formule} vyjadøují tvrzení o objektech.
+\end{pitemize}
 \end{obecne}
 
-\begin{definiceN}{Jazyk vÃ½rokovÃ© logiky}
-Jazyk vÃ½rokovÃ© logiky je jazyk prvnÃ­ho Å™Ã¡du, obsahujÃ­cÃ­ \emph{vÃ½rokovÃ© promÄ›nnÃ©} (\uv{prvotnÃ­ formule}), \emph{logickÃ© spojky} $\neg,\vee,\&,\rightarrow,\leftrightarrow$ a \emph{pomocnÃ© symboly} (zÃ¡vorky).
+\begin{definiceN}{jazyk vırokové logiky}
+Jazyk $L_P$ vırokové logiky nad mnoinou $P$ obsahuje prvky mnoiny $P$ zvané \emph{prvotní formule} nebo \emph{vırokové promìnné} (typicky jde o slova nìjakého formálního jazyka napø. $x, y, ABC, nula$), symboly pro \emph{logické spojky} ($\neg,\vee,\&,\rightarrow,\leftrightarrow$) a pomocné symboly (závorky).
 \end{definiceN}
 
-\begin{definiceN}{Jazyk predikÃ¡tovÃ© logiky}
-Jazyk predikÃ¡tovÃ© logiky je jazyk prvnÃ­ho Å™Ã¡du, obsahujÃ­cÃ­ promÄ›nnÃ©, \emph{predikÃ¡tovÃ© symboly} (s nenulovou aritou), \emph{funkÄnÃ­ symboly} (mohou mÃ­t nulovou aritu), symboly pro logickÃ© spojky a symboly pro \emph{kvantifikÃ¡tory}.
+\begin{definiceN}{jazyk predikátové logiky}
+Jazyk predikátové logiky obsahuje symboly pro promìnné, \emph{predikátové} a \emph{funkèní} symboly, symboly pro \emph{logické spojky}, symboly pro \emph{kvantifikátory} a \emph{pomocné} symboly (závorky).
 \end{definiceN}
 
-\subsubsection*{Formule}
-
-\begin{definiceN}{Formule vÃ½rokovÃ© logiky}
-Pro jazyk vÃ½rokovÃ© logiky jsou nÃ¡sledujÃ­cÃ­ vÃ½razy formule:
+\begin{definiceN}{formule vırokové logiky}
+Pro jazyk vırokové logiky jsou následující vırazy formule:
 \begin{penumerate}
-    \item kaÅ¾dÃ¡ vÃ½rokovÃ¡ promÄ›nnÃ¡
-    \item pro formule $A,B$ i vÃ½razy $\neg A$, $(A\vee B)$, $(A\& B)$, $(A\rightarrow B)$,
+    \item kadá vıroková promìnná $p \in P$
+    \item pro formule $A,B$ i vırazy $\neg A$, $(A\vee B)$, $(A\& B)$, $(A\rightarrow B)$,
 	$A\leftrightarrow B$
-    \item kaÅ¾dÃ½ vÃ½raz vzniknuvÅ¡Ã­ koneÄnÃ½m uÅ¾itÃ­m pravidel 1. a 2.
+    \item kadı vıraz vzniknuvší koneènım uitím pravidel 1. a 2.
 \end{penumerate}
-MnoÅ¾ina formulÃ­ se nazÃ½vÃ¡ \emph{teorie}.
+Tedy všechny formule jsou koneèná slova.
 \end{definiceN}
 
-\begin{definiceN}{Term}
-V predikÃ¡tovÃ© logice je \emph{term}:
+\begin{definiceN}{term\pl}
+V predikátové logice je \emph{term}:
 \begin{penumerate}
-    \item kaÅ¾dÃ¡ promÄ›nnÃ¡
-    \item vÃ½raz $f(t_1,\dots,t_n)$ pro $f$ $n$-Ã¡rnÃ­ funkÄnÃ­ symbol a $t_1,\dots,t_n$ termy
-    \item kaÅ¾dÃ½ vÃ½raz vzniknuvÅ¡Ã­ koneÄnÃ½m uÅ¾itÃ­m pravidel 1. a 2.
+    \item kadá promìnná
+    \item vıraz $f(t_1,\dots,t_n)$ pro $n$-ární funkèní symbol $f$ a termy $t_1,\dots,t_n$
+    \item kadı vıraz vzniknuvší koneènım uitím pravidel 1. a 2.
 \end{penumerate}
-Podslovo termu, kterÃ© je samo o sobÄ› term, se nazÃ½vÃ¡ \emph{podterm}.
+Podslovo termu, které je samo o sobì term, se nazıvá \emph{podterm}.
 \end{definiceN}
 
-\begin{definiceN}{Formule predikÃ¡tovÃ© logiky}
-V predikÃ¡tovÃ© logice je formule kaÅ¾dÃ½ vÃ½raz tvaru $p(t_1,\dots,t_n)$ pro $p$ predikÃ¡tovÃ½ symbol a $t_1,\dots,t_n$ termy. StejnÄ› jako ve vÃ½rokovÃ© logice je formule i (koneÄnÃ©) spojenÃ­ jednoduÅ¡Å¡Ã­ch formulÃ­ log. spojkami.
-Formule jsou navÃ­c i vÃ½razy $(\exists x)A$ a $(\forall x)A$ pro formuli $A$ a samozÅ™ejmÄ› cokoliv, co vznikne koneÄnÃ½m uÅ¾itÃ­m tÄ›chto pravidel.
-
-Podslovo formule, kterÃ© je samo o sobÄ› formule, se nazÃ½vÃ¡ \emph{podformule}.
+\begin{definiceN}{formule predikátové logiky}
+V predikátové logice je formule kadı vıraz tvaru $p(t_1,\dots,t_n)$ pro $p$ predikátovı symbol a $t_1,\dots,t_n$ termy. Stejnì jako ve vırokové logice je formule i (koneèné) spojení jednodušších formulí log. spojkami.
+Formule jsou navíc i vırazy $(\exists x)A$ a $(\forall x)A$ pro formuli $A$ a samozøejmì cokoliv, co vznikne koneènım uitím tìchto pravidel. Podslovo formule, které je samo o sobì formule, se nazıvá \emph{podformule}.
 \end{definiceN}
 
-\begin{definiceN}{VolnÃ© a vÃ¡zanÃ© promÄ›nnÃ©}
-VÃ½skyt promÄ›nnÃ© $x$ ve formuli je \emph{vÃ¡zanÃ½}, je-li tato souÄÃ¡stÃ­ nÄ›jakÃ© podformule tvaru $(\exists x)A$ nebo $(\forall x)A$. V opaÄnÃ©m pÅ™Ã­padÄ› je \emph{volnÃ½}. Formule je \emph{otevÅ™enÃ¡}, pokud neobsahuje vÃ¡zanou promÄ›nnou, je \emph{uzavÅ™enÃ¡}, kdyÅ¾ neobsahuje volnou promÄ›nnou. PromÄ›nnÃ¡ mÅ¯Å¾e bÃ½t v tÃ©Å¾e formuli volnÃ¡ i vÃ¡zanÃ¡ (napÅ™. $(x=z)\rightarrow(\exists x)(x=z)$).
+\begin{definiceN}{volné a vázané promìnné}
+Vıskyt promìnné $x$ ve formuli je \emph{vázanı}, je-li tato souèástí nìjaké podformule tvaru $(\exists x)A$ nebo $(\forall x)A$. V opaèném pøípadì je \emph{volnı}. Formule je \emph{otevøená}, pokud neobsahuje vázanou promìnnou, je \emph{uzavøená}, kdy neobsahuje volnou promìnnou. Promìnná mùe bıt v tée formuli volná i vázaná (napø. $(x=z)\rightarrow(\exists x)(x=z)$).
 \end{definiceN}
 
-\subsubsection*{SÃ©mantika}
+\begin{definiceN}{pravdivostní ohodnocení\vl}
+\emph{Sémantika} zkoumá pravdivost formulí. Vırokové promìnné samotné neanalyzujeme -- jejich hodnoty máme dány u z vnìjšku, máme pro nì \emph{mnoinu pravdivostních hodnot} ($\lbrace 0,1\rbrace$).
 
-\begin{definiceN}{PravdivostnÃ­ ohodnocenÃ­ ve vÃ½rokovÃ© logice}
-VÃ½rokovÃ© promÄ›nnÃ© samotnÃ© neanalyzujeme -- jejich hodnoty mÃ¡me dÃ¡ny uÅ¾ z vnÄ›jÅ¡ku, mÃ¡me pro nÄ› \emph{mnoÅ¾inu pravdivostnÃ­ch hodnot} ($\{0,1\}$).
-
-\emph{PravdivostnÃ­ ohodnocenÃ­} $v$ je zobrazenÃ­, kterÃ© kaÅ¾dÃ© vÃ½rokovÃ© promÄ›nnÃ© pÅ™iÅ™adÃ­ prÃ¡vÄ› jednu hodnotu z mnoÅ¾iny pravdivostnÃ­ch hodnot. Je-li znÃ¡mo ohodnocenÃ­ promÄ›nnÃ½ch, lze urÄit \emph{pravdivostnÃ­ hodnotu} $\overline{v}$ pro kaÅ¾dou formuli (pÅ™i danÃ©m ohodnocenÃ­) -- indukcÃ­ podle jejÃ­ sloÅ¾itosti, podle tabulek pro logickÃ© spojky. 
+\emph{Pravdivostní ohodnocení} $e: P \to \lbrace 0,1\rbrace$ je zobrazení, které kadé vırokové promìnné pøiøadí právì jednu hodnotu z mnoiny pravdivostních hodnot. Je-li známo ohodnocení promìnnıch, lze urèit \emph{pravdivostní hodnotu} $\overline{v}$ pro kadou formuli (pøi daném ohodnocení) -- indukcí podle její sloitosti, podle tabulek pro logické spojky. 
 \end{definiceN}
 
 
-\begin{definiceN}{Interpretace jazyka predikÃ¡tovÃ© logiky}
-\emph{Interpretace jazyka} je definovÃ¡na mnoÅ¾inovou strukturou $\c{M}$, kterÃ¡ ke kaÅ¾dÃ©mu symbolu jazyka a mnoÅ¾inÄ› promÄ›nnÃ½ch pÅ™iÅ™adÃ­ nÄ›jakou mnoÅ¾inu individuÃ­. $\c{M}$ obsahuje:
+\begin{definiceN}{realizace jazyka\pl}
+\emph{Realizace jazyka} nebo té \emph{interpretace jazyka} je definována mnoinovou strukturou $\c{M}$, která ke kadému symbolu jazyka a mnoinì promìnnıch pøiøadí nìjakou mnoinu individuí. Popisuje \uv{hodnoty} všech funkèních a predikátovıch symbolù. $\c{M}$ obsahuje:
 \begin{pitemize}
-    \item neprÃ¡zdnou mnoÅ¾inu individuÃ­ $M$.
-    \item zobrazenÃ­ $f_M:M^n\to M$ pro kaÅ¾dÃ½ $n$-Ã¡rnÃ­ funkÄnÃ­ symbol $f$
-    \item relaci $p_M\subset M^n$ pro kaÅ¾dÃ½ $n$-Ã¡rnÃ­ predikÃ¡t $p$
+    \item neprázdnou mnoinu individuí $M$.
+    \item zobrazení $f_M:M^n\to M$ pro kadı $n$-ární funkèní symbol $f$
+    \item relaci $p_M\subset M^n$ pro kadı $n$-ární predikát $p$
 \end{pitemize}
 
-Interpretace termÅ¯ se uvaÅ¾uje pro danÃ½ jazyk $L$ a jeho interpretaci $\c{M}$. \emph{OhodnocenÃ­ promÄ›nnÃ½ch} je zobrazenÃ­ $e:X\to M$ (kde $X$ je mnoÅ¾ina promÄ›nnÃ½ch). \emph{Interpretace termu} $t$ pÅ™i ohodnocenÃ­ $e$ - $t[e]$ se definuje nÃ¡sledovnÄ›:
+Realizace termù se uvauje pro danı jazyk $L$ a jeho realizaci $\c{M}$. \emph{Ohodnocení promìnnıch} je zobrazení $e:X\to M$ (kde $X$ je mnoina promìnnıch). \emph{Realizace termu} $t$ pøi ohodnocení $e$ (znaèíme $t[e]$) se definuje následovnì:
 \begin{pitemize}
-    \item $t[e]=e(x)$ je-li $t$ promÄ›nnÃ¡ $x$
-    \item $t[e]=f_M(t_1[e],\dots,t_n[e])$ pro term tvaru $f(t_1,\dots,t_n)$.
+    \item $t[e]=e(x)$ je-li $t$ promìnná $x$
+    \item $t[e]=f_M(t_1[e],\dots,t_n[e])$ pro term $t$ tvaru $f(t_1,\dots,t_n)$.
 \end{pitemize}
-OhodnocenÃ­ zÃ¡visÃ­ na zvolenÃ©m $\c{M}$, interpretace termÅ¯ pÅ™i danÃ©m ohodnocenÃ­ pak jen na koneÄnÄ› mnoha hodnotÃ¡ch z nÄ›j. Pokud jsou $x_1,\dots,x_n$ vÅ¡echny promÄ›nnÃ© termu $t$ a $e,e'$ dvÄ› ohodnocenÃ­ tak, Å¾e $e(x_i)=e'(x_i) \forall i\in\{1,\dots,n\}$, pak $t[e]=t[e']$.
+Ohodnocení závisí na zvoleném $\c{M}$, realizace termù pøi daném ohodnocení pak jen na koneènì mnoha hodnotách z nìj. Pokud jsou $x_1,\dots,x_n$ všechny promìnné termu $t$ a $e,e'$ dvì ohodnocení tak, e $\forall i\in\lbrace 1,\dots,n\rbrace$ platí $e(x_i)=e'(x_i)$, pak $t[e]=t[e']$.
+\end{definiceN}
 
-\emph{PozmÄ›nÄ›nÃ© ohodnocenÃ­} $y$ pro $x = m\in M$ je definovÃ¡no: $$e(x/m)(y)=
+\begin{definiceN}{pozmìnìné ohodnocení\pl}
+\emph{Pozmìnìné ohodnocení} $e(x/m)$ je ohodnocení, ve kterém jsme zmìnili hodnotu jedné promìnné. Formálnì pro ohodnocení $e$, promìnnou $x$ a individuum $m \in M$ je definováno: $$e(x/m)(y)=
     \begin{cases}
-	m \text{(pro $y\equiv x$)} \\
-	e(y) \text{(jinak)}
-    \end{cases}
-    $$
+	m &\text{(je-li $y$ promìnná $x$, $y \equiv x$)} \\
+	e(y) &\text{(jinak, )}
+    \end{cases}$$
 \end{definiceN}
 
-\begin{definiceN}{Substituce, instance, substituovatelnost}
-\emph{Substituce} promÄ›nnÃ© za podterm v termu ($t_{x_1,\dots,x_n}[t_1,\dots,t_n]$) je souÄasnÃ© nahrazenÃ­ vÅ¡ech vÃ½skytÅ¯ promÄ›nnÃ½ch $x_i$ termy $t_i$. Je to term. 
-
-\emph{Instance} formule je souÄasnÃ© nahrazenÃ­ vÅ¡ech volnÃ½ch vÃ½skytÅ¯ nÄ›jakÃ½ch promÄ›nnÃ½ch za termy. Je to taky formule, vyjadÅ™uje speciÃ¡lnÄ›jÅ¡Ã­ tvrzenÃ­ -- ne vÅ¾dy ale lze provÃ©st substituci bez zmÄ›ny vÃ½znamu formule. Term je \emph{substituovatelnÃ½} do formule $A$ za promÄ›nnou $x$, pokud pro $\forall y$ vyskytujÃ­cÃ­ se v $t$ Å¾Ã¡dnÃ¡ podformule formule $A$ tvaru $(\exists y)B$ ani $(\forall y)B$ neobsahuje volnÃ½ vÃ½skyt $x$.
+\begin{definiceN}{tautologie $\models$\vl}
+Formule je \emph{tautologie}, jestlie je pravdivá pøi libovolném ohodnocení promìnnıch ($\models A$).
 \end{definiceN}
 
-\begin{definiceN}{UzÃ¡vÄ›r formule}
-Jsou-li $x_1,\dots,x_n$ vÅ¡echny promÄ›nnÃ© s volnÃ½m vÃ½skytem ve formuli $A$, potom $(\forall x_1)\dots(\forall x_n)A$ je \emph{uzÃ¡vÄ›r} formule $A$.
+\begin{definiceN}{teorie}
+Mnoinì formulí øíkáme \emph{teorie}.
 \end{definiceN}
 
-\subsubsection*{Tautologie}
-
-\begin{definiceN}{Tautologie ve vÃ½rokovÃ© logice}
-Formule je \emph{tautologie}, jestliÅ¾e je pravdivÃ¡ pÅ™i libovolnÃ©m ohodnocenÃ­ promÄ›nnÃ½ch ($\models A$).
+\begin{definiceN}{pravdivá formule\vl}
+Formule vırokové logiky $A$ je \emph{pravdivá pøi ohodnocení $e$}, je-li $\bar{e}(A) = 1$ (kde $\bar{e}$ je definováno z ohodnocení prvotních formulí $e$ induktivnì podle tabulek pro logické spojky). V opaèném pøípadì je formule \emph{nepravdivá}.
 \end{definiceN}
 
-\begin{definiceN}{TautologickÃ½ dÅ¯sledek}
-Teorie $U$ je \emph{tautologickÃ½ dÅ¯sledek} teorie $T$, jestliÅ¾e kaÅ¾dÃ½ model $T$ je takÃ© modelem $U$ ($T\models U$). Model nÄ›jakÃ© teorie ve vÃ½rokovÃ© logice je takovÃ© ohodnocenÃ­ promÄ›nnÃ½ch, Å¾e kaÅ¾dÃ¡ formule z tÃ©to teorie je pravdivÃ¡. K modelÅ¯m se jeÅ¡tÄ› vrÃ¡tÃ­me v nÃ¡sledujÃ­cÃ­ sekci.
+\begin{definiceN}{model, tautologickı dùsledek $T\models$ \vl}
+\emph{Model} nìjaké teorie ve vırokové logice je takové ohodnocení promìnnıch, e kadá formule z této teorie je pravdivá. Teorie $U$ je \emph{tautologickı dùsledek} teorie $T$, jestlie kadı model $T$ je také modelem $U$ ($T\models U$).
 \end{definiceN}
-
-
-

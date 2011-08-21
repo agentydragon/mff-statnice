@@ -1,63 +1,63 @@
-\subsection{NormÃ¡lnÃ­ tvary vÃ½rokovÃ½ch formulÃ­, prenexnÃ­ tvary formulÃ­ predikÃ¡tovÃ© logiky}
+\subsection{Normální tvary vırokovıch formulí, prenexní tvary formulí predikátové logiky}
 
 \begin{poznamkaN}{Vlastnosti log. spojek}
-PlatÃ­:
+Platí:
 \begin{penumerate}
     \item $A\wedge B\vdash A$; $A,B\vdash A\wedge B$
     \item $A\leftrightarrow B\vdash A\rightarrow B$; $A\rightarrow B, B\rightarrow A\vdash A\leftrightarrow B$
-    \item $\wedge$ je idempotentnÃ­, komutativnÃ­ a asociativnÃ­.
+    \item $\wedge$ je idempotentní, komutativní a asociativní.
     \item $\vdash(A_1\rightarrow\dots(A_n\rightarrow B)\dots)
 	\leftrightarrow((A_1\wedge\dots\wedge A_n)\rightarrow B)$
-    \item DeMorganovy zÃ¡kony: $\vdash\neg(A\wedge B)\leftrightarrow(\neg A\vee\neg B)$;
+    \item DeMorganovy zákony: $\vdash\neg(A\wedge B)\leftrightarrow(\neg A\vee\neg B)$;
 	$\vdash\neg(A\vee B)\leftrightarrow(\neg A\wedge\neg B)$
-    \item $\vee$ je monotonnÃ­ ($\vdash A\rightarrow A\vee B$), idempotentnÃ­, komutativnÃ­ a asociativnÃ­.
-    \item $\vee$ a $\wedge$ jsou navzÃ¡jem distributivnÃ­.
+    \item $\vee$ je monotonní ($\vdash A\rightarrow A\vee B$), idempotentní, komutativní a asociativní.
+    \item $\vee$ a $\wedge$ jsou navzájem distributivní.
 \end{penumerate}
 \end{poznamkaN}
 
-\begin{vetaN}{o ekvivalenci ve vÃ½rokovÃ© logice}
-JestliÅ¾e jsou podformule $A_1\dots A_n$ formule $A$ ekvivalentnÃ­ s $A'_1\dots A'_n$ ($\vdash A'_i \leftrightarrow A_i$) a $A'$ vytvoÅ™Ã­m nahrazenÃ­m $A'_i$ mÃ­sto $A_i$, je i $A$ ekvivalentnÃ­ s $A'$. (DÅ¯kaz indukcÃ­ podle sloÅ¾itosti formule, rozborem pÅ™Ã­padÅ¯ $A_i$ tvaru $\neg B$, $B\rightarrow C$)
+\begin{vetaN}{o ekvivalenci ve vırokové logice}
+Jestlie jsou podformule $A_1\dots A_n$ formule $A$ ekvivalentní s $A'_1\dots A'_n$ ($\vdash A'_i \leftrightarrow A_i$) a $A'$ vytvoøím nahrazením $A'_i$ místo $A_i$, je i $A$ ekvivalentní s $A'$. (Dùkaz indukcí podle sloitosti formule, rozborem pøípadù $A_i$ tvaru $\neg B$, $B\rightarrow C$)
 \end{vetaN}
 
-\begin{lemmaN}{o dÅ¯kazu rozborem pÅ™Ã­padÅ¯}
-Je-li $T$ mnoÅ¾ina formulÃ­ a $A,B,C$ formule, pak $T,(A\vee B)\vdash C$ platÃ­ prÃ¡vÄ› kdyÅ¾ $T,A\vdash C$ a $T,B\vdash C$.
+\begin{lemmaN}{o dùkazu rozborem pøípadù}
+Je-li $T$ mnoina formulí a $A,B,C$ formule, pak $T,(A\vee B)\vdash C$ platí právì kdy $T,A\vdash C$ a $T,B\vdash C$.
 \end{lemmaN}
 
-\begin{definiceN}{NormÃ¡lnÃ­ tvary}
-VÃ½rokovou promÄ›nnou nebo jejÃ­ negaci nazveme \emph{literÃ¡l}. \emph{Klauzule} budiÅ¾ disjunkce nÄ›kolika literÃ¡lÅ¯. \emph{Formule v normÃ¡lnÃ­m konjunktivnÃ­m tvaru (CNF)} je konjunkce klauzulÃ­. \emph{Formule v disjunktivnÃ­m tvaru (DNF)} je disjunkce konjunkcÃ­ literÃ¡lÅ¯.
+\begin{definiceN}{Normální tvary}
+Vırokovou promìnnou nebo její negaci nazveme \emph{literál}. \emph{Klauzule} budi disjunkce nìkolika literálù. \emph{Formule v normálním konjunktivním tvaru (CNF)} je konjunkce klauzulí. \emph{Formule v disjunktivním tvaru (DNF)} je disjunkce konjunkcí literálù.
 \end{definiceN}
 
-\begin{vetaN}{o normÃ¡lnÃ­ch tvarech}
-Pro kaÅ¾dou formuli $A$ lze sestrojit formule $A_k,A_d$ v konjunktivnÃ­m, resp. disjunktivnÃ­m tvaru tak, Å¾e $\vdash A\leftrightarrow A_d$, $\vdash A\leftrightarrow A_k$. (DÅ¯kaz z DeMorganovÃ½ch formulÃ­ a distributivity, indukcÃ­ podle sloÅ¾itosti formule)
+\begin{vetaN}{o normálních tvarech}
+Pro kadou formuli $A$ lze sestrojit formule $A_k,A_d$ v konjunktivním, resp. disjunktivním tvaru tak, e $\vdash A\leftrightarrow A_d$, $\vdash A\leftrightarrow A_k$. (Dùkaz z DeMorganovıch formulí a distributivity, indukcí podle sloitosti formule)
 \end{vetaN}
 
-\subsubsection*{PrenexnÃ­ tvary formulÃ­ predikÃ¡tovÃ© logiky}
+\subsubsection*{Prenexní tvary formulí predikátové logiky}
 
-\begin{vetaN}{o ekvivalenci v predikÃ¡tovÃ© logice}
-NechÅ¥ formule $A'$ vznikne z $A$ nahrazenÃ­m nÄ›kterÃ½ch vÃ½skytÅ¯ podformulÃ­ $B_1,\dots,B_n$ po Å™adÄ› formulemi $B'_1,\dots,B'_n$. Je-li $\vdash B_1\leftrightarrow B'_1,\dots,\vdash B_n\leftrightarrow B'_n$, potom platÃ­ i $\vdash A\leftrightarrow A'$.
+\begin{vetaN}{o ekvivalenci v predikátové logice}
+Nech formule $A'$ vznikne z $A$ nahrazením nìkterıch vıskytù podformulí $B_1,\dots,B_n$ po øadì formulemi $B'_1,\dots,B'_n$. Je-li $\vdash B_1\leftrightarrow B'_1,\dots,\vdash B_n\leftrightarrow B'_n$, potom platí i $\vdash A\leftrightarrow A'$.
 \end{vetaN}
 
-\begin{definiceN}{PrenexnÃ­ tvar}
-Formule predikÃ¡tovÃ© logiky $A$ je v \emph{prenexnÃ­m tvaru}, je-li $$A\equiv (Q_1 x_1)(Q_2 x_2)\dots(Q_n x_n)B,$$ kde $n\geq 0$ a $\forall i\in\{1,\dots,n\}$ je $Q_i\equiv \forall$ nebo $\exists$, $B$ je otevÅ™enÃ¡ formule a kvantifikovanÃ© promÄ›nnÃ© jsou navzÃ¡jem rÅ¯znÃ©. $B$ je \emph{otevÅ™enÃ© jÃ¡dro} $A$, ÄÃ¡st s kvantifikÃ¡tory je \emph{prefix} $A$.
+\begin{definiceN}{Prenexní tvar}
+Formule predikátové logiky $A$ je v \emph{prenexním tvaru}, je-li $$A\equiv (Q_1 x_1)(Q_2 x_2)\dots(Q_n x_n)B,$$ kde $n\geq 0$ a $\forall i\in\{1,\dots,n\}$ je $Q_i\equiv \forall$ nebo $\exists$, $B$ je otevøená formule a kvantifikované promìnné jsou navzájem rùzné. $B$ je \emph{otevøené jádro} $A$, èást s kvantifikátory je \emph{prefix} $A$.
 \end{definiceN}
 
-\begin{definiceN}{Varianta formule predikÃ¡tovÃ© logiky}
-Formule $A'$ je \emph{varianta} $A$, jestliÅ¾e vznikla z $A$ postupnÃ½m nahrazenÃ­m podformulÃ­ $(Q x)B$ (kde $Q$ je $\forall$ nebo $\exists$) formulemi $(Q y)B_x[y]$ a $y$ nenÃ­ volnÃ¡ v $B$. Podle \emph{vÄ›ty o variantÃ¡ch} je varianta s pÅ¯vodnÃ­ formulÃ­ ekvivalentnÃ­.
+\begin{definiceN}{Varianta formule predikátové logiky}
+Formule $A'$ je \emph{varianta} $A$, jestlie vznikla z $A$ postupnım nahrazením podformulí $(Q x)B$ (kde $Q$ je $\forall$ nebo $\exists$) formulemi $(Q y)B_x[y]$ a $y$ není volná v $B$. Podle \emph{vìty o variantách} je varianta s pùvodní formulí ekvivalentní.
 \end{definiceN}
 
-\begin{lemmaN}{o prenexnÃ­ch operacÃ­ch}
-Pro pÅ™evod formulÃ­ do prenexnÃ­ho tvaru se pouÅ¾Ã­vajÃ­ tyto operace (vÃ½slednÃ¡ formule je s pÅ¯vodnÃ­ ekvivalentnÃ­). Pro podformule $B$, $C$, kvantifikÃ¡tor $Q$ a promÄ›nnou $x$:
+\begin{lemmaN}{o prenexních operacích}
+Pro pøevod formulí do prenexního tvaru se pouívají tyto operace (vısledná formule je s pùvodní ekvivalentní). Pro podformule $B$, $C$, kvantifikátor $Q$ a promìnnou $x$:
 \begin{penumerate}
-    \item podformuli lze nahradit nÄ›jakou jejÃ­ variantou
+    \item podformuli lze nahradit nìjakou její variantou
     \item $\vdash \neg(Q x)B\leftrightarrow(\overline{Q} x)\neg B$
-    \item $\vdash (B\rightarrow (Q x)C)\leftrightarrow(Q x)(B\rightarrow C)$, pokud $x$ nenÃ­ volnÃ¡ v $B$
-    \item $\vdash ((Q x)B\rightarrow C)\leftrightarrow(\overline{Q} x)(B\rightarrow C)$, pokud $x$ nenÃ­ 
-	volnÃ¡ v $C$
-    \item $\vdash ((Q x)B\wedge C)\leftrightarrow (Q x)(B\wedge C)$, pokud $x$ nenÃ­ volnÃ¡ v $C$
-    \item $\vdash ((Q x)B\vee C)\leftrightarrow (Q x)(B\vee C)$, pokud $x$ nenÃ­ volnÃ¡ v $C$
+    \item $\vdash (B\rightarrow (Q x)C)\leftrightarrow(Q x)(B\rightarrow C)$, pokud $x$ není volná v $B$
+    \item $\vdash ((Q x)B\rightarrow C)\leftrightarrow(\overline{Q} x)(B\rightarrow C)$, pokud $x$ není 
+	volná v $C$
+    \item $\vdash ((Q x)B\wedge C)\leftrightarrow (Q x)(B\wedge C)$, pokud $x$ není volná v $C$
+    \item $\vdash ((Q x)B\vee C)\leftrightarrow (Q x)(B\vee C)$, pokud $x$ není volná v $C$
 \end{penumerate}
 \end{lemmaN}
 
-\begin{vetaN}{o prenexnÃ­ch tvarech}
-Ke kaÅ¾dÃ© formuli $A$ predikÃ¡tovÃ© logiky lze sestrojit ekvivalentnÃ­ formuli $A'$, kterÃ¡ je v prenexnÃ­m tvaru. (DÅ¯kaz: indukcÃ­ podle sloÅ¾itosti formule a z prenexnÃ­ch operacÃ­, nÄ›kdy je nutnÃ© pÅ™ejmenovat volnÃ© promÄ›nnÃ©)
+\begin{vetaN}{o prenexních tvarech}
+Ke kadé formuli $A$ predikátové logiky lze sestrojit ekvivalentní formuli $A'$, která je v prenexním tvaru. (Dùkaz: indukcí podle sloitosti formule a z prenexních operací, nìkdy je nutné pøejmenovat volné promìnné)
 \end{vetaN}

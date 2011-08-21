@@ -4,175 +4,192 @@
 
 \subsection{Rozhodnutelnost, splnitelnost, pravdivost a dokazatelnost}
 
-Z tÄ›chto tÃ©mat se rozhodnutelnosti budeme vÄ›novat aÅ¾ jako poslednÃ­, protoÅ¾e k vyslovenÃ­ nÄ›kterÃ½ch vÄ›t budeme potÅ™ebovat pojmy, definovanÃ© v ÄÃ¡stech o splnitelnosti, pravdivosti a dokazatelnosti.
+Z tìchto témat se rozhodnutelnosti budeme vìnovat a jako poslední, protoe k vyslovení nìkterıch vìt budeme potøebovat pojmy definované v èástech o splnitelnosti, pravdivosti a dokazatelnosti.
 
 \subsubsection*{Splnitelnost}
 
 \begin{definiceN}{Splnitelnost}
-MnoÅ¾ina formulÃ­ $T$ ve vÃ½rokovÃ© logice je \emph{splnitelnÃ¡}, jestliÅ¾e existuje ohodnocenÃ­ $v$ takovÃ©, Å¾e kaÅ¾dÃ¡ formule $\forall A\in T$ je pravdivÃ¡ pÅ™i $v$. Potom se $v$ nazÃ½vÃ¡ \emph{model teorie} $T$ ($v\models T$).
+Mnoina formulí $T$ ve vırokové logice je \emph{splnitelná}, jestlie existuje ohodnocení $v$ takové, e kadá formule $\forall A\in T$ je pravdivá pøi $v$. Potom se $v$ nazıvá \emph{model teorie} $T$ ($v\models T$).
 \end{definiceN}
 
+\begin{definiceN}{Substituce, instance, substituovatelnost}
+\emph{Substituce termù za promìnné} ($t_{x_1,\dots,x_n}[t_1,\dots,t_n]$) je souèasné nahrazení všech vıskytù promìnnıch $x_i$ termy $t_i$ (pro $x_1, \ldots, x_n$ rùzné promìnné a $t, t_1, \ldots, t_n$ termy). Jedná se opìt o term.
+
+\emph{Instance} formule je souèasné nahrazení všech volnıch vıskytù nìjakıch promìnnıch za termy. Je to taky formule, vyjadøuje speciálnìjší tvrzení -- ne vdy ale lze provést substituci bez zmìny vıznamu formule. Term $t$ je \emph{substituovatelnı} za promìnnou $x$ do formule $A$, pokud ádnı volnı vıskyt promìnné $x$ ve formuli $A$ neleí v oboru platnosti nìkterého z kvantifikátorù ($\forall y$ nebo $\exists y$), kde $y$ je promìnná obsaená v termu $t$. (Neboli pokud pro kadou promìnnou $y$ obsaenou v $t$ ádná podformule formule $A$ tvaru $(\exists y)B$ ani $(\forall y)B$ neobsahuje volnı vıskyt $x$.)
+\end{definiceN}
+
+\begin{poznamka}
+Promìnné v termu $t$ se substitucí nesmí stát vázanımi. Je-li $A$ otevøená formule, pak je kadı term substituovatelnı za kadou promìnnou vyskytující se v $A$. Stejnì pokud ádná promìnná obsaená v termu $t$ není v $A$ vázaná. To jsou ale jen jednoduché pøíklady susbtituovatelnosti (napø. pro promìnnou $z$ je term tvaru $z$ substituovatelnı za promìnnou $x$ do formule $x = 0 \rightarrow \neg \left(\exists z \right)\left(z \neq 0\right)$, i kdy pro nìj ani jedna z tìchto podmínek neplatí).
+\end{poznamka}
+
+\begin{definiceN}{Uzávìr formule}
+Jsou-li $x_1,\dots,x_n$ všechny promìnné s volnım vıskytem ve formuli $A$, potom $(\forall x_1)\dots(\forall x_n)A$ je \emph{uzávìr} formule $A$.
+\end{definiceN}
 
 \subsubsection*{Pravdivost}
 
-\begin{definiceN}{PravdivÃ¡ formule vÃ½rokovÃ© logiky}
-Formule vÃ½rokovÃ© logiky $A$ je \emph{pravdivÃ¡} pÅ™i ohodnocenÃ­ $v$, je-li $\overline{v}(A)=1$, jinak je \emph{nepravdivÃ¡}. Je-li formule $A$ pravdivÃ¡ pÅ™i ohodnocenÃ­ $v$, pak Å™Ã­kÃ¡me, Å¾e $v$ \emph{je model} $A$ ($v\models A$). 
+\begin{definiceN}{Pravdivá formule vırokové logiky}
+Formule vırokové logiky $A$ je \emph{pravdivá} pøi ohodnocení $v$, je-li $\overline{v}(A)=1$, jinak je \emph{nepravdivá}. Je-li formule $A$ pravdivá pøi ohodnocení $v$, pak øíkáme, e $v$ \emph{je model} $A$ ($v\models A$). 
 \end{definiceN}
 
-\begin{definiceN}{TarskÃ©ho definice pravdy}
-Pro danÃ½ (redukovanÃ½, tj. jen se \uv{zÃ¡kladnÃ­mi} log. spojkami) jazyk predikÃ¡tovÃ© logiky $L$, $\c{M}$ jeho interpretaci, ohodnocenÃ­ $e$ a $A$ formuli tohoto jazyka platÃ­:
+\begin{definiceN}{Tarského definice pravdy}
+Pro danı (redukovanı, tj. jen se \uv{základními} log. spojkami) jazyk predikátové logiky $L$, $\c{M}$ jeho interpretaci, ohodnocení $e$ a $A$ formuli tohoto jazyka platí:
 \begin{penumerate}
-    \item $A$ je \emph{splnÄ›na v ohodnocenÃ­} $e$ ($\c{M}\models A[e]$), kdyÅ¾:
+    \item $A$ je \emph{pravdivá v $\c{M}$ pøi ohodnocení} $e$ ($\c{M}\models A[e]$), kdy:
     \begin{pitemize}
-	\item $A$ je atomickÃ¡ tvaru $p(t_1,\dots,t_n)$, kde $p$ nenÃ­ rovnost a $(t_1[e],\dots,t_n[e])\in p_M$.
-	\item $A$ je atomickÃ¡ tvaru $t_1 = t_2$ a $t_1[e]=t_2[e]$
+	\item $A$ je atomická tvaru $p(t_1,\dots,t_n)$, kde $p$ není rovnost a $(t_1[e],\dots,t_n[e])\in p_M$.
+	\item $A$ je atomická tvaru $t_1 = t_2$ a $t_1[e]=t_2[e]$
 	\item $A$ je tvaru $\neg B$ a $\c{M}\not\models B[e]$
-	\item $A$ je tvaru $B\rightarrow C$ a $\c{M}\not\models B[e]$ nebo $\c{M}\models C[e]$
-	\item $A$ je tvaru $(\forall x)B$ a $\c{M}\models B[e(x/m)]$ pro kaÅ¾dÃ© $m\in M$
-	\item $A$ je tvaru $(\exists x)B$ a $\c{M}\models B[e(x/m)]$ pro nÄ›jakÃ© $m\in M$
+	\item $A$ je tvaru $B\rightarrow C$ a $\c{M}\not\models B[e]$ nebo $\mathcal{M}\models C[e]$
+	\item $A$ je tvaru $(\forall x)B$ a $\c{M}\models B[e(x/m)]$ pro kadé $m\in M$
+	\item $A$ je tvaru $(\exists x)B$ a $\c{M}\models B[e(x/m)]$ pro nìjaké $m\in M$
     \end{pitemize}
-    \item $A$ je \emph{pravdivÃ¡ v interpretaci} $\c{M}$ ($\c{M}\models A$), jestliÅ¾e je $A$ splnÄ›na v $M$ pÅ™i
-	kaÅ¾dÃ©m ohodnocenÃ­ promÄ›nnÃ½ch (pro uzavÅ™enÃ© formule staÄÃ­ jedno ohodnocenÃ­, splnÄ›nÃ­ je vÅ¾dy stejnÃ©)
+    \item $A$ je \emph{splnìna v interpretaci} $\c{M}$ ($\c{M}\models A$), jestlie je $A$ pravdivá v $M$ pøi
+	kadém ohodnocení promìnnıch (pro uzavøené formule staèí jedno ohodnocení, splnìní je vdy stejné)
    \end{penumerate}
 \end{definiceN}
 
-\begin{definiceN}{Logicky pravdivÃ¡ formule predikÃ¡tovÃ© logiky}
-Formule $A$ je \emph{validnÃ­ (logicky pravdivÃ¡)} ($\models A$), kdyÅ¾ je platnÃ¡ pÅ™i kaÅ¾dÃ© interpretaci danÃ©ho jazyka.
+\begin{lemma}
+Jsou-li všechny volné promìnné formule $A$ mezi promìnnımi $x_1, \ldots, x_n$ a jsou-li ohodnocení $e, e^{\prime}$ shodná v tìchto promìnnıch, potom $$\c{M}\models A[e] \mbox{ právì kdy } \c{M}\models A[e^{\prime}].$$
+\end{lemma}
+
+\begin{definiceN}{Logicky pravdivá formule predikátové logiky}
+Formule $A$ je \emph{validní (logicky pravdivá)} ($\models A$), kdy je platná pøi kadé interpretaci daného jazyka.
 \end{definiceN}
 
 \subsubsection*{Dokazatelnost}
 
-\begin{definiceN}{Axiomy vÃ½rokovÃ© logiky}
-Pro redukovanÃ½ jazyk vÃ½rokovÃ© logiky (po snÃ­Å¾enÃ­ poÄtu log. spojek na zÃ¡kladnÃ­ ($\rightarrow, \neg$)) jsou \emph{axiomy vÃ½rokovÃ© logiky} (schÃ©mata axiomÅ¯) vÅ¡echny formule nÃ¡sledujÃ­cÃ­ch tvarÅ¯:
+\begin{definiceN}{Axiomy vırokové logiky}
+Pro redukovanı jazyk vırokové logiky (po sníení poètu log. spojek na základní ($\rightarrow, \neg$)) jsou \emph{axiomy vırokové logiky} (schémata axiomù) všechny formule následujících tvarù:
 \begin{pitemize}
-    \item $(A\rightarrow (B\rightarrow A))$ 
-	(A1 - \uv{implikace sebe sama})
-    \item $(A\rightarrow (B\rightarrow C))\rightarrow ((A\rightarrow B) \rightarrow (A\rightarrow C))$ 
-	(A2 - \uv{roznÃ¡sobenÃ­})
-    \item $(\neg B\rightarrow \neg A)\rightarrow(A\rightarrow B)$ 
-	(A3 - \uv{obrÃ¡cenÃ¡ negace implikace})
+    \item $(A\rightarrow (B\rightarrow A))$ \hfill (A1 - \uv{implikace sebe sama})
+    \item $(A\rightarrow (B\rightarrow C))\rightarrow ((A\rightarrow B) \rightarrow (A\rightarrow C))$ \hfill (A2 - \uv{roznásobení})
+    \item $(\neg B\rightarrow \neg A)\rightarrow(A\rightarrow B)$ \hfill (A3 - \uv{obrácená negace implikace})
 \end{pitemize}
 \end{definiceN}
 
-\begin{definiceN}{OdvozovacÃ­ pravidlo vÃ½rokovÃ© logiky}
-VÃ½rokovÃ¡ logika mÃ¡ jedinÃ© odvozovacÃ­ pravidlo -- \emph{modus ponens}:
+\begin{definiceN}{Odvozovací pravidlo vırokové logiky}
+Vıroková logika má jediné odvozovací pravidlo -- \emph{modus ponens}:
 $$\frac{A,A\rightarrow B}{B} $$
 \end{definiceN}
 
-\begin{definiceN}{DÅ¯kaz ve vÃ½rokovÃ© logice}
-DÅ¯kaz $A$ je koneÄnÃ¡ posloupnost formulÃ­ $A_1,\dots A_n$, jestliÅ¾e $A_n = A$ a pro kaÅ¾dÃ© $i=1,..n$ je $A_i$ buÄ axiom, nebo je odvozenÃ¡ z pÅ™edchozÃ­ch pravidlem modus ponens. Existuje-li dÅ¯kaz formule $A$, pak je tato \emph{dokazatelnÃ¡} ve vÃ½rokovÃ© logice (je vÄ›tou vÃ½rokovÃ© logiky - $\vdash A$).
+\begin{definiceN}{Dùkaz ve vırokové logice}
+Dùkaz $A$ je koneèná posloupnost formulí $A_1,\dots A_n$, jestlie $A_n = A$ a pro kadé $i=1,..n$ je $A_i$ buï axiom, nebo je odvozená z pøedchozích pravidlem modus ponens. Existuje-li dùkaz formule $A$, pak je tato \emph{dokazatelná} ve vırokové logice (je vìtou vırokové logiky - $\vdash A$).
 \end{definiceN}
 
-\begin{definiceN}{DÅ¯kaz z pÅ™edpokladÅ¯}
-DÅ¯kaz formule $A$ z pÅ™edpokladÅ¯ je posloupnost formulÃ­ $A_1,\dots A_n$ takovÃ¡, Å¾e $A_n = A$ a $\forall i\in\{1,..n\}$ je $A_i$ axiom, nebo prvek mnoÅ¾iny pÅ™edpokladÅ¯ $T$, nebo je odvozena z pÅ™echozÃ­ch pravidlem modus ponens. Existuje-li dÅ¯kaz $A$ z $T$, pak $A$ \emph{je dokazatelnÃ¡} z $T$ - $T\vdash A$.
+\begin{definiceN}{Dùkaz z pøedpokladù}
+Dùkaz formule $A$ z pøedpokladù je posloupnost formulí $A_1,\dots A_n$ taková, e $A_n = A$ a $\forall i\in\{1,..n\}$ je $A_i$ axiom, nebo prvek mnoiny pøedpokladù $T$, nebo je odvozena z pøechozích pravidlem modus ponens. Existuje-li dùkaz $A$ z $T$, pak $A$ \emph{je dokazatelná} z $T$ - $T\vdash A$.
 \end{definiceN}
 
-\begin{vetaN}{o dedukci ve vÃ½rokovÃ© logice}
-Pro $T$ mnoÅ¾inu formulÃ­ a formule $A,B$ platÃ­: $$T\vdash A\rightarrow B \mbox{ prÃ¡vÄ› kdyÅ¾ } T,A\vdash B$$
+\begin{vetaN}{o dedukci ve vırokové logice}
+Pro $T$ mnoinu formulí a formule $A,B$ platí: $$T\vdash A\rightarrow B \mbox{ právì kdy } T,A\vdash B$$
 \end{vetaN}
 
+\begin{vetaN}{o neutrální formuli}
+Nech $T$ je mnoina vırokovıch formulí, nech $A, B$ jsou formule. Jestlie $T, A \vdash B$ a $T, \neg A \vdash B$, pak $T \vdash B$.
+\end{vetaN}
 
 \begin{definice}
-MnoÅ¾ina formulÃ­ $T$ je \emph{spornÃ¡}, pokud je z pÅ™edpokladÅ¯ $T$ dokazatelnÃ¡ libovolnÃ¡ formule, jinak je $T$ \emph{bezespornÃ¡}. $T$ je \emph{maximÃ¡lnÃ­ bezespornÃ¡} mnoÅ¾ina, pokud je $T$ bezespornÃ¡ a navÃ­c jedinÃ¡ jejÃ­ bezespornÃ¡ nadmnoÅ¾ina je $T$ samo. MnoÅ¾ina vÅ¡ech formulÃ­ dokazatelnÃ½ch z $T$ se znaÄÃ­ $\mathit{Con}(T)$.
+Mnoina formulí $T$ je \emph{sporná}, pokud je z pøedpokladù $T$ dokazatelná libovolná formule, jinak je $T$ \emph{bezesporná}. $T$ je \emph{maximální bezesporná} mnoina, pokud je $T$ bezesporná a navíc jediná její bezesporná nadmnoina je $T$ samo. Mnoina všech formulí dokazatelnıch z $T$ se znaèí $\mathit{Con}(T)$.
 \end{definice}
 
 \begin{vetaN}{Lindenbaumova}
-KaÅ¾dou bezespornou mnoÅ¾inu formulÃ­ vÃ½rokovÃ© logiky $T$ lze rozÅ¡Ã­Å™it na maximÃ¡lnÃ­ bezespornou $S$, $T\subset S$.
+Kadou bezespornou mnoinu formulí vırokové logiky $T$ lze rozšíøit na maximální bezespornou $S$, $T\subset S$.
 \end{vetaN}
 
 \begin{vetaN}{o bezespornosti a splnitelnosti}
-MnoÅ¾ina formulÃ­ vÃ½rokovÃ© logiky je bezespornÃ¡, prÃ¡vÄ› kdyÅ¾ je splnitelnÃ¡.
+Mnoina formulí vırokové logiky je bezesporná, právì kdy je splnitelná.
 \end{vetaN}
 
-\begin{vetaN}{VÄ›ta o Ãºplnosti vÃ½rokovÃ© logiky}
-Je-li $T$ mnoÅ¾ina formulÃ­ a $A$ formule, pak platÃ­:
+\begin{vetaN}{Vìta o úplnosti vırokové logiky}
+Je-li $T$ mnoina formulí a $A$ formule, pak platí:
 \begin{penumerate}
-    \item $T\vdash A$ prÃ¡vÄ› kdyÅ¾ $T\models A$
-    \item $\vdash A$ prÃ¡vÄ› kdyÅ¾ $\models A$ ($A$ je vÄ›tou vÃ½rokovÃ© logiky, prÃ¡vÄ› kdyÅ¾ je tautologie)
+    \item $T\vdash A$ právì kdy $T\models A$
+    \item $\vdash A$ právì kdy $\models A$ ($A$ je vìtou vırokové logiky, právì kdy je tautologie)
 \end{penumerate}
-Tedy vÃ½rokovÃ¡ logika je bezespornÃ¡ a jsou v nÃ­ dokazatelnÃ© prÃ¡vÄ› tautologie.
+Tedy vıroková logika je bezesporná a jsou v ní dokazatelné právì tautologie.
 \end{vetaN}
 
 \begin{vetaN}{o kompaktnosti}
-MnoÅ¾ina formulÃ­ vÃ½rokovÃ© logiky je splnitelnÃ¡, prÃ¡vÄ› kdyÅ¾ je splnitelnÃ¡ kaÅ¾dÃ¡ jejÃ­ koneÄnÃ¡ podmnoÅ¾ina.
+Mnoina formulí vırokové logiky je splnitelná, právì kdy je splnitelná kadá její koneèná podmnoina.
 \end{vetaN}
 
 
-\begin{definiceN}{FormÃ¡lnÃ­ systÃ©m predikÃ¡tovÃ© logiky}
-Pracujeme s redukovanÃ½m jazykem (jen s log. spojkami $\neg,\rightarrow$ a jen s kvantifikÃ¡torem $\forall$). \emph{SchÃ©mata AxiomÅ¯ predikÃ¡tovÃ© logiky} vzniknou z tÄ›ch ve vÃ½rokovÃ© logice prostÃ½m dosazenÃ­m libovolnÃ½ch formulÃ­ predikÃ¡tovÃ© logiky za vÃ½rokovÃ© promÄ›nnÃ©. \emph{Modus ponens} platÃ­ i v pred. logice. DalÅ¡Ã­ axiomy a pravidla:
+\begin{definiceN}{Formální systém predikátové logiky}
+Pracujeme s redukovanım jazykem (jen s log. spojkami $\neg,\rightarrow$ a jen s kvantifikátorem $\forall$). \emph{Schémata axiomù predikátové logiky} vzniknou z tìch ve vırokové logice prostım dosazením libovolnıch formulí predikátové logiky za vırokové promìnné. \emph{Modus ponens} platí i v pred. logice. PL obsahuje navíc další dva axiomy a odvozovací pravidlo:
 \begin{pitemize}
-    \item \emph{schÃ©ma(axiom) specifikace}: $(\forall x)A\rightarrow A_x[t]$
-    \item \emph{schÃ©ma pÅ™eskoku}: $(\forall x)(A\rightarrow B)\rightarrow (A\rightarrow(\forall x)B)$, pokud 
-	promÄ›nnÃ¡ $x$ nemÃ¡ volnÃ½ vÃ½skyt v $A$.
+    \item \emph{schéma specifikace}: $(\forall x)A\rightarrow A_x[t]$
+    \item \emph{schéma pøeskoku}: $(\forall x)(A\rightarrow B)\rightarrow (A\rightarrow(\forall x)B)$, pokud 
+	promìnná $x$ nemá volnı vıskyt v $A$.
     \item \emph{pravidlo generalizace}: $\frac{A}{(\forall x)A}$
 \end{pitemize}
-Toto je formÃ¡lnÃ­ systÃ©m pred. logiky \emph{bez rovnosti}. S rovnostÃ­ pÅ™ibÃ½vÃ¡ symbol $=$ a dalÅ¡Ã­ tÅ™i axiomy.
+Toto je formální systém pred. logiky \emph{bez rovnosti}. S rovností pøibıvá symbol $=$ a další tøi axiomy.
 \end{definiceN}
 
 
-\begin{poznamkaN}{Vlastnosti formulÃ­ predikÃ¡tovÃ© logiky}
+\begin{poznamkaN}{Vlastnosti formulí predikátové logiky}
 \begin{penumerate}
-    \item Je-li $A'$ instance formule $A$, pak jestliÅ¾e platÃ­ $\vdash A$, platÃ­ i $\vdash A'$.
-	(\emph{VÄ›ta o instancÃ­ch})
-    \item Je-li $A'$ uzÃ¡vÄ›r formule $A$, pak $\vdash A$ platÃ­ prÃ¡vÄ› kdyÅ¾ $\vdash A'$. 
-	(\emph{VÄ›ta o uzÃ¡vÄ›ru})
+    \item Je-li $A'$ instance formule $A$, pak jestlie platí $\vdash A$, platí i $\vdash A'$.
+	(\emph{Vìta o instancích})
+    \item Je-li $A'$ uzávìr formule $A$, pak $\vdash A$ platí právì kdy $\vdash A'$. 
+	(\emph{Vìta o uzávìru})
 \end{penumerate}
 \end{poznamkaN}
 
-\begin{vetaN}{o dedukci v predikÃ¡tovÃ© logice}
-NechÅ¥ $T$ je mnoÅ¾ina formulÃ­ pred. logiky, $A$ je uzavÅ™enÃ¡ formule a $B$ lib. formule, potom $T\vdash A\rightarrow B$ prÃ¡vÄ› kdyÅ¾ $T,A\vdash B$.
+\begin{vetaN}{o dedukci v predikátové logice}
+Nech $T$ je mnoina formulí pred. logiky, $A$ je uzavøená formule a $B$ lib. formule, potom $T\vdash A\rightarrow B$ právì kdy $T,A\vdash B$.
 \end{vetaN}
 
 \begin{definiceN}{Teorie, model}
-Pro nÄ›jakÃ½ jazyk $L$ prvnÃ­ho Å™Ã¡du je mnoÅ¾ina $T$ formulÃ­ tohoto jazyka \emph{teorie prvnÃ­ho Å™Ã¡du}. Formule z $T$ jsou \emph{speciÃ¡lnÃ­ axiomy} teorie $T$. Pro interpretaci $\c{M}$ jazyka $L$ je $\c{M}$ \emph{model teorie} $T$ ($\c{M}\models T$), pokud jsou vÅ¡echny speciÃ¡lnÃ­ axiomy $T$ pravdivÃ© v $\c{M}$. Formule $A$ je \emph{sÃ©mantickÃ½m dÅ¯sledkem} $T$: $T\models A$, jestliÅ¾e je pravdivÃ¡ v kaÅ¾dÃ©m modelu teorie $T$.
+Pro nìjakı jazyk $L$ prvního øádu je mnoina $T$ formulí tohoto jazyka \emph{teorie prvního øádu}. Formule z $T$ jsou \emph{speciální axiomy} teorie $T$. Pro interpretaci $\c{M}$ jazyka $L$ je $\c{M}$ \emph{model teorie} $T$ ($\c{M}\models T$), pokud jsou všechny speciální axiomy $T$ pravdivé v $\c{M}$. Formule $A$ je \emph{sémantickım dùsledkem} $T$: $T\models A$, jestlie je pravdivá v kadém modelu teorie $T$.
 \end{definiceN}
 
 \begin{vetaN}{o korektnosti}
-Je-li $T$ teorie prvnÃ­ho Å™Ã¡du a $A$ formule, potom platÃ­:
+Je-li $T$ teorie prvního øádu a $A$ formule, potom platí:
 \begin{penumerate}
-    \item JestliÅ¾e $T\vdash A$, potom $T\models A$.
-    \item SpeciÃ¡lnÄ› jestliÅ¾e $\vdash A$, potom $\models A$.
+    \item Jestlie $T\vdash A$, potom $T\models A$.
+    \item Speciálnì jestlie $\vdash A$, potom $\models A$.
 \end{penumerate}
 \end{vetaN}
 
-\begin{vetaN}{o Ãºplnosti v predikÃ¡tovÃ© logice}
-NechÅ¥ $T$ je teorie s jazykem prvnÃ­ho Å™Ã¡du $L$. Je-li $A$ lib. formule jazyka $L$, pak platÃ­:
+\begin{vetaN}{o úplnosti v predikátové logice}
+Nech $T$ je teorie s jazykem prvního øádu $L$. Je-li $A$ lib. formule jazyka $L$, pak platí:
 \begin{penumerate}
-    \item $T\vdash A$ prÃ¡vÄ› kdyÅ¾ $T\models A$
-    \item $T$ je bezespornÃ¡, prÃ¡vÄ› kdyÅ¾ mÃ¡ model.
+    \item $T\vdash A$ právì kdy $T\models A$
+    \item $T$ je bezesporná, právì kdy má model.
 \end{penumerate}
 \end{vetaN}
 
-\begin{definiceN}{ÃšplnÃ¡ teorie}
-Teorie $T$ s jazykem $L$ prvnÃ­ho Å™Ã¡du je \emph{ÃºplnÃ¡}, je-li bezespornÃ¡ a pro libovolnou uzavÅ™enou formuli $A$ je jedna z formulÃ­ $A,\neg A$ dokazatelnÃ¡ v $T$.
+\begin{definiceN}{Úplná teorie}
+Teorie $T$ s jazykem $L$ prvního øádu je \emph{úplná}, je-li bezesporná a pro libovolnou uzavøenou formuli $A$ je jedna z formulí $A,\neg A$ dokazatelná v $T$.
 \end{definiceN}
 
 \begin{vetaN}{o kompaktnosti}
-Teorie $T$ s jazykem $L$ prvnÃ­ho Å™Ã¡du mÃ¡ model, prÃ¡vÄ› kdyÅ¾ kaÅ¾dÃ½ jejÃ­ koneÄnÃ½ fragment $T'\subset T$ mÃ¡ model. Tj. pro libovolnou formuli $A$ jazyka $L$ platÃ­: $T\models A$ prÃ¡vÄ› kdyÅ¾ $T'\models A$ pro nÄ›jakÃ½ koneÄnÃ½ fragment $T'\subset T$.
+Teorie $T$ s jazykem $L$ prvního øádu má model, právì kdy kadı její koneènı fragment $T'\subset T$ má model. Tj. pro libovolnou formuli $A$ jazyka $L$ platí: $T\models A$ právì kdy $T'\models A$ pro nìjakı koneènı fragment $T'\subset T$.
 \end{vetaN}
 
 \subsubsection*{Rozhodnutelnost}
 
-\begin{definiceN}{RekurzivnÃ­ funkce a mnoÅ¾ina}
-\emph{RekurzivnÃ­ funkce} jsou vÅ¡echny funkce popsatelnÃ© jako $f:\Nat^k\to\Nat$, kde $k\geq 1$, tedy vÅ¡echny \uv{algoritmicky vyÄÃ­slitelnÃ©} funkce. MnoÅ¾ina pÅ™irozenÃ½ch ÄÃ­sel je \emph{rekurzivnÃ­ mnoÅ¾ina (rozhodnutelnÃ¡ mnoÅ¾ina)}, pokud je rekurzivnÃ­ jejÃ­ charakteristickÃ¡ funkce (to je funkce, kterÃ¡ urÄÃ­, kterÃ© prvky do mnoÅ¾iny patÅ™Ã­).
+\begin{definiceN}{Rekurzivní funkce a mnoina}
+\emph{Rekurzivní funkce} jsou všechny funkce popsatelné jako $f:\Nat^k\to\Nat$, kde $k\geq 1$, tedy všechny \uv{algoritmicky vyèíslitelné} funkce. Mnoina pøirozenıch èísel je \emph{rekurzivní mnoina (rozhodnutelná mnoina)}, pokud je rekurzivní její charakteristická funkce (to je funkce, která urèí, které prvky do mnoiny patøí).
 \end{definiceN}
 
-\begin{definiceN}{SpoÄetnÃ½ jazyk, kÃ³d formule}
-\emph{SpoÄetnÃ½ jazyk} je jazyk, kterÃ½ mÃ¡ nejvÃ½Å¡ spoÄetnÄ› mnoho speciÃ¡lnÃ­ch symbolÅ¯. Pro spoÄetnÃ½ jazyk, kde lze efektivnÄ› (rekurzivnÃ­ funkcÃ­) oÄÃ­slovat jeho speciÃ¡lnÃ­ symboly, lze kaÅ¾dÃ© jeho formuli $A$ pÅ™iÅ™adit jejÃ­ \emph{kÃ³d formule} - pÅ™ir. ÄÃ­slo $\#A$.
+\begin{definiceN}{Spoèetnı jazyk, kód formule}
+\emph{Spoèetnı jazyk} je jazyk, kterı má nejvıš spoèetnì mnoho speciálních symbolù. Pro spoèetnı jazyk, kde lze efektivnì (rekurzivní funkcí) oèíslovat jeho speciální symboly, lze kadé jeho formuli $A$ pøiøadit její \emph{kód formule} - pøir. èíslo $\#A$.
 \end{definiceN}
 
-\begin{vetaN}{Churchova o nerozhodnutelnosti predikÃ¡tovÃ© logiky}
-Pokud spoÄetnÃ½ jazyk $L$ prvnÃ­ho Å™Ã¡du obsahuje alespoÅˆ jednu konstantu, alespoÅˆ jeden funkÄnÃ­ symbol arity $k>0$ a pro kaÅ¾dÃ© pÅ™irozenÃ© ÄÃ­slo spoÄetnÄ› mnoho predikÃ¡tovÃ½ch symbolÅ¯, potom mnoÅ¾ina $\{\#A|A \text{ je uzavÅ™enÃ¡ formule a }L\models A\}$ nenÃ­ rozhodnutelnÃ¡.
+\begin{vetaN}{Churchova o nerozhodnutelnosti predikátové logiky}
+Pokud spoèetnı jazyk $L$ prvního øádu obsahuje alespoò jednu konstantu, alespoò jeden funkèní symbol arity $k>0$ a pro kadé pøirozené èíslo spoèetnì mnoho predikátovıch symbolù, potom mnoina $\{\#A|A \text{ je uzavøená formule a }L\models A\}$ není rozhodnutelná.
 \end{vetaN}
 
-\begin{vetaN}{o nerozhodnosti predikÃ¡tovÃ© logiky}
-NechÅ¥ $L$ je jazyk prvnÃ­ho Å™Ã¡du bez rovnosti a obsahuje alespoÅˆ 2 binÃ¡rnÃ­ predikÃ¡ty. Potom je predikÃ¡tovÃ¡ logika (jako teorie) s jazykem $L$ nerozhodnutelnÃ¡.
+\begin{vetaN}{o nerozhodnosti predikátové logiky}
+Nech $L$ je jazyk prvního øádu bez rovnosti a obsahuje alespoò 2 binární predikáty. Potom je predikátová logika (jako teorie) s jazykem $L$ nerozhodnutelná.
 \end{vetaN}
 
-\begin{definiceN}{TÅ™i popisy aritmetiky}
-Je dÃ¡n jazyk $L=\{0,S,+,\cdot\,\leq\}$.
+\begin{definiceN}{Tøi popisy aritmetiky}
+Je dán jazyk $L=\{0,S,+,\cdot\,\leq\}$.
 \begin{pitemize}
-    \item \emph{Robinsonova aritmetika} - "$Q$" s jazykem L mÃ¡ 8 nÃ¡sl. axiomÅ¯:
+    \item \emph{Robinsonova aritmetika} - "$Q$" s jazykem L má 8 násl. axiomù:
     \begin{penumerate}
 	\item $S(x)\neq 0$
 	\item $S(x)=S(y)\rightarrow x=y$
@@ -184,34 +201,34 @@ Je dÃ¡n jazyk $L=\{0,S,+,\cdot\,\leq\}$.
 	\item $x\leq y\leftrightarrow (\exists z)(z+x=y)$
     \end{penumerate}
 
-    \textit{PoznÃ¡mka: NÄ›kdy, pokud nenÃ­ potÅ™eba definovat uspoÅ™Ã¡dÃ¡nÃ­, se poslednÃ­ axiom spolu se symbolem \uv{\leq} vypouÅ¡tÃ­.}
+    \textit{Poznámka: Nìkdy, pokud není potøeba definovat uspoøádání, se poslední axiom spolu se symbolem \uv{$\leq$} vypouští.}
 
-    \item \emph{Peanova aritmetika} - "$P$" mÃ¡ vÅ¡echny axiomy Robinsonovy kromÄ› tÅ™etÃ­ho, navÃ­c mÃ¡ 
-	\emph{SchÃ©ma(axiomÅ¯) indukce} - pro formuli $A$ a promÄ›nnou $x$ platÃ­: $A_x[0]\rightarrow 
+    \item \emph{Peanova aritmetika} - "$P$" má všechny axiomy Robinsonovy kromì tøetího, navíc má 
+	\emph{Schéma(axiomù) indukce} - pro formuli $A$ a promìnnou $x$ platí: $A_x[0]\rightarrow 
 	\{(\forall x)(A\rightarrow A_x[S(x)])\rightarrow(\forall x)A\}$.
-    \item \emph{ÃšplnÃ¡ aritmetika} mÃ¡ za axiomy vÅ¡echny uzavÅ™enÃ© formule pravdivÃ© v $\Nat$, je-li $\Nat$
-	standardnÃ­ model aritmetiky - \uv{pravdivÃ¡ aritmetika}. \emph{Teorie modelu $\Nat$} je mnoÅ¾ina
-	$Th(\Nat)=\{A|A\text{ je uzavÅ™enÃ¡ formule a } N\models A\}$.
+    \item \emph{Úplná aritmetika} má za axiomy všechny uzavøené formule pravdivé v $\Nat$, je-li $\Nat$
+	standardní model aritmetiky - \uv{pravdivá aritmetika}. \emph{Teorie modelu $\Nat$} je mnoina
+	$Th(\Nat)=\{A|A\text{ je uzavøená formule a } N\models A\}$.
 \end{pitemize}
-PlatÃ­: $Q\subseteq P\subseteq Th(\Nat)$. $Q$ mÃ¡ koneÄnÄ› mnoho axiomÅ¯, je tedy rekurzivnÄ› axiomatizovatelnÃ¡. $P$ mÃ¡ spoÄetnÄ› mnoho axiomÅ¯, kÃ³dy axiomÅ¯ schÃ©matu indukce tvoÅ™Ã­ rekurzivnÃ­ mnoÅ¾inu. $Th(\Nat)$ nenÃ­ rekurzivnÄ› axiomatizovatelnÃ¡.
+Platí: $Q\subseteq P\subseteq Th(\Nat)$. $Q$ má koneènì mnoho axiomù, je tedy rekurzivnì axiomatizovatelná. $P$ má spoèetnì mnoho axiomù, kódy axiomù schématu indukce tvoøí rekurzivní mnoinu. $Th(\Nat)$ není rekurzivnì axiomatizovatelná.
 \end{definiceN}
 
 
-\begin{definiceN}{MnoÅ¾ina kÃ³dÅ¯ vÄ›t teorie}
-Pro $T$ teorii s jazykem aritmetiky definujeme \emph{mnoÅ¾inu kÃ³dÅ¯ vÄ›t teorie} $T$ jako $Thm(T)=\{\#A|A \text{ je uzavÅ™enÃ¡ formule a } T\vdash A\}$.
+\begin{definiceN}{Mnoina kódù vìt teorie}
+Pro $T$ teorii s jazykem aritmetiky definujeme \emph{mnoinu kódù vìt teorie} $T$ jako $Thm(T)=\{\#A|A \text{ je uzavøená formule a } T\vdash A\}$.
 \end{definiceN}
 
-\begin{definiceN}{RozhodnutelnÃ¡ teorie}
-Teorie $T$ s jazykem aritmetiky je \emph{rozhodnutelnÃ¡}, pokud je mnoÅ¾ina $Thm(T)$ rekurzivnÃ­. V opaÄnÃ©m pÅ™Ã­padÄ› je $T$ \emph{nerozhodnutelnÃ¡}.
+\begin{definiceN}{Rozhodnutelná teorie}
+Teorie $T$ s jazykem aritmetiky je \emph{rozhodnutelná}, pokud je mnoina $Thm(T)$ rekurzivní. V opaèném pøípadì je $T$ \emph{nerozhodnutelná}.
 \end{definiceN}
 
 
 \begin{vetaN}{Churchova o nerozhodnutelnosti aritmetiky}
-KaÅ¾dÃ© bezespornÃ© rozÅ¡Ã­Å™enÃ­ Robinsonovy aritmetiky $Q$ je nerozhodnutelnÃ¡ teorie.
+Kadé bezesporné rozšíøení Robinsonovy aritmetiky $Q$ je nerozhodnutelná teorie.
 \end{vetaN}
 
-\begin{vetaN}{GÃ¶del-Rosserova o neÃºplnosti aritmetiky}
-Å½Ã¡dnÃ© bezespornÃ© a rekurzivnÄ› axiomatizovatelnÃ© rozÅ¡Ã­Å™enÃ­ Robinsonovy aritmetiky $Q$ nenÃ­ ÃºplnÃ¡ teorie.
+\begin{vetaN}{Gödel-Rosserova o neúplnosti aritmetiky}
+ádné bezesporné a rekurzivnì axiomatizovatelné rozšíøení Robinsonovy aritmetiky $Q$ není úplná teorie.
 \end{vetaN}
 
 
