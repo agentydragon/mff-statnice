@@ -32,30 +32,38 @@ $$T(n)=\begin{cases} D(n)+aT(\frac{n}{c})+S(n) \quad\quad & n > n_0 \\ \Theta(1)
 \end{poznamkaN}
 
 
-\begin{vetaN}{Substituèní metoda}
+\begin{vetaNSkull}{Substituèní metoda}
 \begin{penumerate}
     \item Uhodnu asymptoticky správné øešení
-    \item Indukcí ovìøím správnost (zvláštì horní a dolní odhad)
+    \item Pøímo nebo indukcí ovìøím správnost (zvláštì horní a dolní odhad)
 \end{penumerate}
-\end{vetaN}
+\end{vetaNSkull}
 
-\begin{vetaN}{Metoda \uv{kuchaøka} (Master Theorem)}
-Nech $a\geq 1, c>1,d\geq 0\in\Real$ a nech $T:\Nat\to\Nat$ je neklesající funkce taková, e $\forall n$ tvaru $c^k$ platí
+\begin{vetaNSkull}{Metoda \uv{kuchaøka} (Master Theorem)}
+Nech $a\geq 1, c>1,d\geq 0\in \mathbb{R}$ a nech $T:\mathbb{N}\to\mathbb{N}$ je neklesající funkce taková, e $\forall n$ tvaru $c^k$ platí
 $$T(n)=aT(\frac{n}{c}) + \Theta(n^d)$$
 Potom
 \begin{penumerate}
     \item Je-li $a \neq c^d$, pak $T(n)$ je $\Theta( n^{\max\{\log_c a, d\}} )$
-    \item Je-li $a = c^d$, pak $T(n)$ je $\Theta( n^d \log_c d )$
+    \item Je-li $a = c^d$, pak $T(n)$ je $\Theta( n^d \log_c n )$
+\end{penumerate}
+\end{vetaNSkull}
+
+\begin{vetaN}{Master Theorem, varianta 2}
+Nech $0<a_i<1$, kde $i\in\{1,\dots,k\}$  a $d\geq 0$ jsou reálná èísla a nech $T:\mathbb{N}\to\mathbb{N}$ splòuje rekurenci $$T(n)=\sum_{i=1}^k T(a_i\cdot n) + \Theta(n^d)$$ Nech je èíslo $x$ øešením rovnice $\sum_{i=1}^k a_i^x = 1$. Potom
+\begin{penumerate}
+    \item Je-li $x \neq d$ (tedy $\sum_{i=1}^k a_i^d \neq 1$), pak $T(n)$ je $\Theta( n^{\max\{x, d\}} )$
+    \item Je-li $x = d$ (tedy $\sum_{i=1}^k a_i^d = 1$), pak $T(n)$ je $\Theta( n^d \log n )$
 \end{penumerate}
 \end{vetaN}
 
-\begin{vetaN}{Master Theorem, varianta 2}
-Nech $0<a_i<1$, kde $i\in\{1,\dots,k\}$  a $d\geq 0$ jsou reálná èísla a nech $T:\Nat\to\Nat$ splòuje rekurenci $$T(n)=\sum_{i=1}^k T(a_i\cdot n) + \Theta(n^d)$$ Nech je èíslo $x$ øešením rovnice $\sum_{i=1}^k a_i^x = 1$. Potom
-\begin{penumerate}
-    \item Je-li $x \neq d$ (tedy $\sum_{i=1}^k a_i^d \neq 1$), pak $T(n)$ je $\Theta( n^{\max\{x, d\}} )$
-    \item Je-li $x = d$ (tedy $\sum_{i=1}^k a_i^d = 1$), pak $T(n)$ je $\Theta( n^d \log d )$
-\end{penumerate}
-\end{vetaN}
+\subsubsection{Násobení dlouhıch èísel v lepším ne kvadratickém èase.}
+Klasickım "školním" algoritmem pro násobení na papíøe \Rightarrow $O(n^2)$
+\\\\
+Libovolné 2N-ciferné èíslo mueme zapsat jako $10^NA+B$, kde A a B jsou N-ciferná. Souèin dvou takovıch èísel pak bude $(10^NA+B)*(10^NC+D) = (10^{2N}AC + 10^N(AD+BC) + BD)$. Sèítat dokáeme v lineárním èase, násobit mocninou deseti také (dopíšeme pøíslušnı poèet nul na konec èísla), N-ciferná èísla budeme násobit rekurzivním zavoláním tého algoritmu. Pro èasovou sloitost tedy bude platit $T(N)=O(N) + 4T(N/2)$. Nyní tuto rovnici mùeme snadno vyøešit, ale ani to dìlat nebudeme, nebo nám vyjde, e $T(N)\approx\ N^2$, èili jsme si oproti pùvodnímu algoritmu vùbec nepomohli.
+\\\\
+Pøijde trik. Místo ètyø násobení èísel polovièní délky nám budou staèit jen tøi: spoèteme $AC, BD$ a $(A+B)*(C+D) = AC+AD+BC+BD$, pøièem pokud od posledního souèinu odeèteme $AC$ a $BD$, dostaneme pøesnì $AD+BC$, které jsme pøedtím poèítali dvìma násobeními. Èasová sloitost nyní bude $T(N)=O(N) + 3T(N/2)$. \\\\
+Master theorem: $T(n)=3T(n/2)+O(n) \Rightarrow a=3 b=2 d=1 ; 3>21  \Rightarrow \Theta(n^{\log_23})\approx\Theta(n^{1,58})$
 
 \subsubsection{Násobení matic n$\times$n a Strassenùv algoritmus}
 
@@ -141,7 +149,7 @@ T_4 = D\cdot(R-P)                                        \cr
 % Jak je vidìt, vısledná matice je tvoøena stejnımi èástmi jako pøi obyèejném násobení. 
 
 \\\\
-\subsubsection{Hledání mediánu v lin. èase (Blum et al.)}
+\subsubsection{Hledání k-tého nejmenšího prvku (mediánu) v lin. èase (Blum et al.)}
 \begin{algoritmusN}{Blum et al.}
 \emph{Select(X,k)}
 \begin{penumerate}
@@ -150,23 +158,18 @@ T_4 = D\cdot(R-P)                                        \cr
 \item  $\forall i\in\{1...\lceil n/5\rceil\}:~~ m_i := median(Pi)$, to zvládneme v $O(n)$
 \item $ pivot := Select (m_1,...,m_{\lceil n/5\rceil}, \lceil n/10\rceil)$     (medián mediánù)
 \item Rozdìlime X na L(=menší ne pivot), S(=stejné jako pivot), P(=vìtší ne pivot)
-\item Rekurzivnì se zavolame na jednu z L, S, P (tu, ve ktere se ma vyskytovat hledany prvek – zjistíme podle jejich velikosti)
+\item Rekurzivnì se zavoláme na jednu z L, S, P (tu, ve ktere se ma vyskytovat hledany prvek – tj. podle jejich velikosti a k\footnote{buï je $k\leq |L|$, nebo $|L|<k\leq |L|+|S|$, nebo $|L|+|S|<k$})
 \end{penumerate}
 \end{algoritmus}
 \begin{obecne}{Èasová sloitost:} V kadém kroku vypadne alespoò $\frac{3n}{10}$ prvkù.
-\proof Pøedstavme si vybrané pìtice seøazené podle velikosti od nejvìtšího prvku a zakresleme je do sloupcù. Jejich mediány tedy vyplòují prostøední øadu. Tyto pìtice pak seøaïme podle velikosti jejich mediánù (nejmenší vlevo). Hledanı pivot se tedy nachází (pokud pøedpokládáme pro jednoduchost lichı poèet pìtic) pøesnì uprostøed. O prvcích nad pivotem a napravo od nìj mùeme urèitì øíct, e jsou vìtší nebo rovny pivotu, prvky pod ním a nalevo od nìj jsou zase urèitì menší nebo rovny pivotu. Podle algoritmu vdy vypadne jedna nebo druhá skupina prvkù o velikosti alespoò $\frac{3n}{10}$ prvkù (z obrázku).
+\proof Pøedstavme si vybrané pìtice seøazené podle velikosti od nejvìtšího prvku a zakresleme je do sloupcù. Jejich mediány tedy vyplòují prostøední øadu. Tyto pìtice pak seøaïme podle velikosti jejich mediánù (nejmenší vlevo)\footnote{bacha algoritmus nic takoveho nedìlá, jen nám to pomùe v úvaze o správnosti}. Hledanı pivot se tedy nachází (pokud pøedpokládáme pro jednoduchost lichı poèet pìtic) pøesnì uprostøed. O prvcích nad pivotem a napravo od nìj mùeme urèitì øíct, e jsou vìtší nebo rovny pivotu, prvky pod ním a nalevo od nìj jsou zase urèitì menší nebo rovny pivotu. Podle algoritmu vdy vypadne jedna nebo druhá skupina prvkù o velikosti alespoò $\frac{3n}{10}$ prvkù (z obrázku).
 \begin{center}
 \includegraphics[scale=1.8]{informatika/algoritmy_a_ds/obrazky/petice.png}
 \end{center}
 V kadém kroku funkce volá sama sebe na vstup velikosti nejvıše n/5 a pak na 7n/10 ostatní operace jsou lineární, nejhorší pøípad: $T(n)=O(n)+T(\frac{n}{5})+T(\frac{7n}{10}) $, odhadneme e odpovídá lin.sloitosti O(n).
 \proof
-Indukcí e $T(n) = O(n):\exists k>0 \exists n_0 \forall n>n_0: T(n)\leq kn $ pro nìjakou dostateènì velkou konstantu k.
-\begin{penumerate}
-\item $n=1: T(n)= 1+k\frac{9}{10}\leq  k1$
-\item $T(n)=O(n)+T(\frac{n}{5})+T(\frac{7n}{10})\leq n + k\frac{n}{5} + k\frac{7n}{10} = n + k\frac{9n}{10}$
-\\
-$n + k\frac{9n}{10} \leq kn \Rightarrow n \leq \frac{1}{10}kn \Rightarrow 10 \leq k$
-\end{penumerate}
+Pøímo e $T(n) = \Theta(n)\Leftrightarrow\exists k>0: \exists n_0\in \mathbb{N}~ \forall n\geq n_0: T(n)= kn $ pro nìjakou dostateènì velkou konstantu k.
+\\\\$T(n)=\Theta(n)+T(\frac{n}{5})+T(\frac{7n}{10})\Leftrightarrow kn = n + k\frac{n}{5} + k\frac{7n}{10} = n + k\frac{9n}{10}\Leftrightarrow 10 = k$ (dosadili jsme T(n) = kn)
 
 
 \subsubsection{MergeSort}
@@ -206,7 +209,7 @@ Na slití dvou setøídìnıch posloupností do~jedné pouíváme funkci Merge:
 Rozdìlování a~slévání nám trvá lineárnì dlouho, take pro èasovou sloitost MergeSortu platí tato rekurentní rovnice, kterou vyresime pomocí MT: $$T(n)= 2 \cdot T(n/2) + \Theta(n)  \Longrightarrow \Theta(n^1\log n}) = \Theta(n\log n).$$ 
 \end{obecne}
 
-\begin{obecne}{Pamìová sloitost:}
+\begin{obecne}{Pamìová sloitost\footnote{pro zajímavost, neni to asi nutne umet odvodit}:}
 
 $$M(n) = d \cdot n + M(n/2) = d \cdot n + d \cdot n/2 + d \cdot n/4 + \dots \leq 2d n = \Theta(n).$$
 

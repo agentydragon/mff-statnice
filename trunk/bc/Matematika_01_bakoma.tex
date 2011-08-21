@@ -6,6 +6,7 @@
 \usepackage[cp1250]{inputenc}
 \usepackage[czech]{babel}
 
+
 \usepackage{a4wide}
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage[mathcal]{eucal}
@@ -16,7 +17,8 @@
 \usepackage{capt-of}
 \usepackage{float}
 
-
+\newenvironment{vetaSkull}{\pagebreak[2]\noindent\textbf{$\bigstar$ Vìta}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
+\newenvironment{vetaNSkull}[1]{\pagebreak[2]\noindent\textbf{$\bigstar$ Vìta~}\emph{(#1)}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
 
 % sirka a vyska textu nastavena jako papir, vsechny okraje vynulovany a pridano 20pt na kazdou stranu
 % horizontalni rozmery
