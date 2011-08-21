@@ -32,19 +32,20 @@ $f$ je na $M$:
 \end{definiceN}
 
 \begin{definiceN}{Okolí bodu}
-$P(a, \delta) = (a-\delta, a) \cup (a, a+\delta)$ (prstencové okolí)
+    \begin{pitemize}
+        \item $P(a, \delta) = (a-\delta, a) \cup (a, a+\delta)$  \hfill \emph{(prstencové okolí)} \hspace{0.4\textwidth}
 
-\noindent
-$P^{+}(a, \delta)=(a, a+\delta)$ (pravé prstencové okolí)
+        \item $P^{+}(a, \delta)=(a, a+\delta)$  \hfill \emph{(pravé prstencové okolí)} \hspace{0.4\textwidth}
 
-\noindent
-$P^{-}(a, \delta)=(a-\delta, a)$ (levé prstencové okolí)
+        \item $P^{-}(a, \delta)=(a-\delta, a)$  \hfill \emph{(levé prstencové okolí)} \hspace{0.4\textwidth}
+        
+        \item $B(a, \delta)=(a-\delta, a+\delta) = P(a, \delta)\cup\{a\}$ \hfill \emph{($\delta$-okolí)} \hspace{0.4\textwidth}
 
-\noindent
-$B(a, \delta)=(a-\delta, a+\delta) = P(a, \delta)+\{a\}$ ($\delta$-okolí)
-
-\noindent
-Podobnì se definuje i levé a pravé $\delta$-okolí bodu $a$.
+        \item $B^{+}(a, \delta)=P^{+}(a, \delta)\cup\{a\}$ \hfill \emph{(pravé $\delta$-okolí)} \hspace{0.4\textwidth}
+        \item $B^{-}(a, \delta)=P^{-}(a, \delta)\cup\{a\}$ \hfill \emph{(levé $\delta$-okolí)} \hspace{0.4\textwidth}
+        \item $P(\infty, d) = B(\infty,d)=(\frac{1}{d}, \infty)$
+        \item $P(-\infty, d) = B(-\infty,d)=(-\infty, -\frac{1}{d})$
+\end{pitemize}
 \end{definiceN}
 
 \subsection{Spojitost, limita funkce v bodì (vlastní i nevlastní)}
