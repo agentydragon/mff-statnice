@@ -22,7 +22,6 @@ Pracujeme s redukovanım jazykem (jen s log. spojkami $\neg,\rightarrow$). Formál
 \end{penumerate}
 \end{definiceN}
 
-
 \begin{definiceN}{Formální systém predikátové logiky}
 Pracujeme s redukovanım jazykem (jen s log. spojkami $\neg,\rightarrow$ a jen s kvantifikátorem $\forall$). \emph{Schémata axiomù predikátové logiky} vzniknou z tìch ve vırokové logice prostım dosazením libovolnıch formulí predikátové logiky za vırokové promìnné. \emph{Modus ponens} platí i v pred. logice. PL obsahuje navíc další dva axiomy a odvozovací pravidlo:
 \begin{pitemize}
@@ -39,7 +38,7 @@ Formule $A$ ve vırokové logice je \emph{splnitelná}, jestlie existuje ohodnocen
 \end{definiceN}
 
 \begin{definiceN}{dùkaz\vl}
-Dùkaz $A$ je koneèná posloupnost formulí $A_1,\dots A_n$, jestlie $A_n = A$ a pro kadé $i=1,..n$ je $A_i$ buï axiom, nebo je odvozená z pøedchozích pravidlem modus ponens. Existuje-li dùkaz formule $A$, pak je tato \emph{dokazatelná} ve vırokové logice (je vìtou vırokové logiky, znaèíme $\vdash A$).
+Dùkaz $A$ je koneèná posloupnost formulí $A_1,\dots A_n$, jestlie $A_n = A$ a pro kadé $i=1,..n$ je $A_i$ buï axiom, nebo je odvozená z pøedchozích pravidlem modus ponens (v predikátové logice navíc monost pouití pravidla generalizace). Existuje-li dùkaz formule $A$, pak je tato \emph{dokazatelná} ve vırokové logice (je vìtou vırokové logiky, znaèíme $\vdash A$).
 \end{definiceN}
 
 \begin{definiceN}{dùkaz z pøedpokladù}
@@ -47,13 +46,20 @@ Dùkaz formule $A$ z pøedpokladù je posloupnost formulí $A_1,\dots A_n$ taková, 
 \end{definiceN}
 
 \begin{vetaN}{o dedukci\vl}
-Pro $T$ mnoinu formulí a formule $A,B$ platí: $$T\vdash A\rightarrow B \mbox{ právì kdy } T,A\vdash B$$
+Pro $T$ mnoinu formulí a formule $A,B$ platí $T\vdash A\rightarrow B \mbox{ právì kdy } T,A\vdash B$.
 \end{vetaN}
 \begin{ideadukazu}
 \begin{pitemize}
     \item[$\to$] Máme dùkaz formule $A \to B$, k nìmu mùeme z pøedpokladu pøipojit $A$ a pomocí MP odvodit $B$.
     \item[$\leftarrow$] $A_1, \ldots, A_n = B$ je dùkaz formule $B$ z pøedpokladù $T, A$. Indukcí dokáeme, e $T \vdash A \to A_i$, tedy pro $i = n$ jsme hotovi.
 \end{pitemize}
+\end{ideadukazu}
+
+\begin{vetaN}{o dedukci\pl}
+Nech $T$ je mnoina formulí pred. logiky, $A$ je uzavøená formule a $B$ lib. formule, potom $T\vdash A\rightarrow B$ právì kdy $T,A\vdash B$.
+\end{vetaN}
+\begin{ideadukazu}
+Podobnì jako ve VL, pouze v indukèním kroku mohlo bıt pouito pravidlo generalizace, proto poadujeme, aby $A$ byla uzavøená.
 \end{ideadukazu}
 
 \begin{dusledek}
@@ -85,33 +91,22 @@ Pro danı (redukovanı, tj. jen se \uv{základními} log. spojkami) jazyk predikátov
 \end{definiceN}
 
 \begin{definiceN}{logicky pravdivá/platná formule\pl}
-Formule $A$ je \emph{validní (logicky pravdivá/pravdivá)} ($\models A$), kdy je platná pøi kadé interpretaci daného jazyka.
+Formule $A$ je \emph{validní (logicky pravdivá/platná)} (znaèíme $\models A$), kdy je platná pøi kadé interpretaci daného jazyka.
 \end{definiceN}
 
 \begin{definiceN}{spornost, bezespornost}
 Mnoina formulí $T$ je \emph{sporná}, pokud je z pøedpokladù $T$ dokazatelná libovolná formule, jinak je $T$ \emph{bezesporná}. $T$ je \emph{maximální bezesporná} mnoina, pokud je $T$ bezesporná a navíc jediná její bezesporná nadmnoina je $T$ samo. Mnoina všech formulí dokazatelnıch z $T$ se znaèí $\mathit{Con}(T)$.
 \end{definiceN}
 
-\begin{vetaN}{o bezespornosti a splnitelnosti}
+\begin{vetaN}{o bezespornosti a splnitelnosti\vl}
 Mnoina formulí vırokové logiky je bezesporná, právì kdy je splnitelná.
-\end{vetaN}
-
-\begin{poznamkaN}{vlastnosti formulí predikátové logiky}
-\begin{penumerate}
-    \item Je-li $A'$ instance formule $A$, pak jestlie platí $\vdash A$, platí i $\vdash A'$.
-	(\emph{Vìta o instancích})
-    \item Je-li $A'$ uzávìr formule $A$, pak $\vdash A$ platí právì kdy $\vdash A'$. 
-	(\emph{Vìta o uzávìru})
-\end{penumerate}
-\end{poznamkaN}
-
-\begin{vetaN}{o dedukci\pl}
-Nech $T$ je mnoina formulí pred. logiky, $A$ je uzavøená formule a $B$ lib. formule, potom $T\vdash A\rightarrow B$ právì kdy $T,A\vdash B$.
 \end{vetaN}
 
 \begin{definiceN}{teorie, model -- obecnì}
 Pro nìjakı jazyk $L$ prvního øádu je mnoina $T$ formulí tohoto jazyka \emph{teorie prvního øádu}. Formule z $T$ jsou \emph{speciální axiomy} teorie $T$. Pro interpretaci $\c{M}$ jazyka $L$ je $\c{M}$ \emph{model teorie} $T$ (znaèíme $\c{M}\models T$), pokud jsou všechny speciální axiomy $T$ pravdivé v $\c{M}$. Formule $A$ je \emph{sémantickım dùsledkem} $T$ (znaèíme $T\models A$), jestlie je pravdivá v kadém modelu teorie $T$.
 \end{definiceN}
+
+\subsubsection*{Rozhodnutelnost}
 
 \begin{definiceN}{rekurzivní funkce a mnoina}
 \emph{Rekurzivní funkce} jsou všechny funkce popsatelné jako $f:\Nat^k\to\Nat$, kde $k\geq 1$, tedy všechny \uv{algoritmicky vyèíslitelné} funkce. Mnoina pøirozenıch èísel je \emph{rekurzivní mnoina (rozhodnutelná mnoina)}, pokud je rekurzivní její charakteristická funkce (funkce urèující, které prvky do mnoiny patøí).
@@ -119,6 +114,14 @@ Pro nìjakı jazyk $L$ prvního øádu je mnoina $T$ formulí tohoto jazyka \emph{teo
 
 \begin{definiceN}{spoèetnı jazyk, kód formule}
 \emph{Spoèetnı jazyk} je jazyk, kterı má nejvıš spoèetnì mnoho speciálních symbolù. Pro spoèetnı jazyk, kde lze efektivnì (rekurzivní funkcí) oèíslovat jeho speciální symboly, lze kadé jeho formuli $A$ pøiøadit její \emph{kód formule} - pøir. èíslo $\#A$.
+\end{definiceN}
+
+\begin{definiceN}{mnoina kódù vìt teorie}
+Pro $T$ teorii s jazykem aritmetiky definujeme \emph{mnoinu kódù vìt teorie} $T$ jako $Thm(T)=\{\#A|A \text{ je uzavøená formule a } T\vdash A\}$.
+\end{definiceN}
+
+\begin{definiceN}{rozhodnutelná teorie}
+Teorie $T$ s jazykem aritmetiky je \emph{rozhodnutelná}, pokud je mnoina $Thm(T)$ rekurzivní. V opaèném pøípadì je $T$ \emph{nerozhodnutelná}.
 \end{definiceN}
 
 \begin{vetaN}{Churchova o nerozhodnutelnosti predikátové logiky}
@@ -151,18 +154,9 @@ Je dán jazyk $L=\{0,S,+,\cdot\,\leq\}$.
 	\{(\forall x)(A\rightarrow A_x[S(x)])\rightarrow(\forall x)A\}$.
     \item \emph{Úplná aritmetika} má za axiomy všechny uzavøené formule pravdivé v $\Nat$, je-li $\Nat$
 	standardní model aritmetiky - \uv{pravdivá aritmetika}. \emph{Teorie modelu $\Nat$} je mnoina
-	$Th(\Nat)=\{A|A\text{ je uzavøená formule a } N\models A\}$.
+	$Th(\Nat)=\{A|A\text{ je uzavøená formule a } \Nat\models A\}$.
 \end{pitemize}
 Platí: $Q\subseteq P\subseteq Th(\Nat)$. $Q$ má koneènì mnoho axiomù, je tedy rekurzivnì axiomatizovatelná. $P$ má spoèetnì mnoho axiomù, kódy axiomù schématu indukce tvoøí rekurzivní mnoinu. $Th(\Nat)$ není rekurzivnì axiomatizovatelná.
-\end{definiceN}
-
-
-\begin{definiceN}{Mnoina kódù vìt teorie}
-Pro $T$ teorii s jazykem aritmetiky definujeme \emph{mnoinu kódù vìt teorie} $T$ jako $Thm(T)=\{\#A|A \text{ je uzavøená formule a } T\vdash A\}$.
-\end{definiceN}
-
-\begin{definiceN}{Rozhodnutelná teorie}
-Teorie $T$ s jazykem aritmetiky je \emph{rozhodnutelná}, pokud je mnoina $Thm(T)$ rekurzivní. V opaèném pøípadì je $T$ \emph{nerozhodnutelná}.
 \end{definiceN}
 
 \begin{vetaN}{Churchova o nerozhodnutelnosti aritmetiky}
