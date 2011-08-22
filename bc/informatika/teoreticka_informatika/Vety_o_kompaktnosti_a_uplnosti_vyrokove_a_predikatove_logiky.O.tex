@@ -1,3 +1,73 @@
 \subsection{Vìty o kompaktnosti a úplnosti vırokové a predikátové logiky}
 
+\begin{vetaN}{o kompaktnosti vırokové logiky}
+Mnoina formulí $T$ je splnitelná, právì kdy je splnitelná libovolná koneèná podmnoina $T_0 \subseteq T$.
+\end{vetaN}
+%\begin{ideadukazu}
+%\begin{pitemize}
+%    \item[$\to$] Je-li $T$ splnitelná, máme ohodnocení, které splòuje také kadou podmnoinu $T_0 \subseteq T$.
+%    \item[$\leftarrow$] Pøes souèin kompaktích topologickıch prostorù s centrovanım systémem obojetnıch mnoin, prostì bych to pøeskoèil...
+%\end{pitemize}
+%\end{ideadukazu}
+
+
+\begin{vetaN}{Vìta o úplnosti vırokové logiky}
+Je-li $T$ mnoina formulí a $A$ formule, pak platí:
+\begin{penumerate}
+    \item $T\vdash A$ právì kdy $T\models A$
+    \item $\vdash A$ právì kdy $\models A$ ($A$ je vìtou vırokové logiky, právì kdy je tautologie)
+\end{penumerate}
+Tedy vıroková logika je bezesporná a jsou v ní dokazatelné právì tautologie.
+\end{vetaN}
+
+\begin{vetaN}{o korektnosti}
+Je-li $T$ teorie prvního øádu a $A$ formule, potom platí:
+\begin{penumerate}
+    \item Jestlie $T\vdash A$, potom $T\models A$.
+    \item Speciálnì jestlie $\vdash A$, potom $\models A$.
+\end{penumerate}
+\end{vetaN}
+
+\begin{vetaN}{o úplnosti v predikátové logice}
+Nech $T$ je teorie s jazykem prvního øádu $L$. Je-li $A$ lib. formule jazyka $L$, pak platí:
+\begin{penumerate}
+    \item $T\vdash A$ právì kdy $T\models A$
+    \item $T$ je bezesporná, právì kdy má model.
+\end{penumerate}
+\end{vetaN}
+
+\begin{definiceN}{Úplná teorie}
+Teorie $T$ s jazykem $L$ prvního øádu je \emph{úplná}, je-li bezesporná a pro libovolnou uzavøenou formuli $A$ je jedna z formulí $A,\neg A$ dokazatelná v $T$.
+\end{definiceN}
+
+\begin{vetaN}{o kompaktnosti}
+Teorie $T$ s jazykem $L$ prvního øádu má model, právì kdy kadı její koneènı fragment $T'\subset T$ má model. Tj. pro libovolnou formuli $A$ jazyka $L$ platí: $T\models A$ právì kdy $T'\models A$ pro nìjakı koneènı fragment $T'\subset T$.
+\end{vetaN}
+
 TODO: všechno
+\\
+Tohle je soubor, kam si zatím ukládám nepotøebné definice a tvrzení.
+
+\begin{definiceN}{substituce, instance, substituovatelnost\pl}
+\emph{Substituce termù za promìnné} ($t_{x_1,\dots,x_n}[t_1,\dots,t_n]$) je souèasné nahrazení všech vıskytù promìnnıch $x_i$ termy $t_i$ (pro $x_1, \ldots, x_n$ rùzné promìnné a $t, t_1, \ldots, t_n$ termy). Jedná se opìt o term.
+
+\emph{Instance} formule je souèasné nahrazení všech volnıch vıskytù nìjakıch promìnnıch za termy. Je to taky formule, vyjadøuje speciálnìjší tvrzení -- ne vdy ale lze provést substituci bez zmìny vıznamu formule. Term $t$ je \emph{substituovatelnı} za promìnnou $x$ do formule $A$, pokud ádnı volnı vıskyt promìnné $x$ ve formuli $A$ neleí v oboru platnosti nìkterého z kvantifikátorù ($\forall y$ nebo $\exists y$), kde $y$ je promìnná obsaená v termu $t$. (Neboli pokud pro kadou promìnnou $y$ obsaenou v $t$ ádná podformule formule $A$ tvaru $(\exists y)B$ ani $(\forall y)B$ neobsahuje volnı vıskyt $x$.)
+\end{definiceN}
+
+\begin{poznamka}
+Promìnné v termu $t$ se substitucí nesmí stát vázanımi. Je-li $A$ otevøená formule, pak je kadı term substituovatelnı za kadou promìnnou vyskytující se v $A$. Stejnì pokud ádná promìnná obsaená v termu $t$ není v $A$ vázaná. To jsou ale jen jednoduché pøíklady susbtituovatelnosti (napø. pro promìnnou $z$ je term tvaru $z$ substituovatelnı za promìnnou $x$ do formule $x = 0 \rightarrow \neg \left(\exists z \right)\left(z \neq 0\right)$, i kdy pro nìj ani jedna z tìchto podmínek neplatí).
+\end{poznamka}
+
+\begin{definiceN}{Uzávìr formule}
+Jsou-li $x_1,\dots,x_n$ všechny promìnné s volnım vıskytem ve formuli $A$, potom $(\forall x_1)\dots(\forall x_n)A$ je \emph{uzávìr} formule $A$.
+\end{definiceN}
+
+
+\begin{lemma}
+Jsou-li všechny volné promìnné formule $A$ mezi promìnnımi $x_1, \ldots, x_n$ a jsou-li ohodnocení $e, e^{\prime}$ shodná v tìchto promìnnıch, potom $$\c{M}\models A[e] \mbox{ právì kdy } \c{M}\models A[e^{\prime}].$$
+\end{lemma}
+
+
+\begin{vetaN}{Lindenbaumova}
+Kadou bezespornou mnoinu formulí vırokové logiky $T$ lze rozšíøit na maximální bezespornou $S$, $T\subset S$.
+\end{vetaN}
