@@ -1,83 +1,90 @@
 \subsection{Vìty o kompaktnosti a úplnosti vırokové a predikátové logiky}
 
-\begin{vetaN}{o kompaktnosti vırokové logiky}
-Mnoina formulí $T$ je splnitelná, právì kdy je splnitelná libovolná koneèná podmnoina $T_0 \subseteq T$.
-\end{vetaN}
-%\begin{ideadukazu}
-%\begin{pitemize}
-%    \item[$\to$] Je-li $T$ splnitelná, máme ohodnocení, které splòuje také kadou podmnoinu $T_0 \subseteq T$.
-%    \item[$\leftarrow$] Pøes souèin kompaktích topologickıch prostorù s centrovanım systémem obojetnıch mnoin, prostì bych to pøeskoèil...
-%\end{pitemize}
-%\end{ideadukazu}
-
-
-\begin{vetaN}{Vìta o úplnosti vırokové logiky}
-Je-li $T$ mnoina formulí a $A$ formule, pak platí:
-\begin{penumerate}
-    \item $T\vdash A$ právì kdy $T\models A$
-    \item $\vdash A$ právì kdy $\models A$ ($A$ je vìtou vırokové logiky, právì kdy je tautologie)
-\end{penumerate}
-Tedy vıroková logika je bezesporná a jsou v ní dokazatelné právì tautologie.
-\end{vetaN}
-
-\begin{vetaN}{o korektnosti}
-Je-li $T$ teorie prvního øádu a $A$ formule, potom platí:
-\begin{penumerate}
-    \item Jestlie $T\vdash A$, potom $T\models A$.
-    \item Speciálnì jestlie $\vdash A$, potom $\models A$.
-\end{penumerate}
-\end{vetaN}
-
-\begin{vetaN}{o úplnosti v predikátové logice}
-Nech $T$ je teorie s jazykem prvního øádu $L$. Je-li $A$ lib. formule jazyka $L$, pak platí:
-\begin{penumerate}
-    \item $T\vdash A$ právì kdy $T\models A$
-    \item $T$ je bezesporná, právì kdy má model.
-\end{penumerate}
-\end{vetaN}
-
-\begin{definiceN}{Úplná teorie}
+\begin{definiceN}{úplná teorie}
 Teorie $T$ s jazykem $L$ prvního øádu je \emph{úplná}, je-li bezesporná a pro libovolnou uzavøenou formuli $A$ je jedna z formulí $A,\neg A$ dokazatelná v $T$.
 \end{definiceN}
 
-\begin{vetaN}{o kompaktnosti}
-Teorie $T$ s jazykem $L$ prvního øádu má model, právì kdy kadı její koneènı fragment $T'\subset T$ má model. Tj. pro libovolnou formuli $A$ jazyka $L$ platí: $T\models A$ právì kdy $T'\models A$ pro nìjakı koneènı fragment $T'\subset T$.
+\begin{vetaNSkull}{o korektnosti\vl}
+Pro teorii $T$ a formuli $A$ platí $T \vdash A \Rightarrow T \models A$. (Kadá v $T$ dokazatelná formule je v $T$ pravdivá.)
+\end{vetaNSkull}
+\begin{dukaz}
+Indukcí na vìtách $T$. Kadı axiom je pravdivı (ovìøíme pøímo) a pravidlo modus ponens také zachovává pravdivost.
+\end{dukaz}
+
+\begin{vetaN}{o bezespornosti a modelech\vl}
+Má-li teorie model, je bezesporná.
 \end{vetaN}
+\begin{dukaz}
+Formule $A$ a $\neg A$ nemohou bıt zároveò platné v ádném modelu.
+\end{dukaz}
 
-TODO: všechno
-\\
-Tohle je soubor, kam si zatím ukládám nepotøebné definice a tvrzení.
-
-\begin{definiceN}{substituce, instance, substituovatelnost\pl}
-\emph{Substituce termù za promìnné} ($t_{x_1,\dots,x_n}[t_1,\dots,t_n]$) je souèasné nahrazení všech vıskytù promìnnıch $x_i$ termy $t_i$ (pro $x_1, \ldots, x_n$ rùzné promìnné a $t, t_1, \ldots, t_n$ termy). Jedná se opìt o term.
-
-\emph{Instance} formule je souèasné nahrazení všech volnıch vıskytù nìjakıch promìnnıch za termy. Je to taky formule, vyjadøuje speciálnìjší tvrzení -- ne vdy ale lze provést substituci bez zmìny vıznamu formule. Term $t$ je \emph{substituovatelnı} za promìnnou $x$ do formule $A$, pokud ádnı volnı vıskyt promìnné $x$ ve formuli $A$ neleí v oboru platnosti nìkterého z kvantifikátorù ($\forall y$ nebo $\exists y$), kde $y$ je promìnná obsaená v termu $t$. (Neboli pokud pro kadou promìnnou $y$ obsaenou v $t$ ádná podformule formule $A$ tvaru $(\exists y)B$ ani $(\forall y)B$ neobsahuje volnı vıskyt $x$.)
-\end{definiceN}
-
-\begin{poznamka}
-Promìnné v termu $t$ se substitucí nesmí stát vázanımi. Je-li $A$ otevøená formule, pak je kadı term substituovatelnı za kadou promìnnou vyskytující se v $A$. Stejnì pokud ádná promìnná obsaená v termu $t$ není v $A$ vázaná. To jsou ale jen jednoduché pøíklady susbtituovatelnosti (napø. pro promìnnou $z$ je term tvaru $z$ substituovatelnı za promìnnou $x$ do formule $x = 0 \rightarrow \neg \left(\exists z \right)\left(z \neq 0\right)$, i kdy pro nìj ani jedna z tìchto podmínek neplatí).
-\end{poznamka}
-
-\begin{definiceN}{Uzávìr formule}
-Jsou-li $x_1,\dots,x_n$ všechny promìnné s volnım vıskytem ve formuli $A$, potom $(\forall x_1)\dots(\forall x_n)A$ je \emph{uzávìr} formule $A$.
-\end{definiceN}
-
-
-\begin{lemma}
-Jsou-li všechny volné promìnné formule $A$ mezi promìnnımi $x_1, \ldots, x_n$ a jsou-li ohodnocení $e, e^{\prime}$ shodná v tìchto promìnnıch, potom $$\c{M}\models A[e] \mbox{ právì kdy } \c{M}\models A[e^{\prime}].$$
-\end{lemma}
-
-
-\begin{vetaN}{Lindenbaumova}
-Kadou bezespornou mnoinu formulí vırokové logiky $T$ lze rozšíøit na maximální bezespornou $S$, $T\subset S$.
-\end{vetaN}
-
-\begin{poznamkaN}{vlastnosti formulí predikátové logiky}
+\begin{vetaNSkull}{o spoustì vìcí\vl}
+Nech $A, B$ jsou formule teorie $T$. Platí následující tvrzení.
 \begin{penumerate}
-    \item Je-li $A'$ instance formule $A$, pak jestlie platí $\vdash A$, platí i $\vdash A'$.
-	(\emph{Vìta o instancích})
-    \item Je-li $A'$ uzávìr formule $A$, pak $\vdash A$ platí právì kdy $\vdash A'$. 
-	(\emph{Vìta o uzávìru})
+    \item
+    \begin{penumerate}
+        \item Teorie $T$ je sporná, právì kdy je v ní dokazatelnı spor.
+        \item (Dùkaz sporem.) $T, \neg A$ je sporná právì kdy $T \vdash A$.
+    \end{penumerate}
+    \item Buï $T$ maximální bezesporná teorie. Pak platí:
+    \begin{penumerate}
+        \item $T \vdash A \Leftrightarrow A \in T \Leftrightarrow T, A$ je bezesporná
+        \item $A \in T \Leftrightarrow \neg A \notin T$ a dále $\left(A \to B\right) \in T \Leftrightarrow (\neg A \in T$ nebo $B \in T)$.
+        \item Ohodnocení $e$ takové, e $e(p) = 1 \Leftrightarrow p \in T$ pro kadou vırokovou promìnnou $p$, je jedinı model $T$.
+    \end{penumerate}
+    \item Bezesporná teorie má maximální bezesporné rozšíøení (v téme jazyce).
+    \item (\textbf{O existenci modelu}.) Teorie má model, právì kdy je bezesporná.
+    \item (\textbf{O kompaktnosti}.) Teorie má model (tedy je splnitelná), právì kdy kadá její koneèná podteorie má model (je splnitelná).
+    \item (\textbf{O úplnosti}.) $T \vdash A \Leftrightarrow T \models A$ platí pro kadou teorii $T$ a její formuli $A$. Dùsledkem je bezespornost vırokové logiky a dokazatelné v ní jsou právì tautologie.
 \end{penumerate}
-\end{poznamkaN}
+\begin{dukaz}
+\begin{penumerate}
+    \item
+    \begin{penumerate}
+        \item Je-li $A$ spor ($\vdash \neg A$) a pøitom $T \vdash A$, pak díky vìtì $\vdash \neg A \to (A \to B)$ platí jakıkoliv vırok $B$.
+        \item
+        \begin{pitemize}
+            \item[$\Rightarrow$] Je-li $T, \neg A$ sporná, pak $T \vdash \neg A \to A$ uitím vìty o dedukci. Díky vìtì $\vdash (\neg A \to A) \to A$ pak platí $T \vdash A$.
+            \item[$\Leftarrow$] Opìt díky vìtám o dedukci a $\vdash \neg A \to (A \to B)$ lze dokázat libovolnou formuli.
+        \end{pitemize}
+    \end{penumerate}
+    \item 
+    \begin{penumerate}
+        \item z definic a maximálnosti
+        \item $\neg A \notin T \Leftrightarrow T, \neg A$ je sporná $\Leftrightarrow T \vdash A \Leftrightarrow A \in T$ dle 2a) a dùkazu sporem.\\
+        Tvrzení o implikaci: Kdy $A \to B \in T$, tak z $\neg A \notin T$ plyne $A \in T$. Pak $T \vdash B$ a díky 2a) je $B \in T$. Kdy $\neg A \in T$, tak $T \vdash A \to B$ díky vìtì $\vdash \neg C \to (C \to D)$, tedy $A \to B \in T$ díky a). Podobnì kdy $B \in T$, tak $T, A \vdash B$, tudí $T \vdash A \to B$.
+        \item Platí $A \in T \Leftrightarrow e(A) = 1$, co plyne indukcí dle sloitosti $A$ ihned uitím b). Tedy $e \models T$. Koneènì pro $e' \models T$ máme $e'(p) = 1 \Leftrightarrow p \in  T$ pro kadou vırokovou promìnnou $p$, tedy $e' = e$.
+    \end{penumerate}
+    \item Plyne z principu maximality (ekvivalentního s axiomem vıbìru), aplikujeme-li jej na mnoinu všech bezespornıch teorií $S$ s $S \supseteq T$, na ní uvaujeme uspoøádání inkluzí. Kadı øetìzec $R$ v popsaném uspoøádání má majorantu, kterou je jeho sjednocení $\bigcup R$, nebo to je teorie rozšiøující $T$, která je bezesporná, protoe spor v ní je sporem v nìjaké teorii z $R$.
+    \item
+    \begin{pitemize}
+	    \item[$\Leftarrow$]Má-li $T$ model $e$ a $T \vdash A$, tak $e(A) = 1$, tedy $e(\neg A) = 0$, tedy $T \not \vdash \neg A$ a $T$ je bezesporná.
+	    \item[$\Rightarrow$]Nech je $T$ bezesporná. Dle 3) existuje maximální bezesporná teorie $T' \supseteq T$ a dle 2c) existuje model teorie $T'$, co je i model $T$.
+    \end{pitemize}
+    \item Plyne z 4) z toho, e teorie je bezesporná, právì kdy je bezesporná kadá její koneèná podteorie.
+    \item $\Rightarrow$ je vìta o korektnosti, v opaèném smìru pøedpokládáme $T \models A$. Pak je $T, \neg A$ sporná dle tvrzení o existenci modelu 4), tedy $T \vdash A$ dle dùkazu sporem 1b).
+\end{penumerate}
+\end{dukaz}
+\end{vetaNSkull}
 
+\begin{vetaN}{o ekvivalenci\vl}
+Vznikne-li formule $A'$ z $A$ nahrazením nìkterého vıskytu podformule $B$ formulí $B'$, tak platí:
+\begin{penumerate}
+    \item $\vdash B \leftrightarrow B' \to A \leftrightarrow A'$,
+    \item $T \vdash B \leftrightarrow B' \Rightarrow T \vdash A \leftrightarrow A'$.
+\end{penumerate}
+\end{vetaN}
+
+\begin{vetaNSkull}{o existenci modelu, úplnosti a kompaktnosti\pl}
+\begin{penumerate}
+    \item (\textbf{O existenci modelu}.) Kadá bezesporná teorie má model kardinality nejvıše $\|L(T)\|$.
+    \item (\textbf{O úplnosti}.) Formule teorie $T$ je dokazatelná, právì kdy je pravdivá ($T \vdash A \Leftrightarrow T \models A$).
+    \item (\textbf{O kompaktnosti}.) Teorie má model (je splnitelná), právì kdy kadá její koneèná èást má model. ($T \models A$ právì kdy $T' \models A$ pro nìjakou koneènou podteorii $T' \subseteq T$.)
+\end{penumerate}
+\begin{dukaz}
+\begin{penumerate}
+    \item[2.] Pro formuli $A(x)$ uitím pravidla generalizace, dùkazu sporem a vìty o existenci modelu máme: $T \not\vdash A \Leftrightarrow T \not\vdash (\forall x)A \Leftrightarrow T, (\exists x)\neg A$ je bezesporná $\Leftrightarrow T, (\exists x)\neg A$ má model $\Leftrightarrow T \not\models A$.
+    \item[3.] Plyne z toho, e teorie je sporná, právì kdy je nìjaká její koneèná èást sporná.
+\end{penumerate}
+\end{dukaz}
+\end{vetaNSkull}
