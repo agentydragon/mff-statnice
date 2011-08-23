@@ -19,9 +19,9 @@ Platí:
 Jestliže jsou podformule $A_1\dots A_n$ formule $A$ ekvivalentní s $A'_1\dots A'_n$ ($\vdash A'_i \leftrightarrow A_i$) a $A'$ vytvoøím nahrazením $A'_i$ místo $A_i$, je i $A$ ekvivalentní s $A'$. (Dùkaz indukcí podle složitosti formule, rozborem pøípadù $A_i$ tvaru $\neg B$, $B\rightarrow C$)
 \end{e}
 
-\begin{lemmaN}{o dùkazu rozborem pøípadù}
+\begin{e}{Lemma}{0}{o dùkazu rozborem pøípadù}
 Je-li $T$ množina formulí a $A,B,C$ formule, pak $T,(A\vee B)\vdash C$ platí právì když $T,A\vdash C$ a $T,B\vdash C$.
-\end{lemmaN}
+\end{e}
 
 \begin{e}{Definice}{0}{Normální tvary}
 Výrokovou promìnnou nebo její negaci nazveme \emph{literál}. \emph{Klauzule} budiž disjunkce nìkolika literálù. \emph{Formule v normálním konjunktivním tvaru (CNF)} je konjunkce klauzulí. \emph{Formule v disjunktivním tvaru (DNF)} je disjunkce konjunkcí literálù.
@@ -45,7 +45,7 @@ Formule predikátové logiky $A$ je v \emph{prenexním tvaru}, je-li $$A\equiv (Q_1
 Formule $A'$ je \emph{varianta} $A$, jestliže vznikla z $A$ postupným nahrazením podformulí $(Q x)B$ (kde $Q$ je $\forall$ nebo $\exists$) formulemi $(Q y)B_x[y]$ a $y$ není volná v $B$. Podle \emph{vìty o variantách} je varianta s pùvodní formulí ekvivalentní.
 \end{e}
 
-\begin{lemmaN}{o prenexních operacích}
+\begin{e}{Lemma}{0}{o prenexních operacích}
 Pro pøevod formulí do prenexního tvaru se používají tyto operace (výsledná formule je s pùvodní ekvivalentní). Pro podformule $B$, $C$, kvantifikátor $Q$ a promìnnou $x$:
 \begin{penumerate}
     \item podformuli lze nahradit nìjakou její variantou
@@ -56,7 +56,7 @@ Pro pøevod formulí do prenexního tvaru se používají tyto operace (výsledná formu
     \item $\vdash ((Q x)B\wedge C)\leftrightarrow (Q x)(B\wedge C)$, pokud $x$ není volná v $C$
     \item $\vdash ((Q x)B\vee C)\leftrightarrow (Q x)(B\vee C)$, pokud $x$ není volná v $C$
 \end{penumerate}
-\end{lemmaN}
+\end{e}
 
 \begin{e}{Vìta}{0}{o prenexních tvarech}
 Ke každé formuli $A$ predikátové logiky lze sestrojit ekvivalentní formuli $A'$, která je v prenexním tvaru. (Dùkaz: indukcí podle složitosti formule a z prenexních operací, nìkdy je nutné pøejmenovat volné promìnné)

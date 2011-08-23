@@ -16,7 +16,7 @@ Generické programování se liší od normálního tím, e rozšiøuje jazyk o monosti 
 Obyèejné fce v C++ mají pøednost pøed generickımi.
 \end{e}
 
-\begin{prikladN}{Tøída parametrizovaná typem (kontejner)}
+\begin{e}{Pøíklad}{0}{Tøída parametrizovaná typem (kontejner)}
 Pøíklad ukazuje vıhodu generického programování, místo abychom psali specifickou implementaci pro kadı typ (i kdy bude kód témìø identickı), vytvoøíme si šablonu tøídy:
 \begin{verbatim}
   template<typename T> 
@@ -38,9 +38,9 @@ Pøíklad ukazuje vıhodu generického programování, místo abychom psali specifickou
   }
 \end{verbatim}
 T reprezentuje typ kterı bude instanciován. Vygenerovanı List se pak chová jako List podle urèeného typu. Tyto "kontejnery-typu-T", bìnì nazıvané generiky (anglicky "generics"), je programovací technika umoòující definici tøídy která pøijímá a obsahuje rùzné datové typy (nepleme si teï s dynamickım polymorfismem, kterı je algoritmicky pouívá zámìnné podtøídy). I kdy toto je nejèastìjší pouití generického programování (a nìkteré jazyky implementují pouze tento aspekt), generické programování obsahuje i další techniky. 
-\end{prikladN}
+\end{e}
 
-\begin{prikladN}{Šablony vs. makra}
+\begin{e}{Pøíklad}{0}{Šablony vs. makra}
 V mnoha smìrech šablony fungují stejnì jako šablony pre-procesoru, nahrazují šablonovanou promìnnou danım typem. Na druhou stranu je tu mnoho rozdílù mezi makrem jako toto:
 \begin{verbatim}
     #define min(i, j) (((i) < (j)) ? (i) : (j))
@@ -54,9 +54,9 @@ Makro má napøíklad tyto problémy:
 \item Kompilátor nemùe zkontrolovat jestli jsou parametry makra (tj. i,j) kompatibilní typy. Makro se pouije bez typové kontroly.
 \item Hodnoty i a j jsou vyhodnoceny dvakrát. Napøíklad pokud jeden parametr pouívá post-inkrementaci je provedena dvakrát (?? tohle chce ovìøit).
 \item Protoe jsou makra jsou interpretována preprocesorem, chybové zprávy kompilátoru budou ukazovat na "rozbalenı" vısledek makra v kódu a ne na makro (i kdy chyba bude v nìm).\end{pitemize}
-\end{prikladN}
+\end{e}
 
-\begin{prikladN}{Faktoriál pomocí šablon}
+\begin{e}{Pøíklad}{0}{Faktoriál pomocí šablon}
 Tento pøíklad jasnì ukazuje vıhodu nad makry, v nich takto jednoduše rekurzivní konstrukce napsat nejde (alespoò v C++ ne).
 \begin{verbatim}
   template <int N>
@@ -75,10 +75,10 @@ Tento pøíklad jasnì ukazuje vıhodu nad makry, v nich takto jednoduše rekurzivní 
   int x = Factorial<4>::value; // == 24
   int y = Factorial<0>::value; // == 1
 \end{verbatim}
-\end{prikladN}
+\end{e}
 
 
-\begin{prikladN}{traits}
+\begin{e}{Pøíklad}{0}{traits}
 Programovací technika vyuívající šablony, ze kterıch nejsou vytváøeny objekty. Urèeny k doplnìní informací o nìjakém typu.
 \\\\Obsahují pouze definice typù a statické funkce.
 
@@ -95,9 +95,9 @@ Programovací technika vyuívající šablony, ze kterıch nejsou vytváøeny objekty. 
   is_void<int>::value; // false
   is_void<void>::value; // true
 \end{verbatim}
-\end{prikladN}
+\end{e}
 \newpage
-\begin{prikladN}{policy classes}
+\begin{e}{Pøíklad}{0}{policy classes}
 Urèeny k definování urèitého chování. Jsou to tøídy, ze kterıch obvykle nejsou vytváøeny objekty a jsou pøedávány jako parametr šablonám. Defaultní hodnotou parametru èasto bıvá šablona traits. Hlavnì spojené s C++ (v ostatních jazycích se zatím nerozšíøilo).
 \begin{verbatim}
   template < typename output_policy, typename language_policy >
@@ -146,7 +146,7 @@ Urèeny k definování urèitého chování. Jsou to tøídy, ze kterıch obvykle nejsou v
       hello_world2.Run(); // Prints "Hallo Welt!"
   }
 \end{verbatim}
-\end{prikladN}
+\end{e}
 \newpage
 \begin{e}{Definice}{0}{Dynamickı (run-time) polymorfismus}
 Dìdìní + VMT = flexibilita. Zde uvedeno jako jako srovnání k šablonám.

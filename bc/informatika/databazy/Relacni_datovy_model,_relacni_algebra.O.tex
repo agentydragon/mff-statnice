@@ -9,7 +9,7 @@ $(a_1, a_2,...,a_n)$ (odpovídá konktrétním datùm v tabulce) kde $a_i \in
 A_i$ a \emph{prvek relace} $r\in R$ (odpovídá øádku v tabulce).
 \end{e}
 
-\begin{prikladN}{Relaèní datový model}
+\begin{e}{Pøíklad}{0}{Relaèní datový model}
 definujeme atributy:
 \begin{verbatim}
    jméno = {Novák, Starý, Coufal, Liška}
@@ -21,12 +21,12 @@ pak
    R = {(Novák, Hlavní, Harrison), (Starý, Severní, Rájec), (Coufal, Severní, Rájec), 
         (Liška, Sadová, Polná)}
 \end{verbatim}
-je relace na kartézském souèinu (tzn. jeho podmnožina) $jméno × ulice × mìsto$
+je relace na kartézském souèinu (tzn. jeho podmnožina) $jm\acute{e}no × ulice × m\check{e}sto$
 \\\\relaèní schéma:
 \begin{verbatim}
    zákazník-schéma (jméno:string, ulice:string, mìsto:string)
 \end{verbatim}  
-\end{prikladN}
+\end{e}
 
 \begin{e}{Definice}{0}{Relaèní algebra}
 \emph{Relaèní algebra} je množina operací (unárních, èi binárních) na relacích se schématy, jejichž výsledkem je opìt relace (a její schéma). 
@@ -83,8 +83,8 @@ $R_1 \cap R_2 = (R_1 \cup R_2 \setminus (R_1 \setminus R_2))\setminus (R_1 \setm
 
 –pokud $A = B$, pøirozené spojení je prùnik (spojí se pouze stejné øádky)
 
-\\\\$<R, R(A)> * <S, S(B)>= <\{u | u[A] \in R ~\&~ u[B] \in S\}, R_x(A\cup B)>$
-\\\\
+$<R, R(A)> * <S, S(B)>= <\{u | u[A] \in R ~\&~ u[B] \in S\}, R_x(A\cup B)>$
+
 –lze vyjádøit pomocí kartézského souèinu, selekce a projekce 
 
 \begin{center}
@@ -121,7 +121,7 @@ Využití aparátu predikátové logiky 1. øádu pro dotazování. Rozšíøení o „databázo
 \\\\Výsledkem dotazu v DRK / NRK je opìt relace (a její schéma).
 \end{e}
 
-\begin{prikladN}{srovnání RA, DRK, NRK}
+\begin{e}{Pøíklad}{0}{srovnání RA, DRK, NRK}
 definujeme rel.schémata:
 \begin{verbatim}
    FILM(JMENO_FILMU, JMENO_HERCE) 
@@ -136,12 +136,8 @@ DRK:\\
 $\{(f) | FILM(f)\wedge \forall h (HEREC(h) \Rightarrow FILM(f, h))\}$
 \\\\
 NRK:\\
-$\{film[JMENO\_FILMU] \;|\; \forall herec(HEREC(herec) \Rightarrow
-
-f(FILM(f) \wedge\; f.JMENO\_HERCE = herec.JMENO\_HERCE \;\wedge
-
-f.JMENO\_FILMU = film.JMENO\_FILMU))\}$
-\end{prikladN}
+$\{film[JMENO\_FILMU] \;|\; \forall herec(HEREC(herec) \Rightarrow f(FILM(f) \wedge\; f.JMENO\_HERCE = herec.JMENO\_HERCE \;\wedge f.JMENO\_FILMU = film.JMENO\_FILMU))\}$
+\end{e}
 
 \begin{reportN}{IOI 10.2.2011}
 a) Popište relacní datový model. Co je relacní algebra a k cemu slouzi?\\
@@ -149,7 +145,7 @@ b) Jaké znáte operace RA? Formulujte predpoklady pouzitelnosti kazdé operace. De
 vysledek dané operace nad relacemi.\\
 c) Které operace jsou nezbytné pro zachovaní vyjadrovaci sily jazyka - respektive, je mozné
 nekteré operace formulovat pomoci ostatních operaci? Které a jak?
-\end{prikladN}
+\end{reportN}
 
 \begin{reportN}{IOI 21.6.2011} Co je to relaèní algebra a jaké operace používá?\\
 5.2 U každé operace popište schéma relace, na které se dá tato operace použít a definujte výsledek operace.\\

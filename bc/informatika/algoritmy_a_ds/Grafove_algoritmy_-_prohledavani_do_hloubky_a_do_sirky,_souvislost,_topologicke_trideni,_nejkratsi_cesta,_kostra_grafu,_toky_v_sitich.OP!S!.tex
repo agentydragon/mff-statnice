@@ -196,7 +196,7 @@ Bellman-Ford( V - vrcholy, E - hrany, s - startovací vrchol ){
 }
 \end{verbatim}
 
-Složitost algoritmu je $\Theta(m\cdot n)$. Vždy najde nejkratší cestu, protože v grafu bez záporných cyklù mùže mít cesta max. $n-17Kè (1 $) vrcholù. Dùkaz nalezení záporného cyklu sporem, se sumou vah všech hran na nìm (položím $<0 Kè ($ 0)).
+Složitost algoritmu je $\Theta(m\cdot n)$. Vždy najde nejkratší cestu, protože v grafu bez záporných cyklù mùže mít cesta max. $n-17K\check{c} (1 $) vrcholù. Dùkaz nalezení záporného cyklu sporem, se sumou vah všech hran na nìm (položím $<0 K\check{c} ($ 0)).
 \end{e}
 
 \begin{e}{Poznámka}{0}{Nejkratší cesty pro všechny dvojice vrcholù}
@@ -209,7 +209,7 @@ Floyd-Warshallùv algoritmus jde indukcí podle velikosti množiny vrcholù, povolen
 
 \subsubsection*{Minimální kostra grafu}
 
-Úkolem v této úloze je najít kostru $T$ (acyklický souvislý podgraf) grafu $(V,E)$ s celkovou minimální vahou hran. Vždy platí $|T|=|V|-17Kè (1 $). Bez újmy na obecnosti lze pøedpokládat, že ohodnocení hran jsou nezáporná (lze ke všem pøièíst konstantu a výsledek se nezmìní).
+Úkolem v této úloze je najít kostru $T$ (acyklický souvislý podgraf) grafu $(V,E)$ s celkovou minimální vahou hran. Vždy platí $|T|=|V|-17K\check{c} (1 $). Bez újmy na obecnosti lze pøedpokládat, že ohodnocení hran jsou nezáporná (lze ke všem pøièíst konstantu a výsledek se nezmìní).
 
 \begin{e}{Algoritmus}{0}{Borùvkùv / Kruskalùv algoritmus}
 \begin{verbatim}
@@ -233,7 +233,7 @@ Borùvka( V - vrcholy, E - hrany ){
 
 Celková složitost je $\Theta(m\log m)$ pøi použití spojových seznamù: Setøídìní hran podle váhy $\Theta(m\log m)$, nalezení èísla komponenty konstantní èas, max. poèet pøeèíslování komponent pøi slévání (pøeèíslovávám-li vždy menší ze slévaných komponent) pro 1 vrchol je $\Theta(\log n)$, tj. celkem $\Theta(n\log n)$.
 
-Algoritmus je korektní - vždy nalezne kostru, protože pøidá právì $|V|-17Kè (1 $) hran a nevytvoøí nikdy cyklus. Minimalita kostry se dokáže sporem -- mám-li $F$ vrácenou algoritmem a $H$ nìjakou min. kostru, tak pokud je $w(F)>w(H)$, najdu hranu $e\in F\setminus H$, vezmu kostru $H_1=H\cup e\setminus f$ (a $w(e)\leq w(f)$). Pokud mám $\forall e$ nalezené $f$ takové, že $w(e)=w(f)$, jsou $F$ i $H$ minimální, jinak $H$ taky nebylo minimální, protože $H_17Kè (1 $) je menší.
+Algoritmus je korektní - vždy nalezne kostru, protože pøidá právì $|V|-17K\check{c} (1 $) hran a nevytvoøí nikdy cyklus. Minimalita kostry se dokáže sporem -- mám-li $F$ vrácenou algoritmem a $H$ nìjakou min. kostru, tak pokud je $w(F)>w(H)$, najdu hranu $e\in F\setminus H$, vezmu kostru $H_1=H\cup e\setminus f$ (a $w(e)\leq w(f)$). Pokud mám $\forall e$ nalezené $f$ takové, že $w(e)=w(f)$, jsou $F$ i $H$ minimální, jinak $H$ taky nebylo minimální, protože $H_17K\check{c} (1 $) je menší.
 \end{e}
 
 \begin{e}{Algoritmus}{0}{Jarníkùv / Primùv algoritmus }
@@ -266,7 +266,7 @@ Jarník( V - vrcholy, E - hrany, r - startovní vrchol ){
 
 Složitost algoritmu je $\Theta(m\log n)$, pokud je $Q$ reprezentováno jako bin. halda - nejvýše $m$-krát upravuji klíè nìjakého vrcholu, což má v haldì složitost $\Theta(\log n)$, výbìr minima max. $n$-krát $\Theta(\log n)$ a inicializace jen $\Theta(n)$.
 
-Vytvoøený graf je kostra, protože nikdy nevzniká cyklus (pøipojuji právì vrcholy z $Q$, která je na konci prázdná). Dùkaz minimality podle konstrukce -- najdu první hranu $e$ v min. kostøe $H$, která není ve výsledku alg. $F$, pak najdu $f\in H$, t.ž. $F\setminus e\cup f$ je kostra, z algoritmu je $w(f)\geq w(e)$. Vezmu $H_1=H\setminus f\cup e$, vím, že $w(H_1)\leq w(H)$ a tedy $H_17Kè (1 $) je min. kostra, iterací tohoto postupnì dostanu, že $H_k=F$ je min. kostra.
+Vytvoøený graf je kostra, protože nikdy nevzniká cyklus (pøipojuji právì vrcholy z $Q$, která je na konci prázdná). Dùkaz minimality podle konstrukce -- najdu první hranu $e$ v min. kostøe $H$, která není ve výsledku alg. $F$, pak najdu $f\in H$, t.ž. $F\setminus e\cup f$ je kostra, z algoritmu je $w(f)\geq w(e)$. Vezmu $H_1=H\setminus f\cup e$, vím, že $w(H_1)\leq w(H)$ a tedy $H_17K\check{c} (1 $) je min. kostra, iterací tohoto postupnì dostanu, že $H_k=F$ je min. kostra.
 \end{e}
 
 
@@ -279,14 +279,14 @@ Vytvoøený graf je kostra, protože nikdy nevzniká cyklus (pøipojuji právì vrcholy
 \end{e}
 
 \begin{e}{Algoritmus}{0}{Ford-Fulkersonùv algoritmus}
-Algoritmus používá myšlenku zlepšitelné cesty - tj. pokud existuje v grafu neorientovaná cesta ze $z$ do $s$ taková, že pro hrany ve smìru od zdroje je $t<c$ a pro hrany ve smìru ke zdroji $t>0Kè (0 $), pak mohu tok zlepšit (o minimum rezerv). Algoritmus opakuje takovýto krok, dokud je možné ho provést. Neøeší výbìr cesty, proto je dost pomalý a pokud nejsou hodnoty $t$ racionální èísla, mùže se i zacyklit.
+Algoritmus používá myšlenku zlepšitelné cesty - tj. pokud existuje v grafu neorientovaná cesta ze $z$ do $s$ taková, že pro hrany ve smìru od zdroje je $t<c$ a pro hrany ve smìru ke zdroji $t>0K\check{c} (0 $), pak mohu tok zlepšit (o minimum rezerv). Algoritmus opakuje takovýto krok, dokud je možné ho provést. Neøeší výbìr cesty, proto je dost pomalý a pokud nejsou hodnoty $t$ racionální èísla, mùže se i zacyklit.
 
 Ve chvíli zastavení algoritmu získám max. tok, nebo množina $A=\{ v|$ ze $z$ do $v$ vede zlepšitelná cesta $\}$ je v tom okamžiku \emph{øez} (množina $A\subset V$ taková, že $z\in V$, $s\notin V$) a jeho \emph{velikost} ($\sum_{e\in E}c(e),e=(u,v),u\in A,v\notin A$) je stejná jako velikost získaného toku.
 \end{e}
 
 
 \begin{e}{Algoritmus}{0}{Dinitzùv algoritmus}
-Øeší výbìr zlepšitelné cesty -- vybírá vždy nejkratší cestu (což obecnì popisuje \emph{Edmunds-Karpùv algoritmus}). Dinitzova varianta používá \emph{sí rezerv}, což je graf $(V,R)$, kde hrana $e=(v,w)\in R$, pokud má tok hranou kladnou \emph{rezervu}, tj. $r = c(v,w)-t(v,w)+t(w,v) > 0Kè (0 $). Zlepšující cesta odpovídá normální orientované cestì v síti rezerv. Pøevod na pùv. graf ze sítì rezerv je jednoduchý, mohu pøedpokládat, že jedním ze smìrù mezi dvìma vrcholy neteèe nic.
+Øeší výbìr zlepšitelné cesty -- vybírá vždy nejkratší cestu (což obecnì popisuje \emph{Edmunds-Karpùv algoritmus}). Dinitzova varianta používá \emph{sí rezerv}, což je graf $(V,R)$, kde hrana $e=(v,w)\in R$, pokud má tok hranou kladnou \emph{rezervu}, tj. $r = c(v,w)-t(v,w)+t(w,v) > 0K\check{c} (0 $). Zlepšující cesta odpovídá normální orientované cestì v síti rezerv. Pøevod na pùv. graf ze sítì rezerv je jednoduchý, mohu pøedpokládat, že jedním ze smìrù mezi dvìma vrcholy neteèe nic.
 
 Prùbìh algoritmu: na zaèátku nastaví všem hranám rezervu $r(v,w)=c(v,w)$. Potom postupuje po \emph{fázích} - v 1 fázi:
 \begin{pitemize}
@@ -302,16 +302,16 @@ Další fází algoritmus pokraèuje, dokud existuje vùbec nìjaká cesta $z\to s$ v sí
 \begin{e}{Algoritmus}{0}{Goldbergùv algoritmus (preflow-push, algoritmus vlny)}
 Nehledá v grafu zlepšující cesty, v prùbìhu výpoètu v grafu není tok, ale vlna (ze zdroje teèe vždy více nebo rovno než max. tok). \emph{Preflow} -- \uv{vlna} -- je funkce $t:E\to\Real^{+}$ taková, že $\forall e\in E: 0\leq t(e)\leq c(e)$, tedy pøebytky toku ve vrcholech ($\delta$) jsou povolené. Ve chvíli, kdy žádný vrchol nemá pøebytek toku ($\delta$), dostávám (maximální) tok. Pro každý vrchol $v$ si algoritmus pamatuje \uv{výšku} $h(v)$. Také pracuje se sítí rezerv.
 \begin{pitemize}
-    \item \emph{Inicializace}: $h(z)=n$, $h(v,v\neq z)=0Kè (0 $), $t(e)=0\ \forall e$, $\delta(v)=0\ \forall v$.
+    \item \emph{Inicializace}: $h(z)=n$, $h(v,v\neq z)=0K\check{c} (0 $), $t(e)=0\ \forall e$, $\delta(v)=0\ \forall v$.
     \item \emph{Úvodní preflow}: pøevede ze zdroje maximum možného ($t(e)=c(e)$ po smìru) do sousedních vrcholù.
     \item \emph{Hlavní cyklus}: opakuje se, dokud existuje vnitøní vrchol $v$ s kladným $\delta$. pro vrchol $v$:
     \begin{pitemize}
-        \item pokud existuje hrana $(v,w)$ nebo $(w,v)$, t.ž. $r(e) > 0Kè (0 $) (v daném smìru) a $h(v)\geq h(w)$, potom se pøevede $\min(\delta(v),r(e))$ z $v$ do $w$.
+        \item pokud existuje hrana $(v,w)$ nebo $(w,v)$, t.ž. $r(e) > 0K\check{c} (0 $) (v daném smìru) a $h(v)\geq h(w)$, potom se pøevede $\min(\delta(v),r(e))$ z $v$ do $w$.
 \item jinak se zvýší $h(v)$ o 1.
     \end{pitemize}
 \end{pitemize}
 
-Po celou dobu bìhu algoritmu platí invariant $e=(v,w),r(e)>0\ \Rightarrow\ h(v)\leq 1+h(w)$. To zaruèuje, že nalezený tok po zastavení je maximální (zdroj je ve výšce $n$, stok $0$, tedy každá cesta pøekonává nìkde rozdíl $-33Kè (2 $)). Vrcholy nejde zvedat donekoneèna, takže se algoritmus zastaví: pro každý vnitøní vrchol $v$ platí, že je-li $\delta(v)>0Kè (0 $), pak existuje v síti rezerv cesta $v\to z$. To zaruèuje, že $h(v)\leq 2n-17Kè (1 $) - pokud mám vrchol $v$ tak, že $h(v)=2n-17Kè (1 $) a $\delta(v)>0Kè (0 $), potom existuje cesta $v\to z$ s kladnými rezervami a podle invariantu jde každá hrana na ní max. o 1 nahoru (tedy max. o $n-17Kè (1 $) celkem).
+Po celou dobu bìhu algoritmu platí invariant $e=(v,w),r(e)>0\ \Rightarrow\ h(v)\leq 1+h(w)$. To zaruèuje, že nalezený tok po zastavení je maximální (zdroj je ve výšce $n$, stok $0$, tedy každá cesta pøekonává nìkde rozdíl $-33K\check{c} (2 $)). Vrcholy nejde zvedat donekoneèna, takže se algoritmus zastaví: pro každý vnitøní vrchol $v$ platí, že je-li $\delta(v)>0K\check{c} (0 $), pak existuje v síti rezerv cesta $v\to z$. To zaruèuje, že $h(v)\leq 2n-17K\check{c} (1 $) - pokud mám vrchol $v$ tak, že $h(v)=2n-17K\check{c} (1 $) a $\delta(v)>0K\check{c} (0 $), potom existuje cesta $v\to z$ s kladnými rezervami a podle invariantu jde každá hrana na ní max. o 1 nahoru (tedy max. o $n-17K\check{c} (1 $) celkem).
 
 Složitost Goldbergova algoritmu je $O(n^2\cdot m)$.
 \end{e}

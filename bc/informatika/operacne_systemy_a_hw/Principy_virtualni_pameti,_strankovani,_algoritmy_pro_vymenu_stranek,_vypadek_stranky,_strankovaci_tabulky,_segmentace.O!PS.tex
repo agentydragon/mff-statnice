@@ -27,7 +27,7 @@ Pøi stránkování je pamì rozdìlena na vìtší úseky stejné velikosti, které se naz
 Podporované všemi velkımi CPU a OS, jednorozmìrnı VAP (virtuální adresní
 prostor).\begin{pitemize}
 \item VAP rozdìlen na stránky (velikost je mocnina 2), FAP na rámce (úseky stejné délky)
-\item \textbf{pøevod stránkovací tabulkou}  - kadı proces má svojí, pøíznak existence mapování (v.stránka není v FAP \rightarrow$ událost "vıpadek stránky" \rightarrow$ synchronní pøerušení) umístìna v fyzické pamìti
+\item \textbf{pøevod stránkovací tabulkou}  - kadı proces má svojí, pøíznak existence mapování (v.stránka není v FAP $\rightarrow$ událost "vıpadek stránky" $\rightarrow$ synchronní pøerušení) umístìna v fyzické pamìti
 \par \begin{center}\includegraphics[width=5cm]{informatika/operacne_systemy_a_hw/obrazky/strankovani1_new.png}\end{center}
 \item umonuje \emph{oddìlené VAP} i \emph{sdílenou pamì} - mapování virtuální stránky 2 procesù na jednu fyzickou
 \item OS mìní tabulky stránek zmìnou PTBR (Page Table Base Register) - PTBR obsahuje
@@ -42,7 +42,7 @@ poètu stránek)
 umístìva vìtšinou v L1 nebo L2 cache na procesoru
 \par 
 \includegraphics[width=6cm]{informatika/operacne_systemy_a_hw/obrazky/strankovani-tlb-schema.png}
-\caption{~~~}
+%\caption{~~~}
 \includegraphics[width=5cm]{informatika/operacne_systemy_a_hw/obrazky/strankovani-tlb.png}
  
 \par ...\textbf{0-úrovòové stránkování} - procesor hledá pouze TLB, zbytek
@@ -82,17 +82,17 @@ x 4096 sloupcu), 64bit procesory umoòují pagesize a 1GB - doporucuju precist
     \item \emph{odstranìní poloky z TLB pøi rušení mapování} --- nestaèí zmìnit tabulky, musí se vyhodit i z TLB (kde to mùe, ale nemusí bıt). problém - u multiprocesorù má kadá CPU vlastní TLB, tabulky jsou sdílené $\rightarrow$ CPU pøi rušení mapování musí poslat interrupt s rozkazem ke smazání všem (i sobì), poèkat na potvrzení akce od všech.
 \end{pitemize}
 \end{obecne}
-\begin{prikladN}{
+\begin{e}{Pøíklad}{0}{0}
 Uvaujte procesor, kterı podporuje stránkovani, má dvouúrovnove stránkovaci tabulky, velikost virtuální i fyzické adresy 32 bitu, velikost stránky 4 kB. Nakreslete formát strankovací tabulky (poloky potøebné pro pøeklad adresy i typické další pøíznakové bity,
 nezadané detaily rozumne zvolte) a v nem ilustrujte, jak se prelozi virtuálni adresa 12345678h
-(nezadané konstanty tvoricí konkrétní obsah tabulky opet rozumne zvolte).}
+(nezadané konstanty tvoricí konkrétní obsah tabulky opet rozumne zvolte).
 Pozn.: h nakonci znamená e je èíslo v hex (assembler)
-\end{prikladN}
+\end{e}
 
 \subsubsection*{Algoritmy pro vımìnu stránek (vıbìr obìti)}
 \begin{pitemize}
 \item \textbf{Optimální stránka} (v okamiku vıpadku stránky vybírám stránku, na ní se pøistoupí za nejvìtší poèet instrukcí) - nelze implementovat
-\item \textbf{\uline{NRU}} (Not Recently Used) - kadá stránka má pøíznaky Accessed a Dirty (typicky implementovatelné v HW, mono simulovat SW); jednou za èas se smaou všechna A; pøi vıpadku rozdìlím stránky podle A,D a vyberu stránku z nejniší (0,1..4) neprázdné tøídy:
+\item \textbf{\underline{NRU}} (Not Recently Used) - kadá stránka má pøíznaky Accessed a Dirty (typicky implementovatelné v HW, mono simulovat SW); jednou za èas se smaou všechna A; pøi vıpadku rozdìlím stránky podle A,D a vyberu stránku z nejniší (0,1..4) neprázdné tøídy:
 \par \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
@@ -108,7 +108,7 @@ Pozn.: h nakonci znamená e je èíslo v hex (assembler)
 \hline
 \end{tabular}
 \end{center}
-\item \textbf{\uline{FIFO}} - vyhodit nejdéle namapovanou stránku - vykazuje anomálie - Belady (zvìtšení poètu vıpadkù stránky, kdy zvıšíme poèet stránek v pamìti), druhá šance (úprava FIFO; pokud A=1, zaøadím na konec FIFO... nevykazuje anomálie)
+\item \textbf{\underline{FIFO}} - vyhodit nejdéle namapovanou stránku - vykazuje anomálie - Belady (zvìtšení poètu vıpadkù stránky, kdy zvıšíme poèet stránek v pamìti), druhá šance (úprava FIFO; pokud A=1, zaøadím na konec FIFO... nevykazuje anomálie)
 \item \textbf{Hodiny} - modifikace druhé šance: kruhovı zoznam stránek + iterátor na ukazující na nejstarší stránku v zoznamu. Pøi vıpadku (a neexistenci volého rámce) se zjistí, jestli má *iterator nastavenı pøíznak Accessed. Jestli ne, tato stránka bude nahrazena - v opaèném pøípadì se Accessed pøíznak zruší a iterator++. Toto se opakuje, dokud nedojde k vımìnì\dots
 \item \textbf{LRU} (Least Recently Used) - èasto pouívané stránky v posledním krátkém èasovém úšeku budou znovu pouity, èítaè pouití stránek, moné implementovat v HW
 \item \textbf{NFU} (Not Frequently Used) - SW simulace LRU, SW èítaè ke kadé stránce; jednou za èas projdu všechna A a pøiètu je k odpovídajícím èítaèùm; vybírám stránku s nejniším èítaèem; nezapomíná - je moná modifikace se stárnutím èítaèe

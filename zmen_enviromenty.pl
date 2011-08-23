@@ -19,10 +19,13 @@ my %changesNotNamed=(
 	"prikladSK"=>"{Pøíklad}{0}{0}",
 	"priklady"=>"{Pøíklady}{0}{0}",
 	"prikladySK"=>"{Pøíklady}{0}{0}",
-	"veta"=>"{Vìta}{0}{0}"
+	"veta"=>"{Vìta}{0}{0}",
+	"pozadavky"=>"{Požadavky}{0}{0}"
 );
 
 my %changesNamed=(
+	"prikladN"=>"{Pøíklad}{0}",
+	"lemmaN"=>"{Lemma}{0}",
 	"definiceNSkull" => "{Definice}{1}",
 	"definiceN"=>"{Definice}{0}",
 	"definiaN"=>"{Definice}{0}",

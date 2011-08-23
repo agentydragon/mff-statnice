@@ -91,7 +91,8 @@ Nechù $A,B$ jsou matice typu $m \times n$. Potom jejich \emph{souËtem} $A+B$ naz
 Nechù $A,B$ jsou matice typu $m \times n$ a $\alpha$ skal·r. Potom $\alpha\cdot A$ je matice typu $m \times n$ s koeficienty $$(\alpha\cdot A)_{ij} = \alpha\cdot A_{ij}$$ pro $i=1,\dots,m; j=1,\dots,n$. Nikdy nepÌöeme $A\cdot\alpha$.
 \end{e}
 
-\begin{lemmaN}{Vlastnosti souËtu matic a n·sobenÌ matic skal·rem}
+\begin{e}{Lemma}{0}{Vlastnosti souËtu matic a n·sobenÌ matic skal·rem}
+
 Nechù $A,B,C$ jsou matice typu $m \times n$ a $\alpha, \beta$ skal·ry. Potom platÌ:
 \begin{penumerate}
 	\item $A+B=B+A \hfill \textit{(komutativita)}$
@@ -104,7 +105,7 @@ Nechù $A,B,C$ jsou matice typu $m \times n$ a $\alpha, \beta$ skal·ry. Potom pla
 	\item $(\alpha+\beta)A=\alpha A + \beta A \hfill \textit{(distributivita)}$
 \end{penumerate}
 Tedy prostor matic typu $m\times n$ odpovÌd· vektorovÈmu prostoru.
-\end{lemmaN}
+\end{e}
 
 \subsubsection*{N·sobenÌ}
 
@@ -113,7 +114,8 @@ Je-li A matice typu $m \times p$ a B matice typu $p \times n$, potom $A\cdot B$ 
 \end{e}
 
 
-\begin{lemmaN}{Vlastnosti souËinu matic}
+\begin{e}{Lemma}{0}{Vlastnosti souËinu matic}
+
 Nechù $A,B,C$ jsou matice, $\alpha$ skal·r. Potom
 \begin{penumerate}
 	\item Jestliûe souËin $(AB)C$ je definov·n, potom i souËin $A(BC)$ je definov·n a platÌ $(AB)C=A(BC)$.
@@ -124,7 +126,7 @@ Nechù $A,B,C$ jsou matice, $\alpha$ skal·r. Potom
 \end{penumerate}
 
 \noindent N·sobenÌ matic nenÌ komutativnÌ - tj. obecnÏ neplatÌ $AB=BA$.
-\end{lemmaN}
+\end{e}
 
 \begin{e}{VÏta}{0}{O hodnosti souËinu matic}
 Pro matici $A$ typu $m\times p$ a matici $B$ typu $p\times n$ platÌ:
@@ -143,15 +145,14 @@ $$\rank(AB)\leq \min\{\rank(A),\rank(B)\}$$
 Pro matici $A \in \mathbb{R}^{m \times n}$ definujeme \emph{transponovanou matici} $A^T \in \mathbb{R}^{n \times m}$ p¯edpisem $$(A^T)_{ji} = A_{ij} \, (i=1, \dots, m; j=1, \dots, n)$$
 \end{e}
 
-\begin{lemmaN}{Vlastnosti transpozice}
-
+\begin{e}{Lemma}{0}{Vlastnosti transpozice}
 \begin{penumerate}
 	\item $(A^T)^T = A$
 	\item jsou-li $A,B$ stejnÈho typu, je $(A+B)^T = A^T + B^T$
 	\item $(\alpha A)^T=\alpha A^T$, pro kaûdÈ $\alpha \in \mathbb{R}$
 	\item je-li $AB$ definov·n, je i $B^T A^T$ definov·n a platÌ $(AB)^T = B^T A^T$.
 \end{penumerate}
-\end{lemmaN}
+\end{e}
 
 \begin{e}{Definice}{0}{Symetrick· matice}
 Matice A se naz˝v· \emph{symetrick·} jestliûe $A^T=A$.
