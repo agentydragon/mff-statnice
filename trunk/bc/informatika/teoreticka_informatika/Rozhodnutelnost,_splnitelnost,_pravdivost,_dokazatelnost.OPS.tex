@@ -23,9 +23,8 @@ Pracujeme s redukovaným jazykem (jen s log. spojkami $\neg,\rightarrow$). Formál
 \end{e}
 
 \begin{e}{Definice}{0}{substituce, instance, substituovatelnost\pl}
-\emph{Substituce termù za promìnné} ($t_{x_1,\dots,x_n}[t_1,\dots,t_n]$) je souèasné nahrazení všech výskytù promìnných $x_i$ termy $t_i$ (pro $x_1, \ldots, x_n$ rùzné promìnné a $t, t_1, \ldots, t_n$ termy). Jedná se opìt o term.
-
-\emph{Instance} formule je souèasné nahrazení všech volných výskytù nìjakých promìnných za termy. Je to taky formule, vyjadøuje speciálnìjší tvrzení -- ne vždy ale lze provést substituci bez zmìny významu formule. Term $t$ je \emph{substituovatelný} za promìnnou $x$ do formule $A$, pokud žádný volný výskyt promìnné $x$ ve formuli $A$ neleží v oboru platnosti nìkterého z kvantifikátorù ($\forall y$ nebo $\exists y$), kde $y$ je promìnná obsažená v termu $t$. (Neboli pokud pro každou promìnnou $y$ obsaženou v $t$ žádná podformule formule $A$ tvaru $(\exists y)B$ ani $(\forall y)B$ neobsahuje volný výskyt $x$.)
+\emph{Substituce termù za promìnné} ($t_{x_1,\dots,x_n}[t_1,\dots,t_n]$) je souèasné nahrazení všech výskytù promìnných $x_i$ termy $t_i$ (pro $x_1, \ldots, x_n$ rùzné promìnné a $t, t_1, \ldots, t_n$ termy). Jedná se opìt o term.\\
+\emph{Instance} formule je souèasné nahrazení všech volných výskytù nìjakých promìnných za termy. Je to taky formule, vyjadøuje speciálnìjší tvrzení -- ne vždy ale lze provést substituci bez zmìny významu formule. Term $t$ je \emph{substituovatelný} za promìnnou $x$ do formule $A$, pokud žádný volný výskyt promìnné $x$ ve formuli $A$ neleží v oboru platnosti nìkterého z kvantifikátorù ($\forall y$ nebo $\exists y$), kde $y$ je promìnná obsažená v termu $t$. (Neboli pokud pro každou promìnnou $y$ obsaženou v $t$ žádná podformule formule $A$ tvaru $(\exists y)B$ ani $(\forall y)B$ neobsahuje volný výskyt $x$.)\\
 \end{e}
 
 \begin{e}{Poznámka}{0}{0}
@@ -41,6 +40,14 @@ Pracujeme s redukovaným jazykem (jen s log. spojkami $\neg,\rightarrow$ a jen s 
     \item \emph{pravidlo generalizace}: $\frac{A}{(\forall x)A}$
 \end{pitemize}
 Toto je formální systém pred. logiky \emph{bez rovnosti}. S rovností pøibývá symbol $=$ a další tøi axiomy.
+\end{e}
+
+\begin{e}{Vìta}{0}{o kvantifikátorech}
+\begin{pitemize}
+    \item (pravidlo zavedení $\forall$) Je-li $\vdash A \to B$ a promìnná $x$ nemá v $A$ volný výskyt, pak $\vdash A \to (\forall x)B$.
+    \item (pravidlo zavedení $\exists$) Je-li $\vdash A \to B$ a promìnná $x$ nemá v $B$ volný výskyt, pak $\vdash (\exists x)A \to B$.
+    \item (distribuce kvantifikátorù) Pokud $\vdash A \to B$, pak $\vdash (Qx A) \to (Qx B)$ pro $Q$ obecný nebo existenèní kvantifikátor.
+\end{pitemize}
 \end{e}
 
 \begin{e}{Definice}{0}{splnitelnost\vl}
