@@ -1,6 +1,6 @@
 \subsection{Normální tvary vırokovıch formulí, prenexní tvary formulí predikátové logiky}
 
-\begin{e}{Poznámka}{0}{Vlastnosti log. spojek}
+\begin{e}{Poznámka}{0}{vlastnosti log. spojek}
 Platí:
 \begin{penumerate}
     \item $A\wedge B\vdash A$; $A,B\vdash A\wedge B$
@@ -23,8 +23,12 @@ Jestlie jsou podformule $A_1\dots A_n$ formule $A$ ekvivalentní s $A'_1\dots A'
 Je-li $T$ mnoina formulí a $A,B,C$ formule, pak $T,(A\vee B)\vdash C$ platí právì kdy $T,A\vdash C$ a $T,B\vdash C$.
 \end{e}
 
-\begin{e}{Definice}{0}{Normální tvary}
+\begin{e}{Definice}{0}{normální tvary DNF, CNF}
 Vırokovou promìnnou nebo její negaci nazveme \emph{literál}. \emph{Klauzule} budi disjunkce nìkolika literálù. \emph{Formule v normálním konjunktivním tvaru (CNF)} je konjunkce klauzulí. \emph{Formule v disjunktivním tvaru (DNF)} je disjunkce konjunkcí literálù.
+\end{e}
+
+\begin{e}{Poznámka}{0}{hornovské klauzule}
+Prolog pracuje s \emph{hornovskımi klauzulemi}, co jsou klauzule, ve kterıch se vyskytuje nejvıše jeden pozitivní (nenegovanı) literál.
 \end{e}
 
 \begin{e}{Vìta}{0}{o normálních tvarech}
@@ -37,12 +41,16 @@ Pro kadou formuli $A$ lze sestrojit formule $A_k,A_d$ v konjunktivním, resp. di
 Nech formule $A'$ vznikne z $A$ nahrazením nìkterıch vıskytù podformulí $B_1,\dots,B_n$ po øadì formulemi $B'_1,\dots,B'_n$. Je-li $\vdash B_1\leftrightarrow B'_1,\dots,\vdash B_n\leftrightarrow B'_n$, potom platí i $\vdash A\leftrightarrow A'$.
 \end{e}
 
-\begin{e}{Definice}{0}{Prenexní tvar}
+\begin{e}{Definice}{0}{prenexní tvar}
 Formule predikátové logiky $A$ je v \emph{prenexním tvaru}, je-li $$A\equiv (Q_1 x_1)(Q_2 x_2)\dots(Q_n x_n)B,$$ kde $n\geq 0$ a $\forall i\in\{1,\dots,n\}$ je $Q_i\equiv \forall$ nebo $\exists$, $B$ je otevøená formule a kvantifikované promìnné jsou navzájem rùzné. $B$ je \emph{otevøené jádro} $A$, èást s kvantifikátory je \emph{prefix} $A$.
 \end{e}
 
-\begin{e}{Definice}{0}{Varianta formule predikátové logiky}
-Formule $A'$ je \emph{varianta} $A$, jestlie vznikla z $A$ postupnım nahrazením podformulí $(Q x)B$ (kde $Q$ je $\forall$ nebo $\exists$) formulemi $(Q y)B_x[y]$ a $y$ není volná v $B$. Podle \emph{vìty o variantách} je varianta s pùvodní formulí ekvivalentní.
+\begin{e}{Definice}{0}{varianta formule predikátové logiky}
+Formule $A'$ je \emph{varianta} $A$, jestlie vznikla z $A$ postupnım nahrazením podformulí $(Q x)B$ (kde $Q$ je $\forall$ nebo $\exists$) formulemi $(Q y)B_x[y]$ a $y$ není volná v $B$.
+\end{e}
+
+\begin{e}{Vìta}{0}{vìta o variantách\pl}
+Je-li $A'$ varianta formule $A$, pak jestlie platí $\vdash A$, platí i $\vdash A'$.
 \end{e}
 
 \begin{e}{Lemma}{0}{o prenexních operacích}
