@@ -1,13 +1,15 @@
-\subsection{Aproximaèní algoritmy\footnote{tato otázka asi nebyla nikdy zkoušena takže je to jenom takový nástøel, asi má cenu seto  uèit až když pochopíte NP-úplné problémy (hlavnì kliku a rozvrh) Zdroj: Èepkovy slajdy na ADS2}}
+\subsection{Aproximaèní algoritmy}
+(tato otázka asi nebyla nikdy zkoušena takže je to jenom takový nástøel, asi má cenu seto  uèit až když pochopíte NP-úplné problémy (hlavnì kliku a rozvrh) Zdroj: Èepkovy slajdy na ADS2)
+
 Aprox. algoritmy jsou vhodné tam, kde je nalezení optimálního øešení „beznadìjné“ (èasovì pøíliš nároèné), typicky u NP-tìžkých optimalizaèních úloh (optimalizaèních verzí NP-úplných rozhodovacích problémù). Mají následující tøi vlastnosti:
 \\1. konstruují suboptimální øešení
 \\2. poskytují odhad kvality zkonstruovaného øešení vzhledem k optimu
 \\3. bìží v polynomiálním èase (jinak nejsou zajímavé) 
 \\\\
-\begin{prikladN}{maximalizaèní úlohy (optimalizaèní verze KLIKY)} Pro daný neorientovaný graf najdi nejvìtší (poètem vrcholù) kliku (úplný podgraf). Po aproximaèním algoritmu chceme garanci typu $f(APROX) \geq \frac3 4 f(OPT)$, kde $f(X)$ je v tomto pøípadì poèet vrcholù (tj. velikost kliky) v øešení X, OPT je optimální øešení a APROX je øešení vydané aproximaèním algoritmem.
-\end{prikladN}
-\begin{prikladN}{Pøíklad minimalizaèní úlohy (optimalizaèní verze ROZ)} Rozvrh na paralel. strojích. Pro dané úkoly a daný poèet strojù najdi nejkratší rozvrh. Po aproximaèním algoritmu chceme garanci typu $f(APROX) \leq 2 f(OPT)$. 
-\end{prikladN}
+\begin{e} Pro daný neorientovaný graf najdi nejvìtší (poètem vrcholù) kliku (úplný podgraf). Po aproximaèním algoritmu chceme garanci typu $f(APROX) \geq \frac3 4 f(OPT)$, kde $f(X)$ je v tomto pøípadì poèet vrcholù (tj. velikost kliky) v øešení X, OPT je optimální øešení a APROX je øešení vydané aproximaèním algoritmem.{Pøíklad}{0}{maximalizaèní úlohy (optimalizaèní verze KLIKY)}
+\end{e}
+\begin{e} Rozvrh na paralel. strojích. Pro dané úkoly a daný poèet strojù najdi nejkratší rozvrh. Po aproximaèním algoritmu chceme garanci typu $f(APROX) \leq 2 f(OPT)$. {Pøíklad}{0}{Pøíklad minimalizaèní úlohy (optimalizaèní verze ROZ)}
+\end{e}
 \begin{e} \textit{Chyba aproximaèního algoritmu} je definována jako pomìr (podíl) $f(APROX) / f(OPT)$ pro minimalizaèní úlohy a $f(OPT) / f(APROX)$ pro maximalizaèní úlohy. Relativní chyba je pak definována jako $|f(APROX) f(OPT)| / f(OPT)$.{Definice}{0}{0}
 \end{e}
 \begin{e} pro optimalizaèní verzi $ROZ$: bere úkoly postupnì podle jejich èísel a každý úkol vždy umístí na stroj, který je volný nejdøíve. {Algoritmus}{0}{Naivní aproximaèní algoritmus $FRONTA$}
@@ -45,3 +47,4 @@ OPT = optimální rozvrh,
 \end{e}
 \begin{e} Pokud pro všechny úkoly platí $x_i \leq 1/3o$ pak $u = o$. \end{e}{Lemma}{0}{0}
 \\\\\noindent\emph{Dokonèení dùkazu:} Nech $j$ je úkol konèící jako poslední v rozvrhu $U$ (konèící v èase $u$). Pokud $x_j > 1/3o$ tak použijeme Lemma, v opaèném pøípadì je dùkaz velmi podobný jako pro algoritmus FRONTA.
+\end{obecne}

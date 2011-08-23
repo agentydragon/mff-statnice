@@ -58,7 +58,7 @@ Nech $0<a_i<1$, kde $i\in\{1,\dots,k\}$  a $d\geq 0$ jsou reálná èísla a nech 
 \end{e}
 
 \subsubsection{Násobení dlouhıch èísel v lepším ne kvadratickém èase.}
-Klasickım "školním" algoritmem pro násobení na papíøe \Rightarrow $O(n^2)$
+Klasickım "školním" algoritmem pro násobení na papíøe $\Rightarrow O(n^2)$
 \\\\
 Libovolné 2N-ciferné èíslo mueme zapsat jako $10^NA+B$, kde A a B jsou N-ciferná. Souèin dvou takovıch èísel pak bude $(10^NA+B)*(10^NC+D) = (10^{2N}AC + 10^N(AD+BC) + BD)$. Sèítat dokáeme v lineárním èase, násobit mocninou deseti také (dopíšeme pøíslušnı poèet nul na konec èísla), N-ciferná èísla budeme násobit rekurzivním zavoláním tého algoritmu. Pro èasovou sloitost tedy bude platit $T(N)=O(N) + 4T(N/2)$. Nyní tuto rovnici mùeme snadno vyøešit, ale ani to dìlat nebudeme, nebo nám vyjde, e $T(N)\approx\ N^2$, èili jsme si oproti pùvodnímu algoritmu vùbec nepomohli.
 \\\\
@@ -72,14 +72,14 @@ Nejdøíve si pøipomeneme definici násobení dvou ètvercovıch matic typu $n \times 
 $$ Z_{ij} = \sum_{k=1}^n X_{ik} \cdot Y_{kj}. $$
 
 \begin{center}
-\includegraphics{informatika/algoritmy_a_ds/obrazky/nasobeni-matic.eps}
+\includegraphics{informatika/algoritmy_a_ds/obrazky/nasobeni-matic}
 \end{center}
 Algoritmus, kterı by násobil matice podle této definice, by mìl èasovou sloitost $ \Theta(n^3) $, protoe poèet prvkù ve vısledné matici je $n^2$ a jeden skalární souèin vektorù dimenze $n$ vyaduje lineární poèet operací.
 
-My se s touto èasovou sloitostí ovšem nespokojíme a budeme postupovat podobnì jako pøi vylepšování algoritmu na násobení velkıch èísel. Bez újmy na obecnosti pøedpokládejme, e budeme násobit dvì matice typu $n \times n$, kde $n=2^k, k \in \bb N$. Obì tyto matice rozdìlíme na ètvrtiny a tyto èásti postupnì oznaèíme u matice $X$ písmeny $A$, $B$, $C$ a $D$, u matice $Y$ písmeny $P$, $Q$, $R$ a $S$. Z definice násobení matic zjistíme, e ètvrtiny vısledné matice $Z$ mùeme zapsat pomocí souèinù èástí násobenıch matic. Levá horní ètvrtina bude odpovídat vısledku operací $AP+BR$, pravá horní ètvrtina bude $AQ+BS$, levá dolní $CP+DR$ a zbylá $CQ+DS$ (viz obrázek).
+My se s touto èasovou sloitostí ovšem nespokojíme a budeme postupovat podobnì jako pøi vylepšování algoritmu na násobení velkıch èísel. Bez újmy na obecnosti pøedpokládejme, e budeme násobit dvì matice typu $n \times n$, kde $n=2^k, k \in \mathbb{N}$. Obì tyto matice rozdìlíme na ètvrtiny a tyto èásti postupnì oznaèíme u matice $X$ písmeny $A$, $B$, $C$ a $D$, u matice $Y$ písmeny $P$, $Q$, $R$ a $S$. Z definice násobení matic zjistíme, e ètvrtiny vısledné matice $Z$ mùeme zapsat pomocí souèinù èástí násobenıch matic. Levá horní ètvrtina bude odpovídat vısledku operací $AP+BR$, pravá horní ètvrtina bude $AQ+BS$, levá dolní $CP+DR$ a zbylá $CQ+DS$ (viz obrázek).
 
 \begin{center}
-\includegraphics{informatika/algoritmy_a_ds/obrazky/nasobeni-matic-2.eps}
+\includegraphics{informatika/algoritmy_a_ds/obrazky/nasobeni-matic-2}
 \\{Násobení rozètvrcenıch matic}
 \end{center}
 
@@ -95,7 +95,7 @@ $$ T(n) = 7T\left({n \over 2}\right) + \Theta(n^2) \Longrightarrow \Theta(n^{\lo
 Vısledná sloitost Strassenova algoritmu je tedy $\Theta(n^{2.808})$, co je sice malé, ale pro velké matice znatelné zlepšení oproti algoritmu vycházejícímu pøímo z~definice \footnote{
 Zatím nejlepší dokázanı algoritmus má èasovou sloitost $\Theta(n^{2.376})$, $ $ ovšem s velkou multiplikativní konstantou.} \footnote{Strassen se da pouzit i pro vypocet determinantu.}.
 \\\\
-\begin{lemmaN}{vzorce pro násobení blokovıch matic ve~Strassenovì algoritmu}
+\begin{e}{Lemma}{0}{vzorce pro násobení blokovıch matic ve~Strassenovì algoritmu}
 
 \def\\{\noalign{\vskip 7pt}}
 
@@ -119,7 +119,7 @@ T_2 = (C+D)\cdot P              & T_6 = (C-A)\cdot (P+Q) \cr\\
 T_3 = A\cdot(Q-S)               & T_7 = (B-D)\cdot (R+S) \cr\\
 T_4 = D\cdot(R-P)                                        \cr
 }}$$
-\end{lemmaN}
+\end{e}
 % \proof Do ètvercù $4 \times 4$ si napíšeme znaky $+$ nebo $-$ podle toho, jestli se pøi vıpoètu dané matice pøièítá nebo odeèítá pøíslušnı souèin dvou matic. Øádky znamenají matice $A$, $B$, $C$ a $D$ a sloupce znaèí matice $P$, $Q$, $R$ a $S$. Pokud se tedy v prvním øádku a prvním sloupci vyskytuje znak $+$, znamená to e pøièteme souèin matic $A$~a~$P$. Nejdøíve si spoèítáme pomocné matice $T_1$ a $T_7$ a z nich pak dopoèítáme, co bude na pøíslušnıch místech ve vısledné matici.
 % 
 % $$
@@ -148,7 +148,7 @@ T_4 = D\cdot(R-P)                                        \cr
 
 % Jak je vidìt, vısledná matice je tvoøena stejnımi èástmi jako pøi obyèejném násobení. 
 
-\\\\
+
 \subsubsection{Hledání k-tého nejmenšího prvku (mediánu) v lin. èase (Blum et al.)}
 \begin{e}{Algoritmus}{0}{Blum et al.}
 \emph{Select(X,k)}
@@ -160,7 +160,8 @@ T_4 = D\cdot(R-P)                                        \cr
 \item Rozdìlime X na L(=menší ne pivot), S(=stejné jako pivot), P(=vìtší ne pivot)
 \item Rekurzivnì se zavoláme na jednu z L, S, P (tu, ve ktere se ma vyskytovat hledany prvek – tj. podle jejich velikosti a k\footnote{buï je $k\leq |L|$, nebo $|L|<k\leq |L|+|S|$, nebo $|L|+|S|<k$})
 \end{penumerate}
-\end{algoritmus}
+\end{e}
+
 \begin{obecne}{Èasová sloitost:} V kadém kroku vypadne alespoò $\frac{3n}{10}$ prvkù.
 \proof Pøedstavme si vybrané pìtice seøazené podle velikosti od nejvìtšího prvku a zakresleme je do sloupcù. Jejich mediány tedy vyplòují prostøední øadu. Tyto pìtice pak seøaïme podle velikosti jejich mediánù (nejmenší vlevo)\footnote{bacha algoritmus nic takoveho nedìlá, jen nám to pomùe v úvaze o správnosti}. Hledanı pivot se tedy nachází (pokud pøedpokládáme pro jednoduchost lichı poèet pìtic) pøesnì uprostøed. O prvcích nad pivotem a napravo od nìj mùeme urèitì øíct, e jsou vìtší nebo rovny pivotu, prvky pod ním a nalevo od nìj jsou zase urèitì menší nebo rovny pivotu. Podle algoritmu vdy vypadne jedna nebo druhá skupina prvkù o velikosti alespoò $\frac{3n}{10}$ prvkù (z obrázku).
 \begin{center}
@@ -170,6 +171,7 @@ V kadém kroku funkce volá sama sebe na vstup velikosti nejvıše n/5 a pak na 7n/
 \proof
 Pøímo e $T(n) = \Theta(n)\Leftrightarrow\exists k>0: \exists n_0\in \mathbb{N}~ \forall n\geq n_0: T(n)= kn $ pro nìjakou dostateènì velkou konstantu k.
 \\\\$T(n)=\Theta(n)+T(\frac{n}{5})+T(\frac{7n}{10})\Leftrightarrow kn = n + k\frac{n}{5} + k\frac{7n}{10} = n + k\frac{9n}{10}\Leftrightarrow 10 = k$ (dosadili jsme T(n) = kn)
+\end{obecne}
 
 
 \subsubsection{MergeSort}
@@ -198,15 +200,19 @@ Na slití dvou setøídìnıch posloupností do~jedné pouíváme funkci Merge:
 \item ~~~~~~~~Jinak $\Rightarrow x_k \leftarrow z_j, k++, j++$.
 \item Vrátíme $x_1, \dots,x_n$.
 \end{penumerate}
+\end{e}
 
-\s{Pozorování:}
+\begin{e}{Pozorování:}{0}{0}
+
 \emph{Merge} trvá $\Theta (n)$, nebo kadou ze~slévanıch posloupností projdeme právì jednou.
+
+\end{e}
 
 \medskip
 
 \begin{obecne}{Èasová sloitost:}
 
-Rozdìlování a~slévání nám trvá lineárnì dlouho, take pro èasovou sloitost MergeSortu platí tato rekurentní rovnice, kterou vyresime pomocí MT: $$T(n)= 2 \cdot T(n/2) + \Theta(n)  \Longrightarrow \Theta(n^1\log n}) = \Theta(n\log n).$$ 
+Rozdìlování a~slévání nám trvá lineárnì dlouho, take pro èasovou sloitost MergeSortu platí tato rekurentní rovnice, kterou vyresime pomocí MT: $$T(n)= 2 \cdot T(n/2) + \Theta(n)  \Longrightarrow \Theta(n^1\log n) = \Theta(n\log n).$$ 
 \end{obecne}
 
 \begin{obecne}{Pamìová sloitost\footnote{pro zajímavost, neni to asi nutne umet odvodit}:}

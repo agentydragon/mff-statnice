@@ -46,7 +46,8 @@ Architektura poèítaèa popisuje \uv{všetko, èo by mal vedie ten, ktorı programuj
   \begin{pitemize}
       \item \textbf{ALU} (také Processing Element) Aritmeticko-logická jednotka - základní komponenta procesoru (2.základní je øadiè).  
       \item \textbf{Øadiè} (Control Unit) je elektronická øídicí jednotka, realizovaná sekvenèním obvodem, která øídí èinnost všech èástí poèítaèe. Toto øízení je provádìno pomocí øídicích signálù, které jsou zasílány jednotlivım modulùm (dílèím èástem poèítaèe). Reakce na øídicí signály - stavy jednotlivıch modulù - jsou naopak zasílány zpìt øadièi pomocí stavovıch hlášení. Dílèí èástí poèítaèe je napø. hlavní pamì, která rovnì obsahuje øadiè, kterı je podøízen hlavnímu øadièi poèítaèe, jen je souèástí CPU.
-      \item \textbf{Sbìrnice} (Bus) je sada dat.streamù propojující více zaøízení. Instruction Stream (øízení komunikace – poadavky/potvrzení, indikace typu dat na datovıch vodièích) Data Stream (pøenos dat mezi zdrojovım a cílovım zaøízením, adresy, data, sloitìjší pøíkazy      
+      \item \textbf{Sbìrnice} (Bus) je sada dat.streamù propojující více zaøízení. Instruction Stream (øízení komunikace – poadavky/potvrzení, indikace typu dat na datovıch vodièích) Data Stream (pøenos dat mezi zdrojovım a cílovım zaøízením, adresy, data, sloitìjší pøíkazy     
+      \end{pitemize} 
 \end{obecne}
 
 \subsubsection*{Flynn's taxonomy}
@@ -124,13 +125,14 @@ Napø. AVR od Atmelu, a PIC~-- mají pamì na program a data a RISC instrukèní sad
 Oproti Von Neumannovì nehrozí nebezpeèí pøepsání programu sebou samım, ale kvùli vìtšímu poètu pamìovıch sbìrnic je nároènìjší na vırobu. Pamì navíc nelze dìlit podle potøeby (rozdìlení je u dané).
 \end{obecne}
 
-\begin{prikladN}{Naèrtnìte typickou architekturu pocitace, ze které bude zrejmé umísténí a propojení základnich stavebních prvku (procesor, pameti, radice a zarízeni, sbenice). Ilustrujte na úrovni zakladnich krokù ínstrukcního cyklu jak procesor vykonává program. Popište typy instrukci (a napište jejich pøíklady), ze kterıch se program z pohledu procesoru skládá.}
+\begin{e}{Pøíklad}{0}{Naèrtnìte typickou architekturu pocitace, ze které bude zrejmé umísténí a propojení základnich stavebních prvku (procesor, pameti, radice a zarízeni, sbenice). Ilustrujte na úrovni zakladnich krokù ínstrukcního cyklu jak procesor vykonává program. Popište typy instrukci (a napište jejich pøíklady), ze kterıch se program z pohledu procesoru skládá.}
 \\
   \textbf{Typická (sbìrnicová) architektura systému:}
   \begin{center}
     \includegraphics[width=8cm]{informatika/operacne_systemy_a_hw/obrazky/architektura.png}
   \end{center}
-\\
+
+
 \textbf{Zpracování instrukcí
 }  \begin{pitemize}
       \item \textbf{ètení} instrukce z pamìti na adrese v registru PC (program counter, obsahuje adresu následující instrukce)
@@ -141,7 +143,8 @@ Oproti Von Neumannovì nehrozí nebezpeèí pøepsání programu sebou samım, ale kvùli
 instrukcí, pokud není øeèeno jinak - tzn. podmínìnı/nepodmínìnı
 skok, vıjimka)       
   \end{pitemize} 
-\\  
+
+  
   \textbf{Typy instrukci (architektura MIPS):}
   \begin{pitemize}
       \item operace registr/registr, registr/immediate\footnote{operand (èíslo) uloené
@@ -151,7 +154,7 @@ skok, vıjimka)
       \item nepodmínìné skoky (vèetnì nepøímıch skokù a skokù do podprogramu)
       \item speciální instrukce (práce se speciálními registry)
   \end{pitemize} 
-\end{prikladN}
+\end{e}
 
 \begin{reportN}{Bulej}
 Tenhle èlovìk se v tom vrtal hodnì, ale já mám tu vıhodu, e jsem na støední chodil na elektroprùmyslovku, take instrukcí a typù instrukcí jsem mu tam popsal spoustu a i postup, jak procesor vykonává program, jsem vìdìl do detailù (a do detailù to chtìl). Pøesvìdèil jsem ho asi hlavnì tím, e jsem odpovídal takovım tím "samozøejmım" zpùsobem ("a kdy procesor vykoná instrukci, co dìlá dál?" -"pokraèuje další instrukcí" "no ale co pøesnì dìlá" -"no tenhle postup znovu, naète další instrukci..." "co to pøesnì znamená?" -"no prostì zvìtší instruction pointer o velikost právì zpracované instrukce a tím získá adresu následující instrukce, a opakuje tenhle postup").

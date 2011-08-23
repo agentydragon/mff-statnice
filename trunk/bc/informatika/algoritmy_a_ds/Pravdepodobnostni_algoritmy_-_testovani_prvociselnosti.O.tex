@@ -1,4 +1,6 @@
-\subsection{Pravdìpodobostní algoritmy -- testování prvoèíselnosti\footnote{tato otázka nebyla asi nikdy zkoušena, a tak je to jenom takovy nástøel Zdroj: vıborné Èepkovy slajdy na ADS2 - zda se ze je ocenuju az ted :)}}
+\subsection{Pravdìpodobostní algoritmy -- testování prvoèíselnosti}
+
+(tato otázka nebyla asi nikdy zkoušena, a tak je to jenom takovy nástøel Zdroj: vıborné Èepkovy slajdy na ADS2 - zda se ze je ocenuju az ted :))
 
 Pravdìpodobnostní (náhodnostní) algoritmy jsou nedeterministické algoritmy, které se snaí najít øešení rychleji nebo øešení tìko øešitelnıch problémù, èasto NP-úplnıch problémù. Pravdìpodobnostní algoritmus se mùe náhodnì rozhodovat mezi rùznımi monostmi jak pokraèovat. Pro stejnı vstup mùe dávat takovı algoritmus rùzné vısledky, které mohou bıt dokonce nesprávné. Mnohdy se tedy na daném vstupu spustí pravdìpodobnostní algoritmus vícekrát, aby se s vìtší pravdìpodobností dospìlo ke správnému vısledku.
 \\\\
@@ -7,23 +9,29 @@ Pravdìpodobnostních algoritmù je mnoho typù, zde zmíníme jen dva a to algoritmy 
 \subsubsection*{Algoritmy typu Las Vegas} 
 Vısledek je vdy správnı, náhodnost ovlivòuje pouze dobu bìhu algoritmu, tj. po jaké cestì se algoritmus ke správnému vısledku dobere.
 \\\\ 
-\begin{prikladN}{randomizovanı QuickSort} Od deterministické verze se liší náhodnımi vıbìry pivota pøi kadém dìlení posloupnosti, co poskytuje následující vıhody
+\begin{e} Od deterministické verze se liší náhodnımi vıbìry pivota pøi kadém dìlení posloupnosti, co poskytuje následující vıhody{Pøíklad}{0}{randomizovanı QuickSort}
 \begin{pitemize}
 \item dává dobrı prùmìrnı èas (tj. $O(n \log n)$) i v pøípadì, e data na vstupu nejsou náhodné permutace – ádnı vstup není apriori špatnı (pro kadı deterministickı vıbìr pivota existují apriori špatné vstupy)
 \item mùe bıt spuštìn paralelnì v nìkolika kopiích, vısledek je získán z kopie, kde vıpoèet skonèí nejdøíve (pro deterministickou verzi nemá takovı postup ádnı smysl)
 \end{pitemize}
-\end{prikladN}
+\end{e}
 \subsubsection*{Algoritmy typu Monte Carlo} 
 Náhodnost ovlivòuje jak dobu bìhu, tak správnost vısledku: algoritmus mùe udìlat chybu, ale pouze jednostrannì (u odpovìdí ANO/NE) a s omezenou pravdìpodobností. 
 \\\\
-\begin{prikladN}{Rabin-Millerùv algoritmus na testování prvoèíselnosti} 
+\begin{e} {Pøíklad}{0}{Rabin-Millerùv algoritmus na testování prvoèíselnosti}
 Pro zadané pøirozené èíslo n (rychle) rozhodnout zda je n prvoèíslo 
 \\\\
-\begin{e} \equiv 1(\mod p)${Vìta}{0}{Malá Fermatova} Nech p je prvoèíslo. Potom $\forall k \in\{1,2, … ,p-1\}$ platí $k^{p-1}
+
+
+
+\begin{e}{Vìta}{0}{Malá Fermatova}
+    
+     Nech p je prvoèíslo. Potom $\forall k \in\{1,2, … ,p-1\}$ platí $k^{p-1}\equiv 1(\mod p)$
 \end{e} 
-\\\noindent
+
+\noindent
 Pokud $n$ není prvoèíslo, tak zkusíme (náhodnì) najít „svìdka“ $k$, porušujícího $k^{n-1} \equiv 1(\mod n)$, kterı „dosvìdèuje“, e $n$ je opravdu èíslo sloené (není to prvoèíslo). Problém - pro nìkterá sloená èísla je svìdkù pøíliš málo, take je pøíliš malá pravdìpodobnost, e nìjakého svìdka (náhodnì) vybereme. 
-\\\\
+
 \begin{e} Nech T je mnoina dvojic pøirozenıch èísel, kde $(k,n) \in T$ pokud $0 < k < n$ a je splnìna alespoò jedna z následujících dvou podmínek:\\{Definice}{0}{0}
 1. neplatí $k^{n-1} \equiv 1(\mod n)$,\\
 2. existuje $i$ takové, e $m = (n-1) / 2^i$ je pøirozené èíslo a platí $1 < NSD(k^{m-1}-1, n) < n$ 
@@ -51,5 +59,5 @@ Pokud $Rabin-Miller(n)$ rozhodne, e $n$ je sloené, tak je to zaruèenì správnı 
 \end{obecne}
 \begin{obecne}{Èasová sloitost:} kadá iterace trvá jen polynomiálnì vzhledem k délce zápisu èísla $n$ (tj. k délce vstupu), k tomu je ovšem potøeba ukázat, e test zda $(k_i,n) \in T$ je mono provést v èase polynomiálním v $\log n$, co není triviální (je nutné mít další znalosti z teorie èísel)
 \end{obecne}
-\end{prikladN}
+\end{e}
 

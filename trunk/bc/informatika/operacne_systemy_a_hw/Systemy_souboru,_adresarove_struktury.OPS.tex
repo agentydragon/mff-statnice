@@ -99,7 +99,7 @@ polozky plne, dalsi nelze pridat.
     \item \textbf{Vyhledávání souboru}~--  Postupne ... v root adresari se najde prvni podadresar cesty, v nem se 
 najde druhy a tak dale. (tzn. lineární struktura)
     \item Adresarova struktura je ulozena prave v jednotlivych adresarich. 
-Napriklad, pokud je na disku soubor \FOO\BAR\SOUBOR.TXT, tak v korenovem 
+Napriklad, pokud je na disku soubor \\FOO\\BAR\\SOUBOR.TXT, tak v korenovem 
 adresari bude polozka FOO s atributem indikujicim, ze se jedna o adresar 
 a s cislem prvniho clusteru adresare FOO, rekneme ze 123. V clusteru 123 
 pak budou polozky adresare FOO, mezi nimi bude podobne polozka BAR pro 
@@ -113,6 +113,7 @@ SOUBOR.TXT ...
     \subitem - práva - None of the various FAT-flavours has facilities for user-based access restrictions.
     \item \url{https://d3s.mff.cuni.cz/pipermail/osy/2005-June/000167.html}
     \item \url{http://en.wikipedia.org/wiki/File\_Allocation\_Table}
+\end{pitemize}
 \end{obecne}
 
 \begin{obecne}{NTFS} 
@@ -132,24 +133,28 @@ SOUBOR.TXT ...
     \item \url{http://www.pcguide.com/ref/hdd/file/ntfs/archSector-c.html}
     \item \url{http://cs.wikipedia.org/wiki/NTFS}    
     \item \url{http://ixbtlabs.com/articles/ntfs/}
+    \end{pitemize}
+    
 \end{obecne}
 
 \begin{obecne}{ext2} 
   \begin{pitemize} 
     \item Prostor je u ext2 rozdìlen do blokù, ty jsou rozdìleny do skupin (Block Groups) typicky jeden soubor se drží v jedné skupinì (redukce fragmentace). Každá skupina obsahuje kopii superbloku (obsahuje kritické informace pro boot systemu) bitmapu blokù, inodes, Inode tabulku a nakonec datové bloky.
     \begin{center}
-      \includegraphics[height=4cm]{informatika/operacne_systemy_a_hw/obrazky/ext2.gif}
+      \includegraphics[height=4cm]{informatika/operacne_systemy_a_hw/obrazky/ext2.png}
     \end{center}     
     \item \textbf{inode} -- každý soubor nebo složka je reprezentována jako inode (v inode tabulce), obsahuje práva, velikost a hlavnì pointery na datové bloky (12pointerù na pøímý odkaz a další na stromovou strukturu), složky
 obsahují list inodes které obsahují
     \begin{center}
-      \includegraphics[height=6cm]{informatika/operacne_systemy_a_hw/obrazky/inode.gif}
+      \includegraphics[height=6cm]{informatika/operacne_systemy_a_hw/obrazky/inode.png}
     \end{center}           
     \item Proc se porad pouziva - kvùli rychlosti
     \item Žurnálování zavedeno u ext3              
     \item \url{http://homepage.smc.edu/morgan\_david/cs40/analyze-ext2.htm}    
     \item \url{http://www.science.unitn.it/~fiorella/guidelinux/tlk/node95.html}
     \item \url{http://www.linux-security.cn/ebooks/ulk3-html/0596005652/understandlk-CHP-18.html}
+    \end{pitemize}
+    
 \end{obecne}
 
 \begin{obecne}{Plánování pohybu hlav diskù}
