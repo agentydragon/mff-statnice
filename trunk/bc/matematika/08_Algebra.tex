@@ -138,7 +138,7 @@ Podgrupy kadé grupy spoleènì s prùnikem jako infimem a podgrupou generovanou sj
 \begin{e}{Poznámka}{0}{Vlastnosti cyklickıch podgrup}
 Kadá cyklická grupa G je komutativní (Abelova).
 \proof
-Protoe x,y\in G$ pak x,y=a^m.a^n=a^{m+n}=a^{n+m}=y.x$
+Protoe $x,y\in G$ pak $x,y=a^m.a^n=a^{m+n}=a^{n+m}=y.x$
 \end{e}
 
 \begin{e}{Pøíklady}{0}{0}
@@ -162,8 +162,21 @@ Pro grupu $G$ a její podgrupu $H$ se relace $\rmod_H$ definuje pøedpisem  $a,b\i
 \end{center}
 \end{e}
 
-\begin{e}{Vìta}{0}{Lagrangeova}
+\begin{e}{Vìta}{1}{Lagrangeova}
 Pro grupu $G$ a její podgrupu $H$ platí: $|G|=[G:H]\cdot|H|$. Z toho plyne, e velikost podgrupy dìlí velikost koneèné grupy.
+
+
+
+\begin{e}{Idea dùkazu}{0}{0}
+
+Nejdøíve je nutno dokázat, e lmod $H$ a rmod $H$ jsou ekvivalence (jsou reflexivní, symetrické, tranzitivní) - vyplıvá z vlastností $^{-1}$. 
+
+Potom je nutno ukázat, e $[a]_{\rmod H}$, tj. tøída ekvivalence urèena podle prvku $a$, je toté, co $Ha$ (tj. prvky $H$ pronásobeny $a$ \uv{zprava}) -- mírnì pracné.
+
+Potom se ukáe, e vynásobení zprava je bijekce, tj. $H\rightarrow [a]_{\rmod H}$ je bijekce, tj. $|H|=\left|[a]_{\rmod H}\right| \forall a \in G$, tj. tøídy ekvivalence jsou všechny stejnì velké, z èeho u vìta plyne.
+
+\end{e}
+
 \end{e}
 
 \begin{center}
@@ -171,8 +184,11 @@ Pro grupu $G$ a její podgrupu $H$ platí: $|G|=[G:H]\cdot|H|$. Z toho plyne, e v
 \\Index podgrupy $H$ v grupì $G$ ($[G:H]$) je prostì poèet tøíd ekvivalence relace $\rmod H$. Dále øád grupy $|G|$ a ukázka Lagrangeovy vìty v praxi. 
 \end{center}
 
-\begin{e}{ $H,K\subseteq G(\cdot,^{-1},1),\ g\in G:\ \dfnname{HK}$= \{$h.k |\{Definice}{0}{0}
-h\in H\,k\in K\}, \ \dfnname{gH}= \{g\}H,\ \dfnname{Hg}= H\{g\}$ 
+\begin{e}{ Definice}{0}{0}
+$H,K$ jsou podgrupy $G(\cdot,^{-1},1),\ g\in G:\ \emph{HK}= \{h.k |\
+h\in H\,k\in K\}, \ \emph{gH}= \{g\}H,\ \emph{Hg}= H\{g\}$ 
+
+(tato definice byla pouita v minulém dùkazu :-))
 
 \begin{center}
 \includegraphics[scale=0.5]{matematika/obrazky/nasobeni_mnozin}
@@ -180,7 +196,7 @@ h\in H\,k\in K\}, \ \dfnname{gH}= \{g\}H,\ \dfnname{Hg}= H\{g\}$
 \end{e}
 
 \begin{e}{Definice}{0}{faktorgrupa}
-Pro grupu $(G,\cdot,^{-1},e)$ a nìjakou její normální podgrupu $N$ je \emph{faktorgrupa} $G/N=\{gN|g\in G\}$ kde $gN=\{g.n|n\in N\}$  ($gN$ se nazıvá levá \emph{rozkladová tøída}). 
+Pro grupu $(G,\cdot,^{-1},e)$ a nìjakou její normální podgrupu $N$ je \emph{faktorgrupa} $G/N=\{gN|g\in G\}$ kde $gN=\{g.n|n\in N\}$  ($gN$ se nazıvá levá \emph{rozkladová tøída}). $gN = [g]_{\lmod N}$.
 \\\\
 Tedy faktorgrupa je mnoina všech levıch rozkladovıch tøíd podle nìjaké normální podgrupy. Faktorgrupa cyklické nebo abelovské grupy je také cyklická, resp. abelovská.
 \end{e}
@@ -202,7 +218,7 @@ Pøíklady faktorgrup:
 \newline    
     \{ \{0, 3\}, \{1, 4\}, \{2, 5\}, \{0, 3\}, \{1, 4\}, \{2, 5\} \} =
 \newline    
-    \{ \{0, 3\}, \{1, 4\}, \{2, 5\} \} $$
+    \{ \{0, 3\}, \{1, 4\}, \{2, 5\} \} $
 \end{pitemize}
 
 \begin{center}
@@ -211,7 +227,9 @@ Pøíklady faktorgrup:
 \end{e}
 
 \begin{e}{Definice}{0}{kongruence}
-Obecnì v algebrách je \emph{ relace $\rho$ sluèitelná s operací $\alpha$} arity $n$, pokud $a_1,\dots a_n, b_1,\dots b_n : (a_i,b_i)\in\rho\ \forall i$ implikuje $(\alpha(a_1,\dots a_n),\alpha(b_1,\dots b_n))\in\rho$. \emph{Kongruence} je kadá ekvivalence sluèitelná se všemi operacemi algebry.
+Obecnì v algebrách je \emph{ relace $\rho$ sluèitelná s operací $\alpha$} arity $n$, pokud $a_1,\dots a_n, b_1,\dots b_n : (a_i,b_i)\in\rho\ \forall i$ 
+\\
+\noindent implikuje $(\alpha(a_1, \dots a_n), \alpha(b_1, \dots b_n))\in\rho$. \emph{Kongruence} je kadá ekvivalence sluèitelná se všemi operacemi algebry.
 \end{e}
 
 \begin{center}
@@ -299,7 +317,7 @@ Nech $f:A\to B$ je homomorfismus algeber stejného typu a $\rho$ kongruence na $
 \begin{e} je relace{Definice}{0}{faktor-ekvivalence} $\rho\subseteq\sigma$ 2 ekvivalence na $A$. Pak \emph{$\sigma$/$\rho$ - faktor-ekvivalence}
     definovaná: $([a]_{\rho},[b]_{\rho})\in\sigma/\rho\ \stackrel{\mathrm{def}}\equiv (a,b)\in\sigma$.
 \\\\
-Relace \dfnname{$\rho$ sluèitelná s $\alpha$}, pak $\alpha$ na A/$\rho$
+Relace \emph{$\rho$ sluèitelná s $\alpha$}, pak $\alpha$ na A/$\rho$
 def.: $\alpha([a_1]_{\rho},... [a_n]_{\rho}) = [ \alpha(a_1, ... a_n) ]_{\rho}$.
 Kongruence $\rho$ na A, pak stejnım zpùsobem def. na A/$\rho$ strukturu algebry.
 \begin{center}
