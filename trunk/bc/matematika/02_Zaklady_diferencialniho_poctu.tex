@@ -16,9 +16,9 @@
 \end{e}
 
 \subsection{Reálné funkce jedné reálné promìnné}
-\begin{e}{Definice}{0}{Neco}
+\begin{e}{Definice}{0}{Reálná funkce}
 Reálná funkce jedné promìnné je zobrazení $f: M \rightarrow \mathbb{R}$, kde $M \subseteq \mathbb{R}$. \\
-$f$ je na $M$:
+$f$ mùe bıt na $M$:
 \begin{pitemize}
 	\item \emph{rostoucí}: $\forall x, y: x < y \Rightarrow f(x) < f(y)$
 	\item \emph{klesající}: $\forall x, y: x < y \Rightarrow f(x) > f(y)$
@@ -31,7 +31,7 @@ $f$ je na $M$:
 \end{pitemize}
 \end{e}
 
-\begin{e}{Definice}{1}{Okolí bodu}
+\begin{e}{Definice}{0}{Okolí bodu}
     \begin{pitemize}
         \item $P(a, \delta) = (a-\delta, a) \cup (a, a+\delta)$  \hfill \emph{(prstencové okolí)} \hspace{0.4\textwidth}
 
@@ -82,7 +82,7 @@ Na obrázku \ref{fig:limitafunkce} je funkce, definovaná všude jako $f(x)=\mathrm
 }
 
 \medskip
-\begin{e}{Vìta}{0}{Heineho vìta}
+\begin{e}{Vìta}{1}{Heineho vìta}
 Nech  $f: M \rightarrow \mathbb{R}, M \subseteq \mathbb{R}$. Nech $f$ je definováno na nìjakém prstencovém okolí bodu $a \in \mathbb{R}^{*}$. Potom následující dvì tvrzení jsou ekvivalentní:
 \begin{penumerate}
 	\item $lim_{x \rightarrow a} f(x) = A \in \mathbb{R}^{*}$
@@ -152,12 +152,28 @@ Pozor na ostrost nerovností, v tomto pøípadì je velmi dùleitá.
 \end{pitemize}
 \end{e}
 
+\obrazekvpravominipage{matematika/obrazky/protipriklad_slozena}{Protipøíklad na podmínky o limitì}{fig:protipriklad_slozena}{0.4}{0.6}{
+
 \begin{e}{Vìta}{0}{O limitì sloené funkce}
 Nech $\lim_{x \rightarrow a} g(x) = A$, $\lim_{y \rightarrow A} f(y) = B$, $a, A, B \in \mathbb{R}^{*}$. Nech navíc platí jeden z pøedpokladù:\\
-(P1) $f$ je spojitá v $A$\hfill \textit{(vnìjší funkce je spojitá)}\\
-(P2) $\exists \delta > 0: g(x) \neq A$ pro $\forall x \in P(a, \delta)$\hfill \textit{(vnitøní je \uv{lokálnì prostá})}\\
+(P1) $f$ je spojitá v $A$\hfill \emph{(vnìjší funkce je spojitá)} 
+
+(P2) $\exists \delta > 0: g(x) \neq A$ pro $\forall x \in P(a, \delta)$\hfill \emph{(vnitøní je \uv{lokálnì prostá})}
+
 Potom $\lim_{x \rightarrow a} (f \circ g)(x) = B$.
+
+\begin{e}{Poznámka}{0}{protipøíklad}
+	Na obrázku \ref{fig:protipriklad_slozena} je uveden protipøíklad pro osvìtlení, proè musí podmínky platit. $f(x)$ -- vnìjší -- je nespojitá, $g(x)$ -- vnitøní -- není lokálnì prostá. Sloená funkce potom nemá v~bodì $-1$ limitu -- a tam, kde jí má, se stejnì \emph{nerovná} sloené limitì (limita $f(x)$ v~nule je 1, ale limita $f(g(x))$ je v~nule 0 a dokonce je tam i spojitá). \uv{Pouhı} bod nespojitosti vnìjší funkce se následkem konstantnosti vnitøní funkce \uv{roztáhnul}.
 \end{e}
+
+\begin{e}{Idea dùkazu}{0}{0}
+  Vezmeme $\varepsilon$, pro nìj najdeme $\mu$, e pro $x$ z~okolí $A$ je $f(x)$ v~$\varepsilon$ okolí -- ale pozor, definice limity je $0 < \left|x-A\right| < \mu \Rightarrow \left|f(x)-B\right|<\varepsilon$. Mùeme z~definice limity $g(x)$ najít $\delta$ pro $\mu$, e $0 < \left|g-a\right| < \delta \Rightarrow \left|g(x)-A\right|<\mu$. 
+
+Pokud platí (P2), $\left|g(x)-A\right|$ nikdy nebude 0, take levá strana platí a tím pádem jsme ve vysnìném $\varepsilon$; pokud platí (P1), 0 to bıt mùe, ale díky spojitosti jsme zase v~klidu a bezpeèí $\varepsilon$.
+\end{e}
+
+\end{e}
+}
 
 \begin{e}{Definice}{0}{Interval}
 Nech $a, b \in \mathbb{R}^{*}, a < b$. Pak \emph{otevøenım intervalem} $(a, b)$ nazveme $\{x | a<x<b\}$, \emph{(uzavøenım) intervalem} $\left<a, b\right>$ (pro $a, b \in \mathbb{R}$) nazveme $I=\{x | a \le x \le b\}$. Uzavøenı interval se nìkdy znaèí i $[a,b]$.
@@ -165,6 +181,11 @@ Nech $a, b \in \mathbb{R}^{*}, a < b$. Pak \emph{otevøenım intervalem} $(a, b)$
 
 \begin{e}{Vìta}{0}{Vìta o limitì monotónní funkce}
 Nech je funkce $f$ monotónní na $(a, b)$, $a, b \in \mathbb{R}^{*}, a < b$. Potom $\exists \lim_{x \rightarrow a^{+}} f(x)$, $\exists \lim_{x \rightarrow b^{-}} f(x)$.
+
+\begin{e}{Idea dùkazu}{0}{0}
+    Buï pøímo, nebo pøes Heineho vìtu a u dokázané vlastnosti limit posloupností (omezená a monotónní posloupnost má limitu).
+\end{e}
+
 \end{e}
 
 \begin{e}{Definice}{0}{Spojitost na intervalu}
@@ -173,12 +194,43 @@ Je-li $\left<a, b\right>$ interval, pak $a$ nazıváme poèáteèním bodem, $b$ konco
 Øekneme, e $f$ \emph{je spojitá na intervalu $I$}, jestlie je spojitá zprava ve všech bodech kromì koncového a spojitá zleva ve všech bodech kromì poèáteèního.
 \end{e}
 
-\begin{e}{Vìta}{0}{O spojitém obrazu intervalu}
-Nech funkce $f: I \rightarrow \mathbb{R}$ je spojitá na intervalu $I$. Potom $f(I)$ je také interval.
+
+\obrazekvpravominipage{matematika/obrazky/darboux}{Darbouxova vìta}{fig:darboux}{0.4}{0.6}{
+
+\begin{e}{Vìta}{1}{Darbouxova o nabıvaní mezihodnot}
+Nech funkce $f$ je spojitá na $\left<a, b\right>$ a $f(a)<f(b)$, potom $\forall y \in (f(a), f(b))$ existuje $x \in (a, b)$ takové, e $f(x)=y$.
+
+Ilustrováno na obrázku \ref{fig:darboux}.
+
+\begin{e}{Idea dùkazu}{0}{0}
+K dùkazu se nám bude hodit lemma, vyplıvající z~definice limity.
+
+\begin{e}{Lemma}{0}{0}
+Pokud má spojitá funkce v $x_0$ hodnotu ostøe vìtší ne $y$, má hodnotu $f(x)>y$ i v~nìjakém okolí $x_0$.
 \end{e}
 
-\begin{e}{Vìta}{0}{Darbouxova o nabıvaní mezihodnot}
-Nech funkce $f$ je spojitá na $\left<a, b\right>$ a $f(a)<f(b)$, potom $\forall y \in (f(a), f(b))$ existuje $x \in (a, b)$ takové, e $f(x)=y$.
+Pokraèujeme s dùkazem Darbouxe.
+
+Vezmeme si pro $y$, pro které hledáme $x$, e $f(x)=y$, mnoinu všech hodnot, které mají hodnotu menší nebo rovnu, ne $y$. Tato mnoina je shora omezená a tak má suprémum. 
+
+Pokud by hodnota funkce suprema byla vìtší ne $y$, díky lemmatu by byla vìtší i v~nìjakém okolí a tedy by nešlo o nejmenší horní mez.
+
+Pokud by hodnota funkce suprema byla menší ne $y$, díky lemmatu by byla menší i v~nìjakém okolí a tedy by nešlo vùbec o horní mez.
+
+Hodnota funkce suprema tedy musí bıt $y$.
+
+\end{e}
+
+\end{e}
+}
+
+\begin{e}{Vìta}{0}{O spojitém obrazu intervalu}
+Nech funkce $f: I \rightarrow \mathbb{R}$ je spojitá na intervalu $I$. Potom $f(I)$ je také interval.
+
+\begin{e}{Idea dùkazu}{0}{0}
+Pultr dokazuje pøes Darbouxe -- krajní body $I$ tam mají svoje hodnoty, všechny hodnoty mezi tìmito hodnotami tam musí bıt a proto je to interval. Já si nejsem úplnì jistı, ale budu Pultrovi vìøit.
+
+\end{e}
 \end{e}
 
 \begin{e}{Definice}{0}{0}
@@ -194,10 +246,18 @@ $f: M \rightarrow \mathbb{R}, M \subseteq \mathbb{R}$. $f$ nabıvá v bodì $a \in 
 
 \begin{e}{Vìta}{0}{Vztah spojitosti a extrémù}
 Nech $f$ je spojitá na $\left<a, b\right>$. Potom $f$ nabıvá na $\left<a, b\right>$ svého maxima i minima.
+
+\begin{e}{Idea dùkazu}{0}{0}
+	Vezmeme si suprémum hodnot, budeme kolem nìj zmenšovat okolí, musí tam vdycky nìco bıt, tj. máme posloupnost, z~ní vybereme konvergentní, musí konvergovat k~limitì, tam je to maximum. Minimum toté.
+\end{e}
 \end{e}
 
 \begin{e}{Vìta}{0}{Vztah spojitosti a omezenosti}
 Spojitá funkce na uzavøeném intervalu $\left<a, b\right>$ je omezená.
+\begin{e}{Idea dùkazu}{0}{0}
+Má tam maximum i minumum, tj je omezená.
+\end{e}
+
 \end{e}
 
 \begin{e}{Definice}{0}{prostá funkce, inverzní funkce}
@@ -217,6 +277,8 @@ v podstate jen definice, Heineho veta a par pozorovani
 \end{reportN}
 
 \subsection{Nìkteré konkrétní funkce (polynomy, racionální lomené funkce, goniometrické a cyklometrické funkce, logaritmy a exponenciální funkce)}
+
+Teoreticky se dají funkce popsat axiomaticky (s~tím, e jejich existence a jednoznaènost se dokáe pozdìji). Nebo se dají naopak zadefinovat konkrétnì a axiomy z nich vyplynou jako jejich vlastnosti. Ono je to asi fuk -- dùkazy existencí tìchto funkcí jsou tak jako tak na státnice pøíliš sloité (podle mì).
 
 \begin{e}{Vìta}{0}{Exponenciální funkce}
 Existuje právì jedna reálná funkce \textbf{exp}, splòující:
