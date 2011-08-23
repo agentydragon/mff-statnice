@@ -1,78 +1,78 @@
-\subsection{TÅ™Ã­dy sloÅ¾itosti P a NP, pÅ™evoditelnost, NP-Ãºplnost}
+\subsection{Tøídy sloitosti P a NP, pøevoditelnost, NP-úplnost}
 
 TODO: doplnit, tohle asi nestaci na pohodovou zkousku (aspon podle toho co jsem vnimal, jsa svedek zkouseni u Dr. Yaghoba) -- chce to napr. nejaky priklad prevedeni jako delal Kucera, mozna jeste neco
 
-\begin{definice}
+\begin{e}{Definice}{0}{0}
   \begin{pitemize}
-  \item \textbf{Ãšloha}~-- Pro danÃ© zadÃ¡nÃ­ (vstup, \emph{instanci Ãºlohy}) najÃ­t vÃ½stup s danÃ½mi vlastnostmi.
-  \item \textbf{OptimalizaÄnÃ­ Ãºloha}~-- Pro danÃ© zadÃ¡nÃ­ najÃ­t optimÃ¡lnÃ­ (vÄ›tÅ¡inou
-  nejmenÅ¡Ã­ nebo nejvÄ›tÅ¡Ã­) vÃ½stup s danÃ½mi vlastnostmi.
-  \item \textbf{RozhodovacÃ­ problÃ©m}~-- Pro danÃ© zadÃ¡nÃ­ odpovÄ›dÄ›t ANO/NE.
+  \item \textbf{Úloha}~-- Pro dané zadání (vstup, \emph{instanci úlohy}) najít vıstup s danımi vlastnostmi.
+  \item \textbf{Optimalizaèní úloha}~-- Pro dané zadání najít optimální (vìtšinou
+  nejmenší nebo nejvìtší) vıstup s danımi vlastnostmi.
+  \item \textbf{Rozhodovací problém}~-- Pro dané zadání odpovìdìt ANO/NE.
   \end{pitemize}
-\end{definice}
+\end{e}
 
-\begin{definiceN}{tÅ™Ã­da P}
- \textbf{TÅ™Ã­du sloÅ¾itosti P} (nÄ›kdy tÃ©Å¾ PTIME) tvoÅ™Ã­ problÃ©my Å™eÅ¡itelnÃ©
- sekvenÄnÃ­mi deterministickÃ½mi algoritmy v polynomiÃ¡lnÃ­m Äase, tj. jejich ÄasovÃ¡
- sloÅ¾itost je $O(n^k)$. O algoritmech ve tÅ™Ã­dÄ› P takÃ© Å™Ã­kÃ¡me, Å¾e jsou
- \textbf{efektivnÄ› Å™eÅ¡itelnÃ©.}
-\end{definiceN}
+\begin{e}{Definice}{0}{tøída P}
+ \textbf{Tøídu sloitosti P} (nìkdy té PTIME) tvoøí problémy øešitelné
+ sekvenèními deterministickımi algoritmy v polynomiálním èase, tj. jejich èasová
+ sloitost je $O(n^k)$. O algoritmech ve tøídì P také øíkáme, e jsou
+ \textbf{efektivnì øešitelné.}
+\end{e}
 
-\begin{definiceN}{tÅ™Ã­da NP}
- \textbf{TÅ™Ã­da NP} (NPTIME) je tÅ™Ã­da problÃ©mÅ¯ Å™eÅ¡itelnÃ½ch v polynomiÃ¡lnÃ­m Äase
- sekvenÄnÃ­mi nedeterministickÃ½mi algoritmy. 
-\end{definiceN}
+\begin{e}{Definice}{0}{tøída NP}
+ \textbf{Tøída NP} (NPTIME) je tøída problémù øešitelnıch v polynomiálním èase
+ sekvenèními nedeterministickımi algoritmy. 
+\end{e}
 
-\begin{poznamka}
-  VÃ­ se, Å¾e $P \subseteq NP$. NevÃ­ se vÅ¡ak, zda $P \neq NP$. PÅ™edpoklÃ¡dÃ¡ se to,
-  ale jeÅ¡tÄ› to nikdo nedokÃ¡zal.
-\end{poznamka}
+\begin{e}{Poznámka}{0}{0}
+  Ví se, e $P \subseteq NP$. Neví se však, zda $P \neq NP$. Pøedpokládá se to,
+  ale ještì to nikdo nedokázal.
+\end{e}
 
-\begin{obecne}{PÅ™Ã­klady problÃ©mÅ¯ ze tÅ™Ã­dy NP}
+\begin{obecne}{Pøíklady problémù ze tøídy NP}
   \begin{pitemize}
-    \item \textbf{KLIKA}(ÃºplnÃ½ podgraf)~-- Je dÃ¡n neorientovanÃ½ graf $G$ a ÄÃ­slo
-    $k$. Existuje v $G$ ÃºplnÃ½ podgraf velikosti aspoÅˆ $k$?
-    \item \textbf{HK}(HamiltonovskÃ¡ kruÅ¾nice)~-- Je dÃ¡n neorientovanÃ½ graf $G$.
-    Existuje v $G$ HamiltonovskÃ¡ kruÅ¾nice?
-    \item \textbf{SP}(SouÄet podmnoÅ¾iny)~-- Jsou dÃ¡na pÅ™irozenÃ¡ ÄÃ­sla $a_1,
-    \dots, a_n,b$. Existuje podmnoÅ¾ina ÄÃ­sel $a_1,\dots,a_n$, jejÃ­Å¾ souÄet je
-    pÅ™esnÄ› $b$?
+    \item \textbf{KLIKA}(úplnı podgraf)~-- Je dán neorientovanı graf $G$ a èíslo
+    $k$. Existuje v $G$ úplnı podgraf velikosti aspoò $k$?
+    \item \textbf{HK}(Hamiltonovská krunice)~-- Je dán neorientovanı graf $G$.
+    Existuje v $G$ Hamiltonovská krunice?
+    \item \textbf{SP}(Souèet podmnoiny)~-- Jsou dána pøirozená èísla $a_1,
+    \dots, a_n,b$. Existuje podmnoina èísel $a_1,\dots,a_n$, její souèet je
+    pøesnì $b$?
   \end{pitemize}
 \end{obecne}
 
-\begin{definiceN}{pÅ™evody mezi rozhodovacÃ­mi problÃ©my}
-  NechÅ¥ $A$, $B$ jsou dva rozhodovacÃ­ problÃ©my. Å˜Ã­kÃ¡me, Å¾e $A$ je
-  \textbf{polynomiÃ¡lnÄ› redukovatelnÃ½ (pÅ™evoditelnÃ½)} na $B$, pokud existuje
-  zobrazenÃ­ $f$ z mnoÅ¾iny zadÃ¡nÃ­ problÃ©mu $A$ do mnoÅ¾iny zadÃ¡nÃ­ problÃ©mu $B$ s
-  nÃ¡sledujÃ­cÃ­mi vlastnostmi:
+\begin{e}{Definice}{0}{pøevody mezi rozhodovacími problémy}
+  Nech $A$, $B$ jsou dva rozhodovací problémy. Øíkáme, e $A$ je
+  \textbf{polynomiálnì redukovatelnı (pøevoditelnı)} na $B$, pokud existuje
+  zobrazení $f$ z mnoiny zadání problému $A$ do mnoiny zadání problému $B$ s
+  následujícími vlastnostmi:
   \begin{pitemize}
-    \item NechÅ¥ $X$ je zadÃ¡nÃ­ problÃ©mu $A$ a $Y$ zadÃ¡nÃ­ problÃ©mu $B$, takovÃ©, Å¾e
-    $f(X)=Y$. Potom je $X$ kladnÃ© zadÃ¡nÃ­ problÃ©mu $A$ prÃ¡vÄ› tehdy, kdyÅ¾ $Y$ je
-    kladnÃ© zadÃ¡nÃ­ problÃ©mu $B$.
-    \item NechÅ¥ $X$ je zadÃ¡nÃ­ problÃ©mu $A$. Potom je zadÃ¡nÃ­ $f(X)$ problÃ©mu $B$
-    (deterministicky sekvenÄnÄ›) zkonstruovatelnÃ© v polynomiÃ¡lnÃ­m Äase vzhledem k
+    \item Nech $X$ je zadání problému $A$ a $Y$ zadání problému $B$, takové, e
+    $f(X)=Y$. Potom je $X$ kladné zadání problému $A$ právì tehdy, kdy $Y$ je
+    kladné zadání problému $B$.
+    \item Nech $X$ je zadání problému $A$. Potom je zadání $f(X)$ problému $B$
+    (deterministicky sekvenènì) zkonstruovatelné v polynomiálním èase vzhledem k
     velikosti $X$.
   \end{pitemize}
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{NP-tÄ›Å¾kÃ½ problÃ©m}
-  ProblÃ©m $B$ je \textbf{NP-tÄ›Å¾kÃ½}, pokud pro libovolnÃ½ problÃ©m $A$ ze tÅ™Ã­dy NP
-  platÃ­, Å¾e $A$ je polynomiÃ¡lnÄ› redukovatelnÃ½ na $B$.
-\end{definiceN}
+\begin{e}{Definice}{0}{NP-tìkı problém}
+  Problém $B$ je \textbf{NP-tìkı}, pokud pro libovolnı problém $A$ ze tøídy NP
+  platí, e $A$ je polynomiálnì redukovatelnı na $B$.
+\end{e}
 
-\begin{definiceN}{NP-ÃºplnÃ½ problÃ©m}
-  ProblÃ©m je \textbf{NP-ÃºplnÃ½}, pokud patÅ™Ã­ do tÅ™Ã­dy NP a je NP-tÄ›Å¾kÃ½.
-\end{definiceN}
+\begin{e}{Definice}{0}{NP-úplnı problém}
+  Problém je \textbf{NP-úplnı}, pokud patøí do tøídy NP a je NP-tìkı.
+\end{e}
 
-\begin{obecne}{DÅ¯sledky}
+\begin{obecne}{Dùsledky}
   \begin{pitemize}
-    \item Pokud je $A$ NP-tÄ›Å¾kÃ½ a navÃ­c je $A$ polynomiÃ¡lnÄ› redukovatelnÃ½ na $B$, tak je
-      $B$ taky NP-tÄ›Å¾kÃ½.
-    \item Pokud existuje polynomiÃ¡lnÃ­ algoritmus pro nÄ›jakÃ½ NP-tÄ›Å¾kÃ½ problÃ©m, pak
-      existujÃ­ polynomiÃ¡lnÃ­ algoritmy pro vÅ¡echny problÃ©my ve tÅ™Ã­dÄ› NP.
+    \item Pokud je $A$ NP-tìkı a navíc je $A$ polynomiálnì redukovatelnı na $B$, tak je
+      $B$ taky NP-tìkı.
+    \item Pokud existuje polynomiální algoritmus pro nìjakı NP-tìkı problém, pak
+      existují polynomiální algoritmy pro všechny problémy ve tøídì NP.
   \end{pitemize}
 \end{obecne}
 
-\begin{vetaN}{Cook-Levin 1971}
- Existuje NP-ÃºplnÃ½ problÃ©m. (DokÃ¡zÃ¡no pro SAT)
-\end{vetaN}
+\begin{e}{Vìta}{0}{Cook-Levin 1971}
+ Existuje NP-úplnı problém. (Dokázáno pro SAT)
+\end{e}

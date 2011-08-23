@@ -1,92 +1,92 @@
-\subsection{NormÃ¡lnÃ­ formy}
+\subsection{Normální formy}
 
-Je zÅ™ejmÃ©, Å¾e u sloÅ¾itÄ›jÅ¡Ã­ch aplikacÃ­ nenÃ­ kaÅ¾dÃ© schÃ©ma vhodnÃ©. NapÅ™Ã­klad pokud
-by ve schÃ©matu dochÃ¡zelo k redundanci dat. Mohla by potom nastat situace, Å¾e pÅ™i
-nÄ›jakÃ© aktualizaci, bychom zmÄ›nili pouze nÄ›kterÃ© vÃ½skyty a tÃ­m bychom databÃ¡zi
-pÅ™ivedli do nekonzistentnÃ­ho stavu. JednÃ­m ze zpÅ¯sobÅ¯ jak se tÄ›chto problÃ©mu
-vyvarovat je mÃ­t databÃ¡zi v (prvnÃ­, druhÃ© \dots) \textbf{normÃ¡lnÃ­ formÄ›}.
+Je zøejmé, e u sloitìjších aplikací není kadé schéma vhodné. Napøíklad pokud
+by ve schématu docházelo k redundanci dat. Mohla by potom nastat situace, e pøi
+nìjaké aktualizaci, bychom zmìnili pouze nìkteré vıskyty a tím bychom databázi
+pøivedli do nekonzistentního stavu. Jedním ze zpùsobù jak se tìchto problému
+vyvarovat je mít databázi v (první, druhé \dots) \textbf{normální formì}.
 
-NormÃ¡lnÃ­ch forem je nÄ›kolik. ÄŒÃ­m vÄ›tÅ¡Ã­ normÃ¡lnÃ­ formu schÃ©ma splÅˆuje tÃ­m je
-snadnÄ›jÅ¡Ã­ ho udrÅ¾ovat v konzistentnÃ­m stavu a pozdÄ›ji rozÅ¡iÅ™ovat. VyÅ¡Å¡Ã­ stupeÅˆ
-normalizovanosti vede obvykle k vÄ›tÅ¡Ã­mu poÄtu tabulek a tedy k nutnosti
-pouÅ¾Ã­vÃ¡nÃ­ vÄ›tÅ¡Ã­ho mnoÅ¾stvÃ­ operacÃ­ typu \emph{join}. To mÅ¯Å¾e zapÅ™Ã­Äinit snÃ­Å¾enÃ­
-vÃ½konu. DÃ­ky tomu jsou vysoce normalizovanÃ¡ schÃ©mata typicky pouÅ¾Ã­vÃ¡na v
-databÃ¡zovÃ½ch aplikacÃ­, kterÃ© pouÅ¾Ã­vajÃ­ spoustu izolovanÃ½ch transakcÃ­ (napÅ™.
-automatickÃ½ bankovnÃ­ systÃ©m). Naproti tomu mÃ©nÄ› normalizovanÃ¡ schÃ©mata jsou
-nasazovÃ¡na v aplikacÃ­ch, kterÃ© obsahujÃ­ data pÅ™evÃ¡Å¾nÄ› pro ÄtenÃ­ (napÅ™.
-zpravodajskÃ© systÃ©my).
+Normálních forem je nìkolik. Èím vìtší normální formu schéma splòuje tím je
+snadnìjší ho udrovat v konzistentním stavu a pozdìji rozšiøovat. Vyšší stupeò
+normalizovanosti vede obvykle k vìtšímu poètu tabulek a tedy k nutnosti
+pouívání vìtšího mnoství operací typu \emph{join}. To mùe zapøíèinit sníení
+vıkonu. Díky tomu jsou vysoce normalizovaná schémata typicky pouívána v
+databázovıch aplikací, které pouívají spoustu izolovanıch transakcí (napø.
+automatickı bankovní systém). Naproti tomu ménì normalizovaná schémata jsou
+nasazována v aplikacích, které obsahují data pøevánì pro ètení (napø.
+zpravodajské systémy).
 
-\begin{definice}
-Å˜ekneme, Å¾e atribut \emph{B} je \textbf{funkÄnÄ› zÃ¡vislÃ½} na atributu \emph{A}
-(znaÄÃ­me $A\rightarrow B$), jestliÅ¾e pro kaÅ¾dou hodnotu atributu \emph{A}
-existuje prÃ¡vÄ› jedna hodnota atributu \emph{B}.\\[5mm]
-\textbf{NadklÃ­Äem}, nÄ›kdy tÃ©Å¾ \textbf{superklÃ­Äem}, schÃ©matu $A$ rozumÃ­me kaÅ¾dou
-podmnoÅ¾inu mnoÅ¾iny $A$ na nÃ­Å¾ $A$ funkÄnÄ› zÃ¡visÃ­. Jinak Å™eÄeno nadklÃ­Ä je mnoÅ¾ina
-atributÅ¯, kterÃ¡ jednoznaÄnÄ› urÄuje Å™Ã¡dek tabulky.\\[5mm]
-\textbf{KlÃ­Ä}, nebo takÃ© \textbf{potenciÃ¡lnÃ­ klÃ­Ä}(candidate key), schÃ©matu $A$
-je takovÃ½ nadklÃ­Ä schÃ©matu $A$, jehoÅ¾ Å¾Ã¡dnÃ¡ vlastnÃ­ podmnoÅ¾ina nenÃ­ nadklÃ­Äem
-$A$. ÄŒili minimÃ¡lnÃ­ nadklÃ­Ä.\\[5mm]
-KaÅ¾dÃ½ atribut, kterÃ½ je obsaÅ¾en alespoÅˆ v jednom potenciÃ¡lnÃ­m klÃ­Äi se nazÃ½vÃ¡
-\textbf{klÃ­ÄovÃ½}, ostatnÃ­ atributy jsou \textbf{neklÃ­ÄovÃ©}.
-\end{definice}
+\begin{e}{Definice}{0}{0}
+Øekneme, e atribut \emph{B} je \textbf{funkènì závislı} na atributu \emph{A}
+(znaèíme $A\rightarrow B$), jestlie pro kadou hodnotu atributu \emph{A}
+existuje právì jedna hodnota atributu \emph{B}.\\[5mm]
+\textbf{Nadklíèem}, nìkdy té \textbf{superklíèem}, schématu $A$ rozumíme kadou
+podmnoinu mnoiny $A$ na ní $A$ funkènì závisí. Jinak øeèeno nadklíè je mnoina
+atributù, která jednoznaènì urèuje øádek tabulky.\\[5mm]
+\textbf{Klíè}, nebo také \textbf{potenciální klíè}(candidate key), schématu $A$
+je takovı nadklíè schématu $A$, jeho ádná vlastní podmnoina není nadklíèem
+$A$. Èili minimální nadklíè.\\[5mm]
+Kadı atribut, kterı je obsaen alespoò v jednom potenciálním klíèi se nazıvá
+\textbf{klíèovı}, ostatní atributy jsou \textbf{neklíèové}.
+\end{e}
 
-\subsubsection*{PrvnÃ­ normÃ¡lnÃ­ forma (1NF)}
+\subsubsection*{První normální forma (1NF)}
 
-\begin{definiceN}{1NF} SchÃ©ma je v \emph{prvnÃ­ normÃ¡lnÃ­ formÄ›}, jestliÅ¾e kaÅ¾dÃ½ atribut
-schÃ©matu je elementÃ¡rnÃ­ho (jednoduchÃ©ho) typu, je nestrukturovanÃ½.
-\end{definiceN}
+\begin{e}, jestlie kadı atribut{Definice}{0}{1NF} Schéma je v \emph{první normální formì}
+schématu je elementárního (jednoduchého) typu, je nestrukturovanı.
+\end{e}
 
-JinÃ¡ definice Å™Ã­kÃ¡, Å¾e by schÃ©ma mÄ›lo bÃ½t reprezentacÃ­ nÄ›jakÃ© \emph{relace} a
-neobsahovat \emph{opakujÃ­cÃ­ se skupiny (repeating groups)}. JelikoÅ¾ ale vÃ½znam
-\emph{opakujÃ­cÃ­ch se skupin} nenÃ­ pÅ™esnÄ› stanoven, existujÃ­ jistÃ© spory ohlednÄ›
-toho kterÃ© schÃ©ma 1NF splÅˆuje a kterÃ© ne.
+Jiná definice øíká, e by schéma mìlo bıt reprezentací nìjaké \emph{relace} a
+neobsahovat \emph{opakující se skupiny (repeating groups)}. Jeliko ale vıznam
+\emph{opakujících se skupin} není pøesnì stanoven, existují jisté spory ohlednì
+toho které schéma 1NF splòuje a které ne.
 
-\subsubsection*{DruhÃ¡ normÃ¡lnÃ­ forma (2NF)}
+\subsubsection*{Druhá normální forma (2NF)}
 
-\begin{definiceN}{2NF}
-SchÃ©ma je v \emph{druhÃ© normÃ¡lnÃ­ formÄ›}, jestliÅ¾e je v prvnÃ­ normÃ¡lnÃ­ formÄ› a
-Å¾Ã¡dnÃ½ neklÃ­ÄovÃ½ atribut nenÃ­ funkÄnÄ› zÃ¡vislÃ½ na Å¾Ã¡dnÃ© podmnoÅ¾inÄ› klÃ­Äe.
-\end{definiceN}
+\begin{e}{Definice}{0}{2NF}
+Schéma je v \emph{druhé normální formì}, jestlie je v první normální formì a
+ádnı neklíèovı atribut není funkènì závislı na ádné podmnoinì klíèe.
+\end{e}
 
-To znamenÃ¡, Å¾e neklÃ­ÄovÃ½ atribut mÅ¯Å¾e zÃ¡vist pouze na celÃ©m klÃ­Äi. Pokud by
-zÃ¡visel jen na jeho ÄÃ¡sti, mÄ›li bychom tabulku rozdÄ›lit na dvÄ›. MÄ›jme napÅ™Ã­klad
-tabulku zamÄ›stnancÅ¯ s atributy: jmÃ©no, schopnosti, adresa. Ve kterÃ© dvojice
-\{jmÃ©no, schopnosti\} je klÃ­Ä, Äili jednoznaÄnÄ› urÄuje zÃ¡znam. NechÅ¥ adresa
-zÃ¡visÃ­ pouze na jmÃ©nÄ›. Potom tabulka nenÃ­ v 2NF.
+To znamená, e neklíèovı atribut mùe závist pouze na celém klíèi. Pokud by
+závisel jen na jeho èásti, mìli bychom tabulku rozdìlit na dvì. Mìjme napøíklad
+tabulku zamìstnancù s atributy: jméno, schopnosti, adresa. Ve které dvojice
+\{jméno, schopnosti\} je klíè, èili jednoznaènì urèuje záznam. Nech adresa
+závisí pouze na jménì. Potom tabulka není v 2NF.
 
-\begin{poznamka} VÅ¡imnÄ›me si pokud je schÃ©ma v 1NF a zÃ¡roveÅˆ vÅ¡echny jejÃ­
-potenciÃ¡lnÃ­ klÃ­Äe sestÃ¡vajÃ­ pouze z jednoho atributu, mÅ¯Å¾eme rovnou Å™Ã­ct, Å¾e
-schÃ©ma splÅˆuje 2NF. \end{poznamka}
+\begin{e} Všimnìme si pokud je schéma v 1NF a zároveò všechny její{Poznámka}{0}{0}
+potenciální klíèe sestávají pouze z jednoho atributu, mùeme rovnou øíct, e
+schéma splòuje 2NF. \end{e}
 
-\subsubsection*{TÅ™etÃ­ normÃ¡lnÃ­ forma (3NF)}
+\subsubsection*{Tøetí normální forma (3NF)}
 
-\begin{definiceN}{3NF}
-SchÃ©ma je ve \emph{tÅ™etÃ­ normÃ¡lnÃ­ formÄ›}, jestliÅ¾e je v 2NF a Å¾Ã¡dnÃ½ neklÃ­ÄovÃ½
-atribut nenÃ­ tranzitivnÄ› zÃ¡vislÃ½ na Å¾Ã¡dnÃ©m klÃ­Äi.
-\end{definiceN}
+\begin{e}{Definice}{0}{3NF}
+Schéma je ve \emph{tøetí normální formì}, jestlie je v 2NF a ádnı neklíèovı
+atribut není tranzitivnì závislı na ádném klíèi.
+\end{e}
 
-TranzitivnÃ­ zÃ¡vislost, je takovÃ¡ funkÄnÃ­ zÃ¡vislost $X \rightarrow Y$, Å¾e $Y$
-nezÃ¡visÃ­ na $X$ pÅ™Ã­mo, ale existuje nÄ›jakÃ© $Z$ takovÃ©, Å¾e $X \rightarrow Z$ a $Z
-\rightarrow Y$. Jinak Å™eÄeno neklÃ­ÄovÃ© atributy musÃ­ na klÃ­Äi zÃ¡viset pÅ™Ã­mo a ne
-pÅ™es nÄ›jakÃ½ jinÃ½ atribut.
+Tranzitivní závislost, je taková funkèní závislost $X \rightarrow Y$, e $Y$
+nezávisí na $X$ pøímo, ale existuje nìjaké $Z$ takové, e $X \rightarrow Z$ a $Z
+\rightarrow Y$. Jinak øeèeno neklíèové atributy musí na klíèi záviset pøímo a ne
+pøes nìjakı jinı atribut.
 
-AlternativnÃ­ definice Å™Ã­kÃ¡, Å¾e schÃ©ma je v 3NF prÃ¡vÄ› tehdy, kdyÅ¾ pro kaÅ¾dou
-funkÄnÃ­ zÃ¡vislost $X \rightarrow Y$ platÃ­ alespoÅˆ jedna z nÃ¡sledujÃ­cÃ­ch podmÃ­nek:
+Alternativní definice øíká, e schéma je v 3NF právì tehdy, kdy pro kadou
+funkèní závislost $X \rightarrow Y$ platí alespoò jedna z následujících podmínek:
 \begin{pitemize}
-\item zÃ¡vislost je triviÃ¡lnÃ­, tj. $X$ obsahuje $Y$, 
-\item $X$ je nadklÃ­Ä schÃ©matu,
-\item $Y$ je klÃ­ÄovÃ½ atribut, tj. $Y$ je obsaÅ¾en v nÄ›jakÃ©m potenciÃ¡lnÃ­m klÃ­Äi.
+\item závislost je triviální, tj. $X$ obsahuje $Y$, 
+\item $X$ je nadklíè schématu,
+\item $Y$ je klíèovı atribut, tj. $Y$ je obsaen v nìjakém potenciálním klíèi.
 \end{pitemize}
 
-\subsubsection*{Boyce-Coddova normÃ¡lnÃ­ forma(BCNF)}
+\subsubsection*{Boyce-Coddova normální forma(BCNF)}
 
-\begin{definiceN}{BCNF}
-SchÃ©ma je v Boyce-CoddovÄ› normÃ¡lnÃ­ formÄ› prÃ¡vÄ› tehdy, kdyÅ¾ pro kaÅ¾dou
-netriviÃ¡lnÃ­ funkÄnÃ­ zÃ¡vislost $X \rightarrow Y$ platÃ­, Å¾e $X$ je nadklÃ­Ä
-schÃ©matu.
-\end{definiceN}
+\begin{e}{Definice}{0}{BCNF}
+Schéma je v Boyce-Coddovì normální formì právì tehdy, kdy pro kadou
+netriviální funkèní závislost $X \rightarrow Y$ platí, e $X$ je nadklíè
+schématu.
+\end{e}
 
-BCNF je o nÄ›co silnÄ›jÅ¡Ã­ neÅ¾ 3NF. Pokud se podÃ­vÃ¡me na alternativnÃ­ definici 3NF, je
-dobÅ™e vidÄ›t rozdÃ­l. VynechÃ¡me-li tÅ™etÃ­ podmÃ­nku, dostaneme definici BCNF. Jinak
-Å™eÄeno Å¾Ã¡dnÃ½ samostatnÃ½ atribut nesmÃ­ zÃ¡viset na niÄem jinÃ©m neÅ¾ na nadklÃ­Äi.
+BCNF je o nìco silnìjší ne 3NF. Pokud se podíváme na alternativní definici 3NF, je
+dobøe vidìt rozdíl. Vynecháme-li tøetí podmínku, dostaneme definici BCNF. Jinak
+øeèeno ádnı samostatnı atribut nesmí záviset na nièem jiném ne na nadklíèi.
 

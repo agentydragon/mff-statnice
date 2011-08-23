@@ -5,7 +5,7 @@
 
 \section{Základy diferenciálního poètu}
 
-\begin{pozadavky}
+\begin{e}{Poadavky}{0}{0}
 \begin{pitemize}
 	\item Reálné funkce jedné reálné promìnné
 	\item Spojitost, limita funkce v bodì (vlastní i nevlastní)
@@ -13,10 +13,10 @@
 	\item Derivace: definice a základní pravidla, vìty o støední hodnotì, derivace vyšších øádù
 	\item Nìkteré aplikace (prùbìhy funkcí, Newtonova metoda hledání nulového bodu, Taylorùv polynom se zbytkem)
 \end{pitemize}
-\end{pozadavky}
+\end{e}
 
 \subsection{Reálné funkce jedné reálné promìnné}
-\begin{definiceN}{Reálná funkce}
+\begin{e}{Definice}{0}{Neco}
 Reálná funkce jedné promìnné je zobrazení $f: M \rightarrow \mathbb{R}$, kde $M \subseteq \mathbb{R}$. \\
 $f$ je na $M$:
 \begin{pitemize}
@@ -29,9 +29,9 @@ $f$ je na $M$:
 	\item \emph{lichá}: $x \in M \Rightarrow -x \in M \wedge f(x)=-f(-x), \forall x \in M$
 	\item \emph{periodická} s periodou $p\in\mathbb{R}$: $x \in M \Rightarrow x \pm p \in M \wedge f(x)=f(x+p)=f(x-p), \forall x \in M$
 \end{pitemize}
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{Okolí bodu}
+\begin{e}{Definice}{1}{Okolí bodu}
     \begin{pitemize}
         \item $P(a, \delta) = (a-\delta, a) \cup (a, a+\delta)$  \hfill \emph{(prstencové okolí)} \hspace{0.4\textwidth}
 
@@ -48,7 +48,7 @@ $f$ je na $M$:
         \item $P(\infty, d) = B(\infty,d)=(\frac{1}{d}, \infty)$
         \item $P(-\infty, d) = B(-\infty,d)=(-\infty, -\frac{1}{d})$
 \end{pitemize}
-\end{definiceN}
+\end{e}
 
 \begin{reportN}{Majerech}
 Vytáhl jsem si funkce jedné promìnné... to neznìlo špatnì co pøišlo byl docela šok... otázka byla toti:
@@ -61,25 +61,28 @@ majerech se podíval konstatoval, e takhle si dùkaz nepøedstavoval... a e se to
 
 \obrazekvpravominipage{matematika/obrazky/limita_funkce}{Ilustrace limity}{fig:limitafunkce}{0.6}{0.4} {
 
-\begin{definiceN}{Limita}
+\begin{e}{Definice}{0}{Limita}
+
 Øekneme, e $f$ má v bodì $a \in \mathbb{R}^{*}$ limitu $A \in \mathbb{R^{*}}$, jestlie
 $$\forall \varepsilon>0\ \exists \delta>0: x \in P(a, \delta) \Rightarrow f(x) \in B(A, \varepsilon)$$
 a znaèíme $\lim_{x \rightarrow a} f(x) = A$
 
 \medskip
 Platí-li tato vlastnost jen pro pravá okolí bodù $a$ a $A$, mluvíme o \emph{jednostranné limitì zprava} a podobnì zleva.
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{Spojitost v bodì}
+\begin{e}{Definice}{0}{Spojitost v bodì}
+
 Øekneme, e $f$ je spojitá v bodì $a \in \mathbb{R}$, jestlie  $$\lim_{x \rightarrow a} f(x) = f(a)$$
-\end{definiceN}
+
+\end{e}
 
 Na obrázku \ref{fig:limitafunkce} je funkce, definovaná všude jako $f(x)=\mathrm{e}^x$ kromì bodu $a$, kde je definována jako $f(a)=Z \neq \mathrm{e}^a$. V~bodì $a$ má limitu $A$ - pro rùzná $\varepsilon$ nalézám pøíslušné $\delta$; v~tomto bodì ale \emph{není spojitá}. Pokud by ale v~bodì $a$ byla $A$, byla by spojitá.
 
 }
 
 \medskip
-\begin{vetaN}{Heineho vìta}
+\begin{e}{Vìta}{0}{Heineho vìta}
 Nech  $f: M \rightarrow \mathbb{R}, M \subseteq \mathbb{R}$. Nech $f$ je definováno na nìjakém prstencovém okolí bodu $a \in \mathbb{R}^{*}$. Potom následující dvì tvrzení jsou ekvivalentní:
 \begin{penumerate}
 	\item $lim_{x \rightarrow a} f(x) = A \in \mathbb{R}^{*}$
@@ -87,33 +90,33 @@ Nech  $f: M \rightarrow \mathbb{R}, M \subseteq \mathbb{R}$. Nech $f$ je defin
 \end{penumerate}
 Heineho vìta umoòuje tvrzení, vyslovená o limitách posloupností, pøevádìt na limity funkcí v bodì.
 
-\begin{ideadukazu}
+\begin{e}{Idea dùkazu}{0}{0}
     (nejsem si jist, jestli dùkaz funguje i pro nekoneèna)
     
     1$\Rightarrow$2 Pro $\varepsilon$ okolí $A$ najdu odpovídající $\delta$ okolí $a$, pro $x_n$ jsou od nìjakého $n_0$ všechny hodnoty v~tomto $\delta$ okolí, jejich obrazy ale musí bıt i v~$\varepsilon$ okolí $A$ .
     
     2$\Rightarrow$1 Sporem. Musí existovat $\varepsilon$, e $\forall \delta \exists x \in P(a, \delta)$ takové, e $f(x) \notin B(A, \varepsilon)$ (pouze negace definice limity). Mùeme tedy postupnì zmenšovat $\delta$, v~kadém $ P(a, \delta)$ najít takové $x$ a vytvoøit tak posloupnost, která má limitu v~$a$, ale její obrazy nebudou mít limitu v~$A$, protoe jsou vdy vzdálené $\varepsilon$ -- spor.
-\end{ideadukazu}
-\end{vetaN}
+\end{e}
+\end{e}
 
-\begin{vetaN}{Vìta o jednoznaènosti limity funkce}
+\begin{e}{Vìta}{0}{Vìta o jednoznaènosti limity funkce}
 Funkce $f$ má v kadém bodì nejvıše jednu limitu.
 
-\begin{ideadukazu}
+\begin{e}{Idea dùkazu}{0}{0}
     Buï pøímo, nebo pøes Heineho vìtu a u dokázané vlastnosti limit posloupností.
-\end{ideadukazu}
-\end{vetaN}
+\end{e}
+\end{e}
 
-\begin{vetaN}{O lokální omezenosti funkce s vlastní limitou}
+\begin{e}{Vìta}{0}{O lokální omezenosti funkce s vlastní limitou}
 Nech funkce $f$ má v bodì $a \in \mathbb{R}^{*}$ vlastní limitu. Potom existuje $\delta > 0$ takové, e $f$ je na $P(a, \delta)$ omezená.
 
-\begin{ideadukazu}
+\begin{e}{Idea dùkazu}{0}{0}
     Buï pøímo, nebo pøes Heineho vìtu a u dokázané vlastnosti limit posloupností.
-\end{ideadukazu}
+\end{e}
 
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{Aritmetika limit pro funkce}
+\begin{e}{Vìta}{0}{Aritmetika limit pro funkce}
 Nech $\lim_{x \rightarrow a} f(x)=A$, $\lim_{x \rightarrow a} g(x)=B$, $a \in R^{*}$. Potom
 \begin{penumerate}
 	\item $\lim (f(x)+g(x)) = A+B$, je-li vıraz na pravé stranì definován.
@@ -121,13 +124,13 @@ Nech $\lim_{x \rightarrow a} f(x)=A$, $\lim_{x \rightarrow a} g(x)=B$, $a \in R
 	\item $\lim \frac{f(x)}{g(x)} = \frac{A}{B}$, je-li vıraz na pravé stranì definován.
 \end{penumerate}
 
-\begin{ideadukazu}
+\begin{e}{Idea dùkazu}{0}{0}
     Buï pøímo, nebo pøes Heineho vìtu a u dokázané vlastnosti limit posloupností.
-\end{ideadukazu}
+\end{e}
 
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{Limita a uspoøádání - policajti pro funkce}
+\begin{e}{Vìta}{0}{Limita a uspoøádání - policajti pro funkce}
 \begin{penumerate}
 	\item Nech $\lim_{x \rightarrow a} f(x) > \lim_{x \rightarrow a} g(x)$, $a \in R^{*}$.\\Potom $\exists P(a, \delta): f(x)>g(x) \ \forall x \in P(a, \delta)$
 	\item Nech $f(x) \le g(x), \forall x \in P(a, \delta), \delta > 0$ a existují $\lim_{x \rightarrow a} f(x)$, $\lim_{x \rightarrow a} g(x)$.\\Potom $\lim_{x\to a} f(x) \le \lim_{x\to a} g(x)$.
@@ -135,50 +138,50 @@ Nech $\lim_{x \rightarrow a} f(x)=A$, $\lim_{x \rightarrow a} g(x)=B$, $a \in R
 \end{penumerate}
 Pozor na ostrost nerovností, v tomto pøípadì je velmi dùleitá.
 
-\begin{ideadukazu}
+\begin{e}{Idea dùkazu}{0}{0}
     Buï pøímo, nebo pøes Heineho vìtu a u dokázané vlastnosti limit posloupností.
-\end{ideadukazu}
+\end{e}
 
-\end{vetaN}
+\end{e}
 
-\begin{definiceN}{Jednostranná spojitost funkce v bodì}
+\begin{e}{Definice}{0}{Jednostranná spojitost funkce v bodì}
 \begin{pitemize}
 	\item $\textit{funkce f je spojitá v a} \Leftrightarrow \lim_{x \rightarrow a} f(x)=f(a) \Leftrightarrow \forall \varepsilon>0~\exists \delta >0: f(B(a, \delta)) \subseteq B(f(a), \varepsilon)$
 	\item $\textit{funkce f je spojitá v a zprava} \Leftrightarrow \lim_{x \rightarrow a^{+}} f(x)=f(a) \Leftrightarrow \forall \varepsilon>0~\exists \delta >0: f(B^{+}(a, \delta)) \subseteq B(f(a), \varepsilon)$
 	\item $\textit{funkce f je spojitá v a zleva} \Leftrightarrow \lim_{x \rightarrow a^{-}} f(x)=f(a) \Leftrightarrow \forall \varepsilon>0~\exists \delta >0: f(B^{-}(a, \delta)) \subseteq B(f(a), \varepsilon)$
 \end{pitemize}
-\end{definiceN}
+\end{e}
 
-\begin{vetaN}{O limitì sloené funkce}
+\begin{e}{Vìta}{0}{O limitì sloené funkce}
 Nech $\lim_{x \rightarrow a} g(x) = A$, $\lim_{y \rightarrow A} f(y) = B$, $a, A, B \in \mathbb{R}^{*}$. Nech navíc platí jeden z pøedpokladù:\\
 (P1) $f$ je spojitá v $A$\hfill \textit{(vnìjší funkce je spojitá)}\\
 (P2) $\exists \delta > 0: g(x) \neq A$ pro $\forall x \in P(a, \delta)$\hfill \textit{(vnitøní je \uv{lokálnì prostá})}\\
 Potom $\lim_{x \rightarrow a} (f \circ g)(x) = B$.
-\end{vetaN}
+\end{e}
 
-\begin{definiceN}{Interval}
+\begin{e}{Definice}{0}{Interval}
 Nech $a, b \in \mathbb{R}^{*}, a < b$. Pak \emph{otevøenım intervalem} $(a, b)$ nazveme $\{x | a<x<b\}$, \emph{(uzavøenım) intervalem} $\left<a, b\right>$ (pro $a, b \in \mathbb{R}$) nazveme $I=\{x | a \le x \le b\}$. Uzavøenı interval se nìkdy znaèí i $[a,b]$.
-\end{definiceN}
+\end{e}
 
-\begin{vetaN}{Vìta o limitì monotónní funkce}
+\begin{e}{Vìta}{0}{Vìta o limitì monotónní funkce}
 Nech je funkce $f$ monotónní na $(a, b)$, $a, b \in \mathbb{R}^{*}, a < b$. Potom $\exists \lim_{x \rightarrow a^{+}} f(x)$, $\exists \lim_{x \rightarrow b^{-}} f(x)$.
-\end{vetaN}
+\end{e}
 
-\begin{definiceN}{Spojitost na intervalu}
+\begin{e}{Definice}{0}{Spojitost na intervalu}
 Je-li $\left<a, b\right>$ interval, pak $a$ nazıváme poèáteèním bodem, $b$ koncovım bodem a $x \in (a, b)$ vnitøními body.
 
 Øekneme, e $f$ \emph{je spojitá na intervalu $I$}, jestlie je spojitá zprava ve všech bodech kromì koncového a spojitá zleva ve všech bodech kromì poèáteèního.
-\end{definiceN}
+\end{e}
 
-\begin{vetaN}{O spojitém obrazu intervalu}
+\begin{e}{Vìta}{0}{O spojitém obrazu intervalu}
 Nech funkce $f: I \rightarrow \mathbb{R}$ je spojitá na intervalu $I$. Potom $f(I)$ je také interval.
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{Darbouxova o nabıvaní mezihodnot}
+\begin{e}{Vìta}{0}{Darbouxova o nabıvaní mezihodnot}
 Nech funkce $f$ je spojitá na $\left<a, b\right>$ a $f(a)<f(b)$, potom $\forall y \in (f(a), f(b))$ existuje $x \in (a, b)$ takové, e $f(x)=y$.
-\end{vetaN}
+\end{e}
 
-\begin{definice}
+\begin{e}{Definice}{0}{0}
 $f: M \rightarrow \mathbb{R}, M \subseteq \mathbb{R}$. $f$ nabıvá v bodì $a \in M$:
 \begin{pitemize}
 	\item \emph{maxima} na M $\Leftrightarrow \forall x \in M: f(x) \le f(a)$
@@ -187,25 +190,25 @@ $f: M \rightarrow \mathbb{R}, M \subseteq \mathbb{R}$. $f$ nabıvá v bodì $a \in 
 	\item \emph{ostrého minima} na M $\Leftrightarrow \forall x \in M\setminus \{a\}: f(x) > f(a)$
 	\item \emph{lokálního} maxima (minima, ostrého...)$\Leftrightarrow \exists \delta > 0: f$ nabıvá na $M \bigcap B(a, \delta)$ maxima (minima, ...)
 \end{pitemize}
-\end{definice}
+\end{e}
 
-\begin{vetaN}{Vztah spojitosti a extrémù}
+\begin{e}{Vìta}{0}{Vztah spojitosti a extrémù}
 Nech $f$ je spojitá na $\left<a, b\right>$. Potom $f$ nabıvá na $\left<a, b\right>$ svého maxima i minima.
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{Vztah spojitosti a omezenosti}
+\begin{e}{Vìta}{0}{Vztah spojitosti a omezenosti}
 Spojitá funkce na uzavøeném intervalu $\left<a, b\right>$ je omezená.
-\end{vetaN}
+\end{e}
 
-\begin{definiceN}{prostá funkce, inverzní funkce}
+\begin{e}{Definice}{0}{prostá funkce, inverzní funkce}
 Funkce $f$ je \emph{prostá}, jestlie $\forall x, y \in D(f): x \neq y \Rightarrow f(x) \neq f(y)$.
 
 Nech $f$ je prostá na $M$, tedy $f: M \rightarrow f(M)$. Pak \emph{inverzní funkce} $f^{-1}$ k funkci $f$ je definovaná na $f(M)$ pøedpisem: $y \in f(M)$, pak $f^{-1}(y)=x \Leftrightarrow y=f(x)$.
-\end{definiceN}
+\end{e}
 
-\begin{vetaN}{O inverzní funkci}
+\begin{e}{Vìta}{0}{O inverzní funkci}
 Nech $I$ je interval a funkce $f$ je definovaná, spojitá a rostoucí (klesající) na $I$. Potom inverzní funkce $f^{-1}$ je definována, spojitá a rostoucí (klesající) na $f(I)$.
-\end{vetaN}
+\end{e}
 
 
 \begin{reportN}{Zahradník}
@@ -215,15 +218,15 @@ v podstate jen definice, Heineho veta a par pozorovani
 
 \subsection{Nìkteré konkrétní funkce (polynomy, racionální lomené funkce, goniometrické a cyklometrické funkce, logaritmy a exponenciální funkce)}
 
-\begin{vetaN}{Exponenciální funkce}
+\begin{e}{Vìta}{0}{Exponenciální funkce}
 Existuje právì jedna reálná funkce \textbf{exp}, splòující:
 \begin{pitemize}
 	\item $\exp(x+z)=\exp(x) \exp(z), \forall x,z \in \mathbb{R}$
 	\item $\exp(x) \ge 1+x, \forall x \in \mathbb{R}$
 \end{pitemize}
-\end{vetaN}
+\end{e}
 
-\begin{poznamkaN}{Nìkteré vlastnosti $\exp$}
+\begin{e}{Poznámka}{0}{Nìkteré vlastnosti $\exp$}
 Platí:
 \begin{pitemize}
     \item $\exp 0=1$
@@ -233,9 +236,9 @@ Platí:
     \item $\exp$ je rostoucí na $\mathbb{R}$
     \item $\lim_{x\to 0}\frac{\exp x - 1}{x}=1$
 \end{pitemize}
-\end{poznamkaN}
+\end{e}
 
-\begin{vetaN}{Vlastnosti $\log$}
+\begin{e}{Vìta}{0}{Vlastnosti $\log$}
 Funkce $\log$, definovaná pøedpisem $\log=\exp^{-1}$ má následující vlastnosti:
 \begin{pitemize}
 	\item $D(\log)=(0, \infty)$, $\log ((0, \infty)) \rightarrow \mathbb{R}$
@@ -244,13 +247,13 @@ Funkce $\log$, definovaná pøedpisem $\log=\exp^{-1}$ má následující vlastnosti:
 	\item $lim_{x \rightarrow 0_{+}} \log x = - \infty$, $lim_{x \rightarrow \infty} \log x = \infty$
 	\item $lim_{x \rightarrow 1} \frac{\log x}{x-1} = 1$, $lim_{x \rightarrow 0} \frac{\log x+1}{x} = 1$
 \end{pitemize}
-\end{vetaN}
+\end{e}
 
-\begin{definiceN}{obecná mocnina}
+\begin{e}{Definice}{0}{obecná mocnina}
 Obecná mocnina $a^b=\exp(b \log a)$ pro $a>0, b \in \mathbb{R}$. Speciálnì pro $a=e: e^x=\exp x$
-\end{definiceN}
+\end{e}
 
-\begin{veta}
+\begin{e}{Vìta}{0}{0}
 Existuje právì jedna reálná funkce $s$ a právì jedna reálná funkce $c$ taková, e:
 
 \begin{pitemize}
@@ -259,9 +262,9 @@ Existuje právì jedna reálná funkce $s$ a právì jedna reálná funkce $c$ taková, 
 	\item $s$ je lichá, $c$ sudá
 	\item $s>0~\textit{na}~(0,1), s(1)=0$
 \end{pitemize}
-\end{veta}
+\end{e}
 
-\begin{definice}
+\begin{e}{Definice}{0}{0}
 \noindent Podle $s$ a $c$ definujeme \emph{Goniometrické funkce}:\\
 $\sin(x)=s(\frac{x}{\pi})$, $\cos(x)=c(\frac{x}{\pi})$, $\tg(x)=\frac{\sin(x)}{\cos(x)}$, $\cotg(x)=\frac{\cos(x)}{\sin(x)}$
 
@@ -276,64 +279,64 @@ $\sin(x)=s(\frac{x}{\pi})$, $\cos(x)=c(\frac{x}{\pi})$, $\tg(x)=\frac{\sin(x)}{\
 \noindent a platí
 $$\lim_{x \rightarrow 0} \frac{\arcsin x}{x} = 1$$
 $$\lim_{x \rightarrow 0} \frac{\arccos x}{\sqrt{1-x}} = \lim_{x \rightarrow 0} \frac{\arctg x}{x} = 1$$
-\end{definice}
+\end{e}
 
 \subsection{Derivace: definice a základní pravidla, vìty o støední hodnotì, derivace vyšších øádù}
-\begin{definice}
+\begin{e}{Definice}{0}{0}
 Nech $f$ je reálná funkce jedné promìnné, $a \in \mathbb{R}$. Derivací funkce $f$ v bodì $a$ nazveme
 $$f'(a) = \lim_{h \rightarrow 0} \frac{f(a+h)-f(a)}{h} \textrm{, pokud existuje}$$
 
 \noindent Derivací zprava a zleva rozumíme:
 $$f'_{+}(a) = \lim_{h \rightarrow 0_+} \frac{f(a+h)-f(a)}{h}, \, f'_{-}(a) = \lim_{h \rightarrow 0_-} \frac{f(a+h)-f(a)}{h}$$
-\end{definice}
+\end{e}
 
-\begin{vetaN}{Vztah derivace a spojitosti}
+\begin{e}{Vìta}{0}{Vztah derivace a spojitosti}
 Má-li $f$ v $a$ vlastní derivaci, potom je $f$ v $a$ spojitá.
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{Aritmetika derivací}
+\begin{e}{Vìta}{0}{Aritmetika derivací}
 Nech existují $f'(a)$, $g'(a)$:
 \begin{penumerate}
 	\item $(f+g)'(a)=f'(a)+g'(a)$, je-li pravá strana definována
 	\item je-li $g$ nebo $f$ spojitá v $a$, pak $(fg)'(a)=f'(a)g(a)+f(a)g'(a)$
 	\item je-li $g$ spojitá v $a$, $g(a) \neq 0$, pak $(\frac{f}{g})'(a)=\frac{f'(a)g(a)-f(a)g'(a)}{g^2(a)}$
 \end{penumerate}
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{O derivaci sloené funkce}
+\begin{e}{Vìta}{0}{O derivaci sloené funkce}
 Nech funkce $f$ má derivaci v $y_0$, $g$ má derivaci v $x_0$, $g$ je spojitá v $x_0$ a $y_0=g(x_0)$. Potom $(f \circ g)'(x_0)=f'(y_0)\cdot g'(x_0)=f'(g(x_0))\cdot g'(x_0)$.
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{O derivaci inverzní funkce}
+\begin{e}{Vìta}{0}{O derivaci inverzní funkce}
 Nech funkce $f$ je na intervalu $(a,b)$ spojitá a ryze monotonní a má v bodì $x_0 \in (a,b)$ derivaci $f'(x_0)$ vlastní a rùznou od nuly. Potom má funkce $f^{-1}$ derivaci v bodì $y_0=f(x_0)$ a platí rovnost
 $$(f^{-1})'(y_0) = \frac{1}{f'(f^{-1}(y_0))}.$$
-\begin{poznamka}
+\begin{e}{Poznámka}{0}{0}
 Pokud v situaci popsané v právì uvedené vìtì je $f'(x_0)$ nevlastní, je $(f^{-1})'(y_0)=0$. Je-li $f'(x_0)=0$, je $(f^{-1})'(y_0)=+\infty$ (je-li $f$ rostoucí), resp. $=-\infty$ (je-li $f$ klesající).
-\end{poznamka}
-\end{vetaN}
+\end{e}
+\end{e}
 
-\begin{vetaN}{Nutná podmínka lokálního extrému}
+\begin{e}{Vìta}{0}{Nutná podmínka lokálního extrému}
 Nech $M \subseteq \mathbb{R}$, $f: M \rightarrow \mathbb{R}$. Nech $f$ má v $a \in M$ lokální extrém. Pak buï neexistuje $f'(a)$, nebo $f'(a)=0$.
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{Rolleova vìta}
+\begin{e}{Vìta}{0}{Rolleova vìta}
 Nech $f$ je spojitá na $\left<a, b\right>$ a nech existuje $f'(x)\ \forall x \in (a,b)$. Nech $f(a)=f(b)$. Potom existuje $\xi \in (a,b): f'(\xi)=0$.
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{Lagrangeova o støední hodnotì}
+\begin{e}{Vìta}{0}{Lagrangeova o støední hodnotì}
 Nech $f$ je spojitá na $\left<a, b\right>$ a nech existuje $f'(x)\ \forall x \in (a,b)$. Potom existuje $$\xi \in (a,b): f'(\xi)=\frac{f(b)-f(a)}{b-a}$$
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{Cauchyova o støední hodnotì}
+\begin{e}{Vìta}{0}{Cauchyova o støední hodnotì}
 Nech $f$ a $g$ jsou spojité na $\left<a, b\right>$, nech existuje $f'(x)\ \forall x \in (a,b)$ a nech existuje $g'(x)$ vlastní a nenulové. Potom existuje $$\xi \in (a,b): \frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\xi)}{g'(\xi)}$$
 
-\begin{dukaz}
+\begin{e}{Dùkaz}{0}{0}
 $g(a) \neq g(b)$, nebo jinak by podle Rolleovy vìty existovalo $\xi \in (a,b): g'(\xi)=0$. Definujeme $H(x)=(f(x)-f(a))(g(b)-g(a))-(g(x)-g(a))(f(b)-f(a))$. Potom $H(a)=H(b)=0$, $H$ je spojitá na $\left<a, b\right> \Rightarrow \exists H' na (a,b)$. Tedy podle Rolleovy vìty $\exists \xi: 0 = H'(\xi)=f'(\xi)(g(b)-g(a))-g'(\xi)(f(b)-f(a))$. Tedy $\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\xi)}{g'(\xi)}$, nebo $g'(\xi) \neq 0$ a $g(b)-g(a)\neq 0$ 
 \begin{flushright}$\square$\end{flushright}
-\end{dukaz}
-\end{vetaN}
+\end{e}
+\end{e}
 
-\begin{vetaN}{L'Hospitalovo pravidlo}
+\begin{e}{Vìta}{0}{L'Hospitalovo pravidlo}
 %\csprimeson
 Nech $a \in \mathbb{R}^{*}$ a funkce $f$, $g$ jsou definovány na nìjakém $P(a, \delta)$, $f, g$ mají v $P(a,\delta)$ vlastní derivaci, $\forall x \in P(a,\delta): g'(x)\not=0$ a existuje $\lim_{x \rightarrow a} \frac{f'(x)}{g'(x)}$. Nech platí i jedna z následujících podmínek:
 \begin{penumerate}
@@ -341,13 +344,13 @@ Nech $a \in \mathbb{R}^{*}$ a funkce $f$, $g$ jsou definovány na nìjakém $P(a, 
 	\item $\lim_{x \rightarrow a+} |g(x)|=+\infty$
 \end{penumerate}
 Potom existuje i $\lim_{x \rightarrow a} \frac{f(x)}{g(x)}$ a platí $\lim_{x \rightarrow a} \frac{f(x)}{g(x)}=\lim_{x \rightarrow a} \frac{f'(x)}{g'(x)}$.
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{O limitì derivací}
+\begin{e}{Vìta}{0}{O limitì derivací}
 Nech funkce $f$ je spojitá zprava v $a \in \mathbb{R}$ a nech existuje $\lim_{x \rightarrow a_+} f'(x)=A \in \mathbb{R}^*$. Potom $f'_+(a)=A$.
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{Vztah derivace a monotonie}
+\begin{e}{Vìta}{0}{Vztah derivace a monotonie}
 Nech $I$ je nezdegenerovanı interval (tj. nejde o jedinı bod) a $Int(I)=\{\textit{vnitøní body I}\}$. Nech $f$ je spojitá na $I$ a existuje $f'$ vlastní na $Int(I)$.:
 \begin{penumerate}
 	\item je-li $f' > 0$ na $Int(I)$, pak f je rostoucí na I
@@ -355,23 +358,23 @@ Nech $I$ je nezdegenerovanı interval (tj. nejde o jedinı bod) a $Int(I)=\{\text
 	\item je-li $f' < 0$ na $Int(I)$, pak f je klesající na I
 	\item je-li $f' \le 0$ na $Int(I)$, pak f je nerostoucí na I
 \end{penumerate}
-\end{vetaN}
+\end{e}
 
-\begin{definiceN}{Teèna, inflexe}
+\begin{e}{Definice}{0}{Teèna, inflexe}
 Nech funkce $f$ má v $a \in \mathbb{R}$ vlastní derivaci. Oznaèíme $T_a=\{[x,y]\in \mathbb{R}^2, y=f(a)+f'(a)(x-a)\}$. Øekneme, e $[x, f(x)] \in \mathbb{R}^2$ leí nad (pod) teènou $T_a$, jestlie $f(x)>f(a)+f'(a)(x-a)$ ($f(x)<f(a)+f'(a)(x-a)$).
 
 Nech $f$ má v $a \in \mathbb{R}$ vlastní derivaci. Øekneme, e $f$ má v $a$ \emph{inflexi}, jestlie $\exists \delta > 0$: buï $\forall x \in (a-\delta, a): [x, f(x)]$ leí nad $T_a$ $\wedge$ $\forall x \in (a, a+\delta): [x, f(x)]$ leí pod $T_a$, nebo opaènì.
-\end{definiceN}
+\end{e}
 
-\begin{vetaN}{Nutná podmínka existence inflexe}
+\begin{e}{Vìta}{0}{Nutná podmínka existence inflexe}
 Jestlie $f''(a) \neq 0$, pak $f$ nemá v $a$ inflexi.
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{Postaèující podmínka existence inflexe}
+\begin{e}{Vìta}{0}{Postaèující podmínka existence inflexe}
 Nech $f$ má spojitou první derivaci na $(a,b)$. Nech $z \in (a,b)$. Nech $\forall x \in (a,z): f''(x)>0$ a $\forall x \in (z, b): f''(x)<0$ (nebo naopak). Pak $z$ je bod inflexe $f$.
-\end{vetaN}
+\end{e}
 
-\begin{definice} % definice se x_1,x_2,x_3 je podle me srozumitelnejsi, ale jak myslis ... -- Tuetschek
+\begin{e} % definice se x_1,x_2,x_3 je podle me srozumitelnejsi, ale jak myslis ... -- Tuetschek{Definice}{0}{0}
 Øekneme, e funkce $f$ je na intervalu $I$:
 \begin{pitemize}
 	\item \emph{konvexní}, jestlie pro kadé $x_1, x_2 \in I$ a kadé $\lambda \in \left<0, 1\right>$ platí\\$f(\lambda x_1 + (1-\lambda)x_2) \le \lambda \cdot f(x_1)+(1-\lambda)\cdot f(x_2)$.
@@ -379,17 +382,17 @@ Nech $f$ má spojitou první derivaci na $(a,b)$. Nech $z \in (a,b)$. Nech $\fo
 	\item \emph{ryze konvexní}, jestlie pro kadé $x_1, x_2 \in I, x_1 \neq x_2$ a kadé $\lambda \in (0, 1)$ platí\\$f(\lambda x_1 + (1-\lambda)x_2) < \lambda \cdot f(x_1)+(1-\lambda)\cot f(x_2)$.
 	\item \emph{ryze konkávní}, jestlie pro kadé $x_1, x_2 \in I, x_1 \neq x_2$ a kadé $\lambda \in (0, 1)$ platí\\$f(\lambda x_1 + (1-\lambda)x_2) > \lambda \cdot f(x_1)+(1-\lambda)\cdot f(x_2)$.
 \end{pitemize}
-\end{definice}
+\end{e}
 
-\begin{veta}
+\begin{e}{Vìta}{0}{0}
 Nech funkce $f$ je konvexní na $I$ a $a \in Int(I)$. Potom $\exists f'_+(a) \in \mathbb{R}$ a $\exists f'_-(a) \in \mathbb{R}$. Tj. konvexnost implikuje existenci vlastních jednostrannıch derivací, neznamená to ale, e existuje derivace.
-\end{veta}
+\end{e}
 
-\begin{vetaN}{Vztah konvexity a spojitosti}
+\begin{e}{Vìta}{0}{Vztah konvexity a spojitosti}
 Nech $f$ je konvexní na otevøeném intervalu $(a, b)$. Pak $f$ je na $(a, b)$ spojitá.
-\end{vetaN}
+\end{e}
 
-\begin{veta}
+\begin{e}{Vìta}{0}{0}
 Nech $f$ má spojitou první derivaci na $I=(a, b)$. Potom:
 \begin{pitemize}
 	\item $f''(x)>0\ \forall x \in (a, b)$, pak f je ryze konvexní na $(a, b)$
@@ -397,17 +400,17 @@ Nech $f$ má spojitou první derivaci na $I=(a, b)$. Potom:
 	\item $f''(x)<0\ \forall x \in (a, b)$, pak f je ryze konkávní na $(a, b)$
 	\item $f''(x) \le 0\ \forall x \in (a, b)$, pak f je konkávní na $(a, b)$
 \end{pitemize}
-\end{veta}
+\end{e}
 
-\begin{definiceN}{Asymptota}
+\begin{e}{Definice}{0}{Asymptota}
 Funkce $f$ má \textit{asymptotu} $ax+b$ v $+\infty$ $(-\infty)$, jestlie $f$ je definována na nìjakém okolí $+\infty (- \infty)$ a platí
 $$\lim_{\substack{x \rightarrow \infty \\ (x \rightarrow -\infty)}} (f(x)-ax-b)=0$$
-\end{definiceN}
+\end{e}
 
-\begin{vetaN}{Vıpoèet asymptoty}
+\begin{e}{Vìta}{0}{Vıpoèet asymptoty}
 Funkce $f$ má v $\infty$ asymptotu $ax+b$, právì kdy $$\lim_{x \rightarrow \infty}\frac{f(x)}{x}=a \in \mathbb{R},\,\lim_{x \rightarrow \infty}(f(x)-ax)=b \in \mathbb{R}$$
 Analogicky pro $- \infty$.
-\end{vetaN}
+\end{e}
 
 \begin{reportN}{neznamy hodny pan} Derivace + 3 vety o stredni hodnote 
 \end{reportN}
@@ -438,36 +441,36 @@ Analogicky pro $- \infty$.
 
 \subsubsection*{Taylorùv polynom se zbytkem}
 
-\begin{definice}
+\begin{e}{Definice}{0}{0}
 Nech $f$ je reálná funkce, $a \in \mathbb{R}$, $n \in \mathbb{N}$ a $f$ má derivace do øádu $n$. Pak funkci
 $$T^{f,a}_n(x)=f(a) + f'(a)(x-a) + \dots + \frac{f^{(n)}(a)}{n!}(x-a)^n$$
 nazıváme \emph{Taylorovım polynomem funkce $f$ øádu $n$ v bodì $a$}.
-\end{definice}
+\end{e}
 
-\begin{veta}
+\begin{e}{Vìta}{0}{0}
 Nech $f$ je reálná funkce, $a \in \mathbb{R}$, nech existuje vlastní $f^{(n)}(a)$. Nech $P$ je polynom stupnì $\le n$. Pak $$\lim_{x \rightarrow a} \frac{f(x)-P(x)}{(x-a)^n}=0 \Leftrightarrow P=T^{f,a}_{n}$$
-\end{veta}
+\end{e}
 
-\begin{vetaN}{Obecnı tvar zbytku}
+\begin{e}{Vìta}{0}{Obecnı tvar zbytku}
 Nech $f$ má vlastní (n+1)-ní derivaci v intervalu $\left<a,x\right>, x>a$. Nech $\varphi$ je spojitá funkce na $\left<a,x\right>$, která má na $(a,x)$ vlastní nenulové derivace. Pak:
 $$\exists \xi \in (a, x): R^{f,a}_{n}(x)=f(x)-T^{f,a}_n(x)=\frac{1}{n!}.\frac{\varphi(x)-\varphi(a)}{\varphi'(\xi)}.f^{(n+1)}(\xi).(x-\xi)^n$$
 
-\begin{dukaz}
+\begin{e}{Dùkaz}{0}{0}
 Vìta je dùsledkem Cauchyho vìty o støední hodnotì, aplikované na funkci $F(t):=f(x)-T^{f,t}_n(x)$, definované pro $t\in[a,x]$. (Ošklivou a pracnou) derivací této funkce vyjde, e $F'(t) = -\frac{f^{(n+1)}(t)}{n!}(x-t)^n\ \forall t\in(a,x)$ a teï pouijeme onu Cauchyho vìtu a dostaneme 
 $$\frac{-\frac{f^{(n+1)}(\xi)}{n!}(x-\xi)^n}{\varphi'(\xi)} = \frac{F'(\xi)}{\varphi'(\xi)} = \frac{F(x)-F(a)}{\varphi(x)-\varphi(a)} = \frac{0-R_n^{f,a}(x)}{\varphi(x)-\varphi(a)}$$
 co u dává kıenı tvar zbytku.
 \begin{flushright}$\square$\end{flushright}
-\end{dukaz}
-\end{vetaN}
+\end{e}
+\end{e}
 
-\begin{dusledek}
+\begin{e}{Dùsledek}{0}{0}
 \emph{Lagrangeùv tvar zbytku}:
 Je-li $\varphi(t)=(x-t)^{n+1}$, dostaneme
 $$R^{f,a}_{n}(x)=\frac{1}{(n+1)!} f^{(n+1)}(\xi) (x-a)^{n+1}$$
 \emph{Cauchyho tvar zbytku}:
 Je-li $\varphi(t)=t$, dostaneme
 $$R^{f,a}_{n}(x)=\frac{1}{n!} f^{(n+1)}(\xi) (x-\xi)^{n} (x-a)$$
-\end {dusledek}
+\end{e}
 
 \subsubsection*{Newtonova metoda hledání nulového bodu}
 Zdroje: \\

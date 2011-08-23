@@ -1,180 +1,180 @@
-\subsection{ZÃ¡klady SQL}
-TODO: pÅ™evzato od \uv{programÃ¡torÅ¯} z otÃ¡zky \uv{SQL}, vzhledem k tomu, Å¾e u nÃ¡s
-se to jmenuje \uv{zÃ¡klady SQL} tak to moÅ¾nÃ¡ nemusÃ­ bÃ½t tak podrobnÃ©
+\subsection{Základy SQL}
+TODO: pøevzato od \uv{programátorù} z otázky \uv{SQL}, vzhledem k tomu, e u nás
+se to jmenuje \uv{základy SQL} tak to moná nemusí bıt tak podrobné
 
-Zdroje: slidy z pÅ™ednÃ¡Å¡ek DatabÃ¡zovÃ© systÃ©my a DatabÃ¡zovÃ© aplikace Dr. T. Skopala a Dr. M. KopeckÃ©ho.
+Zdroje: slidy z pøednášek Databázové systémy a Databázové aplikace Dr. T. Skopala a Dr. M. Kopeckého.
 
 \subsubsection*{Standardy SQL}
 
-SQL (\emph{Structured query language}) je standardnÃ­ jazyk pro pÅ™Ã­stup k relaÄnÃ­m databÃ¡zÃ­m (a dotazovÃ¡nÃ­ nad nimi). Je zÃ¡roveÅˆ jazykem pro definici dat (definition data language), vytvÃ¡Å™enÃ­ a modifikace schÃ©mat (tabulek), manipulaci s daty (data manipulation language), vklÃ¡Ã¡nÃ­, aktualizace, mazÃ¡nÃ­ dat, Å™Ã­zenÃ­ transakcÃ­, definici integritnÃ­ch omezenÃ­ aj. Jeho syntaxe odrÃ¡Å¾Ã­ snahu o co nejpÅ™irozenÄ›jÅ¡Ã­ formulace poÅ¾adavkÅ¯ -- je podobnÃ¡ anglickÃ½m \uv{vÄ›tÃ¡m}.
+SQL (\emph{Structured query language}) je standardní jazyk pro pøístup k relaèním databázím (a dotazování nad nimi). Je zároveò jazykem pro definici dat (definition data language), vytváøení a modifikace schémat (tabulek), manipulaci s daty (data manipulation language), vkláání, aktualizace, mazání dat, øízení transakcí, definici integritních omezení aj. Jeho syntaxe odráí snahu o co nejpøirozenìjší formulace poadavkù -- je podobná anglickım \uv{vìtám}.
 
-SQL je standard podle norem ANSI/ISO a existuje v nÄ›kolika (zpÄ›tnÄ› kompatibilnÃ­ch) verzÃ­ch (oznaÄovanÃ½ch podle roku uvedenÃ­):
+SQL je standard podle norem ANSI/ISO a existuje v nìkolika (zpìtnì kompatibilních) verzích (oznaèovanıch podle roku uvedení):
 \begin{description}
-    \item[SQL 86] -- prvnÃ­ \uv{nÃ¡stÅ™el}, prÅ¯nik implementacÃ­ SQL firmy IBM
-    \item[SQL 89] -- malÃ¡ revize motivovanÃ¡ komerÄnÃ­ sfÃ©rou, mnoho detailÅ¯ ponechÃ¡no implementaci
-    \item[SQL 92] -- mnohem silnÄ›jÅ¡Ã­ a obsÃ¡hlejÅ¡Ã­ jazyk. Zahrnuje uÅ¾
+    \item[SQL 86] -- první \uv{nástøel}, prùnik implementací SQL firmy IBM
+    \item[SQL 89] -- malá revize motivovaná komerèní sférou, mnoho detailù ponecháno implementaci
+    \item[SQL 92] -- mnohem silnìjší a obsáhlejší jazyk. Zahrnuje u
     \begin{pitemize}
-	\item modifikace schÃ©mat, tabulky s metadaty, 
-	\item vnÄ›jÅ¡Ã­ spojenÃ­, mnoÅ¾inovÃ© operace
-	\item kaskÃ¡dovÃ© mazÃ¡nÃ­/aktualizace podle cizÃ­ch klÃ­ÄÅ¯, transakce
-	\item kurzory, vÃ½jimky
+	\item modifikace schémat, tabulky s metadaty, 
+	\item vnìjší spojení, mnoinové operace
+	\item kaskádové mazání/aktualizace podle cizích klíèù, transakce
+	\item kurzory, vıjimky
     \end{pitemize}
-    Standard existuje ve ÄtyÅ™ech verzÃ­ch: Entry, Transitional, Intermediate a Full.
-    \item[SQL 1999] -- pÅ™inÃ¡Å¡Ã­ mnoho novÃ½ch vlastnostÃ­, napÅ™. 
+    Standard existuje ve ètyøech verzích: Entry, Transitional, Intermediate a Full.
+    \item[SQL 1999] -- pøináší mnoho novıch vlastností, napø. 
     \begin{pitemize}	
-	\item objektovÄ›-relaÄnÃ­ rozÅ¡Ã­Å™enÃ­
-	\item novÃ© datovÃ© typy -- reference, pole, full-text
-	\item podpora pro externÃ­ datovÃ© soubory, multimÃ©dia
-	\item triggery, role, programovacÃ­ jazyk, regulÃ¡rnÃ­ vÃ½razy, rekurzivnÃ­ dotazy ...
+	\item objektovì-relaèní rozšíøení
+	\item nové datové typy -- reference, pole, full-text
+	\item podpora pro externí datové soubory, multimédia
+	\item triggery, role, programovací jazyk, regulární vırazy, rekurzivní dotazy ...
     \end{pitemize}
-    \item[SQL 2003] -- dalÅ¡Ã­ rozÅ¡Ã­Å™enÃ­, napÅ™. XML management
+    \item[SQL 2003] -- další rozšíøení, napø. XML management
 \end{description}
 
-KomerÄnÃ­ systÃ©my implementujÃ­ SQL podle rÅ¯znÃ½ch norem, nÄ›kdy jenom SQL-92 Entry, dnes nejÄastÄ›ji SQL-99, ale nikdy ÃºplnÄ› striktnÄ›. NÄ›kterÃ© vÄ›ci chybÃ­ a naopak majÃ­ vÅ¡echny spoustu nepÅ™enositelnÃ½ch rozÅ¡Ã­Å™enÃ­ -- napÅ™. specifickÃ¡ rozÅ¡Ã­Å™enÃ­ pro procedurÃ¡lnÃ­, transakÄnÃ­ a dalÅ¡Ã­ funkcionalitu (T-SQL (Microsoft SQL Server), PL-SQL (Oracle) ). S novÃ½mi verzemi se kompatibilita zlepÅ¡uje, Äasto je moÅ¾nÃ© pouÅ¾Ã­vat obojÃ­ syntax. PÅ™enos aplikace za bÄ›hu na jinou platformu je ale stÃ¡le velice nÃ¡roÄnÃ½ -- a to tÃ­m nÃ¡roÄnÄ›jÅ¡Ã­, ÄÃ­m vÃ­c vÄ›cÃ­ mimo SQL-92 Entry obsahuje.Pro otestovÃ¡nÃ­, zda je Å¡patnÄ› syntax SQL, nebo zda jen danÃ¡ databÃ¡zovÃ¡ platforma nepodporuje nÄ›kterÃ½ prvek, slouÅ¾Ã­ SQL validÃ¡tory (kterÃ© testujÃ­ SQL podle norem.
+Komerèní systémy implementují SQL podle rùznıch norem, nìkdy jenom SQL-92 Entry, dnes nejèastìji SQL-99, ale nikdy úplnì striktnì. Nìkteré vìci chybí a naopak mají všechny spoustu nepøenositelnıch rozšíøení -- napø. specifická rozšíøení pro procedurální, transakèní a další funkcionalitu (T-SQL (Microsoft SQL Server), PL-SQL (Oracle) ). S novımi verzemi se kompatibilita zlepšuje, èasto je moné pouívat obojí syntax. Pøenos aplikace za bìhu na jinou platformu je ale stále velice nároènı -- a to tím nároènìjší, èím víc vìcí mimo SQL-92 Entry obsahuje.Pro otestování, zda je špatnì syntax SQL, nebo zda jen daná databázová platforma nepodporuje nìkterı prvek, slouí SQL validátory (které testují SQL podle norem.
 
 
 \subsubsection*{Dotazy v SQL}
 
-HlavnÃ­m nÃ¡strojem dotazÅ¯ v SQL je pÅ™Ã­kaz \texttt{SELECT}. SdÃ­lÃ­ prvky relaÄnÃ­ho kalkulu i relaÄnÃ­ algebry -- obsahuje prÃ¡ci se sloupci, kvantifikÃ¡tory a agregaÄnÃ­ funkce z relaÄnÃ­ho kalkulu a dalÅ¡Ã­ operace -- projekce, selekce, spojenÃ­, mnoÅ¾inovÃ© operace -- z relaÄnÃ­ algebry. Na rozdÃ­l od striktnÃ­ formulace relaÄnÃ­ho modelu databÃ¡ze povoluje duplikÃ¡tnÃ­ Å™Ã¡dky a NULLovÃ© hodnoty atributÅ¯.
+Hlavním nástrojem dotazù v SQL je pøíkaz \texttt{SELECT}. Sdílí prvky relaèního kalkulu i relaèní algebry -- obsahuje práci se sloupci, kvantifikátory a agregaèní funkce z relaèního kalkulu a další operace -- projekce, selekce, spojení, mnoinové operace -- z relaèní algebry. Na rozdíl od striktní formulace relaèního modelu databáze povoluje duplikátní øádky a NULLové hodnoty atributù.
 
-NetÅ™Ã­dÄ›nÃ½ dotaz v SQL sestÃ¡vÃ¡ z:
+Netøídìnı dotaz v SQL sestává z:
 \begin{pitemize}
-    \item pÅ™Ã­kazu(Å¯) \texttt{SELECT} (hlavnÃ­ logika dotazovÃ¡nÃ­), to obsahuje vÅ¾dy
-    \item mÅ¯Å¾e obsahovat i mnoÅ¾inovÃ© operace nad vÃ½sledky pÅ™Ã­kazÅ¯ \texttt{SELECT} -- \texttt{UNION}, \texttt{INTERSECTION} ...
+    \item pøíkazu(ù) \texttt{SELECT} (hlavní logika dotazování), to obsahuje vdy
+    \item mùe obsahovat i mnoinové operace nad vısledky pøíkazù \texttt{SELECT} -- \texttt{UNION}, \texttt{INTERSECTION} ...
 \end{pitemize}
-VÃ½sledky nemajÃ­ definovanÃ© uspoÅ™Ã¡dÃ¡nÃ­ (resp. jejich poÅ™adÃ­ je urÄeno implementacÃ­ vyhodnocenÃ­ dotazu).
+Vısledky nemají definované uspoøádání (resp. jejich poøadí je urèeno implementací vyhodnocení dotazu).
 
-PÅ™Ã­kaz \texttt{SELECT} vypadÃ¡ nÃ¡sledovnÄ› (tato verze uÅ¾ zahrnuje i tÅ™Ã­dÄ›nÃ­ vÃ½sledkÅ¯):
+Pøíkaz \texttt{SELECT} vypadá následovnì (tato verze u zahrnuje i tøídìní vısledkù):
 \begin{verbatim}
 SELECT [DISTINCT]
- vÃ½raz1 [[AS] c_alias1] [, ...]
+ vıraz1 [[AS] c_alias1] [, ...]
 FROM
  zdroj1 [[AS] t_alias1] [, ...]
-[WHERE podmÃ­nka_Å™]
-[GROUP BY vÃ½raz_g1 [, â€¦]
-[HAVING podmÃ­nka_s]]
-[ORDER BY vÃ½raz_o1 [, â€¦] ASC/DESC]
+[WHERE podmínka_ø]
+[GROUP BY vıraz_g1 [, …]
+[HAVING podmínka_s]]
+[ORDER BY vıraz_o1 [, …] ASC/DESC]
 \end{verbatim}
 Kde
 \begin{pitemize}
-    \item vÃ½razy mohou bÃ½t sloupce, sloupce s agregaÄnÃ­mi funkcemi, vÃ½sledky dalÅ¡Ã­ch funkcÃ­ ...
+    \item vırazy mohou bıt sloupce, sloupce s agregaèními funkcemi, vısledky dalších funkcí ...
 
-\noindent \texttt{ vÃ½raz = <nÃ¡zev sloupce>, <konstanta>, \\
- (DISTINCT) COUNT(~<nÃ¡zev sloupce>~),\\
-{}[DISTINCT] [~SUM~|~AVG~](~<vÃ½raz>~),\\
-{}[~MIN~|~MAX~](~<vÃ½raz>~)}\\
-a navÃ­c lze pouÅ¾Ã­t operÃ¡tory $+,-,*,/$.
+\noindent \texttt{ vıraz = <název sloupce>, <konstanta>, \\
+ (DISTINCT) COUNT(~<název sloupce>~),\\
+{}[DISTINCT] [~SUM~|~AVG~](~<vıraz>~),\\
+{}[~MIN~|~MAX~](~<vıraz>~)}\\
+a navíc lze pouít operátory $+,-,*,/$.
 
-    \item zdroje jsou tabulky nebo vnoÅ™enÃ© selecty
-    \item vÃ½razy i zdroje bÃ½t pÅ™ejmenovÃ¡ny pomocÃ­ \texttt{AS}, napÅ™. pro odkazovÃ¡nÃ­ uvnitÅ™ dotazu nebo jmÃ©na na vÃ½stupu (od SQL-92)
-    \item podmÃ­nka je logickÃ¡ podmÃ­nka (spojovanÃ¡ logickÃ½mi spojkami \texttt{AND, OR}) na hodnoty dat ve zdrojÃ­ch:
+    \item zdroje jsou tabulky nebo vnoøené selecty
+    \item vırazy i zdroje bıt pøejmenovány pomocí \texttt{AS}, napø. pro odkazování uvnitø dotazu nebo jména na vıstupu (od SQL-92)
+    \item podmínka je logická podmínka (spojovaná logickımi spojkami \texttt{AND, OR}) na hodnoty dat ve zdrojích:
 
-\texttt{podmÃ­nka = <vÃ½raz> BETWEEN <x> AND <y>, <vÃ½raz> LIKE "\%\_ ... ",\\
-<vÃ½raz> IS [NOT] NULL,\\
-<vÃ½raz> > = <> <= < > [<vÃ½raz>/ ALL / ANY <dotaz>],\\
-<vÃ½raz> NOT IN [<seznam hodnot> / <dotaz>], EXIST ( <dotaz> )}
+\texttt{podmínka = <vıraz> BETWEEN <x> AND <y>, <vıraz> LIKE "\%\_ ... ",\\
+<vıraz> IS [NOT] NULL,\\
+<vıraz> > = <> <= < > [<vıraz>/ ALL / ANY <dotaz>],\\
+<vıraz> NOT IN [<seznam hodnot> / <dotaz>], EXIST ( <dotaz> )}
 
-    \item \texttt{GROUP BY} znamenÃ¡ agregaci podle unikÃ¡tnÃ­ch hodnot jmenovanÃ½ch sloupcÅ¯ (v ostatnÃ­ch sloupcÃ­ch vznikajÃ­ mnoÅ¾iny hodnot, kterÃ© se spolu s onÄ›mi unikÃ¡tnÃ­mÃ­ vyskytujÃ­ na stejnÃ½ch Å™Ã¡dkÃ¡ch
-    \item \texttt{HAVING} oznaÄuje podmÃ­nku na agregaci
-    \item \texttt{ORDER BY} definuje, podle hodnot ve kterÃ½ch sloupcÃ­ch nebo podle kterÃ½ch jinÃ½ch vÃ½razÅ¯ nad nimi provedenÃ½ch se mÃ¡ vÃ½sledek setÅ™Ã­dit (\texttt{ASC} poÅ¾aduje vzestupnÃ© setÅ™Ã­dÄ›nÃ­, \texttt{DESC} sestupnÃ©).
+    \item \texttt{GROUP BY} znamená agregaci podle unikátních hodnot jmenovanıch sloupcù (v ostatních sloupcích vznikají mnoiny hodnot, které se spolu s onìmi unikátnímí vyskytují na stejnıch øádkách
+    \item \texttt{HAVING} oznaèuje podmínku na agregaci
+    \item \texttt{ORDER BY} definuje, podle hodnot ve kterıch sloupcích nebo podle kterıch jinıch vırazù nad nimi provedenıch se má vısledek setøídit (\texttt{ASC} poaduje vzestupné setøídìní, \texttt{DESC} sestupné).
 \end{pitemize}
 
-SQL nemÃ¡ pÅ™Ã­kaz na omezenÃ­ rozsahu na nÄ›kterÃ© Å™Ã¡dky (jako napÅ™. \uv{potÅ™ebuji jen 50.-100. Å™Ã¡dek vÃ½pisu}), a to lze Å™eÅ¡it buÄ sloÅ¾itÄ› standardnÄ› (poÄÃ­tÃ¡nÃ­ kolik hodnot je menÅ¡Ã­ch neÅ¾ vybranÃ¡, navÃ­c nÃ¡roÄnÃ© na hardware) nebo pomocÃ­ nÄ›kterÃ©ho nepÅ™enositelnÃ©ho rozÅ¡Ã­Å™enÃ­.
+SQL nemá pøíkaz na omezení rozsahu na nìkteré øádky (jako napø. \uv{potøebuji jen 50.-100. øádek vıpisu}), a to lze øešit buï sloitì standardnì (poèítání kolik hodnot je menších ne vybraná, navíc nároèné na hardware) nebo pomocí nìkterého nepøenositelného rozšíøení.
 
 \medskip\noindent
-PoÅ™adÃ­ vyhodnocovÃ¡nÃ­ jednoho pÅ™Ã­kazu \texttt{SELECT} (nebereme v Ãºvahu optimalizace):
+Poøadí vyhodnocování jednoho pøíkazu \texttt{SELECT} (nebereme v úvahu optimalizace):
 \begin{penumerate}
-    \item Nejprve se zkombinujÃ­ data ze vÅ¡ech zdrojÅ¯ (tabulek, pohledÅ¯, poddotazÅ¯). Pokud jsou oddÄ›leny ÄÃ¡rkami, provede se kartÃ©zskÃ½ souÄin (to samÃ© co \texttt{CROSS JOIN}), v SQL-92 a vyÅ¡Å¡Ã­m i sloÅ¾itÄ›jÅ¡Ã­ spojenÃ­ -- \texttt{JOIN ON} (vnitÅ™nÃ­ spojenÃ­ podle podmÃ­nky), \texttt{NATURAL JOIN} (\uv{pÅ™irozenÃ©} spojenÃ­ podle stejnÃ½ch hodnot stejnÄ› pojmenovanÃ½ch sloupcÅ¯), \texttt{OUTER JOIN} (\uv{vnÄ›jÅ¡Ã­} spojenÃ­, do kterÃ©ho jsou zahrnuty i zÃ¡znamy, pro kterÃ© v jednom ze zdrojÅ¯ nenÃ­ nalezeno nic, co by odpovÃ­dalo podmÃ­nce, doplnÄ›nnÃ© NULLovÃ½mi hodnotami) atd.
-    \item VyÅ™adÃ­ se vzniklÃ© Å™Ã¡dky, kterÃ© nevyhovujÃ­ podmÃ­nce (\texttt{WHERE})
-    \item ZbylÃ© Å™Ã¡dky se seskupÃ­ do skupin se stejnÃ½mi hodnotami uvedenÃ½ch vÃ½razÅ¯ (\texttt{HAVING}), kaÅ¾dÃ¡ skupina obsahuje atomickÃ© sloupce s hodnotami uvedenÃ½ch vÃ½razÅ¯ a mnoÅ¾inovÃ© sloupce se skupinami ostatnÃ­ch hodnot sloupcÅ¯.
-    \item VyÅ™adÃ­ se skupiny, nevyhovujÃ­cÃ­ podmÃ­nce (\texttt{HAVING})
-    \item VÃ½sledky se setÅ™Ã­dÃ­ podle poÅ¾adavkÅ¯
-    \item Vygeneruje se vÃ½stup s poÅ¾adovanÃ½mi hodnotami
-    \item V pÅ™Ã­padÄ› \texttt{DISTINCT} se vyÅ™adÃ­ duplicitnÃ­ Å™Ã¡dky
+    \item Nejprve se zkombinují data ze všech zdrojù (tabulek, pohledù, poddotazù). Pokud jsou oddìleny èárkami, provede se kartézskı souèin (to samé co \texttt{CROSS JOIN}), v SQL-92 a vyšším i sloitìjší spojení -- \texttt{JOIN ON} (vnitøní spojení podle podmínky), \texttt{NATURAL JOIN} (\uv{pøirozené} spojení podle stejnıch hodnot stejnì pojmenovanıch sloupcù), \texttt{OUTER JOIN} (\uv{vnìjší} spojení, do kterého jsou zahrnuty i záznamy, pro které v jednom ze zdrojù není nalezeno nic, co by odpovídalo podmínce, doplnìnné NULLovımi hodnotami) atd.
+    \item Vyøadí se vzniklé øádky, které nevyhovují podmínce (\texttt{WHERE})
+    \item Zbylé øádky se seskupí do skupin se stejnımi hodnotami uvedenıch vırazù (\texttt{HAVING}), kadá skupina obsahuje atomické sloupce s hodnotami uvedenıch vırazù a mnoinové sloupce se skupinami ostatních hodnot sloupcù.
+    \item Vyøadí se skupiny, nevyhovující podmínce (\texttt{HAVING})
+    \item Vısledky se setøídí podle poadavkù
+    \item Vygeneruje se vıstup s poadovanımi hodnotami
+    \item V pøípadì \texttt{DISTINCT} se vyøadí duplicitní øádky
 \end{penumerate}
 
 
-\begin{poznamka}
+\begin{e}{Poznámka}{0}{0}
 \begin{pitemize}
-    \item Klauzule \texttt{GROUP BY} setÅ™Ã­dÃ­ pÅ™ed vytvoÅ™enÃ­m skupin vÅ¡echny Å™Ã¡dky dle vÃ½razÅ¯ v klauzuli. Proto by se mÄ›l seskupovat co nejmenÅ¡Ã­ moÅ¾nÃ½ poÄet Å™Ã¡dek. Pokud je moÅ¾nÃ© Å™Ã¡dky odfiltrovat pomocÃ­ WHERE, je vÃ½sledek efektivnÄ›jÅ¡Ã­, neÅ¾ nÃ¡slednÃ© odstraÅˆovÃ¡nÃ­ celÃ½ch skupin.
-    \item  Klauzule \texttt{DISTINCT} tÅ™Ã­dÃ­ vÃ½slednÃ© zÃ¡znamy (pÅ™ed operacÃ­ ORDER BY), aby naÅ¡la duplicitnÃ­ zÃ¡znamy. Pokud to jde, je vhodnÃ© se bez nÃ­ obejÃ­t.
-    \item Klauzule \texttt{ORDER BY} by mÄ›la bÃ½t pouÅ¾ita jen v nutnÃ½ch pÅ™Ã­padech. NenÃ­ pÅ™Ã­liÅ¡ vhodnÃ© ji pouÅ¾Ã­vat v definicÃ­ch pohledÅ¯, nad kterÃ½mi se dÃ¡le dÄ›lajÃ­ dalÅ¡Ã­ dotazy
+    \item Klauzule \texttt{GROUP BY} setøídí pøed vytvoøením skupin všechny øádky dle vırazù v klauzuli. Proto by se mìl seskupovat co nejmenší monı poèet øádek. Pokud je moné øádky odfiltrovat pomocí WHERE, je vısledek efektivnìjší, ne následné odstraòování celıch skupin.
+    \item  Klauzule \texttt{DISTINCT} tøídí vısledné záznamy (pøed operací ORDER BY), aby našla duplicitní záznamy. Pokud to jde, je vhodné se bez ní obejít.
+    \item Klauzule \texttt{ORDER BY} by mìla bıt pouita jen v nutnıch pøípadech. Není pøíliš vhodné ji pouívat v definicích pohledù, nad kterımi se dále dìlají další dotazy
 \end{pitemize}
-\end{poznamka}
+\end{e}
 
 
-\subsubsection*{Definice a manipulace s daty, ostatnÃ­ pÅ™Ã­kazy}
+\subsubsection*{Definice a manipulace s daty, ostatní pøíkazy}
 
-Standard SQL podporuje nÄ›kolik druhÅ¯ datovÃ½ch typÅ¯:
+Standard SQL podporuje nìkolik druhù datovıch typù:
 \begin{pitemize}
-    \item textovÃ© v nÃ¡rodnÃ­ a globÃ¡lnÃ­ (UTF) znakovÃ© sadÄ› (nÄ›kolika druhÅ¯ -- promÄ›nnÃ© a pevnÃ© dÃ©lky): \texttt{CHARACTER(n)}, \texttt{NCHAR(n)},
+    \item textové v národní a globální (UTF) znakové sadì (nìkolika druhù -- promìnné a pevné délky): \texttt{CHARACTER(n)}, \texttt{NCHAR(n)},
     \texttt{CHAR VARYING(n)}
-    \item ÄÃ­selnÃ© typy -- \texttt{ NUMERIC(p[,s]), INTEGER, INT, SMALLINT,\\  FLOAT(presnost), REAL, DOUBLE PRECISION}
-    \item datumovÃ© typy -- \texttt{DATE, TIME, TIMESTAMP, TIMESTAMP(presnost\_sekund) WITH TIMEZONE}
+    \item èíselné typy -- \texttt{ NUMERIC(p[,s]), INTEGER, INT, SMALLINT,\\  FLOAT(presnost), REAL, DOUBLE PRECISION}
+    \item datumové typy -- \texttt{DATE, TIME, TIMESTAMP, TIMESTAMP(presnost\_sekund) WITH TIMEZONE}
 \end{pitemize}
-DatabÃ¡zovÃ© servery ne vÅ¾dy podporujÃ­ vÅ¡echny uvedenÃ© typy. NemusÃ­ je podporovat nativnÄ›, nÄ›kdy si pouze \uv{pÅ™eloÅ¾Ã­} nÃ¡zev typu na podobnÃ½ nativnÄ› podporovanÃ½ typ.
+Databázové servery ne vdy podporují všechny uvedené typy. Nemusí je podporovat nativnì, nìkdy si pouze \uv{pøeloí} název typu na podobnı nativnì podporovanı typ.
 
 \medskip
-\begin{obecne}{PÅ™Ã­kaz \texttt{CREATE TABLE}}
-Tento pÅ™Ã­kaz slouÅ¾Ã­ k vytvoÅ™enÃ­ novÃ© tabulky. Je nutnÃ© definovat jejÃ­ nÃ¡zev, atributy a jejich domÃ©ny (datovÃ© typy); dÃ¡le je mo6nÃ© definovat integritnÃ­ omezenÃ­ (klÃ­Äe, cizÃ­ klÃ­Äe, odkazy, podmÃ­nky). PÅ™Ã­kaz vypadÃ¡ nÃ¡sledovnÄ›:
+\begin{obecne}{Pøíkaz \texttt{CREATE TABLE}}
+Tento pøíkaz slouí k vytvoøení nové tabulky. Je nutné definovat její název, atributy a jejich domény (datové typy); dále je mo6né definovat integritní omezení (klíèe, cizí klíèe, odkazy, podmínky). Pøíkaz vypadá následovnì:
 \begin{center}
-\texttt{CREATE TABLE <nÃ¡zev> <def. sloupce/i.o. tabulky, ...> }
+\texttt{CREATE TABLE <název> <def. sloupce/i.o. tabulky, ...> }
 \end{center}
-A uvnitÅ™ potom
+A uvnitø potom
 \begin{verbatim}
-def. sloupce = <nÃ¡zev> <dat.typ> 
+def. sloupce = <název> <dat.typ> 
     [DEFAULT NULL|<hodnota>] [<i.o.sloupce>] 
 dat.typ = [VARCHAR(n) | BIT(n) | INTEGER | FLOAT | DECIMAL ...] 
-i.o.sloupce = [CONSTRAINT <jmÃ©no>] [NOT NULL / UNIQUE / PRIMARY KEY], 
-    REFERERENCES <tabulka>(<sloupec>) <akce>, CHECK <podmÃ­nka> 
+i.o.sloupce = [CONSTRAINT <jméno>] [NOT NULL / UNIQUE / PRIMARY KEY], 
+    REFERERENCES <tabulka>(<sloupec>) <akce>, CHECK <podmínka> 
 akce = [ON UPDATE / ON DELETE] 
-    [CASCADE / SET NULL / SET DEFAULT / NO ACTION(hlÃ¡Å¡enÃ­ chyby) ] 
+    [CASCADE / SET NULL / SET DEFAULT / NO ACTION(hlášení chyby) ] 
 i.o.tabulky = UNIQUE, PRIMARY KEY <sloupec, ... >, 
     FOREIGN KEY <sloupec, ... >, 
     REFERENCES <tabulka>(<sloupec, ... >), 
-    CHECK( <podmÃ­nka> )
+    CHECK( <podmínka> )
 \end{verbatim}
 \end{obecne}
 
 \medskip
-\begin{obecne}{PÅ™Ã­kazy pro manipulaci se schÃ©matem}
+\begin{obecne}{Pøíkazy pro manipulaci se schématem}
 \begin{pitemize}
-    \item Ãšprava tabulky:
+    \item Úprava tabulky:
 \begin{verbatim}
-ALTER TABLE <nÃ¡zev> ADD {COLUMN} <def.sloupce>, ADD <i.o.tabulky>, 
+ALTER TABLE <název> ADD {COLUMN} <def.sloupce>, ADD <i.o.tabulky>, 
     ALTER COLUMN <sloupec> [ SET / DROP ], DROP COLUMN <sloupec>, 
-    DROP CONSTRAINT <jmÃ©no i.o.> 
+    DROP CONSTRAINT <jméno i.o.> 
 \end{verbatim}
-    \item SmazÃ¡nÃ­ tabulky (nenÃ­ to samÃ© jako vymazÃ¡nÃ­ vÅ¡ech dat z tabulky!):
+    \item Smazání tabulky (není to samé jako vymazání všech dat z tabulky!):
 \begin{verbatim}
 DROP TABLE <tabulka> 
 \end{verbatim}
-    \item VytvoÅ™enÃ­ \uv{pohledu} -- navenek se chovÃ¡ jako tabulka, ale vnitÅ™nÄ› se pÅ™i kaÅ¾dÃ©m dotazu provede vnoÅ™enÃ½ dotaz (kterÃ½ definicÃ­ pohledu zapisuji):
+    \item Vytvoøení \uv{pohledu} -- navenek se chová jako tabulka, ale vnitønì se pøi kadém dotazu provede vnoøenı dotaz (kterı definicí pohledu zapisuji):
 \begin{verbatim}
-CREATE VIEW <nÃ¡zev "tabulky"> ( <sloupec, ... > ) 
+CREATE VIEW <název "tabulky"> ( <sloupec, ... > ) 
     AS <dotaz> {WITH [ LOCAL / CASCADED ] CHECK OPTION }
 \end{verbatim}
-    NÄ›kterÃ© databÃ¡zovÃ© platformy umoÅ¾ÅˆujÃ­ do takto vytvoÅ™enÃ½ch pohledÅ¯ i zapisovat.
+    Nìkteré databázové platformy umoòují do takto vytvoøenıch pohledù i zapisovat.
 \end{pitemize}
 \end{obecne}
 
 \medskip
-\begin{obecne}{PÅ™Ã­kazy pro manipulaci s daty}
+\begin{obecne}{Pøíkazy pro manipulaci s daty}
 \begin{pitemize}
-    \item VloÅ¾enÃ­ novÃ½ch dat do tabulky
+    \item Vloení novıch dat do tabulky
 \begin{verbatim}
 INSERT INTO <tabulka> ( <sloupec, ... > ) 
-    [VALUES ( <vÃ½raz, ... > ) / (<dotaz>) ] 
+    [VALUES ( <vıraz, ... > ) / (<dotaz>) ] 
 \end{verbatim}
-    \item Ãšprava dat (na Å™Ã¡dcÃ­ch kterÃ© vyhovujÃ­ podmÃ­nce se nastavÃ­ zadanÃ© hodnoty vybranÃ½m sloupcÅ¯m):
+    \item Úprava dat (na øádcích které vyhovují podmínce se nastaví zadané hodnoty vybranım sloupcùm):
 \begin{verbatim}
 UPDATE <tabulka> SET 
-    ( <sloupec> = [ NULL / <vÃ½raz> / <dotaz> ] , ... ) 
-    WHERE (<podmÃ­nka>) 
+    ( <sloupec> = [ NULL / <vıraz> / <dotaz> ] , ... ) 
+    WHERE (<podmínka>) 
 \end{verbatim}
-    \item SmazÃ¡nÃ­ Å™Ã¡dkÅ¯ vyhovujÃ­cÃ­ch podmÃ­nce z tabulky:
+    \item Smazání øádkù vyhovujících podmínce z tabulky:
 \begin{verbatim}
-DELETE FROM <tabulka> ( WHERE <podmÃ­nka> ) 
+DELETE FROM <tabulka> ( WHERE <podmínka> ) 
 \end{verbatim}
 \end{pitemize}
 \end{obecne}

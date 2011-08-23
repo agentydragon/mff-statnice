@@ -1,37 +1,37 @@
 \subsection{Aplikace metrických a topologických prostorù}
 
 \subsubsection*{Základní vìta algebry}
-\begin{veta}
+\begin{e}{Vìta}{0}{0}
 Nech $p(z) = a_n z^n + a_{n-1} z^{n-1} + \ldots + a_1 z + a_0$ je
 polynom s komplexními koeficienty stupnì $n \geq 1$ (tedy $a_i \in \mathbb{C}$ a $a_n \neq 0$). Pak existuje takové èíslo $\alpha \in \mathbb{C}$, že $p(\alpha) = 0$.
-\begin{dukaz}
+\begin{e}{Dùkaz}{0}{0}
 Komplexní rovina $\mathbb{C}$ se standardní metrikou je isometrická euklidovské rovinì $\mathbb{R}^2$. Existence koøene $\alpha$ polynomu $p(z)$ plyne okamžitì z následujících dvou krokù.
 \begin{penumerate}
     \item Pro každý komplexní polynom $p(z)$ nabývá funkce $f(z) = \lvert p(z)\rvert$, $f: \mathbb{C} \to  \mathbb{R}_{\geq 0}$, na $\mathbb{C}$ svého minima.
     \item Nech nekonstantní komplexní polynom $p(z)$ splòuje v bodu $\alpha \in \mathbb{C}$ nerovnost $\lvert p(\alpha)\rvert > 0$ (tj. $p(\alpha) \neq 0$). Pak existují $\delta > 0$ a polopøímka $l \subset \mathbb{C}$ vycházející z $\alpha$ tak, že $z \in l \& 0 < \lvert z - \alpha\rvert < \delta \Rightarrow \lvert p(z)\rvert < \lvert p(\alpha)\rvert$.
 \end{penumerate}
 Pro nekonstantní komplexní polynom $p(z)$ pak vezmeme $\alpha$, v nìmž se podle kroku 1 nabývá nejmenší hodnota modulu $\lvert p(z) \rvert$. Podle kroku 2 musí platit $\lvert p(\alpha)\rvert = 0$, takže $p(\alpha) = 0$ a $\alpha$ je koøenem $p(z)$.
-\end{dukaz}
-\end{veta}
+\end{e}
+\end{e}
 
 \subsubsection*{Vìta o pevném bodì}
 
-\begin{poznamka}
+\begin{e}{Poznámka}{0}{0}
 O mnohých rovnicích lze dokázat, že v úplném metrickém prostoru mají øešení. Typickým pøíkladem je rovnice $x^2 = 2$, která sice nemá øešení v oboru racionálních èísel, ale v širším oboru reálných èísel se díky úplnosti dokáže existence øešení. Popíšeme obecný postup, který zaruèuje existenci øešení jisté tøídy rovnic v úplných metrických prostorech.
-\end{poznamka}
+\end{e}
 
-\begin{definiceN}{kontrahující zobrazení}
+\begin{e}{Definice}{0}{kontrahující zobrazení}
 Zobrazení $f:(X,d_1)\to(Y,d_2)$ mezi dvìma metrickými prostory nazveme \emph{kontrahující}, pokud existuje èíslo $q \in \mathbb{R}$, $0<q<1$ takové, že $$\forall x,y\in X: d_2(f(x),f(y))\leq q\cdot d_1(x,y).$$
 Takové zobrazení je jistì stejnomìrnì spojité.
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{pevný bod, posloupnost iterací}
+\begin{e}{Definice}{0}{pevný bod, posloupnost iterací}
 \emph{Pevný bod zobrazení} $f:X\to X$ z nìjaké množiny do sebe sama je takový bod $x\in X$, že $f(x)=x$. Posloupnost $(x_n)_{n\geq 0} \subset X$ nazveme \emph{posloupností iterací} zobrazení $f:X\to X$, pokud pro $\forall i\geq 1$ platí $x_i=f(x_{i-1})$ (a $x_0$ je libovolný \emph{startovací bod} posloupnosti iterací).
-\end{definiceN}
+\end{e}
 
-\begin{vetaN}{Banachova o pevném bodì}
+\begin{e}{Vìta}{0}{Banachova o pevném bodì}
 Kontrahující zobrazení $f$ úplného metrického prostoru $(M,d)$ do sebe má právì jeden pevný bod. Navíc každá posloupnost iterací $(x_n)_{n\geq 0}$ tohoto zobrazení konverguje k tomuto pevnému bodu.
-\end{vetaN}
+\end{e}
 
 \begin{obecne}{Aplikace Banachovy vìty}
 Newtonova numerická metoda pro hledání koøene a Picardova vìta o existenci øešení diferenciální rovnice (viz níže).
@@ -47,6 +47,6 @@ $$(*)
 Zde $f: \mathbb{R}^2 \to \mathbb{R}$ je zadaná funkce (pravá strana rovnice) a $a, b \in \mathbb{R}$ jsou zadaná èísla. Hledáme reálnou funkci $y(x)$ a otevøený interval $I$ obsahující $a$, že $y(x)$ je na $I$ definovaná, $y(a) = b$ (øíkáme, že $y(x)$ splòuje poèáteèní podmínku $y(a) = b$) a $y(x)$ má $I$ derivaci splòující pro každé $x \in I$  druhý vztah v (*), tj. vlastní diferenciální rovnici.
 \end{obecne}
 
-\begin{vetaN}{Picardova vìta}
+\begin{e}{Vìta}{0}{Picardova vìta}
 Pokud je $f: \mathbb{R^2} \to \mathbb{R}$ spojitá a existuje konstanta $M > 0$ taková, že pro každá tøi èísla $u, v, w \in \mathbb{R}$ platí $|f(u, v) - f(u, w)| \leq M|v - w|$, pak každý bod $a \in \mathbb{R}$ má okolí $I = (a - \delta, a + \delta)$, na nìmž má úloha (*) jednoznaèné øešení $y(x)$.
-\end{vetaN}
+\end{e}

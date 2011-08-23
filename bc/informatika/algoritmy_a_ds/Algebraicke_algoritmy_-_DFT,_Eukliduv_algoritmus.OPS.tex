@@ -1,41 +1,41 @@
-\subsection{AlgebraickÃ© algoritmy}
+\subsection{Algebraické algoritmy}
 
-\subsubsection*{DiskrÃ©tnÃ­ Fourierova Transformace (DFT)}
+\subsubsection*{Diskrétní Fourierova Transformace (DFT)}
 
-DiskrÃ©tnÃ­ Fourierova transformace se pouÅ¾Ã­vÃ¡, chceme-li zachytit hodnotu (pÅ™epoklÃ¡dejme, Å¾e $2\pi$-periodickÃ©) funkce na intervalu $[-\pi,\pi]$ v nÄ›jakÃ½ch $n$ bodech. To je dobrÃ© napÅ™. pro vzorkovÃ¡nÃ­ elektrickÃ©ho nebo zvukovÃ©ho signÃ¡lu a jinÃ© operace. Pro nÄ›jakou funkci nÃ¡m tak staÄÃ­ znÃ¡t vektor dimenze $n$ (a $n$ je poÄet vzorkÅ¯ na $2\pi$).
+Diskrétní Fourierova transformace se pouívá, chceme-li zachytit hodnotu (pøepokládejme, e $2\pi$-periodické) funkce na intervalu $[-\pi,\pi]$ v nìjakıch $n$ bodech. To je dobré napø. pro vzorkování elektrického nebo zvukového signálu a jiné operace. Pro nìjakou funkci nám tak staèí znát vektor dimenze $n$ (a $n$ je poèet vzorkù na $2\pi$).
 
-Je to zaloÅ¾eno na FourierovÃ½ch Å™adÃ¡ch -- dÃ¡ se ukÃ¡zat, Å¾e funkce $1$, $\cos kx$ a $\sin kx$ pro $k\geq 1$ tvoÅ™Ã­ ortogonÃ¡lnÃ­ bÃ¡zi prostoru spojitÃ½ch funkcÃ­ na intervalu $[-\pi,\pi]$. ProtoÅ¾e potÅ™ebujeme znÃ¡t jenom koneÄnÃ½ poÄet vzorkÅ¯, staÄÃ­ nÃ¡m jen koneÄnÃ½ podprostor s koneÄnou bÃ¡zÃ­. MÃ¡me-li rozklad nÄ›jakÃ© $2\pi$-periodickÃ© funkce do Fourierovy Å™ady $f(x)= c + \sum_{k=1}^\infty a_k \sin k x + \sum_{k=1}^\infty b_k \cos k x$, dÃ¡ se jednoduÅ¡e ukÃ¡zat, Å¾e pro hodnoty v bodech $-\pi,-\pi + \frac{\pi}{n}, -\pi + 2\frac{\pi}{n}, \dots, -\pi + (n-1)\frac{\pi}{n}$ staÄÃ­ sumy do $\frac{n}{2}-1$ pro sinusovÃ© Å™ady a $\frac{n}{2}$ pro kosinovÃ© -- vyÅ¡Å¡Ã­ koeficienty v takovÃ½ch bodech jsou nulovÃ©. TakÅ¾e $n$ hodnot funkce $f$ na intervalu $[-\pi,\pi]$ lze reprezentovat vektorem $n$ ÄÃ­sel v bÃ¡zi $1,\cos x,\dots,\cos \frac{n}{2}x,\sin x,\dots,\sin(\frac{n}{2}-1)x$. 
+Je to zaloeno na Fourierovıch øadách -- dá se ukázat, e funkce $1$, $\cos kx$ a $\sin kx$ pro $k\geq 1$ tvoøí ortogonální bázi prostoru spojitıch funkcí na intervalu $[-\pi,\pi]$. Protoe potøebujeme znát jenom koneènı poèet vzorkù, staèí nám jen koneènı podprostor s koneènou bází. Máme-li rozklad nìjaké $2\pi$-periodické funkce do Fourierovy øady $f(x)= c + \sum_{k=1}^\infty a_k \sin k x + \sum_{k=1}^\infty b_k \cos k x$, dá se jednoduše ukázat, e pro hodnoty v bodech $-\pi,-\pi + \frac{\pi}{n}, -\pi + 2\frac{\pi}{n}, \dots, -\pi + (n-1)\frac{\pi}{n}$ staèí sumy do $\frac{n}{2}-1$ pro sinusové øady a $\frac{n}{2}$ pro kosinové -- vyšší koeficienty v takovıch bodech jsou nulové. Take $n$ hodnot funkce $f$ na intervalu $[-\pi,\pi]$ lze reprezentovat vektorem $n$ èísel v bázi $1,\cos x,\dots,\cos \frac{n}{2}x,\sin x,\dots,\sin(\frac{n}{2}-1)x$. 
 
-JednoduÅ¡eji to lze ukÃ¡zat v komplexnÃ­ch ÄÃ­slech -- je znÃ¡mo, Å¾e 
+Jednodušeji to lze ukázat v komplexních èíslech -- je známo, e 
 $$e^{ix} = \cos x+ i\cdot\sin x$$
-takÅ¾e vektor hodnot funkce lze ekvivalentnÄ› reprezentovat v bÃ¡zi $e^{i\cdot 2\pi\frac{k}{n}},\ k\in\{0,\dots,n\}$, neboÅ¥ vÅ¡echny vektory pÅ¯vodnÃ­ bÃ¡ze lze zapsat jako lineÃ¡rnÃ­ kombinace vektorÅ¯ novÃ© bÃ¡ze. Definujeme hodnotu
-$$\omega := e^{i\cdot 2\pi\frac{1}{n}} \textrm{ (a to je vlastnÄ› \uv{nÄ›co jako} }\sqrt[n]{1}\textrm{)}$$
-vidÃ­me, Å¾e $\omega^k$ je $n$-periodickÃ¡ funkce, takÅ¾e nezÃ¡leÅ¾Ã­ na hranicÃ­ch sumace ($-\frac{n}{2}+1,\dots,\frac{n}{2}$ je ekvivalentnÃ­ $0,\dots,n-1$). 
-Potom se posloupnost $n$ komplexnÃ­ch ÄÃ­sel $\alpha_0, \dots, \alpha_{n-1}$ (napÅ™. hodnot naÅ¡Ã­ funkce v bodech $-\pi + \frac{2\pi k}{n},\ k\in\{0,\dots,n-1\}$) transformuje na posloupnost $n$ komplexnÃ­ch ÄÃ­sel $A_0, \dots, A_{n-1}$ (do bÃ¡ze $\omega^i,\ i\in\{0,\dots,n-1\}$) pouÅ¾itÃ­m vzoreÄku:
+take vektor hodnot funkce lze ekvivalentnì reprezentovat v bázi $e^{i\cdot 2\pi\frac{k}{n}},\ k\in\{0,\dots,n\}$, nebo všechny vektory pùvodní báze lze zapsat jako lineární kombinace vektorù nové báze. Definujeme hodnotu
+$$\omega := e^{i\cdot 2\pi\frac{1}{n}} \textrm{ (a to je vlastnì \uv{nìco jako} }\sqrt[n]{1}\textrm{)}$$
+vidíme, e $\omega^k$ je $n$-periodická funkce, take nezáleí na hranicích sumace ($-\frac{n}{2}+1,\dots,\frac{n}{2}$ je ekvivalentní $0,\dots,n-1$). 
+Potom se posloupnost $n$ komplexních èísel $\alpha_0, \dots, \alpha_{n-1}$ (napø. hodnot naší funkce v bodech $-\pi + \frac{2\pi k}{n},\ k\in\{0,\dots,n-1\}$) transformuje na posloupnost $n$ komplexních èísel $A_0, \dots, A_{n-1}$ (do báze $\omega^i,\ i\in\{0,\dots,n-1\}$) pouitím vzoreèku:
 $$A_j = \sum_{k=0}^{n-1} \alpha_k \omega^{kj}  \;\;\;\;\; j = 0, \dots, n-1$$
-Tento pÅ™evod oznaÄujeme jako \emph{diskrÃ©tnÃ­ Fourierovu transformaci}.
+Tento pøevod oznaèujeme jako \emph{diskrétní Fourierovu transformaci}.
 
-\emph{InverznÃ­ diskrÃ©tnÃ­ Fourierova transformace} je opaÄnÃ½ problÃ©m -- z $n$ FourierovÃ½ch koeficientÅ¯ $A_k$ chceme zpÄ›tnÄ› vypoÄÃ­tat hodnoty funkce $\alpha_k$ v bodech $-\pi + \frac{2\pi k}{n},\ k\in\{0,\dots,n-1$. PlatÃ­:
+\emph{Inverzní diskrétní Fourierova transformace} je opaènı problém -- z $n$ Fourierovıch koeficientù $A_k$ chceme zpìtnì vypoèítat hodnoty funkce $\alpha_k$ v bodech $-\pi + \frac{2\pi k}{n},\ k\in\{0,\dots,n-1$. Platí:
 
 $$\alpha_j = \frac{1}{n}\sum_{k=0}^{n-1} A_k \omega^{-kj}  \;\;\;\;\; j = 0, \dots, n-1$$
 
 \medskip
-\begin{dukaz}
-Definujeme matici $W: W_{p,q}=\omega^{pq}$, potom $A = W\alpha$ (vektorovÄ›), takÅ¾e $a = W^{-1}A$. Definujeme $W': W'_{p,q}=\omega^{-pq}$ a dokÃ¡Å¾eme, Å¾e $W\cdot W'= n\cdot I_n$. MÃ¡me
+\begin{e}{Dùkaz}{0}{0}
+Definujeme matici $W: W_{p,q}=\omega^{pq}$, potom $A = W\alpha$ (vektorovì), take $a = W^{-1}A$. Definujeme $W': W'_{p,q}=\omega^{-pq}$ a dokáeme, e $W\cdot W'= n\cdot I_n$. Máme
 $$(W\cdot W')_{p,q} = \sum_{s=0}^{n-1} W_{p,s}\cdot W'_{s,q} = \sum_{s=0}^{n-1} \omega^{(p-q)\cdot s}$$
 a potom pro
 \begin{pitemize}
-    \item $p = q$ platÃ­ $\sum_{s=0}^{n-1}\omega^{(p-q)\cdot s} = \sum_{s=0}^{n-1}\omega^0 = \sum_{s=0}^{n-1} 1 = n$
+    \item $p = q$ platí $\sum_{s=0}^{n-1}\omega^{(p-q)\cdot s} = \sum_{s=0}^{n-1}\omega^0 = \sum_{s=0}^{n-1} 1 = n$
     \item $p\neq q$ definujeme
     $$Q:= \omega^{p-q}$$
-    a dostaneme geometrickou posloupnost $Q^0 + Q^1 +\dots +Q^{n-1}$, pro jejÃ­Å¾ souÄet prvnÃ­ch $n$ ÄlenÅ¯ platÃ­ vzorec
+    a dostaneme geometrickou posloupnost $Q^0 + Q^1 +\dots +Q^{n-1}$, pro její souèet prvních $n$ èlenù platí vzorec
     $$ \sum_{s=0}^{n-1} Q^s = Q^0 \frac{Q^{n-1+1} - 1}{Q-1} = 1\frac{1-1}{Q-1}= 0 $$
 \end{pitemize}
-\end{dukaz}
+\end{e}
 
 
-\begin{algoritmusN}{Fast Fourier transform (FFT)}
-Fast Fourier transform je algoritmus pro poÄÃ­tÃ¡nÃ­ diskrÃ©tnÃ­ Fourierovy transformace vektorÅ¯ rozmÄ›ru $n=2^k$ v Äase $\Theta(n\log n)$. MÃ¡m-li matici FourierovÃ½ch koeficientÅ¯ $W, W_{p,q} = \alpha_q \omega^{pq}$, mohu ji rozdÄ›lit na lichÃ© a sudÃ© sloupce, u sudÃ½ch vyjÃ¡dÅ™it $\omega^q$ a pro spodnÃ­ polovinu Å™Ã¡dek (se sumami jdoucÃ­mi po dvou) mohu snÃ­Å¾it exponent u $\omega$ o $n/2$ (dÃ­ky periodicitÄ›) a vyjdou stejnÃ¡ ÄÃ­sla:
+\begin{e}{Algoritmus}{0}{Fast Fourier transform (FFT)}
+Fast Fourier transform je algoritmus pro poèítání diskrétní Fourierovy transformace vektorù rozmìru $n=2^k$ v èase $\Theta(n\log n)$. Mám-li matici Fourierovıch koeficientù $W, W_{p,q} = \alpha_q \omega^{pq}$, mohu ji rozdìlit na liché a sudé sloupce, u sudıch vyjádøit $\omega^q$ a pro spodní polovinu øádek (se sumami jdoucími po dvou) mohu sníit exponent u $\omega$ o $n/2$ (díky periodicitì) a vyjdou stejná èísla:
 \begin{align*}
     A_j &= \sum_{k=0}^{n-1} \alpha_k \omega^{kj}\ &j\in\{0,\dots,n-1\}\\
     \\
@@ -43,41 +43,23 @@ Fast Fourier transform je algoritmus pro poÄÃ­tÃ¡nÃ­ diskrÃ©tnÃ­ Fourierovy tra
     A_{j+\frac{n}{2}} &= \sum_{k=0}^{\frac{n}{2}-1} \alpha_{2k}\omega^{2k(j+\frac{n}{2})} + \omega^{(j+\frac{n}{2})} \sum_{k=0}^{\frac{n}{2}-1} \alpha_{2k+1}\omega^{2k(j+\frac{n}{2})}\ &j\in\{0,\dots,\frac{n}{2}-1\}\\
 \end{align*}
 
-\textit{PoznÃ¡mka: pro rychlÃ© a jednoduchÃ© pochopenÃ­ tÄ›ch blektÅ¯ co jsem tu napsal doporuÄuji KuÄerÅ¯v program Algovision}\\ \texttt{http://kam.mff.cuni.cz/\~{}ludek/AlgovisionPage.html} \\ \textit{DFT je tam nÃ¡zornÄ› a pÅ™ehlednÄ› ukÃ¡zanÃ¡.}
-\end{algoritmusN}
+\textit{Poznámka: pro rychlé a jednoduché pochopení tìch blektù co jsem tu napsal doporuèuji Kuèerùv program Algovision}\\ \texttt{http://kam.mff.cuni.cz/\~{}ludek/AlgovisionPage.html} \\ \textit{DFT je tam názornì a pøehlednì ukázaná.}
+\end{e}
 
-TODO: SouvisejÃ­cÃ­ obecnÃ© \uv{vÄ›ci} o FourierovÄ› transofrmaci, pouÅ¾itÃ­ pÅ™i spektrÃ¡lnÃ­ analÃ½ze (Nyquist-Shannon sampling theorem), datovÃ© kompresi (DiskrÃ©tnÃ­ kosinovÃ¡ transformace), nÃ¡sobenÃ­ polynomÅ¯ (+nÃ¡sobenÃ­ velkÃ½ch integerÅ¯).
+TODO: Související obecné \uv{vìci} o Fourierovì transofrmaci, pouití pøi spektrální analıze (Nyquist-Shannon sampling theorem), datové kompresi (Diskrétní kosinová transformace), násobení polynomù (+násobení velkıch integerù).
 
-\subsubsection*{EuklidÅ¯v algoritmus}
+\subsubsection*{Euklidùv algoritmus}
 
-EuklidÅ¯v algoritmus je postup (algoritmus), kterÃ½m lze urÄit nejvÄ›tÅ¡Ã­ho spoleÄnÃ©ho dÄ›litele dvou pÅ™irozenÃ½ch ÄÃ­sel, tzn. nejvyÅ¡Å¡Ã­ ÄÃ­slo takovÃ©, Å¾e beze zbytku dÄ›lÃ­ obÄ› ÄÃ­sla.
+Euklidùv algoritmus je postup (algoritmus), kterım lze urèit nejvìtšího spoleèného dìlitele dvou pøirozenıch èísel, tzn. nejvyšší èíslo takové, e beze zbytku dìlí obì èísla.
 
-Algoritmus (pomocÃ­ rekurze):
+Algoritmus (pomocí rekurze):
 \begin{verbatim}
 function gcd(a, b)
     if b = 0 return a
     else return gcd(b, a mod b)
 \end{verbatim}
 
-Algoritmus (pomocÃ­ iterace):
+Algoritmus (pomocí iterace):
 \begin{verbatim}
 function gcd(a, b)
-    while b â‰  0
-        t := b
-        b := a mod b
-        a := t
-    return a
-\end{verbatim}
-
-Algoritmus (jednoduchÃ½ ale neefektivnÃ­):
-\begin{verbatim}
-function gcd(a, b)
-    while b â‰  0
-        if a > b
-            a := a - b
-        else
-            b := b - a
-    return a
-\end{verbatim}
-
-Doba provÃ¡dÄ›nÃ­ programu je zÃ¡vislÃ¡ na poÄtu prÅ¯chodÅ¯ hlavnÃ­ smyÄkou. Ten je maximÃ¡lnÃ­ tehdy, jsou-li poÄÃ¡teÄnÃ­ hodnoty u a v rovnÃ© dvÄ›ma po sobÄ› jdoucÃ­m ÄlenÅ¯m Fibonacciho posloupnosti. MaximÃ¡lnÃ­ poÄet provedenÃ½ch opakovÃ¡nÃ­ je tedy $\log_\phi (3-\phi)v \approx 4{,}785 \log v + 0{,}6273 = O(\log v)$. PrÅ¯mÄ›rnÃ½ poÄet krokÅ¯ pak je o nÄ›co niÅ¾Å¡Ã­, pÅ™ibliÅ¾nÄ› $\frac{12 \ln 2}{\pi^2}\log v \approx 1{,}9405 \log v = O(\log v)$.
+    while b 

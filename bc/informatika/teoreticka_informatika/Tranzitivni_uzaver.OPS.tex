@@ -1,36 +1,36 @@
-\subsection{TranzitivnÃ­ uzÃ¡vÄ›r}
+\subsection{Tranzitivní uzávìr}
 
-\begin{definice}
-  \textbf{TranzitivnÃ­ uzÃ¡vÄ›r} orientovanÃ©ho grafu je orientovanÃ½ graf s
-  pÅ¯vodnÃ­mi vrcholy a platÃ­, Å¾e existuje hrana z uzlu \emph{u} do uzlu \emph{v}
-  prÃ¡vÄ› tehdy, kdyÅ¾ v pÅ¯vodnÃ­m orientovanÃ©m grafu existuje libovolnÃ¡ orientovanÃ¡
+\begin{e}{Definice}{0}{0}
+  \textbf{Tranzitivní uzávìr} orientovaného grafu je orientovanı graf s
+  pùvodními vrcholy a platí, e existuje hrana z uzlu \emph{u} do uzlu \emph{v}
+  právì tehdy, kdy v pùvodním orientovaném grafu existuje libovolná orientovaná
   cesta z uzlu \emph{u} do uzlu \emph{v}.
-\end{definice}
+\end{e}
 
 \begin{figure}[!ht]
   \begin{center}
     \includegraphics[scale=.7]{informatika/teoreticka_informatika/obrazky/tranzuzaver.png}
-    \caption{TranzitivnÃ­ uzÃ¡vÄ›r grafu (zdroj: http://zorro.fme.vutbr.cz/graphs/foil36.html)}
+    \caption{Tranzitivní uzávìr grafu (zdroj: http://zorro.fme.vutbr.cz/graphs/foil36.html)}
   \end{center}
 \end{figure}
 
-\begin{poznamka}
-  PlatÃ­, Å¾e matice dosaÅ¾itelnosti v grafu $G$ = matice sousednosti tranzitivnÃ­ho
-  uzÃ¡vÄ›ru grafu $G$.
-\end{poznamka}
+\begin{e}{Poznámka}{0}{0}
+  Platí, e matice dosaitelnosti v grafu $G$ = matice sousednosti tranzitivního
+  uzávìru grafu $G$.
+\end{e}
 
 \begin{obecne}{Algoritmus}
-ZÂ kaÅ¾dÃ©ho vrcholu vypustit DFS (Depth-first search~-- prohledÃ¡vÃ¡nÃ­ do hloubky), do spoleÄnÃ© matice zaznamenÃ¡vat dosaÅ¾enÃ© vrcholy (Å™Ã¡dek odpovÃ­dÃ¡ vrcholu, sloupce vrcholÅ¯m, kterÃ© jsou zÂ nÄ›ho dosaÅ¾itelnÃ©) -- sloÅ¾itost $O(n(n+m))$.
+Z kadého vrcholu vypustit DFS (Depth-first search~-- prohledávání do hloubky), do spoleèné matice zaznamenávat dosaené vrcholy (øádek odpovídá vrcholu, sloupce vrcholùm, které jsou z nìho dosaitelné) -- sloitost $O(n(n+m))$.
 \end{obecne}
 
-\begin{obecne}{WarshallÅ¯v algoritmus}
-IterativnÃ­ konstrukce matice dosaÅ¾itelnosti, postupnÄ› poÄÃ­tÃ¡ matice $W_k$, kde $w^{[k]}_{i, j} = 1$, pokud mezi vrcholy $i$ a $j$ existuje cesta, jejÃ­Å¾ vÅ¡echny vnitÅ™nÃ­ vrcholy jsou mezi vrcholy $1\dots k$.
+\begin{obecne}{Warshallùv algoritmus}
+Iterativní konstrukce matice dosaitelnosti, postupnì poèítá matice $W_k$, kde $w^{[k]}_{i, j} = 1$, pokud mezi vrcholy $i$ a $j$ existuje cesta, její všechny vnitøní vrcholy jsou mezi vrcholy $1\dots k$.
 
-ZÂ matice $W_k$ lze spoÄÃ­tat matici $W^{[k+1]}: W^{[k+1]}_{i,j} = W^{[k]}_{i,j}  || (W^{[k]}_{i,k+1} \&\& W^{[k]}_{k+1,j})$ -- buÄ vede mezi vrcholy $i, j$ cesta, kterÃ¡ nepouÅ¾ije vrchol $k+1$, nebo takovÃ¡, kterÃ¡ ho pouÅ¾ije -- vÂ tom pÅ™Ã­padÄ› ale musÃ­ vÃ©st cesty mezi vrcholy $i,k+1$Â a $k+1,j$, kterÃ© pouÅ¾Ã­vajÃ­ pouze vrcholy $1\dots k$, jejich spojenÃ­m je cesta mezi vrcholy $i,j$
+Z matice $W_k$ lze spoèítat matici $W^{[k+1]}: W^{[k+1]}_{i,j} = W^{[k]}_{i,j}  || (W^{[k]}_{i,k+1} \&\& W^{[k]}_{k+1,j})$ -- buï vede mezi vrcholy $i, j$ cesta, která nepouije vrchol $k+1$, nebo taková, která ho pouije -- v tom pøípadì ale musí vést cesty mezi vrcholy $i,k+1$ a $k+1,j$, které pouívají pouze vrcholy $1\dots k$, jejich spojením je cesta mezi vrcholy $i,j$
 
-Matice $W^1$ je matice incidence pÅ¯vodnÃ­ho grafu.
+Matice $W^1$ je matice incidence pùvodního grafu.
 
-PseudokÃ³d (vstup: I -- matice incidence, $[0,1]^{n\times n}$):
+Pseudokód (vstup: I -- matice incidence, $[0,1]^{n\times n}$):
 \begin{verbatim}
 Procedure Warshall(I)
 W:= I;
@@ -47,8 +47,8 @@ end
 return W;
 \end{verbatim}
 
-SloÅ¾itost algoritmu je jasnÄ› $O(n^3)$ (potÅ™ebuje $2n^3$ bitovÃ½ch operacÃ­), coÅ¾ mÅ¯Å¾e bÃ½t lepÅ¡Ã­ pro grafy sÂ hodnÄ› hranami (poÄet hran se blÃ­Å¾Ã­ $n^2$), neÅ¾ sloÅ¾itost $n*DFS$ ( $n*(n + m) â‰ˆ n * (n + n^2) = n^2 + n^3$ )
+Sloitost algoritmu je jasnì $O(n^3)$ (potøebuje $2n^3$ bitovıch operací), co mùe bıt lepší pro grafy s hodnì hranami (poèet hran se blíí $n^2$), ne sloitost $n*DFS$ ( $n*(n + m) \approx n * (n + n^2) = n^2 + n^3$ )
 
 \end{obecne}
 
-TODO: jeÅ¡tÄ› nÄ›co?
+TODO: ještì nìco?

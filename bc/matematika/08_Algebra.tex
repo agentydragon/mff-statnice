@@ -15,305 +15,305 @@
 
 \section{Algebra}
 
-\begin{pozadavky}
+\begin{e}{Poadavky}{0}{0}
 \begin{pitemize}
-    \item Grupa, okruh, tÄ›leso -- definice a pÅ™Ã­klady
-    \item Podgrupa, normÃ¡lnÃ­ podgrupa, faktorgrupa, ideÃ¡l
+    \item Grupa, okruh, tìleso -- definice a pøíklady
+    \item Podgrupa, normální podgrupa, faktorgrupa, ideál
     \item Homomorfismy grup 
-    \item DÄ›litelnost a ireducibilnÃ­ rozklady polynomÅ¯ 
-    \item Rozklady polynomÅ¯ na koÅ™enovÃ© Äinitele pro polynom s reÃ¡lnÃ½mi, racionÃ¡lnÃ­mi, komplexnÃ­mi koeficienty. 
-    \item NÃ¡sobnost koÅ™enÅ¯ a jejich souvislost s derivacemi mnohoÄlenu
+    \item Dìlitelnost a ireducibilní rozklady polynomù 
+    \item Rozklady polynomù na koøenové èinitele pro polynom s reálnımi, racionálními, komplexními koeficienty. 
+    \item Násobnost koøenù a jejich souvislost s derivacemi mnohoèlenu
 \end{pitemize}
-\end{pozadavky}
+\end{e}
 
 
-\subsection{Grupa, okruh, tÄ›leso -- definice a pÅ™Ã­klady}
+\subsection{Grupa, okruh, tìleso -- definice a pøíklady}
 
-\begin{definiceN}{algebra}
-Pro mnoÅ¾inu $A$ je zobrazenÃ­ $\alpha : A^n \to A$, kde $ n \in \{0,1, ...\}$ \emph{n-Ã¡rnÃ­ operace} ($n$ je \emph{arita}). Jsou-li $\alpha_i, i \in I$ operace arity $\Omega_i$ na mnoÅ¾inÄ› $A$, pak $(A, \alpha_i|i\in I )$ je \emph{algebra}.
-\end{definiceN}
+\begin{e}{Definice}{0}{algebra}
+Pro mnoinu $A$ je zobrazení $\alpha : A^n \to A$, kde $ n \in \{0,1, ...\}$ \emph{n-ární operace} ($n$ je \emph{arita}). Jsou-li $\alpha_i, i \in I$ operace arity $\Omega_i$ na mnoinì $A$, pak $(A, \alpha_i|i\in I )$ je \emph{algebra}.
+\end{e}
 
-\begin{definiceN}{grupoid}
-Algebra s 1 binÃ¡rnÃ­ operacÃ­ je \emph{grupoid}. V nÄ›m je $e\in G: e\cdot g = g\cdot e = g\ \forall g\in G$ \emph{neutrÃ¡lnÃ­ prvek}. Algebra s jednou asociativnÃ­ binÃ¡rnÃ­ operacÃ­ a neutrÃ¡lnÃ­m prvkem vzhledem k nÃ­ je \emph{monoid}. NechÅ¥ je dÃ¡n monoid s neutrÃ¡lnÃ­m prvkem $(M, \cdot,e)$ a nÄ›jakÃ½m prvek $m\in M$. Potom Å™ekneme, Å¾e prvek $m^{-1}\in M$ je \emph{inverznÃ­} k prvku $m$, pokud $m\cdot m^{-1} = m^{-1}\cdot m = e$. Prvek je \emph{invertibilnÃ­}, pokud mÃ¡ nÄ›jakÃ½ inverznÃ­ prvek.
-\end{definiceN}
+\begin{e}{Definice}{0}{grupoid}
+Algebra s 1 binární operací je \emph{grupoid}. V nìm je $e\in G: e\cdot g = g\cdot e = g\ \forall g\in G$ \emph{neutrální prvek}. Algebra s jednou asociativní binární operací a neutrálním prvkem vzhledem k ní je \emph{monoid}. Nech je dán monoid s neutrálním prvkem $(M, \cdot,e)$ a nìjakım prvek $m\in M$. Potom øekneme, e prvek $m^{-1}\in M$ je \emph{inverzní} k prvku $m$, pokud $m\cdot m^{-1} = m^{-1}\cdot m = e$. Prvek je \emph{invertibilní}, pokud má nìjakı inverzní prvek.
+\end{e}
 
-\begin{poznamka}
-KaÅ¾dÃ½ grupoid obsahuje nejvÃ½Å¡ 1 neutrÃ¡lnÃ­ prvek. V libovolnÃ©m monoidu platÃ­, Å¾e pokud $(a\cdot b = e)\ \&\ (b\cdot c = e)$, pak $a = c$ (tj. inverznÃ­ prvek zleva a zprava musÃ­ bÃ½t ten samÃ½). KaÅ¾dÃ½ inverznÃ­ prvek je sÃ¡m invertibilnÃ­.
-\end{poznamka}
+\begin{e}{Poznámka}{0}{0}
+Kadı grupoid obsahuje nejvıš 1 neutrální prvek. V libovolném monoidu platí, e pokud $(a\cdot b = e)\ \&\ (b\cdot c = e)$, pak $a = c$ (tj. inverzní prvek zleva a zprava musí bıt ten samı). Kadı inverzní prvek je sám invertibilní.
+\end{e}
 
-\begin{definiceN}{grupa}
-Algebra $(G,\cdot,^{-1},e)$ je \emph{grupa}, pokud je $(G,\cdot,e)$ monoid a $^{-1}$ je operace inv. prvku (tedy unÃ¡rnÃ­ operace, kterÃ¡ kaÅ¾dÃ©mu prvku pÅ™iÅ™adÃ­ prvek k nÄ›mu inverznÃ­).
-Grupa $G$ je \emph{komutativnÃ­ (abelovskÃ¡)}, pokud je operace \uv{$\cdot$} komutativnÃ­.
-\end{definiceN}
+\begin{e}{Definice}{0}{grupa}
+Algebra $(G,\cdot,^{-1},e)$ je \emph{grupa}, pokud je $(G,\cdot,e)$ monoid a $^{-1}$ je operace inv. prvku (tedy unární operace, která kadému prvku pøiøadí prvek k nìmu inverzní).
+Grupa $G$ je \emph{komutativní (abelovská)}, pokud je operace \uv{$\cdot$} komutativní.
+\end{e}
 
-\begin{priklady}
-PÅ™Ã­klady grup:
+\begin{e}{Pøíklady}{0}{0}
+Pøíklady grup:
 \begin{pitemize}
-    \item MnoÅ¾ina $\Real$ s operacÃ­ sÄÃ­tÃ¡nÃ­, inverznÃ­m prvkem $-x$ a neutrÃ¡lnÃ­m prvkem $0$
-    \item MnoÅ¾ina $\Real_{+}$ (kladnÃ½ch reÃ¡lnÃ½ch ÄÃ­sel, tedy bez nuly, protoÅ¾e k tÃ© bychom inverznÃ­ prvek nenaÅ¡li) s operacÃ­ nÃ¡sobenÃ­, inverznÃ­m prvkem $x^{-1}$ a neutrÃ¡lnÃ­m prvkem $1$
-    \item MnoÅ¾ina $\Whole_n=\{0,\dots,n-1\}$ pro $n$ libovolnÃ© pÅ™irozenÃ© ÄÃ­slo; s operacÃ­ sÄÃ­tÃ¡nÃ­ modulo $n$, inverznÃ­m prvkem $(-x)$ modulo $n$ a neutrÃ¡lnÃ­m prvkem $0$
-    \item MnoÅ¾ina polynomÅ¯ stupnÄ› $\leq n$ se sÄÃ­tÃ¡nÃ­m, opaÄnÃ½m polynomem (s opaÄnÃ½mi koeficienty) a neutrÃ¡lnÃ­m prvkem $0$
-    \item MnoÅ¾ina vÅ¡ech permutacÃ­ prvkÅ¯ $(1,\dots,n)$ s operacÃ­ sklÃ¡dÃ¡nÃ­ permutacÃ­, opaÄnou permutacÃ­ (takovou, Å¾e jejÃ­ sloÅ¾enÃ­ s pÅ¯vodnÃ­ dÃ¡vÃ¡ identitu) a neutrÃ¡lnÃ­m prvkem $\id$ (na rozdÃ­l od vÅ¡ech pÅ™edchozÃ­ch pro permutace dÃ©lky vÄ›tÅ¡Ã­ neÅ¾ 3 nenÃ­ abelovskÃ¡)
-    \item MnoÅ¾ina regulÃ¡rnÃ­ch matic $n\times n$ s operacÃ­ maticovÃ©ho nÃ¡sobenÃ­, inverznÃ­mi maticemi a jednotkovou maticÃ­ (taktÃ©Å¾ nenÃ­ obecnÄ› abelovskÃ¡)
+    \item Mnoina $\Real$ s operací sèítání, inverzním prvkem $-x$ a neutrálním prvkem $0$
+    \item Mnoina $\Real_{+}$ (kladnıch reálnıch èísel, tedy bez nuly, protoe k té bychom inverzní prvek nenašli) s operací násobení, inverzním prvkem $x^{-1}$ a neutrálním prvkem $1$
+    \item Mnoina $\Whole_n=\{0,\dots,n-1\}$ pro $n$ libovolné pøirozené èíslo; s operací sèítání modulo $n$, inverzním prvkem $(-x)$ modulo $n$ a neutrálním prvkem $0$
+    \item Mnoina polynomù stupnì $\leq n$ se sèítáním, opaènım polynomem (s opaènımi koeficienty) a neutrálním prvkem $0$
+    \item Mnoina všech permutací prvkù $(1,\dots,n)$ s operací skládání permutací, opaènou permutací (takovou, e její sloení s pùvodní dává identitu) a neutrálním prvkem $\id$ (na rozdíl od všech pøedchozích pro permutace délky vìtší ne 3 není abelovská)
+    \item Mnoina regulárních matic $n\times n$ s operací maticového násobení, inverzními maticemi a jednotkovou maticí (takté není obecnì abelovská)
 \end{pitemize}
-\end{priklady}
+\end{e}
 
 
-\begin{definiceN}{okruh}
-NechÅ¥ $(R,+,\cdot,-,0,1)$ je algebra takovÃ¡, Å¾e $(R,+,-,0)$ tvoÅ™Ã­ komutativnÃ­ grupu, $(R,\cdot,1)$ je monoid a platÃ­ $a(b+c)=ab+ac$ a $(a+b)c=ac+bc\ \forall a,b,c\in R$ (tedy distributivita sÄÃ­tÃ¡nÃ­ vzhledem k nÃ¡sobenÃ­). Pak je $(R,+,\cdot,-,0,1)$ \emph{okruh}.
-\end{definiceN}
+\begin{e}{Definice}{0}{okruh}
+Nech $(R,+,\cdot,-,0,1)$ je algebra taková, e $(R,+,-,0)$ tvoøí komutativní grupu, $(R,\cdot,1)$ je monoid a platí $a(b+c)=ab+ac$ a $(a+b)c=ac+bc\ \forall a,b,c\in R$ (tedy distributivita sèítání vzhledem k násobení). Pak je $(R,+,\cdot,-,0,1)$ \emph{okruh}.
+\end{e}
 
-\begin{priklady}
-PÅ™Ã­klady okruhÅ¯:
+\begin{e}{Pøíklady}{0}{0}
+Pøíklady okruhù:
 \begin{pitemize}
-    \item MnoÅ¾ina $\Whole$ s operacemi sÄÃ­tÃ¡nÃ­ a nÃ¡sobenÃ­, inverzem vÅ¯Äi sÄÃ­tÃ¡nÃ­ -- unÃ¡rnÃ­m minus a neutrÃ¡lnÃ­mi prvky $0$ a $1$.
-    \item MnoÅ¾ina vÅ¡ech lineÃ¡rnÃ­ch zobrazenÃ­ na $\Real^n$ s operacemi sÄÃ­tÃ¡nÃ­ a sklÃ¡dÃ¡nÃ­, \uv{opaÄnÃ½m} zobrazenÃ­m (kde $(-f)(x)=-(f(x))$), nulovÃ½m zobrazenÃ­m a identitou (pro obecnÃ¡ zobrazenÃ­ toto nefunguje, neplatÃ­ distributivita)
+    \item Mnoina $\Whole$ s operacemi sèítání a násobení, inverzem vùèi sèítání -- unárním minus a neutrálními prvky $0$ a $1$.
+    \item Mnoina všech lineárních zobrazení na $\Real^n$ s operacemi sèítání a skládání, \uv{opaènım} zobrazením (kde $(-f)(x)=-(f(x))$), nulovım zobrazením a identitou (pro obecná zobrazení toto nefunguje, neplatí distributivita)
 \end{pitemize}
-\end{priklady}
+\end{e}
 
 
-\begin{poznamkaN}{Vlastnosti okruhÅ¯}
-V okruhu $(R,+,\cdot,-,0,1)$ pro kaÅ¾dÃ© 2 prvky $a,b\in R$ platÃ­: 
+\begin{e}{Poznámka}{0}{Vlastnosti okruhù}
+V okruhu $(R,+,\cdot,-,0,1)$ pro kadé 2 prvky $a,b\in R$ platí: 
 \begin{penumerate}
     \item $0\cdot a = a\cdot 0 = 0$
     \item $(-a)\cdot b = a\cdot(-b)=-(a\cdot b)$
     \item $(-a)\cdot(-b)=a\cdot b$
     \item $|R|>1 \ifandonlyif 0 \neq 1$
 \end{penumerate}
-\end{poznamkaN} 
+\end{e} 
 
-\begin{definiceN}{tÄ›leso}
-\emph{TÄ›leso} je okruh $(F,+,-,\cdot,0,1)$, pro kterÃ½ navÃ­c platÃ­, Å¾e pro kaÅ¾dÃ© $x\in F$ kromÄ› nuly existuje $y\in F$ takovÃ©, Å¾e $x\cdot y = y\cdot x = 1$, tj. pro vÅ¡echny prvky kromÄ› nuly existuje inverznÃ­ prvek vÅ¯Äi operaci \uv{$\cdot$} -- \uv{$x^{-1}$}. NavÃ­c v $F$ musÃ­ platit, Å¾e $0\neq 1$ (vylouÄenÃ­ triviÃ¡lnÃ­ch okruhÅ¯).  
+\begin{e}{Definice}{0}{tìleso}
+\emph{Tìleso} je okruh $(F,+,-,\cdot,0,1)$, pro kterı navíc platí, e pro kadé $x\in F$ kromì nuly existuje $y\in F$ takové, e $x\cdot y = y\cdot x = 1$, tj. pro všechny prvky kromì nuly existuje inverzní prvek vùèi operaci \uv{$\cdot$} -- \uv{$x^{-1}$}. Navíc v $F$ musí platit, e $0\neq 1$ (vylouèení triviálních okruhù).  
 
-\emph{KomutativnÃ­ tÄ›leso} je takovÃ© tÄ›leso, ve kterÃ©m je operace \uv{$\cdot$} komutativnÃ­.
-\end{definiceN}
+\emph{Komutativní tìleso} je takové tìleso, ve kterém je operace \uv{$\cdot$} komutativní.
+\end{e}
 
-\begin{priklady}
-PÅ™Ã­klady tÄ›les:
+\begin{e}{Pøíklady}{0}{0}
+Pøíklady tìles:
 \begin{pitemize}
-    \item TÄ›lesa $\Complex$ a $\Real$
-    \item RacionÃ¡lnÃ­ ÄÃ­sla $\Rational = \{ \frac{a}{b}\ | a,b\in\Whole, b\neq 0\}$
-    \item $\Whole_{p^{n}}=\{0,\dots,p^n-1\}$, kde $p$ je prvoÄÃ­slo a $n$ pÅ™irozenÃ© ÄÃ­slo -- tzv. \emph{Gallois field}, pro danÃ© $p$ a $n$ existuje vÅ¾dy aÅ¾ na isomorfismus (pÅ™ejmenovÃ¡nÃ­ prvkÅ¯) jen jedno.
+    \item Tìlesa $\Complex$ a $\Real$
+    \item Racionální èísla $\Rational = \{ \frac{a}{b}\ | a,b\in\Whole, b\neq 0\}$
+    \item $\Whole_{p^{n}}=\{0,\dots,p^n-1\}$, kde $p$ je prvoèíslo a $n$ pøirozené èíslo -- tzv. \emph{Gallois field}, pro dané $p$ a $n$ existuje vdy a na isomorfismus (pøejmenování prvkù) jen jedno.
 \end{pitemize}
-VÅ¡echna uvedenÃ¡ tÄ›lesa jsou komutativnÃ­. ObecnÄ› vÅ¡echna koneÄnÃ¡ tÄ›lesa jsou komutativnÃ­ (Wedderburnova vÄ›ta).
-\end{priklady}
+Všechna uvedená tìlesa jsou komutativní. Obecnì všechna koneèná tìlesa jsou komutativní (Wedderburnova vìta).
+\end{e}
 
 
-\subsection{Podgrupa, normÃ¡lnÃ­ podgrupa, faktorgrupa, ideÃ¡l}
+\subsection{Podgrupa, normální podgrupa, faktorgrupa, ideál}
 
-\begin{definiceN}{podalgebra}
-MnoÅ¾ina $B$ je \emph{uzavÅ™enÃ¡} na operaci $\alpha$, kdyÅ¾ $\forall b_1,\dots b_n \in B$ platÃ­ $\alpha(b_1, ... b_n) \in B$. Pro algebru $(A, \alpha_i|i\in I)$ je mnoÅ¾ina $B\subseteq A$ spolu s operacemi $\alpha_i$ \emph{podalgebra} $A$, je-li mnoÅ¾ina $B$ uzavÅ™enÃ¡ na operaci $\alpha_i\ \forall i\in I$.
-\end{definiceN}
+\begin{e}{Definice}{0}{podalgebra}
+Mnoina $B$ je \emph{uzavøená} na operaci $\alpha$, kdy $\forall b_1,\dots b_n \in B$ platí $\alpha(b_1, ... b_n) \in B$. Pro algebru $(A, \alpha_i|i\in I)$ je mnoina $B\subseteq A$ spolu s operacemi $\alpha_i$ \emph{podalgebra} $A$, je-li mnoina $B$ uzavøená na operaci $\alpha_i\ \forall i\in I$.
+\end{e}
 
-\begin{definiceN}{podgrupa}
-Podalgebra grupy je \emph{podgrupa} (tj. jde o podmnoÅ¾inu pÅ¯v. mnoÅ¾iny prvkÅ¯, uzavÅ™enou na \uv{$\cdot$} a \uv{$^{-1}$}, spolu s pÅ¯vodnÃ­mi operacemi). Podgrupa $H$ grupy $G$ je \emph{normÃ¡lnÃ­}, pokud pro kaÅ¾dÃ© $g \in G$ (z pÅ¯vodnÃ­ mnoÅ¾iny!) a pro kaÅ¾dÃ© $h \in H$ platÃ­, Å¾e $g^{-1}\cdot h\cdot g \in H$ (nÄ›kdy se pÃ­Å¡e zkrÃ¡cenÄ› $G^{-1}HG\subseteq H$).
-\end{definiceN}
+\begin{e}{Definice}{0}{podgrupa}
+Podalgebra grupy je \emph{podgrupa} (tj. jde o podmnoinu pùv. mnoiny prvkù, uzavøenou na \uv{$\cdot$} a \uv{$^{-1}$}, spolu s pùvodními operacemi). Podgrupa $H$ grupy $G$ je \emph{normální}, pokud pro kadé $g \in G$ (z pùvodní mnoiny!) a pro kadé $h \in H$ platí, e $g^{-1}\cdot h\cdot g \in H$ (nìkdy se píše zkrácenì $G^{-1}HG\subseteq H$).
+\end{e}
 
-\begin{poznamkaN}{Vlastnosti podgrup}
-PrÅ¯nik podgrup $G\cap H$ je opÄ›t podgrupa. To urÄitÄ› neplatÃ­ o sjednocenÃ­ $G\cup H$ (to je podgrupou jen pokud je $G\subset H$ nebo $H\subset G$). KaÅ¾dÃ¡ podmnoÅ¾ina grupy mÃ¡ nÄ›jakou nejmenÅ¡Ã­ podgrupu, kterÃ¡ ji obsahuje -- to je \emph{podgrupa generovanÃ¡} touto \emph{mnoÅ¾inou}. Podgrupa (i grupa) generovanÃ¡ jednÃ­m prvkem se nazÃ½vÃ¡ \emph{cyklickÃ¡}. KaÅ¾dÃ¡ podgrupa cyklickÃ© grupy je takÃ© cyklickÃ¡. 
+\begin{e}{Poznámka}{0}{Vlastnosti podgrup}
+Prùnik podgrup $G\cap H$ je opìt podgrupa. To urèitì neplatí o sjednocení $G\cup H$ (to je podgrupou jen pokud je $G\subset H$ nebo $H\subset G$). Kadá podmnoina grupy má nìjakou nejmenší podgrupu, která ji obsahuje -- to je \emph{podgrupa generovaná} touto \emph{mnoinou}. Podgrupa (i grupa) generovaná jedním prvkem se nazıvá \emph{cyklická}. Kadá podgrupa cyklické grupy je také cyklická. 
 
-Podgrupy kaÅ¾dÃ© grupy spoleÄnÄ› s prÅ¯nikem jako infimem a podgrupou generovanou sjednocenÃ­m jako supremem tvoÅ™Ã­ ÃºplnÃ½ svaz (algebru se dvÄ›ma operacemi se speciÃ¡lnÃ­mi vlastnostmi, supremem a infimem, definovanÃ½mi pro vÅ¡echny jejÃ­ podmnoÅ¾iny). ÃšplnÃ½ svaz se stejnÃ½mi operacemi tvoÅ™Ã­ takÃ© normÃ¡lnÃ­ podgrupy (jde o podsvaz prvnÃ­ho).
-\end{poznamkaN}
+Podgrupy kadé grupy spoleènì s prùnikem jako infimem a podgrupou generovanou sjednocením jako supremem tvoøí úplnı svaz (algebru se dvìma operacemi se speciálními vlastnostmi, supremem a infimem, definovanımi pro všechny její podmnoiny). Úplnı svaz se stejnımi operacemi tvoøí také normální podgrupy (jde o podsvaz prvního).
+\end{e}
 
-\begin{priklady}
-PÅ™Ã­klady podgrup:
+\begin{e}{Pøíklady}{0}{0}
+Pøíklady podgrup:
 \begin{pitemize}
-    \item $G$ a $\{e\}$ jsou vÅ¾dy normÃ¡lnÃ­ podgrupy grupy $(G,\cdot,^{-1},e)$. 
-    \item MnoÅ¾ina $Z(G)=\{z\in G|gz = zg\ \forall g\in G\}$ je normÃ¡lnÃ­ podgrupou $G$ (\uv{\emph{centrum grupy}}).
-    \item $\Whole_8$ mÃ¡ dvÄ› netriviÃ¡lnÃ­ podgrupy -- $\{0,4\}$ a $\{0,2,4,6\}$ (je sama cyklickÃ¡, takÅ¾e obÄ› jsou cyklickÃ©), plus samozÅ™ejmÄ› triviÃ¡lnÃ­ $\Whole_8$ a $\{0\}$.
+    \item $G$ a $\{e\}$ jsou vdy normální podgrupy grupy $(G,\cdot,^{-1},e)$. 
+    \item Mnoina $Z(G)=\{z\in G|gz = zg\ \forall g\in G\}$ je normální podgrupou $G$ (\uv{\emph{centrum grupy}}).
+    \item $\Whole_8$ má dvì netriviální podgrupy -- $\{0,4\}$ a $\{0,2,4,6\}$ (je sama cyklická, take obì jsou cyklické), plus samozøejmì triviální $\Whole_8$ a $\{0\}$.
 \end{pitemize}
-\end{priklady}
+\end{e}
 
-\begin{definice}
-Pro grupu $G$ a jejÃ­ podgrupu $H$ se relace $\rmod_H$ definuje pÅ™edpisem : $(a,b)\in\rmod_H\equiv ab^{-1}\in H$. Symetricky se definuje relace $\lmod_H$ ($(a,b)\in\lmod_H\equiv a^{-1}b\in H$). Tyto relace jsou ekvivalence. \emph{Index podgrupy v grupÄ›} je $[G:H]=|G/\rmod_H|=|G/\lmod_H|$ (poÄet tÅ™Ã­d ekvivalence podle $\rmod_H$ nebo $\lmod_H$).
-\end{definice}
+\begin{e}{Definice}{0}{0}
+Pro grupu $G$ a její podgrupu $H$ se relace $\rmod_H$ definuje pøedpisem : $(a,b)\in\rmod_H\equiv ab^{-1}\in H$. Symetricky se definuje relace $\lmod_H$ ($(a,b)\in\lmod_H\equiv a^{-1}b\in H$). Tyto relace jsou ekvivalence. \emph{Index podgrupy v grupì} je $[G:H]=|G/\rmod_H|=|G/\lmod_H|$ (poèet tøíd ekvivalence podle $\rmod_H$ nebo $\lmod_H$).
+\end{e}
 
-\begin{vetaN}{Lagrangeova}
-Pro grupu $G$ a jejÃ­ podgrupu $H$ platÃ­: $|G|=[G:H]\cdot|H|$. Z toho plyne, Å¾e velikost podgrupy dÄ›lÃ­ velikost koneÄnÃ© grupy.
-\end{vetaN}
+\begin{e}{Vìta}{0}{Lagrangeova}
+Pro grupu $G$ a její podgrupu $H$ platí: $|G|=[G:H]\cdot|H|$. Z toho plyne, e velikost podgrupy dìlí velikost koneèné grupy.
+\end{e}
 
 
-\begin{definiceN}{faktorgrupa}
-Pro grupu $(G,\cdot,^{-1},e)$ a nÄ›jakou jejÃ­ normÃ¡lnÃ­ podgrupu $N$ je \emph{faktorgrupa} $G/N=\{gn|g\in G,n\in N\}$. BÄ›Å¾nÄ› se definuje jako mnoÅ¾ina vÅ¡ech levÃ½ch rozkladovÃ½ch tÅ™Ã­d podle nÄ›jakÃ© normÃ¡lnÃ­ podgrupy (kde levÃ¡ \emph{rozkladovÃ¡ tÅ™Ã­da} podle podgrupy je $gH=\{gh|h\in H\}$). Faktorgrupa cyklickÃ© nebo abelovskÃ© grupy je takÃ© cyklickÃ¡, resp. abelovskÃ¡.
-\end{definiceN}
+\begin{e}{Definice}{0}{faktorgrupa}
+Pro grupu $(G,\cdot,^{-1},e)$ a nìjakou její normální podgrupu $N$ je \emph{faktorgrupa} $G/N=\{gn|g\in G,n\in N\}$. Bìnì se definuje jako mnoina všech levıch rozkladovıch tøíd podle nìjaké normální podgrupy (kde levá \emph{rozkladová tøída} podle podgrupy je $gH=\{gh|h\in H\}$). Faktorgrupa cyklické nebo abelovské grupy je také cyklická, resp. abelovská.
+\end{e}
 
-\begin{priklady}
-PÅ™Ã­klady faktorgrup:
+\begin{e}{Pøíklady}{0}{0}
+Pøíklady faktorgrup:
 \begin{pitemize}
-    \item Pro grupu celÃ½ch ÄÃ­sel $\Whole$ a jejÃ­ normÃ¡lnÃ­ podgrupu sudÃ½ch celÃ½ch ÄÃ­sel $2\Whole$ je $\Whole/2\Whole$ faktorgrupou, isomorfnÃ­ s grupou $\{0,1\}$. PodobnÄ› to platÃ­ pro libovolnÃ© $n\Whole$, kde $n$ je pÅ™irozenÃ©.
-    \item $\Real/\Whole$ je faktorgrupa grupy $\Real$ (rozkladovÃ© tÅ™Ã­dy jsou tvaru $a + \Whole$, kde $a$ je reÃ¡lnÃ© ÄÃ­slo v intervalu $\langle 0,1)$.
-    \item FaktorovÃ¡ grupa $\Whole_4/\{0,2\}$ je isomorfnÃ­ se $\Whole_2$. 
+    \item Pro grupu celıch èísel $\Whole$ a její normální podgrupu sudıch celıch èísel $2\Whole$ je $\Whole/2\Whole$ faktorgrupou, isomorfní s grupou $\{0,1\}$. Podobnì to platí pro libovolné $n\Whole$, kde $n$ je pøirozené.
+    \item $\Real/\Whole$ je faktorgrupa grupy $\Real$ (rozkladové tøídy jsou tvaru $a + \Whole$, kde $a$ je reálné èíslo v intervalu $\langle 0,1)$.
+    \item Faktorová grupa $\Whole_4/\{0,2\}$ je isomorfní se $\Whole_2$. 
 \end{pitemize}
-\end{priklady}
+\end{e}
 
-\begin{definiceN}{kongruence}
-ObecnÄ› v algebrÃ¡ch je \emph{ relace $\rho$ sluÄitelnÃ¡ s operacÃ­ $\alpha$} arity $n$, pokud $a_1,\dots a_n, b_1,\dots b_n : (a_i,b_i)\in\rho\ \forall i$ implikuje $(\alpha(a_1,\dots a_n),\alpha(b_1,\dots b_n))\in\rho$. \emph{Kongruence} je kaÅ¾dÃ¡ ekvivalence sluÄitelnÃ¡ se vÅ¡emi operacemi algebry.
-\end{definiceN}
+\begin{e}{Definice}{0}{kongruence}
+Obecnì v algebrách je \emph{ relace $\rho$ sluèitelná s operací $\alpha$} arity $n$, pokud $a_1,\dots a_n, b_1,\dots b_n : (a_i,b_i)\in\rho\ \forall i$ implikuje $(\alpha(a_1,\dots a_n),\alpha(b_1,\dots b_n))\in\rho$. \emph{Kongruence} je kadá ekvivalence sluèitelná se všemi operacemi algebry.
+\end{e}
 
-\begin{poznamka}
-Faktorgrupa je vlastnÄ› grupa, v nÃ­Å¾ jsou jednotlivÃ© prvky tÅ™Ã­dy ekvivalence na pÅ¯vodnÃ­ grupÄ› podle nÄ›jakÃ© kongruence (levÃ© rozkladovÃ© tÅ™Ã­dy tvoÅ™Ã­ kongruence).
-\end{poznamka}
+\begin{e}{Poznámka}{0}{0}
+Faktorgrupa je vlastnì grupa, v ní jsou jednotlivé prvky tøídy ekvivalence na pùvodní grupì podle nìjaké kongruence (levé rozkladové tøídy tvoøí kongruence).
+\end{e}
 
-\begin{definiceN}{ideÃ¡l}
-NechÅ¥ $(R,+,\cdot,-,0,1)$ je okruh a $I\subseteq R$. Pak $I$ je \emph{pravÃ½ ideÃ¡l}, pokud $I\leq (R,+,-,0)$ (tzn. $I$ je podgrupou grupy $R$; je i normÃ¡lnÃ­, protoÅ¾e grupa $R$ je z definice okruhu komutativnÃ­) a pro kaÅ¾dÃ© $i\in I$ a $r\in R$ platÃ­ $i\cdot r\in I$. \emph{LevÃ½ ideÃ¡l} se definuje stejnÄ›, jen poslednÃ­ podmÃ­nka znÃ­ $r\cdot i\in I$. KaÅ¾dÃ½ levÃ½ i pravÃ½ ideÃ¡l $I$ je podle tÃ©to definice uzavÅ™enÃ½ na nÃ¡sobenÃ­. 
+\begin{e}{Definice}{0}{ideál}
+Nech $(R,+,\cdot,-,0,1)$ je okruh a $I\subseteq R$. Pak $I$ je \emph{pravı ideál}, pokud $I\leq (R,+,-,0)$ (tzn. $I$ je podgrupou grupy $R$; je i normální, protoe grupa $R$ je z definice okruhu komutativní) a pro kadé $i\in I$ a $r\in R$ platí $i\cdot r\in I$. \emph{Levı ideál} se definuje stejnì, jen poslední podmínka zní $r\cdot i\in I$. Kadı levı i pravı ideál $I$ je podle této definice uzavøenı na násobení. 
 
-$I$ je \emph{ideÃ¡l}, pokud je pravÃ½ a zÃ¡roveÅˆ levÃ½ ideÃ¡l. IdeÃ¡l je \emph{netriviÃ¡lnÃ­ (vlastnÃ­)}, pokud $I\neq R$ a $I\neq \{0\}$. 
-\end{definiceN}
+$I$ je \emph{ideál}, pokud je pravı a zároveò levı ideál. Ideál je \emph{netriviální (vlastní)}, pokud $I\neq R$ a $I\neq \{0\}$. 
+\end{e}
 
-\begin{priklady}
-PÅ™Ã­klady ideÃ¡lÅ¯:
+\begin{e}{Pøíklady}{0}{0}
+Pøíklady ideálù:
 \begin{pitemize}
-    \item $\{0\}$ a $R$ jsou (nevlastnÃ­, triviÃ¡lnÃ­) ideÃ¡ly v kaÅ¾dÃ©m okruhu $R$
-    \item SudÃ¡ celÃ¡ ÄÃ­sla tvoÅ™Ã­ ideÃ¡l v okruhu $\Whole$, podobnÄ› to platÃ­ pro $n\Whole$, kde $n$ je pÅ™irozenÃ©.
-    \item MnoÅ¾ina polynomÅ¯ dÄ›litelnÃ½ch $x^2+1$ je ideÃ¡lem v okruhu vÅ¡ech polynomÅ¯ s 1 promÄ›nnou a reÃ¡lnÃ½mi koeficienty
-    \item MnoÅ¾ina matic $n\times n$ s nulovÃ½m poslednÃ­m sloupcem vpravo je levÃ½ ideÃ¡l v okruhu vÅ¡ech matic $n\times n$, nenÃ­ to ale pravÃ½ ideÃ¡l (podobnÄ› s Å™Ã¡dky a opaÄnÃ½mi ideÃ¡ly)
+    \item $\{0\}$ a $R$ jsou (nevlastní, triviální) ideály v kadém okruhu $R$
+    \item Sudá celá èísla tvoøí ideál v okruhu $\Whole$, podobnì to platí pro $n\Whole$, kde $n$ je pøirozené.
+    \item Mnoina polynomù dìlitelnıch $x^2+1$ je ideálem v okruhu všech polynomù s 1 promìnnou a reálnımi koeficienty
+    \item Mnoina matic $n\times n$ s nulovım posledním sloupcem vpravo je levı ideál v okruhu všech matic $n\times n$, není to ale pravı ideál (podobnì s øádky a opaènımi ideály)
 \end{pitemize}
-\end{priklady}
+\end{e}
 
 
-\begin{poznamkaN}{Vlastnosti ideÃ¡lÅ¯}
-PrÅ¯nik (levÃ½ch, pravÃ½ch) ideÃ¡lÅ¯ tvoÅ™Ã­ opÄ›t (levÃ½, pravÃ½) ideÃ¡l. \emph{IdeÃ¡l generovanÃ½ podmnoÅ¾inou} $X$ okruhu $R$ je prÅ¯nik vÅ¡ech ideÃ¡lÅ¯ v $R$, kterÃ© $X$ obsahujÃ­. VÅ¡echny ideÃ¡ly nad nÄ›jakÃ½m okruhem s prÅ¯niky a ideÃ¡ly generovanÃ½mi sjednocenÃ­m tvoÅ™Ã­ ÃºplnÃ½ svaz.
+\begin{e}{Poznámka}{0}{Vlastnosti ideálù}
+Prùnik (levıch, pravıch) ideálù tvoøí opìt (levı, pravı) ideál. \emph{Ideál generovanı podmnoinou} $X$ okruhu $R$ je prùnik všech ideálù v $R$, které $X$ obsahují. Všechny ideály nad nìjakım okruhem s prùniky a ideály generovanımi sjednocením tvoøí úplnı svaz.
 
-$I$ je \emph{maximÃ¡lnÃ­ ideÃ¡l}, pokud je netriviÃ¡lnÃ­ a Å¾Ã¡dnÃ½ jinÃ½ netriviÃ¡lnÃ­ ideÃ¡l nenÃ­ jeho nevlastnÃ­ nadmnoÅ¾inou. \emph{PrvoideÃ¡l} $P$ v okruhu $R$ je takovÃ½ ideÃ¡l, Å¾e pro kaÅ¾dÃ© $a,b\in R$, pokud je $ab\in P$, potom musÃ­ bÃ½t $a\in P$ nebo $b\in P$. PrvoideÃ¡ly majÃ­ v nÄ›kterÃ½ch ohledech podobnÃ© vlastnosti jako prvoÄÃ­sla.\par
-Je-li ideÃ¡l vlastnÃ­, pak neobsahuje $1$. KaÅ¾dÃ½ ideÃ¡l je neprÃ¡zdnÃ½, protoÅ¾e jako podgrupa $(R,+,-,0)$ musÃ­ obsahovat $0$. 
-\end{poznamkaN}
+$I$ je \emph{maximální ideál}, pokud je netriviální a ádnı jinı netriviální ideál není jeho nevlastní nadmnoinou. \emph{Prvoideál} $P$ v okruhu $R$ je takovı ideál, e pro kadé $a,b\in R$, pokud je $ab\in P$, potom musí bıt $a\in P$ nebo $b\in P$. Prvoideály mají v nìkterıch ohledech podobné vlastnosti jako prvoèísla.\par
+Je-li ideál vlastní, pak neobsahuje $1$. Kadı ideál je neprázdnı, protoe jako podgrupa $(R,+,-,0)$ musí obsahovat $0$. 
+\end{e}
 
 \subsection{Homomorfismy grup}
 
-\subsubsection*{ObecnÃ¡ tvrzenÃ­ o homomorfismech algeber (platÃ­ i pro grupy)}
+\subsubsection*{Obecná tvrzení o homomorfismech algeber (platí i pro grupy)}
 
-\begin{definiceN}{homomorfismus}
-O zobrazenÃ­ $f: A\to B$ Å™ekneme, Å¾e je \emph{sluÄitelnÃ©} s operacÃ­ $\alpha$, pokud pro kaÅ¾dÃ© $a_1,\dots a_n\in A$ platÃ­ $f(\alpha_{(A)}(a_1, ... a_n )) = \alpha_{(B)}( f(a_1), ... f(a_n) )$. Pro algebry stejnÃ©ho typu (se stejnÃ½m poÄtem operacÃ­ stejnÃ© arity) je zobrazenÃ­ $f:A\to B$ \emph{homomorfismus}, pokud je sluÄitelnÃ© se vÅ¡emi jejich operacemi.
+\begin{e}{Definice}{0}{homomorfismus}
+O zobrazení $f: A\to B$ øekneme, e je \emph{sluèitelné} s operací $\alpha$, pokud pro kadé $a_1,\dots a_n\in A$ platí $f(\alpha_{(A)}(a_1, ... a_n )) = \alpha_{(B)}( f(a_1), ... f(a_n) )$. Pro algebry stejného typu (se stejnım poètem operací stejné arity) je zobrazení $f:A\to B$ \emph{homomorfismus}, pokud je sluèitelné se všemi jejich operacemi.
 
-BijektivnÃ­ homomorfismus se nazÃ½vÃ¡ \emph{isomorfismus}, algebry stejnÃ©ho typu jsou \emph{isomorfnÃ­}, existuje-li mezi nimi aspoÅˆ 1 isomorfismus.
-\end{definiceN}
+Bijektivní homomorfismus se nazıvá \emph{isomorfismus}, algebry stejného typu jsou \emph{isomorfní}, existuje-li mezi nimi aspoò 1 isomorfismus.
+\end{e}
 
-\begin{poznamkaN}{Vlastnosti homomorfismÅ¯}
-SloÅ¾enÃ­ homomorfismÅ¯ je homomorfismus. Je-li $f$ bijekce a homomorfismus, je $f^{-1}$ taky homomorfismus.
-\end{poznamkaN}
+\begin{e}{Poznámka}{0}{Vlastnosti homomorfismù}
+Sloení homomorfismù je homomorfismus. Je-li $f$ bijekce a homomorfismus, je $f^{-1}$ taky homomorfismus.
+\end{e}
 
-\begin{definiceN}{pÅ™irozenÃ¡ projekce, jÃ¡dro zobrazenÃ­}
-\emph{PÅ™irozenÃ¡ projekce} mnoÅ¾iny $A$ podle kongruence $\rho$ je $\pi_{\rho}: A\rightarrow A/\rho$, kde    $\pi_{\rho}(a) = [a]_{\rho}$. Pro zobrazenÃ­ $f:A\to B$ se \emph{jÃ¡dro zobrazenÃ­} definuje jako relace $\ker f$ pÅ™edpisem $(a_1,a_2)\in \ker f \equiv^{def} f(a_1) = f(a_2)$.
-\end{definiceN}
+\begin{e}{Definice}{0}{pøirozená projekce, jádro zobrazení}
+\emph{Pøirozená projekce} mnoiny $A$ podle kongruence $\rho$ je $\pi_{\rho}: A\rightarrow A/\rho$, kde    $\pi_{\rho}(a) = [a]_{\rho}$. Pro zobrazení $f:A\to B$ se \emph{jádro zobrazení} definuje jako relace $\ker f$ pøedpisem $(a_1,a_2)\in \ker f \equiv^{def} f(a_1) = f(a_2)$.
+\end{e}
 
-\begin{poznamkaN}{homomorfismy a kongruence}
-Pro kaÅ¾dou kongruenci $\rho$ na libovolnÃ© algebÅ™e $A$ je pÅ™irozenÃ¡ projekce $\pi_{\rho}:A\to A/\rho$ homomorfismus.
-\end{poznamkaN}
+\begin{e}{Poznámka}{0}{homomorfismy a kongruence}
+Pro kadou kongruenci $\rho$ na libovolné algebøe $A$ je pøirozená projekce $\pi_{\rho}:A\to A/\rho$ homomorfismus.
+\end{e}
 
-\begin{vetaN}{O homomorfismu}
-NechÅ¥ $f:A\to B$ je homomorfismus algeber stejnÃ©ho typu a $\rho$ kongruence na $A$. Potom:
+\begin{e}{Vìta}{0}{O homomorfismu}
+Nech $f:A\to B$ je homomorfismus algeber stejného typu a $\rho$ kongruence na $A$. Potom:
 \begin{penumerate}
-    \item existuje homomorfismus $g:A/\rho\to B$ takovÃ½, Å¾e $f=g\pi_{\rho}$  prÃ¡vÄ› kdyÅ¾ $\rho\subseteq \ker f$,
-    \item $g$ je navÃ­c isomorfismus, prÃ¡vÄ› kdyÅ¾ $f$ je na (surjekce) a $\rho = \ker f$.
+    \item existuje homomorfismus $g:A/\rho\to B$ takovı, e $f=g\pi_{\rho}$  právì kdy $\rho\subseteq \ker f$,
+    \item $g$ je navíc isomorfismus, právì kdy $f$ je na (surjekce) a $\rho = \ker f$.
 \end{penumerate}
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{VÄ›ty o isomorfismu}
+\begin{e}{Vìta}{0}{Vìty o isomorfismu}
 \begin{penumerate}
-    \item NechÅ¥ $f:A\to B$ je homomorfismus algeber stejnÃ©ho typu, pak $f(A)$ je podalgebra $B$ a $^{A}/_{\ker f}$ je isomorfnÃ­ algebÅ™e $f(A)$.
-    \item NechÅ¥ $\rho\subseteq\eta$ jsou dvÄ› kongruence na algebÅ™e $A$. Pak algebra $^{(A/\rho)}/_{(\eta/\rho)}$ je isomorfnÃ­ algebÅ™e $^A/_{\eta}$.
+    \item Nech $f:A\to B$ je homomorfismus algeber stejného typu, pak $f(A)$ je podalgebra $B$ a $^{A}/_{\ker f}$ je isomorfní algebøe $f(A)$.
+    \item Nech $\rho\subseteq\eta$ jsou dvì kongruence na algebøe $A$. Pak algebra $^{(A/\rho)}/_{(\eta/\rho)}$ je isomorfní algebøe $^A/_{\eta}$.
 \end{penumerate}
-\end{vetaN}
+\end{e}
 
 \subsubsection*{Homomorfismy grup}
 
-\begin{vetaN}{O homomorfismu grup}
-Je-li zobrazenÃ­ $f:G\to H$, kde $G,H$ jsou grupy, sluÄitelnÃ© s bin. operacÃ­, pak je homomorfismus. (DÅ¯kaz: nejdÅ™Ã­v dokÃ¡zat sluÄitelnost s \uv{$e$} a pak \uv{$^{-1}$}, oboje pÅ™Ã­mo z definice grupy.)
-\end{vetaN}
+\begin{e}{Vìta}{0}{O homomorfismu grup}
+Je-li zobrazení $f:G\to H$, kde $G,H$ jsou grupy, sluèitelné s bin. operací, pak je homomorfismus. (Dùkaz: nejdøív dokázat sluèitelnost s \uv{$e$} a pak \uv{$^{-1}$}, oboje pøímo z definice grupy.)
+\end{e}
 
-\begin{definiceN}{mocnina prvku}
-V grupÄ› lze definovat \emph{$g^n$} (kde $n\in\Whole$) jako: 
+\begin{e}{Definice}{0}{mocnina prvku}
+V grupì lze definovat \emph{$g^n$} (kde $n\in\Whole$) jako: 
 \begin{pitemize}
     \item $g^0=1$, 
     \item $g^{n+1}=g\cdot g^n\ \ (n>0)$, 
     \item $g^{n}=(g^{-1})^{-n}\ \ (n<0)$.
 \end{pitemize}
 
-\emph{MocninnÃ¡ podgrupa} grupy $G$ je potom cyklickÃ¡ podgrupa -- pro nÄ›jakÃ½ prvek $g\in G$ jde o mnoÅ¾inu $\{\dots,g^{-1},g^0,g,g^2,\dots\}$.
-\end{definiceN}
+\emph{Mocninná podgrupa} grupy $G$ je potom cyklická podgrupa -- pro nìjakı prvek $g\in G$ jde o mnoinu $\{\dots,g^{-1},g^0,g,g^2,\dots\}$.
+\end{e}
 
-\begin{poznamkaN}{O mocninÄ› prvku}
-Je-li zobrazenÃ­ $\varphi:\Whole\to G$ definovÃ¡no pÅ™edpisem  $\varphi_g (n) = g^{n}$ (tj. jde o mocniny prvku $g$), kde $g\in (G,\cdot,^{-1},1)$, pak je $\varphi$ grupovÃ½ homomorfismus $(\Whole,+,-,0)$ a $(G,\cdot,^{-1},1)$.
-\end{poznamkaN}
+\begin{e}{Poznámka}{0}{O mocninì prvku}
+Je-li zobrazení $\varphi:\Whole\to G$ definováno pøedpisem  $\varphi_g (n) = g^{n}$ (tj. jde o mocniny prvku $g$), kde $g\in (G,\cdot,^{-1},1)$, pak je $\varphi$ grupovı homomorfismus $(\Whole,+,-,0)$ a $(G,\cdot,^{-1},1)$.
+\end{e}
 
-\begin{poznamkaN}{Vlastnosti cyklickÃ½ch grup}
-NechÅ¥ grupa $(G,\cdot,^{-1},1)$ je cyklickÃ¡. Potom platÃ­:
+\begin{e}{Poznámka}{0}{Vlastnosti cyklickıch grup}
+Nech grupa $(G,\cdot,^{-1},1)$ je cyklická. Potom platí:
 \begin{penumerate}
-    \item Je-li $G$ nekoneÄnÃ¡, pak $G\simeq(\Whole,+,-,0)$ (je isomorfnÃ­ s celÃ½mi ÄÃ­sly).
-    \item Je-li $n = |G|$ koneÄnÃ©, pak $(G,\cdot,^{-1},1)\simeq(\Whole_n,+,-,0)$ (je isomorfnÃ­ s grupou zbytkovÃ½ch tÅ™Ã­d odpovÃ­dajÃ­cÃ­ velikosti).
+    \item Je-li $G$ nekoneèná, pak $G\simeq(\Whole,+,-,0)$ (je isomorfní s celımi èísly).
+    \item Je-li $n = |G|$ koneèné, pak $(G,\cdot,^{-1},1)\simeq(\Whole_n,+,-,0)$ (je isomorfní s grupou zbytkovıch tøíd odpovídající velikosti).
 \end{penumerate}
-\end{poznamkaN}
+\end{e}
 
-\subsection{DÄ›litelnost a ireducibilnÃ­ rozklady polynomÅ¯}
+\subsection{Dìlitelnost a ireducibilní rozklady polynomù}
 
 \begin{center}
-Zdroje nÃ¡sledujÃ­cÃ­ch sekcÃ­: texty J. Å½emliÄky k pÅ™ednÃ¡Å¡ce Algebra II\\
+Zdroje následujících sekcí: texty J. emlièky k pøednášce Algebra II\\
 \texttt{http://www.karlin.mff.cuni.cz/\~{}zemlicka/cvic6-7/algi.htm}\\
-a skripta R. El Bashira k pÅ™ednÃ¡Å¡ce Algebra I a II pro matematiky\\
+a skripta R. El Bashira k pøednášce Algebra I a II pro matematiky\\
 \texttt{http://www.karlin.mff.cuni.cz/\~{}bashir/}\\
 \end{center}
 
-\subsubsection*{NejvÄ›tÅ¡Ã­ spoleÄnÃ½ dÄ›litel}
+\subsubsection*{Nejvìtší spoleènı dìlitel}
 
-\begin{definiceN}{KomutativnÃ­ monoid s krÃ¡cenÃ­m}
-Monoid $(S,\cdot, 1)$ je \emph{komutativnÃ­ monoid s krÃ¡cenÃ­m}, pokud operace \uv{$\cdot$} je komutativnÃ­ a navÃ­c splÅˆuje $$\forall a,b,c\in S: a\cdot c=b\cdot c\implies a = b$$
-\end{definiceN}
+\begin{e}{Definice}{0}{Komutativní monoid s krácením}
+Monoid $(S,\cdot, 1)$ je \emph{komutativní monoid s krácením}, pokud operace \uv{$\cdot$} je komutativní a navíc splòuje $$\forall a,b,c\in S: a\cdot c=b\cdot c\implies a = b$$
+\end{e}
 
-\begin{definiceN}{DÄ›lenÃ­, asociovanost}
-O prvcÃ­ch $a,b$ nÄ›jakÃ©ho komutativnÃ­ho monoidu s krÃ¡cenÃ­m $S$ Å™ekneme, Å¾e \emph{$a$ dÄ›lÃ­ $b$} ($a|b$, $b$ je dÄ›litelnÃ© $a$), pokud existuje takovÃ© $c\in S$, Å¾e $b=a\cdot c$. Å˜ekneme, Å¾e \emph{$a$ je asociovÃ¡n s $b$} ($a||b$), jestliÅ¾e $a|b$ a zÃ¡roveÅˆ $b|a$.
-\end{definiceN}
+\begin{e}{Definice}{0}{Dìlení, asociovanost}
+O prvcích $a,b$ nìjakého komutativního monoidu s krácením $S$ øekneme, e \emph{$a$ dìlí $b$} ($a|b$, $b$ je dìlitelné $a$), pokud existuje takové $c\in S$, e $b=a\cdot c$. Øekneme, e \emph{$a$ je asociován s $b$} ($a||b$), jestlie $a|b$ a zároveò $b|a$.
+\end{e}
 
-\begin{definiceN}{Obor integrity}
-\emph{Obor integrity} je takovÃ½ komutativnÃ­ okruh $(R,+,\cdot,-,0,1)$, ve kterÃ©m platÃ­, Å¾e $a\cdot b=0$ implikuje $a=0$ nebo $b=0$.
-\end{definiceN}
+\begin{e}{Definice}{0}{Obor integrity}
+\emph{Obor integrity} je takovı komutativní okruh $(R,+,\cdot,-,0,1)$, ve kterém platí, e $a\cdot b=0$ implikuje $a=0$ nebo $b=0$.
+\end{e}
 
-\begin{priklady}
+\begin{e}{Pøíklady}{0}{0}
 \begin{penumerate}
     \item $(\Whole,+,\cdot,-,0,1)$ je obor integrity.
-    \item Pro kaÅ¾dÃ½ obor integrity $(R,+,\cdot,-,0,1)$ je $(R\setminus\{0\},\cdot,1)$ komutativnÃ­ monoid s krÃ¡cenÃ­m (\uv{multiplikativnÃ­ monoid}).
+    \item Pro kadı obor integrity $(R,+,\cdot,-,0,1)$ je $(R\setminus\{0\},\cdot,1)$ komutativní monoid s krácením (\uv{multiplikativní monoid}).
 \end{penumerate}
-\end{priklady}
+\end{e}
 
-\begin{poznamkaN}{Vlastnosti \uv{$||$}}
-V komutativnÃ­m monoidu s krÃ¡cenÃ­m $(S,\cdot,1)$ platÃ­ pro $a,b\in S$, Å¾e $a||b$, prÃ¡vÄ› kdyÅ¾ existuje invertibilnÃ­ prvek $u$ z $S$  takovÃ½, Å¾e $a=b\cdot u$. Relace \uv{$||$} tvoÅ™Ã­ kongruenci na $S$ a faktoralgebra $(S/||,\cdot,[1]_{||})$ podle tÃ©to kongruence je takÃ© komutativnÃ­ monoid s krÃ¡cenÃ­m (relace \uv{$|$} na nÄ›m tvoÅ™Ã­ uspoÅ™Ã¡dÃ¡nÃ­).
-\end{poznamkaN}
-
-
-\begin{definiceN}{NejvÄ›tÅ¡Ã­ spoleÄnÃ½ dÄ›litel}
-MÄ›jme komutativnÃ­ monoid s krÃ¡cenÃ­m $(S,\cdot,1)$ a v nÄ›m prvky $a_1,\dots,a_n$. Prvek $c$ nazveme nejvÄ›tÅ¡Ã­m spoleÄnÃ½m dÄ›litelem prvkÅ¯ $a_1,\dots,a_n$, pokud $c|a_i$ pro vÅ¡echna $i\in\{1,\dots,n\}$ a zÃ¡roveÅˆ libovolnÃ½ prvek $d\in S$, kterÃ½ dÄ›lÃ­ vÅ¡echna $a_i$ dÄ›lÃ­ i $c$. PÃ­Å¡eme $\NSD(a_1,\dots,a_n)=c$. 
-
-StejnÄ› se definuje nejvÄ›tÅ¡Ã­ spoleÄnÃ½ dÄ›litel pro obory integrity (bereme obor integrity $(R,+,\cdot,-,1,0)$ jako komutativnÃ­ monoid s krÃ¡cenÃ­m $(R\setminus\{0\},\cdot,1)$).
-\end{definiceN}
-
-\begin{definiceN}{IreducibilnÃ­ prvek, prvoÄinitelÃ©}
-Prvek $c$ komutativnÃ­ho monoidu s krÃ¡cenÃ­m $(S,\cdot,1)$ nazveme \emph{ireducibilnÃ­m}, pokud $c$ nenÃ­ invertibilnÃ­ a zÃ¡roveÅˆ $c=a\cdot b$ pro nÄ›jakÃ© $a,b\in S$ vÅ¾dy implikuje $c||a$ nebo $c||b$. Prvek $c$ nazveme \emph{prvoÄinitelem}, pokud nenÃ­ invertibilnÃ­ a zÃ¡roveÅˆ $c|a\cdot b$ pro $a,b\in S$ vÅ¾dy implikuje $c|a$ nebo $c|b$. 
-
-Na oborech integrity se prvoÄinitelÃ© a ireducibilnÃ­ prvky definujÃ­ stejnÄ›.
-\end{definiceN}
+\begin{e}{Poznámka}{0}{Vlastnosti \uv{$||$}}
+V komutativním monoidu s krácením $(S,\cdot,1)$ platí pro $a,b\in S$, e $a||b$, právì kdy existuje invertibilní prvek $u$ z $S$  takovı, e $a=b\cdot u$. Relace \uv{$||$} tvoøí kongruenci na $S$ a faktoralgebra $(S/||,\cdot,[1]_{||})$ podle této kongruence je také komutativní monoid s krácením (relace \uv{$|$} na nìm tvoøí uspoøádání).
+\end{e}
 
 
-\begin{vetaN}{Vlastnosti $\NSD$}
-V komutativnÃ­m monoidu s krÃ¡cenÃ­m $(S,\cdot,1)$ pro prvky $a,b,c,d,e$ platÃ­:
+\begin{e}{Definice}{0}{Nejvìtší spoleènı dìlitel}
+Mìjme komutativní monoid s krácením $(S,\cdot,1)$ a v nìm prvky $a_1,\dots,a_n$. Prvek $c$ nazveme nejvìtším spoleènım dìlitelem prvkù $a_1,\dots,a_n$, pokud $c|a_i$ pro všechna $i\in\{1,\dots,n\}$ a zároveò libovolnı prvek $d\in S$, kterı dìlí všechna $a_i$ dìlí i $c$. Píšeme $\NSD(a_1,\dots,a_n)=c$. 
+
+Stejnì se definuje nejvìtší spoleènı dìlitel pro obory integrity (bereme obor integrity $(R,+,\cdot,-,1,0)$ jako komutativní monoid s krácením $(R\setminus\{0\},\cdot,1)$).
+\end{e}
+
+\begin{e}{Definice}{0}{Ireducibilní prvek, prvoèinitelé}
+Prvek $c$ komutativního monoidu s krácením $(S,\cdot,1)$ nazveme \emph{ireducibilním}, pokud $c$ není invertibilní a zároveò $c=a\cdot b$ pro nìjaké $a,b\in S$ vdy implikuje $c||a$ nebo $c||b$. Prvek $c$ nazveme \emph{prvoèinitelem}, pokud není invertibilní a zároveò $c|a\cdot b$ pro $a,b\in S$ vdy implikuje $c|a$ nebo $c|b$. 
+
+Na oborech integrity se prvoèinitelé a ireducibilní prvky definují stejnì.
+\end{e}
+
+
+\begin{e}{Vìta}{0}{Vlastnosti $\NSD$}
+V komutativním monoidu s krácením $(S,\cdot,1)$ pro prvky $a,b,c,d,e$ platí:
 \begin{penumerate}
     \item $d=\NSD(a,b)\ \&\ e=\NSD(a\cdot c,b\cdot c) \implies (d\cdot c)||e$.
     \item $1=\NSD(a,b)\ \&\ a|(b\cdot c)\ \&$ $\NSD(a\cdot c,b\cdot c)$ existuje $\implies$ $a|c$.
 \end{penumerate}
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{Vlastnosti prvoÄinitelÅ¯}
-V komutativnÃ­m monoidu s krÃ¡cenÃ­m je kaÅ¾dÃ½ prvoÄinitel ireducibilnÃ­. Pokud navÃ­c pro kaÅ¾dÃ© dva jeho prvky existuje nejvÄ›tÅ¡Ã­ spoleÄnÃ½ dÄ›litel, je kaÅ¾dÃ½ ireducibilnÃ­ prvek prvoÄinitelem.
-\end{vetaN}
+\begin{e}{Vìta}{0}{Vlastnosti prvoèinitelù}
+V komutativním monoidu s krácením je kadı prvoèinitel ireducibilní. Pokud navíc pro kadé dva jeho prvky existuje nejvìtší spoleènı dìlitel, je kadı ireducibilní prvek prvoèinitelem.
+\end{e}
 
 \subsubsection*{Polynomy}
 
-\begin{definiceN}{Okruh polynomÅ¯}
+\begin{e}{Definice}{0}{Okruh polynomù}
 Nad okruhem $(R,+,\cdot,-,0,1)$ a monoidem $(M,\cdot,e)$ definujme okruh $(R[M],+,\cdot,-,0,1)\text{,}$ kde:
 \begin{pitemize}
-    \item $R[M]=\{ p:M\to R | \{m|p(m)\neq 0\} \text{ je koneÄnÃ© } \}$
-    \item prvek $p\in R[M]$ se dÃ¡ zapsat jako $p=\sum_{m\in M}(p(m).m)$
-    \item operace \uv{$+$} je definovÃ¡na jako: $p+q=\sum_{m\in M}((p(m)+q(m)).m)$
-    \item \uv{$\cdot$} je definovÃ¡no nÃ¡sledovnÄ›: $p\cdot q=\sum_{m\in M}((\sum_{r\cdot s=m} p(r)\cdot q(s)).m)$
-    \item dalÅ¡Ã­ operace:
+    \item $R[M]=\{ p:M\to R | \{m|p(m)\neq 0\} \text{ je koneèné } \}$
+    \item prvek $p\in R[M]$ se dá zapsat jako $p=\sum_{m\in M}(p(m).m)$
+    \item operace \uv{$+$} je definována jako: $p+q=\sum_{m\in M}((p(m)+q(m)).m)$
+    \item \uv{$\cdot$} je definováno následovnì: $p\cdot q=\sum_{m\in M}((\sum_{r\cdot s=m} p(r)\cdot q(s)).m)$
+    \item další operace:
     \begin{pitemize}
 	\item $-p=\sum_{m\in M}(-p(m))\cdot m$,
 	\item $0=\sum_{m\in M}0.m$,
@@ -321,194 +321,194 @@ Nad okruhem $(R,+,\cdot,-,0,1)$ a monoidem $(M,\cdot,e)$ definujme okruh $(R[M],
     \end{pitemize}
 \end{pitemize}
 \par
-Pro okruh $(R,+,\cdot,-,0,1)$ a monoid $(\Nat_0,+,0)$ nezÃ¡pornÃ½ch celÃ½ch ÄÃ­sel se sÄÃ­tÃ¡nÃ­m nazveme $R[\Nat_0]$ (oznaÄme $R[x]$) \emph{okruh polynomÅ¯ jednÃ© neznÃ¡mÃ©}. Jeho prvky potom nazveme \emph{polynomy} a budeme je zapisovat ve tvaru $p=\sum_{n\in\Nat_0}p(n).x^n$. 
+Pro okruh $(R,+,\cdot,-,0,1)$ a monoid $(\Nat_0,+,0)$ nezápornıch celıch èísel se sèítáním nazveme $R[\Nat_0]$ (oznaème $R[x]$) \emph{okruh polynomù jedné neznámé}. Jeho prvky potom nazveme \emph{polynomy} a budeme je zapisovat ve tvaru $p=\sum_{n\in\Nat_0}p(n).x^n$. 
 % ta tecka tady fakt ma smysl, sice je mnohem osklivejsi ale jde o jinou operaci nez nasobeni v tom
 % okruhu !
-\end{definiceN}
+\end{e}
 
-\begin{poznamka}
-$R[x]$ nad okruhem $R$ je obor integrity, prÃ¡vÄ› kdyÅ¾ $R$ je obor integrity.
-\end{poznamka}
+\begin{e}{Poznámka}{0}{0}
+$R[x]$ nad okruhem $R$ je obor integrity, právì kdy $R$ je obor integrity.
+\end{e}
 
 
-\begin{definiceN}{StupeÅˆ polynomu}
-Pro polynom $p$ v okruhu $R[x]$ nad $(R,+,\cdot,-,0,1)$ definujeme \emph{stupeÅˆ polynomu} ($\deg p$, $\st p$) nÃ¡sledovnÄ›: $$\deg p=\begin{cases}
-\text{nejvÄ›tÅ¡Ã­ }n\in\Nat_0:p(n)\neq 0\text{, je-li }p\neq 0\\
+\begin{e}{Definice}{0}{Stupeò polynomu}
+Pro polynom $p$ v okruhu $R[x]$ nad $(R,+,\cdot,-,0,1)$ definujeme \emph{stupeò polynomu} ($\deg p$, $\st p$) následovnì: $$\deg p=\begin{cases}
+\text{nejvìtší }n\in\Nat_0:p(n)\neq 0\text{, je-li }p\neq 0\\
 -1\text{, je-li }p=0
 \end{cases}$$
-\end{definiceN}
+\end{e}
 
-\begin{poznamkaN}{Vlastnosti $\deg p$}
-V okruhu $R[x]$ nad $(R,+,\cdot,-,0,1)$ platÃ­ pro $p,r\in R[x]$:
+\begin{e}{Poznámka}{0}{Vlastnosti $\deg p$}
+V okruhu $R[x]$ nad $(R,+,\cdot,-,0,1)$ platí pro $p,r\in R[x]$:
 \begin{pitemize}
     \item $\deg -p = \deg p$
     \item $\deg (p+q) = \max(\deg p,\deg q)$
-    \item Je-li $p\neq 0, q\neq 0$, pak $\deg (p\cdot q)\leq \deg p + \deg q$ (na oborech integrity platÃ­ rovnost)
+    \item Je-li $p\neq 0, q\neq 0$, pak $\deg (p\cdot q)\leq \deg p + \deg q$ (na oborech integrity platí rovnost)
 \end{pitemize}
-\end{poznamkaN}
+\end{e}
 
-\begin{vetaN}{DÄ›lenÃ­ polynomÅ¯ se zbytkem}
-NechÅ¥ jsou na oboru integrity $(R[x],+,\cdot,-,0,1)$ (nad oborem integrity $R$) dÃ¡ny prvky $a,b\in R[x]$. NechÅ¥ navÃ­c $m=\deg b\geq 0$ a $b_m$ je invertibilnÃ­ v $R$. Potom existujÃ­ jednoznaÄnÄ› urÄenÃ© polynomy $q,r\in R[x]$ takovÃ©, Å¾e $a=b\cdot q+r$ a $\deg r<\deg b$.
-\end{vetaN}
+\begin{e}{Vìta}{0}{Dìlení polynomù se zbytkem}
+Nech jsou na oboru integrity $(R[x],+,\cdot,-,0,1)$ (nad oborem integrity $R$) dány prvky $a,b\in R[x]$. Nech navíc $m=\deg b\geq 0$ a $b_m$ je invertibilní v $R$. Potom existují jednoznaènì urèené polynomy $q,r\in R[x]$ takové, e $a=b\cdot q+r$ a $\deg r<\deg b$.
+\end{e}
 
-\begin{poznamka}
-Polynom $q$ je \emph{podÃ­l} polynomÅ¯ $a$ a $b$, polynom $r$ je \emph{zbytek} pÅ™i dÄ›lenÃ­.
-\end{poznamka}
+\begin{e}{Poznámka}{0}{0}
+Polynom $q$ je \emph{podíl} polynomù $a$ a $b$, polynom $r$ je \emph{zbytek} pøi dìlení.
+\end{e}
 
-\subsubsection*{NejvÄ›tÅ¡Ã­ spoleÄnÃ½ dÄ›litel}
+\subsubsection*{Nejvìtší spoleènı dìlitel}
 
-\begin{definiceN}{EukleidovskÃ½ obor integrity}
-Obor integrity $(R,+,\cdot,-,0,1)$ je \emph{eukleidovskÃ½}, jestliÅ¾e existuje zobrazenÃ­ $\nu:R\to \Nat_0\cup\{-1\}$ (\emph{eukleidovskÃ¡ funkce}), kterÃ© pro kaÅ¾dÃ© $a,b\in R$ splÅˆuje:
+\begin{e}{Definice}{0}{Eukleidovskı obor integrity}
+Obor integrity $(R,+,\cdot,-,0,1)$ je \emph{eukleidovskı}, jestlie existuje zobrazení $\nu:R\to \Nat_0\cup\{-1\}$ (\emph{eukleidovská funkce}), které pro kadé $a,b\in R$ splòuje:
 \begin{penumerate}
-    \item JestliÅ¾e $a|b$ a $b\neq 0$, pak $\nu(a)\leq\nu(b)$
-    \item Pokud $b\neq 0$, existujÃ­ $q,r\in R$ takovÃ¡, Å¾e $a=b\cdot q + r$ a $\nu(r)<\nu(b)$
+    \item Jestlie $a|b$ a $b\neq 0$, pak $\nu(a)\leq\nu(b)$
+    \item Pokud $b\neq 0$, existují $q,r\in R$ taková, e $a=b\cdot q + r$ a $\nu(r)<\nu(b)$
 \end{penumerate}
-\end{definiceN}
+\end{e}
 
-\begin{poznamka}
-Je-li $(T,+,\cdot,-,0,1)$ nÄ›jakÃ© komutativnÃ­ tÄ›leso, pak $T[x]$ je eukleidovskÃ½m oborem integrity s eukleidovskou funkcÃ­ danou stupnÄ›m polynomÅ¯. PÅ™Ã­kladem eukleidovskÃ©ho oboru integrity jsou napÅ™. i celÃ¡ ÄÃ­sla (se sÄÃ­tÃ¡nÃ­m, nÃ¡sobenÃ­m, unÃ¡rnÃ­m minus, jedniÄkou a nulou), kde eukleidovskÃ¡ funkce je funkce absolutnÃ­ hodnoty prvku.
-\end{poznamka}
+\begin{e}{Poznámka}{0}{0}
+Je-li $(T,+,\cdot,-,0,1)$ nìjaké komutativní tìleso, pak $T[x]$ je eukleidovskım oborem integrity s eukleidovskou funkcí danou stupnìm polynomù. Pøíkladem eukleidovského oboru integrity jsou napø. i celá èísla (se sèítáním, násobením, unárním minus, jednièkou a nulou), kde eukleidovská funkce je funkce absolutní hodnoty prvku.
+\end{e}
 
-\begin{algoritmusN}{EukleidÅ¯v algoritmus}
-Na eukleidovskÃ©m okruhu $R$ s eukleidovskou funkcÃ­ $\nu$ pro dva prvky $a_0,a_1\in R\setminus\{0\}$ najdeme nejvÄ›tÅ¡Ã­ spoleÄnÃ½ dÄ›litel nÃ¡sledujÃ­cÃ­m postupem:
+\begin{e}{Algoritmus}{0}{Eukleidùv algoritmus}
+Na eukleidovském okruhu $R$ s eukleidovskou funkcí $\nu$ pro dva prvky $a_0,a_1\in R\setminus\{0\}$ najdeme nejvìtší spoleènı dìlitel následujícím postupem:
 \begin{pitemize}
-    \item Je-li $i\geq 1$ a $a_i\not |\ a_{i-1}$, vezmeme $a_{i+1}\in R$ takovÃ©, Å¾e $a_{i-1}=a_i\cdot q_i+a_{i+1}$ pro nÄ›jakÃ© $q_i$ a $\nu(a_{i+1})<\nu(a_i)$. $i$ zvÃ½Å¡Ã­me o $1$ a pokraÄujeme dalÅ¡Ã­ iteracÃ­.
-    \item Je-li $i\geq 1$ a $a_i|a_{i-1}$, potom $a_i = \NSD(a_0,a_1)$ a vÃ½poÄet konÄÃ­.
+    \item Je-li $i\geq 1$ a $a_i\not |\ a_{i-1}$, vezmeme $a_{i+1}\in R$ takové, e $a_{i-1}=a_i\cdot q_i+a_{i+1}$ pro nìjaké $q_i$ a $\nu(a_{i+1})<\nu(a_i)$. $i$ zvıšíme o $1$ a pokraèujeme další iterací.
+    \item Je-li $i\geq 1$ a $a_i|a_{i-1}$, potom $a_i = \NSD(a_0,a_1)$ a vıpoèet konèí.
 \end{pitemize}
-DÃ¡ se dokÃ¡zat, Å¾e se vÃ½poÄet zastavÃ­ a kroky jsou dobÅ™e definovanÃ© (lze nalÃ©zt $a_{i+1}$ a $q_i$), tedy libovolnÃ© dva polynomy majÃ­ nejvÄ›tÅ¡Ã­ho spoleÄnÃ©ho dÄ›litele.
-\end{algoritmusN}
+Dá se dokázat, e se vıpoèet zastaví a kroky jsou dobøe definované (lze nalézt $a_{i+1}$ a $q_i$), tedy libovolné dva polynomy mají nejvìtšího spoleèného dìlitele.
+\end{e}
 
-\begin{poznamka}
-NejvÄ›tÅ¡Ã­ spoleÄnÃ½ dÄ›litel je v polynomech $R[x]$ urÄen aÅ¾ na asociovanost ($||$) jednoznaÄnÄ›. Pro asociovanÃ© polynomy $p,q$ vÅ¾dy platÃ­, Å¾e $\deg p=\deg q$ a $p=r\cdot q$ pro nÄ›jakÃ© $r\in R$.
-\end{poznamka}
-
-
-\subsection{Rozklady polynomÅ¯ na koÅ™enovÃ© Äinitele}
-
-\subsubsection*{Rozklady polynomÅ¯}
-
-\begin{poznamkaN}{IreducibilnÃ­ polynomy}
-Polynom je ireducibilnÃ­, pokud nenÃ­ souÄinem dvou polynomÅ¯ niÅ¾Å¡Ã­ch stupÅˆÅ¯ a jeho stupeÅˆ je vÄ›tÅ¡Ã­ nebo roven jednÃ©. VÅ¡echny polynomy stupnÄ› 1 jsou ireducibilnÃ­. JedinÃ½mi dÄ›liteli ireducibilnÃ­ho polynomu jsou asociovanÃ© polynomy a nenulovÃ© skalÃ¡ry (tj. polynomy stupnÄ› 0).
-\end{poznamkaN}
+\begin{e}{Poznámka}{0}{0}
+Nejvìtší spoleènı dìlitel je v polynomech $R[x]$ urèen a na asociovanost ($||$) jednoznaènì. Pro asociované polynomy $p,q$ vdy platí, e $\deg p=\deg q$ a $p=r\cdot q$ pro nìjaké $r\in R$.
+\end{e}
 
 
-\begin{vetaN}{Rozklad polynomu}
-KaÅ¾dÃ½ polynom stupnÄ› alespoÅˆ 1 mÃ¡ aÅ¾ na asociovanost jednoznaÄnÃ½ rozklad na souÄin ireducibilnÃ­ch polynomÅ¯. \\\textit{DÅ¯kaz existence:} indukcÃ­ podle $\deg p$ -- najdeme vÅ¾dy dÄ›litel $p$ nejmenÅ¡Ã­ho moÅ¾nÃ©ho kladnÃ©ho stupnÄ›, vydÄ›lÃ­me a pokraÄujeme, dokud nedostaneme polynom, kterÃ½ nemÃ¡ dÄ›litel kladnÃ©ho stupnÄ› menÅ¡Ã­ho neÅ¾ je jeho vlastnÃ­.
-\end{vetaN}
+\subsection{Rozklady polynomù na koøenové èinitele}
+
+\subsubsection*{Rozklady polynomù}
+
+\begin{e}{Poznámka}{0}{Ireducibilní polynomy}
+Polynom je ireducibilní, pokud není souèinem dvou polynomù niších stupòù a jeho stupeò je vìtší nebo roven jedné. Všechny polynomy stupnì 1 jsou ireducibilní. Jedinımi dìliteli ireducibilního polynomu jsou asociované polynomy a nenulové skaláry (tj. polynomy stupnì 0).
+\end{e}
 
 
-\begin{definiceN}{DosazovÃ¡nÃ­ do polynomÅ¯}
-NechÅ¥ $(S,+,\cdot,-,0,1)$ je okruh, $R$ jeho podokruh ($R\subset S$) a nechÅ¥ $\alpha\in S$. Potom zobrazenÃ­ $j_\alpha : R[x]\to S$, danÃ© pÅ™edpisem $j_\alpha(\sum_{n\in\Nat_0}a_n.x^n) = \sum_{n\in\Nat_0}a_n\cdot\alpha^n$ je okruhovÃ½ homomorfismus. NazÃ½vÃ¡ se \emph{dosazovacÃ­ homomorfismus}.
-\end{definiceN}
+\begin{e}{Vìta}{0}{Rozklad polynomu}
+Kadı polynom stupnì alespoò 1 má a na asociovanost jednoznaènı rozklad na souèin ireducibilních polynomù. \\\textit{Dùkaz existence:} indukcí podle $\deg p$ -- najdeme vdy dìlitel $p$ nejmenšího moného kladného stupnì, vydìlíme a pokraèujeme, dokud nedostaneme polynom, kterı nemá dìlitel kladného stupnì menšího ne je jeho vlastní.
+\end{e}
 
-\begin{poznamkaN}{DosazovanÃ­ a $\deg p$}
-Pro obor integrity $R[x]$ nad oborem integrity $(R,+,\cdot,-,0,1)$ je polynom $p[x]$ invertibilnÃ­, prÃ¡vÄ› kdyÅ¾ $\deg p=0$ a $j_0(p)=p(0)$ je invertibilnÃ­ na $R$.
-\end{poznamkaN}
 
-\begin{definiceN}{KoÅ™en polynomu}
-Pro okruh $(S,+,\cdot,-,0,1)$ a jeho podokruh $R$ je \emph{koÅ™en polynomu} $p\in R[x]$ takovÃ© $\alpha\in S$, Å¾e $j_\alpha(p)=p(\alpha)=0$ (pÅ™i dosazenÃ­ $\alpha$ se polynom $p$ zobrazÃ­ na $0$).
-\end{definiceN}
+\begin{e}{Definice}{0}{Dosazování do polynomù}
+Nech $(S,+,\cdot,-,0,1)$ je okruh, $R$ jeho podokruh ($R\subset S$) a nech $\alpha\in S$. Potom zobrazení $j_\alpha : R[x]\to S$, dané pøedpisem $j_\alpha(\sum_{n\in\Nat_0}a_n.x^n) = \sum_{n\in\Nat_0}a_n\cdot\alpha^n$ je okruhovı homomorfismus. Nazıvá se \emph{dosazovací homomorfismus}.
+\end{e}
 
-\begin{definiceN}{KoÅ™enovÃ½ Äinitel, rozklad}
-Je-li $a=c\cdot p_1^{k_1}\cdot\dots p_n^{k_n}$ rozklad polynomu $p\in R[x]$ na ireducibilnÃ­ polynomy, potom \emph{koÅ™enovÃ½m Äinitelem} polynomu $p$ nazveme takovÃ© $p_i$, kterÃ© je ve tvaru $x-\alpha$ (tedy stupnÄ› 1 s koeficienty $1$ a $\alpha$). Å˜ekneme, Å¾e polynom $p\in R[x]$ se \emph{rozklÃ¡dÃ¡ na koÅ™enovÃ© Äinitele} v $R[x]$, jestliÅ¾e existuje takovÃ½ jeho rozklad na ireducibilnÃ­ polynomy, Å¾e vÅ¡echny $p_i$ jsou koÅ™enovÃ© Äinitele. Potom nazveme $k_i$ \emph{nÃ¡sobnostmi koÅ™enÅ¯}.
-\end{definiceN}
+\begin{e}{Poznámka}{0}{Dosazovaní a $\deg p$}
+Pro obor integrity $R[x]$ nad oborem integrity $(R,+,\cdot,-,0,1)$ je polynom $p[x]$ invertibilní, právì kdy $\deg p=0$ a $j_0(p)=p(0)$ je invertibilní na $R$.
+\end{e}
 
-\begin{vetaN}{koÅ™en a koÅ™enovÃ½ Äinitel}
-Na oboru integrity $R[x]$ nad oborem integrity $R$ je $\alpha\in R$ koÅ™enem polynomu $p\in R[x],p\neq 0$, prÃ¡vÄ› kdyÅ¾ $(x-\alpha)|p$. 
-\end{vetaN}
+\begin{e}{Definice}{0}{Koøen polynomu}
+Pro okruh $(S,+,\cdot,-,0,1)$ a jeho podokruh $R$ je \emph{koøen polynomu} $p\in R[x]$ takové $\alpha\in S$, e $j_\alpha(p)=p(\alpha)=0$ (pøi dosazení $\alpha$ se polynom $p$ zobrazí na $0$).
+\end{e}
 
-\subsubsection*{KomplexnÃ­, reÃ¡lnÃ© a racionÃ¡lnÃ­ polynomy}
+\begin{e}{Definice}{0}{Koøenovı èinitel, rozklad}
+Je-li $a=c\cdot p_1^{k_1}\cdot\dots p_n^{k_n}$ rozklad polynomu $p\in R[x]$ na ireducibilní polynomy, potom \emph{koøenovım èinitelem} polynomu $p$ nazveme takové $p_i$, které je ve tvaru $x-\alpha$ (tedy stupnì 1 s koeficienty $1$ a $\alpha$). Øekneme, e polynom $p\in R[x]$ se \emph{rozkládá na koøenové èinitele} v $R[x]$, jestlie existuje takovı jeho rozklad na ireducibilní polynomy, e všechny $p_i$ jsou koøenové èinitele. Potom nazveme $k_i$ \emph{násobnostmi koøenù}.
+\end{e}
 
-\begin{definiceN}{Algebraicky uzavÅ™enÃ© tÄ›leso}
-NechÅ¥ $T$ je tÄ›leso a $S$ jeho nadtÄ›leso. Prvek $a\in S$ je \emph{algebraickÃ½} nad $T$, pokud existuje nÄ›jakÃ½ nenulovÃ½ polynom z $T[x]$, jehoÅ¾ je $a$ koÅ™enem. Pokud Å¾Ã¡dnÃ½ takovÃ½ polynom neexistuje, nazÃ½vÃ¡ se prvek \emph{transcendentnÃ­}. TÄ›leso $T$ je \emph{algebraicky uzavÅ™enÃ©}, pokud vÅ¡echny nad nÃ­m algebraickÃ© prvky jsou i jeho prvky (jsou v nÄ›m obsaÅ¾eny).
-\end{definiceN}
+\begin{e}{Vìta}{0}{koøen a koøenovı èinitel}
+Na oboru integrity $R[x]$ nad oborem integrity $R$ je $\alpha\in R$ koøenem polynomu $p\in R[x],p\neq 0$, právì kdy $(x-\alpha)|p$. 
+\end{e}
 
-\begin{poznamka}
-KaÅ¾dÃ½ polynom v okruhu polynomÅ¯ o jednÃ© neznÃ¡mÃ© nad algebraicky uzavÅ™enÃ½m tÄ›lesem se rozklÃ¡dÃ¡ na koÅ™enovÃ© Äinitele.
-\end{poznamka}
+\subsubsection*{Komplexní, reálné a racionální polynomy}
 
-\begin{vetaN}{ZÃ¡kladnÃ­ vÄ›ta algebry}
-TÄ›leso $\Complex$ komplexnÃ­ch ÄÃ­sel je algebraicky uzavÅ™enÃ©.
-\end{vetaN}
+\begin{e}{Definice}{0}{Algebraicky uzavøené tìleso}
+Nech $T$ je tìleso a $S$ jeho nadtìleso. Prvek $a\in S$ je \emph{algebraickı} nad $T$, pokud existuje nìjakı nenulovı polynom z $T[x]$, jeho je $a$ koøenem. Pokud ádnı takovı polynom neexistuje, nazıvá se prvek \emph{transcendentní}. Tìleso $T$ je \emph{algebraicky uzavøené}, pokud všechny nad ním algebraické prvky jsou i jeho prvky (jsou v nìm obsaeny).
+\end{e}
 
-\begin{dusledek}
-Proto mÃ¡ kaÅ¾dÃ½ polynom $p(x)\in\Complex[x]$ stupnÄ› alespoÅˆ 1 v $\Complex[x]$ rozklad tvaru $p(x)=a(x-\beta_1)^{k_1}\cdot\dots\cdot(x-\beta_s)^{k_s}$, kde $\sum_{i=1}^s k_i=n$ a $\beta_i$ jsou navzÃ¡jem rÅ¯znÃ¡.
-\end{dusledek}
+\begin{e}{Poznámka}{0}{0}
+Kadı polynom v okruhu polynomù o jedné neznámé nad algebraicky uzavøenım tìlesem se rozkládá na koøenové èinitele.
+\end{e}
 
-\begin{vetaN}{KomplexnÄ› sdruÅ¾enÃ© koÅ™eny v $\Complex$}
-MÃ¡-li polynom $p$ nad $\Complex[x]$ s reÃ¡lnÃ½mi koeficienty ($a_i\in\Real$) koÅ™en $\alpha\in\Complex$, pak je jeho koÅ™enem i $\overline{\alpha}$, tedy ÄÃ­slo komplexnÄ› sdruÅ¾enÃ© s $\alpha$.
-\end{vetaN}
+\begin{e}{Vìta}{0}{Základní vìta algebry}
+Tìleso $\Complex$ komplexních èísel je algebraicky uzavøené.
+\end{e}
 
-\begin{dusledek}
-Polynom $p(x)\in\Real[x]$ stupnÄ› alespoÅˆ 1 mÃ¡ v $\Real[x]$ rozklad tvaru 
+\begin{e}{Dùsledek}{0}{0}
+Proto má kadı polynom $p(x)\in\Complex[x]$ stupnì alespoò 1 v $\Complex[x]$ rozklad tvaru $p(x)=a(x-\beta_1)^{k_1}\cdot\dots\cdot(x-\beta_s)^{k_s}$, kde $\sum_{i=1}^s k_i=n$ a $\beta_i$ jsou navzájem rùzná.
+\end{e}
+
+\begin{e}{Vìta}{0}{Komplexnì sdruené koøeny v $\Complex$}
+Má-li polynom $p$ nad $\Complex[x]$ s reálnımi koeficienty ($a_i\in\Real$) koøen $\alpha\in\Complex$, pak je jeho koøenem i $\overline{\alpha}$, tedy èíslo komplexnì sdruené s $\alpha$.
+\end{e}
+
+\begin{e}{Dùsledek}{0}{0}
+Polynom $p(x)\in\Real[x]$ stupnì alespoò 1 má v $\Real[x]$ rozklad tvaru 
 $$p(x)=a(x-\alpha_1)^{k_1}\cdot\dots(x-\alpha_r)^{k_r}\cdot(x^2-a_1 x+b_1)^{l_1}\cdot\dots(x^2-a_s x+b_s)^{l_s}$$
-a polynomy $x^2+a_j x+b_j$, kde $j\in\{1,\dots s\}$ majÃ­ za koÅ™eny dvojice komplexnÄ› sdruÅ¾enÃ½ch ÄÃ­sel (kterÃ¡ nejsou ÄistÄ› reÃ¡lnÃ¡). NavÃ­c $\deg p=k_1+\dots+k_r+2(l_1+\dots+l_s)$.
-\end{dusledek}
+a polynomy $x^2+a_j x+b_j$, kde $j\in\{1,\dots s\}$ mají za koøeny dvojice komplexnì sdruenıch èísel (která nejsou èistì reálná). Navíc $\deg p=k_1+\dots+k_r+2(l_1+\dots+l_s)$.
+\end{e}
 
-\begin{dusledek}
-KaÅ¾dÃ½ polynom v $\Real[x]$ lichÃ©ho stupnÄ› mÃ¡ alespoÅˆ jeden reÃ¡lnÃ½ koÅ™en.
-\end{dusledek}
+\begin{e}{Dùsledek}{0}{0}
+Kadı polynom v $\Real[x]$ lichého stupnì má alespoò jeden reálnı koøen.
+\end{e}
 
-\begin{vetaN}{IreducibilnÃ­ polynomy v $\Rational$}
-V $\Rational[x]$ existujÃ­ ireducibilnÃ­ polynomy libovolnÃ©ho stupnÄ› vÄ›tÅ¡Ã­ho nebo rovnÃ©ho jednÃ© (tj. ne vÅ¾dy existuje rozklad na koÅ™enovÃ© Äinitele, ani rozklad na polynomy stupnÄ› max. 2 jako v reÃ¡lnÃ½ch ÄÃ­slech).
-\end{vetaN}
+\begin{e}{Vìta}{0}{Ireducibilní polynomy v $\Rational$}
+V $\Rational[x]$ existují ireducibilní polynomy libovolného stupnì vìtšího nebo rovného jedné (tj. ne vdy existuje rozklad na koøenové èinitele, ani rozklad na polynomy stupnì max. 2 jako v reálnıch èíslech).
+\end{e}
 
-\subsection{NÃ¡sobnost koÅ™enÅ¯ a jejich souvislost s derivacemi mnohoÄlenu}
+\subsection{Násobnost koøenù a jejich souvislost s derivacemi mnohoèlenu}
 
-\begin{vetaN}{o poÄtu koÅ™enÅ¯}
-KaÅ¾dÃ½ nenulovÃ½ polynom $p\in R[x]$, kde $R[x]$ je okruh polynomÅ¯ nad oborem integrity $(R,+,\cdot,-,0,1)$, mÃ¡ nejvÃ½Å¡e $\deg p$ koÅ™enÅ¯ (plyne z vlastnostÃ­ $\deg p$).
-\end{vetaN}
+\begin{e}{Vìta}{0}{o poètu koøenù}
+Kadı nenulovı polynom $p\in R[x]$, kde $R[x]$ je okruh polynomù nad oborem integrity $(R,+,\cdot,-,0,1)$, má nejvıše $\deg p$ koøenù (plyne z vlastností $\deg p$).
+\end{e}
 
-\begin{definiceN}{vÃ­cenÃ¡sobnÃ½ koÅ™en}
-Pro komutativnÃ­ okruh $(R,+,\cdot,-,0,1)$ a polynom $p\in R[x]$ je $\alpha\in R$ \emph{vÃ­cenÃ¡sobnÃ½ koÅ™en}, pokud polynom $(x-\alpha)(x-\alpha)$ dÄ›lÃ­ $p$.
-\end{definiceN}
+\begin{e}{Definice}{0}{vícenásobnı koøen}
+Pro komutativní okruh $(R,+,\cdot,-,0,1)$ a polynom $p\in R[x]$ je $\alpha\in R$ \emph{vícenásobnı koøen}, pokud polynom $(x-\alpha)(x-\alpha)$ dìlí $p$.
+\end{e}
 
-\begin{definiceN}{Derivace polynomu}
-Pro polynom $p=\sum_{i\geq 0}a_i x^i$ z okruhu polynomÅ¯ $R[x]$ nad komutativnÃ­m okruhem $(R,+,\cdot,-,0,1)$ definujeme \emph{derivaci} ($p'$, $p'\in R[x]$) pÅ™edpisem $$p'=\sum_{i\geq 0}(i+1)a_{i+1}x^i$$
-\end{definiceN}
+\begin{e}{Definice}{0}{Derivace polynomu}
+Pro polynom $p=\sum_{i\geq 0}a_i x^i$ z okruhu polynomù $R[x]$ nad komutativním okruhem $(R,+,\cdot,-,0,1)$ definujeme \emph{derivaci} ($p'$, $p'\in R[x]$) pøedpisem $$p'=\sum_{i\geq 0}(i+1)a_{i+1}x^i$$
+\end{e}
 
-\begin{poznamkaN}{Vlastnosti derivace}
-Pro okruh $(R,+,\cdot,-,0,1)$, prvek $\alpha\in R$ a polynomy $p,q\in R[x]$ platÃ­:
+\begin{e}{Poznámka}{0}{Vlastnosti derivace}
+Pro okruh $(R,+,\cdot,-,0,1)$, prvek $\alpha\in R$ a polynomy $p,q\in R[x]$ platí:
 \begin{pitemize}
     \item $(p+q)'=p'+q'$
     \item $(\alpha p)'=\alpha p'$
     \item $(p\cdot q)' = p'\cdot q + p\cdot q'$
 \end{pitemize}
-\end{poznamkaN}
+\end{e}
 
-\begin{vetaN}{derivace a vÃ­cenÃ¡sobnÃ½ koÅ™en}
-Nad oborem integrity $(R,+,\cdot,-,0,1)$ buÄ $p\in R[x]$ polynom. Je-li $\alpha\in R$ jeho koÅ™en, pak $\alpha$ je vÃ­cenÃ¡sobnÃ½ koÅ™en, prÃ¡vÄ› kdyÅ¾ je $\alpha$ koÅ™enem $p'$.
-\end{vetaN}
+\begin{e}{Vìta}{0}{derivace a vícenásobnı koøen}
+Nad oborem integrity $(R,+,\cdot,-,0,1)$ buï $p\in R[x]$ polynom. Je-li $\alpha\in R$ jeho koøen, pak $\alpha$ je vícenásobnı koøen, právì kdy je $\alpha$ koøenem $p'$.
+\end{e}
 
-\begin{definiceN}{Charakteristika oboru integrity}
+\begin{e}{Definice}{0}{Charakteristika oboru integrity}
 Pro obor integrity $(R,+,\cdot,-,0,1)$ definujeme \emph{charakteristiku oboru integrity} jako
 \begin{pitemize}
-    \item $0$ (nebo nÄ›kdy $\infty$), pokud cyklickÃ¡ podgrupa grupy $(R,+,0)$ generovanÃ¡ prvkem $1$ je nekoneÄnÃ¡.
-    \item $p$, pokud cyklickÃ¡ pogrupa grupy $(R,+,0)$ generovanÃ¡ jedniÄkou mÃ¡ koneÄnÃ½ Å™Ã¡d $p$.
+    \item $0$ (nebo nìkdy $\infty$), pokud cyklická podgrupa grupy $(R,+,0)$ generovaná prvkem $1$ je nekoneèná.
+    \item $p$, pokud cyklická pogrupa grupy $(R,+,0)$ generovaná jednièkou má koneènı øád $p$.
 \end{pitemize}
-\end{definiceN}
+\end{e}
 
-\begin{vetaN}{derivace sniÅ¾uje stupeÅˆ polynomu}
-Nad oborem integrity charakteristiky $0$ $(R,+,\cdot,-,0,1)$ buÄ $p$ polynom ($p\in R[x]$) stupnÄ› $n>0$. Potom $p'$ je polynom stupnÄ› $n-1$.
-\end{vetaN}
+\begin{e}{Vìta}{0}{derivace sniuje stupeò polynomu}
+Nad oborem integrity charakteristiky $0$ $(R,+,\cdot,-,0,1)$ buï $p$ polynom ($p\in R[x]$) stupnì $n>0$. Potom $p'$ je polynom stupnì $n-1$.
+\end{e}
 
-\begin{vetaN}{derivace a nÃ¡sobnÃ½ koÅ™en}
-Nad tÄ›lesem charakteristiky $0$ $(T,+,\cdot,-,0,1)$ buÄ $p$ polynom ($p\in T[x]$) stupnÄ› alespoÅˆ 1. Potom prvek $\alpha\in U$, kde $U$ je nÄ›jakÃ© nadtÄ›leso $T$, je $k$-nÃ¡sobnÃ½m koÅ™enem $p$, prÃ¡vÄ› kdyÅ¾ platÃ­ obÄ› nÃ¡sledujÃ­cÃ­ podmÃ­nky:
+\begin{e}{Vìta}{0}{derivace a násobnı koøen}
+Nad tìlesem charakteristiky $0$ $(T,+,\cdot,-,0,1)$ buï $p$ polynom ($p\in T[x]$) stupnì alespoò 1. Potom prvek $\alpha\in U$, kde $U$ je nìjaké nadtìleso $T$, je $k$-násobnım koøenem $p$, právì kdy platí obì následující podmínky:
 \begin{pitemize}
     \item $p(\alpha)=j_{\alpha}(p)=0$, $p'(\alpha)=0$, $\dots$ $p^{(k-1)}(\alpha)=0$
     \item $p^{(k)}(\alpha)\neq 0$
 \end{pitemize}
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{derivace a nejvÄ›tÅ¡Ã­ spoleÄnÃ½ dÄ›litel}
-MÄ›jme tÄ›leso $(T,+,\cdot,-,0,1)$ charakteristiky $0$ a nad nÃ­m nÄ›m polynom $p\in T[x]$ stupnÄ› alespoÅˆ $1$. Potom platÃ­:
+\begin{e}{Vìta}{0}{derivace a nejvìtší spoleènı dìlitel}
+Mìjme tìleso $(T,+,\cdot,-,0,1)$ charakteristiky $0$ a nad ním nìm polynom $p\in T[x]$ stupnì alespoò $1$. Potom platí:
 \begin{pitemize}
-    \item Pokud $\NSD(p,p')=1$, pak $p$ nemÃ¡ Å¾Ã¡dnÃ½ vÃ­cenÃ¡sobnÃ½ koÅ™en.
-    \item KaÅ¾dÃ½ $k$-nÃ¡sobnÃ½ koÅ™en $p$ je $(k-n)$-nÃ¡sobnÃ½m koÅ™enem $n$-tÃ© derivace $p$.
-    \item Polynom $q\in R[T]$ takovÃ½, Å¾e $q\cdot\NSD(p,p')=p$ mÃ¡ stejnÃ© koÅ™eny jako $p$, ale jednoduchÃ©.
+    \item Pokud $\NSD(p,p')=1$, pak $p$ nemá ádnı vícenásobnı koøen.
+    \item Kadı $k$-násobnı koøen $p$ je $(k-n)$-násobnım koøenem $n$-té derivace $p$.
+    \item Polynom $q\in R[T]$ takovı, e $q\cdot\NSD(p,p')=p$ má stejné koøeny jako $p$, ale jednoduché.
 \end{pitemize}
-\end{vetaN}
+\end{e}
 
-\begin{veta}
-NechÅ¥ $(R,+,\cdot,-,0,1)$ je obor integrity a jeho charakteristika nedÄ›lÃ­ pÅ™ir. ÄÃ­slo $n$. Potom polynomy $x^n-1$ a $x^{n+1}-x$ v $R[x]$ nemajÃ­ vÃ­cenÃ¡sobnÃ½ koÅ™en.
-\end{veta}
+\begin{e}{Vìta}{0}{0}
+Nech $(R,+,\cdot,-,0,1)$ je obor integrity a jeho charakteristika nedìlí pøir. èíslo $n$. Potom polynomy $x^n-1$ a $x^{n+1}-x$ v $R[x]$ nemají vícenásobnı koøen.
+\end{e}

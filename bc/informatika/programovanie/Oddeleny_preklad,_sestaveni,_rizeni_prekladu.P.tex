@@ -1,59 +1,59 @@
-\subsection{OddÄ›lenÃ½ pÅ™eklad, sestavenÃ­, Å™Ã­zenÃ­ pÅ™ekladu}
+\subsection{Oddìlenı pøeklad, sestavení, øízení pøekladu}
 
 \subsubsection*{Struktura programu}
 
-Program se sklÃ¡dÃ¡ z \emph{modulÅ¯}:
+Program se skládá z \emph{modulù}:
 \begin{pitemize}
-	\item PÅ™eklÃ¡dÃ¡ny samostatnÄ› kompilÃ¡torem 
-	\item SpojovÃ¡ny linkerem
+	\item Pøekládány samostatnì kompilátorem 
+	\item Spojovány linkerem
 \end{pitemize}
-Modul z pohledu programÃ¡tora
+Modul z pohledu programátora
 \begin{pitemize}
-	\item Soubor s pÅ™Ã­ponou .cpp (.c)
+	\item Soubor s pøíponou .cpp (.c)
 \end{pitemize}
-HlaviÄkovÃ© soubory
+Hlavièkové soubory
 \begin{pitemize}
-	\item Soubory s pÅ™Ã­ponou .h
-	\item DeklarujÃ­ (a nÄ›kdy i definujÃ­) identifikÃ¡tory pouÅ¾Ã­vanÃ© ve vÃ­ce modulech
-	\item VklÃ¡dÃ¡ny do modulÅ¯ direktivou include
+	\item Soubory s pøíponou .h
+	\item Deklarují (a nìkdy i definují) identifikátory pouívané ve více modulech
+	\item Vkládány do modulù direktivou include
 	\begin{pitemize}
-		\item Direktivu zpracovÃ¡vÃ¡ preprocesor ÄistÄ› textovÄ›
-		\item Preprocesor je integrovÃ¡n v kompilÃ¡toru jako prvnÃ­ fÃ¡ze pÅ™ekladu
+		\item Direktivu zpracovává preprocesor èistì textovì
+		\item Preprocesor je integrován v kompilátoru jako první fáze pøekladu
 	\end{pitemize}
 \end{pitemize}
-Modul z pohledu kompilÃ¡toru
+Modul z pohledu kompilátoru
 \begin{pitemize}
-	\item SamostatnÃ¡ jednotka pÅ™ekladu
-	\item VÃ½sledek prÃ¡ce preprocesoru
+	\item Samostatná jednotka pøekladu
+	\item Vısledek práce preprocesoru
 \end{pitemize}
 
-\subsubsection*{OddÄ›lenÃ½ pÅ™eklad}
+\subsubsection*{Oddìlenı pøeklad}
 
 \par\begin{center}\includegraphics[width=10cm]{informatika/programovanie/obrazky/oddelenypreklad01.png}
 \end{center}
 \par\begin{center}\includegraphics[width=10cm]{informatika/programovanie/obrazky/oddelenypreklad02.png}\end{center}
-Smysl oddÄ›lenÃ©ho pÅ™ekladu modulÅ¯ je urychlenÃ­ celkovÃ©ho pÅ™ekladu -- nepÅ™eklÃ¡dat to, co se od minula nezmÄ›nilo. OddÄ›lenÃ½ pÅ™eklad dnes dÃ­ky automatizaci makefily (viz nÃ­Å¾e) a integrovanÃ½mi prostÅ™edÃ­mi nenÃ­ tÃ©mÄ›Å™ pro programÃ¡tora vidÄ›t.
+Smysl oddìleného pøekladu modulù je urychlení celkového pøekladu -- nepøekládat to, co se od minula nezmìnilo. Oddìlenı pøeklad dnes díky automatizaci makefily (viz níe) a integrovanımi prostøedími není témìø pro programátora vidìt.
 
-...pri tomto slide je vhodnÃ© ujasniÅ¥ si, ako funguje statickÃ© a dynamickÃ© linkovanie (ako, kde a kedy sa opravujÃº adresy objektov atÄ.):
+...pri tomto slide je vhodné ujasni si, ako funguje statické a dynamické linkovanie (ako, kde a kedy sa opravujú adresy objektov atï.):
 \begin{pitemize}
-    \item \emph{StatickÃ© linkovÃ¡nÃ­} \\ Po oddÄ›lenÃ©m pÅ™ekladu jednotlivÃ© object moduly jeÅ¡tÄ› neobsahujÃ­ pÅ™Ã­mo adresy vÅ¡ech funkcÃ­ a externÃ­ch identifikÃ¡torÅ¯, jen odkazy na nÄ›. Linker se postarÃ¡ o jejich spojenÃ­ dohromady. Je nutnÃ©, aby jmÃ©na byla unikÃ¡tnÃ­, takÅ¾e u pÅ™etÃ­Å¾enÃ½ch a virtuÃ¡lnÃ­ch funkcÃ­, jako je v C++, musÃ­ bÃ½ jmÃ©na zpotvoÅ™ena tak, aby ukazovala i tÅ™Ã­du, namespace, parametry a jejich typy. To mÃ¡ na starosti compiler a Å™Ã­kÃ¡ se tomu \emph{name mangling}.
-    \item \emph{DynamickÃ© linkovÃ¡nÃ­} \\ NastÃ¡vÃ¡ po volÃ¡nÃ­ operaÄnÃ­ho systÃ©mu -- zavedenÃ­ dynamickÃ© knihovny do pamÄ›ti. Jsou dvÄ› moÅ¾nosti jeho provedenÃ­, prvnÃ­ je prÃ¡vÄ› pÅ™i zavÃ¡dÄ›nÃ­ knihovny, kdy se odkazy na vÅ¡echny funkce (a mezi nimi navzÃ¡jem) naplnÃ­ sprÃ¡vnÃ½mi hodnotami (podle bÃ¡zovÃ© adresy, na kterou se knihovna do pamÄ›ti nahraje). DruhÃ¡ moÅ¾nost je pouÅ¾itÃ­ dvou pointerÅ¯ pÅ™i volÃ¡nÃ­ funkcÃ­ z knihovny -- to se vytvoÅ™Ã­ tabulka skuteÄnÃ½ch adres, na kterou se z knihovny ukazuje. PrvnÃ­ moÅ¾nost trvÃ¡ dÃ©le pÅ™i zavÃ¡dÄ›nÃ­ knihovny, druhÃ¡ je zase pomalejÅ¡Ã­ pÅ™i provÃ¡dÄ›nÃ­, ale umoÅ¾Åˆuje kÃ³d knihovny beze zmÄ›n sdÃ­let vÃ­ce procesy.
+    \item \emph{Statické linkování} \\ Po oddìleném pøekladu jednotlivé object moduly ještì neobsahují pøímo adresy všech funkcí a externích identifikátorù, jen odkazy na nì. Linker se postará o jejich spojení dohromady. Je nutné, aby jména byla unikátní, take u pøetíenıch a virtuálních funkcí, jako je v C++, musí bı jména zpotvoøena tak, aby ukazovala i tøídu, namespace, parametry a jejich typy. To má na starosti compiler a øíká se tomu \emph{name mangling}.
+    \item \emph{Dynamické linkování} \\ Nastává po volání operaèního systému -- zavedení dynamické knihovny do pamìti. Jsou dvì monosti jeho provedení, první je právì pøi zavádìní knihovny, kdy se odkazy na všechny funkce (a mezi nimi navzájem) naplní správnımi hodnotami (podle bázové adresy, na kterou se knihovna do pamìti nahraje). Druhá monost je pouití dvou pointerù pøi volání funkcí z knihovny -- to se vytvoøí tabulka skuteènıch adres, na kterou se z knihovny ukazuje. První monost trvá déle pøi zavádìní knihovny, druhá je zase pomalejší pøi provádìní, ale umoòuje kód knihovny beze zmìn sdílet více procesy.
 \end{pitemize}
 
 
 \par\begin{center}\includegraphics[width=10cm]{informatika/programovanie/obrazky/oddelenypreklad03.png}\end{center}
 
-\emph{Linker} je program, kterÃ½ prijÃ­mÃ¡ jeden alebo vÃ­ce objektÅ¯ generovanÃ½ch kompilÃ¡torem a sloÅ¾Ã­ je v jeden spustitelnÃ½ program.
+\emph{Linker} je program, kterı prijímá jeden alebo více objektù generovanıch kompilátorem a sloí je v jeden spustitelnı program.
 
-ObjektovÃ½ kÃ³d, nebo objektovÃ½ soubor je reprezentace kÃ³du, kterÃ½ kompilÃ¡tor nebo assembler vytvoÅ™Ã­ zpracovÃ¡nÃ­m zdrojovÃ©ho kÃ³du. ObjektovÃ© soubory obsahujÃ­ kompaktnÃ­ kÃ³d, Äasto nazÃ½vanÃ½ \uv{binÃ¡rky} :-) Linker se typicky pouÅ¾Ã­vÃ¡ na vytvoÅ™enÃ­ spustitelnÃ½ho souboru nebo knihovny spojenÃ­m (slinkovÃ¡nÃ­m) objektovÃ½ch souborÅ¯. ZÃ¡kladnÃ­ ÄastÃ­ objektovÃ©ho souboru je strojovÃ½ kÃ³d (kÃ³d pÅ™imo vykonÃ¡vanÃ½ CPU poÄÃ­taÄe).
+Objektovı kód, nebo objektovı soubor je reprezentace kódu, kterı kompilátor nebo assembler vytvoøí zpracováním zdrojového kódu. Objektové soubory obsahují kompaktní kód, èasto nazıvanı \uv{binárky} :-) Linker se typicky pouívá na vytvoøení spustitelnıho souboru nebo knihovny spojením (slinkováním) objektovıch souborù. Základní èastí objektového souboru je strojovı kód (kód pøimo vykonávanı CPU poèítaèe).
 
 \subsubsection*{Makefile}
 
-Smyslem programu \emph{make} je Å™Ã­zenÃ­ pÅ™ekladu a linkovÃ¡nÃ­. Popis zÃ¡vislostÃ­ jednotlivÃ½ch modulÅ¯ a hlaviÄkovÃ½ch na sobÄ› je definovÃ¡n v 1 textovÃ©m souboru -- \emph{Makefile} (tj. kterÃ© soubory je nutnÃ© mÃ­t aktuÃ¡lnÃ­/vytvoÅ™enÃ© pro pÅ™eklad kterÃ©ho souboru). Make vÅ¾dy po zmÄ›nÄ› souboru pÅ™eloÅ¾Ã­ jen to, co na nÄ›m zÃ¡visÃ­.
-FormÃ¡t souboru make:
+Smyslem programu \emph{make} je øízení pøekladu a linkování. Popis závislostí jednotlivıch modulù a hlavièkovıch na sobì je definován v 1 textovém souboru -- \emph{Makefile} (tj. které soubory je nutné mít aktuální/vytvoøené pro pøeklad kterého souboru). Make vdy po zmìnì souboru pøeloí jen to, co na nìm závisí.
+Formát souboru make:
 \begin{verbatim}
 targets: files; 
         commands; #comment; line-begin\
         line contd.;
 \end{verbatim}
-Targets -- cÃ­le ÄinnostÃ­ / cÃ­lovÃ© soubory, moÅ¾no definovat vic, pÅ™i spuÅ¡tÄ›nÃ­ make bez parametrÅ¯ se bere prvnÃ­; univ. nÃ¡stroj (nejen pro pÅ™eklad C/C++). Lze definovat i vlastnÃ­ makra (pÅ™Ã­kazem \texttt{<nÃ¡zev makra> = <string>}) a pak je pouÅ¾Ã­vat (\texttt{\$\{makro\}}).
+Targets -- cíle èinností / cílové soubory, mono definovat vic, pøi spuštìní make bez parametrù se bere první; univ. nástroj (nejen pro pøeklad C/C++). Lze definovat i vlastní makra (pøíkazem \texttt{<název makra> = <string>}) a pak je pouívat (\texttt{\$\{makro\}}).

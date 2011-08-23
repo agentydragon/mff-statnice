@@ -1,63 +1,63 @@
-\subsection{ReferenÄnÃ­ integrita}
+\subsection{Referenèní integrita}
 
-JednÃ¡ se o nÃ¡stroj databÃ¡zovÃ©ho stroje, kterÃ½ pomÃ¡hÃ¡ udrÅ¾ovat
-vztahy v relaÄnÄ› propojenÃ½ch databÃ¡zovÃ½ch tabulkÃ¡ch.
+Jedná se o nástroj databázového stroje, kterı pomáhá udrovat
+vztahy v relaènì propojenıch databázovıch tabulkách.
 
-ReferenÄnÃ­ integrita se definuje \emph{cizÃ­m klÃ­Äem}, a to pro dvojici tabulek,
-nebo nad jednou tabulkou, kterÃ¡ obsahuje na sobÄ› zÃ¡vislÃ¡ data (napÅ™Ã­klad
-stromovÃ© struktury). Tabulka, v nÃ­Å¾ je pravidlo uvedeno, se nazÃ½vÃ¡ podÅ™Ã­zenÃ¡
-tabulka (pouÅ¾Ã­vÃ¡ se takÃ© anglickÃ½ termÃ­n slave). Tabulka, jejÃ­Å¾ jmÃ©no je v
-omezenÃ­ uvedeno je nadÅ™Ã­zenÃ¡ tabulka (master). Pravidlo referenÄnÃ­ integrity
-vyÅ¾aduje, aby kaÅ¾dÃ½ zÃ¡znam pouÅ¾itÃ½ v podÅ™Ã­zenÃ© tabulce existoval v nadÅ™Ã­zenÃ©
-tabulce. To znamenÃ¡, Å¾e kaÅ¾dÃ½ zÃ¡znam musÃ­ v cizÃ­m klÃ­Äi obsahovat hodnoty
-odpovÃ­dajÃ­cÃ­ primÃ¡rnÃ­mi klÃ­Äi v nadÅ™Ã­zenÃ© tabulce, nebo null.
+Referenèní integrita se definuje \emph{cizím klíèem}, a to pro dvojici tabulek,
+nebo nad jednou tabulkou, která obsahuje na sobì závislá data (napøíklad
+stromové struktury). Tabulka, v ní je pravidlo uvedeno, se nazıvá podøízená
+tabulka (pouívá se také anglickı termín slave). Tabulka, její jméno je v
+omezení uvedeno je nadøízená tabulka (master). Pravidlo referenèní integrity
+vyaduje, aby kadı záznam pouitı v podøízené tabulce existoval v nadøízené
+tabulce. To znamená, e kadı záznam musí v cizím klíèi obsahovat hodnoty
+odpovídající primárními klíèi v nadøízené tabulce, nebo null.
 
-To sebou nese dva dÅ¯sledky:
+To sebou nese dva dùsledky:
 \begin{pitemize}
-\item pÅ™i pÅ™idÃ¡nÃ­ zÃ¡znamu do podÅ™Ã­zenÃ© tabulky se kontroluje, zda stejnÃ¡ hodnota
-klÃ­Äe existuje v nadÅ™Ã­zenÃ© tabulce â€“ poruÅ¡enÃ­ pravidla vyvolÃ¡ chybu,
-\item pÅ™i mazÃ¡nÃ­ nebo ÃºpravÄ› zÃ¡znamÅ¯ v nadÅ™Ã­zenÃ© tabulce se kontroluje, zda
-v podÅ™Ã­zenÃ© tabulce nenÃ­ zÃ¡znam se stejnou hodnotou klÃ­Äe â€“ poruÅ¡enÃ­ pravidla
-mÅ¯Å¾e vyvolat chybu nebo Ãºpravu dat v podÅ™Ã­zenÃ© tabulky v souladu s definovanÃ½mi
+\item pøi pøidání záznamu do podøízené tabulky se kontroluje, zda stejná hodnota
+klíèe existuje v nadøízené tabulce – porušení pravidla vyvolá chybu,
+\item pøi mazání nebo úpravì záznamù v nadøízené tabulce se kontroluje, zda
+v podøízené tabulce není záznam se stejnou hodnotou klíèe – porušení pravidla
+mùe vyvolat chybu nebo úpravu dat v podøízené tabulky v souladu s definovanımi
 akcemi.
 \end{pitemize}
 
-\begin{obecne}{PÅ™Ã­klad}
-V databÃ¡zi spolku pÅ™Ã¡tel psÅ¯ mÃ¡me nÃ¡sledujÃ­cÃ­ tabulky:
+\begin{obecne}{Pøíklad}
+V databázi spolku pøátel psù máme následující tabulky:
 \begin{pitemize}
- \item \emph{osoby} se sloupci \emph{\underline{osoba-id}} a \emph{jmÃ©no},
+ \item \emph{osoby} se sloupci \emph{\underline{osoba-id}} a \emph{jméno},
  \item \emph{psi} se sloupci \emph{\underline{pes-id}}, \emph{majitel} a \emph{rasa}.
 \end{pitemize}
 
-Aby byla data v databÃ¡zi korektnÃ­, je tÅ™eba, aby kaÅ¾dÃ½ zÃ¡znam psa mÄ›l uvedenÃ©ho
-platnÃ©ho majitele. Proto oznaÄÃ­me v tabulce psi sloupec \emph{majitel} jako cizÃ­
-klÃ­Ä, vztaÅ¾enÃ½ k sloupci (klÃ­Äi) \emph{osoba-id} v tabulce osoby. KdyÅ¾ je potÃ©
-pÅ™idÃ¡n zÃ¡znam pro psa, databÃ¡ze bude vyÅ¾adovat, aby ÄÃ­slo v poli \emph{majitel}
-nabÃ½valo nÄ›kterÃ© z existujÃ­cÃ­ch hodnot \emph{osoba-id} tabulky osoby. ZÃ¡roveÅˆ
-mÅ¯Å¾eme urÄit, zda se pÅ™i smazÃ¡nÃ­ osoby smaÅ¾ou i zÃ¡znamy vÅ¡ech psÅ¯, kterÃ½m je
-osoba majitelem, nebo zda mÃ¡ pokus o smazÃ¡nÃ­ osoby vlastnÃ­cÃ­ alespoÅˆ jednoho psa
+Aby byla data v databázi korektní, je tøeba, aby kadı záznam psa mìl uvedeného
+platného majitele. Proto oznaèíme v tabulce psi sloupec \emph{majitel} jako cizí
+klíè, vztaenı k sloupci (klíèi) \emph{osoba-id} v tabulce osoby. Kdy je poté
+pøidán záznam pro psa, databáze bude vyadovat, aby èíslo v poli \emph{majitel}
+nabıvalo nìkteré z existujících hodnot \emph{osoba-id} tabulky osoby. Zároveò
+mùeme urèit, zda se pøi smazání osoby smaou i záznamy všech psù, kterım je
+osoba majitelem, nebo zda má pokus o smazání osoby vlastnící alespoò jednoho psa
 selhat.
 \end{obecne}
 
-Existuje tedy nÄ›kolik \emph{referenÄnÃ­ch akcÃ­}, kterÃ© mohou bÃ½t vyvolÃ¡ny, kdyÅ¾
-dochÃ¡zÃ­ ke zmÄ›nÄ› nebo mazÃ¡nÃ­ v zÃ¡vislÃ½ch tabulkÃ¡ch:
+Existuje tedy nìkolik \emph{referenèních akcí}, které mohou bıt vyvolány, kdy
+dochází ke zmìnì nebo mazání v závislıch tabulkách:
 \begin{description}
-  \item[CASCADE] -- Pokud je smazÃ¡n Å™Ã¡dek v nadÅ™Ã­zenÃ© tabulce, Å™Ã¡dky z podÅ™Ã­zenÃ©
-  tabulky obsahujÃ­cÃ­ mazanÃ½ cizÃ­ klÃ­Ä budou smazÃ¡ny takÃ©.
+  \item[CASCADE] -- Pokud je smazán øádek v nadøízené tabulce, øádky z podøízené
+  tabulky obsahující mazanı cizí klíè budou smazány také.
 
-  \item[RESTRICT] -- Å˜Ã¡dek v nadÅ™Ã­zenÃ© tabulce nesmÃ­ bÃ½t smazÃ¡n ani zmÄ›nÄ›n, pokud
-  v podÅ™Ã­zenÃ© tabulce existujÃ­ zÃ¡visejÃ­cÃ­ Å™Ã¡dky. Nedojde ani k pokusu o zmÄ›nu dat.
+  \item[RESTRICT] -- Øádek v nadøízené tabulce nesmí bıt smazán ani zmìnìn, pokud
+  v podøízené tabulce existují závisející øádky. Nedojde ani k pokusu o zmìnu dat.
   
-  \item[NO ACTION] -- Operace Update nebo Delete je spuÅ¡tÄ›na na nadÅ™Ã­zenou tabulku
-  a na konci je teprve vyhodnoceno, jestli nedoÅ¡lo k poruÅ¡enÃ­ integrity. RozdÃ­l
-  oproti akci RESTRICT je ten, Å¾e samotnÃ½m dotazem, nebo napÅ™Ã­klad triggerem mÅ¯Å¾e
-  bÃ½t zaÅ™Ã­zeno, aby k poruÅ¡enÃ­ integrity nedoÅ¡lo. Potom je operace normÃ¡lnÄ›
+  \item[NO ACTION] -- Operace Update nebo Delete je spuštìna na nadøízenou tabulku
+  a na konci je teprve vyhodnoceno, jestli nedošlo k porušení integrity. Rozdíl
+  oproti akci RESTRICT je ten, e samotnım dotazem, nebo napøíklad triggerem mùe
+  bıt zaøízeno, aby k porušení integrity nedošlo. Potom je operace normálnì
   provedena.
   
-  \item[SET NULL] -- CizÃ­ klÃ­Ä v podÅ™Ã­zenÃ© tabulce je nastaven na \emph{null},
-  pokud dojde ke zmÄ›nÄ› Äi smazÃ¡nÃ­ v odpovÃ­dajÃ­cÃ­m Å™Ã¡dku nadÅ™Ã­zenÃ© tabulky.
+  \item[SET NULL] -- Cizí klíè v podøízené tabulce je nastaven na \emph{null},
+  pokud dojde ke zmìnì èi smazání v odpovídajícím øádku nadøízené tabulky.
 
-  \item[SET DEFAULT] -- TÃ©mÄ›Å™ to samÃ© jako SET NULL, hodnoty cizÃ­ho klÃ­Äe jsou
-  nastaveny na defaultnÃ­ hodnotu sloupce, pokud dojde ke zmÄ›nÄ› Äi smazÃ¡nÃ­
-  odpovÃ­dajÃ­cÃ­ho Å™Ã¡dku v nadÅ™Ã­zenÃ© tabulce.
+  \item[SET DEFAULT] -- Témìø to samé jako SET NULL, hodnoty cizího klíèe jsou
+  nastaveny na defaultní hodnotu sloupce, pokud dojde ke zmìnì èi smazání
+  odpovídajícího øádku v nadøízené tabulce.
 \end{description}

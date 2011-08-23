@@ -1,78 +1,78 @@
-\subsection{ÄŒasovÃ¡ sloÅ¾itost algoritmÅ¯, sloÅ¾itost v nejhorÅ¡Ã­m a prÅ¯mÄ›rnÃ©m pÅ™Ã­padÄ›}
+\subsection{Èasová sloitost algoritmù, sloitost v nejhorším a prùmìrném pøípadì}
 
 
-\begin{definiceN}{ÄasovÃ¡ sloÅ¾itost}
-  \textbf{ÄŒasovou sloÅ¾itostÃ­} algoritmu rozumÃ­me zÃ¡vislost jeho ÄasovÃ½ch nÃ¡rokÅ¯ na
-  velikosti konkrÃ©tnÃ­ch vstupnÃ­ch dat. Analogicky se definuje i \textbf{pamÄ›Å¥ovÃ¡
-  sloÅ¾itost}. Dobu zpracovÃ¡nÃ­ Ãºlohy o velikosti $n$ znaÄÃ­me $T(n)$\\
-  ÄŒasovou sloÅ¾itost Äasto zkoumÃ¡me z nÄ›kolik hledisek:
+\begin{e}{Definice}{0}{èasová sloitost}
+  \textbf{Èasovou sloitostí} algoritmu rozumíme závislost jeho èasovıch nárokù na
+  velikosti konkrétních vstupních dat. Analogicky se definuje i \textbf{pamìová
+  sloitost}. Dobu zpracování úlohy o velikosti $n$ znaèíme $T(n)$\\
+  Èasovou sloitost èasto zkoumáme z nìkolik hledisek:
   \begin{pitemize}
-    \item \textbf{v nejhorÅ¡Ã­m pÅ™Ã­padÄ›}~-- maximÃ¡lnÃ­ poÄet operacÃ­ pro nÄ›jakÃ¡ data, 
-    \item \textbf{v nejlepÅ¡Ã­m pÅ™Ã­padÄ›}~-- minimÃ¡lnÃ­ poÄet operacÃ­ pro nÄ›jakÃ¡ data,
-    \item \textbf{v prÅ¯mÄ›rnÃ©m (oÄekÃ¡vanÃ©m) pÅ™Ã­padÄ›}~-- prÅ¯mÄ›r pro vÅ¡echna moÅ¾nÃ¡
-  vstupnÃ­ data (nÄ›kdy tÃ©Å¾ stÅ™ednÃ­ hodnota nÃ¡hodnÃ© veliÄiny $T(n)$).
+    \item \textbf{v nejhorším pøípadì}~-- maximální poèet operací pro nìjaká data, 
+    \item \textbf{v nejlepším pøípadì}~-- minimální poèet operací pro nìjaká data,
+    \item \textbf{v prùmìrném (oèekávaném) pøípadì}~-- prùmìr pro všechna moná
+  vstupní data (nìkdy té støední hodnota náhodné velièiny $T(n)$).
   \end{pitemize}
 
-  \begin{poznamka}
-  Jako jednu \uv{operaci}, nebo-li \emph{krok algoritmu} rozumÃ­me jednu elementÃ¡rnÃ­ 
-  operaci nÄ›jakÃ©ho abstraktnÃ­ho stroje (napÅ™. Turingova stroje), proveditelnou v 
-  konstantnÃ­m Äase. IntuitivnÄ›
-  je moÅ¾nÃ© chÃ¡pat to jako nÄ›kolik operacÃ­ poÄÃ­taÄe, kterÃ© dohromady netrvajÃ­ vÃ­ce,
-  neÅ¾ nÄ›jakou pevnÄ› danou dobu.
-  \end{poznamka}
-\end{definiceN}
+  \begin{e}{Poznámka}{0}{0}
+  Jako jednu \uv{operaci}, nebo-li \emph{krok algoritmu} rozumíme jednu elementární 
+  operaci nìjakého abstraktního stroje (napø. Turingova stroje), proveditelnou v 
+  konstantním èase. Intuitivnì
+  je moné chápat to jako nìkolik operací poèítaèe, které dohromady netrvají více,
+  ne nìjakou pevnì danou dobu.
+  \end{e}
+\end{e}
 
-\begin{poznamka}
-  ÄŒasovÃ¡ sloÅ¾itost problÃ©mu je rovna sloÅ¾itosti nejlepÅ¡Ã­ho algoritmu Å™eÅ¡Ã­cÃ­ho
-  danÃ½ problÃ©m.
-\end{poznamka}
+\begin{e}{Poznámka}{0}{0}
+  Èasová sloitost problému je rovna sloitosti nejlepšího algoritmu øešícího
+  danı problém.
+\end{e}
 
 \pagebreak[4]
-\subsubsection*{AsymptotickÃ¡ sloÅ¾itost}
+\subsubsection*{Asymptotická sloitost}
 
-\begin{definice}
-  Å˜ekneme, Å¾e funkce $f(n)$ je \textbf{asymptoticky menÅ¡Ã­ nebo rovna} neÅ¾ $g(n)$,
-  znaÄÃ­me $f(n)$ je $O(g(n))$, prÃ¡vÄ› tehdy, kdyÅ¾
+\begin{e}{Definice}{0}{0}
+  Øekneme, e funkce $f(n)$ je \textbf{asymptoticky menší nebo rovna} ne $g(n)$,
+  znaèíme $f(n)$ je $O(g(n))$, právì tehdy, kdy
   $$ \exists c>0\ \exists n_0\ \forall n>n_0: 0 \leq f(n) \leq c \cdot g(n)$$
-  Funkce $f(n)$ je \textbf{asymptoticky vÄ›tÅ¡Ã­ nebo rovna} neÅ¾ $g(n)$, znaÄÃ­me
-  $f(n)$ je $\Omega(g(n))$, prÃ¡vÄ› tehdy, kdyÅ¾
+  Funkce $f(n)$ je \textbf{asymptoticky vìtší nebo rovna} ne $g(n)$, znaèíme
+  $f(n)$ je $\Omega(g(n))$, právì tehdy, kdy
   $$ \exists c>0\ \exists n_0\ \forall n>n_0: 0 \leq c \cdot g(n) \leq f(n)$$
-  Funkce $f(n)$ je \textbf{asymptoticky stejnÃ¡} jako $g(n)$, znaÄÃ­me $f(n)$ je
-  $\Theta(g(n))$, prÃ¡vÄ› tehdy, kdyÅ¾
+  Funkce $f(n)$ je \textbf{asymptoticky stejná} jako $g(n)$, znaèíme $f(n)$ je
+  $\Theta(g(n))$, právì tehdy, kdy
   $$ \exists c_1,c_2>0\ \exists n_0\ \forall n>n_0: 0 \leq c_1 \cdot g(n) \leq
   f(n) \leq c_2 \cdot g(n)$$
-\end{definice}
+\end{e}
 
-\begin{poznamka} 
-  AsymptotickÃ¡ sloÅ¾itost zkoumÃ¡ chovÃ¡nÃ­ algoritmÅ¯ na \uv{velkÃ½ch} datech a dle
-  jejich sloÅ¾itosti je zaÅ™azuje do skupin (polynomiÃ¡lnÃ­, exponenciÃ¡lnÃ­\dots).
-  PÅ™i zkoumÃ¡nÃ­ se zanedbÃ¡vajÃ­ aditivnÃ­ a multiplikativnÃ­ konstanty. 
-\end{poznamka}
+\begin{e} {Poznámka}{0}{0}
+  Asymptotická sloitost zkoumá chování algoritmù na \uv{velkıch} datech a dle
+  jejich sloitosti je zaøazuje do skupin (polynomiální, exponenciální\dots).
+  Pøi zkoumání se zanedbávají aditivní a multiplikativní konstanty. 
+\end{e}
 
-\subsubsection*{AmortizovanÃ¡ sloÅ¾itost}
+\subsubsection*{Amortizovaná sloitost}
 
-\begin{definiceN}{AmortizovanÃ¡ sloÅ¾itost}
-  \emph{AmortizovanÃ¡ ÄasovÃ¡ sloÅ¾itost} poÄÃ­tÃ¡ prÅ¯mÄ›rnÃ½ Äas na jednu operaci pÅ™i provedenÃ­
-  posloupnosti operacÃ­. PouÅ¾Ã­vÃ¡ se typicky pro poÄÃ­tÃ¡nÃ­ ÄasovÃ© sloÅ¾itosti operacÃ­
-  nad datovÃ½mi strukturami. DÃ¡vÃ¡ realistiÄtÄ›jÅ¡Ã­ hornÃ­ odhad sloÅ¾itosti
-  posloupnosti operacÃ­, neÅ¾ poÄÃ­tÃ¡nÃ­ s nejhorÅ¡Ã­m pÅ™Ã­padem u kaÅ¾dÃ© operace.
-\end{definiceN}
+\begin{e}{Definice}{0}{Amortizovaná sloitost}
+  \emph{Amortizovaná èasová sloitost} poèítá prùmìrnı èas na jednu operaci pøi provedení
+  posloupnosti operací. Pouívá se typicky pro poèítání èasové sloitosti operací
+  nad datovımi strukturami. Dává realistiètìjší horní odhad sloitosti
+  posloupnosti operací, ne poèítání s nejhorším pøípadem u kadé operace.
+\end{e}
 
-\begin{obecne}{AgregaÄnÃ­ metoda}
-  SpoÄÃ­tÃ¡me (nejhorÅ¡Ã­ moÅ¾nÃ½) Äas $T(n)$ pro posloupnost operacÃ­. AmortizovanÃ¡ cena
-  jednÃ© operace je potom $\frac{T(n)}{n}$.
+\begin{obecne}{Agregaèní metoda}
+  Spoèítáme (nejhorší monı) èas $T(n)$ pro posloupnost operací. Amortizovaná cena
+  jedné operace je potom $\frac{T(n)}{n}$.
 \end{obecne}
 
-\begin{obecne}{ÃšÄetnÃ­ metoda}
-  Od kaÅ¾dÃ© operace \uv{vybereme} urÄitÃ½ \uv{obnos}, ze kterÃ©ho \uv{zaplatÃ­me} za
-  danou operaci a pokud nÄ›co zbude, dÃ¡me to na ÃºÄet. Pokud je operace draÅ¾Å¡Ã­ neÅ¾
-  kolik je jejÃ­ obnos, tak potÅ™ebnÃ½ rozdÃ­l vybereme z ÃºÄtu. ZÅ¯statek na ÃºÄtu
-  musÃ­ bÃ½t stÃ¡le nezÃ¡pornÃ½. Pokud uspÄ›jeme, tak \uv{obnos} = amortizovanÃ¡ cena
-  jednÃ© operace.
+\begin{obecne}{Úèetní metoda}
+  Od kadé operace \uv{vybereme} urèitı \uv{obnos}, ze kterého \uv{zaplatíme} za
+  danou operaci a pokud nìco zbude, dáme to na úèet. Pokud je operace draší ne
+  kolik je její obnos, tak potøebnı rozdíl vybereme z úètu. Zùstatek na úètu
+  musí bıt stále nezápornı. Pokud uspìjeme, tak \uv{obnos} = amortizovaná cena
+  jedné operace.
 \end{obecne}
 
-\begin{poznamka}
-  Jde o to, Å¾e nÄ›kterÃ¡ operace mÅ¯Å¾e trvat krÃ¡tce, ale \uv{rozhÃ¡Å¾e} datovou
-  strukturu, takÅ¾e nÃ¡sledujÃ­cÃ­ operace potÅ™ebujÃ­ vÃ­c Äasu. Nebo naopak trvÃ¡
-  dlouho a datovou strukturu \uv{uspoÅ™Ã¡dÃ¡}, takÅ¾e ostatnÃ­ operace jsou kratÅ¡Ã­.
-\end{poznamka}
+\begin{e}{Poznámka}{0}{0}
+  Jde o to, e nìkterá operace mùe trvat krátce, ale \uv{rozháe} datovou
+  strukturu, take následující operace potøebují víc èasu. Nebo naopak trvá
+  dlouho a datovou strukturu \uv{uspoøádá}, take ostatní operace jsou kratší.
+\end{e}

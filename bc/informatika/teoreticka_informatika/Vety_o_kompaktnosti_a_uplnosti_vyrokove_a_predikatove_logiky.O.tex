@@ -1,24 +1,24 @@
 \subsection{Vìty o kompaktnosti a úplnosti vırokové a predikátové logiky}
 
-\begin{definiceN}{úplná teorie}
+\begin{e}{Definice}{0}{úplná teorie}
 Teorie $T$ s jazykem $L$ prvního øádu je \emph{úplná}, je-li bezesporná a pro libovolnou uzavøenou formuli $A$ je jedna z formulí $A,\neg A$ dokazatelná v $T$.
-\end{definiceN}
+\end{e}
 
-\begin{vetaNSkull}{o korektnosti\vl}
+\begin{e}{Vìta}{1}{o korektnosti\vl}
 Pro teorii $T$ a formuli $A$ platí $T \vdash A \Rightarrow T \models A$. (Kadá v $T$ dokazatelná formule je v $T$ pravdivá.)
-\end{vetaNSkull}
-\begin{dukaz}
+\end{e}
+\begin{e}{Dùkaz}{0}{0}
 Indukcí na vìtách $T$. Kadı axiom je pravdivı (ovìøíme pøímo) a pravidlo modus ponens také zachovává pravdivost.
-\end{dukaz}
+\end{e}
 
-\begin{vetaN}{o bezespornosti a modelech\vl}
+\begin{e}{Vìta}{0}{o bezespornosti a modelech\vl}
 Má-li teorie model, je bezesporná.
-\end{vetaN}
-\begin{dukaz}
+\end{e}
+\begin{e}{Dùkaz}{0}{0}
 Formule $A$ a $\neg A$ nemohou bıt zároveò platné v ádném modelu.
-\end{dukaz}
+\end{e}
 
-\begin{vetaNSkull}{o spoustì vìcí\vl}
+\begin{e}{Vìta}{1}{o spoustì vìcí\vl}
 Nech $A, B$ jsou formule teorie $T$. Platí následující tvrzení.
 \begin{penumerate}
     \item
@@ -37,7 +37,7 @@ Nech $A, B$ jsou formule teorie $T$. Platí následující tvrzení.
     \item (\textbf{O kompaktnosti}.) Teorie má model (tedy je splnitelná), právì kdy kadá její koneèná podteorie má model (je splnitelná).
     \item (\textbf{O úplnosti}.) $T \vdash A \Leftrightarrow T \models A$ platí pro kadou teorii $T$ a její formuli $A$. Dùsledkem je bezespornost vırokové logiky a dokazatelné v ní jsou právì tautologie.
 \end{penumerate}
-\begin{dukaz}
+\begin{e}{Dùkaz}{0}{0}
 \begin{penumerate}
     \item
     \begin{penumerate}
@@ -64,27 +64,27 @@ Nech $A, B$ jsou formule teorie $T$. Platí následující tvrzení.
     \item Plyne z 4) z toho, e teorie je bezesporná, právì kdy je bezesporná kadá její koneèná podteorie.
     \item $\Rightarrow$ je vìta o korektnosti, v opaèném smìru pøedpokládáme $T \models A$. Pak je $T, \neg A$ sporná dle tvrzení o existenci modelu 4), tedy $T \vdash A$ dle dùkazu sporem 1b).
 \end{penumerate}
-\end{dukaz}
-\end{vetaNSkull}
+\end{e}
+\end{e}
 
-\begin{vetaN}{o ekvivalenci\vl}
+\begin{e}{Vìta}{0}{o ekvivalenci\vl}
 Vznikne-li formule $A'$ z $A$ nahrazením nìkterého vıskytu podformule $B$ formulí $B'$, tak platí:
 \begin{penumerate}
     \item $\vdash B \leftrightarrow B' \to A \leftrightarrow A'$,
     \item $T \vdash B \leftrightarrow B' \Rightarrow T \vdash A \leftrightarrow A'$.
 \end{penumerate}
-\end{vetaN}
+\end{e}
 
-\begin{vetaNSkull}{o existenci modelu, úplnosti a kompaktnosti\pl}
+\begin{e}{Vìta}{1}{o existenci modelu, úplnosti a kompaktnosti\pl}
 \begin{penumerate}
     \item (\textbf{O existenci modelu}.) Kadá bezesporná teorie má model kardinality nejvıše $\|L(T)\|$.
     \item (\textbf{O úplnosti}.) Formule teorie $T$ je dokazatelná, právì kdy je pravdivá ($T \vdash A \Leftrightarrow T \models A$).
     \item (\textbf{O kompaktnosti}.) Teorie má model (je splnitelná), právì kdy kadá její koneèná èást má model. ($T \models A$ právì kdy $T' \models A$ pro nìjakou koneènou podteorii $T' \subseteq T$.)
 \end{penumerate}
-\begin{dukaz}
+\begin{e}{Dùkaz}{0}{0}
 \begin{penumerate}
     \item[2.] Pro formuli $A(x)$ uitím pravidla generalizace, dùkazu sporem a vìty o existenci modelu máme: $T \not\vdash A \Leftrightarrow T \not\vdash (\forall x)A \Leftrightarrow T, (\exists x)\neg A$ je bezesporná $\Leftrightarrow T, (\exists x)\neg A$ má model $\Leftrightarrow T \not\models A$.
     \item[3.] Plyne z toho, e teorie je sporná, právì kdy je nìjaká její koneèná èást sporná.
 \end{penumerate}
-\end{dukaz}
-\end{vetaNSkull}
+\end{e}
+\end{e}

@@ -1,17 +1,17 @@
 \section{Èísla}
 
-\begin{pozadavky}
+\begin{e}{Poadavky}{0}{0}
 \begin{pitemize}
 \item Vlastnosti pøirozenıch, celıch, racionálních, reálnıch a komplexních èísel
 \item Posloupnosti a limity
 \item Cauchyovské posloupnosti
 \end{pitemize}
-\end{pozadavky}
+\end{e}
 
 \subsection{Reálná èísla $\mathbb{R}$}
 $\mathbb{R}$ definujeme axiomaticky.
 
-\begin{definice}
+\begin{e}{Definice}{0}{0}
 Mnoinou všech reálnıch èísel (znaèíme ji $\mathbb{R}$) budeme rozumìt mnoinu, na ní je definováno sèítání (znaèíme $x+y$), násobení (znaèíme $x\cdot y$) a uspoøádání (znaèíme $x \le y$), která spòují tyto axiomy:
 
 \begin{penumerate}
@@ -40,29 +40,29 @@ Mnoinou všech reálnıch èísel (znaèíme ji $\mathbb{R}$) budeme rozumìt mnoinu, 
                 \item $0 \neq 1$
         \end{penumerate}
         \item (Úplnost)
-                \\\begin{definiceN}{Axiom suprema}
+                \\\begin{e}{Definice}{0}{Axiom suprema}
                 Nech $M \subset \mathbb{R}$ je neprázdná a shora omezená (tj. $\exists a \forall x \in M: x \le a$). Pak existuje èíslo $s \in \mathbb{R}$, které má vlastnosti:
                 \begin{penumerate}
                         \item $\forall x \in M: x \le s\hfill\textit{(s je horní omezení)}$
                         \item $\forall s' \in \mathbb{R}, s' < s\;\; \exists x \in M: x > s'\hfill\textit{(všechny menší nejsou horní omeznení)}$
                 \end{penumerate}
                 
-                \end{definiceN}
+                \end{e}
 \end{penumerate}
 
-\end{definice}
-\begin{poznamka}
+\end{e}
+\begin{e}{Poznámka}{0}{0}
 Axiom supréma je dùleitı, odlišuje reálná èísla od racionálních.
 
 
                 Èíslo $s$ z~axiomu suprema je jednoznaènì urèeno, znaèí se $\sup M$ a øíká se mu \textbf{supremum mnoiny $M$}. Supremum mnoiny je její nejmenší horní závora (\textbf{horní závora} nebo \textbf{horní mez} je kadı takovı prvek, pro kterı platí bod (a) definice suprema). Nejvìtší dolní závoru mnoiny $M$ nazıváme \textbf{infimem mnoiny $M$} a znaèíme $\inf M$; z~axiomu suprema plyne, e kadá zdola omezená mnoina má infimum.
-\end{poznamka}
+\end{e}
 
-\begin{poznamka}
+\begin{e}{Poznámka}{0}{0}
 Relace \uv{$<$} na reálnıch èíslech (a stejnì tak na pøirozenıch a racionálních èíslech) se definuje takto: $a<b$, právì kdy $a\leq b$ a zároveò $a\neq b$.
-\end{poznamka}
+\end{e}
 
-\begin{definice}
+\begin{e}{Definice}{0}{0}
      $\mathbb{R}$ lze sestrojit i tak, e vezmeme $\mathbb{Q}$ a $\mathbb{R}$ definujeme z~nich -- tento pøístup jsem formálnì popsal zde, ale nejsem si jist, jestli bude nutnı u zkoušek -- nejspíš ne a je tu spíš pro úplnost. Další, ekvivalentní pøístup jsou tzv. Dedekindovy øezy, skrze které byly dokonce reálná èísla pùvodnì vytvoøena\footnote{více info napø. tady -- \url{http://en.wikipedia.org/wiki/Dedekind_cut} -- opìt, nepøedpokládám, e by bylo nutné znát.}.
      
 Nech $R$ je mnoina všech Cauchyovskıch posloupností ve $\mathbb{Q}$. Operace na této mnoinì definujeme následovnì:
@@ -73,27 +73,27 @@ Nech $R$ je mnoina všech Cauchyovskıch posloupností ve $\mathbb{Q}$. Operace n
 \end{itemize}
 Na $R$ definujme relaci ekvivalence jako $\left\{x_n\right\} \sim \left\{y_n\right\}  \Leftrightarrow \lim_{k\rightarrow \infty}\left|x_k-y_k\right|=0$ (je nutné ještì dokázat, e jde o ekvivalenci). Potom reálná èísla $\mathbb{R} = R / \sim$. 
 
-\medskip\begin{poznamka}
+\medskip\begin{e}{Poznámka}{0}{0}
 Na takto definovanıch reálnıch èíslech lze potom racionální èísla vzít jako tøídy ekvivalence konstantních posloupností ($x_0 = x_n = q \in \mathbb{Q}$), celá èísla potom jako tøídy ekvivalence posloupností, kde $x_0 = x_n = n \in \mathbb{N}$.
-\end{poznamka}
+\end{e}
 
-\medskip\begin{poznamka}
+\medskip\begin{e}{Poznámka}{0}{0}
 O co pøesnì jde lze dobøe ilustrovat na desetinnıch rozvojích daného reálného èísla: napø. pro èíslo $\pi$ mùe jít napø. o posloupnost $3$, $3,1$, $3,14$, $3,141$, $3,1415$\ldots, ale také napøíklad $3$, $3,14$, $3,1415$\ldots. Jde o rùzné posloupnosti, obì ale reprezentují stejné reálné èíslo $\pi$.
 
 Stejnì je napøíklad èíslo $0,\overline{9}$ rovno èíslu $1$ -- pokud vezmeme $\left\{x_n\right\}$ posloupnost $0,9$, $0,99$\ldots a $\left\{y_n\right\}$ konstantní rovnou 1, jdou rozdíly k nule, jsou tedy ve stejné tøídì ekvivalence, tedy jsou si rovny.
-\end{poznamka}
+\end{e}
 
 
-\end{definice}
+\end{e}
 
-\begin{poznamka}
+\begin{e}{Poznámka}{0}{0}
     Jak jsem ji psal, $\mathbb{R}$ se od $\mathbb{Q}$ liší pouze tím, e má kadá shora omezená mnoina supremum. Z~tohoto axiomu plyne, e v $\mathbb{R}$ má \emph{kadá Cauchyovská posloupnost limitu}\footnote{definice Cauchyovskıch posloupností bude dále}, co u $\mathbb{Q}$ neplatí.
-\end{poznamka}
+\end{e}
 
 
 \subsection{Pøirozená èísla $\mathbb{N}$}
 
-\begin{definice}
+\begin{e}{Definice}{0}{0}
         Øekneme, e mnoina $S \subset \mathbb{R}$ je \emph{induktivní}, jestlie platí
         \begin{pitemize}
                 \item $1 \in S$
@@ -103,34 +103,34 @@ Stejnì je napøíklad èíslo $0,\overline{9}$ rovno èíslu $1$ -- pokud vezmeme $\le
         $$
                 \mathbb{N} := \bigcap \{ S; S \subset \mathbb{R}; \textit{S induktivní}\}
         $$
-\end{definice}
+\end{e}
 
 
 
-\begin{vetaN}{Induktivnost pøirozenıch èísel}
+\begin{e}{Vìta}{0}{Induktivnost pøirozenıch èísel}
         Mnoina $\mathbb{N}$ je induktivní.
         
         \medskip
-        \begin{dukaz}
+        \begin{e}{Dùkaz}{0}{0}
             1 je tam proto, e je ve všech. Pokud je nìjaké èíslo $x$ z~$\mathbb{N}$ ve všech, tak i $x+1$ je ve všech.
-    \end{dukaz}
-\end{vetaN}
+    \end{e}
+\end{e}
 
 
-\begin{vetaN}{Slabá indukce}
+\begin{e}{Vìta}{0}{Slabá indukce}
     Pro vlastnost $\varphi$ platí:
         \begin{penumerate}
                 \item Platí-li $\varphi(1)$ a $\varphi(n)\Rightarrow\varphi(n+1)$, platí $\varphi$ pro všechny $\mathbb{N}$ \hfill \emph{(slabá indukce)}
         \end{penumerate}
         
         \medskip
-        \begin{ideadukazu}
+        \begin{e}{Idea dùkazu}{0}{0}
             Triviálnì z definice.
-    \end{ideadukazu}
-\end{vetaN}
+    \end{e}
+\end{e}
 
 
-\begin{vetaN}{Vlastnosti pøirozenıch èísel}
+\begin{e}{Vìta}{0}{Vlastnosti pøirozenıch èísel}
         Mnoina $\mathbb{N}$ má nasledujúcí vlastnosti:
         \begin{penumerate}
                 \item $n \in \mathbb{N} \Rightarrow n \ge 1$
@@ -141,23 +141,23 @@ Stejnì je napøíklad èíslo $0,\overline{9}$ rovno èíslu $1$ -- pokud vezmeme $\le
         \end{penumerate}
         
         \medskip
-        \begin{ideadukazu}
+        \begin{e}{Idea dùkazu}{0}{0}
             5. se dokáe sporem a tím, e \emph{koneèná} mnoina prvkù má vdy nejmenší prvek; 4. se dokáe pøes silnou indukci; 1., 2. a 3. bych dokazoval pøes 4. (ale je moné, e by to byl dùkaz kruhem).
-    \end{ideadukazu}
-\end{vetaN}
+    \end{e}
+\end{e}
 
-\begin{vetaN}{Archimédova vlastnost reálnıch èísel}
+\begin{e}{Vìta}{0}{Archimédova vlastnost reálnıch èísel}
         Pro kadé $x \in \mathbb{R}$ existuje $n \in \mathbb{N}$ takové, e $x < n$.
         
         
         \medskip
-        \begin{ideadukazu}
+        \begin{e}{Idea dùkazu}{0}{0}
             Sporem -- vybereme infimum $x$ mnoiny tìch, pro které neexistuje (je zdola omezené 1); pro $x-1$ u musí existovat, take existuje i pro $x$, co vede ke sporu.
-    \end{ideadukazu}
-\end{vetaN}
+    \end{e}
+\end{e}
 
 
-\begin{definiceN}{Peanove axiómy pre zavedenie prirodzenıch èísel}
+\begin{e}{Definice}{0}{Peanove axiómy pre zavedenie prirodzenıch èísel}
     Opìt mùeme $\mathbb{N}$ zavést jinak. Tato a následující definice jsou ekvivalentní.
     
 Mnoina $\mathbb{N}$ je taková mnoina, pro kterou platí:
@@ -168,9 +168,9 @@ Mnoina $\mathbb{N}$ je taková mnoina, pro kterou platí:
         \item Rôzne prirodzené èísla majú rôznych nasledovníkov: $a \neq b \Rightarrow S(a) \neq S(b)$ (t.j. funkcia nasledovníka je prostá).
         \item Ak èíslo 0 spåòa nejakú vlastnos a súèasne ju spåòa kadı nasledovník prirodzeného èísla, potom túto vlastnos spåòajú všetky prirodzené èísla (\emph{axióm matematickej indukcie}).
 \end{pitemize}
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{Konštrukcia prirodzenıch èísel zaloená na teórii mnoín}
+\begin{e}{Definice}{0}{Konštrukcia prirodzenıch èísel zaloená na teórii mnoín}
         Oznaème $0 := \{ \}$ a definujme $S(a) = a \cup \{a\}$ pre všetky a. Mnoina prirodzenıch èísel je potom definovaná ako prienik všetkıch mnoín obsahujúcich $0$, ktoré sú uzavreté vzh¾adom na funkciu nasledovníka. Predpokladajúc platnost axiómu nekoneènosti, dá sa dokáza, e táto definícia spåòa Peanove axiómy. \emph{Axióm nekoneènosti} vyzerá takto:
 $$\exists\mathbb{N}:\emptyset\in\mathbb{N}\wedge(\forall x:x\in \mathbb{N}\Rightarrow x\cup\{x\}\in\mathbb{N})$$
         
@@ -182,18 +182,18 @@ $$\exists\mathbb{N}:\emptyset\in\mathbb{N}\wedge(\forall x:x\in \mathbb{N}\Right
                 \item $3 = \Big\{0,1,2\Big\} = \Big\{0, \left\{0\right\}, \left\{0, \left\{0\right\}\right\}\Big\} = \Big\{\left\{ \right\}, \left\{\left\{ \right\}\right\}, \left\{\left\{ \right\}, \left\{\left\{ \right\}\right\}\right\}\Big\}$
         \end{pitemize}
 
-\end{definiceN}
+\end{e}
 
-\begin{poznamka}
+\begin{e}{Poznámka}{0}{0}
 $\mathbb{N}$ je uzavretá na sèítanie.
-\end{poznamka}
+\end{e}
 
 \subsection{Celá èísla $\mathbb{Z}$ , racionální èísla $\mathbb{Q}$}
 
 \obrazekvpravominipage{matematika/obrazky/05-mnoziny}{Rùzné mnoiny}{fig:mnoziny}{0.2}{0.7}{
 
 
-\begin{definice}
+\begin{e}{Definice}{0}{0}
         Kromì symbolù $\mathbb{R}$ a $\mathbb{N}$, které jsme ji zavedli, budeme znaèit symbolem $\mathbb{Z}$ mnoinu \emph{celıch èísel}, tedy
         $$\mathbb{Z} = \mathbb{N} \cup \{0\} \cup \{-n, n \in \mathbb{N}\}$$
         a symbolem $\mathbb{Q}$ mnoinu \emph{racionálních èísel}, tedy
@@ -203,10 +203,10 @@ $\mathbb{N}$ je uzavretá na sèítanie.
         $\mathbb{Q}$ je uzavøena na sèítání, odèítání, násobení a dìlení nenulovım èíslem.
         
         Mnoinì $\mathbb{R} \setminus \mathbb{Q}$ se také øíká \emph{iracionální}.
-\end{definice}
+\end{e}
 }
 
-\begin{vetaN}{Existence celé èásti}
+\begin{e}{Vìta}{0}{Existence celé èásti}
         Pro kadé $x \in \mathbb{R}$ existuje právì jedno èíslo $\lfloor x \rfloor \in \mathbb{Z}$ splòující
         $$x-1 < \lfloor x \rfloor \le x$$
         Toto èíslo nazıváme \emph{dolní celou èástí èísla x}.
@@ -214,31 +214,31 @@ $\mathbb{N}$ je uzavretá na sèítanie.
         
         
         \medskip
-        \begin{ideadukazu}
+        \begin{e}{Idea dùkazu}{0}{0}
             Sporem -- pro kladné vybereme infimum $x$ mnoiny tìch, pro které neexistuje (je zdola omezené 0); pro $x-1$ u musí existovat, take existuje i pro $x$, co vede ke sporu. Se supremem podobnì.
-    \end{ideadukazu}
-\end{vetaN}
+    \end{e}
+\end{e}
 
-\begin{vetaN}{Hustota $\mathbb{Q}$ a $\mathbb{R} \backslash \mathbb{Q}$}
+\begin{e}{Vìta}{0}{Hustota $\mathbb{Q}$ a $\mathbb{R} \backslash \mathbb{Q}$}
         Nech $a,b \in \mathbb{R}, a < b$. Pak existují $q \in \mathbb{Q}$ a $r \in \mathbb{R} \backslash \mathbb{Q}$ takové, e
         $$a < q < b,\ a < r < b$$
         
         \medskip
-        \begin{ideadukazu}
+        \begin{e}{Idea dùkazu}{0}{0}
             Vùbec nevím, jestli jde o korektní dùkaz, ale já bych dokazoval \uv{konstrukènì} - pokud jsou $a$ nebo $b$ v $\mathbb{R} \backslash \mathbb{Q}$, vzal bych $q$ jako $(a+b)/2$ a $r$ jako tak dlouhı desetinnı rozvoj $q$, aby $a<r<b$. Pokud jsou $a$ i $b$ v $\mathbb{Q}$, vzal bych $q$ jako $a+\frac{b-a}{\sqrt{2}}$, co by mìlo bıt iracionální èíslo, a pro $r$ udìlal opìt toté. Ale nevím, jestli tøeba existence odmocniny náhodou nezávisí na této vìtì :)
-        \end{ideadukazu} 
-\end{vetaN}
+        \end{e} 
+\end{e}
 
-\begin{vetaN}{o existenci n-té odmocniny}
+\begin{e}{Vìta}{0}{o existenci n-té odmocniny}
         Nech $x \in \mathbb{R}, x \ge 0$ a nech $n \in \mathbb{N}$. Pak existuje právì jedno $y \in \mathbb{R}, y \ge 0$ takové, e $y^n = x$.
-\end{vetaN}
+\end{e}
 
 \subsection{Komplexní èísla $\mathbb{C}$}
-\begin{definice}
+\begin{e}{Definice}{0}{0}
 Komplexním èíslem nazveme èíslo tvaru $a + bi$, kde $a,b \in \mathbb{R}$ nazıváme \textbf{reálnou a imaginární èástí} komplexního èísla. Tento tvar komplexního èísla se nazıvá \textbf{algebraickı}. Písmeno $i$ znaèí \textbf{imaginární jednotku}, která se formálnì zavádí jako èíslo splòující rovnici $i^2 +1 = 0$ tj. jako $\sqrt{-1}$ , která v reálnıch èíslech neexistuje.
 
 Pokud je $b = 0$, je dotyèné èíslo reálnım èíslem, tj. reálná èísla tvoøí podmnoinu èísel komplexních. Pokud je $a = 0$, mluvíme o \textbf{ryze imaginárním èísle}.
-\end{definice}
+\end{e}
 
 \subsubsection{Aritmetika}
 Aritmetika je na $\mathbb{C}$ definována následovnì:
@@ -311,19 +311,19 @@ Zaèátek mi dìlal trošku problém, \uv{vlastnosti N, Z, Q, R èísel}. Nebude to moc
 \end{report}
 
 \subsection{Posloupnosti a limity}
-\begin{definiceN}{posloupnost}
+\begin{e}{Definice}{0}{posloupnost}
 \emph{Posloupností reálnıch èísel} nazıváme jakékoli zobrazení mnoiny $\mathbb{N}$ do mnoiny $\mathbb{R}$. Posloupnost obvykle znaèíme symbolem $\{a_n\}^{\infty}_{n=1}$ nebo $\{a_n\}_{n \in \mathbb{N}}$. Pro kadé konkrétní $n \in \mathbb{N}$ nazıváme reálné èíslo $a_n$ \emph{n-tım èlenem} posloupnosti $\{a_n\}$.
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{Omezené posloupnosti}
+\begin{e}{Definice}{0}{Omezené posloupnosti}
 \begin{penumerate}
         \item Posloupnost $\{a_n\}$ je \emph{shora omezená}, je-li $\{a_n; n \in \mathbb{N}\}$ shora omezená.
         \item Posloupnost $\{a_n\}$ je \emph{zdola omezená}, je-li $\{a_n; n \in \mathbb{N}\}$ zdola omezená.
         \item Posloupnost $\{a_n\}$ je \emph{omezená}, je-li zdola omezená a shora omezená.
 \end{penumerate}
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{Rostoucí a klesající posloupnosti}
+\begin{e}{Definice}{0}{Rostoucí a klesající posloupnosti}
 \begin{penumerate}
         \item Posloupnost $\{a_n\}$ je \emph{klesající}, jestlie $\forall n \in \mathbb{N}: a_n > a_{n+1}$.
         \item Posloupnost $\{a_n\}$ je \emph{rostoucí}, jestlie $\forall n \in \mathbb{N}: a_n < a_{n+1}$.
@@ -332,7 +332,7 @@ Zaèátek mi dìlal trošku problém, \uv{vlastnosti N, Z, Q, R èísel}. Nebude to moc
         \item Posloupnost $\{a_n\}$ je \emph{monotónní}, jestlie je nerostoucí nebo neklesající.
         \item Posloupnost $\{a_n\}$ je \emph{ryze monotónní}, jestlie je rostoucí nebo klesající.
 \end{penumerate}
-\end{definiceN}
+\end{e}
 
 
 \subsubsection{Vlastní limity}
@@ -340,91 +340,91 @@ Zaèátek mi dìlal trošku problém, \uv{vlastnosti N, Z, Q, R èísel}. Nebude to moc
 
 
 
-\begin{definice}
+\begin{e}{Definice}{0}{0}
     
 Nech $\{a_n\}$ je posloupnost reálnıch èísel a $A \in \mathbb{R}$. Øekneme, e A je \emph{vlastní limitou posloupnosti} $\{a_n\}$, jestlie
 $$\forall \varepsilon > 0\ \exists n_0 \in \mathbb{N}: \forall n \ge n_0, n \in \mathbb{N}: |a_n - A| < \varepsilon$$
 znaèíme
 $$\lim_{n \rightarrow \infty} a_n = A$$
-\end{definice}
+\end{e}
 
 \obrazekvpravo{matematika/obrazky/02-limita}{Ilustrace k definici vlastní limity}{fig:limita_posloupnosti}{0.5}
 
 
 
 
-\begin{poznamka}
+\begin{e}{Poznámka}{0}{0}
 Na obrázku \ref{fig:limita_posloupnosti} jsem nakreslil posloupnost k osvìtlení definice limity. Jde o posloupnost\footnote{konkrétnì $a_0=1, a_n=\cos a_{n-1}$, ale není to dùleité}, která konverguje k èíslu $0.739085$, oznaèeno $A$. 
 
-\end{poznamka}
+\end{e}
 
 
-\begin{definice}
+\begin{e}{Definice}{0}{0}
 Jestlie existuje $A \in \mathbb{R}$ tak, e $\lim_{n \rightarrow \infty}a_n = A$, pak øíkáme, e posloupnost $\{a_n\}$ má \emph{vlastní limitu} nebo e \emph{konverguje} (je \emph{konvergentní}). V opaèném pøípadì øíkáme, e posloupnost \emph{diverguje}.
-\end{definice}
+\end{e}
 
-\begin{pozorovani}
+\begin{e}{Pozorování}{0}{0}
 Ne kadá posloupnost je konvergentní. Napøíklad posloupnost 0,1,0,1,0,... nemá vlastní limitu a podobnì posloupnost $\{2^n\}$ nemá vlastní limitu.
-\end{pozorovani}
+\end{e}
 
-\begin{priklady}
+\begin{e}{Pøíklady}{0}{0}
 \begin{pitemize}
         \item $\lim_{n \rightarrow \infty} (\sqrt{n+1} - \sqrt{n}) = 0$
         \item $\lim_{n \rightarrow \infty} \sqrt[n]{n} = 1$
 \end{pitemize}
-\end{priklady}
+\end{e}
 
-\begin{poznamka}
+\begin{e}{Poznámka}{0}{0}
 Následující vìty mají pomìrnì lehké dùkazy, které zde jenom naznaèím; pokud si je budete zkoušet, je dobré si u nich uvìdomit základní vlastnosti absolutní hodnoty:
 \begin{pitemize}
         \item $\left|a \cdot b\right|= \left|a\right| \cdot\left| b\right|$
         \item $\left|a + b\right| \leq \left|a\right| + \left| b\right|$
         \item $\left|a \right| \leq b\Leftrightarrow -b \leq a \leq b$
 \end{pitemize}
-\end{poznamka}
+\end{e}
 
-\begin{vetaN}{o jednoznaènosti limity posloupnosti}
+\begin{e}{Vìta}{0}{o jednoznaènosti limity posloupnosti}
 Kadá posloupnost má nejvıše jednu limitu.
 
 
 \medskip
-\begin{ideadukazu}
+\begin{e}{Idea dùkazu}{0}{0}
     Kdyby mìla dvì, zvolíme $\varepsilon$ menší ne vzdálenost. Od vìtšího z dvou $n_0$ (jedno pro kadou z~limit) by pak musela bıt zároveò ve dvou disjunktních intervalech -- spor.
-\end{ideadukazu}
+\end{e}
 
 
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{o omezenosti konvergentní posloupnosti}
+\begin{e}{Vìta}{0}{o omezenosti konvergentní posloupnosti}
 Kadá konvergentní posloupnost je omezená.
 
 
 \medskip
-\begin{ideadukazu}
+\begin{e}{Idea dùkazu}{0}{0}
     Pro libovolnì zvolené $\varepsilon$ je od nìjakého $n_0$ posloupnost omezená $A+\varepsilon$ shora a $A-\varepsilon$ zdola a pøed $n_0$ je jich koneènì mnoho, take mùeme vybrat nejvìtší/nejmenší.
-\end{ideadukazu}
+\end{e}
 
-\end{vetaN}
+\end{e}
 
-\begin{definice}
+\begin{e}{Definice}{0}{0}
 Nech $\{a_n\}_{n \in \mathbb{N}}$ je posloupnost reálnıch èísel. Øekneme, e posloupnost $\{b_k\}_{k \in \mathbb{N}}$ je \emph{vybraná} z~posloupnosti, neboli e posloupnost $\{b_k\}_{k \in \mathbb{N}}$ je \emph{podposloupností} posloupnosti $\{a_n\}_{n \in \mathbb{N}}$, jestlie existuje rostoucí posloupnost pøirozenıch èísel $\{n_k\}$ taková, e $b_k = a_{n_k}$ pro všechna $k \in \mathbb{N}$.
-\end{definice}
+\end{e}
 
-\begin{poznamka}
+\begin{e}{Poznámka}{0}{0}
     Tahle definice je trochu neprùhledná, ale jenom øíká, e z~jedné posloupnosti vybereme jinou.
-\end{poznamka}
+\end{e}
 
-\begin{vetaN}{o limitì vybrané posloupnosti}
+\begin{e}{Vìta}{0}{o limitì vybrané posloupnosti}
 Nech $\{a_n\}_{n \in \mathbb{N}}$ je posloupnost reálnıch èísel a nech $\lim_{n \rightarrow \infty} a_n = A$. Nech posloupnost $\{b_k\}_{k \in \mathbb{N}}$ je vybraná z~posloupnosti $\{a_n\}_{n \in \mathbb{N}}$. Pak $\lim_{k \rightarrow \infty} b_k = A$.
 
 \medskip
-\begin{ideadukazu}
+\begin{e}{Idea dùkazu}{0}{0}
     Nemùe jít jinam -- pokud je $n_0$ u $a_n$ v~intervalu, tím spíš pak bude $b_n$ v intervalu.
-\end{ideadukazu}
+\end{e}
 
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{o aritmetice limit}
+\begin{e}{Vìta}{0}{o aritmetice limit}
 Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou dvì posloupnosti reálnıch èísel a nech $\lim_{n \rightarrow \infty} a_n = A \in \mathbb{R}$ a $\lim_{n \rightarrow \infty} b_n = B \in \mathbb{R}$. Pak platí:
 \begin{enumerate}
         \item $\lim_{n \rightarrow \infty} (a_n+b_n) = A+B$
@@ -434,7 +434,7 @@ Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou dvì poslo
 
 
 \medskip
-\begin{ideadukazu}
+\begin{e}{Idea dùkazu}{0}{0}
     \begin{enumerate}
     \item Pro kadé $\varepsilon$ mùeme vzít $\frac{\varepsilon}{2}$, pro $a$ i $b$ najít jejich $n_0$, od vìtšího z nich je i souèet ve $\varepsilon$
     
@@ -453,13 +453,13 @@ Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou dvì poslo
     Dále jasné, protoe $\left|\frac{2}{B}\right|\cdot\left|\frac{1}{B}\right|$ je konstantní.
     
     \end{enumerate}
-\end{ideadukazu}
+\end{e}
 
 
 
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{o limitì a uspoøádání}
+\begin{e}{Vìta}{0}{o limitì a uspoøádání}
 Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou dvì posloupnosti reálnıch èísel a nech $\lim_{n \rightarrow \infty} a_n = A \in \mathbb{R}$ a $\lim_{n \rightarrow \infty} b_n = B \in \mathbb{R}$. Pak platí:
 \begin{penumerate}
         \item Jestlie $A < B$, potom $\exists n_0 \in \mathbb{N}\ \forall n > n_0: a_n < b_n$
@@ -469,12 +469,12 @@ Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou dvì poslo
 \noindent Pozor, ostrost nerovností v tomto pøípadì je dùleitá.
 
 \medskip
-\begin{ideadukazu}
+\begin{e}{Idea dùkazu}{0}{0}
     Provede se sporem a \uv{chytøe} velkımi epsilony.
-\end{ideadukazu}
-\end{vetaN}
+\end{e}
+\end{e}
 
-\begin{vetaN}{o policajtech}
+\begin{e}{Vìta}{0}{o policajtech}
 Nech $\{a_n\}_{n \in \mathbb{N}}$, $\{b_n\}_{n \in \mathbb{N}}$ a $\{c_n\}_{n \in \mathbb{N}}$ jsou posloupnosti reálnıch èísel, splòující
 \begin{penumerate}
         \item $\exists n_0 \in \mathbb{N}\ \forall n > n_0: a_n \le c_n \le b_n$
@@ -487,13 +487,13 @@ $$
 
 
 \medskip
-\begin{ideadukazu}
+\begin{e}{Idea dùkazu}{0}{0}
     Pokud je v epsilonu v jedné i v druhé, zvolíme vìtší z $n_0$ a musí tam bıt i ta prostøední.
-\end{ideadukazu}
+\end{e}
 
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{o limitì souèinu mizející ($\lim=0$) a omezené posloupnosti}
+\begin{e}{Vìta}{0}{o limitì souèinu mizející ($\lim=0$) a omezené posloupnosti}
 Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou posloupnosti reálnıch èísel, nech je $\lim_{n \rightarrow \infty} a_n = 0$ a $\{b_n\}$ omezená. Pak
 $$
 \lim_{n \rightarrow \infty}(a_n \cdot b_n) = 0
@@ -501,14 +501,14 @@ $$
 
 
 \medskip
-\begin{ideadukazu}
+\begin{e}{Idea dùkazu}{0}{0}
     U mizející vezmeme $\frac{\varepsilon}{K}$, kde $K$ je horní omezení $b_n$.
-\end{ideadukazu}
+\end{e}
 
-\end{vetaN}
+\end{e}
 
 \subsubsection{Nevlastní limity}
-\begin{definice}
+\begin{e}{Definice}{0}{0}
 Øekneme, e posloupnost  $\{a_n\}$ má \emph{nevlastní limitu} $+ \infty$, jestlie:
 $$ \forall K \in \mathbb{R}\ \exists n_0 \in \mathbb{N}: \forall n \ge n_0, n \in \mathbb{N}: a_n \ge K $$
 
@@ -516,17 +516,17 @@ Obdobnì øekneme, e posloupnost  $\{a_n\}$ má \emph{nevlastní limitu} $- \infty$
 $$ \forall K \in \mathbb{R}\ \exists n_0 \in \mathbb{N}: \forall n \ge n_0, n \in \mathbb{N}: a_n \le K $$
 
 Má-li posloupnost nevlastní limitu, øíkáme o ní, e diverguje, stejnì jako v pøípadì, e ádnou limitu nemá.
-\end{definice}
+\end{e}
 
 
 \obrazekvpravominipage{matematika/obrazky/03-limita_nevlastni}{Ilustrace k definici nevlastní limity}{fig:limita_nevlastni}{0.5}{0.5} {
 
-\begin{poznamka}
+\begin{e}{Poznámka}{0}{0}
 Ilustrace k definici nevlastní limity je na obrázku \ref{fig:limita_nevlastni}.
-\end{poznamka}
+\end{e}
 
 
-\begin{poznamka}
+\begin{e}{Poznámka}{0}{0}
 Všechny moné situace jsou:
 
 \noindent Limita posloupnosti:
@@ -545,19 +545,19 @@ Všechny moné situace jsou:
         \end{pitemize}
 \end{pitemize}
 
-\end{poznamka}
+\end{e}
 }
 
 
-\begin{definice}
+\begin{e}{Definice}{0}{0}
 Mnoinu $\mathbb{R}^* := \mathbb{R} \cup \{ + \infty, - \infty \}$ nazıváme \emph{rozšíøenou reálnou osou}.
-\end{definice}
+\end{e}
 
-\begin{poznamka}
+\begin{e}{Poznámka}{0}{0}
 Vìty o jednoznaènosti limity, o limitì vybrané posloupnosti, o limitì a uspoøádání a o policajtech platí v nezmìnìné podobì, jestlie pøipustíme nevlastní limity. Vìta o omezenosti konvergentní posloupnosti zrejmì neplatí - nebo je-li $\lim_{n \rightarrow \infty} a_n=\infty$ (nebo $- \infty$), pak posloupnost $\{a_n\}$ není omezená; je ale omezená \emph{zdola} u $\infty$ a \emph{shora} u $- \infty$. Vìtu o aritmetice limit pro rozšírenou osu uvedeme zvláš.
-\end{poznamka}
+\end{e}
 
-\begin{vetaN}{o aritmetice limit pro nevlastní limity}
+\begin{e}{Vìta}{0}{o aritmetice limit pro nevlastní limity}
 Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou dvì posloupnosti reálnıch èísel a nech $\lim_{n \rightarrow \infty} a_n = A \in \mathbb{R}^*$ a $\lim_{n \rightarrow \infty} b_n = B \in \mathbb{R}^*$. Pak platí:
 \begin{penumerate}
         \item $\lim_{n \rightarrow \infty} (a_n+b_n) = A+B \textit{, pokud je vıraz A+B definován}$
@@ -567,7 +567,7 @@ Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou dvì poslo
 
 
 \medskip
-\begin{ideadukazu}
+\begin{e}{Idea dùkazu}{0}{0}
 
 \begin{penumerate}
         \item Pokud je $\left\{a_n\right\}$ v $\mathbb{R}$, je zdola omezená $L$, budeme brát (pokud $\left\{b_n\right\}$ jde k~$\infty$) $K-L$, podobnì u dalších variant.
@@ -576,23 +576,23 @@ Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou dvì poslo
         \item Dokáeme, e kdy $b_n$ jde k $\infty$ tak $\frac{1}{b_n}$ jde k~$0$ -- pro $\epsilon$ platí odnìkud $b_n>\frac{1}{\epsilon}$, ale je toté, co $\frac{1}{b_n}<\varepsilon$.
         
 \end{penumerate}
-\end{ideadukazu}
+\end{e}
 
-\end{vetaN}
+\end{e}
 
-\begin{definiceN}{Supremum a infimum na rozšíøené reálné ose}
+\begin{e}{Definice}{0}{Supremum a infimum na rozšíøené reálné ose}
 \begin{pitemize}
         \item Nech mnoina $A \subset \mathbb{R}$ je shora neomezená. Pak klademe $\sup A := +\infty$
         \item Nech mnoina $A \subset \mathbb{R}$ je zdola neomezená. Pak klademe $\inf A := -\infty$
         \item Nech $A=\emptyset$. Pak klademe $\sup A := -\infty$ a $\inf A := +\infty$
 \end{pitemize}
-\end{definiceN}
+\end{e}
 
-\begin{poznamka}
+\begin{e}{Poznámka}{0}{0}
 Prázdná mnoina je jediná mnoina, její supremum je menší ne její infimum.
-\end{poznamka}
+\end{e}
 
-\begin{vetaN}{o limitì podílu kladné a mizející posloupnosti}
+\begin{e}{Vìta}{0}{o limitì podílu kladné a mizející posloupnosti}
 Nech $\{a_n\}_{n \in \mathbb{N}}$ a $\{b_n\}_{n \in \mathbb{N}}$ jsou posloupnosti reálnıch èísel, nech je $\lim_{n \rightarrow \infty} a_n = A \in \mathbb{R}^*, A>0$ a nech $\lim_{n \rightarrow \infty}\{b_n\}=0$. Nech
 $$
         \exists n_0 \in \mathbb{N} \textit{ } \forall n \ge n_0, n \in \mathbb{N}: b_n>0
@@ -602,29 +602,29 @@ $$
         \lim_{n \rightarrow \infty} \frac{a_n}{b_n} = + \infty
 $$
 \medskip
-\begin{ideadukazu}
+\begin{e}{Idea dùkazu}{0}{0}
 Jestlie $K$ je horní omezení, pak mùeme vzít epsilon u mizející $\frac{1}{K}$, souèin pak jde nad $K$.
         
-\end{ideadukazu}
+\end{e}
 
-\end{vetaN}
+\end{e}
 
 \subsubsection{Monotónní posloupnosti}
-\begin{vetaN}{o limitì monotónní posloupnosti}
+\begin{e}{Vìta}{0}{o limitì monotónní posloupnosti}
 Kadá monotónní posloupnost má limitu.
 
-\medskip\begin{ideadukazu}
+\medskip\begin{e}{Idea dùkazu}{0}{0}
 Napø. rostoucí posloupnost buï není shora omezená a má tedy limitu $\infty$, nebo je shora omezená, protoe je ale zároveò rostoucí, tak se k danému hornímu omezení postupnì pøibliuje.
-\end{ideadukazu}
+\end{e}
 
-\end{vetaN}
+\end{e}
 
-\begin{poznamka}
+\begin{e}{Poznámka}{0}{0}
 Je-li posloupnost neklesající (nerostoucí) a navíc shora (zdola) omezená, pak má vlastní limitu. Tato limita se navíc rovná supremu (infimu) hodnot.
 Je-li posloupnost neklesající (nerostoucí) a navíc shora (zdola) neomezená, pak má limitu $+ \infty$ ($- \infty$).
-\end{poznamka}
+\end{e}
 
-\begin{definiceN}{Limes superior a limes inferior}
+\begin{e}{Definice}{0}{Limes superior a limes inferior}
 Nech $\{a_n\}_{n \in \mathbb{N}}$ je posloupnost reálnıch èísel. Je-li $\{a_n\}$ shora omezená, definujeme posloupnost $\{b_n\}_{n \in \mathbb{N}}$ pøedpisem:
 $$
         b_n := \sup\{a_k; k \ge n \}
@@ -651,22 +651,22 @@ $$
 \begin{array}{ll} \lim_{n \rightarrow \infty} c_n & \textit{jestlie je } \{a_n\} \textit{ zdola omezená} \\ - \infty & \textit{jestlie je } \{a_n\} \textit{ zdola neomezená} \end{array}
 \right.
 $$
-\end{definiceN}
+\end{e}
 
-\begin{poznamka}
+\begin{e}{Poznámka}{0}{0}
 Limes superior a limes inferior jsou vdy dobøe definované hodnoty a platí
 $$
 \lim \sup~a_n \in \mathbb{R}^*, \lim \inf~a_n \in \mathbb{R}^*, 
 $$
 Na rozdíl od limity, která nemusí existovat, tyto dvì hodnoty existují pro
 libovolnou posloupnost reálnıch èísel.
-\end{poznamka}
+\end{e}
 
-\begin{poznamka}
+\begin{e}{Poznámka}{0}{0}
     Limes superior a limes inferior jsou nìkdy definovány jako $\inf \sup$ a $\sup \inf$ -- jeliko jde o monotónní posloupnosti, jde ale o toté.
-\end{poznamka}
+\end{e}
 
-\begin{vetaN}{o vztahu limity, limes superior a limes inferior}
+\begin{e}{Vìta}{0}{o vztahu limity, limes superior a limes inferior}
 Nech $\{a_n\}_{n \in \mathbb{N}}$ je posloupnost reálnıch èísel. Potom 
 $$
         \lim a_n = A \in \mathbb{R}^{*}
@@ -676,7 +676,7 @@ $$
 \lim \sup~a_n = \lim \inf~a_n = A \in \mathbb{R}^*
 $$
 
-\medskip\begin{dukaz}
+\medskip\begin{e}{Dùkaz}{0}{0}
 Pro vlastní limity:
 
 $\Rightarrow$ : Nech $\lim_n a_n = A$, zvolme libovolné $\varepsilon > 0$. Zvolme $n_0>0$ takové, e pro $n\geq n_0$ je $A-\varepsilon < a_n < A + \varepsilon$. Tedy pro $n \geq n_0$ je $A-\varepsilon \leq \inf_{k \geq n}a_n < A + \varepsilon$. Jeliko posloupnost $\left\{ \left(\inf_{k\geq n}a_k\right)_n\right\}$ neklesá a je shora omezená, musí limita existovat a musí platit $\lim_{n \rightarrow \infty} \leq A+\varepsilon$. 
@@ -695,21 +695,21 @@ $\Rightarrow$: Zvolme $K$ libovolnì. Potom je-li $ \lim \inf~a_n = \infty,$ je p
 
 $\Leftarrow$: Je-li $ \lim~a_n = \infty$, pro dostateènì velké $n$ platí, e $k\geq n \Rightarrow a_k>K$, tedy $\inf_{k\geq n}a_k > K$ a $\sup_{k\geq n}a_k > K$.
 
-\end{dukaz}
+\end{e}
 
 
-\end{vetaN}
+\end{e}
 
-\begin{definice}
+\begin{e}{Definice}{0}{0}
 Nech $\{a_n\}_{n \in \mathbb{N}}$ je posloupnost reálnıch èísel. Pak $A \in \mathbb{R}^*$ nazveme \emph{hromadnou hodnotou} posloupnosti $\{a_n\}$, jestlie existuje vybraná posloupnost taková $\{a_{n_k}\}$, e $\lim_{k \rightarrow \infty} a_{n_k} = A$. Mnoina všech hromadnıch hodnot znaèíme $H(\{a_n\})$
-\end{definice}
+\end{e}
 
-\begin{vetaN}{o vztahu limes superior, limes inferior a hromadnıch hodnot}
+\begin{e}{Vìta}{0}{o vztahu limes superior, limes inferior a hromadnıch hodnot}
 Nech $\{a_n\}_{n \in \mathbb{N}}$ je posloupnost reálnıch èísel. Potom $H\{(a_n)\} \neq \emptyset$,
 $$
 \lim \sup~a_n = \max H(\{a_n\}) \textit{ a } \lim \inf~a_n = \min H(\{a_n\})
 $$
-\end{vetaN}
+\end{e}
 
 K tomuhle jsem dùkaz nenašel ani nevymyslel :-(
 \\\\
@@ -726,10 +726,10 @@ Tato sekce je vypracovaná podle skript Prof. A. Pultra z~matematické analızy (\u
 
 
 
-\begin{vetaN}{Bolzano-Weierstrassova}
+\begin{e}{Vìta}{0}{Bolzano-Weierstrassova}
 Z kadé omezené posloupnosti lze vybrat konvergentní podposloupnost. Jsou-li $a_n$ v kompaktním intervalu $[a,b]$, je limita vybrané posloupnosti v tomto intervalu.
 
-\medskip\begin{dukaz}
+\medskip\begin{e}{Dùkaz}{0}{0}
 První èást dokáeme nalezením takové posloupnosti. 
 
 Vezmeme $A:=\lim\sup~a_n$ -- to mùeme, protoe $\left\{a_n\right\}$ je shora omezená.
@@ -739,32 +739,32 @@ Definujeme pro kadé $k\in\mathbb{N}$ mnoinu $M_k:=\{j\in\mathbb{N}|j>n_{k-1},a
 Potom $\{a_{n_k}\}$ je vybraná posloupnost, která konverguje. 
 
 \noindent Druhá èást je pøímım dùsledkem vìty o limitì a uspoøádání -- limita \uv{nemùe} bıt jinde.
-\end{dukaz}
-\end{vetaN}
+\end{e}
+\end{e}
 
 
-\begin{definiceN}{Bolzano-Cauchyova podmínka}
+\begin{e}{Definice}{0}{Bolzano-Cauchyova podmínka}
 Øekneme, e posloupnost $\{a_n\}_{n\geq 0}$ je \emph{cauchyovská}, nebo-li e splòuje \emph{Bolzano-Cauchyho podmínku}, pokud pro ní platí:
 $$
 \forall \varepsilon > 0~~\exists n_0 \in \mathbb{N}: \forall m, n \in \mathbb{N}: m \ge n_0, n \ge n_0: |a_n - a_m| < \varepsilon
 $$
-\end{definiceN}
+\end{e}
 
 
 
-\begin{lemma}
+\begin{e}{Lemma}{0}{0}
 Má-li cauchyovská posloupnost konvergentní podposloupnost, je konvergentní.
 
-\medskip\begin{dukaz}
+\medskip\begin{e}{Dùkaz}{0}{0}
 Nech $\lim a_{k_n} = x$. Pro $\varepsilon > 0$ zvolme $n_0$, aby pro $m,n\geq n_0$ platilo $|a_m-a_n|<\frac{\varepsilon}{2}$ a $|a_{k_n}-x|<\frac{\varepsilon}{2}$. Protoe $k_n\geq n$, platí $|a_n-x|=|a_n-a_{k_n}|+|a_{k_n}-x|<\varepsilon$.
-\end{dukaz}
-\end{lemma}
+\end{e}
+\end{e}
 
 
-\begin{vetaNSkull}{Bolzano-Cauchyova}
+\begin{e}{Vìta}{1}{Bolzano-Cauchyova}
 Posloupnost $\{a_n\}$ má vlastní limitu, právì kdy je cauchyovská.
 
-\medskip\begin{dukaz}
+\medskip\begin{e}{Dùkaz}{0}{0}
 \begin{enumerate}
     \item Implikace \uv{$\Rightarrow$} je hned vidìt -- staèí vzít k $\varepsilon$ takové $n_0$, e $|a_n-x|<\frac{\varepsilon}{2}\ \forall n\geq n_0$. Potom je $|a_n-a_m|=|a_n-x+x-a_m|\leq|a_n-x|+|x-a_m|\leq\varepsilon\ \forall m,n\geq n_0$.
     
@@ -774,8 +774,8 @@ Posloupnost $\{a_n\}$ má vlastní limitu, právì kdy je cauchyovská.
     
     Pro $\varepsilon=1$ existuje $n_0$ takové, e $a_{n_0}-1<a_n<a_{n_0}+1$ pro kadé $n\geq n_0$ (to plyne pøímo z~podmínky), take zbıvá jen koneènı poèet èlenù mimo toto rozmezí (pro $n<n_0$), a ty vdy tvoøí omezenı systém, tedy posloupnost je omezená.
 \end{enumerate}
-\end{dukaz}
-\end{vetaN}
+\end{e}
+\end{e}
 
 \begin{reportN}{Koubek}
     nic lepšího na zahøátí snad ani nešlo, definice, aritmetika a další vìtièky co jsem si vzpomnìl vèetnì cauchyho + dùkazy, to staèilo. 

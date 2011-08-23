@@ -3,94 +3,94 @@
 
 \section{Determinanty}
 
-\begin{pozadavky}
+\begin{e}{Poadavky}{0}{0}
 \begin{pitemize}
-\item Definice a zÃ¡kladnÃ­ vlastnosti determinantu
-\item Ãšpravy determinantÅ¯, vÃ½poÄet
-\item GeometrickÃ½ smysl determinantu
-\item Minory a inversnÃ­ matice
+\item Definice a základní vlastnosti determinantu
+\item Úpravy determinantù, vıpoèet
+\item Geometrickı smysl determinantu
+\item Minory a inversní matice
 \item Cramerovo pravidlo.
 \end{pitemize}
-\end{pozadavky}
+\end{e}
 
-\subsection{Definice a zÃ¡kladnÃ­ vlastnosti determinantu}
+\subsection{Definice a základní vlastnosti determinantu}
 
-\begin{obecne}{NeformÃ¡lnÄ›}
-V lineÃ¡rnÃ­ algebÅ™e je \emph{determinant} zobrazenÃ­, kterÃ© pÅ™iÅ™adÃ­ kaÅ¾dÃ© ÄtvercovÃ© matici $A$ skalÃ¡r $\det A$.
+\begin{obecne}{Neformálnì}
+V lineární algebøe je \emph{determinant} zobrazení, které pøiøadí kadé ètvercové matici $A$ skalár $\det A$.
 
-Determinantem ÄtvercovÃ© matice Å™Ã¡du $n$ nazÃ½vÃ¡me souÄet vÅ¡ech souÄinÅ¯ $n$ prvkÅ¯ tÃ©to matice takovÃ½ch, Å¾e v Å¾Ã¡dnÃ©m z uvedenÃ½ch souÄinÅ¯ se nevyskytujÃ­ dva prvky z tÃ©hoÅ¾ Å™Ã¡dku ani z tÃ©hoÅ¾ sloupce. KaÅ¾dÃ½ souÄin pÅ™itom nÃ¡sobÃ­me ÄÃ­sly $r$ a $s$, kde $r$ pÅ™edstavuje znamÃ©nko permutace pÅ™Ã­sluÅ¡nÃ©ho poÅ™adÃ­ prvnÃ­ch indexÅ¯ a $s$ znamÃ©nko permutace pÅ™Ã­sluÅ¡nÃ©ho poÅ™adÃ­ druhÃ½ch indexÅ¯.
+Determinantem ètvercové matice øádu $n$ nazıváme souèet všech souèinù $n$ prvkù této matice takovıch, e v ádném z uvedenıch souèinù se nevyskytují dva prvky z tého øádku ani z tého sloupce. Kadı souèin pøitom násobíme èísly $r$ a $s$, kde $r$ pøedstavuje znaménko permutace pøíslušného poøadí prvních indexù a $s$ znaménko permutace pøíslušného poøadí druhıch indexù.
 \end{obecne}
 
-\begin{definiceN}{permutace, znamÃ©nko}
-\emph{Permutace} je libovolnÃ¡ bijekce $\sigma:X\to X$. MnoÅ¾ina \emph{inversÃ­} nÄ›jakÃ© permutace $\sigma$ je $I(\sigma)=\{(i,j):i<j \ \&\ \sigma(i)>\sigma(j)\}$. ZnamÃ©nko permutace $\sgn(\sigma)$ se pak definuje jako $\sgn(\sigma)=(-1)^{|I(\sigma)|}$. NejjednoduÅ¡Å¡Ã­ permutace -- zÃ¡mÄ›na dvou prvkÅ¯ -- se pak nazÃ½vÃ¡ \emph{transpozice}. Ta mÃ¡ vÅ¾dy znamÃ©nko $-1$ a libovolnÃ¡ permutace je sloÅ¾enÃ­m nÄ›jakÃ½ch transpozic. MnoÅ¾inu vÅ¡ech permutacÃ­ na mnoÅ¾inÄ› $\{1,\dots,n\}$ znaÄÃ­me $S_n$.
-\end{definiceN}
+\begin{e}{Definice}{0}{permutace, znaménko}
+\emph{Permutace} je libovolná bijekce $\sigma:X\to X$. Mnoina \emph{inversí} nìjaké permutace $\sigma$ je $I(\sigma)=\{(i,j):i<j \ \&\ \sigma(i)>\sigma(j)\}$. Znaménko permutace $\sgn(\sigma)$ se pak definuje jako $\sgn(\sigma)=(-1)^{|I(\sigma)|}$. Nejjednodušší permutace -- zámìna dvou prvkù -- se pak nazıvá \emph{transpozice}. Ta má vdy znaménko $-1$ a libovolná permutace je sloením nìjakıch transpozic. Mnoinu všech permutací na mnoinì $\{1,\dots,n\}$ znaèíme $S_n$.
+\end{e}
 
-\begin{poznamka}
-Pro sklÃ¡dÃ¡nÃ­ permutacÃ­ platÃ­ $\sgn(p\circ q)=\sgn(p)\sgn(q)$. Pro inversnÃ­ permutaci (inversnÃ­ zobrazenÃ­) platÃ­ $\sgn(p)=\sgn(p^{-1})$.
-\end{poznamka}
+\begin{e}{Poznámka}{0}{0}
+Pro skládání permutací platí $\sgn(p\circ q)=\sgn(p)\sgn(q)$. Pro inversní permutaci (inversní zobrazení) platí $\sgn(p)=\sgn(p^{-1})$.
+\end{e}
 
-\begin{definiceN}{determinant}
-NechÅ¥ $A = (a_{i,j})^{n}_{i,j=1}$ je ÄtvercovÃ¡ matice Å™Ã¡du $n$.
-Determinant je definovanÃ½ pomocÃ­ \emph{Leibnizova vzorce}:
+\begin{e}{Definice}{0}{determinant}
+Nech $A = (a_{i,j})^{n}_{i,j=1}$ je ètvercová matice øádu $n$.
+Determinant je definovanı pomocí \emph{Leibnizova vzorce}:
 
 $$\det A = \sum_{\sigma \in S_n}sgn(\sigma) \prod_{i=1}^n a_{i,\sigma(i)}$$
-\end{definiceN}
+\end{e}
 
-\begin{poznamka}
-Suma se poÄÃ­tÃ¡ pÅ™es vÅ¡echny permutace $\sigma$ ÄÃ­sel \{1,2,\dots,n\}, takÅ¾e tento vzorec obsahuje $n!$ (faktoriÃ¡l) sÄÃ­tancÅ¯, coÅ¾ jej s rÅ¯stem \emph{n} rychle ÄinÃ­ prakticky nepouÅ¾itelnÃ½m pro vÃ½poÄet. V praxi se proto pouÅ¾Ã­vajÃ­ jinÃ© zpÅ¯soby vÃ½poÄtu.
-\end{poznamka}
+\begin{e}{Poznámka}{0}{0}
+Suma se poèítá pøes všechny permutace $\sigma$ èísel \{1,2,\dots,n\}, take tento vzorec obsahuje $n!$ (faktoriál) sèítancù, co jej s rùstem \emph{n} rychle èiní prakticky nepouitelnım pro vıpoèet. V praxi se proto pouívají jiné zpùsoby vıpoètu.
+\end{e}
 
-\begin{poznamka}
-KonkrÃ©tnÄ›, pro matici Å™Ã¡du $n$, kde:
+\begin{e}{Poznámka}{0}{0}
+Konkrétnì, pro matici øádu $n$, kde:
 \begin{pitemize}
 \item $n=1: \det A = a_{1,1}$
 \item $n=2: \det A = a_{1,1} a_{2,2} - a_{2,1} a_{1,2}$
 \item $n=3: \det A = a_{1,1} a_{2,2} a_{3,3} + a_{1,3} a_{2,1} a_{3,2} + a_{1,2} a_{2,3} a_{3,1} - a_{1,3} a_{2,2} a_{3,1} - a_{1,1} a_{2,3} a_{3,2} - a_{1,2} a_{2,1} a_{3,3}$
 \end{pitemize}
 
-MnemotechnickÃ¡ pomÅ¯cka slouÅ¾Ã­cÃ­ k zapamatovÃ¡nÃ­ postupu vÃ½poÄtu determinantu tÅ™etÃ­ho Å™Ã¡du se nazÃ½vÃ¡ \emph{Sarrusovo pravidlo}:
+Mnemotechnická pomùcka slouící k zapamatování postupu vıpoètu determinantu tøetího øádu se nazıvá \emph{Sarrusovo pravidlo}:
 \begin{center} \includegraphics[width=5cm]{matematika/obrazky/sarrusovo_pravidlo.png} \end{center}
-\end{poznamka}
+\end{e}
 
-\begin{poznamka}
-ObecnÃ½ vzorec lze takÃ© vyjÃ¡dÅ™it pomocÃ­ Levi-Civitova symbolu $\epsilon_{{j_1}{j_2}\dots{j_n}}$ jako
+\begin{e}{Poznámka}{0}{0}
+Obecnı vzorec lze také vyjádøit pomocí Levi-Civitova symbolu $\epsilon_{{j_1}{j_2}\dots{j_n}}$ jako
 $$\det A = \sum_{{j_1},{j_2}, \dots ,{j_n}}\epsilon_{{j_1}{j_2} \dots {j_n}} a_{1,j_1}a_{2,j_2}  \dots  a_{n,j_n} = \sum_{{j_1},{j_2}, \dots ,{j_n}}\epsilon_{{j_1}{j_2} \dots {j_n}} a_{j_1,1}a_{j_2,2}  \dots  a_{j_n,n}$$
-\end{poznamka}
+\end{e}
 
 \subsubsection*{Vlastnosti determinantu}
 
-\begin{vetaN}{O determinantu transponovanÃ© matice}
-Pro Ätvercovou matici $A$ Å™Ã¡du $n$ platÃ­:
+\begin{e}{Vìta}{0}{O determinantu transponované matice}
+Pro ètvercovou matici $A$ øádu $n$ platí:
 $$\det A=\det A^T$$
 
-\begin{dukaz}
-Plyne z faktu Å¾e $\sgn(p)=\sgn(p^{-1})$:
+\begin{e}{Dùkaz}{0}{0}
+Plyne z faktu e $\sgn(p)=\sgn(p^{-1})$:
 \begin{align*}
 \det(A^T) & =\sum_{p\in S_n}\sgn(p)\prod_{i=1}^n(A^T)_{i,p(i)}=\\
  & =\sum_{p\in S_n}\sgn(p)\prod_{i=1}^n a_{p(i),i}=\sum_{p^{-1}\in S_n}\sgn(p^{-1})\prod_{i=1}^n a_{i,p^{-1}(i)}=\det(A)
 \end{align*}
-\end{dukaz}
-\end{vetaN}
+\end{e}
+\end{e}
 
-\begin{vetaN}{PÅ™erovnÃ¡nÃ­ matice}
-PÅ™erovnÃ¡nÃ­ Å™Ã¡dkÅ¯ nebo sloupcÅ¯ podle permutace $p$ nezmÄ›nÃ­ determinant vÅ¯bec, pokud $\sgn(p)=1$ a zmÄ›nÃ­ jen jeho znamÃ©nko, pokud $\sgn(p)=-1$.
+\begin{e}{Vìta}{0}{Pøerovnání matice}
+Pøerovnání øádkù nebo sloupcù podle permutace $p$ nezmìní determinant vùbec, pokud $\sgn(p)=1$ a zmìní jen jeho znaménko, pokud $\sgn(p)=-1$.
 
-\begin{dukaz}
-A buÄ pÅ¯vodnÃ­ matice a B pÅ™erovnanÃ¡:
+\begin{e}{Dùkaz}{0}{0}
+A buï pùvodní matice a B pøerovnaná:
 \begin{align*}
 \det(B) & =\sum_{p\in S_n}\sgn(p)\prod_{i=1}^n(B)_{i,p(i)} = \sum_{p\in S_n}\sgn(p)\prod_{i=1}^n(A)_{i,q^{-1}\left(p(i)\right)}=\\
  & =\sgn(q)\sum_{p\in S_n}\sgn(q)\sgn(p)\prod_{i=1}^n(A)_{i,q^{-1}\left(p(i)\right)}=\sgn(q)\sum_{p\in S_n}\sgn(h)\prod_{i=1}^n(A)_{i,h(i)}=\\
  & =\sgn(q)\det(A)
 \end{align*}
-\end{dukaz}
-\end{vetaN}
+\end{e}
+\end{e}
 
-\begin{dusledek}
-MÃ¡-li matice dva shodnÃ© sloupce nebo Å™Ã¡dky, mÃ¡ automaticky nulovÃ½ determinant (pÅ™ehozenÃ­m prÃ¡vÄ› tÄ›ch dvou Å™Ã¡dkÅ¯ nebo sloupcÅ¯ vzniknou shodnÃ© matice se stejnÃ½m determinantem, ale mÃ¡ se zmÄ›nit znamÃ©nko).
-\end{dusledek}
+\begin{e}{Dùsledek}{0}{0}
+Má-li matice dva shodné sloupce nebo øádky, má automaticky nulovı determinant (pøehozením právì tìch dvou øádkù nebo sloupcù vzniknou shodné matice se stejnım determinantem, ale má se zmìnit znaménko).
+\end{e}
 
-\begin{vetaN}{Determinant jako lineÃ¡rnÃ­ funkce}
-Determinant matice $A$ je lineÃ¡rnÃ­ funkcÃ­ kaÅ¾dÃ©ho jejÃ­ho Å™Ã¡dku i kaÅ¾dÃ©ho sloupce, tj. platÃ­
+\begin{e}{Vìta}{0}{Determinant jako lineární funkce}
+Determinant matice $A$ je lineární funkcí kadého jejího øádku i kadého sloupce, tj. platí
 \begin{penumerate}
     \item $$\det\left(\begin{matrix}
 a_{1,1}& \dots & a_{1,n}\\
@@ -123,57 +123,57 @@ a_{n,1}& \dots & a_{n,n}\\
 = \kappa \det(A)$$
 \end{penumerate}
 
-\begin{dukaz}
-PrvnÃ­ ÄÃ¡st plyne z distributivity sÄÃ­tÃ¡nÃ­ vzhledem k nÃ¡sobenÃ­ -- kaÅ¾dÃ½ Älen sumy (produkt prvkÅ¯) obsahuje jeden prvek typu $b_{i,p(i)} + c_{i,p(i)}$ pro nÄ›jakou permutaci a ten je moÅ¾nÃ© rozepsat. DruhÃ¡ ÄÃ¡st se dokÃ¡Å¾e podobnÄ› dÃ­ky komutativitÄ› nÃ¡sobenÃ­ -- prvek $\kappa$ je takÃ© obsaÅ¾en v kaÅ¾dÃ©m Älenu sumy prÃ¡vÄ› jednou, takÅ¾e je ho moÅ¾nÃ© \uv{vytknout}.
-\end{dukaz}
-\end{vetaN}
+\begin{e}{Dùkaz}{0}{0}
+První èást plyne z distributivity sèítání vzhledem k násobení -- kadı èlen sumy (produkt prvkù) obsahuje jeden prvek typu $b_{i,p(i)} + c_{i,p(i)}$ pro nìjakou permutaci a ten je moné rozepsat. Druhá èást se dokáe podobnì díky komutativitì násobení -- prvek $\kappa$ je také obsaen v kadém èlenu sumy právì jednou, take je ho moné \uv{vytknout}.
+\end{e}
+\end{e}
 
-\begin{vetaN}{Determinant souÄinu matic}
-NechÅ¥ $A$ a $B$ jsou ÄtvercovÃ© matice stejnÃ©ho Å™Ã¡du $n$ nad tÄ›lesem $T$. Potom platÃ­:
+\begin{e}{Vìta}{0}{Determinant souèinu matic}
+Nech $A$ a $B$ jsou ètvercové matice stejného øádu $n$ nad tìlesem $T$. Potom platí:
 $$\det(A\cdot B)=\det(A)\cdot\det(B)$$
 
-\begin{dukaz}
-Je-li jedna z matic singulÃ¡rnÃ­, je jejich souÄin singulÃ¡rnÃ­ a tedy mÃ¡ nulovÃ½ determinant; stejnÄ› jako je nulovÃ½ souÄin determinantÅ¯ pÅ¯vodnÃ­ch matic. Jsou-li obÄ› matice regulÃ¡rnÃ­, lze $A$ rozloÅ¾it na nÄ›jakÃ½ souÄin $E_1\cdot E_2\cdot\dots\cdot E_k$ elementÃ¡rnÃ­ch matic. Potom 
+\begin{e}{Dùkaz}{0}{0}
+Je-li jedna z matic singulární, je jejich souèin singulární a tedy má nulovı determinant; stejnì jako je nulovı souèin determinantù pùvodních matic. Jsou-li obì matice regulární, lze $A$ rozloit na nìjakı souèin $E_1\cdot E_2\cdot\dots\cdot E_k$ elementárních matic. Potom 
 \begin{align*}
 \det(AB) & = \det(E_1E_2\dots E_k B)=\det(E_1)\cdot\det(E_2\dots E_k B)\\
 & =\det(E_1)\det(E_2)\dots\det(E_k)\det(B)=\det(A)\det(B)
 \end{align*}
-protoÅ¾e vÃ­me, jakÃ½m zpÅ¯sobem elementÃ¡rnÃ­ Ãºpravy (ekvivalent elementÃ¡rnÃ­ch matic ve vzorci) mÄ›nÃ­ determinant.
-\end{dukaz}
-\end{vetaN}
+protoe víme, jakım zpùsobem elementární úpravy (ekvivalent elementárních matic ve vzorci) mìní determinant.
+\end{e}
+\end{e}
 
-\begin{dusledek}
-ÄŒtvercovÃ¡ matice je regulÃ¡rnÃ­, prÃ¡vÄ› kdyÅ¾ mÃ¡ nenulovÃ½ determinant.
-\end{dusledek}
+\begin{e}{Dùsledek}{0}{0}
+Ètvercová matice je regulární, právì kdy má nenulovı determinant.
+\end{e}
 
-\subsection{Ãšpravy determinantÅ¯, vÃ½poÄet}
+\subsection{Úpravy determinantù, vıpoèet}
 
 \begin{obecne}{Gaussova eliminace}
-Gaussova metoda spoÄÃ­vÃ¡ v provedenÃ­ takovÃ½ch Ãºprav matice, kterÃ© nemÄ›nÃ­ hodnotu determinantu, ale zjednoduÅ¡Ã­ vÃ½poÄet jeho hodnoty. CÃ­lem provÃ¡dÄ›nÃ½ch Ãºprav je zÃ­skat trojÃºhelnÃ­kovou matici \textbf{A} (kde pro $i > j$ je $a_{i,j} = 0$), neboÅ¥ pro trojÃºhelnÃ­kovÃ© matice platÃ­
+Gaussova metoda spoèívá v provedení takovıch úprav matice, které nemìní hodnotu determinantu, ale zjednoduší vıpoèet jeho hodnoty. Cílem provádìnıch úprav je získat trojúhelníkovou matici \textbf{A} (kde pro $i > j$ je $a_{i,j} = 0$), nebo pro trojúhelníkové matice platí
 
 $$\det A = a_{1,1} a_{2,2}  \dots  a_{n,n}$$
 
 \noindent
-tzn. determinant je roven souÄinu prvkÅ¯ hlavnÃ­ diagonÃ¡ly matice.
+tzn. determinant je roven souèinu prvkù hlavní diagonály matice.
 
 \noindent
-PÅ™i ÃºpravÃ¡ch matice pro vÃ½poÄet determinantu postupujeme podle tÄ›chto pravidel:
+Pøi úpravách matice pro vıpoèet determinantu postupujeme podle tìchto pravidel:
 \begin{pitemize}
-\item Pokud \textbf{B} vznikne z \textbf{A} vÃ½mÄ›nnou dvou Å™Ã¡dku nebo sloupcÅ¯ potom $\det B = -\det A$
-\item Pokud \textbf{B} vznikne z \textbf{A} vynÃ¡sobenÃ­m Å™Ã¡dku nebo sloupce skalÃ¡rem c, potom $\det B = c.\det A$
-\item Pokud \textbf{B} vznikne z \textbf{A} pÅ™iÄtenÃ­m nÃ¡sobku jednoho Å™Ã¡dku k jinÃ©mu, nebo pÅ™idÃ¡nÃ­m nÃ¡sobku sloupce k jinÃ©mu sloupci potom $\det B = \det A$
+\item Pokud \textbf{B} vznikne z \textbf{A} vımìnnou dvou øádku nebo sloupcù potom $\det B = -\det A$
+\item Pokud \textbf{B} vznikne z \textbf{A} vynásobením øádku nebo sloupce skalárem c, potom $\det B = c.\det A$
+\item Pokud \textbf{B} vznikne z \textbf{A} pøiètením násobku jednoho øádku k jinému, nebo pøidáním násobku sloupce k jinému sloupci potom $\det B = \det A$
 \end{pitemize}
 
 \noindent
-OpakovanÃ½m pouÅ¾itÃ­m uvedenÃ½ch pravidel pÅ™evedeme matici na trojÃºhelnÃ­kovou a pro tu potÃ© snadno spoÄteme determinant.
+Opakovanım pouitím uvedenıch pravidel pøevedeme matici na trojúhelníkovou a pro tu poté snadno spoèteme determinant.
 \end{obecne}
 
 
 
-\subsection{GeometrickÃ½ smysl determinantu}
+\subsection{Geometrickı smysl determinantu}
 
-\begin{obecne}{Matice Å™Ã¡du 2}
-AbsolutnÃ­ hodnotu determinantu matice Å™Ã¡du 2
+\begin{obecne}{Matice øádu 2}
+Absolutní hodnotu determinantu matice øádu 2
 $$\det\left(
 \begin{array}{cc}
 a & b\\
@@ -181,81 +181,81 @@ c & d
 \end{array}
 \right) = ad - bc
 $$
-lze interpretovat jako obsah rovnobÄ›Å¾nÃ­ku s vrcholy v bodech $(0,0)$, $(a,c)$, $(b, d)$ a $(a+b, c+d)$. ZnamÃ©nko determinantu urÄuje vzÃ¡jemnou orientaci vektorÅ¯ $(a,c)$, $(b, d)$. $\det A$ je kladnÃ½, pokud Ãºhel mezi vektory $(a,c)$, $(b, d)$ mÄ›Å™enÃ½ v kladnÃ©m smÄ›ru (tedy proti smÄ›ru hodinovÃ½ch ruÄiÄek) menÅ¡Ã­ neÅ¾ $\pi$, a zÃ¡pornÃ½, pokud je tento Ãºhel vÄ›tÅ¡Ã­ neÅ¾ $\pi$.
+lze interpretovat jako obsah rovnobìníku s vrcholy v bodech $(0,0)$, $(a,c)$, $(b, d)$ a $(a+b, c+d)$. Znaménko determinantu urèuje vzájemnou orientaci vektorù $(a,c)$, $(b, d)$. $\det A$ je kladnı, pokud úhel mezi vektory $(a,c)$, $(b, d)$ mìøenı v kladném smìru (tedy proti smìru hodinovıch ruèièek) menší ne $\pi$, a zápornı, pokud je tento úhel vìtší ne $\pi$.
 \end{obecne}
 
-\begin{obecne}{Matice Å™Ã¡du 3}
-PodobnÃ½ geometrickÃ½ vÃ½znam jako pro matici Å™Ã¡du 2 najdeme i pro matice $B = (b_{i,j})$ Å™Ã¡du 3. Å˜Ã¡dkovÃ© vektory
+\begin{obecne}{Matice øádu 3}
+Podobnı geometrickı vıznam jako pro matici øádu 2 najdeme i pro matice $B = (b_{i,j})$ øádu 3. Øádkové vektory
 
 $$b_1 = (b_{1,1}, b_{1,2}, b_{1,3}), b_2 = (b_{2,1}, b_{2,2}, b_{2,3}), b_3 = (b_{3,1}, b_{3,2}, b_{3,3})$$
 
-urÄujÃ­ v tÅ™Ã­dimenzionÃ¡lnÃ­m prostoru rovnobÄ›Å¾nostÄ›n, jehoÅ¾ objem je roven $\left| \det B \right|$. Pokud je $\det B$ kladnÃ½, tak je posloupnost vektorÅ¯ $b_1, b_2, b_3$ pravotoÄivÃ¡, a levotoÄivÃ¡, pokud je $\det B$ zÃ¡pornÃ½.
+urèují v tøídimenzionálním prostoru rovnobìnostìn, jeho objem je roven $\left| \det B \right|$. Pokud je $\det B$ kladnı, tak je posloupnost vektorù $b_1, b_2, b_3$ pravotoèivá, a levotoèivá, pokud je $\det B$ zápornı.
 \end{obecne}
 
-\begin{obecne}{Matice vyÅ¡Å¡Ã­ch Å™Ã¡dÅ¯}
-I v reÃ¡lnÃ½ch prostorech vyÅ¡Å¡Ã­ch Å™Ã¡dÅ¯ lze determinant chÃ¡pat jako objem obecnÃ©ho \emph{n}-rozmÄ›rnÃ©ho rovnobÄ›Å¾nostÄ›nu, pÅ™Ã­padnÄ› jako pravotoÄivost, respektive levotoÄivost posloupnosti $b_1, b_2,  \dots , b_n$.
+\begin{obecne}{Matice vyšších øádù}
+I v reálnıch prostorech vyšších øádù lze determinant chápat jako objem obecného \emph{n}-rozmìrného rovnobìnostìnu, pøípadnì jako pravotoèivost, respektive levotoèivost posloupnosti $b_1, b_2,  \dots , b_n$.
 \end{obecne}
 
-\begin{definiceN}{PravotoÄivÃ¡ a levotoÄivÃ¡ soustava prostorovÃ½ch kartÃ©zskÃ½ch souÅ™adnic}
-PÅ™edstavte si, Å¾e v mÃ­stÄ›, kde stojÃ­te, je poÄÃ¡tek prostorovÃ© kartÃ©zskÃ© soustavy. Osa x nechÅ¥ smÄ›Å™uje pÅ™Ã­mo vpÅ™ed (smÄ›rem, kterÃ½m se dÃ­vÃ¡te), osa y nechÅ¥ smÄ›Å™uje vlevo a osa z nechÅ¥ smÄ›Å™uje vzhÅ¯ru. TakovÃ¡ soustava se nazÃ½vÃ¡ \emph{pravotoÄivÃ¡ souÅ™adnÃ¡ soustava}.
+\begin{e}{Definice}{0}{Pravotoèivá a levotoèivá soustava prostorovıch kartézskıch souøadnic}
+Pøedstavte si, e v místì, kde stojíte, je poèátek prostorové kartézské soustavy. Osa x nech smìøuje pøímo vpøed (smìrem, kterım se díváte), osa y nech smìøuje vlevo a osa z nech smìøuje vzhùru. Taková soustava se nazıvá \emph{pravotoèivá souøadná soustava}.
 
-ZamÄ›nÃ­me-li osy x a y, zÃ­skÃ¡me \emph{souÅ™adnou soustavu levotoÄivou}. Obvykle se pracuje s pravotoÄivou souÅ™adnou soustavou.
+Zamìníme-li osy x a y, získáme \emph{souøadnou soustavu levotoèivou}. Obvykle se pracuje s pravotoèivou souøadnou soustavou.
 
-MnemotechnickÃ¡ pomÅ¯cka: Soustava souÅ™adnic je pravotoÄivÃ¡ pokud pÅ™i naznaÄenÃ­ kladnÃ©ho smÄ›ru osy z zdviÅ¾enÃ½m palcem pravÃ© ruky naznaÄujÃ­ ostatnÃ­ prsty smÄ›r od kladnÃ©ho smÄ›ru osy x ke kladnÃ©mu smÄ›ru osy y.
-\end{definiceN}
+Mnemotechnická pomùcka: Soustava souøadnic je pravotoèivá pokud pøi naznaèení kladného smìru osy z zdvienım palcem pravé ruky naznaèují ostatní prsty smìr od kladného smìru osy x ke kladnému smìru osy y.
+\end{e}
 
 
-\subsection{Minory a inversnÃ­ matice}
+\subsection{Minory a inversní matice}
 
-\begin{definiceN}{Minor}
-MÄ›jme Ätvercovou matici $A_{ij}$, kterou zÃ­skÃ¡me z matice $A$ odstranÄ›nÃ­m i-tÃ©ho Å™Ã¡dku a j-tÃ©ho sloupce. Determinant matice $A_{ij}$, tzn. $\det A_{ij}$ nazÃ½vÃ¡me \emph{subdeterminantem} (tÃ©Å¾ \emph{minorem}) pÅ™Ã­sluÅ¡nÃ½m k prvku $a_{i,j}$ matice $A$.
-\end{definiceN}
+\begin{e}{Definice}{0}{Minor}
+Mìjme ètvercovou matici $A_{ij}$, kterou získáme z matice $A$ odstranìním i-tého øádku a j-tého sloupce. Determinant matice $A_{ij}$, tzn. $\det A_{ij}$ nazıváme \emph{subdeterminantem} (té \emph{minorem}) pøíslušnım k prvku $a_{i,j}$ matice $A$.
+\end{e}
 
-\begin{obecne}{VÃ½poÄet determinantu rozvojem podle Å™Ã¡dkÅ¯ (sloupcÅ¯)}
-AlgebraickÃ½ doplnÄ›k lze pouÅ¾Ã­t k vÃ½poÄtu determinantu \emph{n}-tÃ©ho Å™Ã¡du. Pro libovolnÃ© (pevnÄ› danÃ©) \emph{i} lze determinant matice $A$ vyjÃ¡dÅ™it pomocÃ­ algebraickÃ½ch doplÅˆkÅ¯ jako
+\begin{obecne}{Vıpoèet determinantu rozvojem podle øádkù (sloupcù)}
+Algebraickı doplnìk lze pouít k vıpoètu determinantu \emph{n}-tého øádu. Pro libovolné (pevnì dané) \emph{i} lze determinant matice $A$ vyjádøit pomocí algebraickıch doplòkù jako
 
 $$\det( A ) = \sum_{j=1}^n a_{i,j}\cdot (-1)^{i+j}\det( A_{ij} )$$
 
-Tento postup je oznaÄovÃ¡n jako \emph{rozvoj (rozklad) determinantu podle i-tÃ©ho Å™Ã¡dku}. EkvivalentnÄ› lze determinant vyjÃ¡dÅ™it \emph{rozvojem (rozkladem) podle j-tÃ©ho sloupce}. ÄŒÃ­slo $(-1)^{i+j}\det( A_{ij} )$ se nÄ›kdy nazÃ½vÃ¡ \emph{kofaktorem} nebo \emph{algebraickÃ½m doplÅˆkem}.
+Tento postup je oznaèován jako \emph{rozvoj (rozklad) determinantu podle i-tého øádku}. Ekvivalentnì lze determinant vyjádøit \emph{rozvojem (rozkladem) podle j-tého sloupce}. Èíslo $(-1)^{i+j}\det( A_{ij} )$ se nìkdy nazıvá \emph{kofaktorem} nebo \emph{algebraickım doplòkem}.
 \end{obecne}
 
-\begin{definiceN}{AdjungovanÃ¡ matice}
-Pro Ätvercovou matici $A$ definujeme \emph{adjungovanou matici} $\adj A$ pÅ™edpisem
+\begin{e}{Definice}{0}{Adjungovaná matice}
+Pro ètvercovou matici $A$ definujeme \emph{adjungovanou matici} $\adj A$ pøedpisem
 $$(\adj A)_{i,j}=(-1)^{i+j}\cdot\det(A_{ji})$$
-kde $A_{ji}$ jsou minory matice $A$ (s vynechanÃ½m $j$-tÃ½m Å™Ã¡dkem a $i$-tÃ½m sloupcem -- pozor na obrÃ¡cenÃ© poÅ™adÃ­ indexÅ¯!). Prvky adjungovanÃ© matice jsou vlastnÄ› algebraickÃ© doplÅˆky v transponovanÃ© matici $A^T$.
-\end{definiceN}
+kde $A_{ji}$ jsou minory matice $A$ (s vynechanım $j$-tım øádkem a $i$-tım sloupcem -- pozor na obrácené poøadí indexù!). Prvky adjungované matice jsou vlastnì algebraické doplòky v transponované matici $A^T$.
+\end{e}
 
-\begin{definiceN}{InversnÃ­ matice}
-Pro Ätvercovou matici $A$ Å™Ã¡du $n$ definujeme inverznÃ­ matici $A^{-1}$ pÅ™edpisem
+\begin{e}{Definice}{0}{Inversní matice}
+Pro ètvercovou matici $A$ øádu $n$ definujeme inverzní matici $A^{-1}$ pøedpisem
 $$A.A^{-1} = A^{-1}.A = I_n$$
-kde $I_n$ je jednotkovÃ¡ matice. InversnÃ­ matici lze sestrojit pouze pro regulÃ¡rnÃ­ matici.
-\end{definiceN}
+kde $I_n$ je jednotková matice. Inversní matici lze sestrojit pouze pro regulární matici.
+\end{e}
 
-\begin{vetaN}{VÃ½poÄet inversnÃ­ matice podle minorÅ¯}
-Pro kaÅ¾dou regulÃ¡rnÃ­ matici $A$ nad tÄ›lesem $T$ platÃ­: 
+\begin{e}{Vìta}{0}{Vıpoèet inversní matice podle minorù}
+Pro kadou regulární matici $A$ nad tìlesem $T$ platí: 
 $$A^{-1}=\frac{1}{\det A}\cdot(\adj A)$$
 $$A^{-1}_{i,j}=(-1)^{i+j}\frac{\det(A_{ji})}{\det A}$$
 
-\begin{dukaz}
-Z maticovÃ©ho souÄinu $A\cdot\adj A$:
+\begin{e}{Dùkaz}{0}{0}
+Z maticového souèinu $A\cdot\adj A$:
 \begin{penumerate}
-    \item $i$-tÃ½ Å™Ã¡dek $A$ $\times$ $i$-tÃ½ sloupec $\adj A$ (obs. determinanty minorÅ¯ odp. $i$-tÃ©mu Å™Ã¡dku) dÃ¡ dohromady $\det A$
-    (z rozvoje determinantu podle Å™Ã¡dku)
-    \item $j$-tÃ½ Å™Ã¡dek $A$ $\times$ $i$-tÃ½ sloupec $\adj A$ dÃ¡ dohromady $0$, protoÅ¾e jde o stejnÃ½ princip pro matici, kde $i$-tÃ½
-    Å™Ã¡dek je nahrazen $j$-tÃ½m (2 stejnÃ© Å™Ã¡dky)
+    \item $i$-tı øádek $A$ $\times$ $i$-tı sloupec $\adj A$ (obs. determinanty minorù odp. $i$-tému øádku) dá dohromady $\det A$
+    (z rozvoje determinantu podle øádku)
+    \item $j$-tı øádek $A$ $\times$ $i$-tı sloupec $\adj A$ dá dohromady $0$, protoe jde o stejnı princip pro matici, kde $i$-tı
+    øádek je nahrazen $j$-tım (2 stejné øádky)
 \end{penumerate}
-Potom $A\cdot\adj A = \det A\cdot I_n$ a to uÅ¾ dÃ¡vÃ¡ $\frac{1}{\det A}\adj A = A^{-1}$.
-\end{dukaz}
-\end{vetaN}
+Potom $A\cdot\adj A = \det A\cdot I_n$ a to u dává $\frac{1}{\det A}\adj A = A^{-1}$.
+\end{e}
+\end{e}
 
 
 \subsection{Cramerovo pravidlo}
-Cramerovo pravidlo je metoda umoÅ¾ÅˆujÃ­cÃ­ nalezenÃ­ Å™eÅ¡enÃ­ soustavy lineÃ¡rnÃ­ch algebraickÃ½ch rovnic.
+Cramerovo pravidlo je metoda umoòující nalezení øešení soustavy lineárních algebraickıch rovnic.
 
 \begin{obecne}{Postup}
-MÄ›jme soustavu lineÃ¡rnÃ­ch rovnic, kterÃ¡ obsahuje stejnÃ½ poÄet neznÃ¡mÃ½ch jako je poÄet rovnic. OznaÄme matici soustavy $A$. DÃ¡le oznaÄme $A_i\;$ jako matici, kterou zÃ­skÃ¡me z matice $A$, nahradÃ­me-li v nÃ­ $i$-tÃ½ sloupec sloupcem pravÃ½ch stran soustavy rovnic.
+Mìjme soustavu lineárních rovnic, která obsahuje stejnı poèet neznámıch jako je poèet rovnic. Oznaème matici soustavy $A$. Dále oznaème $A_i\;$ jako matici, kterou získáme z matice $A$, nahradíme-li v ní $i$-tı sloupec sloupcem pravıch stran soustavy rovnic.
 
-Pokud zapÃ­Å¡eme matice soustavy a vektor pravÃ½ch stran jako
+Pokud zapíšeme matice soustavy a vektor pravıch stran jako
 
 $$
 A =
@@ -268,7 +268,7 @@ A =
 B = \left( \begin{array}{cccc} b_1 \\b_2 \\ \vdots  \\b_m \end{array} \right)
 $$
 
-pak mÃ¡ tvar
+pak má tvar
 
 $$
 A_i=
@@ -280,37 +280,37 @@ A_i=
 \end{array} \right)
 $$
 
-Pokud je determinant matice soustavy nenulovÃ½, $\det A \neq 0$, tzn. matice je regulÃ¡rnÃ­, pak mÃ¡ soustava prÃ¡vÄ› jedno Å™eÅ¡enÃ­, pro kterÃ© platÃ­
+Pokud je determinant matice soustavy nenulovı, $\det A \neq 0$, tzn. matice je regulární, pak má soustava právì jedno øešení, pro které platí
 
 $$x_i = \frac{\det A_i}{\det A}$$
 
 pro $i = 1,2, \dots ,n$.
 \end{obecne}
 
-\begin{dukaz}
-Pro soustavu $Ax=b$ -- rozepÃ­Å¡eme $x=A^{-1}b$, ze vzorce pro inversnÃ­ matici plyne
+\begin{e}{Dùkaz}{0}{0}
+Pro soustavu $Ax=b$ -- rozepíšeme $x=A^{-1}b$, ze vzorce pro inversní matici plyne
 $$x=\frac{1}{\det A}(\adj A)\cdot b$$
-takÅ¾e pro $x_i$ vychÃ¡zÃ­ 
+take pro $x_i$ vychází 
 $$x_i=\frac{1}{\det A}((\adj A)b)_i=\frac{1}{\det A}\cdot\sum_{j=1}^n(\adj A)_{i,j}\cdot b_j=\frac{1}{\det A}\cdot\det A_i$$
-\end{dukaz}
+\end{e}
 
-\begin{priklad}
-Ãškolem je Å™eÅ¡it soustavu rovnic
+\begin{e}{Pøíklad}{0}{0}
+Úkolem je øešit soustavu rovnic
  $$x + y = 3$$
  $$x - 2y = 1$$
 
 Determinant matice soustavy je
  $$\det A = \left| \begin{array}{cc}1 & 1 \\ 1 & -2\end{array} \right| = -3$$
 
-PonÄ›vadÅ¾ je $\det A \neq 0$, lze pouÅ¾Ã­t Cramerovo pravidlo.
+Ponìvad je $\det A \neq 0$, lze pouít Cramerovo pravidlo.
 
-DÃ¡le urÄÃ­me
+Dále urèíme
  $$\det A_1 = \left| \begin{array}{cc}3 & 1 \\ 1 & -2\end{array} \right| = -7$$
  $$\det A_2 = \left| \begin{array}{cc}1 & 3 \\ 1 & 1\end{array} \right| = -2$$
 
-Å˜eÅ¡enÃ­ mÃ¡ tedy tvar
+Øešení má tedy tvar
  $$x = \frac{\det A_1}{\det A} = \frac{-7}{-3} = \frac{7}{3}$$
  $$y = \frac{\det A_2}{\det A} = \frac{-2}{-3} = \frac{2}{3}$$
 
-ZkouÅ¡kou se pÅ™esvÄ›dÄÃ­me, Å¾e se skuteÄnÄ› jednÃ¡ o Å™eÅ¡enÃ­ uvedenÃ© soustavy.
-\end{priklad}
+Zkouškou se pøesvìdèíme, e se skuteènì jedná o øešení uvedené soustavy.
+\end{e}

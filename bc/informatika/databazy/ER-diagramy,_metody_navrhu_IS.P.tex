@@ -1,71 +1,71 @@
-\subsection{ER-diagramy, metody nÃ¡vrhu IS}
+\subsection{ER-diagramy, metody návrhu IS}
 
-ER-diagramy jsou de-facto standard pro konceptuÃ¡lnÃ­ datovÃ© modelovÃ¡nÃ­. Jsou vhodnÃ© hlavnÄ› pro \uv{plochÃ¡} neformÃ¡tovanÃ¡ data, tj. hlavnÄ› pro relaÄnÃ­, objektovÄ›-relaÄnÃ­ nebo objektovÃ© databÃ¡ze. Nejsou vhodnÃ© pro multimediÃ¡lnÃ­ nebo hierarchickÃ¡ data (jako napÅ™. XML). E-R v nÃ¡zvu znamenÃ¡ \emph{entity-relationship} modelovÃ¡nÃ­, tedy modelovÃ¡nÃ­ s pomocÃ­ (tÅ™Ã­d) entit a jejich vztahÅ¯. ER model databÃ¡ze definuje jejÃ­ konceptuÃ¡lnÃ­ schÃ©ma. Jde vlastnÄ› o obdobu UML schÃ©mat v objektovÃ©m programovÃ¡nÃ­.
+ER-diagramy jsou de-facto standard pro konceptuální datové modelování. Jsou vhodné hlavnì pro \uv{plochá} neformátovaná data, tj. hlavnì pro relaèní, objektovì-relaèní nebo objektové databáze. Nejsou vhodné pro multimediální nebo hierarchická data (jako napø. XML). E-R v názvu znamená \emph{entity-relationship} modelování, tedy modelování s pomocí (tøíd) entit a jejich vztahù. ER model databáze definuje její konceptuální schéma. Jde vlastnì o obdobu UML schémat v objektovém programování.
 
-\begin{obecne}{EntitnÃ­ typ}
-\emph{EntitnÃ­ typ} (v diagramu se znaÄÃ­ hranatÃ½m rÃ¡meÄkem) reprezentuje nÄ›jakou tÅ™Ã­du entit (napÅ™. \uv{ZamÄ›stnanec}). KaÅ¾dÃ½ entitnÃ­ typ mÃ¡ nÄ›jakÃ© \emph{atributy} (napÅ™. \uv{jmÃ©no}), z nichÅ¾ nÄ›kterÃ© mohou bÃ½t \emph{identifikÃ¡tory}, tj. takovÃ©, kterÃ© jednoznaÄnÄ› urÄujÃ­ instanci entity. Pokud nemÃ¡ Å¾Ã¡dnÃ© identifikÃ¡tory explicitnÄ› oznaÄenÃ©, jsou jimi vÅ¡echny atributy dohromaty (tzv. sloÅ¾enÃ½ identifikÃ¡tor). IdentifikÃ¡tory mohou bÃ½t i vÃ­ceatributovÃ©. 
+\begin{obecne}{Entitní typ}
+\emph{Entitní typ} (v diagramu se znaèí hranatım rámeèkem) reprezentuje nìjakou tøídu entit (napø. \uv{Zamìstnanec}). Kadı entitní typ má nìjaké \emph{atributy} (napø. \uv{jméno}), z nich nìkteré mohou bıt \emph{identifikátory}, tj. takové, které jednoznaènì urèují instanci entity. Pokud nemá ádné identifikátory explicitnì oznaèené, jsou jimi všechny atributy dohromaty (tzv. sloenı identifikátor). Identifikátory mohou bıt i víceatributové. 
 
-Atributy entitnÃ­ch typÅ¯ mohou bÃ½t \emph{jednoduchÃ©} nebo \emph{sloÅ¾enÃ©}, \emph{povinnÃ©} Äi \emph{nepovinnÃ©}, pÅ™Ã­padnÄ› \emph{jednohodnotovÃ©} a \emph{vÃ­cehodnotovÃ©}. Jejich zobrazenÃ­ ukazuje nÃ¡sledujÃ­cÃ­ obrÃ¡zek:
+Atributy entitních typù mohou bıt \emph{jednoduché} nebo \emph{sloené}, \emph{povinné} èi \emph{nepovinné}, pøípadnì \emph{jednohodnotové} a \emph{vícehodnotové}. Jejich zobrazení ukazuje následující obrázek:
 
 \begin{center}
 \includegraphics[width=14cm]{informatika/databazy/obrazky/er1.png}
 
-(EntitnÃ­ typ se vÅ¡emoÅ¾nÃ½mi druhy atributÅ¯)
+(Entitní typ se všemonımi druhy atributù)
 \end{center}
 \end{obecne}
 
-\begin{obecne}{VztahovÃ½ typ}
-\emph{VztahovÃ½ typ} (v diagramu znaÄenÃ½ kosoÄtvercem) popisuje vztahy mezi jednotlivÃ½mi entitami -- s tÄ›mi entitami, se kterÃ½mi je v nÄ›jakÃ©m vztahu, je spojen Äarou. Vztah mÅ¯Å¾e mÃ­t danou i \emph{kardinalitu} (kolik entit z kaÅ¾dÃ© strany do vztahu vstupuje), kterÃ¡ mÅ¯Å¾e bÃ½t typu $1:1$, $1:n$, $m:n$ a je znaÄenÃ¡ vedle ÄÃ¡ry spojujÃ­cÃ­ vztahovÃ½ typ s entitou. Entity ve vztahu mohou mÃ­t navÃ­c \emph{povinnÃ© Äi nepovinnÃ© ÄlenstvÃ­} (vstupovat do nÄ›j vÅ¾dy nebo jen nÄ›kdy).
+\begin{obecne}{Vztahovı typ}
+\emph{Vztahovı typ} (v diagramu znaèenı kosoètvercem) popisuje vztahy mezi jednotlivımi entitami -- s tìmi entitami, se kterımi je v nìjakém vztahu, je spojen èarou. Vztah mùe mít danou i \emph{kardinalitu} (kolik entit z kadé strany do vztahu vstupuje), která mùe bıt typu $1:1$, $1:n$, $m:n$ a je znaèená vedle èáry spojující vztahovı typ s entitou. Entity ve vztahu mohou mít navíc \emph{povinné èi nepovinné èlenství} (vstupovat do nìj vdy nebo jen nìkdy).
 
-Vztahy mohou bÃ½t buÄ binÃ¡rnÃ­ nebo obecnÄ› $n$-Ã¡rnÃ­, ale vÃ­ce neÅ¾ ternÃ¡rnÃ­ vztahy se vÄ›tÅ¡inou neobjevujÃ­. Vztahy mohou bÃ½t i rekurzivnÃ­, tj. do vztahÅ¯ vstupujÃ­ entity stejnÃ©ho typu. Instance vztahovÃ©ho typu je jednoznaÄnÄ› urÄena identifikÃ¡tory instancÃ­ entit ve vztahu. NÄ›kterÃ© entitnÃ­ typy mohou bÃ½t spoluidentifikovÃ¡ny (nebo pÅ™Ã­mo identifikovÃ¡ny) vztahem -- pak se nazÃ½vajÃ­ \emph{slabÃ© entitnÃ­ typy}.
+Vztahy mohou bıt buï binární nebo obecnì $n$-ární, ale více ne ternární vztahy se vìtšinou neobjevují. Vztahy mohou bıt i rekurzivní, tj. do vztahù vstupují entity stejného typu. Instance vztahového typu je jednoznaènì urèena identifikátory instancí entit ve vztahu. Nìkteré entitní typy mohou bıt spoluidentifikovány (nebo pøímo identifikovány) vztahem -- pak se nazıvají \emph{slabé entitní typy}.
 
 \begin{center}
 \includegraphics[width=12cm]{informatika/databazy/obrazky/er2.png}
 
-(VztahovÃ© typy)
+(Vztahové typy)
 \end{center}
-ObrÃ¡zek ukazuje ternÃ¡rnÃ­ vztah s rÅ¯znÃ½mi kardinalitami -- klientovi nÄ›kdo dodÃ¡vÃ¡ zboÅ¾Ã­ jednou aÅ¾ $n$-krÃ¡t, pracovnÃ­k dodÃ¡vÃ¡ nula aÅ¾ $n$-krÃ¡t zboÅ¾Ã­ (tj. jde o nepovinnÃ© ÄlenstvÃ­ ve vztahu, mÅ¯Å¾ou existovat pracovnÃ­ci, kteÅ™Ã­ nic nedodÃ¡vajÃ­) a zboÅ¾Ã­ je vÅ¾dy nÄ›komu dodÃ¡vÃ¡no prÃ¡vÄ› jednou. Na zamÄ›stnancÃ­ch je zÃ¡roveÅˆ ukÃ¡zÃ¡n rekurzivnÃ­ binÃ¡rnÃ­ vztah.
+Obrázek ukazuje ternární vztah s rùznımi kardinalitami -- klientovi nìkdo dodává zboí jednou a $n$-krát, pracovník dodává nula a $n$-krát zboí (tj. jde o nepovinné èlenství ve vztahu, mùou existovat pracovníci, kteøí nic nedodávají) a zboí je vdy nìkomu dodáváno právì jednou. Na zamìstnancích je zároveò ukázán rekurzivní binární vztah.
 
 
 \begin{center}
 \includegraphics[width=10cm]{informatika/databazy/obrazky/er3.png}
 
-(SlabÃ½ entitnÃ­ typ. Zdroj: slidy Dr. T. Skopala k DatabÃ¡zovÃ½m systÃ©mÅ¯m)
+(Slabı entitní typ. Zdroj: slidy Dr. T. Skopala k Databázovım systémùm)
 \end{center}
-Tento obrÃ¡zek ukazuje, jak vypadÃ¡ slabÃ½ entitnÃ­ typ -- automobil je identifikovÃ¡n svojÃ­ SPZ a zÃ¡roveÅˆ stÃ¡tem, ve kterÃ©m je registrovÃ¡n.
+Tento obrázek ukazuje, jak vypadá slabı entitní typ -- automobil je identifikován svojí SPZ a zároveò státem, ve kterém je registrován.
 \end{obecne}
 
 
 \begin{obecne}{ISA hierarchie}
-ISA hierarchie je rozÅ¡Ã­Å™enÃ­ ER diagramÅ¯ o \uv{dÄ›diÄnost} entit -- tj. rozdÄ›lenÃ­ entitnÃ­ch typÅ¯ na subtypy (a pÅ™idÃ¡nÃ­ dalÅ¡Ã­ch vztahÅ¯ nebo atributÅ¯ pro subtypy). V ISA hierarchii se povoluje pouze jednonÃ¡sobnÃ¡ dÄ›diÄnost, navÃ­c potomci nÄ›jakÃ©ho entitnÃ­ho typu musÃ­ bÃ½t jednoznaÄnÄ› identifikovÃ¡ni pÅ™edkem (tj. vÅ¡echny entity v hierarchii sdÃ­lÃ­ identifikÃ¡tor).
+ISA hierarchie je rozšíøení ER diagramù o \uv{dìdiènost} entit -- tj. rozdìlení entitních typù na subtypy (a pøidání dalších vztahù nebo atributù pro subtypy). V ISA hierarchii se povoluje pouze jednonásobná dìdiènost, navíc potomci nìjakého entitního typu musí bıt jednoznaènì identifikováni pøedkem (tj. všechny entity v hierarchii sdílí identifikátor).
 
 \begin{center}
 \includegraphics[width=6cm]{informatika/databazy/obrazky/er4.png}
 
-(ISA hierarchie. Zdroj: slidy Dr. T. Skopala k DatabÃ¡zovÃ½m systÃ©mÅ¯m)
+(ISA hierarchie. Zdroj: slidy Dr. T. Skopala k Databázovım systémùm)
 \end{center}
 \end{obecne}
 
-\begin{obecne}{Ãšpravy ER diagramÅ¯}
-V ER diagramu je moÅ¾nÃ© provÃ¡dÄ›t vÃ­cemÃ©nÄ› \uv{ekvivalentnÃ­} Ãºpravy (vÃ½slednÃ½ diagram reprezentuje stejnÃ½ koncept databÃ¡ze), napÅ™. pro odstranÄ›nÃ­ vztahÅ¯ s kardinalitou $m:n$ (pÅ™evod na dva vztahy kardinalitami $1:n$ a \emph{prÅ¯nikovÃ½ entitnÃ­ typ}, kterÃ½ je vztahy urÄenÃ½, takÅ¾e je slabÃ½). DalÅ¡Ã­m dÅ¯vodem Ãºprav mÅ¯Å¾e bÃ½t zbavenÃ­ se ISA hierarchie. To se dÃ¡ provÃ©st vÃ­ce zpÅ¯soby, pÅ™iÄemÅ¾ Å¾Ã¡dnÃ½ z nich nefunguje ÃºplnÄ› obecnÄ›:
+\begin{obecne}{Úpravy ER diagramù}
+V ER diagramu je moné provádìt víceménì \uv{ekvivalentní} úpravy (vıslednı diagram reprezentuje stejnı koncept databáze), napø. pro odstranìní vztahù s kardinalitou $m:n$ (pøevod na dva vztahy kardinalitami $1:n$ a \emph{prùnikovı entitní typ}, kterı je vztahy urèenı, take je slabı). Dalším dùvodem úprav mùe bıt zbavení se ISA hierarchie. To se dá provést více zpùsoby, pøièem ádnı z nich nefunguje úplnì obecnì:
 \begin{pitemize}
-    \item agregace atributÅ¯ a vztahÅ¯ potomka do pÅ™edka a Ãºprava kardinalit (pÅ™evod na nepovinnÃ© atributy a nepovinnÃ© ÄlenstvÃ­ ve vztahu)
-    \item odstranÄ›nÃ­ pÅ™edka a duplikace vÅ¡ech jeho atributÅ¯ a vztahÅ¯ v potomcÃ­ch
-    \item nahrazenÃ­ ISA vztahu klasickÃ½m vztahem (z potomkÅ¯ vzniknou slabÃ© entitnÃ­ typy)
+    \item agregace atributù a vztahù potomka do pøedka a úprava kardinalit (pøevod na nepovinné atributy a nepovinné èlenství ve vztahu)
+    \item odstranìní pøedka a duplikace všech jeho atributù a vztahù v potomcích
+    \item nahrazení ISA vztahu klasickım vztahem (z potomkù vzniknou slabé entitní typy)
 \end{pitemize}
-JinÃ¡ Ãºprava je odstranÄ›nÃ­ vÃ­cehodnotovÃ©ho atributu -- pÅ™evede se na vztah s kardinalitou $1:n$ a slabÃ½ entitnÃ­ typ.
+Jiná úprava je odstranìní vícehodnotového atributu -- pøevede se na vztah s kardinalitou $1:n$ a slabı entitní typ.
 \end{obecne}
 
-\begin{obecne}{KorektnÃ­ ER schÃ©ma}
-V \emph{korektnÃ­m} ER schÃ©matu vÅ¡echny entity a vztahy splÅˆujÃ­:
+\begin{obecne}{Korektní ER schéma}
+V \emph{korektním} ER schématu všechny entity a vztahy splòují:
 \begin{pitemize}
-    \item Å½Ã¡dnÃ½ entitnÃ­ typ nemÃ¡ vÃ­ce neÅ¾ jednoho ISA pÅ™edka.
-    \item ISA vztahy netvoÅ™Ã­ orientovanÃ½ cyklus.
-    \item IdentifikaÄnÃ­ vztahy netvoÅ™Ã­ orientovanÃ½ cyklus.
-    \item Potomek v ISA hierarchii nenÃ­ identifikaÄnÄ› zÃ¡vislÃ½ na Å¾Ã¡dnÃ©m entitnÃ­m typu (je jiÅ¾ identifikovÃ¡n pÅ™edkem).
-    \item JmÃ©na entitnÃ­ch a vztahovÃ½ch typÅ¯ jsou jednoznaÄnÃ¡.
+    \item ádnı entitní typ nemá více ne jednoho ISA pøedka.
+    \item ISA vztahy netvoøí orientovanı cyklus.
+    \item Identifikaèní vztahy netvoøí orientovanı cyklus.
+    \item Potomek v ISA hierarchii není identifikaènì závislı na ádném entitním typu (je ji identifikován pøedkem).
+    \item Jména entitních a vztahovıch typù jsou jednoznaèná.
 \end{pitemize}
 \end{obecne}
 
 
-TODO: Co je ksakru \uv{ metody nÃ¡vrhÅ¯ IS}?
+TODO: Co je ksakru \uv{ metody návrhù IS}?

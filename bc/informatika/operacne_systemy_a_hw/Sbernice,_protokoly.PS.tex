@@ -1,34 +1,34 @@
-\subsection{SbÄ›rnice, protokoly}
+\subsection{Sbìrnice, protokoly}
 
 \begin{pitemize}
-	\item \textbf{Struktura sbÄ›rnice}: datovÃ© linky, adresovÃ© linky, Å™Ã­dÃ­cÃ­ linky
-	\item \textbf{SynchronnÃ­ pÅ™enos} (vznik udÃ¡losti je dÃ¡n hodinovÃ½m signÃ¡lem) vs. \textbf{asynchronnÃ­ pÅ™enos} (vznik udÃ¡losti je urÄen pÅ™edchÃ¡zejÃ­cÃ­ udÃ¡lostÃ­~-- napr. signalizÃ¡ciou zaÄiatku dÃ¡t) 
-	\item \textbf{Parametry sbÄ›rnice}: 
+	\item \textbf{Struktura sbìrnice}: datové linky, adresové linky, øídící linky
+	\item \textbf{Synchronní pøenos} (vznik události je dán hodinovım signálem) vs. \textbf{asynchronní pøenos} (vznik události je urèen pøedcházející událostí~-- napr. signalizáciou zaèiatku dát) 
+	\item \textbf{Parametry sbìrnice}: 
 	\begin{pitemize}
-	  \item \emph{datovÃ¡ Å¡Ã­Å™ka}~-- poÄet pÅ™enÃ¡Å¡enÃ½ch bitÅ¯ v jednom okamÅ¾iku,
-	  \item \emph{kapacita}~-- poÄet bitÅ¯ pÅ™enesenÃ½ch za Äas,
-	  \item \emph{rychlost}~-- kapacita sbÄ›rnice normovanÃ¡ k jednotce informace. 
+	  \item \emph{datová šíøka}~-- poèet pøenášenıch bitù v jednom okamiku,
+	  \item \emph{kapacita}~-- poèet bitù pøenesenıch za èas,
+	  \item \emph{rychlost}~-- kapacita sbìrnice normovaná k jednotce informace. 
 	\end{pitemize}  
-	\item \textbf{Å˜Ã­zenÃ­ poÅ¾adavkÅ¯}: 
+	\item \textbf{Øízení poadavkù}: 
 	\begin{pitemize}
-	  \item \emph{centrÃ¡lnÃ­}~-- nÃ¡hodnÃ©, dle poÅ™adÃ­ vzniku poÅ¾adavkÅ¯, prioritnÃ­,
-	  \item \emph{distribuovanÃ©}~-- koliznÃ­ (CSMA/CD), token bus, prioritnÃ­ linka (daisy chain).
+	  \item \emph{centrální}~-- náhodné, dle poøadí vzniku poadavkù, prioritní,
+	  \item \emph{distribuované}~-- kolizní (CSMA/CD), token bus, prioritní linka (daisy chain).
 	\end{pitemize} 
-	\item \textbf{PÅ™enos dat po sbÄ›rnici} mÅ¯Å¾e probÃ­hat buÄ za ÃºÄasti procesoru (zdroj $\rightarrow$ CPU $\rightarrow$ cÃ­l), nebo bez. Bez procesoru to mÅ¯Å¾e bÃ½t napÅ™.:
+	\item \textbf{Pøenos dat po sbìrnici} mùe probíhat buï za úèasti procesoru (zdroj $\rightarrow$ CPU $\rightarrow$ cíl), nebo bez. Bez procesoru to mùe bıt napø.:
 	\begin{pitemize}
-		\item dÃ¡vkovÃ½ reÅ¾im~-- domluva mezi CPU a Å™adiÄem na dobÄ› obsazenÃ­ sbÄ›rnice (napr. pomocou zdvihnutia \uv{lock flagu} na zbernici)
-		\item kradenÃ­ cyklÅ¯~-- Å™adiÄ na dobu pÅ™enosu \uv{uspÃ­} procesor (nelze uspat na dlouho, je to technicky nÃ¡roÄnÄ›jÅ¡Ã­)
-		\item transparentnÃ­ reÅ¾im~-- Å™adiÄ rozeznÃ¡, kdy procesor nepouÅ¾Ã­vÃ¡ sbÄ›rnici, obvykle nelze vÄ›tÅ¡Ã­ pÅ™enosy najednou
-		\item DMA (Direct Memory Access)~-- speciÃ¡lnÃ­ jednotka pro provÃ¡dÄ›nÃ­ pÅ™enosÅ¯ dat (mezi zaÅ™Ã­zenÃ­mi a pamÄ›tÃ­)
+		\item dávkovı reim~-- domluva mezi CPU a øadièem na dobì obsazení sbìrnice (napr. pomocou zdvihnutia \uv{lock flagu} na zbernici)
+		\item kradení cyklù~-- øadiè na dobu pøenosu \uv{uspí} procesor (nelze uspat na dlouho, je to technicky nároènìjší)
+		\item transparentní reim~-- øadiè rozezná, kdy procesor nepouívá sbìrnici, obvykle nelze vìtší pøenosy najednou
+		\item DMA (Direct Memory Access)~-- speciální jednotka pro provádìní pøenosù dat (mezi zaøízeními a pamìtí)
 	\end{pitemize}
-	Jednou z technik, pouÅ¾Ã­vanÃ½ch k pÅ™enosu dat po sbÄ›rnici Å™adiÄi DMA, je \emph{scatter-gather}. ZnamenÃ¡ to, Å¾e v rÃ¡mci jednoho pÅ™enosu se zpracovÃ¡vÃ¡ vÃ­c ne nutnÄ› souvislÃ½ch blokÅ¯ dat. 
+	Jednou z technik, pouívanıch k pøenosu dat po sbìrnici øadièi DMA, je \emph{scatter-gather}. Znamená to, e v rámci jednoho pøenosu se zpracovává víc ne nutnì souvislıch blokù dat. 
 	\begin{pitemize}
-	    \item \emph{scatter}~-- DMA Å™adiÄ v rÃ¡mci 1 pÅ™enosu uloÅ¾Ã­ z 1 mÃ­sta data na nÄ›kolik rÅ¯znÃ½ch mÃ­st (napÅ™ hlaviÄky TCP/IP - jinak zbyteÄnÃ© kopÃ­rovÃ¡nÃ­)  
-	    \item \emph{gather}~-- napÅ™. pÅ™i strÃ¡nkovÃ¡nÃ­ pamÄ›ti - naÄÃ­tÃ¡nÃ­ strÃ¡nek, kterÃ© fyzicky na disku nemusÃ­ bÃ½t u sebe, sloÅ¾enÃ­ na 1 mÃ­sto do pamÄ›ti.
+	    \item \emph{scatter}~-- DMA øadiè v rámci 1 pøenosu uloí z 1 místa data na nìkolik rùznıch míst (napø hlavièky TCP/IP - jinak zbyteèné kopírování)  
+	    \item \emph{gather}~-- napø. pøi stránkování pamìti - naèítání stránek, které fyzicky na disku nemusí bıt u sebe, sloení na 1 místo do pamìti.
 	\end{pitemize}
 \end{pitemize}
 
-PÅ™Ã­klady sbÄ›rnic:
+Pøíklady sbìrnic:
 \begin{pitemize}
 	\item ISA, EISA
 	\item ATA, ATAPI~-- UltraDMA, Serial-ATA (SATA)
@@ -41,7 +41,7 @@ PÅ™Ã­klady sbÄ›rnic:
 	\item $I^{2}C$
 \end{pitemize}
 
-PÅ™Ã­buznÃ© sbÄ›rnic:
+Pøíbuzné sbìrnic:
 \begin{pitemize}
 	\item IrDA
 	\item Bluetooth

@@ -1,137 +1,137 @@
-\subsection{Indexy, triggery, uloÅ¾enÃ© procedury, uÅ¾ivatelÃ©}
+\subsection{Indexy, triggery, uloené procedury, uivatelé}
 
-TODO: poÅ™Ã¡dnÃ¡ definice indexu
+TODO: poøádná definice indexu
 
 \begin{obecne}{Index}
-Index je obvykle definovÃ¡n vÃ½bÄ›rem tabulky a jejÃ­ho konkrÃ©tnÃ­ho sloupce (nebo sloupcÅ¯), nad kterÃ½mi si designÃ©r databÃ¡ze pÅ™eje dotazovÃ¡nÃ­ urychlit; dÃ¡le pak technickÃ½m urÄenÃ­m typu. ChovÃ¡nÃ­ a zpÅ¯soby uloÅ¾enÃ­ indexÅ¯ se mohou vÃ½znamnÄ› liÅ¡it podle pouÅ¾itÃ© databÃ¡zovÃ© technologie.
-VÃ½jimku mohou tvoÅ™it napÅ™Ã­klad full-textovÃ© indexy, kterÃ© jsou v nÄ›kterÃ½ch pÅ™Ã­padech (nerelaÄnÃ­ databÃ¡ze typu Lotus Notes) definovÃ¡ny nad celou databÃ¡zÃ­, nikoliv nad konkrÃ©tnÃ­ tabulkou. 
+Index je obvykle definován vıbìrem tabulky a jejího konkrétního sloupce (nebo sloupcù), nad kterımi si designér databáze pøeje dotazování urychlit; dále pak technickım urèením typu. Chování a zpùsoby uloení indexù se mohou vıznamnì lišit podle pouité databázové technologie.
+Vıjimku mohou tvoøit napøíklad full-textové indexy, které jsou v nìkterıch pøípadech (nerelaèní databáze typu Lotus Notes) definovány nad celou databází, nikoliv nad konkrétní tabulkou. 
 \end{obecne}
 
-\begin{obecne}{PouÅ¾itÃ­ indexu}
-Na prvnÃ­ pohled by se mohlo zdÃ¡t, Å¾e ÄÃ­m vÃ­c indexÅ¯, tÃ­m lepÅ¡Ã­ chovÃ¡nÃ­ databÃ¡ze a Å¾e po vytvoÅ™enÃ­ indexÅ¯ pro vÅ¡echny sloupce vÅ¡ech tabulkÃ¡ch dosÃ¡hneme maximÃ¡lnÃ­ho zrychlenÃ­. Tento pÅ™Ã­stup narÃ¡Å¾Ã­ bohuÅ¾el na dva zÃ¡sadnÃ­ problÃ©my: 
+\begin{obecne}{Pouití indexu}
+Na první pohled by se mohlo zdát, e èím víc indexù, tím lepší chování databáze a e po vytvoøení indexù pro všechny sloupce všech tabulkách dosáhneme maximálního zrychlení. Tento pøístup naráí bohuel na dva zásadní problémy: 
 \begin{penumerate}
-    \item KaÅ¾dÃ½ index zabÃ­rÃ¡ v pamÄ›ti vyhrazenÃ© pro databÃ¡zi nezanedbatelnÃ© mnoÅ¾stvÃ­ mÃ­sta (vzhledem k pamÄ›ti vyhrazenÃ© pro tabulku). PÅ™i existenci mnoha indexÅ¯ se mÅ¯Å¾e stÃ¡t, Å¾e pamÄ›Å¥ zabranÃ¡ pro jejich chod je skoro stejnÄ› velkÃ¡, jako pamÄ›Å¥ zabranÃ¡ jejÃ­mi daty - zvlÃ¡Å¡tÄ› u rozsÃ¡hlÃ½ch tabulek (typu faktovÃ½ch tabulek v datovÃ©m skladu) mÅ¯Å¾e nÄ›co takovÃ©ho bÃ½t nepÅ™ijatelnÃ©. 
-    \item KaÅ¾dÃ½ index zpomaluje operace, kterÃ© mÄ›nÃ­ obsah indexovanÃ½ch sloupcÅ¯ (napÅ™Ã­klad SQL pÅ™Ã­kazy UPDATE, INSERT). To je dÃ¡no tÃ­m, Å¾e databÃ¡ze se v pÅ™Ã­padÄ› takovÃ© operace nad indexovanÃ½m sloupcem musÃ­ postarat nejen o zmÄ›ny v datech tabulky, ale i o zmÄ›ny v datech indexu. 
+    \item Kadı index zabírá v pamìti vyhrazené pro databázi nezanedbatelné mnoství místa (vzhledem k pamìti vyhrazené pro tabulku). Pøi existenci mnoha indexù se mùe stát, e pamì zabraná pro jejich chod je skoro stejnì velká, jako pamì zabraná jejími daty - zvláštì u rozsáhlıch tabulek (typu faktovıch tabulek v datovém skladu) mùe nìco takového bıt nepøijatelné. 
+    \item Kadı index zpomaluje operace, které mìní obsah indexovanıch sloupcù (napøíklad SQL pøíkazy UPDATE, INSERT). To je dáno tím, e databáze se v pøípadì takové operace nad indexovanım sloupcem musí postarat nejen o zmìny v datech tabulky, ale i o zmìny v datech indexu. 
 \end{penumerate}
 \end{obecne}
 
-\begin{obecne}{Typy indexÅ¯}
-Indexy mohou mÃ­t svÅ¯j typ, kterÃ½ blÃ­Å¾e urÄuje, jakÃ½m zpÅ¯sobem mÃ¡ bÃ½t pÅ™istupovÃ¡nÃ­ k datÅ¯m tabulky optimalizovÃ¡no. OznaÄenÃ­ se rÅ¯znÃ­, ale nejÄastÄ›ji je to:
+\begin{obecne}{Typy indexù}
+Indexy mohou mít svùj typ, kterı blíe urèuje, jakım zpùsobem má bıt pøistupování k datùm tabulky optimalizováno. Oznaèení se rùzní, ale nejèastìji je to:
 \begin{pitemize}
-    \item PRIMARY - Tento typ se v kaÅ¾dÃ© tabulce mÅ¯Å¾e vyskytovat nejvÃ½Å¡e jednou. Definuje sloupec tabulky, kterÃ½ svou hodnotou jednoznaÄnÄ› identifikuje zÃ¡znam. Ve vÄ›tÅ¡inÄ› pÅ™Ã­padÅ¯ se dodrÅ¾uje konvence takovÃ½ sloupec nazvat ID a jeho datovÃ½ typ stanovit jako celÃ© ÄÃ­slo (nenÃ­-li potÅ™eba jinak). DatabÃ¡zovÃ½ server by mÄ›l bÃ½t schopen nedopustit, aby byla do sloupce, k nÄ›muÅ¾ se tento typ indexu vztahuje, byla vloÅ¾ena hodnota, kterÃ¡ jiÅ¾ v tabulce existuje (vÄ›tÅ¡inou takovÃ½ pokus konÄÃ­ chybovou hlÃ¡Å¡kou). 
-    \item UNIQUE - Tento typ je podobnÃ½ PRIMARY co do jednoznaÄnosti zÃ¡znamu v tabulce (jak naznaÄuje i jeho nÃ¡zev) a dopadu, kterÃ½ to na prÃ¡ci s databÃ¡zÃ­ mÃ¡; ale mÅ¯Å¾e se vyskytovat u vÃ­ce sloupcÅ¯ tabulky. Podle ÃºÄelu, ke kterÃ©mu mÃ¡ tabulka slouÅ¾it, se obÄas definujÃ­ indexy sloÅ¾enÃ© z vÃ­ce sloupcÅ¯ - potom opÄ›t nelze vloÅ¾it zÃ¡znam, kterÃ½ by jiÅ¾ v tÃ©to kombinaci nÄ›kde v tabulce existoval. 
-    \item INDEX - DefinicÃ­ indexu tohoto typu je v tabulce zajiÅ¡tÄ›na optimalizace vyhledÃ¡vÃ¡nÃ­ podle sloupce, ke kterÃ©mu se danÃ½ index vÃ¡Å¾e. VÄ›tÅ¡inou si databÃ¡zovÃ½ server vytvoÅ™Ã­ a nadÃ¡le udrÅ¾uje vnitÅ™nÃ­ seznam odkazÅ¯ na Å™Ã¡dky tabulky, seÅ™azenÃ½ podle hodnot sloupce, k nÄ›muÅ¾ se vÃ¡Å¾e. UdrÅ¾ovÃ¡nÃ­ takto seÅ™azenÃ© posloupnosti urychluje vyhledÃ¡vÃ¡nÃ­ (je moÅ¾no pouÅ¾Ã­t nÄ›kterÃ© interpolaÄnÃ­ numerickÃ© metody), Å™azenÃ­ i jinÃ© zÃ¡sahy do tabulky, kterÃ© jsou omezeny podmÃ­nkou na dotyÄnÃ© zÃ¡znamy. 
-    \item FULL-TEXT - VytvoÅ™enÃ­m tohoto indexu se databÃ¡zovÃ½ server bude snaÅ¾it optimalizovat full-textovÃ© vyhledÃ¡vÃ¡nÃ­ v danÃ©m sloupci u danÃ© tabulky.
+    \item PRIMARY - Tento typ se v kadé tabulce mùe vyskytovat nejvıše jednou. Definuje sloupec tabulky, kterı svou hodnotou jednoznaènì identifikuje záznam. Ve vìtšinì pøípadù se dodruje konvence takovı sloupec nazvat ID a jeho datovı typ stanovit jako celé èíslo (není-li potøeba jinak). Databázovı server by mìl bıt schopen nedopustit, aby byla do sloupce, k nìmu se tento typ indexu vztahuje, byla vloena hodnota, která ji v tabulce existuje (vìtšinou takovı pokus konèí chybovou hláškou). 
+    \item UNIQUE - Tento typ je podobnı PRIMARY co do jednoznaènosti záznamu v tabulce (jak naznaèuje i jeho název) a dopadu, kterı to na práci s databází má; ale mùe se vyskytovat u více sloupcù tabulky. Podle úèelu, ke kterému má tabulka slouit, se obèas definují indexy sloené z více sloupcù - potom opìt nelze vloit záznam, kterı by ji v této kombinaci nìkde v tabulce existoval. 
+    \item INDEX - Definicí indexu tohoto typu je v tabulce zajištìna optimalizace vyhledávání podle sloupce, ke kterému se danı index váe. Vìtšinou si databázovı server vytvoøí a nadále udruje vnitøní seznam odkazù na øádky tabulky, seøazenı podle hodnot sloupce, k nìmu se váe. Udrování takto seøazené posloupnosti urychluje vyhledávání (je mono pouít nìkteré interpolaèní numerické metody), øazení i jiné zásahy do tabulky, které jsou omezeny podmínkou na dotyèné záznamy. 
+    \item FULL-TEXT - Vytvoøením tohoto indexu se databázovı server bude snait optimalizovat full-textové vyhledávání v daném sloupci u dané tabulky.
 \end{pitemize}
 \end{obecne}
 
 \begin{obecne}{Triggery}
-  DatabÃ¡zovÃ½ trigger je programovÃ½ kÃ³d, kterÃ½ je automaticky vykonÃ¡n jako
-  reakce na nÄ›jakou udÃ¡lost v urÄitÃ© databÃ¡zovÃ© tabulce. Triggery mohou omezit
-  pÅ™Ã­stup k urÄitÃ½m datÅ¯m, provÃ¡dÄ›t logovÃ¡nÃ­, nebo kontrolovat zmÄ›ny dat.
+  Databázovı trigger je programovı kód, kterı je automaticky vykonán jako
+  reakce na nìjakou událost v urèité databázové tabulce. Triggery mohou omezit
+  pøístup k urèitım datùm, provádìt logování, nebo kontrolovat zmìny dat.
 
-  RozliÅ¡ujeme dvÄ› hlavnÃ­ tÅ™Ã­dy triggerÅ¯ a to \emph{Å™Ã¡dkovÃ½ trigger} a
-  \emph{dotazovÃ½ (statement) trigger}. Å˜Ã¡dkovÃ½ trigger mÅ¯Å¾eme definovat pro
-  kaÅ¾dÃ½ Å™Ã¡dek tabulky, zatÃ­mco dotazovÃ½ trigger se vykonÃ¡ pouze jednou pro
-  konkrÃ©tnÃ­ databÃ¡zovÃ½ dotaz. KaÅ¾dÃ¡ tÅ™Ã­da triggerÅ¯ mÅ¯Å¾e bÃ½t nÄ›kolika typÅ¯. Jsou
-  \emph{before triggers} a \emph{after triggers}, coÅ¾ znaÄÃ­ kdy mÃ¡ bÃ½t trigger
-  vykonÃ¡n. TakÃ© se mÅ¯Å¾eme setkat s \emph{instead of triggers}, kterÃ½ je potom
-  vykonÃ¡n \emph{mÃ­sto} dotazu kterÃ½m byl spuÅ¡tÄ›n. 
+  Rozlišujeme dvì hlavní tøídy triggerù a to \emph{øádkovı trigger} a
+  \emph{dotazovı (statement) trigger}. Øádkovı trigger mùeme definovat pro
+  kadı øádek tabulky, zatímco dotazovı trigger se vykoná pouze jednou pro
+  konkrétní databázovı dotaz. Kadá tøída triggerù mùe bıt nìkolika typù. Jsou
+  \emph{before triggers} a \emph{after triggers}, co znaèí kdy má bıt trigger
+  vykonán. Také se mùeme setkat s \emph{instead of triggers}, kterı je potom
+  vykonán \emph{místo} dotazu kterım byl spuštìn. 
 
-  JakÃ© udÃ¡losti mohou trigger spustit se pochopitelnÄ› liÅ¡Ã­ databÃ¡zovÃ½ systÃ©m od
-  systÃ©mu, ale existujÃ­ tÅ™i typickÃ© udÃ¡losti, kterÃ© to mohou bÃ½t:
+  Jaké události mohou trigger spustit se pochopitelnì liší databázovı systém od
+  systému, ale existují tøi typické události, které to mohou bıt:
   \begin{penumerate}
-    \item INSERT~-- novÃ½ zÃ¡znam je vloÅ¾en do databÃ¡ze,
-    \item UPDATE~-- zÃ¡znam je mÄ›nÄ›n,
-    \item DELETE~-- zÃ¡znam je mazÃ¡n.
+    \item INSERT~-- novı záznam je vloen do databáze,
+    \item UPDATE~-- záznam je mìnìn,
+    \item DELETE~-- záznam je mazán.
   \end{penumerate}
-  KromÄ› tÄ›chto typickÃ½ch udÃ¡lostÃ­ mÅ¯Å¾e databÃ¡zovÃ½ systÃ©m umoÅ¾Åˆovat nastavovat
-  triggery takÃ© na mazÃ¡nÃ­, Äi vytvÃ¡Å™enÃ­ celÃ½ch tabulek, Äi dokonce pÅ™ihlÃ¡Å¡enÃ­
-  nebo odhlÃ¡Å¡enÃ­ uÅ¾ivatele.
+  Kromì tìchto typickıch událostí mùe databázovı systém umoòovat nastavovat
+  triggery také na mazání, èi vytváøení celıch tabulek, èi dokonce pøihlášení
+  nebo odhlášení uivatele.
 
-  HlavnÃ­ vlastnosti a efekty databÃ¡zovÃ½ch triggerÅ¯ jsou:
+  Hlavní vlastnosti a efekty databázovıch triggerù jsou:
   \begin{pitemize}
-    \item nepÅ™ijÃ­majÃ­ Å¾Ã¡dnÃ© parametry nebo argumenty,
-    \item nemohou volat operace pro Å™Ã­zenÃ­ transakcÃ­ COMMIT a ROLLBACK,
-    \item majÃ­ pÅ™Ã­stup k datÅ¯m, kterÃ© budou mÄ›nÄ›ny, je tedy moÅ¾nÃ© vykonÃ¡vat akce
-    na zÃ¡kladÄ› nich,
-    \item nemohou vracet zÃ¡znamy,
-    \item obtÃ­Å¾nÄ› se ladÃ­,
-    \item mnoho triggerÅ¯ nebo sloÅ¾itÃ© triggery mohou prÃ¡ci s databÃ¡zÃ­ velice
-    zpomalit a navÃ­c znepÅ™ehlednit.
+    \item nepøijímají ádné parametry nebo argumenty,
+    \item nemohou volat operace pro øízení transakcí COMMIT a ROLLBACK,
+    \item mají pøístup k datùm, které budou mìnìny, je tedy moné vykonávat akce
+    na základì nich,
+    \item nemohou vracet záznamy,
+    \item obtínì se ladí,
+    \item mnoho triggerù nebo sloité triggery mohou práci s databází velice
+    zpomalit a navíc znepøehlednit.
   \end{pitemize}
 \end{obecne}
 
-\begin{obecne}{K Äemu triggery pouÅ¾Ã­vat?}
-  Triggery se v databÃ¡zÃ­ch pouÅ¾Ã­vajÃ­ z nÄ›kolika dÅ¯vodÅ¯, kterÃ© mohou souviset s
-  konzistencÃ­ dat, jejich ÃºdrÅ¾bou, nebo mohou bÃ½t zpÅ¯sob, kterÃ½m databÃ¡ze
-  komunikuje s okolÃ­m. PodÃ­vejme se na nÄ›kterÃ¡ typickÃ¡ schÃ©mata:
+\begin{obecne}{K èemu triggery pouívat?}
+  Triggery se v databázích pouívají z nìkolika dùvodù, které mohou souviset s
+  konzistencí dat, jejich údrbou, nebo mohou bıt zpùsob, kterım databáze
+  komunikuje s okolím. Podívejme se na nìkterá typická schémata:
   \begin{pitemize}
-    \item \textbf{Konzistence dat}~-- Trigger mÅ¯Å¾e provÃ©st vÃ½poÄet a na zÃ¡kladÄ›
-    toho povolit nebo nepovolit zmÄ›nu dat v databÃ¡zi. NapÅ™Ã­klad trigger mÅ¯Å¾e zakÃ¡zat
-    smazÃ¡nÃ­ zÃ¡kaznÃ­ka z databÃ¡ze v pÅ™Ã­padÄ›, kdy mÃ¡ u nÃ¡s nÄ›jakÃ½ dluh a podobnÄ›.  
-    \item \textbf{LogovÃ¡nÃ­}~-- Trigger mÅ¯Å¾e evidovat kdo, kdy a jak mÄ›nil data.
-    Lze tak dohledat pracovnÃ­ka, kterÃ½ zadal Å¡patnÃ© Ãºdaje nebo zjistit, v kolik
-    hodin doÅ¡lo k vÄerejÅ¡Ã­ uzÃ¡vÄ›rce.
-    \item \textbf{VerzovÃ¡nÃ­ dat}~-- DÃ­ky triggerÅ¯m lze snadno naprogramovat
-    aplikaci tak, aby jedna tabulka udrÅ¾ovala historii zmÄ›n tabulky jinÃ©. To lze
-    s ÃºspÄ›chem pouÅ¾Ã­t tÅ™eba jako bezpeÄnostnÃ­ mechanismus. 
-    \item \textbf{ZasÃ­lÃ¡nÃ­ zprÃ¡v}~-- Trigger mÅ¯Å¾e spustit nÄ›jakÃ½ externÃ­
-    program nebo proces. NapÅ™Ã­klad mÅ¯Å¾e trigger autorovi poslat e-mail,
-    pokud byl k jeho ÄlÃ¡nku pÅ™idÃ¡n pÅ™Ã­spÄ›vek.
+    \item \textbf{Konzistence dat}~-- Trigger mùe provést vıpoèet a na základì
+    toho povolit nebo nepovolit zmìnu dat v databázi. Napøíklad trigger mùe zakázat
+    smazání zákazníka z databáze v pøípadì, kdy má u nás nìjakı dluh a podobnì.  
+    \item \textbf{Logování}~-- Trigger mùe evidovat kdo, kdy a jak mìnil data.
+    Lze tak dohledat pracovníka, kterı zadal špatné údaje nebo zjistit, v kolik
+    hodin došlo k vèerejší uzávìrce.
+    \item \textbf{Verzování dat}~-- Díky triggerùm lze snadno naprogramovat
+    aplikaci tak, aby jedna tabulka udrovala historii zmìn tabulky jiné. To lze
+    s úspìchem pouít tøeba jako bezpeènostní mechanismus. 
+    \item \textbf{Zasílání zpráv}~-- Trigger mùe spustit nìjakı externí
+    program nebo proces. Napøíklad mùe trigger autorovi poslat e-mail,
+    pokud byl k jeho èlánku pøidán pøíspìvek.
   \end{pitemize}
 \end{obecne}
 
-\begin{obecne}{UloÅ¾enÃ© procedury}
-  UloÅ¾enÃ¡ procedura (anglicky stored procedure) je databÃ¡zovÃ½ objekt, kterÃ½
-  neobsahuje data, ale ÄÃ¡st programu, kterÃ½ se nad daty v databÃ¡zi mÃ¡ vykonÃ¡vat.
+\begin{obecne}{Uloené procedury}
+  Uloená procedura (anglicky stored procedure) je databázovı objekt, kterı
+  neobsahuje data, ale èást programu, kterı se nad daty v databázi má vykonávat.
 
-  UloÅ¾enÃ¡ procedura je pÅ™edevÅ¡Ã­m procedura. JednÃ¡ se o ÄÃ¡st programu, kterÃ½ je
-  (nebo by aspoÅˆ mÄ›l bÃ½t) jasnÄ› funkÄnÄ› oddÄ›lenÃ½ od svÃ©ho okolÃ­, mÃ¡ interface
-  (seznam parametrÅ¯) pro komunikaci s jinÃ½mi moduly programu. MÅ¯Å¾e mÃ­t vlastnÃ­
-  lokÃ¡lnÃ­ promÄ›nnÃ© neviditelnÃ© pro ostatnÃ­ ÄÃ¡sti programu. 
+  Uloená procedura je pøedevším procedura. Jedná se o èást programu, kterı je
+  (nebo by aspoò mìl bıt) jasnì funkènì oddìlenı od svého okolí, má interface
+  (seznam parametrù) pro komunikaci s jinımi moduly programu. Mùe mít vlastní
+  lokální promìnné neviditelné pro ostatní èásti programu. 
 
-  UloÅ¾enÃ¡ procedura je uloÅ¾enÃ¡ (rozumÄ›j: uloÅ¾enÃ¡ v databÃ¡zi). To znamenÃ¡, Å¾e se k
-  nÃ­ lze chovat stejnÄ› jako ke kaÅ¾dÃ©mu jinÃ©mu objektu databÃ¡ze (indexu, pohledu,
-  triggeru apod.). Lze jÃ­ zaloÅ¾it, upravovat a smazat pomocÃ­ pÅ™Ã­kazÅ¯ dotazovacÃ­ho
-  jazyka databÃ¡ze (v pÅ™Ã­padÄ› relaÄnÃ­ databÃ¡ze obvykle pomocÃ­ pÅ™Ã­kazÅ¯ DDL SQL). 
+  Uloená procedura je uloená (rozumìj: uloená v databázi). To znamená, e se k
+  ní lze chovat stejnì jako ke kadému jinému objektu databáze (indexu, pohledu,
+  triggeru apod.). Lze jí zaloit, upravovat a smazat pomocí pøíkazù dotazovacího
+  jazyka databáze (v pøípadì relaèní databáze obvykle pomocí pøíkazù DDL SQL). 
 
-  Pro psanÃ­ uloÅ¾enÃ½ch procedur je obvykle pouÅ¾Ã­vÃ¡n specifickÃ½ jazyk konkrÃ©tnÃ­
-  databÃ¡ze, kterÃ½ je rozÅ¡Ã­Å™enÃ­m jejÃ­ho dotazovacÃ­ho jazyka (hezkÃ½m pÅ™Ã­kladem je
-  databÃ¡ze Oracle s procedurÃ¡lnÃ­m jazykem PL/SQL, kterÃ½ je rozÅ¡Ã­Å™enÃ­m klasickÃ©ho
-  dotazovacÃ­ho jazyka SQL).
+  Pro psaní uloenıch procedur je obvykle pouíván specifickı jazyk konkrétní
+  databáze, kterı je rozšíøením jejího dotazovacího jazyka (hezkım pøíkladem je
+  databáze Oracle s procedurálním jazykem PL/SQL, kterı je rozšíøením klasického
+  dotazovacího jazyka SQL).
 \end{obecne}
 
-\begin{obecne}{ProÄ uklÃ¡dat procedury?}
+\begin{obecne}{Proè ukládat procedury?}
   \begin{pitemize}
-      \item \textbf{JednotnÃ© rozhranÃ­}~-- PouÅ¾itÃ­ uloÅ¾enÃ½ch procedur vychÃ¡zÃ­ z
-      faktu, Å¾e vÄ›tÅ¡ina operacÃ­ nad daty v databÃ¡zi probÃ­hÃ¡ stejnÄ› bez ohledu na
-      to, kdo operaci provÃ¡dÃ­. PÅ™Ã­klad: Pokud je tÅ™eba uloÅ¾it do tabulky
-      zÃ¡kaznÃ­kÅ¯ novÃ©ho zÃ¡kaznÃ­ka, tak se to z pohledu databÃ¡ze dÄ›je stejnÄ› pro
-      zÃ¡kaznÃ­ka internetovÃ©ho obchodu, pro zÃ¡kaznÃ­ka, kterÃ©ho zadÃ¡vÃ¡ pracovnice
-      telefonickÃ©ho centra pÅ™es formulÃ¡Å™ programu napsanÃ©ho napÅ™Ã­klad v C++ ,
-      nebo pro zÃ¡kaznÃ­ky, kteÅ™Ã­ jsou vklÃ¡dÃ¡ni automaticky na zÃ¡kladÄ› textovÃ©ho
-      reportu, kterÃ½ pÅ™ijde kaÅ¾dÃ½ den z \uv{kamennÃ½ch} prodejnÃ­ch mÃ­st a je
-      zpracovÃ¡vÃ¡n pomocÃ­ programu napsanÃ©ho v PowerBuilderu. Je tedy celkem
-      dobrÃ½ dÅ¯vod, aby existovala uloÅ¾enÃ¡ procedura \uv{ZapiÅ¡ novÃ©ho zÃ¡kaznÃ­ka},
-      kterou by mohly volat vÅ¡echny tÅ™i vÃ½Å¡e uvedenÃ© aplikace - alternativou bez
-      uloÅ¾enÃ© procedury by bylo, Å¾e bych podobnou proceduru musel napsat ve
-      tÅ™ech verzÃ­ch - jednou v C++, jednou v Power Builderu a jednou v rÃ¡mci
-      programu pro internetovÃ½ obchod (tÅ™eba ASP nebo PHP). 
-      \item \textbf{SkrytÃ­ datovÃ½ch operacÃ­}~-- Druhou vÃ½hodou pouÅ¾itÃ­ uloÅ¾enÃ½ch
-      procedur je, Å¾e se nemusÃ­m (v programu na \uv{klientskÃ©} stranÄ›) zabÃ½vat
-      tÃ­m, jak jsou data uloÅ¾ena v konkrÃ©tnÃ­ch tabulkÃ¡ch. V naÅ¡em pÅ™Ã­padÄ› je mi
-      jedno, jak si databÃ¡ze uvnitÅ™ pamatuje zÃ¡kaznÃ­ky - prostÄ› zadÃ¡m jako
-      parametr procedury jmÃ©no, pÅ™Ã­jmenÃ­, ÄÃ­slo kreditky a co si zÃ¡kaznÃ­k koupil
-      - a databÃ¡ze (resp. jejÃ­ uloÅ¾enÃ¡ procedura) si to nÄ›jak pÅ™ebere. UloÅ¾enÃ©
-      procedury se v pÅ™Ã­padÄ› databÃ¡zovÃ½ch aplikacÃ­ staly zÃ¡kladnÃ­m kamenem pro
-      realizaci architektury klient/server, kdy je na jednÃ© stranÄ› (klientskÃ¡
-      ÄÃ¡st) realizovÃ¡na v bÄ›Å¾nÃ©m procedurÃ¡lnÃ­m programovacÃ­m jazyku komunikace s
-      uÅ¾ivatelem (formulÃ¡Å™e nebo tÅ™eba webovÃ© strÃ¡nky) a na druhÃ© stranÄ›
-      (serverovÃ¡ ÄÃ¡st) je pomocÃ­ uloÅ¾enÃ½ch procedur realizovÃ¡na sprÃ¡va dat v
-      relaÄnÃ­ databÃ¡zi. ObÄ› ÄÃ¡sti (klientskÃ¡ a serverovÃ¡) mezi sebou komunikujÃ­
-      pÅ™es co nejjednoduÅ¡Å¡Ã­ rozhranÃ­ - volÃ¡nÃ­m uloÅ¾enÃ½ch procedur. 
+      \item \textbf{Jednotné rozhraní}~-- Pouití uloenıch procedur vychází z
+      faktu, e vìtšina operací nad daty v databázi probíhá stejnì bez ohledu na
+      to, kdo operaci provádí. Pøíklad: Pokud je tøeba uloit do tabulky
+      zákazníkù nového zákazníka, tak se to z pohledu databáze dìje stejnì pro
+      zákazníka internetového obchodu, pro zákazníka, kterého zadává pracovnice
+      telefonického centra pøes formuláø programu napsaného napøíklad v C++ ,
+      nebo pro zákazníky, kteøí jsou vkládáni automaticky na základì textového
+      reportu, kterı pøijde kadı den z \uv{kamennıch} prodejních míst a je
+      zpracováván pomocí programu napsaného v PowerBuilderu. Je tedy celkem
+      dobrı dùvod, aby existovala uloená procedura \uv{Zapiš nového zákazníka},
+      kterou by mohly volat všechny tøi vıše uvedené aplikace - alternativou bez
+      uloené procedury by bylo, e bych podobnou proceduru musel napsat ve
+      tøech verzích - jednou v C++, jednou v Power Builderu a jednou v rámci
+      programu pro internetovı obchod (tøeba ASP nebo PHP). 
+      \item \textbf{Skrytí datovıch operací}~-- Druhou vıhodou pouití uloenıch
+      procedur je, e se nemusím (v programu na \uv{klientské} stranì) zabıvat
+      tím, jak jsou data uloena v konkrétních tabulkách. V našem pøípadì je mi
+      jedno, jak si databáze uvnitø pamatuje zákazníky - prostì zadám jako
+      parametr procedury jméno, pøíjmení, èíslo kreditky a co si zákazník koupil
+      - a databáze (resp. její uloená procedura) si to nìjak pøebere. Uloené
+      procedury se v pøípadì databázovıch aplikací staly základním kamenem pro
+      realizaci architektury klient/server, kdy je na jedné stranì (klientská
+      èást) realizována v bìném procedurálním programovacím jazyku komunikace s
+      uivatelem (formuláøe nebo tøeba webové stránky) a na druhé stranì
+      (serverová èást) je pomocí uloenıch procedur realizována správa dat v
+      relaèní databázi. Obì èásti (klientská a serverová) mezi sebou komunikují
+      pøes co nejjednodušší rozhraní - voláním uloenıch procedur. 
   \end{pitemize}
 \end{obecne}
 
-TODO: uÅ¾ivatelÃ©
+TODO: uivatelé

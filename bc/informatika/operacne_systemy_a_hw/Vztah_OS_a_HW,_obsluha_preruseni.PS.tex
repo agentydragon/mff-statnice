@@ -1,43 +1,43 @@
-\subsection{Vztah OS a HW, obsluha pÅ™eruÅ¡enÃ­}
+\subsection{Vztah OS a HW, obsluha pøerušení}
 
-\begin{obecne}{ZjiÅ¡tÄ›nÃ­ zmÄ›ny stavu I/O zaÅ™Ã­zenÃ­:}
+\begin{obecne}{Zjištìní zmìny stavu I/O zaøízení:}
 \begin{pitemize}
-	\item \emph{asynchronnÃ­ pÅ™eruÅ¡enÃ­}~-- zaÅ¡le zaÅ™Ã­zenÃ­
-	\item \emph{polling}~-- peridickÃ¡ kontrola stavu zaÅ™Ã­zenÃ­
+	\item \emph{asynchronní pøerušení}~-- zašle zaøízení
+	\item \emph{polling}~-- peridická kontrola stavu zaøízení
 \end{pitemize}
 \end{obecne}
 
-\begin{obecne}{Druhy pÅ™eruÅ¡enÃ­:}
+\begin{obecne}{Druhy pøerušení:}
 \begin{pitemize}
-	\item \emph{synchronnÃ­}~-- zÃ¡mÄ›rnÄ› (instrukce TRAP~-- vstup do OS), vÃ½jimky (nesprÃ¡vnÃ© chovÃ¡nÃ­ procesu)~-- zpracuje se okamÅ¾itÄ›
-	\item \emph{asynchronnÃ­}~-- vnÄ›jÅ¡Ã­ udÃ¡lost (napÅ™. pÅ™Ã­chod dat)~-- zpracuje se po dokonÄenÃ­ aktuÃ¡lnÃ­ instrukce 
+	\item \emph{synchronní}~-- zámìrnì (instrukce TRAP~-- vstup do OS), vıjimky (nesprávné chování procesu)~-- zpracuje se okamitì
+	\item \emph{asynchronní}~-- vnìjší událost (napø. pøíchod dat)~-- zpracuje se po dokonèení aktuální instrukce 
 \end{pitemize}
 \end{obecne}
 
-\begin{obecne}{Obsluha pÅ™eruÅ¡enÃ­:}
+\begin{obecne}{Obsluha pøerušení:}
 \begin{pitemize}
-	\item OS se ujme Å™Ã­zenÃ­
-	\item uloÅ¾Ã­ se stav CPU (obsah registrÅ¯, ÄÃ­taÄ, ...)
-	\item analyzuje se pÅ™eruÅ¡enÃ­, vyvolÃ¡ se pÅ™Ã­sluÅ¡nÃ¡ obsluha (pokud nenÃ­ pÅ™eruÅ¡enÃ­ blokovÃ¡no)
-	\item obslouÅ¾Ã­ se pÅ™eruÅ¡enÃ­ (napÅ™. se zavolÃ¡ obsluÅ¾nÃ¡ procedura)
-	\item obnovÃ­ se stav CPU a aplikace pokraÄuje, popÅ™. mÅ¯Å¾e dojÃ­t k pÅ™eplÃ¡novÃ¡nÃ­ 
+	\item OS se ujme øízení
+	\item uloí se stav CPU (obsah registrù, èítaè, ...)
+	\item analyzuje se pøerušení, vyvolá se pøíslušná obsluha (pokud není pøerušení blokováno)
+	\item obslouí se pøerušení (napø. se zavolá obsluná procedura)
+	\item obnoví se stav CPU a aplikace pokraèuje, popø. mùe dojít k pøeplánování 
 \end{pitemize}
 \end{obecne}
 
 \begin{obecne}{I/O software (vrstvy):}
 \begin{pitemize}
-	\item uÅ¾ivatelskÃ½ I/O software
-	\item I/O nezÃ¡vislÃ½ subsystÃ©m
-	\item ovladaÄe zaÅ™Ã­zenÃ­
-	\item obsluha pÅ™eruÅ¡enÃ­ 
+	\item uivatelskı I/O software
+	\item I/O nezávislı subsystém
+	\item ovladaèe zaøízení
+	\item obsluha pøerušení 
 \end{pitemize}
 \end{obecne}
 
-\begin{obecne}{CÃ­le I/O software:}
+\begin{obecne}{Cíle I/O software:}
 \begin{pitemize}
-	\item nezÃ¡vislost zaÅ™Ã­zenÃ­~-- programy nemusÃ­ vÄ›dÄ›t, s jakÃ½m pÅ™esnÄ› pracujÃ­
-	\item jednotnÃ© pojmenovÃ¡nÃ­ (/dev)
-	\item pÅ™ipojenÃ­ (mount)~-- vymÄ›nitelnÃ¡ zaÅ™Ã­zenÃ­
+	\item nezávislost zaøízení~-- programy nemusí vìdìt, s jakım pøesnì pracují
+	\item jednotné pojmenování (/dev)
+	\item pøipojení (mount)~-- vymìnitelná zaøízení
 	\item obsluha chyb
 \end{pitemize}
 \end{obecne}

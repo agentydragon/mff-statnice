@@ -1,39 +1,39 @@
-\subsection{Druhy ÃºtokÅ¯ a obrana proti nim}
+\subsection{Druhy útokù a obrana proti nim}
 
-\subsubsection*{VnitÅ™nÃ­ Ãºtoky}
+\subsubsection*{Vnitøní útoky}
 \begin{pitemize}
-  \item \textbf{TrojskÃ½ kÅ¯Åˆ}~-- zdÃ¡nlivÄ› neÅ¡kodnÃ½ program obsahuje \uv{zlÃ½} kÃ³d
-  \item \textbf{Login spoofing}~-- faleÅ¡nÃ¡ \uv{logovacÃ­} obrazovka
-  \item \textbf{LogickÃ¡ bomba}~-- zamÄ›stnanec vpravÃ­ kus kÃ³du do systÃ©mu, kterÃ½
-  musÃ­ bÃ½t pravidelnÄ› informovÃ¡n o tom, Å¾e zamÄ›stnanec je stÃ¡le zamÄ›stnancem
-  \item \textbf{ZadnÃ­ dvÃ­Å™ka (trap door, back door)}~-- kÃ³d pÅ™i nÄ›jakÃ© podmÃ­nce
-  pÅ™eskoÄÃ­ normÃ¡lnÃ­ kontroly
-  \item \textbf{PÅ™eteÄenÃ­ vyrovnÃ¡vacÃ­ pamÄ›ti (buffer overflow)}
+  \item \textbf{Trojskı kùò}~-- zdánlivì neškodnı program obsahuje \uv{zlı} kód
+  \item \textbf{Login spoofing}~-- falešná \uv{logovací} obrazovka
+  \item \textbf{Logická bomba}~-- zamìstnanec vpraví kus kódu do systému, kterı
+  musí bıt pravidelnì informován o tom, e zamìstnanec je stále zamìstnancem
+  \item \textbf{Zadní dvíøka (trap door, back door)}~-- kód pøi nìjaké podmínce
+  pøeskoèí normální kontroly
+  \item \textbf{Pøeteèení vyrovnávací pamìti (buffer overflow)}
   \begin{pitemize}
-    \item ve velkÃ©m mnoÅ¾stvÃ­ kÃ³du nejsou dÄ›lÃ¡ny kontroly na pÅ™eteÄenÃ­ polÃ­ pevnÃ© velikosti
-    \item pÅ™i pÅ™eteÄenÃ­ se typicky pÅ™epÃ­Å¡e ÄÃ¡st zÃ¡sobnÃ­ku a lze tam umÃ­stit adresu kÃ³du i samotnÃ½ kÃ³d, kterÃ½ se vykonÃ¡ pÅ™i nÃ¡vratu z funkce
+    \item ve velkém mnoství kódu nejsou dìlány kontroly na pøeteèení polí pevné velikosti
+    \item pøi pøeteèení se typicky pøepíše èást zásobníku a lze tam umístit adresu kódu i samotnı kód, kterı se vykoná pøi návratu z funkce
   \end{pitemize}
 \end{pitemize}
 
-\subsubsection*{VnÄ›jÅ¡Ã­ Ãºtoky}
+\subsubsection*{Vnìjší útoky}
 \begin{pitemize}
-  \item \textbf{Virus}~-- vytvoÅ™Ã­ se nakaÅ¾enÃ½ \uv{Å¾Ã¡danÃ½} soubor
-  \item \textbf{InternetovÃ½ Äerv (worm)}~-- samoreplikujÃ­cÃ­ se program (Äerv),
-  vyuÅ¾Ã­vÃ¡ nÄ›jakÃ© chyby systÃ©mu 
-  \item \textbf{MobilnÃ­ kÃ³d}~-- applety, agenti\dots
+  \item \textbf{Virus}~-- vytvoøí se nakaenı \uv{ádanı} soubor
+  \item \textbf{Internetovı èerv (worm)}~-- samoreplikující se program (èerv),
+  vyuívá nìjaké chyby systému 
+  \item \textbf{Mobilní kód}~-- applety, agenti\dots
 \end{pitemize}
 
-\subsubsection*{ÃštoÄnÃ­ci}
-ÃštoÄnÃ­kem mÅ¯Å¾e bÃ½t buÄ nÃ¡hodnÃ½ uÅ¾ivatel, vnitÅ™nÃ­ pracovnÃ­k, zloÄinec (zvenÄÃ­) nebo Å¡pion (vojenskÃ½, komerÄnÃ­). CÃ­le ÃºtokÅ¯ jsou na dÅ¯vÄ›rnost -- zjiÅ¡tÄ›nÃ­ obsahu, nebo celistvost -- zmÄ›na obsahu, pÅ™Ã­padnÄ› dostupnost sluÅ¾by -- Denial of service. Ke ztrÃ¡tÄ› dat mÅ¯Å¾e dojÃ­t i v dÅ¯sledku chyby hardware, software, lidskÃ© chyby nebo BoÅ¾Ã­ho zÃ¡sahu.
+\subsubsection*{Útoèníci}
+Útoèníkem mùe bıt buï náhodnı uivatel, vnitøní pracovník, zloèinec (zvenèí) nebo špion (vojenskı, komerèní). Cíle útokù jsou na dùvìrnost -- zjištìní obsahu, nebo celistvost -- zmìna obsahu, pøípadnì dostupnost sluby -- Denial of service. Ke ztrátì dat mùe dojít i v dùsledku chyby hardware, software, lidské chyby nebo Boího zásahu.
 
 \subsubsection*{Obrana}
-jsou to spÃ­Å¡ banality, ale nic vÃ­c po nÃ¡s nechtÄ›jÃ­???
+jsou to spíš banality, ale nic víc po nás nechtìjí???
 \begin{pitemize}
-    \item proti trojanÅ¯m, backdoorÅ¯m, logical bomb -- omezenÃ­ pÅ™Ã­stupovÃ½ch prÃ¡v, metoda \uv{least privilege}
-    \item proti login-spoofu -- \uv{secure attention key}, tj. takovÃ© to \uv{ZaÄnÄ›te stisknutÃ­m Ctrl-Alt-Del}
-    \item proti buffer overflow -- jedinÄ› patche
-    \item proti virÅ¯m -- antivirus ;-), anti-spyware 
-    \item proti ÄervÅ¯m -- firewall, patche (Ãºtoky jsou vÄ›tÅ¡inou proti znÃ¡mÃ½m a opravenÃ½m chybÃ¡m aplikacÃ­, proti druhÃ©mu typu, tzv. \uv{zero-day attack} je jedinou obranou firewall)
-    \item proti problÃ©mÅ¯m s aplety a skripty -- sandboxing (bÄ›h v omezenÃ©m prostÅ™edÃ­ bez moÅ¾nosti pÅ™Ã­stupu k poÄÃ­taÄi)
-    \item proti vÅ¡emu -- backupy ;-)
+    \item proti trojanùm, backdoorùm, logical bomb -- omezení pøístupovıch práv, metoda \uv{least privilege}
+    \item proti login-spoofu -- \uv{secure attention key}, tj. takové to \uv{Zaènìte stisknutím Ctrl-Alt-Del}
+    \item proti buffer overflow -- jedinì patche
+    \item proti virùm -- antivirus ;-), anti-spyware 
+    \item proti èervùm -- firewall, patche (útoky jsou vìtšinou proti známım a opravenım chybám aplikací, proti druhému typu, tzv. \uv{zero-day attack} je jedinou obranou firewall)
+    \item proti problémùm s aplety a skripty -- sandboxing (bìh v omezeném prostøedí bez monosti pøístupu k poèítaèi)
+    \item proti všemu -- backupy ;-)
 \end{pitemize}

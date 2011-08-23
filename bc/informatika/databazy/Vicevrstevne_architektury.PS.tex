@@ -1,6 +1,6 @@
-\subsection{VÃ­cevrstevnÃ© architektury}
+\subsection{Vícevrstevné architektury}
 
-TODO: pÅ™edÄ›lat, tohle je jen copy \& paste z Wiki a slajdÅ¯ VUT Brno
+TODO: pøedìlat, tohle je jen copy \& paste z Wiki a slajdù VUT Brno
 
 
 \begin{obecne}{Multitier architecture}
@@ -8,46 +8,46 @@ Multi-tier architecture (often referred to as n-tier architecture) is a client-s
 \end{obecne}
 
 
-\begin{obecne}{ZÃ¡klad kooperativnÃ­ho zpracovÃ¡nÃ­}
-Faktory ovlivÅˆujÃ­cÃ­ architekturu:
+\begin{obecne}{Základ kooperativního zpracování}
+Faktory ovlivòující architekturu:
 \begin{pitemize}
-\item poÅ¾adavky na interoperabilitu zdrojÅ¯ 
-\item rÅ¯st velikosti zdrojÅ¯ 
-\item rÅ¯st poÄtu klientÅ¯ 
+\item poadavky na interoperabilitu zdrojù 
+\item rùst velikosti zdrojù 
+\item rùst poètu klientù 
 \end{pitemize}
-Typy sluÅ¾eb v databÃ¡zovÃ© technologii:
+Typy slueb v databázové technologii:
 \begin{pitemize}
-\item prezentaÄnÃ­ sluÅ¾by: pÅ™Ã­jem vstupu, zobrazovÃ¡nÃ­ vÃ½sledkÅ¯ 
-\item prezentaÄnÃ­ logika: Å™Ã­zenÃ­ interakce (hierarchie menu, obrazovek)
-\item logika aplikace: operace realizujÃ­cÃ­ algoritmus aplikace
-\item logika dat: podpora operacÃ­ s daty (integritnÃ­ omezenÃ­, ...)
-\item datovÃ© sluÅ¾by: akce s databÃ¡zÃ­ (definice a manipulace, transakÄnÃ­ zpracovÃ¡nÃ­, ...) 
-\item sluÅ¾by ovlÃ¡dÃ¡nÃ­ souborÅ¯: vlastnÃ­ V/V operace
+\item prezentaèní sluby: pøíjem vstupu, zobrazování vısledkù 
+\item prezentaèní logika: øízení interakce (hierarchie menu, obrazovek)
+\item logika aplikace: operace realizující algoritmus aplikace
+\item logika dat: podpora operací s daty (integritní omezení, ...)
+\item datové sluby: akce s databází (definice a manipulace, transakèní zpracování, ...) 
+\item sluby ovládání souborù: vlastní V/V operace
 \end{pitemize}
 \end{obecne}
 
 \begin{obecne}{Varianty architektury klient-server}
 \begin{pitemize}
-    \item \textbf{Klient-server se vzdÃ¡lenÃ½mi daty} \\
-Na serveru jsou jen datovÃ© sluÅ¾by a ovlÃ¡dÃ¡nÃ­ souborÅ¯, zbytek zajiÅ¡Å¥ujÃ­ klienti. ProblÃ©mem jsou velkÃ© nÃ¡roky na pÅ™enosovu kapacitu od klienta k serveru a HW zatÃ­Å¾enÃ­ klientskÃ½ch stanic
-    \item \textbf{Klient-server se vzdÃ¡lenou prezentacÃ­} \\
-Na klientskÃ© stanici jsou jen prezentaÄnÃ­ sluÅ¾by a prezentaÄnÃ­ logika, zbytek je na serveru. NevÃ½hodou je prÃ¡vÄ› zÃ¡tÄ›Å¾ na HW serveru.
-    \item \textbf{Klient-server s rozdÄ›lenou logikou} \\
-ÄŒÃ¡st logiky aplikacÃ­ i logiky dat je na serveru a ÄÃ¡st zpracovÃ¡vÃ¡ klient. Jde o vyvÃ¡Å¾enÃ© Å™eÅ¡enÃ­, kterÃ© mÃ¡ ale horÅ¡Ã­ rozÅ¡Ã­Å™itelnost.
-    \item \textbf{TÅ™Ã­vrstvÃ¡ architektura} \\
-Zahrnuje dva servery -- aplikaÄnÃ­ a databÃ¡zovÃ½, spojenÃ© rychlou linkou. Z hlediska zÃ¡tÄ›Å¾e a rozÅ¡Ã­Å™itelnosti nejvÃ½hodnÄ›jÅ¡Ã­.
+    \item \textbf{Klient-server se vzdálenımi daty} \\
+Na serveru jsou jen datové sluby a ovládání souborù, zbytek zajišují klienti. Problémem jsou velké nároky na pøenosovu kapacitu od klienta k serveru a HW zatíení klientskıch stanic
+    \item \textbf{Klient-server se vzdálenou prezentací} \\
+Na klientské stanici jsou jen prezentaèní sluby a prezentaèní logika, zbytek je na serveru. Nevıhodou je právì zátì na HW serveru.
+    \item \textbf{Klient-server s rozdìlenou logikou} \\
+Èást logiky aplikací i logiky dat je na serveru a èást zpracovává klient. Jde o vyváené øešení, které má ale horší rozšíøitelnost.
+    \item \textbf{Tøívrstvá architektura} \\
+Zahrnuje dva servery -- aplikaèní a databázovı, spojené rychlou linkou. Z hlediska zátìe a rozšíøitelnosti nejvıhodnìjší.
 \end{pitemize}
 \end{obecne}
 
-\begin{obecne}{PÅ™Ã­nos architektury klient/server a tÅ™Ã­vrstvÃ© architektury}
+\begin{obecne}{Pøínos architektury klient/server a tøívrstvé architektury}
 \begin{pitemize}
- \item pruÅ¾nÄ›jÅ¡Ã­ rozdÄ›lenÃ­ prÃ¡ce \item lze pouÅ¾Ã­t horizontÃ¡lnÃ­(vÃ­ce serverÅ¯) i vertikÃ¡lnÃ­(vÃ½konnÄ›jÅ¡Ã­ server) Å¡kÃ¡lovÃ¡nÃ­ \item aplikace mohou bÄ›Å¾et na levnÄ›jÅ¡Ã­ch zaÅ™Ã­zenÃ­ch \item na klientskÃ½ch stanicÃ­ch lze pouÅ¾Ã­vat oblÃ­benÃ½ prezentaÄnÃ­ software \item standardizovanÃ½ pÅ™Ã­stup umoÅ¾Åˆuje zpÅ™Ã­stupnit dalÅ¡Ã­ zdroje \item centralizace dat podporuje ÃºÄinnÄ›jÅ¡Ã­ ochranu \item u tÅ™Ã­vrstvÃ© architektury centralizace ÃºdrÅ¾by aplikace, moÅ¾nost vyuÅ¾itÃ­ sdÃ­lenÃ½ch objektÅ¯ (business objects) nÄ›kolika aplikacemi
+ \item prunìjší rozdìlení práce \item lze pouít horizontální(více serverù) i vertikální(vıkonnìjší server) škálování \item aplikace mohou bìet na levnìjších zaøízeních \item na klientskıch stanicích lze pouívat oblíbenı prezentaèní software \item standardizovanı pøístup umoòuje zpøístupnit další zdroje \item centralizace dat podporuje úèinnìjší ochranu \item u tøívrstvé architektury centralizace údrby aplikace, monost vyuití sdílenıch objektù (business objects) nìkolika aplikacemi
 \end{pitemize}
 \end{obecne}
 
-\begin{obecne}{Podpora pro rozdÄ›lenÃ­ zÃ¡tÄ›Å¾e v architektuÅ™e klient/server}
+\begin{obecne}{Podpora pro rozdìlení zátìe v architektuøe klient/server}
 \begin{pitemize}
- \item deklarativnÃ­ integritnÃ­ omezenÃ­ \item databÃ¡zovÃ© triggery \item uloÅ¾enÃ© podprogramy
+ \item deklarativní integritní omezení \item databázové triggery \item uloené podprogramy
 \end{pitemize}
 \end{obecne}
 

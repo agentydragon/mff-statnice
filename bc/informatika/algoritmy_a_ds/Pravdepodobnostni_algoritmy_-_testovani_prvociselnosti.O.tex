@@ -19,19 +19,19 @@ Náhodnost ovlivòuje jak dobu bìhu, tak správnost vısledku: algoritmus mùe udìla
 \begin{prikladN}{Rabin-Millerùv algoritmus na testování prvoèíselnosti} 
 Pro zadané pøirozené èíslo n (rychle) rozhodnout zda je n prvoèíslo 
 \\\\
-\begin{vetaN}{Malá Fermatova} Nech p je prvoèíslo. Potom $\forall k \in\{1,2, … ,p-1\}$ platí $k^{p-1} \equiv 1(\mod p)$
-\end{vetaN} 
+\begin{e} \equiv 1(\mod p)${Vìta}{0}{Malá Fermatova} Nech p je prvoèíslo. Potom $\forall k \in\{1,2, … ,p-1\}$ platí $k^{p-1}
+\end{e} 
 \\\noindent
 Pokud $n$ není prvoèíslo, tak zkusíme (náhodnì) najít „svìdka“ $k$, porušujícího $k^{n-1} \equiv 1(\mod n)$, kterı „dosvìdèuje“, e $n$ je opravdu èíslo sloené (není to prvoèíslo). Problém - pro nìkterá sloená èísla je svìdkù pøíliš málo, take je pøíliš malá pravdìpodobnost, e nìjakého svìdka (náhodnì) vybereme. 
 \\\\
-\begin{definice} Nech T je mnoina dvojic pøirozenıch èísel, kde $(k,n) \in T$ pokud $0 < k < n$ a je splnìna alespoò jedna z následujících dvou podmínek:\\
+\begin{e} Nech T je mnoina dvojic pøirozenıch èísel, kde $(k,n) \in T$ pokud $0 < k < n$ a je splnìna alespoò jedna z následujících dvou podmínek:\\{Definice}{0}{0}
 1. neplatí $k^{n-1} \equiv 1(\mod n)$,\\
 2. existuje $i$ takové, e $m = (n-1) / 2^i$ je pøirozené èíslo a platí $1 < NSD(k^{m-1}-1, n) < n$ 
-\end{definice}
-\begin{vetaN}{1} Èíslo $n$ je sloené tehdy a jen tehdy, kdy existuje $k$ takové, e $(k,n)\in T$.
-\end{vetaN}
-\begin{vetaN}{2} Nech $n$ je sloené èíslo. Pak existuje alespoò $(n-1)/2$ takovıch èísel $k$, pro které platí $(k,n)\in T$.
-\end{vetaN}
+\end{e}
+\begin{e} Èíslo $n$ je sloené tehdy a jen tehdy, kdy existuje $k$ takové, e $(k,n)\in T$.{Vìta}{0}{1}
+\end{e}
+\begin{e} Nech $n$ je sloené èíslo. Pak existuje alespoò $(n-1)/2$ takovıch èísel $k$, pro které platí $(k,n)\in T$.{Vìta}{0}{2}
+\end{e}
 \begin{obecne}{Algoritmus:}
 \begin{verbatim}
         Rabin-Miller(n); 

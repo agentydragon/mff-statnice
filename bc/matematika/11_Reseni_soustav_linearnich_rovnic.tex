@@ -6,90 +6,90 @@
 \def\Span{\mathcal{L}}
 
 
-\section{Å˜eÅ¡enÃ­ soustav lineÃ¡rnÃ­ch rovnic}
+\section{Øešení soustav lineárních rovnic}
 
-\begin{pozadavky}
+\begin{e}{Poadavky}{0}{0}
 \begin{pitemize}
-    \item LineÃ¡rnÃ­ mnoÅ¾iny ve vektorovÃ©m prostoru, jejich geometrickÃ¡ interpretace
-    \item Å˜eÅ¡enÃ­ soustavy rovnic je lineÃ¡rnÃ­ mnoÅ¾ina
-    \item Frobeniova vÄ›ta 
-    \item Å˜eÅ¡enÃ­ soustavy Ãºpravou matice 
-    \item Souvislost soustavy Å™eÅ¡enÃ­ s ortogonÃ¡lnÃ­m doplÅˆkem
+    \item Lineární mnoiny ve vektorovém prostoru, jejich geometrická interpretace
+    \item Øešení soustavy rovnic je lineární mnoina
+    \item Frobeniova vìta 
+    \item Øešení soustavy úpravou matice 
+    \item Souvislost soustavy øešení s ortogonálním doplòkem
 \end{pitemize}
-\end{pozadavky}
+\end{e}
 
-Pojem \uv{lineÃ¡rnÃ­ mnoÅ¾ina} moc pouÅ¾Ã­vanÃ½ nenÃ­, proto se drÅ¾Ã­m vÃ½razu \uv{afinnÃ­ podprostor}. VypracovÃ¡no s pouÅ¾itÃ­m poznÃ¡mek a syllabu z lineÃ¡rnÃ­ algebry Prof. MatouÅ¡ka a textu Doc. M. ÄŒadka z MU Brno k lineÃ¡rnÃ­ algebÅ™e \\(\texttt{ftp://ftp.math.muni.cz/pub/math/people/Cadek/lectures/linearni\_algebra/LA2.pdf})\\
+Pojem \uv{lineární mnoina} moc pouívanı není, proto se drím vırazu \uv{afinní podprostor}. Vypracováno s pouitím poznámek a syllabu z lineární algebry Prof. Matouška a textu Doc. M. Èadka z MU Brno k lineární algebøe \\(\texttt{ftp://ftp.math.muni.cz/pub/math/people/Cadek/lectures/linearni\_algebra/LA2.pdf})\\
 
-\subsection{LineÃ¡rnÃ­ mnoÅ¾iny ve vektorovÃ©m prostoru}
+\subsection{Lineární mnoiny ve vektorovém prostoru}
 
-\begin{definiceN}{lineÃ¡rnÃ­ mnoÅ¾ina / afinnÃ­ podprostor}
-PodmnoÅ¾ina vektorovÃ©ho prostoru $V$, kterÃ¡ je buÄ prÃ¡zdnÃ¡, nebo tvaru
+\begin{e}{Definice}{0}{lineární mnoina / afinní podprostor}
+Podmnoina vektorového prostoru $V$, která je buï prázdná, nebo tvaru
 $$\b{x}+U=\{\b{x}+\b{u}|\b{u}\in U\}$$
-kde $\b{x}\in V$ a $U\subset V$ je nÄ›jakÃ½ podprostor $V$, se nazÃ½vÃ¡ \emph{afinnÃ­ podprostor}, \emph{lineÃ¡rnÃ­ mnoÅ¾ina} nebo \emph{lineÃ¡l}.
-\end{definiceN}
+kde $\b{x}\in V$ a $U\subset V$ je nìjakı podprostor $V$, se nazıvá \emph{afinní podprostor}, \emph{lineární mnoina} nebo \emph{lineál}.
+\end{e}
 
-\begin{poznamkaN}{NejednoznaÄnost urÄenÃ­ afinnÃ­ho podprostoru}
-Jeden afinnÃ­ podprostor je moÅ¾nÃ© urÄit vÃ­ce zpÅ¯soby, napÅ™. pro vektorovÃ½ prostor $V$ s vektorem $\b{v}$ a jeho podprostorem $U$ dÃ¡vajÃ­ $\b{v}+U$ a $2\b{v}+U$ stejnÃ½ afinnÃ­ podprostor.
-\end{poznamkaN}
+\begin{e}{Poznámka}{0}{Nejednoznaènost urèení afinního podprostoru}
+Jeden afinní podprostor je moné urèit více zpùsoby, napø. pro vektorovı prostor $V$ s vektorem $\b{v}$ a jeho podprostorem $U$ dávají $\b{v}+U$ a $2\b{v}+U$ stejnı afinní podprostor.
+\end{e}
 
-\begin{vetaN}{AfinnÃ­ podprostor urÄuje vekt. prostor}
-MÄ›jme nÄ›jakÃ½ afinnÃ­ podprostor $F$ ve vektorovÃ©m prostoru $V$. Je-li dÃ¡no:
+\begin{e}{Vìta}{0}{Afinní podprostor urèuje vekt. prostor}
+Mìjme nìjakı afinní podprostor $F$ ve vektorovém prostoru $V$. Je-li dáno:
 \begin{align*}
     F &= U + \b{x} \\
     F &= U' + \b{x'}
 \end{align*}
-pak jistÄ› $U=U'$.
+pak jistì $U=U'$.
 
-\begin{dukaz}
-OznaÄÃ­me $\tilde{U}=\{\b{y}-\b{z}|y,z\in F\}$ a dokÃ¡Å¾eme, Å¾e $\tilde{U}=U$ i $\tilde{U}=U'$.
-\end{dukaz} 
-\end{vetaN}
+\begin{e}{Dùkaz}{0}{0}
+Oznaèíme $\tilde{U}=\{\b{y}-\b{z}|y,z\in F\}$ a dokáeme, e $\tilde{U}=U$ i $\tilde{U}=U'$.
+\end{e} 
+\end{e}
 
-\begin{vetaN}{Lin. zobrazenÃ­ urÄuje afinnÃ­ podprostor}
-BudiÅ¾ dÃ¡no lineÃ¡rnÃ­ zobrazenÃ­ $f:U\to V$ mezi nÄ›jakÃ½mi dvÄ›ma vekt. prostory. Pro libovolnÃ© $b\in f[U]$ potom platÃ­:
+\begin{e}{Vìta}{0}{Lin. zobrazení urèuje afinní podprostor}
+Budi dáno lineární zobrazení $f:U\to V$ mezi nìjakımi dvìma vekt. prostory. Pro libovolné $b\in f[U]$ potom platí:
 $$f^{-1}(\b{b})=\{\b{u}\in U|f(\b{u})=\b{b}\}=\{\b{x}_0 + \Ker f\}$$
-kde $x_0$ je libovolnÃ½ vektor z mnoÅ¾iny $f^{-1}(\b{b})$ a $\Ker f$ je jÃ¡dro zobrazenÃ­ $f$ (tj. $\Ker f=f^{-1}(\b{0})$).
+kde $x_0$ je libovolnı vektor z mnoiny $f^{-1}(\b{b})$ a $\Ker f$ je jádro zobrazení $f$ (tj. $\Ker f=f^{-1}(\b{0})$).
 
-\begin{dukaz}
-Plyne z faktu, Å¾e $\Ker f$ je vektorovÃ½ podprostor $U$ a z linearity $f$.
-\end{dukaz}
-\end{vetaN}
+\begin{e}{Dùkaz}{0}{0}
+Plyne z faktu, e $\Ker f$ je vektorovı podprostor $U$ a z linearity $f$.
+\end{e}
+\end{e}
 
-\subsection{GeometrickÃ¡ interpretace}
+\subsection{Geometrická interpretace}
 
-\begin{definiceN}{dimenze afinnÃ­ho podprostoru, nadroviny}
-\emph{Dimenzi} afinnÃ­ho podprostoru $\b{x}+U$, kde $U\subseteq V$ je vektorovÃ½ podprostor nÄ›jakÃ©ho vekt. prostoru $V$, definujeme jako $\dim(U)$. 
+\begin{e}{Definice}{0}{dimenze afinního podprostoru, nadroviny}
+\emph{Dimenzi} afinního podprostoru $\b{x}+U$, kde $U\subseteq V$ je vektorovı podprostor nìjakého vekt. prostoru $V$, definujeme jako $\dim(U)$. 
 
-JednodimensionÃ¡nÃ­ afinnÃ­ podprostor se nazÃ½vÃ¡ \emph{pÅ™Ã­mka}, dvoudimensionÃ¡lnÃ­ \emph{rovina}, $n-1$-dimensionÃ¡lnÃ­ afinnÃ­ podprostor $n$-dimensionÃ¡lnÃ­ho prostoru se jmenuje \emph{nadrovina}.
-\end{definiceN}
+Jednodimensionání afinní podprostor se nazıvá \emph{pøímka}, dvoudimensionální \emph{rovina}, $n-1$-dimensionální afinní podprostor $n$-dimensionálního prostoru se jmenuje \emph{nadrovina}.
+\end{e}
 
-\begin{poznamka}
-TotÃ©Å¾ platÃ­ pro afinnÃ­ podprostory v $n-$rozmÄ›rnÃ©m eukleidovskÃ©m geometrickÃ©m prostoru -- takÅ¾e napÅ™. roviny nebo pÅ™Ã­mky v trojrozmÄ›rnÃ©m eukleidovskÃ©m prostoru jsou afinnÃ­ podprostory.
-\end{poznamka}
+\begin{e}{Poznámka}{0}{0}
+Toté platí pro afinní podprostory v $n-$rozmìrném eukleidovském geometrickém prostoru -- take napø. roviny nebo pøímky v trojrozmìrném eukleidovském prostoru jsou afinní podprostory.
+\end{e}
 
-\begin{definiceN}{AfinnÃ­ kombinace bodÅ¯}
-$\b{a},\b{b}$ buÄte dva body (vektory) ve vektorovÃ©m prostoru $V$ nad tÄ›lesem $T$. Potom pro $\alpha,\beta\in T$ lineÃ¡rnÃ­ kombinace
+\begin{e}{Definice}{0}{Afinní kombinace bodù}
+$\b{a},\b{b}$ buïte dva body (vektory) ve vektorovém prostoru $V$ nad tìlesem $T$. Potom pro $\alpha,\beta\in T$ lineární kombinace
 $$\alpha\b{a}+\beta\b{b},\ \alpha+\beta=1_T$$
-urÄujÃ­cÃ­ nadrovinu se nazÃ½vÃ¡ \emph{afinnÃ­ kombinace bodÅ¯}. AfinnÃ­ kombinace nÄ›kolika bodÅ¯ $\b{a}_1,\dots,\b{a}_k$ jsou pro $\alpha_i\in T$ body 
+urèující nadrovinu se nazıvá \emph{afinní kombinace bodù}. Afinní kombinace nìkolika bodù $\b{a}_1,\dots,\b{a}_k$ jsou pro $\alpha_i\in T$ body 
 $$\sum_{i=1}^k\alpha_i\b{a}_i,\ \sum_{i=1}^k\alpha_i=1_T$$
-\end{definiceN}
+\end{e}
 
-\begin{vetaN}{GeometrickÃ© vyjÃ¡dÅ™enÃ­ afinnÃ­ho podprostoru}
-V afinnÃ­m podprostoru $F$ nÄ›jakÃ©ho vekt. prostoru $V$ leÅ¾Ã­ s kaÅ¾dÃ½mi $k$ body $\b{f}_1 \ldots \b{f}_k \in F$ i jejich afinnÃ­ kombinace. Naopak kaÅ¾dÃ¡ mnoÅ¾ina $F$ ve vekt. prostoru $V$, v nÃ­Å¾ pro kaÅ¾dÃ© dva body leÅ¾Ã­ i jejich afinnÃ­ kombinace, je afinnÃ­ podprostor.
+\begin{e}{Vìta}{0}{Geometrické vyjádøení afinního podprostoru}
+V afinním podprostoru $F$ nìjakého vekt. prostoru $V$ leí s kadımi $k$ body $\b{f}_1 \ldots \b{f}_k \in F$ i jejich afinní kombinace. Naopak kadá mnoina $F$ ve vekt. prostoru $V$, v ní pro kadé dva body leí i jejich afinní kombinace, je afinní podprostor.
 
-\begin{dukaz}
-$F=\{U+\b{x}\}$ pro nÄ›jakÃ½ podprostor $U\subset V$. Potom $$\forall i\in\{1,\dots,k\}:\b{f}_i=\b{x}+\b{u}_i$$ pro nÄ›jakÃ© $\b{u}_i\in U$. PlatÃ­:
+\begin{e}{Dùkaz}{0}{0}
+$F=\{U+\b{x}\}$ pro nìjakı podprostor $U\subset V$. Potom $$\forall i\in\{1,\dots,k\}:\b{f}_i=\b{x}+\b{u}_i$$ pro nìjaké $\b{u}_i\in U$. Platí:
 $$\sum_{i=1}^k(\b{x}+\b{u}_i)\alpha_i = \sum_{i=1}^k\alpha_i\b{x} + \sum_{i=1}^k\alpha_i\b{u}_i = 1\cdot\b{x} + \sum_{i=1}^k\alpha_i\b{u}_i\in F$$
 
-OpaÄnÄ› zvolme $\b{u}\in F$, potom $F=\b{u}+\{\b{v}-\b{u},\b{v}\in F\}$ a staÄÃ­ dokazÃ¡t, Å¾e $U=\{\b{v}-\b{u},\b{v}\in F\}$ je podprostor $V$ (uzavÅ™enost na skalÃ¡rnÃ­ nÃ¡sobky a souÄty).
-\end{dukaz}
-\end{vetaN}
+Opaènì zvolme $\b{u}\in F$, potom $F=\b{u}+\{\b{v}-\b{u},\b{v}\in F\}$ a staèí dokazát, e $U=\{\b{v}-\b{u},\b{v}\in F\}$ je podprostor $V$ (uzavøenost na skalární násobky a souèty).
+\end{e}
+\end{e}
 
 
-\subsection{Å˜eÅ¡enÃ­ soustavy rovnic je lineÃ¡rnÃ­ mnoÅ¾ina}
+\subsection{Øešení soustavy rovnic je lineární mnoina}
 
-\begin{definiceN}{MaticovÃ½ zÃ¡pis soustavy rovnic}
-UvaÅ¾ujme soustavu $m$ lineÃ¡rnÃ­ch rovnic o $n$ neznÃ¡mÃ½ch ve tvaru:
+\begin{e}{Definice}{0}{Maticovı zápis soustavy rovnic}
+Uvaujme soustavu $m$ lineárních rovnic o $n$ neznámıch ve tvaru:
 $$\begin{matrix}
 a_{1,1}x_1 &+ a_{1,2}x_2 &+ \dots &+ a_{1,n}x_n &=& b_1 \\
 a_{2,1}x_1 &+ a_{2,2}x_2 &+ \dots &+ a_{2,n}x_n &=& b_2 \\
@@ -100,160 +100,160 @@ Takovou soustavu lze zapsat jako
 $$A\b{x}=\b{b}$$
 kde 
 \begin{pitemize}
-    \item $A$ je \emph{matice soustavy} typu $m\times n$ (s $m$ Å™Ã¡dky a $n$ sloupci), kde na souÅ™adnicÃ­ch $[i,j]$ je koeficient $a_{i,j}$,
-    \item $\b{b}$ je sloupcovÃ½ vektor pravÃ½ch stran (matice typu $m\times 1$) a
-    \item $\b{x}$ je sloupcovÃ½ vektor neznÃ¡mÃ½ch (matice typu $n\times 1$)
+    \item $A$ je \emph{matice soustavy} typu $m\times n$ (s $m$ øádky a $n$ sloupci), kde na souøadnicích $[i,j]$ je koeficient $a_{i,j}$,
+    \item $\b{b}$ je sloupcovı vektor pravıch stran (matice typu $m\times 1$) a
+    \item $\b{x}$ je sloupcovı vektor neznámıch (matice typu $n\times 1$)
 \end{pitemize}
-MaticovÃ½ souÄin $A\b{x}=\b{b}$ zÅ™ejmÄ› dÃ¡vÃ¡ stejnÃ½ vÃ½sledek jako explicitnÃ­ zÃ¡pis soustavy.
-\end{definiceN}
+Maticovı souèin $A\b{x}=\b{b}$ zøejmì dává stejnı vısledek jako explicitní zápis soustavy.
+\end{e}
 
 
 
-\begin{vetaN}{Å˜eÅ¡enÃ­ soustavy rovnic je afinnÃ­ podprostor}
-Pro soustavu lineÃ¡rnÃ­ch rovnic $A\b{x}=\b{b}$, kde $A$ je matice typu $m\times n$, $\b{b}$ je vektor \uv{pravÃ½ch stran} a $\b{x}$ vektor neznÃ¡mÃ½ch, platÃ­, Å¾e mnoÅ¾ina jejÃ­ch Å™eÅ¡enÃ­ je
+\begin{e}{Vìta}{0}{Øešení soustavy rovnic je afinní podprostor}
+Pro soustavu lineárních rovnic $A\b{x}=\b{b}$, kde $A$ je matice typu $m\times n$, $\b{b}$ je vektor \uv{pravıch stran} a $\b{x}$ vektor neznámıch, platí, e mnoina jejích øešení je
 \begin{penumerate}
     \renewcommand{\labelenumi}{\alph{enumi})} 
-    \item prÃ¡zdnÃ¡
-    \item tvaru $\{\b{x}_0+L\}$, kde $\b{x}_0$ je jedno z Å™eÅ¡enÃ­ soustavy $A\b{x}=\b{b}$ a $L$ je mnoÅ¾ina vÅ¡ech Å™eÅ¡enÃ­ \emph{homogennÃ­} soustavy $A\b{x}=0$.
+    \item prázdná
+    \item tvaru $\{\b{x}_0+L\}$, kde $\b{x}_0$ je jedno z øešení soustavy $A\b{x}=\b{b}$ a $L$ je mnoina všech øešení \emph{homogenní} soustavy $A\b{x}=0$.
 \end{penumerate}
 
-\begin{dukaz}
-Je-li $F$ mnoÅ¾ina Å™eÅ¡enÃ­ rovnic $A\b{x}=\b{b}$ neprÃ¡zdnÃ¡, potom platÃ­:
+\begin{e}{Dùkaz}{0}{0}
+Je-li $F$ mnoina øešení rovnic $A\b{x}=\b{b}$ neprázdná, potom platí:
 \begin{penumerate}
-    \item Å™Ã¡dky matice $A$ generujÃ­ nÄ›jakÃ½ podprostor $L$, $\forall\b{u}\in L:A\b{u}=0$.
-    \item jestliÅ¾e pro nÄ›jakÃ© $\b{l}$ platÃ­ $A\b{l}=0$ (tedy $\b{l}\in L$) a mÃ¡m nÄ›jakÃ© $\b{x}_0$, pro kterÃ© platÃ­ $A\b{x}_0=\b{b}$, potom z distributivity nÃ¡sobenÃ­ matic plyne $A(\b{x}_0+\b{l})=\b{b}$.
+    \item øádky matice $A$ generují nìjakı podprostor $L$, $\forall\b{u}\in L:A\b{u}=0$.
+    \item jestlie pro nìjaké $\b{l}$ platí $A\b{l}=0$ (tedy $\b{l}\in L$) a mám nìjaké $\b{x}_0$, pro které platí $A\b{x}_0=\b{b}$, potom z distributivity násobení matic plyne $A(\b{x}_0+\b{l})=\b{b}$.
 \end{penumerate}
-\end{dukaz}
-\end{vetaN}
+\end{e}
+\end{e}
 
-\begin{vetaN}{AfinnÃ­ podprostor lze popsat soustavou rovnic}
-OpaÄnÃ© tvrzenÃ­ platÃ­ takÃ© -- kaÅ¾dÃ½ afinnÃ­ podprostor lze popsat soustavou lineÃ¡rnÃ­ch rovnic.
+\begin{e}{Vìta}{0}{Afinní podprostor lze popsat soustavou rovnic}
+Opaèné tvrzení platí také -- kadı afinní podprostor lze popsat soustavou lineárních rovnic.
 
-\begin{dukaz}
-Ve vekt. prostoru $V$ mÄ›jme afinnÃ­ podprostor $F=\{U+\b{v}\}$, kde $U\subseteq V$ je podprostor $V$ a $\b{x}\in V$. $\b{u}_1,\dots,\b{u}_k$ buÄ bÃ¡ze $U$. Potom kaÅ¾dÃ© $\b{x}\in F$ vyhovuje soustavÄ› rovnic
+\begin{e}{Dùkaz}{0}{0}
+Ve vekt. prostoru $V$ mìjme afinní podprostor $F=\{U+\b{v}\}$, kde $U\subseteq V$ je podprostor $V$ a $\b{x}\in V$. $\b{u}_1,\dots,\b{u}_k$ buï báze $U$. Potom kadé $\b{x}\in F$ vyhovuje soustavì rovnic
 $$\left(\begin{matrix}\b{u}_1\\\vdots\\\b{u}_k\end{matrix}\right)\b{x}=\b{v}$$
-\end{dukaz}
-\end{vetaN}
+\end{e}
+\end{e}
 
-\begin{dusledek}
-Je-li dÃ¡na soustava rovnic $A\b{x}=\b{b}$, kde matice $A$ mÃ¡ $n$ Å™Ã¡dkÅ¯, potom jÃ­ urÄenÃ½ afinnÃ­ podprostor mÃ¡ dimenzi $n - \rank(A)$.
-\end{dusledek}
-
-
-\begin{vetaN}{(neprÃ¡zdnÃ½) prÅ¯nik afinnÃ­ch podprostorÅ¯ je afinnÃ­ podprostor}
-MÄ›jme dÃ¡ny afinnÃ­ podprostory $F_1=\{U_1+\b{x}_1\}$ a $F_2=\{U_2+\b{x}_2\}$ pro nÄ›jakÃ© podprostory $U_1,U_2$ vektorovÃ©ho prostoru $V$. Pokud $F_1\cap F_2\neq \emptyset$, potom $F_1\cap F_2$ je afinnÃ­ podprostor $V$.
-
-\begin{dukaz}
-Plyne z pÅ™edchozÃ­ch vÄ›t o vztahu afinnÃ­ch podprostorÅ¯ a soustav rovnic -- vezmeme rovnicovÃ© popisy $F_1$ a $F_2$ a sloÅ¾Ã­me je pod sebe, tÃ­m dostaneme rovnicovÃ½ popis dalÅ¡Ã­ho afinnÃ­ho podprostoru (pokud danÃ¡ soustava rovnic mÃ¡ Å™eÅ¡enÃ­, tedy prÅ¯nik je neprÃ¡zdnÃ½).
-\end{dukaz}
-
-\begin{priklad}
-NapÅ™. prÅ¯nik pÅ™Ã­mky a roviny v $\Real^3$ -- jeden bod -- je afinnÃ­ podprostor :-).
-\end{priklad}
-\end{vetaN}
+\begin{e}{Dùsledek}{0}{0}
+Je-li dána soustava rovnic $A\b{x}=\b{b}$, kde matice $A$ má $n$ øádkù, potom jí urèenı afinní podprostor má dimenzi $n - \rank(A)$.
+\end{e}
 
 
-\subsection{Frobeniova vÄ›ta }
+\begin{e}{Vìta}{0}{(neprázdnı) prùnik afinních podprostorù je afinní podprostor}
+Mìjme dány afinní podprostory $F_1=\{U_1+\b{x}_1\}$ a $F_2=\{U_2+\b{x}_2\}$ pro nìjaké podprostory $U_1,U_2$ vektorového prostoru $V$. Pokud $F_1\cap F_2\neq \emptyset$, potom $F_1\cap F_2$ je afinní podprostor $V$.
+
+\begin{e}{Dùkaz}{0}{0}
+Plyne z pøedchozích vìt o vztahu afinních podprostorù a soustav rovnic -- vezmeme rovnicové popisy $F_1$ a $F_2$ a sloíme je pod sebe, tím dostaneme rovnicovı popis dalšího afinního podprostoru (pokud daná soustava rovnic má øešení, tedy prùnik je neprázdnı).
+\end{e}
+
+\begin{e}{Pøíklad}{0}{0}
+Napø. prùnik pøímky a roviny v $\Real^3$ -- jeden bod -- je afinní podprostor :-).
+\end{e}
+\end{e}
+
+
+\subsection{Frobeniova vìta }
  
 
-\begin{vetaN}{Frobeniova}
-Soustava lineÃ¡rnÃ­ch rovnic $A\b{x}=\b{b}$ (kde $A$ je matice s $n$ sloupci) mÃ¡ alespoÅˆ jedno Å™eÅ¡enÃ­, prÃ¡vÄ› kdyÅ¾ platÃ­
+\begin{e}{Vìta}{0}{Frobeniova}
+Soustava lineárních rovnic $A\b{x}=\b{b}$ (kde $A$ je matice s $n$ sloupci) má alespoò jedno øešení, právì kdy platí
 $$\rank(A)=\rank((A\ \b{b}))$$
-kde $(A\ \b{b})$ pÅ™edstavuje tzv. \emph{rozÅ¡Ã­Å™enou matici soustavy}, tj. matici $A$ s \uv{pÅ™ilepenÃ½m} vektorem pravÃ½ch stran $\b{b}$ v poslednÃ­m sloupci.
+kde $(A\ \b{b})$ pøedstavuje tzv. \emph{rozšíøenou matici soustavy}, tj. matici $A$ s \uv{pøilepenım} vektorem pravıch stran $\b{b}$ v posledním sloupci.
 \par\medskip
-\begin{dukaz}
-$n$-tice skalÃ¡rÅ¯ $\alpha_1,\dots,\alpha_n$ je Å™eÅ¡enÃ­m soustavy $A\b{x}=\b{b}$, jinak zapsÃ¡no $A_1\alpha_1+\dots+A_n\alpha_n=\b{b}$, prÃ¡vÄ› kdyÅ¾ sloupec $\b{b}$ je lineÃ¡rnÃ­ kombinacÃ­ sloupcÅ¯ $A_i, i\in\{1,\dots,n\}$, tedy $\b{b}\in\Span(A_1,\dots,A_n)$. To znamenÃ¡, Å¾e $\Span(A_1,\dots,A_n,\b{b})=\Span(A_1,\dots,A_n)$ a tedy
+\begin{e}{Dùkaz}{0}{0}
+$n$-tice skalárù $\alpha_1,\dots,\alpha_n$ je øešením soustavy $A\b{x}=\b{b}$, jinak zapsáno $A_1\alpha_1+\dots+A_n\alpha_n=\b{b}$, právì kdy sloupec $\b{b}$ je lineární kombinací sloupcù $A_i, i\in\{1,\dots,n\}$, tedy $\b{b}\in\Span(A_1,\dots,A_n)$. To znamená, e $\Span(A_1,\dots,A_n,\b{b})=\Span(A_1,\dots,A_n)$ a tedy
 $$\rank(A)=\dim(\Span(A_1,\dots,A_n))=\dim(\Span(A_1,\dots,A_n,\b{b}))=\rank((A\ \b{b}))$$
-\end{dukaz}
-\end{vetaN} 
+\end{e}
+\end{e} 
 
-\subsection{Å˜eÅ¡enÃ­ soustavy Ãºpravou matice }
+\subsection{Øešení soustavy úpravou matice }
 
-\begin{definiceN}{ElementÃ¡rnÃ­ operace}
-NÃ¡sledujÃ­cÃ­ tÅ™i operace nazÃ½vÃ¡me \emph{elementÃ¡rnÃ­mi operacemi} s maticÃ­ A (vÅ¡echny jsou ekvivalentnÃ­ vynÃ¡sobenÃ­ vhodnou regulÃ¡rnÃ­ maticÃ­ zleva):
+\begin{e}{Definice}{0}{Elementární operace}
+Následující tøi operace nazıváme \emph{elementárními operacemi} s maticí A (všechny jsou ekvivalentní vynásobení vhodnou regulární maticí zleva):
 \begin{penumerate}
-    \item vynÃ¡sobenÃ­ i-tÃ©ho Å™Ã¡dku ÄÃ­slem $\alpha \neq 0$ \\ 
-	(zapsÃ¡no formou maticovÃ©ho nÃ¡sobenÃ­ $A' = (I+(\alpha -1)e_i e_i^T)A$)
-    \item vynÃ¡sobenÃ­ i-tÃ©ho Å™Ã¡dku ÄÃ­slem $\alpha$ a pÅ™iÄtenÃ­ k j-tÃ©mu Å™Ã¡dku, $j \neq i$  \\
-	(maticovÃ½ zÃ¡pis $A' = (I+\alpha e_j e_i^T)A$)
-    \item vÃ½mÄ›na i-tÃ©ho a j-tÃ©ho Å™Ã¡dku, $i \neq j$ (je moÅ¾nÃ© \uv{sloÅ¾it} z pÅ™edchÃ¡zejÃ­cÃ­ch dvou) \\
-	(maticovÃ½ zÃ¡pis $A' = (I+(e_i - e_j)(e_j-e_i)^T) A$)
+    \item vynásobení i-tého øádku èíslem $\alpha \neq 0$ \\ 
+	(zapsáno formou maticového násobení $A' = (I+(\alpha -1)e_i e_i^T)A$)
+    \item vynásobení i-tého øádku èíslem $\alpha$ a pøiètení k j-tému øádku, $j \neq i$  \\
+	(maticovı zápis $A' = (I+\alpha e_j e_i^T)A$)
+    \item vımìna i-tého a j-tého øádku, $i \neq j$ (je moné \uv{sloit} z pøedcházejících dvou) \\
+	(maticovı zápis $A' = (I+(e_i - e_j)(e_j-e_i)^T) A$)
 \end{penumerate}
-\end{definiceN}
+\end{e}
 
-\begin{vetaN}{O elementÃ¡rnÃ­ch operacÃ­ch}
-ElementÃ¡rnÃ­ operace na rozÅ¡Ã­Å™enÃ© matici $(A\ \b{b})$ soustavy rovnic $A\b{x}=\b{b}$ nemÄ›nÃ­ mnoÅ¾inu Å™eÅ¡enÃ­ soustavy.
+\begin{e}{Vìta}{0}{O elementárních operacích}
+Elementární operace na rozšíøené matici $(A\ \b{b})$ soustavy rovnic $A\b{x}=\b{b}$ nemìní mnoinu øešení soustavy.
 \par\medskip
-\begin{dukaz}
-DÅ¯kaz staÄÃ­ pro operace 1. a 2., protoÅ¾e tÅ™etÃ­ je jejich kombinacÃ­. Pro Ãºpravy:
+\begin{e}{Dùkaz}{0}{0}
+Dùkaz staèí pro operace 1. a 2., protoe tøetí je jejich kombinací. Pro úpravy:
 \begin{penumerate}
-    \item Po ÃºpravÄ› jsou vÅ¡echny rovnice (Å™Ã¡dky matice) aÅ¾ na $i$-tou nezmÄ›nÄ›nÃ©, tedy kaÅ¾dÃ© $\b{x}$ Å™eÅ¡enÃ­ pÅ¯vodnÃ­ soustavy je splÅˆuje. Pro upravenÃ½ Å™Ã¡dek platÃ­ $$\alpha(a_{i,1}x_1+\dots+a_{i,n}x_n)=\alpha\cdot b_i$$ coÅ¾ je zÅ™ejmÄ› takÃ© splnÄ›no. PodobnÄ› se dokÃ¡Å¾e, Å¾e kaÅ¾dÃ© $\b{x}$ Å™eÅ¡enÃ­ upravenÃ© matice splÅˆuje i vÅ¡echny rovnice pÅ¯vodnÃ­.
-    \item VÅ¡echny Å™Ã¡dky aÅ¾ na $j$-tÃ½ jsou nezmÄ›nÄ›nÃ© a pro $j$-tÃ½ Å™Ã¡dek platÃ­: 
+    \item Po úpravì jsou všechny rovnice (øádky matice) a na $i$-tou nezmìnìné, tedy kadé $\b{x}$ øešení pùvodní soustavy je splòuje. Pro upravenı øádek platí $$\alpha(a_{i,1}x_1+\dots+a_{i,n}x_n)=\alpha\cdot b_i$$ co je zøejmì také splnìno. Podobnì se dokáe, e kadé $\b{x}$ øešení upravené matice splòuje i všechny rovnice pùvodní.
+    \item Všechny øádky a na $j$-tı jsou nezmìnìné a pro $j$-tı øádek platí: 
 $$\alpha(a_{i,1}x_1+\dots+a_{i,n}x_n)+(a_{j,1}x_1+\dots+a_{j,n}x_n)=\alpha b_i + b_j$$
-a to je takÃ© splnÄ›no. OpaÄnÃ¡ implikace se dokÃ¡Å¾e podobnÄ›.
+a to je také splnìno. Opaèná implikace se dokáe podobnì.
 \end{penumerate}
-\end{dukaz}
-\end{vetaN}
+\end{e}
+\end{e}
 
-\begin{definiceN}{OdstupÅˆovanÃ½ tvar matice}
-Å˜ekneme, Å¾e matice $A$ typu $m\times n$ je v (Å™Ã¡dkovÄ›) \emph{odstupÅˆovanÃ©m tvaru}, jestliÅ¾e jsou splnÄ›ny nÃ¡sledujÃ­cÃ­ podmÃ­nky:
+\begin{e}{Definice}{0}{Odstupòovanı tvar matice}
+Øekneme, e matice $A$ typu $m\times n$ je v (øádkovì) \emph{odstupòovaném tvaru}, jestlie jsou splnìny následující podmínky:
 \begin{penumerate}
-    \item existuje $r: 0\leq r \leq m$ takovÃ©, Å¾e Å™Ã¡dky $1,\dots,r$ jsou nenulovÃ© a $r+1,\dots,m$ nulovÃ©
-    \item pro $j(i)=\min\{j | a_{i,j}\neq 0\}$ platÃ­ $j(1)\leq j(2)\leq \dots\leq j(r)$
+    \item existuje $r: 0\leq r \leq m$ takové, e øádky $1,\dots,r$ jsou nenulové a $r+1,\dots,m$ nulové
+    \item pro $j(i)=\min\{j | a_{i,j}\neq 0\}$ platí $j(1)\leq j(2)\leq \dots\leq j(r)$
 \end{penumerate}
-\end{definiceN}
+\end{e}
 
-\begin{algoritmusN}{Å˜eÅ¡enÃ­ soustavy lin. rovnic}
-Soustavu lineÃ¡rnÃ­ch rovnic $A\b{x}=\b{b}$ lze Å™eÅ¡it nÃ¡sledovnÄ›
+\begin{e}{Algoritmus}{0}{Øešení soustavy lin. rovnic}
+Soustavu lineárních rovnic $A\b{x}=\b{b}$ lze øešit následovnì
 \begin{penumerate}
-    \item Sestavit rozÅ¡Ã­Å™enou matici soustavy
-    \item PÅ™evÃ©st pomocÃ­ elementÃ¡rnÃ­ch Ãºprav matici do odstupÅˆovanÃ©ho tvaru
-    \item PomocÃ­ zpÄ›tnÃ© substituce popsat vÅ¡echna Å™eÅ¡enÃ­
+    \item Sestavit rozšíøenou matici soustavy
+    \item Pøevést pomocí elementárních úprav matici do odstupòovaného tvaru
+    \item Pomocí zpìtné substituce popsat všechna øešení
 \end{penumerate}
-\end{algoritmusN}
+\end{e}
 
-\begin{algoritmusN}{Gaussova eliminace}
-\emph{Gaussova eliminace} je algoritmus pro Ãºpravu danÃ© matice $A$ na odstupÅˆovanÃ½ tvar elementÃ¡rnÃ­mi Å™Ã¡dkovÃ½mi Ãºpravami. Postup:
+\begin{e}{Algoritmus}{0}{Gaussova eliminace}
+\emph{Gaussova eliminace} je algoritmus pro úpravu dané matice $A$ na odstupòovanı tvar elementárními øádkovımi úpravami. Postup:
 \begin{penumerate}
-    \item UtÅ™Ã­dÃ­me Å™Ã¡dky podle dÃ©lek ÃºsekÅ¯ poÄÃ¡teÄnÃ­ch nul vzestupnÄ›
-    \item Najdeme-li dva Å™Ã¡dky se stejnÄ› dlouhÃ½m Ãºsekem poÄ. nul ($j(i)=j(i+1)$), potom k $i+1$-tÃ©mu Å™Ã¡dku pÅ™iÄteme $-\frac{a_{i+1,j(i)}}{a_{i,j(i)}}$-nÃ¡sobek i-tÃ©ho Å™Ã¡dku
-    \item Kroky 1. -- 2. opakujeme, dokud existujÃ­ dva Å™Ã¡dky se stejnÄ› dlouhÃ½m Ãºsekem poÄ. nul.
+    \item Utøídíme øádky podle délek úsekù poèáteèních nul vzestupnì
+    \item Najdeme-li dva øádky se stejnì dlouhım úsekem poè. nul ($j(i)=j(i+1)$), potom k $i+1$-tému øádku pøièteme $-\frac{a_{i+1,j(i)}}{a_{i,j(i)}}$-násobek i-tého øádku
+    \item Kroky 1. -- 2. opakujeme, dokud existují dva øádky se stejnì dlouhım úsekem poè. nul.
 \end{penumerate}
 
 \noindent
-Je zaruÄeno, Å¾e algoritmus skonÄÃ­, protoÅ¾e s kaÅ¾dÃ½m cyklem roste souÄet dÃ©lek poÄÃ¡teÄnÃ­ch ÃºsekÅ¯ nul vÅ¡ech Å™Ã¡dkÅ¯ minimÃ¡lnÄ› o 1 a ten je omezenÃ½ ÄÃ­slem $m\times n$. SloÅ¾itost algoritmu je $O(m\cdot n^2)$.
-\end{algoritmusN}
+Je zaruèeno, e algoritmus skonèí, protoe s kadım cyklem roste souèet délek poèáteèních úsekù nul všech øádkù minimálnì o 1 a ten je omezenı èíslem $m\times n$. Sloitost algoritmu je $O(m\cdot n^2)$.
+\end{e}
 
-\begin{algoritmusN}{ZpÄ›tnÃ¡ substituce}
-BuÄ $E$ rozÅ¡Ã­Å™enÃ¡ matice soustavy $A\b{x}=\b{b}$ v odstupÅˆovanÃ©m tvaru (zÃ­skanÃ¡ pomocÃ­ elementÃ¡rnÃ­ch Ãºprav). Pokud poÄÃ¡teÄnÃ­ Ãºsek nul na nÄ›jakÃ©m Å™Ã¡dku mÃ¡ dÃ©lku $n$ (tedy nenulovÃ© ÄÃ­slo je jen ve sloupci pravÃ½ch stran), soustava nemÃ¡ Å™eÅ¡enÃ­. Jinak nazveme \emph{bÃ¡zovÃ© promÄ›nnÃ©} ty, v jejichÅ¾ sloupci je v nÄ›jakÃ©m Å™Ã¡dku prvnÃ­ nenulovÃ© ÄÃ­slo ($x_{j(1)},\dots,x_{j(m)}$), ostatnÃ­ nazveme \emph{volnÃ©}. Existuje potom jednoznaÄnÃ© pÅ™iÅ™azenÃ­ hodnot bÃ¡zovÃ½m promÄ›nnÃ½m tak, Å¾e dohromady tvoÅ™Ã­ Å™eÅ¡enÃ­ soustavy. KaÅ¾dÃ© Å™eÅ¡enÃ­ je navÃ­c moÅ¾nÃ© zÃ­skat touto metodou.
+\begin{e}{Algoritmus}{0}{Zpìtná substituce}
+Buï $E$ rozšíøená matice soustavy $A\b{x}=\b{b}$ v odstupòovaném tvaru (získaná pomocí elementárních úprav). Pokud poèáteèní úsek nul na nìjakém øádku má délku $n$ (tedy nenulové èíslo je jen ve sloupci pravıch stran), soustava nemá øešení. Jinak nazveme \emph{bázové promìnné} ty, v jejich sloupci je v nìjakém øádku první nenulové èíslo ($x_{j(1)},\dots,x_{j(m)}$), ostatní nazveme \emph{volné}. Existuje potom jednoznaèné pøiøazení hodnot bázovım promìnnım tak, e dohromady tvoøí øešení soustavy. Kadé øešení je navíc moné získat touto metodou.
 
 \medskip \noindent \emph{Postup:}
 
-\noindent IndukcÃ­ podle $i=r,r-1,\dots,2,1$. NechÅ¥ $x_{j(i)}$ je i-tÃ¡ bÃ¡zovÃ¡ promÄ›nnÃ¡ a hodnoty promÄ›nnÃ½ch $x_k$ pro $k>j(i)$ jsou danÃ© (buÄ jsou volnÃ©, nebo vyuÅ¾Ã­vÃ¡m ind. pÅ™edpoklad). Potom po dosazenÃ­ do $i$-tÃ© rovnice zÃ­skÃ¡m 
+\noindent Indukcí podle $i=r,r-1,\dots,2,1$. Nech $x_{j(i)}$ je i-tá bázová promìnná a hodnoty promìnnıch $x_k$ pro $k>j(i)$ jsou dané (buï jsou volné, nebo vyuívám ind. pøedpoklad). Potom po dosazení do $i$-té rovnice získám 
 $$0x_1+\dots+0x_{j(i)-1}+a_{i,j(i)}x_{j(i)}+\dots+a_{i,j(n)}x_n=b_i$$
-tedy jednu rovnici o 1 neznÃ¡mÃ©, kterÃ¡ mÃ¡ jednoznaÄnÃ© Å™eÅ¡enÃ­. LibovolnÃ© Å™eÅ¡enÃ­ tÃ©to soustavy $x_1,\dots,x_n$ lze zÃ­skat touto metodou -- staÄÃ­ nastavit volnÃ© promÄ›nnÃ© podle nÄ›j a bÃ¡zovÃ© vyjdou sprÃ¡vnÄ›, protoÅ¾e jejich hodnota je urÄena jednoznaÄnÄ›. NavÃ­c kterÃ© promÄ›nnÃ© jsou volnÃ© a kterÃ© jsou bÃ¡zovÃ© je takÃ© urÄeno jednoznaÄnÄ› -- jinak vÅ¾dy najdu rÅ¯znÃ© mnoÅ¾iny Å™eÅ¡enÃ­ (coÅ¾ je pro stejnou soustavu rovnic nesmysl).
-\end{algoritmusN}
+tedy jednu rovnici o 1 neznámé, která má jednoznaèné øešení. Libovolné øešení této soustavy $x_1,\dots,x_n$ lze získat touto metodou -- staèí nastavit volné promìnné podle nìj a bázové vyjdou správnì, protoe jejich hodnota je urèena jednoznaènì. Navíc které promìnné jsou volné a které jsou bázové je také urèeno jednoznaènì -- jinak vdy najdu rùzné mnoiny øešení (co je pro stejnou soustavu rovnic nesmysl).
+\end{e}
 
-\begin{algoritmusN}{Gauss-Jordanova eliminace}
-Gauss-Jordanova eliminace je varianta Gaussovy eliminace, kterÃ¡ pÅ™evÃ¡dÃ­ matici na tzv. \emph{redukovanÃ½ odstupÅˆovanÃ½ tvar}, to je takovÃ½ tvar, kde v kaÅ¾dÃ©m sloupci, pÅ™Ã­sluÅ¡ejÃ­cÃ­m nÄ›jakÃ© bÃ¡zovÃ© promÄ›nnÃ©, je pouze jedno nenulovÃ© ÄÃ­slo. ZpÄ›tnÃ¡ substituce je pak jednoduÅ¡Å¡Ã­, ale je tÅ™eba vÃ­ce aritmetickÃ½ch operacÃ­ (asymptoticky jsou vÅ¡ak algoritmy stejnÃ©)
+\begin{e}{Algoritmus}{0}{Gauss-Jordanova eliminace}
+Gauss-Jordanova eliminace je varianta Gaussovy eliminace, která pøevádí matici na tzv. \emph{redukovanı odstupòovanı tvar}, to je takovı tvar, kde v kadém sloupci, pøíslušejícím nìjaké bázové promìnné, je pouze jedno nenulové èíslo. Zpìtná substituce je pak jednodušší, ale je tøeba více aritmetickıch operací (asymptoticky jsou však algoritmy stejné)
 
-TODO: zkontrolovat \& doplnit podrobnÄ›ji
-\end{algoritmusN}
+TODO: zkontrolovat \& doplnit podrobnìji
+\end{e}
 
-\begin{poznamka}
-S Å™eÅ¡enÃ­m soustav rovnic Gaussovou metodou nastÃ¡vÃ¡ problem pÅ™i strojovÃ½ch vÃ½poÄtech -- i malÃ¡ zaokrouhlovacÃ­ chyba mÅ¯Å¾e zpÅ¯sobit velmi radikÃ¡lnÃ­ zmÄ›nu mnoÅ¾iny Å™eÅ¡enÃ­ (takovÃ© matice soustav se nazÃ½vajÃ­ \emph{Å¡patnÄ› podmÃ­nÄ›nÃ©}).
-\end{poznamka}
+\begin{e}{Poznámka}{0}{0}
+S øešením soustav rovnic Gaussovou metodou nastává problem pøi strojovıch vıpoètech -- i malá zaokrouhlovací chyba mùe zpùsobit velmi radikální zmìnu mnoiny øešení (takové matice soustav se nazıvají \emph{špatnì podmínìné}).
+\end{e}
 
-\subsection{Souvislost soustavy Å™eÅ¡enÃ­ s ortogonÃ¡lnÃ­m doplÅˆkem}
+\subsection{Souvislost soustavy øešení s ortogonálním doplòkem}
 
-\begin{definiceN}{OrtogonÃ¡lnÃ­ doplnÄ›k}
-Ve vektorovÃ©m prostoru $V$ se skalÃ¡nÃ­m souÄinem definujeme \emph{ortogonÃ¡lnÃ­ doplnÄ›k} mnoÅ¾iny $M\subseteq V$ jako $$M^{\bot}=\{\b{v}\in V:\left<\b{v},\b{x}\right>=0\ \forall\b{x}\in M\}$$
-\end{definiceN}
+\begin{e}{Definice}{0}{Ortogonální doplnìk}
+Ve vektorovém prostoru $V$ se skaláním souèinem definujeme \emph{ortogonální doplnìk} mnoiny $M\subseteq V$ jako $$M^{\bot}=\{\b{v}\in V:\left<\b{v},\b{x}\right>=0\ \forall\b{x}\in M\}$$
+\end{e}
 
-\begin{vetaN}{MnoÅ¾ina Å™eÅ¡enÃ­ homogennÃ­ soustavy je ortog. doplnÄ›k Å™Ã¡dkÅ¯ jejÃ­ matice}
-MÄ›jme dÃ¡nu homogennÃ­ soustavu lineÃ¡rnÃ­ch rovnic $A\b{x}=\b{0}$ potom jejÃ­ mnoÅ¾ina Å™eÅ¡enÃ­ je ortogonÃ¡lnÃ­ doplnÄ›k mnoÅ¾iny jejÃ­ch Å™Ã¡dkÅ¯ 
+\begin{e}{Vìta}{0}{Mnoina øešení homogenní soustavy je ortog. doplnìk øádkù její matice}
+Mìjme dánu homogenní soustavu lineárních rovnic $A\b{x}=\b{0}$ potom její mnoina øešení je ortogonální doplnìk mnoiny jejích øádkù 
 $$\{\b{x}|A\b{x}=\b{0}\}=\{A_1,A_2,\dots,A_n\}^{\bot}$$
-pÅ™iÄemÅ¾ uvaÅ¾ujeme standardnÃ­ skalÃ¡rnÃ­ souÄin $\left<\b{x},\b{y}\right>=x_1y_1+\dots+x_ny_n$.
-\end{vetaN}
+pøièem uvaujeme standardní skalární souèin $\left<\b{x},\b{y}\right>=x_1y_1+\dots+x_ny_n$.
+\end{e}
 
-TODO: tady je toho dost mÃ¡lo (aÄ je to vÅ¡echno co jsme kdy probÃ­rali), jestÄ› nÄ›co sem doplnit ???
+TODO: tady je toho dost málo (aè je to všechno co jsme kdy probírali), jestì nìco sem doplnit ???

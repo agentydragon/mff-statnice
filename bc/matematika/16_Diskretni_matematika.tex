@@ -2,228 +2,228 @@
 \def\Real{\mathbb{R}}
 \def\Pot{\mathcal{P}}
 
-\section{DiskrÃ©tnÃ­ matematika}
+\section{Diskrétní matematika}
 
-\begin{pozadavky}
+\begin{e}{Poadavky}{0}{0}
 \begin{pitemize}
-\item UspoÅ™Ã¡danÃ© mnoÅ¾iny
-\item MnoÅ¾inovÃ© systÃ©my, pÃ¡rovÃ¡nÃ­, pÃ¡rovÃ¡nÃ­ v bipartitnÃ­ch grafech (systÃ©my rÅ¯znÃ½ch reprezentantÅ¯)
-\item KombinatorickÃ© poÄÃ­tÃ¡nÃ­
+\item Uspoøádané mnoiny
+\item Mnoinové systémy, párování, párování v bipartitních grafech (systémy rùznıch reprezentantù)
+\item Kombinatorické poèítání
 \item Princip inkluze a exkluze
-\item LatinskÃ© Ätverce a projektivnÃ­ roviny.
+\item Latinské ètverce a projektivní roviny.
 \end{pitemize}
-\end{pozadavky}
+\end{e}
 
-\subsection{UspoÅ™Ã¡danÃ© mnoÅ¾iny}
+\subsection{Uspoøádané mnoiny}
 
-\begin{definiceN}{KartÃ©zskÃ½ souÄin}
-NechÅ¥ $X$ a $Y$ jsou mnoÅ¾iny. Symbolem $X \times Y$ oznaÄÃ­me mnoÅ¾inu vÅ¡ech uspoÅ™Ã¡danÃ½ch dvojic tvaru $(x,y)$, kde $x \in X$ a $y \in Y$. FormÃ¡lnÄ› zapsÃ¡no:
-$X \times Y = \{ (x,~y); x \in X, y \in Y \}$ se nazÃ½vÃ¡ \emph{kartÃ©zskÃ½ souÄin} mnoÅ¾in $X$ a $Y$.
+\begin{e}{Definice}{0}{Kartézskı souèin}
+Nech $X$ a $Y$ jsou mnoiny. Symbolem $X \times Y$ oznaèíme mnoinu všech uspoøádanıch dvojic tvaru $(x,y)$, kde $x \in X$ a $y \in Y$. Formálnì zapsáno:
+$X \times Y = \{ (x,~y); x \in X, y \in Y \}$ se nazıvá \emph{kartézskı souèin} mnoin $X$ a $Y$.
 
-KartÃ©zskÃ½ souÄin $X \times X$ nÄ›kdy znaÄÃ­me jako $X^2$. 
-\end{definiceN}
+Kartézskı souèin $X \times X$ nìkdy znaèíme jako $X^2$. 
+\end{e}
 
-\begin{definiceN}{relace}
-Relace R je mnoÅ¾ina uspoÅ™Ã¡danÃ½ch dvojic. Jsou-li $X$ a $Y$ mnoÅ¾iny, nazÃ½vÃ¡ se libovolnÃ¡ podmnoÅ¾ina kartÃ©zskÃ©ho souÄinu $X \times Y$ \emph{relacÃ­} mezi $X$ a $Y$. Zdaleka nejdÅ¯leÅ¾itÄ›jÅ¡Ã­ pÅ™Ã­pad je $X=Y$. V takovÃ©m pÅ™Ã­padÄ› mluvÃ­me o relaci na $X$, coÅ¾ je tedy libovolnÃ¡ podmnoÅ¾ina $X^2$.
+\begin{e}{Definice}{0}{relace}
+Relace R je mnoina uspoøádanıch dvojic. Jsou-li $X$ a $Y$ mnoiny, nazıvá se libovolná podmnoina kartézského souèinu $X \times Y$ \emph{relací} mezi $X$ a $Y$. Zdaleka nejdùleitìjší pøípad je $X=Y$. V takovém pøípadì mluvíme o relaci na $X$, co je tedy libovolná podmnoina $X^2$.
 
-NÃ¡leÅ¾Ã­-li $(x,y)$ relaci $R$, tedy $(x,y) \in R$, Å™Ã­kÃ¡me, Å¾e $x$ a $y$ jsou v relaci $R$. ZnaÄÃ­me $xRy$.
-\end{definiceN}
+Náleí-li $(x,y)$ relaci $R$, tedy $(x,y) \in R$, øíkáme, e $x$ a $y$ jsou v relaci $R$. Znaèíme $xRy$.
+\end{e}
 
-\begin{definiceN}{druhy relacÃ­}
-Relace $X$ mÅ¯Å¾e bÃ½t:
+\begin{e}{Definice}{0}{druhy relací}
+Relace $X$ mùe bıt:
 \begin{pitemize}
-	\item \emph{reflexivnÃ­}, jestliÅ¾e pro kaÅ¾dnÃ© $x \in X$ platÃ­ $xRx$
-	\item \emph{ireflexivnÃ­}, jestliÅ¾e platÃ­ $xRy\ \Rightarrow\ x\neq y$
-	\item \emph{symetrickÃ¡}, jestliÅ¾e $xRy \Rightarrow yRx$
-	\item \emph{tranzitivnÃ­}, jestliÅ¾e $xRy \wedge yRz \Rightarrow xRz$
-	\item \emph{antisymetrickÃ¡}, jestliÅ¾e $xRy \wedge yRx \Rightarrow x=y$
+	\item \emph{reflexivní}, jestlie pro kadné $x \in X$ platí $xRx$
+	\item \emph{ireflexivní}, jestlie platí $xRy\ \Rightarrow\ x\neq y$
+	\item \emph{symetrická}, jestlie $xRy \Rightarrow yRx$
+	\item \emph{tranzitivní}, jestlie $xRy \wedge yRz \Rightarrow xRz$
+	\item \emph{antisymetrická}, jestlie $xRy \wedge yRx \Rightarrow x=y$
 \end{pitemize}
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{ekvivalence}
-Å˜ekneme, Å¾e relace $R$ na $X$ je \emph{ekvivalence} na $X$, jestliÅ¾e je symetrickÃ¡, reflexivnÃ­ a tranzitivnÃ­.
-\end{definiceN}
+\begin{e}{Definice}{0}{ekvivalence}
+Øekneme, e relace $R$ na $X$ je \emph{ekvivalence} na $X$, jestlie je symetrická, reflexivní a tranzitivní.
+\end{e}
 
-\begin{definiceN}{uspoÅ™Ã¡dÃ¡nÃ­, uspoÅ™Ã¡danÃ¡ mnoÅ¾ina}
-\emph{UspoÅ™Ã¡dÃ¡nÃ­} na nÄ›jakÃ© mnoÅ¾inÄ› $X$ je kaÅ¾dÃ¡ relace na $X$, kterÃ¡ je reflexivnÃ­, tranzitivnÃ­ a antisymetrickÃ¡. \emph{UspoÅ™Ã¡danÃ¡ mnoÅ¾ina} je dvojice $(X,R)$, kde $X$ je mnoÅ¾ina a $R$ je uspoÅ™Ã¡dÃ¡nÃ­ na $X$.
+\begin{e}{Definice}{0}{uspoøádání, uspoøádaná mnoina}
+\emph{Uspoøádání} na nìjaké mnoinì $X$ je kadá relace na $X$, která je reflexivní, tranzitivní a antisymetrická. \emph{Uspoøádaná mnoina} je dvojice $(X,R)$, kde $X$ je mnoina a $R$ je uspoøádání na $X$.
 
-Pro uspoÅ™Ã¡dÃ¡nÃ­ se pouÅ¾Ã­vÃ¡ znaÄenÃ­ $\le$ nebo $\preceq$. Pro kaÅ¾dÃ© uspoÅ™Ã¡dÃ¡nÃ­ lze odvodit \uv{ostrou nerovnost} $<$ nebo $\prec$, kde platÃ­, Å¾e $x<y \Leftrightarrow x \le y \wedge x \neq y$.
-\end{definiceN}
+Pro uspoøádání se pouívá znaèení $\le$ nebo $\preceq$. Pro kadé uspoøádání lze odvodit \uv{ostrou nerovnost} $<$ nebo $\prec$, kde platí, e $x<y \Leftrightarrow x \le y \wedge x \neq y$.
+\end{e}
 
-\begin{priklady}
-UspoÅ™Ã¡danÃ© mnoÅ¾iny:
+\begin{e}{Pøíklady}{0}{0}
+Uspoøádané mnoiny:
 \begin{pitemize}
     \item $(\Nat,\leq)$
-    \item $(\Nat,|)$, kde \uv{$|$} je relace \uv{dÄ›lÃ­}
-    \item $(\Pot(X),\subseteq)$, kde $\Pot(X)$ oznaÄuje mnoÅ¾inu vÅ¡ech podmnoÅ¾in a $\subseteq$ normÃ¡lnÃ­ mnoÅ¾inovou inkluzi
-    \item orientovanÃ½ acyklickÃ½ graf $(V,E)$ s relacÃ­ $\rho:(a,b)\in\rho \equiv^{def} \textit{ existuje cesta z }a\textit{ do }b $
+    \item $(\Nat,|)$, kde \uv{$|$} je relace \uv{dìlí}
+    \item $(\Pot(X),\subseteq)$, kde $\Pot(X)$ oznaèuje mnoinu všech podmnoin a $\subseteq$ normální mnoinovou inkluzi
+    \item orientovanı acyklickı graf $(V,E)$ s relací $\rho:(a,b)\in\rho \equiv^{def} \textit{ existuje cesta z }a\textit{ do }b $
 \end{pitemize}
-\end{priklady}
+\end{e}
 
-\begin{definiceN}{lineÃ¡rnÃ­ uspoÅ™Ã¡dÃ¡nÃ­}
-\emph{LineÃ¡rnÃ­ uspoÅ™Ã¡dÃ¡nÃ­} je takovÃ© uspoÅ™Ã¡dÃ¡nÃ­, kde pro kaÅ¾dÃ© dva prvky $x$ a $y$ platÃ­ buÄ $x \leq y$ nebo $y \leq x$. NÄ›kdy se takÃ© nazÃ½vÃ¡ \emph{ÃºplnÃ© uspoÅ™Ã¡dÃ¡nÃ­}.
+\begin{e}{Definice}{0}{lineární uspoøádání}
+\emph{Lineární uspoøádání} je takové uspoøádání, kde pro kadé dva prvky $x$ a $y$ platí buï $x \leq y$ nebo $y \leq x$. Nìkdy se také nazıvá \emph{úplné uspoøádání}.
 
-UspoÅ™Ã¡dÃ¡nÃ­, kterÃ© nenÃ­ ÃºplnÃ©, nazÃ½vÃ¡me \emph{ÄÃ¡steÄnÃ½m uspoÅ™Ã¡dÃ¡nÃ­m}.
-\end{definiceN}
+Uspoøádání, které není úplné, nazıváme \emph{èásteènım uspoøádáním}.
+\end{e}
 
-\begin{definiceN}{bezprostÅ™ednÃ­ pÅ™echÅ¯dce}
-\emph{BezprostÅ™ednÃ­ pÅ™edchÅ¯dce} prvku $y$ je takovÃ½ prvek $x$, pro kterÃ½ platÃ­ $x < y$, a neexistuje Å¾Ã¡dnÃ© takovÃ© $t$, Å¾e $x < t < y$.
-\end{definiceN}
+\begin{e}{Definice}{0}{bezprostøední pøechùdce}
+\emph{Bezprostøední pøedchùdce} prvku $y$ je takovı prvek $x$, pro kterı platí $x < y$, a neexistuje ádné takové $t$, e $x < t < y$.
+\end{e}
 
-\begin{poznamkaN}{HasseÅ¯v diagram}
-PÅ™i znÃ¡zorÅˆovanÃ­ se uspoÅ™Ã¡danÃ¡ mnoÅ¾ina zakresluje pomocÃ­ bodÅ¯ a Å¡ipek, jako kterÃ¡koliv jinÃ¡ relace. ProtoÅ¾e tÄ›chto Å¡ipek by bylo mnoho, vychÃ¡zÃ­ se z tranzitivity a znÃ¡zorÅˆujÃ­ se Å¡ipky pouze mezi prvky a jejich bezprostÅ™ednÃ­mi pÅ™edchÅ¯dci. PÅ™ijmeme-li navÃ­c konvenci, Å¾e v obrÃ¡zku povedou vÅ¡echny Å¡ipky nahoru, nenÃ­ tÅ™eba zakreslovat smÄ›r Å¡ipek, pouze spojnice bodÅ¯. TakovÃ©to znÃ¡zornÄ›nÃ­ se pak nazÃ½vÃ¡ \emph{HasseÅ¯v diagram}.
-\end{poznamkaN}
+\begin{e}{Poznámka}{0}{Hasseùv diagram}
+Pøi znázoròovaní se uspoøádaná mnoina zakresluje pomocí bodù a šipek, jako kterákoliv jiná relace. Protoe tìchto šipek by bylo mnoho, vychází se z tranzitivity a znázoròují se šipky pouze mezi prvky a jejich bezprostøedními pøedchùdci. Pøijmeme-li navíc konvenci, e v obrázku povedou všechny šipky nahoru, není tøeba zakreslovat smìr šipek, pouze spojnice bodù. Takovéto znázornìní se pak nazıvá \emph{Hasseùv diagram}.
+\end{e}
 
-\begin{poznamkaN}{uspoÅ™Ã¡dÃ¡nÃ­ na kartÃ©zskÃ©m souÄinu}
-MÃ¡m-li dvÄ› mnoÅ¾iny $A$ a $B$ a na nich uspoÅ™Ã¡dÃ¡nÃ­ $\leq_A$ a $\leq_B$ mÅ¯Å¾u definovat \uv{sloÅ¾enÃ© uspoÅ™Ã¡dÃ¡nÃ­}
+\begin{e}{Poznámka}{0}{uspoøádání na kartézském souèinu}
+Mám-li dvì mnoiny $A$ a $B$ a na nich uspoøádání $\leq_A$ a $\leq_B$ mùu definovat \uv{sloené uspoøádání}
 \begin{pitemize}
-    \item \uv{po sloÅ¾kÃ¡ch} -- $(a_1,b_1)\leq(a_2,b_2)\equiv^{\textrm{def}} a_1\leq_A a_2 \wedge b_1 \leq_B b_2$
+    \item \uv{po slokách} -- $(a_1,b_1)\leq(a_2,b_2)\equiv^{\textrm{def}} a_1\leq_A a_2 \wedge b_1 \leq_B b_2$
     \item \uv{lexikograficky} -- $(a_1,b_1)\leq(a_2,b_2)\equiv^{\textrm{def}} a_1\leq_A a_2 \vee ( a_1=a_2 \wedge b_1\leq_B b_2)$
 \end{pitemize}
-\end{poznamkaN}
+\end{e}
 
-\begin{definice}
-Å˜Ã­kÃ¡me, Å¾e $(X,R)$ a $(Y,P)$ jsou \emph{isomorfnÃ­ uspoÅ™Ã¡danÃ© mnoÅ¾iny}, pokud existuje nÄ›jakÃ© vzÃ¡jemnÄ› jednoznaÄnÃ© zobrazenÃ­ $f:X \rightarrow Y$ takovÃ©, Å¾e pro kaÅ¾dÃ© $x,y \in X$ platÃ­ $xRy$ prÃ¡vÄ› kdyÅ¾ $f(x) P f(y)$.
-\end{definice}
+\begin{e}{Definice}{0}{0}
+Øíkáme, e $(X,R)$ a $(Y,P)$ jsou \emph{isomorfní uspoøádané mnoiny}, pokud existuje nìjaké vzájemnì jednoznaèné zobrazení $f:X \rightarrow Y$ takové, e pro kadé $x,y \in X$ platí $xRy$ právì kdy $f(x) P f(y)$.
+\end{e}
 
-\begin{definiceN}{PÅ™eduspoÅ™Ã¡dÃ¡nÃ­}
-\emph{PÅ™eduspoÅ™Ã¡dÃ¡nÃ­} nazveme kaÅ¾dou relaci, kterÃ¡ je reflexivnÃ­ a transitivnÃ­ (nebudeme tedy poÅ¾adovat antisymetrii -- mohou vznikat \uv{cykly}).
-\end{definiceN}
+\begin{e}{Definice}{0}{Pøeduspoøádání}
+\emph{Pøeduspoøádání} nazveme kadou relaci, která je reflexivní a transitivní (nebudeme tedy poadovat antisymetrii -- mohou vznikat \uv{cykly}).
+\end{e}
 
-\begin{poznamka}
-MÃ¡m-li mnoÅ¾inu $X$ s relacÃ­ $\sim$, kterÃ¡ je pÅ™eduspoÅ™Ã¡dÃ¡nÃ­, potom relace $\sim$ je uspoÅ™Ã¡dÃ¡nÃ­ na mnoÅ¾inÄ› $X/\rho$ (rozklad podle tÅ™Ã­d ekvivalence $\rho$), kde $a\rho b\equiv (a\sim b \wedge b\sim a)$.
-\end{poznamka}
+\begin{e}{Poznámka}{0}{0}
+Mám-li mnoinu $X$ s relací $\sim$, která je pøeduspoøádání, potom relace $\sim$ je uspoøádání na mnoinì $X/\rho$ (rozklad podle tøíd ekvivalence $\rho$), kde $a\rho b\equiv (a\sim b \wedge b\sim a)$.
+\end{e}
 
-\begin{definice}
-\emph{NezÃ¡vislÃ½ systÃ©m $M$ podmnoÅ¾in mnoÅ¾iny $X$} je podmnoÅ¾ina $P(X)$ takovÃ¡, Å¾e kaÅ¾dÃ© dvÄ› mnoÅ¾iny $A, B \in M$ jsou neporovnatelnÃ© relacÃ­ nÃ¡leÅ¾enÃ­.
-\end{definice}
+\begin{e}{Definice}{0}{0}
+\emph{Nezávislı systém $M$ podmnoin mnoiny $X$} je podmnoina $P(X)$ taková, e kadé dvì mnoiny $A, B \in M$ jsou neporovnatelné relací náleení.
+\end{e}
 
-\begin{vetaN}{Spernerova}
-LibovolnÃ½ nezÃ¡vislÃ½ systÃ©m podmnoÅ¾in $n$-prvkovÃ© mnoÅ¾iny mÃ¡ nejvÃ½Å¡ $\binom{n}{\lfloor\frac{n}{2}\rfloor}$ mnoÅ¾in.
-\end{vetaN}
+\begin{e}{Vìta}{0}{Spernerova}
+Libovolnı nezávislı systém podmnoin $n$-prvkové mnoiny má nejvıš $\binom{n}{\lfloor\frac{n}{2}\rfloor}$ mnoin.
+\end{e}
 
-TODO: PatÅ™Ã­ sem dobrÃ© uspoÅ™Ã¡dÃ¡nÃ­ a Zernelova vÄ›ta??? (to by znamenalo pÅ™idat sem i supremum, infimum, Å™etÄ›zec, nejmenÅ¡Ã­ a nejvÄ›tÅ¡Ã­ prvek)
+TODO: Patøí sem dobré uspoøádání a Zernelova vìta??? (to by znamenalo pøidat sem i supremum, infimum, øetìzec, nejmenší a nejvìtší prvek)
 
-\subsection{MnoÅ¾inovÃ© systÃ©my, pÃ¡rovÃ¡nÃ­, pÃ¡rovÃ¡nÃ­ v bipartitnÃ­ch grafech (systÃ©my rÅ¯znÃ½ch reprezentantÅ¯)}
+\subsection{Mnoinové systémy, párování, párování v bipartitních grafech (systémy rùznıch reprezentantù)}
 
-\begin{definice}
-NechÅ¥ $X$ a $I$ jsou mnoÅ¾iny. \emph{MnoÅ¾inovÃ½m systÃ©mem nad $X$} nazveme $|I|$-tici $M=\{M_i; i \in I\}$, kde $M_i \subseteq X$
+\begin{e}{Definice}{0}{0}
+Nech $X$ a $I$ jsou mnoiny. \emph{Mnoinovım systémem nad $X$} nazveme $|I|$-tici $M=\{M_i; i \in I\}$, kde $M_i \subseteq X$
 
-Je tedy moÅ¾nÃ©, aby se tam tÃ¡Å¾ mnoÅ¾ina objevila vÃ­ckrÃ¡t.
-\end{definice}
+Je tedy moné, aby se tam tá mnoina objevila víckrát.
+\end{e}
 
-\begin{definiceN}{systÃ©m rÅ¯znÃ½ch reprezentantÅ¯}
-\emph{SystÃ©m rÅ¯znÃ½ch reprezentantÅ¯} (SRR) je funkce $f: I \rightarrow X$ takovÃ¡, Å¾e $\forall i \in I: f(i) \in M_i$ a $f$ je prostÃ¡.
+\begin{e}{Definice}{0}{systém rùznıch reprezentantù}
+\emph{Systém rùznıch reprezentantù} (SRR) je funkce $f: I \rightarrow X$ taková, e $\forall i \in I: f(i) \in M_i$ a $f$ je prostá.
 
-JinÃ½mi slovy, SRR je vÃ½bÄ›r jednoho prvku z kaÅ¾dÃ© mnoÅ¾iny $M_i$ tak, Å¾e vÅ¡echny vybranÃ© prvky jsou navzÃ¡jem rÅ¯znÃ©. ObecnÄ› se tedy neuvaÅ¾ujÃ­ nekoneÄnÃ© systÃ©my.
-\end{definiceN}
+Jinımi slovy, SRR je vıbìr jednoho prvku z kadé mnoiny $M_i$ tak, e všechny vybrané prvky jsou navzájem rùzné. Obecnì se tedy neuvaují nekoneèné systémy.
+\end{e}
 
-\begin{definiceN}{pÃ¡rovÃ¡nÃ­}
-\emph{PÃ¡rovÃ¡nÃ­ v grafu} $G$ je mnoÅ¾ina hran $F \subseteq E(G)$ takovÃ¡, Å¾e kaÅ¾dÃ½ vrchol grafu $G$ patÅ™Ã­ nejvÃ½Å¡e do jednÃ© hrany z $F$.
+\begin{e}{Definice}{0}{párování}
+\emph{Párování v grafu} $G$ je mnoina hran $F \subseteq E(G)$ taková, e kadı vrchol grafu $G$ patøí nejvıše do jedné hrany z $F$.
 
-EkvivalentnÃ­ definice jsou pÅ™es stupeÅˆ vrcholu (kaÅ¾dÃ½ vrchol mÃ¡ stupeÅˆ nejvÃ½Å¡e 1) nebo pÅ™es disjunktnost hran (kaÅ¾dÃ© dvÄ› jsou disjunktnÃ­ - Å¾Ã¡dnÃ© dvÄ› nemajÃ­ spoleÄnÃ½ vrchol).
-\end{definiceN}
+Ekvivalentní definice jsou pøes stupeò vrcholu (kadı vrchol má stupeò nejvıše 1) nebo pøes disjunktnost hran (kadé dvì jsou disjunktní - ádné dvì nemají spoleènı vrchol).
+\end{e}
 
-\begin{definiceN}{bipartitnÃ­ graf}
-\emph{BipartitnÃ­ graf} je takovÃ½ graf $G$, kde mnoÅ¾inu vrcholÅ¯ $V(G)$ mÅ¯Å¾eme rozdÄ›lit na dvÄ› disjunktnÃ­ podmnoÅ¾iny $V_1$ a $V_2$ takovÃ©, Å¾e kaÅ¾dÃ¡ hrana z $E(G)$ spojuje vÅ¾dy vrchol z $V_1$ s vrcholem z $V_2$.
-\end{definiceN}
+\begin{e}{Definice}{0}{bipartitní graf}
+\emph{Bipartitní graf} je takovı graf $G$, kde mnoinu vrcholù $V(G)$ mùeme rozdìlit na dvì disjunktní podmnoiny $V_1$ a $V_2$ takové, e kadá hrana z $E(G)$ spojuje vdy vrchol z $V_1$ s vrcholem z $V_2$.
+\end{e}
 
-\begin{definice}
-\emph{IncidenÄnÃ­m grafem} mnoÅ¾inovÃ©ho systÃ©mu $M$ nad mnoÅ¾inou $X$ nazveme bipartitnÃ­ graf
+\begin{e}{Definice}{0}{0}
+\emph{Incidenèním grafem} mnoinového systému $M$ nad mnoinou $X$ nazveme bipartitní graf
 $$
 B_M = \left( I \cup X, \left\{ \{i,x\}, x \in M_i \right\} \right)
 $$
 \noindent
-V podstatÄ› si kaÅ¾dÃ½ prvek z $X$ i kaÅ¾dÃ½ index $I$ oznaÄÃ­me vrcholem a spojÃ­me kaÅ¾dÃ½ index $i$ s prvky $x$, kterÃ© nÃ¡leÅ¾Ã­ do $M_i$. Z incidenÄnÃ­ho grafu pak lze nahlÃ©dnout existenci SRR - ten existuje, prÃ¡vÄ› kdyÅ¾ v incidenÄnÃ­m grafu existuje pÃ¡rovÃ¡nÃ­ velikosti $|I|$.
-\end{definice}
+V podstatì si kadı prvek z $X$ i kadı index $I$ oznaèíme vrcholem a spojíme kadı index $i$ s prvky $x$, které náleí do $M_i$. Z incidenèního grafu pak lze nahlédnout existenci SRR - ten existuje, právì kdy v incidenèním grafu existuje párování velikosti $|I|$.
+\end{e}
 
-\begin{vetaN}{Hallova}
-SystÃ©m rÅ¯znÃ½ch reprezentantÅ¯ v $M$ existuje, prÃ¡vÄ› kdyÅ¾ pro kaÅ¾dou $J \subseteq I$ je $$\left| \bigcup_{j \in J} M_j\right| \ge |J|$$
-\end{vetaN}
+\begin{e}{Vìta}{0}{Hallova}
+Systém rùznıch reprezentantù v $M$ existuje, právì kdy pro kadou $J \subseteq I$ je $$\left| \bigcup_{j \in J} M_j\right| \ge |J|$$
+\end{e}
 
-\begin{definiceN}{perfektnÃ­ pÃ¡rovÃ¡nÃ­}
-\emph{PerfektnÃ­m pÃ¡rovÃ¡nÃ­m} nazveme pÃ¡rovÃ¡nÃ­ $M$ v grafu $G$, pro kterÃ© platÃ­ $$|M| = \frac{|V(G)|}{2}$$
+\begin{e}{Definice}{0}{perfektní párování}
+\emph{Perfektním párováním} nazveme párování $M$ v grafu $G$, pro které platí $$|M| = \frac{|V(G)|}{2}$$
 
 \noindent
-Tedy perfektnÃ­ pÃ¡rovÃ¡nÃ­ je takovÃ©, kde je kaÅ¾dÃ½ vrchol spÃ¡rovanÃ½ s nÄ›jakÃ½m jinÃ½m vrcholem. DalÅ¡Ã­m dÅ¯leÅ¾itÃ½m pojmem je \emph{maximÃ¡lnÃ­ pÃ¡rovÃ¡nÃ­}, coÅ¾ je v podstatÄ› nejlepÅ¡Ã­ moÅ¾nÃ© pÃ¡rovÃ¡nÃ­ (pokrÃ½vÃ¡ nejvÄ›tÅ¡Ã­ moÅ¾nÃ½ poÄet vrcholÅ¯), jakÃ©ho jsme v danÃ©m grafu schopni dosÃ¡hnout.
-\end{definiceN}
+Tedy perfektní párování je takové, kde je kadı vrchol spárovanı s nìjakım jinım vrcholem. Dalším dùleitım pojmem je \emph{maximální párování}, co je v podstatì nejlepší moné párování (pokrıvá nejvìtší monı poèet vrcholù), jakého jsme v daném grafu schopni dosáhnout.
+\end{e}
 
 
-\begin{vetaN}{O pÃ¡rovÃ¡nÃ­ v bipartitnÃ­m grafu}
-BuÄ $G=(A\cup B,E)$ graf se dvÄ›ma partitami $A$ a $B$ a $E$ neprÃ¡zdnÃ¡ mnoÅ¾ina hran. JestliÅ¾e platÃ­ $\deg u \geq \deg v\ \forall u\in A,\forall v\in B$, potom existuje pÃ¡rovÃ¡nÃ­ velikosti $|A|$. DÃ­ky tomu pokud mÃ¡ bipartitnÃ­ graf vÅ¡echny vrcholy stejnÃ©ho stupnÄ›, pak mÃ¡ perfektnÃ­ pÃ¡rovÃ¡nÃ­.
+\begin{e}{Vìta}{0}{O párování v bipartitním grafu}
+Buï $G=(A\cup B,E)$ graf se dvìma partitami $A$ a $B$ a $E$ neprázdná mnoina hran. Jestlie platí $\deg u \geq \deg v\ \forall u\in A,\forall v\in B$, potom existuje párování velikosti $|A|$. Díky tomu pokud má bipartitní graf všechny vrcholy stejného stupnì, pak má perfektní párování.
 
-\begin{dukaz}
-PÅ™evede se na Hallovu vÄ›tu s pouÅ¾itÃ­m \uv{okolÃ­} vrcholÅ¯ (tj. bodÅ¯ pÅ™Ã­mo spojenÃ½ch s vrcholem hranou).
-\end{dukaz}
-\end{vetaN}
+\begin{e}{Dùkaz}{0}{0}
+Pøevede se na Hallovu vìtu s pouitím \uv{okolí} vrcholù (tj. bodù pøímo spojenıch s vrcholem hranou).
+\end{e}
+\end{e}
 
-\begin{vetaN}{Tutteova}
-Graf $(V,E)$ mÃ¡ perfektnÃ­ pÃ¡rovÃ¡nÃ­, prÃ¡vÄ› kdyÅ¾ pro kaÅ¾dou mnoÅ¾inu vrcholÅ¯ $A\subseteq V$ platÃ­:
+\begin{e}{Vìta}{0}{Tutteova}
+Graf $(V,E)$ má perfektní párování, právì kdy pro kadou mnoinu vrcholù $A\subseteq V$ platí:
 $$c_l(G\setminus A)\leq |A|$$
-(tj. poÄet komponent souvislosti s lichÃ½ch poÄtem vrcholÅ¯ v indukovanÃ©m podgrafu je menÅ¡Ã­ neÅ¾ velikost mnoÅ¾iny vrcholÅ¯). TÃ©to vlastnosti se takÃ© nÄ›kdy Å™Ã­kÃ¡ \emph{Tutteova podmÃ­nka}.
-\end{vetaN}
+(tj. poèet komponent souvislosti s lichıch poètem vrcholù v indukovaném podgrafu je menší ne velikost mnoiny vrcholù). Této vlastnosti se také nìkdy øíká \emph{Tutteova podmínka}.
+\end{e}
 
-\begin{algoritmusN}{EdmondsÅ¯v algoritmus na perfektnÃ­ pÃ¡rovÃ¡nÃ­}
-Vstupem algoritmu je graf $G=(V,E)$ a libovolnÃ© pÃ¡rovÃ¡nÃ­ $M$ (i prÃ¡zdnÃ©). VÃ½stupem je pÃ¡rovÃ¡nÃ­ $M'$, kterÃ© alespoÅˆ o 1 vÄ›tÅ¡Ã­ neÅ¾ $M$, pokud je nÄ›Äeho takovÃ©ho moÅ¾nÃ© dosÃ¡hnout. Postup vÃ½poÄtu:
+\begin{e}{Algoritmus}{0}{Edmondsùv algoritmus na perfektní párování}
+Vstupem algoritmu je graf $G=(V,E)$ a libovolné párování $M$ (i prázdné). Vıstupem je párování $M'$, které alespoò o 1 vìtší ne $M$, pokud je nìèeho takového moné dosáhnout. Postup vıpoètu:
 \begin{penumerate}
-    \item Vybudujeme maximÃ¡lnÃ­ moÅ¾nÃ½ \uv{EdmondsÅ¯v les} pÃ¡rovÃ¡nÃ­ $M$ -- do nultÃ© hladiny umÃ­stÃ­me volnÃ© vrcholy a prohledÃ¡vÃ¡nÃ­m do Å¡Ã­Å™ky sestrojÃ­me max. strom takovÃ½, Å¾e se stÅ™Ã­dajÃ­ pÃ¡rovacÃ­ a nepÃ¡rovacÃ­ hrany (mezi sudou a lichou hladinou jen nepÃ¡rovacÃ­, mezi lichou a sudou jen pÃ¡rovacÃ­).
+    \item Vybudujeme maximální monı \uv{Edmondsùv les} párování $M$ -- do nulté hladiny umístíme volné vrcholy a prohledáváním do šíøky sestrojíme max. strom takovı, e se støídají párovací a nepárovací hrany (mezi sudou a lichou hladinou jen nepárovací, mezi lichou a sudou jen párovací).
 
-NÄ›kterÃ© vrcholy se v lese vÅ¯bec neobjevÃ­ -- nazveme je \uv{kompost}. Ty jsou uÅ¾ nÄ›jak spÃ¡rovÃ¡ny mezi sebou a nebudeme je potÅ™ebovat.
-    \item Pokud existuje hrana mezi sudÃ½mi hladinami rÅ¯znÃ½ch stromÅ¯, mÃ¡me \uv{volnou stÅ™Ã­davou cestu} (tj. cestu lichÃ© dÃ©lky mezi 2 volnÃ½mi vrcholy, na kterÃ© se stÅ™Ã­dajÃ­ nepÃ¡rovacÃ­ a pÃ¡rovacÃ­ hrany), na nÃ­Å¾ mÅ¯Å¾eme zalternovat hrany pÃ¡rovÃ¡nÃ­ a to tak zvÄ›tÅ¡it o 1 a skonÄit.
-    \item Pokud existuje hrana mezi sudÃ½mi hladinami tÃ©hoÅ¾ stromu, mÃ¡me \uv{kvÄ›t} (tj. kruÅ¾nici lichÃ© dÃ©lky, na kterÃ© se stÅ™Ã­dajÃ­ pÃ¡rovacÃ­ a nepÃ¡rovacÃ­ hrany). KvÄ›t mÅ¯Å¾eme zkontrahovat a algoritmus rekurzivnÄ› pustit na takto zÃ­skanÃ½ graf. Pokud dostaneme
+Nìkteré vrcholy se v lese vùbec neobjeví -- nazveme je \uv{kompost}. Ty jsou u nìjak spárovány mezi sebou a nebudeme je potøebovat.
+    \item Pokud existuje hrana mezi sudımi hladinami rùznıch stromù, máme \uv{volnou støídavou cestu} (tj. cestu liché délky mezi 2 volnımi vrcholy, na které se støídají nepárovací a párovací hrany), na ní mùeme zalternovat hrany párování a to tak zvìtšit o 1 a skonèit.
+    \item Pokud existuje hrana mezi sudımi hladinami tého stromu, máme \uv{kvìt} (tj. krunici liché délky, na které se støídají párovací a nepárovací hrany). Kvìt mùeme zkontrahovat a algoritmus rekurzivnì pustit na takto získanı graf. Pokud dostaneme
     \begin{penumerate}
-	\item starÃ© pÃ¡rovÃ¡nÃ­ beze zmÄ›ny, vrÃ¡tÃ­me $M'=M$
-	\item jinÃ© (vÄ›tÅ¡Ã­) pÃ¡rovÃ¡nÃ­ $\hat M$, prohodÃ­me pÃ¡rovÃ¡nÃ­ na cestÄ› v $\hat M$ od vrcholu kvÄ›tu v nejvyÅ¡Å¡Ã­ hladinÄ› (kam jsme kvÄ›t zkontrahovali) k volnÃ©mu vrcholu a pÅ™idÃ¡me kvÄ›t zpÃ¡tky (a pÃ¡rovÃ¡nÃ­ sedÃ­ a je vÄ›tÅ¡Ã­ neÅ¾ $M$)
+	\item staré párování beze zmìny, vrátíme $M'=M$
+	\item jiné (vìtší) párování $\hat M$, prohodíme párování na cestì v $\hat M$ od vrcholu kvìtu v nejvyšší hladinì (kam jsme kvìt zkontrahovali) k volnému vrcholu a pøidáme kvìt zpátky (a párování sedí a je vìtší ne $M$)
     \end{penumerate}
-    \item NenÃ­-li Å¾Ã¡dnÃ¡ hrana mezi sudÃ½mi hladinami, vydej $M'=M$.
+    \item Není-li ádná hrana mezi sudımi hladinami, vydej $M'=M$.
 \end{penumerate}
 \par\medskip\noindent
-HlavnÃ­ algoritmus jen opakuje vÃ½Å¡e popsanÃ½ krok, dokud vracÃ­ vÄ›tÅ¡Ã­ pÃ¡rovÃ¡nÃ­ neÅ¾ bylo pÅ™edchozÃ­. CelkovÃ¡ sloÅ¾itost jednoho kroku je $O((m+n)n)$ a pro celÃ½ algoritmus $O((m+n)n^2)$.
-\end{algoritmusN}
+Hlavní algoritmus jen opakuje vıše popsanı krok, dokud vrací vìtší párování ne bylo pøedchozí. Celková sloitost jednoho kroku je $O((m+n)n)$ a pro celı algoritmus $O((m+n)n^2)$.
+\end{e}
 
 
-\subsection{KombinatorickÃ© poÄÃ­tÃ¡nÃ­}
+\subsection{Kombinatorické poèítání}
 
-\begin{veta}
-NechÅ¥ $N$ je nÄ›jakÃ¡ $n$-prvkovÃ¡ mnoÅ¾ina a $M$ je $m$-prvkovÃ¡ mnoÅ¾ina ($m > 0$). Potom poÄet vÅ¡ech zobrazenÃ­ $f: N \rightarrow M$ je $m^n$.
-\end{veta}
+\begin{e}{Vìta}{0}{0}
+Nech $N$ je nìjaká $n$-prvková mnoina a $M$ je $m$-prvková mnoina ($m > 0$). Potom poèet všech zobrazení $f: N \rightarrow M$ je $m^n$.
+\end{e}
 
-\begin{veta}
-LibovolnÃ¡ $n$-prvkovÃ¡ mnoÅ¾ina $X$ mÃ¡ prÃ¡vÄ› $2^n$ podmnoÅ¾in.
-\end{veta}
+\begin{e}{Vìta}{0}{0}
+Libovolná $n$-prvková mnoina $X$ má právì $2^n$ podmnoin.
+\end{e}
 
-\begin{veta}
-NechÅ¥ $n>0$. KaÅ¾dÃ¡ $n$-prvkovÃ¡ mnoÅ¾ina mÃ¡ prÃ¡vÄ› $2^{n-1}$ podmnoÅ¾in sudÃ© velikosti a prÃ¡vÄ› $2^{n-1}$ podmnoÅ¾in lichÃ© velikosti.
-\end{veta}
+\begin{e}{Vìta}{0}{0}
+Nech $n>0$. Kadá $n$-prvková mnoina má právì $2^{n-1}$ podmnoin sudé velikosti a právì $2^{n-1}$ podmnoin liché velikosti.
+\end{e}
 
-\begin{veta}
-Pro $m,n \ge 0$ existuje prÃ¡vÄ› $m(m-1)(m-2) \dots (m-n+1)$ prostÃ½ch zobrazenÃ­ $n$-prvkovÃ© mnoÅ¾iny do $m$-prvkovÃ© mnoÅ¾iny.
-\end{veta}
+\begin{e}{Vìta}{0}{0}
+Pro $m,n \ge 0$ existuje právì $m(m-1)(m-2) \dots (m-n+1)$ prostıch zobrazení $n$-prvkové mnoiny do $m$-prvkové mnoiny.
+\end{e}
 
-\begin{definice}
-ProstÃ¡ zobrazenÃ­ mnoÅ¾iny $X$ do sebe se nazÃ½vÃ¡ \emph{permutace mnoÅ¾iny} $X$. Tato zobrazenÃ­ jsou zÃ¡roveÅˆ na.
+\begin{e}{Definice}{0}{0}
+Prostá zobrazení mnoiny $X$ do sebe se nazıvá \emph{permutace mnoiny} $X$. Tato zobrazení jsou zároveò na.
 
-Permutace si mÅ¯Å¾eme pÅ™edstavit jako pÅ™erovnÃ¡nÃ­ mnoÅ¾iny - napÅ™. $\{4 2 1 3\}$ je permutacÃ­ mnoÅ¾iny $\{1 2 3 4\}$. JinÃ½ zÃ¡pis permutacÃ­ je pomocÃ­ jejich cyklÅ¯ (\emph{cyklus} v permutaci je poÅ™adÃ­ prvkÅ¯, kde zaÄnu u nÄ›jakÃ©ho prvku, pokraÄuji jeho obrazem v permutaci a toto opakuji, dokud nenarazÃ­m na prvnÃ­ prvek). U cyklÅ¯ znÃ¡zornÃ­me kaÅ¾dÃ½ prvek mnoÅ¾iny jako bod. Z kaÅ¾dÃ©ho bodu vychÃ¡zÃ­ a do kaÅ¾dÃ©ho vchÃ¡zÃ­ prÃ¡vÄ› po jednÃ© Å¡ipce. Å ipka vychÃ¡zejÃ­cÃ­ z prvnÃ­ho prvku mnoÅ¾iny ukazuje na prvnÃ­ prvek permutace, Å¡ipka z druhÃ©ho prvku mnoÅ¾iny na druhÃ½ prvek permutace atd. ZÃ¡pis se pak provÃ¡dÃ­ tak, Å¾e kaÅ¾dou kruÅ¾nici zapÃ­Å¡eme po Å™adÄ› zvlÃ¡Å¡Å¥ (napÅ™. $p=((1,4,5,2,8)(3)(6,9,7))$ je zÃ¡pis permutace $(4 8 3 5 2 9 6 1 7)$.
-\end{definice}
+Permutace si mùeme pøedstavit jako pøerovnání mnoiny - napø. $\{4 2 1 3\}$ je permutací mnoiny $\{1 2 3 4\}$. Jinı zápis permutací je pomocí jejich cyklù (\emph{cyklus} v permutaci je poøadí prvkù, kde zaènu u nìjakého prvku, pokraèuji jeho obrazem v permutaci a toto opakuji, dokud nenarazím na první prvek). U cyklù znázorníme kadı prvek mnoiny jako bod. Z kadého bodu vychází a do kadého vchází právì po jedné šipce. Šipka vycházející z prvního prvku mnoiny ukazuje na první prvek permutace, šipka z druhého prvku mnoiny na druhı prvek permutace atd. Zápis se pak provádí tak, e kadou krunici zapíšeme po øadì zvláš (napø. $p=((1,4,5,2,8)(3)(6,9,7))$ je zápis permutace $(4 8 3 5 2 9 6 1 7)$.
+\end{e}
 
-\begin{vetaN}{FaktoriÃ¡l}
-PoÄet permutacÃ­ na $n$-prvkovÃ© mnoÅ¾inÄ› je $n\cdot(n-1)\cdot\dots\cdot 1$. Toto ÄÃ­slo pojmenujeme \emph{faktoriÃ¡l} $n$ a znaÄÃ­me $n!$.
-\end{vetaN}
+\begin{e}{Vìta}{0}{Faktoriál}
+Poèet permutací na $n$-prvkové mnoinì je $n\cdot(n-1)\cdot\dots\cdot 1$. Toto èíslo pojmenujeme \emph{faktoriál} $n$ a znaèíme $n!$.
+\end{e}
 
-\begin{definiceN}{BinomickÃ© koeficienty}
-NechÅ¥ $n \ge k$ jsou nezÃ¡pornÃ¡ celÃ¡ ÄÃ­sla. \emph{BinomickÃ½ koeficient} neboli kombinaÄnÃ­ ÄÃ­slo $\binom{n}{k}$ (Äteme $n$ nad $k$) je funkce promÄ›nnÃ½ch $n$, $k$, danÃ¡ jako $$\binom{n}{k}=\frac{n(n-1)(n-2)\dots(n-k+1)}{1 \cdot 2 \cdot \dots \cdot k}=\frac{\prod^{k-1}_{i=0} (n-i)}{k!}$$ nebo $$\binom{n}{k}=\frac{n!}{k!(n-k)!}$$
-\end{definiceN}
+\begin{e}{Definice}{0}{Binomické koeficienty}
+Nech $n \ge k$ jsou nezáporná celá èísla. \emph{Binomickı koeficient} neboli kombinaèní èíslo $\binom{n}{k}$ (èteme $n$ nad $k$) je funkce promìnnıch $n$, $k$, daná jako $$\binom{n}{k}=\frac{n(n-1)(n-2)\dots(n-k+1)}{1 \cdot 2 \cdot \dots \cdot k}=\frac{\prod^{k-1}_{i=0} (n-i)}{k!}$$ nebo $$\binom{n}{k}=\frac{n!}{k!(n-k)!}$$
+\end{e}
 
-\begin{definice}
-NechÅ¥ $X$ je mnoÅ¾ina a $k$ je nezÃ¡pornÃ© celÃ© ÄÃ­slo. Pak $\binom{X}{k}$ budeme znaÄit \emph{ mnoÅ¾inu vÅ¡ech $k$-prvkovÃ½ch podmnoÅ¾in} mnoÅ¾iny $X$.
-\end{definice}
+\begin{e}{Definice}{0}{0}
+Nech $X$ je mnoina a $k$ je nezáporné celé èíslo. Pak $\binom{X}{k}$ budeme znaèit \emph{ mnoinu všech $k$-prvkovıch podmnoin} mnoiny $X$.
+\end{e}
 
-\begin{veta}
-Pro kaÅ¾dou koneÄnou mnoÅ¾inu $X$ je poÄet vÅ¡ech jejÃ­ch $k$-prvkovÃ½ch podmnoÅ¾in roven $\binom{|X|}{k}$.
-\end{veta}
+\begin{e}{Vìta}{0}{0}
+Pro kadou koneènou mnoinu $X$ je poèet všech jejích $k$-prvkovıch podmnoin roven $\binom{|X|}{k}$.
+\end{e}
 
-\begin{vetaN}{Vlastnosti kombinaÄnÃ­ch ÄÃ­sel}
-PlatÃ­:
+\begin{e}{Vìta}{0}{Vlastnosti kombinaèních èísel}
+Platí:
 $$
 \binom{n}{k} = \binom{n}{n-k}
 $$
@@ -232,49 +232,49 @@ $$
 \binom{n-1}{k-1} + \binom{n-1}{k} = \binom{n}{k}
 $$
 
-\begin{dukaz}
-PrvnÃ­ je zÅ™ejmÃ© ze vzorce pro kombinaÄnÃ­ ÄÃ­sla, druhÃ© se ukaÅ¾e jednoduÅ¡e pro pouÅ¾itÃ­ komb. ÄÃ­sel -- mÄ›jme mnoÅ¾inu $X$ a v nÃ­ prvek $a$. Kolik je podmnoÅ¾in $X$ obsahujÃ­cÃ­ch, resp. neobsahujÃ­cÃ­ch $a$?
-\end{dukaz}
-\end{vetaN}
+\begin{e}{Dùkaz}{0}{0}
+První je zøejmé ze vzorce pro kombinaèní èísla, druhé se ukae jednoduše pro pouití komb. èísel -- mìjme mnoinu $X$ a v ní prvek $a$. Kolik je podmnoin $X$ obsahujících, resp. neobsahujících $a$?
+\end{e}
+\end{e}
 
-\begin{dusledek}
-Z druhÃ© vlastnosti plyne vzhled \emph{Pascalova trojÃºhelnÃ­ku}, tedy Å¾e v $n+1$. Å™Ã¡dku jsou vÅ¾dy prÃ¡vÄ› binomickÃ© koeficienty $\binom{n}{0},\binom{n}{1},\dots,\binom{n}{n}$.
-\end{dusledek}
+\begin{e}{Dùsledek}{0}{0}
+Z druhé vlastnosti plyne vzhled \emph{Pascalova trojúhelníku}, tedy e v $n+1$. øádku jsou vdy právì binomické koeficienty $\binom{n}{0},\binom{n}{1},\dots,\binom{n}{n}$.
+\end{e}
 
-\begin{vetaN}{O poÄtu zpÅ¯sobÅ¯ zÃ¡pisu}
-NezÃ¡pornÃ© celÃ© ÄÃ­slo $m$ lze zapsat jako souÄet $r$ nezÃ¡pornÃ½ch sÄÃ­tancÅ¯ prÃ¡vÄ› $\binom{m+r-1}{r-1}$ zpÅ¯soby.
+\begin{e}{Vìta}{0}{O poètu zpùsobù zápisu}
+Nezáporné celé èíslo $m$ lze zapsat jako souèet $r$ nezápornıch sèítancù právì $\binom{m+r-1}{r-1}$ zpùsoby.
 
-\begin{dukaz}
-DÅ¯kazem je onen pokus s rozdÄ›lovÃ¡nÃ­m $m$ kuliÄek mezi $r$ pÅ™ihrÃ¡dek (nebo spÃ­Å¡ vklÃ¡dÃ¡nÃ­ pÅ™ihrÃ¡dek mezi kuliÄky v Å™adÄ›).
-\end{dukaz}
-\end{vetaN}
+\begin{e}{Dùkaz}{0}{0}
+Dùkazem je onen pokus s rozdìlováním $m$ kulièek mezi $r$ pøihrádek (nebo spíš vkládání pøihrádek mezi kulièky v øadì).
+\end{e}
+\end{e}
 
-\begin{vetaN}{BinomickÃ¡ vÄ›ta}
-Pro nezÃ¡pornÃ© celÃ© ÄÃ­slo $n$ a libovolnÃ¡ $x,y\in\Real$ platÃ­: $$(x+y)^n=\sum_{k=0}^{n} \binom{n}{k} x^k y^{n-k}$$
-\end{vetaN}
+\begin{e}{Vìta}{0}{Binomická vìta}
+Pro nezáporné celé èíslo $n$ a libovolná $x,y\in\Real$ platí: $$(x+y)^n=\sum_{k=0}^{n} \binom{n}{k} x^k y^{n-k}$$
+\end{e}
 
-\begin{vetaN}{MultinomickÃ¡ vÄ›ta}
-Pro libovolnÃ¡ ÄÃ­sla $x_1,\dots,x_m\in\Real$ a $n\in\Nat_0$ platÃ­: 
+\begin{e}{Vìta}{0}{Multinomická vìta}
+Pro libovolná èísla $x_1,\dots,x_m\in\Real$ a $n\in\Nat_0$ platí: 
 $$(x_1+\dots+x_m)^n=\sum_{\genfrac{}{}{0pt}{}{k_1+\dots+k_m=n}{k_1,\dots,k_m\geq 0}}\binom{n}{k_1,\dots,k_n}x_1^{k_1}x_2^{k_2}\cdot\dots\cdot x_m^{k_m}$$
-kde ta vÄ›c uprostÅ™ed v tom vzorci je \emph{multinomickÃ½ koeficient}, definovanÃ½:
+kde ta vìc uprostøed v tom vzorci je \emph{multinomickı koeficient}, definovanı:
 $$\binom{n}{k_1,\dots,k_n}=\frac{n!}{k_1!k_2!\dots k_n!}$$
-\end{vetaN}
+\end{e}
 
 \subsection{Princip inkluze a exkluze}
 
-\begin{vetaN}{Princip inkluze a exkluze}
-Pro kaÅ¾dÃ½ soubor $A_1, A_2, \dots, A_n$ koneÄnÃ½ch mnoÅ¾in platÃ­
+\begin{e}{Vìta}{0}{Princip inkluze a exkluze}
+Pro kadı soubor $A_1, A_2, \dots, A_n$ koneènıch mnoin platí
 
 $$
 \left| \bigcup_{i=1}^{m}A_i \right| = \sum_{k=1}^{n} (-1)^{k-1} {\sum_{I \in \binom{\{1,2,\dots,n\}}{k}} {\left| \bigcap_{i \in I} A_i \right|} }
 $$
-\end{vetaN}
+\end{e}
 
-\begin{dukaz}
-NechÅ¥ x je libovolnÃ½ prvek $A_1 \cup A_2 \cup \dots \cup A_n$. KolikrÃ¡t pÅ™ispÃ­vÃ¡ x vlevo a kolikrÃ¡t vpravo?
+\begin{e}{Dùkaz}{0}{0}
+Nech x je libovolnı prvek $A_1 \cup A_2 \cup \dots \cup A_n$. Kolikrát pøispívá x vlevo a kolikrát vpravo?
 
-\emph{Vlevo}: jednou - triviÃ¡lnÃ­
-\emph{Vpravo}: NechÅ¥ j ($1 \le j \le n$) oznaÄuje poÄet mnoÅ¾in $A_i$, do kterÃ½ch patÅ™Ã­ $x$. MÅ¯Å¾eme mnoÅ¾iny pÅ™ejmenovat aby platilo $x~\in~A_1,~A_2,~\dots,~A_j$ a $x~\notin~A_{j+1},~\dots,~A_n$. Prvek se tedy objevuje v prÅ¯niku kaÅ¾dÃ© $k$-tice mnoÅ¾in $A_1,~A_2,~\dots,~A_j$ (a v Å¾Ã¡dnÃ½ch jinÃ½ch). ProtoÅ¾e existuje prÃ¡vÄ› $\binom{j}{k}$ $k$-prvkovÃ½ch podmnoÅ¾in $j$-prvkovÃ© mnoÅ¾iny, bude se $x$ objevovat v $\binom{j}{k}$ prÅ¯nicÃ­ch $k$-tic vybranÃ½ch ze vÅ¡ech $n$ prvkÅ¯. Velikosti $k$-tic jsou pÅ™itom zapoÄteny se znamÃ©nkem $(-1)^{k-1}$, tudÃ­Å¾ $x$ na pravÃ© stranÄ› pÅ™ispÃ­vÃ¡ veliÄinou
+\emph{Vlevo}: jednou - triviální
+\emph{Vpravo}: Nech j ($1 \le j \le n$) oznaèuje poèet mnoin $A_i$, do kterıch patøí $x$. Mùeme mnoiny pøejmenovat aby platilo $x~\in~A_1,~A_2,~\dots,~A_j$ a $x~\notin~A_{j+1},~\dots,~A_n$. Prvek se tedy objevuje v prùniku kadé $k$-tice mnoin $A_1,~A_2,~\dots,~A_j$ (a v ádnıch jinıch). Protoe existuje právì $\binom{j}{k}$ $k$-prvkovıch podmnoin $j$-prvkové mnoiny, bude se $x$ objevovat v $\binom{j}{k}$ prùnicích $k$-tic vybranıch ze všech $n$ prvkù. Velikosti $k$-tic jsou pøitom zapoèteny se znaménkem $(-1)^{k-1}$, tudí $x$ na pravé stranì pøispívá velièinou
 
 \begin{align*}
 j - \binom{j}{2} & + \binom{j}{3} - \dots + (-1)^{j-1}\binom{j}{j} =\\
@@ -284,76 +284,76 @@ j - \binom{j}{2} & + \binom{j}{3} - \dots + (-1)^{j-1}\binom{j}{j} =\\
 \begin{flushright}
 $\square$
 \end{flushright}
-\end{dukaz}
+\end{e}
 
 
-\subsection{LatinskÃ© Ätverce a projektivnÃ­ roviny}
+\subsection{Latinské ètverce a projektivní roviny}
 
-\begin{definiceN}{ProjektivnÃ­ rovina}
-\emph{KoneÄnÃ¡ projektivnÃ­ rovina} je mnoÅ¾inovÃ½ systÃ©m $(B,P)$, kde $B$ je koneÄnÃ¡ mnoÅ¾ina a $P$ je systÃ©m podmnoÅ¾in mnoÅ¾iny $B$, splÅˆujÃ­cÃ­:
+\begin{e}{Definice}{0}{Projektivní rovina}
+\emph{Koneèná projektivní rovina} je mnoinovı systém $(B,P)$, kde $B$ je koneèná mnoina a $P$ je systém podmnoin mnoiny $B$, splòující:
 \begin{penumerate}
 	\item $\forall p \neq p' \in P: |p \cap p'| = 1$
 	\item $\forall x \neq y \in B~\exists p \in P: x,y \in p$
 	\item $\exists \textit{ 4 body } a,b,c,d \in B: \forall p \in P: |\{a,b,c,d\} \cap p| \leq 2$
 \end{penumerate}
 
-ProjektivnÃ­ rovinu si lze pÅ™edstavit jako mnoÅ¾inu bodÅ¯ $B$ a mnoÅ¾inu \emph{pÅ™Ã­mek} $P$ (jak se ostatnÄ› prvky tÄ›chto mnoÅ¾in nazÃ½vajÃ­). Pak si lze podmÃ­nky pÅ™edstavit takto:
+Projektivní rovinu si lze pøedstavit jako mnoinu bodù $B$ a mnoinu \emph{pøímek} $P$ (jak se ostatnì prvky tìchto mnoin nazıvají). Pak si lze podmínky pøedstavit takto:
 \begin{penumerate} 
-    \item KaÅ¾dÃ© dvÄ› pÅ™Ã­mky se protÃ­najÃ­ prÃ¡vÄ› v jednom bodÄ›. 
-    \item Pro kaÅ¾dÃ© dva rÅ¯znÃ© body $x$ a $y$ existuje pÅ™Ã­mka, kterÃ¡ jimi prochÃ¡zÃ­. 
-    \item ExistujÃ­ ÄtyÅ™i body tak, Å¾e Å¾Ã¡dnÃ© 3 z nich neleÅ¾Ã­ na jednÃ© pÅ™Ã­mce (body v obecnÃ© poloze).
+    \item Kadé dvì pøímky se protínají právì v jednom bodì. 
+    \item Pro kadé dva rùzné body $x$ a $y$ existuje pøímka, která jimi prochází. 
+    \item Existují ètyøi body tak, e ádné 3 z nich neleí na jedné pøímce (body v obecné poloze).
 \end{penumerate}
-\end{definiceN}
+\end{e}
 
-\begin{veta}
-BuÄ $(B,P)$ projektivnÃ­ rovina. Potom vÅ¡echny jejÃ­ pÅ™Ã­mky majÃ­ stejnÃ½ poÄet bodÅ¯, tedy $\forall p,q \in P: |p| = |q|$
-\end{veta}
+\begin{e}{Vìta}{0}{0}
+Buï $(B,P)$ projektivní rovina. Potom všechny její pøímky mají stejnı poèet bodù, tedy $\forall p,q \in P: |p| = |q|$
+\end{e}
 
-\begin{definice}
-\emph{Å˜Ã¡d projektivnÃ­ roviny} $(B, P)$ je ÄÃ­slo $|p|-1$, kde $p$ je libovolnÃ¡ pÅ™Ã­mka z $P$ ($p \in P$).
-\end{definice}
+\begin{e}{Definice}{0}{0}
+\emph{Øád projektivní roviny} $(B, P)$ je èíslo $|p|-1$, kde $p$ je libovolná pøímka z $P$ ($p \in P$).
+\end{e}
 
-\begin{veta}
-NechÅ¥ $(B,P)$ je projektivnÃ­ rovina Å™Ã¡du $n$. Potom platÃ­, Å¾e kaÅ¾dÃ½m bodem prochÃ¡zÃ­ prÃ¡vÄ› $n+1$ pÅ™Ã­mek a $|B|=|P|=n^2+n+1$
-\end{veta}
+\begin{e}{Vìta}{0}{0}
+Nech $(B,P)$ je projektivní rovina øádu $n$. Potom platí, e kadım bodem prochází právì $n+1$ pøímek a $|B|=|P|=n^2+n+1$
+\end{e}
 
-\begin{veta}
-JestliÅ¾e $n=p^2$, kde $p$ je prvoÄÃ­slo, pak existuje koneÄnÃ¡ projektivnÃ­ rovina Å™Ã¡du $n$.
-\end{veta}
+\begin{e}{Vìta}{0}{0}
+Jestlie $n=p^2$, kde $p$ je prvoèíslo, pak existuje koneèná projektivní rovina øádu $n$.
+\end{e}
 
-\begin{definiceN}{LatinskÃ½ Ätverec}
-\emph{LatinskÃ½ Ätverec} Å™Ã¡du $n$ je matice $A \in \{1, \dots, n\}^{n \times n}, \;\forall i, j \neq j': A_{ij}~\neq~A_{ij'}$ a $A_{ji}~\neq~A_{j'i}.$
+\begin{e}{Definice}{0}{Latinskı ètverec}
+\emph{Latinskı ètverec} øádu $n$ je matice $A \in \{1, \dots, n\}^{n \times n}, \;\forall i, j \neq j': A_{ij}~\neq~A_{ij'}$ a $A_{ji}~\neq~A_{j'i}.$
 
-V podstatÄ› se jednÃ¡ o Ätverec $n$ krÃ¡t $n$, kde v kaÅ¾dÃ©m Å™Ã¡dku i sloupci jsou vepsanÃ¡ vÅ¡echna ÄÃ­sla od $1$ do $n$.
-\end{definiceN}
+V podstatì se jedná o ètverec $n$ krát $n$, kde v kadém øádku i sloupci jsou vepsaná všechna èísla od $1$ do $n$.
+\end{e}
 
-\begin{definice}
-MÄ›jme dva latinskÃ© Ätverce $A, B$ stejnÃ½ch rozmÄ›rÅ¯ $n \times n$. Pak Å™ekneme, Å¾e je \emph{ortogonÃ¡lnÃ­} (znaÄÃ­me $A \bot B$), jestliÅ¾e platÃ­:
+\begin{e}{Definice}{0}{0}
+Mìjme dva latinské ètverce $A, B$ stejnıch rozmìrù $n \times n$. Pak øekneme, e je \emph{ortogonální} (znaèíme $A \bot B$), jestlie platí:
 $$\forall a,b \in \{1,\dots,n\} \;\exists i,j: A_{ij}=a, B_{ij}=b$$
 
-Pokud tedy ty dva latinskÃ© Ätverce \uv{poloÅ¾Ã­me pÅ™es sebe}, vznikne nÃ¡m na kaÅ¾dÃ© pozici dvojice ÄÃ­sel od $1$ do $n$ s tÃ­m, Å¾e kaÅ¾dÃ¡ dvojice je unikÃ¡tnÃ­.
-\end{definice}
+Pokud tedy ty dva latinské ètverce \uv{poloíme pøes sebe}, vznikne nám na kadé pozici dvojice èísel od $1$ do $n$ s tím, e kadá dvojice je unikátní.
+\end{e}
 
-\begin{veta}
-NechÅ¥ $M$ je mnoÅ¾ina latinskÃ½ch ÄtvercÅ¯ Å™Ã¡du $n$, z nichÅ¾ kaÅ¾dÃ© dva jsou navzÃ¡jem ortogonÃ¡lnÃ­. Potom $|M| \le n-1$
-\end{veta}
+\begin{e}{Vìta}{0}{0}
+Nech $M$ je mnoina latinskıch ètvercù øádu $n$, z nich kadé dva jsou navzájem ortogonální. Potom $|M| \le n-1$
+\end{e}
 
-\begin{veta}
-Pro $n \ge 2$, projektivnÃ­ rovina Å™Ã¡du $n$ existuje prÃ¡vÄ› tehdy, kdyÅ¾ existuje soubor $n-1$ vzÃ¡jemnÄ› ortogonÃ¡lnÃ­ch latinskÃ½ch ÄtvercÅ¯ Å™Ã¡du $n$.
+\begin{e}{Vìta}{0}{0}
+Pro $n \ge 2$, projektivní rovina øádu $n$ existuje právì tehdy, kdy existuje soubor $n-1$ vzájemnì ortogonálních latinskıch ètvercù øádu $n$.
 \par\medskip
-\begin{dukaz}
+\begin{e}{Dùkaz}{0}{0}
 \begin{enumerate}
-    \item \emph{Implikace $\Leftarrow$:} Vezmu jednu -- \uv{vnÄ›jÅ¡Ã­} -- pÅ™Ã­mku projektivnÃ­ roviny. Na nÃ­ leÅ¾Ã­ $n+1$ bodÅ¯, kterÃ© nazvu $A_0,\dots,A_n$. PÅ™Ã­mky jdoucÃ­ z krajnÃ­ch bodÅ¯ $A_0$ a $A_n$ tvoÅ™Ã­ mÅ™Ã­Å¾ku (nazvu ji $T$) -- protÃ­najÃ­ se v $n^2$ bodech. 
+    \item \emph{Implikace $\Leftarrow$:} Vezmu jednu -- \uv{vnìjší} -- pøímku projektivní roviny. Na ní leí $n+1$ bodù, které nazvu $A_0,\dots,A_n$. Pøímky jdoucí z krajních bodù $A_0$ a $A_n$ tvoøí møíku (nazvu ji $T$) -- protínají se v $n^2$ bodech. 
 
-Potom kaÅ¾dÃ½ z vnitÅ™nÃ­ch bodÅ¯ $A_i\ (1 ? i ? n-1)$ definuje lat. Ätverec: kaÅ¾dÃ¡ pÅ™Ã­mka jdoucÃ­ z nÄ›jakÃ©ho z vnitÅ™nÃ­ch bodÅ¯ $A_i$ se s pÅ™Ã­mkami z $A_0$ a z $A_n$ protne prÃ¡vÄ› jednou a kaÅ¾dÃ© 2 pÅ™Ã­mky z $A_i$ prochÃ¡zÃ­ mimo vnÄ›jÅ¡Ã­ pÅ™Ã­mku rÅ¯znÃ½mi body. KaÅ¾dÃ¡ pÅ™Ã­mka proch. kaÅ¾dÃ½m Å™Ã¡dkem i sloupcem mÅ™Ã­Å¾ky $T$ prÃ¡vÄ› jednou $\Rightarrow$ dostÃ¡vÃ¡m latinskÃ½ Ätverec: 
+Potom kadı z vnitøních bodù $A_i\ (1 ? i ? n-1)$ definuje lat. ètverec: kadá pøímka jdoucí z nìjakého z vnitøních bodù $A_i$ se s pøímkami z $A_0$ a z $A_n$ protne právì jednou a kadé 2 pøímky z $A_i$ prochází mimo vnìjší pøímku rùznımi body. Kadá pøímka proch. kadım øádkem i sloupcem møíky $T$ právì jednou $\Rightarrow$ dostávám latinskı ètverec: 
 $$(L^k)_{ij} = l \Leftrightarrow T_{ij} \in p^k_l$$
-kde $L^k$ znaÄÃ­ $k$-tÃ½ lat. Ätverec, $T_{ij}$ bod mÅ™Ã­Å¾ky $T$ na souÅ™adnicÃ­ch $(i,j)$ a $p^k_l$ $l$-tou pÅ™Ã­mku jdoucÃ­ z bodu $A_k$. 
+kde $L^k$ znaèí $k$-tı lat. ètverec, $T_{ij}$ bod møíky $T$ na souøadnicích $(i,j)$ a $p^k_l$ $l$-tou pøímku jdoucí z bodu $A_k$. 
 
-ÄŒtverce jsou ortogonÃ¡lnÃ­ - sporem nechÅ¥ pro majÃ­ dva Ätverce ($k$-tÃ½ a $k'$-tÃ½) na souÅ™adnicÃ­ch stejnou uspoÅ™Ã¡danou dvojici hodnot $(a,b)$ na dvou rÅ¯znÃ½ch mÃ­stech. Pak by se pÅ™Ã­mky $p^k_a$ a $p^{k'}_b$ protÃ­naly ve 2 bodech.
+Ètverce jsou ortogonální - sporem nech pro mají dva ètverce ($k$-tı a $k'$-tı) na souøadnicích stejnou uspoøádanou dvojici hodnot $(a,b)$ na dvou rùznıch místech. Pak by se pøímky $p^k_a$ a $p^{k'}_b$ protínaly ve 2 bodech.
 
-    \item \emph{Implikace $\Rightarrow$:} VytvoÅ™Ã­m pÅ™Ã­mku $q$ s body $A_0,\dots,A_n$ a mÅ™Ã­Å¾ku $T$ o $n\times n$ bodech. Do nÃ­ pÅ™idÃ¡m pÅ™Ã­mky $p_{1,1},\dots,p_{n-1,n}$: 
+    \item \emph{Implikace $\Rightarrow$:} Vytvoøím pøímku $q$ s body $A_0,\dots,A_n$ a møíku $T$ o $n\times n$ bodech. Do ní pøidám pøímky $p_{1,1},\dots,p_{n-1,n}$: 
 $$p_l^k = \{A_k\} \cup \{T_{ij} | L^k_{ij} = l \}$$ 
-Pak je tÅ™eba ovÄ›Å™it axiomy projektivnÃ­ roviny.Â 
+Pak je tøeba ovìøit axiomy projektivní roviny. 
 \end{enumerate}
-\end{dukaz}
-\end{veta}
+\end{e}
+\end{e}
