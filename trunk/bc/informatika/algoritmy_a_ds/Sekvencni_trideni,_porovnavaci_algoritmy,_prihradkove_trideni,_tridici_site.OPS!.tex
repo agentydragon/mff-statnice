@@ -1,29 +1,29 @@
-\subsection{SekvenÄnÃ­ tÅ™Ã­dÄ›nÃ­, porovnÃ¡vacÃ­ algoritmy, pÅ™ihrÃ¡dkovÃ© tÅ™Ã­dÄ›nÃ­, tÅ™Ã­dÃ­cÃ­ sÃ­tÄ›}
+\subsection{Sekvenèní tøídìní, porovnávací algoritmy, pøihrádkové tøídìní, tøídící sítì}
 
-TODO: trochu vÃ­c formalismu by tu neÅ¡kodilo, taky je potÅ™eba sjednotit Ã³Äkovou notaci (zÅ™ejmÄ› prostÃ© nahrazenÃ­ symbolu $O$ symbolem $\Theta$ by staÄilo, ale chce to ovÄ›Å™it).
+TODO: trochu víc formalismu by tu neškodilo, taky je potøeba sjednotit óèkovou notaci (zøejmì prosté nahrazení symbolu $O$ symbolem $\Theta$ by staèilo, ale chce to ovìøit).
 
-\subsubsection*{SekvenÄnÃ­ tÅ™Ã­dÄ›nÃ­ a porovnÃ¡vacÃ­ algoritmy}
+\subsubsection*{Sekvenèní tøídìní a porovnávací algoritmy}
 
-Pojmy \uv{sekvenÄnÃ­ tÅ™Ã­dÄ›nÃ­} a \uv{porovnÃ¡vacÃ­ algoritmy} mohou znamenat vlastnÄ› cokoliv, takÅ¾e uvedu pÃ¡r nejbÄ›Å¾nÄ›jÅ¡Ã­ch tÅ™Ã­dÃ­cÃ­ch algoritmÅ¯ a budu doufat, Å¾e to bude ke zkouÅ¡ce staÄit \texttt{:-(}. Zdrojem mi budiÅ¾ Wikipedie a kniha Algoritmy a programovacÃ­ techniky Doc. P. TÃ¶pfera.
+Pojmy \uv{sekvenèní tøídìní} a \uv{porovnávací algoritmy} mohou znamenat vlastnì cokoliv, take uvedu pár nejbìnìjších tøídících algoritmù a budu doufat, e to bude ke zkoušce staèit \texttt{:-(}. Zdrojem mi budi Wikipedie a kniha Algoritmy a programovací techniky Doc. P. Töpfera.
 
 \bigskip
 
-\begin{algoritmusN}{Selection sort, tÅ™Ã­dÄ›nÃ­ vÃ½bÄ›rem}
-Selection sort je jeden z nejjednoduÅ¡Å¡Ã­ch tÅ™Ã­dÃ­ch algoritmÅ¯. Jde o vnitÅ™nÃ­ tÅ™Ã­dÄ›nÃ­ -- tedy celÃ¡ posloupnost prvkÅ¯ by mÄ›la bÃ½t v pamÄ›ti. MÃ¡ Äasovou sloÅ¾itost $\Theta(n^2)$ a obecnÄ› bÃ½vÃ¡ pomalejÅ¡Ã­ neÅ¾ insertion sort. Pracuje nÃ¡sledovnÄ›:
+\begin{e}{Algoritmus}{0}{Selection sort, tøídìní vıbìrem}
+Selection sort je jeden z nejjednodušších tøídích algoritmù. Jde o vnitøní tøídìní -- tedy celá posloupnost prvkù by mìla bıt v pamìti. Má èasovou sloitost $\Theta(n^2)$ a obecnì bıvá pomalejší ne insertion sort. Pracuje následovnì:
 
-UdrÅ¾uje si mnoÅ¾inu setÅ™Ã­dÄ›nÃ½ch prvkÅ¯ na zaÄÃ¡tku posloupnosti (pole), kterÃ¡ je na zaÄÃ¡tku prÃ¡zdnÃ¡ a na konci pÅ™edstavuje celÃ© pole. Zbytek pole za setÅ™Ã­dÄ›nou mnoÅ¾inou je neuspoÅ™Ã¡danÃ½. V jednom kroku vÅ¾dy vybere jeden prvek a vloÅ¾Ã­ ho do utÅ™Ã­dÄ›nÃ© ÄÃ¡sti (kterou tÃ­m zvÄ›tÅ¡Ã­ o 1 a zÃ¡roveÅˆ zmenÅ¡Ã­ nesetÅ™Ã­dÄ›nou). Jeden krok algoritmu (kterÃ½ch je $n$ pro $n$ prvkÅ¯ v kaÅ¾dÃ©m pÅ™Ã­padÄ›) vypadÃ¡ takto: 
+Udruje si mnoinu setøídìnıch prvkù na zaèátku posloupnosti (pole), která je na zaèátku prázdná a na konci pøedstavuje celé pole. Zbytek pole za setøídìnou mnoinou je neuspoøádanı. V jednom kroku vdy vybere jeden prvek a vloí ho do utøídìné èásti (kterou tím zvìtší o 1 a zároveò zmenší nesetøídìnou). Jeden krok algoritmu (kterıch je $n$ pro $n$ prvkù v kadém pøípadì) vypadá takto: 
 \begin{penumerate}
-    \item Najdi nejmenÅ¡Ã­ prvek z nesetÅ™Ã­dÄ›nÃ©ho Ãºseku.
-    \item VloÅ¾ ho pÅ™esnÄ› za konec setÅ™Ã­dÄ›nÃ©ho Ãºseku (a prvek co tam byl pÅ¯vodnÄ› si s nÃ­m vymÄ›nÃ­ mÃ­sto)
+    \item Najdi nejmenší prvek z nesetøídìného úseku.
+    \item Vlo ho pøesnì za konec setøídìného úseku (a prvek co tam byl pùvodnì si s ním vymìní místo)
 \end{penumerate}
 
-Heapsort, kterÃ½ popÃ­Å¡u pozdÄ›ji, mÅ¯Å¾e bÃ½t povaÅ¾ovanÃ½ za variantu selection sortu, protoÅ¾e takÃ© vybÃ­rÃ¡ minimum a zaÄleÅˆuje do setÅ™Ã­dÄ›nÃ© ÄÃ¡sti.
-\end{algoritmusN}
+Heapsort, kterı popíšu pozdìji, mùe bıt povaovanı za variantu selection sortu, protoe také vybírá minimum a zaèleòuje do setøídìné èásti.
+\end{e}
 
-\begin{algoritmusN}{Insertion sort, tÅ™Ã­dÄ›nÃ­ vklÃ¡dÃ¡nÃ­m}
-Insertion sort je takÃ© relativnÄ› jednoduchÃ½ a na velkÃ© datovÃ© soubory neefektivnÃ­, ale jednoduchÃ½ na implementaci a rychlejÅ¡Ã­ neÅ¾ nejprimitivnÄ›jÅ¡Ã­ algoritmy bubble sort a selection sort. NavÃ­c je efektivnÃ­ pro data, kterÃ¡ jsou uÅ¾ ÄÃ¡steÄnÄ› pÅ™edtÅ™Ã­dÄ›nÃ¡ -- v nejhorÅ¡Ã­m pÅ™Ã­padÄ› sice bÄ›Å¾Ã­ v Äase $O(n^2)$, ale v nejlepÅ¡Ã­m pÅ™Ã­padÄ› (ÃºplnÃ© setÅ™Ã­dÄ›nÃ­ dat) je lineÃ¡rnÃ­ -- obecnÄ› bÄ›Å¾Ã­ v Äase $O(n+d)$, kde $d$ je poÄet inverzÃ­ ve tÅ™Ã­dÄ›nÃ© posloupnosti. NavÃ­c je stabilnÃ­ (zachovÃ¡vÃ¡ poÅ™adÃ­ prvkÅ¯ se stejnÃ½m klÃ­Äem) a \uv{in-place}, tedy nepotÅ™ebuje Å¾Ã¡dnÃ© pomocnÃ© datovÃ© struktury. Proti selection sortu ale vÄ›tÅ¡inou potÅ™ebuje vÃ­ce pÅ™episovÃ¡nÃ­ (a to mÅ¯Å¾e u velkÃ½ch datovÃ½ch struktur vadit).
+\begin{e}{Algoritmus}{0}{Insertion sort, tøídìní vkládáním}
+Insertion sort je také relativnì jednoduchı a na velké datové soubory neefektivní, ale jednoduchı na implementaci a rychlejší ne nejprimitivnìjší algoritmy bubble sort a selection sort. Navíc je efektivní pro data, která jsou u èásteènì pøedtøídìná -- v nejhorším pøípadì sice bìí v èase $O(n^2)$, ale v nejlepším pøípadì (úplné setøídìní dat) je lineární -- obecnì bìí v èase $O(n+d)$, kde $d$ je poèet inverzí ve tøídìné posloupnosti. Navíc je stabilní (zachovává poøadí prvkù se stejnım klíèem) a \uv{in-place}, tedy nepotøebuje ádné pomocné datové struktury. Proti selection sortu ale vìtšinou potøebuje více pøepisování (a to mùe u velkıch datovıch struktur vadit).
 
-V jednom kroku vÅ¾dy vezme nÄ›jakÃ½ prvek (berou se po Å™adÄ› od zaÄÃ¡tku pole), zapamatuje si jeho hodnotu, a dokud pÅ™ed nÃ­m jsou prvky s vÄ›tÅ¡Ã­m klÃ­Äem, posouvÃ¡ je na pozici o 1 vÄ›tÅ¡Ã­ (ÄÃ­mÅ¾ vÅ¾dy pÅ™epÃ­Å¡e nÃ¡sledujÃ­cÃ­, takÅ¾e pÅ¯vodnÃ­ prvek se ztratÃ­) a pokud narazÃ­ na prvek s menÅ¡Ã­m klÃ­Äem, do za nÄ›j napÃ­Å¡e onen zapamatovanÃ½ prvek (a mÃ­sto tam je, protoÅ¾e celou cestu k nÄ›mu posouval prvky). Algoritmus vypadÃ¡ takto:
+V jednom kroku vdy vezme nìjakı prvek (berou se po øadì od zaèátku pole), zapamatuje si jeho hodnotu, a dokud pøed ním jsou prvky s vìtším klíèem, posouvá je na pozici o 1 vìtší (èím vdy pøepíše následující, take pùvodní prvek se ztratí) a pokud narazí na prvek s menším klíèem, do za nìj napíše onen zapamatovanı prvek (a místo tam je, protoe celou cestu k nìmu posouval prvky). Algoritmus vypadá takto:
 \begin{verbatim}
 insert sort( array a ){
   for( i = 1; i < a.length - 1; ++i ){
@@ -38,117 +38,117 @@ insert sort( array a ){
 }
 \end{verbatim}
 
-Jednou z variant insertion sortu je \emph{Shell sort}, kterÃ½ porovnÃ¡vÃ¡ prvky ne vedle sebe, ale vzdÃ¡lenÃ© o nÄ›jakÃ½ poÄet polÃ­, kterÃ½ se postupnÄ› zmenÅ¡uje. MÅ¯Å¾e dosahovat sloÅ¾itost $O(n^{3/2})$ aÅ¾ $O(n^{4/3})$. S jistÃ½mi Ãºpravami se u nÄ›j dÃ¡ dosÃ¡hnout aÅ¾ $O(n\log^2 n)$. JinÃ© vylepÅ¡enÃ­ je \emph{library sort}, kterÃ½ si pÅ™i vklÃ¡dÃ¡nÃ­ nechÃ¡vÃ¡ mezery pro dalÅ¡Ã­ prvky (podobnÄ› jako v knihovnÄ› nejsou poliÄky ÃºplnÄ› plnÃ©) -- ten mÅ¯Å¾e s velkou pravdÄ›podobnostÃ­ bÄ›Å¾et v Äase $O(n\log n)$, ale zase potÅ™ebuje vÄ›tÅ¡Ã­ pamÄ›Å¥ovÃ½ prostor.
-\end{algoritmusN}
+Jednou z variant insertion sortu je \emph{Shell sort}, kterı porovnává prvky ne vedle sebe, ale vzdálené o nìjakı poèet polí, kterı se postupnì zmenšuje. Mùe dosahovat sloitost $O(n^{3/2})$ a $O(n^{4/3})$. S jistımi úpravami se u nìj dá dosáhnout a $O(n\log^2 n)$. Jiné vylepšení je \emph{library sort}, kterı si pøi vkládání nechává mezery pro další prvky (podobnì jako v knihovnì nejsou polièky úplnì plné) -- ten mùe s velkou pravdìpodobností bìet v èase $O(n\log n)$, ale zase potøebuje vìtší pamìovı prostor.
+\end{e}
 
-\begin{algoritmusN}{Bubble sort, bublinkovÃ© tÅ™Ã­dÄ›nÃ­}
-Bubble sort je velmi jednoduchÃ½ tÅ™Ã­dÃ­cÃ­ algoritmus (asi nejjednoduÅ¡Å¡Ã­ na implementaci), s Äasovou sloÅ¾itostÃ­ $O(n^2)$. V nejlepÅ¡Ã­m pÅ™Ã­padÄ› (pro ÃºplnÄ› setÅ™Ã­dÄ›nÃ¡ data) mu ale staÄÃ­ jen jeden prÅ¯chod, takÅ¾e $O(n)$. VÄ›tÅ¡inou ale bÃ½vÃ¡ pomalejÅ¡Ã­ i neÅ¾ insertion sort, takÅ¾e se na velkÃ© mnoÅ¾iny dat nehodÃ­.
+\begin{e}{Algoritmus}{0}{Bubble sort, bublinkové tøídìní}
+Bubble sort je velmi jednoduchı tøídící algoritmus (asi nejjednodušší na implementaci), s èasovou sloitostí $O(n^2)$. V nejlepším pøípadì (pro úplnì setøídìná data) mu ale staèí jen jeden prùchod, take $O(n)$. Vìtšinou ale bıvá pomalejší i ne insertion sort, take se na velké mnoiny dat nehodí.
 
-Algoritmus prochÃ¡zÃ­ v jednom kroku celÃ© pole a hledÃ¡ pozice, kde se prvek s menÅ¡Ã­m klÃ­Äem nachÃ¡zÃ­ bezprostÅ™ednÄ› za prvkem s vÄ›tÅ¡Ã­m klÃ­Äem. TakovÃ©to dva prvky pak vymÄ›nÃ­. Kroky opakuje, dokud neprojde celÃ© pole bez jedinÃ©ho prohozenÃ­ prvkÅ¯ (nebo v \uv{tupÄ›jÅ¡Ã­} variantÄ› $n$-krÃ¡t pro $n$ prvkÅ¯, protoÅ¾e pak je zaruÄeno, Å¾e posloupnost bude pro libovolnÃ© poÅ™adÃ­ prvkÅ¯ setÅ™Ã­dÄ›nÃ¡ -- ta mÃ¡ ale pak sloÅ¾itost $O(n^2)$ v kaÅ¾dÃ©m pÅ™Ã­padÄ›!).
+Algoritmus prochází v jednom kroku celé pole a hledá pozice, kde se prvek s menším klíèem nachází bezprostøednì za prvkem s vìtším klíèem. Takovéto dva prvky pak vymìní. Kroky opakuje, dokud neprojde celé pole bez jediného prohození prvkù (nebo v \uv{tupìjší} variantì $n$-krát pro $n$ prvkù, protoe pak je zaruèeno, e posloupnost bude pro libovolné poøadí prvkù setøídìná -- ta má ale pak sloitost $O(n^2)$ v kadém pøípadì!).
 
-VylepÅ¡enÃ­ algoritmu lze dosÃ¡hnout jednoduchou Ãºvahou: nejvÄ›tÅ¡Ã­ prvek je uÅ¾ pÅ™i prvnÃ­m prÅ¯chodu polem odsunutÃ½ aÅ¾ na konec. To se samozÅ™ejmÄ› opakuje pro kaÅ¾dÃ½ prÅ¯chod (ve druhÃ©m je pÅ™edposlednÃ­ na druhÃ©m mÃ­stÄ› od konce atp.), takÅ¾e lze prÅ¯chody postupnÄ› zkracovat a konec pole uÅ¾ netestovat -- dosÃ¡hneme tÃ­m v prÅ¯mÄ›ru dvojnÃ¡sobnÃ© rychlosti.
+Vylepšení algoritmu lze dosáhnout jednoduchou úvahou: nejvìtší prvek je u pøi prvním prùchodu polem odsunutı a na konec. To se samozøejmì opakuje pro kadı prùchod (ve druhém je pøedposlední na druhém místì od konce atp.), take lze prùchody postupnì zkracovat a konec pole u netestovat -- dosáhneme tím v prùmìru dvojnásobné rychlosti.
 
-Variantou bubble sortu je \emph{shake sort} neboli \emph{cocktail sort}, kterÃ½ stÅ™Ã­davÄ› prochÃ¡zÃ­ posloupnost prvkÅ¯ nejdÅ™Ã­v od zaÄÃ¡tku a pak od konce (a pÅ™itom provÃ¡dÃ­ to samÃ© jako bubble sort). TÃ­m mÅ¯Å¾e v nÄ›kterÃ½ch pÅ™Ã­padech o trochu tÅ™Ã­dÄ›nÃ­ zrychlit -- pÅ™Ã­kladem budiÅ¾ posloupnost prvkÅ¯ $(2,3,4,5,1)$, kterÃ¡ potÅ™ebuje jen 1 prÅ¯chod cocktail-sortem tam a jeden zpÄ›t, ale pro bubble-sort by potÅ™ebovala 4.
+Variantou bubble sortu je \emph{shake sort} neboli \emph{cocktail sort}, kterı støídavì prochází posloupnost prvkù nejdøív od zaèátku a pak od konce (a pøitom provádí to samé jako bubble sort). Tím mùe v nìkterıch pøípadech o trochu tøídìní zrychlit -- pøíkladem budi posloupnost prvkù $(2,3,4,5,1)$, která potøebuje jen 1 prùchod cocktail-sortem tam a jeden zpìt, ale pro bubble-sort by potøebovala 4.
 
-DalÅ¡Ã­m vylepÅ¡enÃ­m bubble sortu je \emph{Comb sort}, kterÃ½ o nÄ›co zvyÅ¡uje rychlost. Je zaloÅ¾en na stejnÃ© myÅ¡lence jako shell sort -- tedy nejsou porovnÃ¡vÃ¡ny prvky bezprostÅ™ednÄ› za sebou, ale prvky posunutÃ© o nÄ›jakÃ½ ofset -- ten je na zaÄÃ¡tku roven dÃ©lce posloupnosti, a postupnÄ› se dÄ›lÃ­ \uv{zkracovacÃ­m faktorem} (bÄ›Å¾nÃ¡ hodnota $1.3$) aÅ¾ dosÃ¡hne jednÃ©. SloÅ¾itost se pohybuje mezi $O(n^2)$ v nejhorÅ¡Ã­m pÅ™Ã­padÄ› a $O(n\log n)$ v nejlepÅ¡Ã­m. V prÅ¯mÄ›rnÃ©m pÅ™Ã­padÄ› jde stÃ¡le o $O(n^2)$, ale s menÅ¡Ã­ konstantou neÅ¾ u bubble-sortu (TODO: tohle je potÅ™eba set-sakra ovÄ›Å™it ... opsanÃ© z nÄ›meckÃ© wiki a \uv{talk:Comb sort} na anglickÃ©, takÅ¾e fakt \uv{dÅ¯vÄ›ryhodnÃ©}).
-\end{algoritmusN}
+Dalším vylepšením bubble sortu je \emph{Comb sort}, kterı o nìco zvyšuje rychlost. Je zaloen na stejné myšlence jako shell sort -- tedy nejsou porovnávány prvky bezprostøednì za sebou, ale prvky posunuté o nìjakı ofset -- ten je na zaèátku roven délce posloupnosti, a postupnì se dìlí \uv{zkracovacím faktorem} (bìná hodnota $1.3$) a dosáhne jedné. Sloitost se pohybuje mezi $O(n^2)$ v nejhorším pøípadì a $O(n\log n)$ v nejlepším. V prùmìrném pøípadì jde stále o $O(n^2)$, ale s menší konstantou ne u bubble-sortu (TODO: tohle je potøeba set-sakra ovìøit ... opsané z nìmecké wiki a \uv{talk:Comb sort} na anglické, take fakt \uv{dùvìryhodné}).
+\end{e}
 
-\begin{algoritmusN}{Heap sort, tÅ™Ã­dÄ›nÃ­ haldou}
-Heapsort je takÃ© tÅ™Ã­dÃ­cÃ­ algoritmus zaloÅ¾enÃ½ na porovnÃ¡vÃ¡nÃ­ a myÅ¡lenkovÄ› vychÃ¡zÃ­ ze selection sortu, ke kterÃ©mu pÅ™idÃ¡vÃ¡ prÃ¡ci s haldou. VÄ›tÅ¡inou bÃ½vÃ¡ pro typickÃ¡ vstupnÃ­ data pomalejÅ¡Ã­ neÅ¾ quicksort, ale zaruÄuje Äasovou sloÅ¾itost $O(n\log n)$ i v nejhorÅ¡Ã­m pÅ™Ã­padÄ›. Jde o \uv{in-place} algoritmus (halda se mÅ¯Å¾e nachÃ¡zet pÅ™Ã­mo v nesetÅ™Ã­dÄ›nÃ© ÄÃ¡sti pole), ale nenÃ­ \uv{stabilnÃ­}.
+\begin{e}{Algoritmus}{0}{Heap sort, tøídìní haldou}
+Heapsort je také tøídící algoritmus zaloenı na porovnávání a myšlenkovì vychází ze selection sortu, ke kterému pøidává práci s haldou. Vìtšinou bıvá pro typická vstupní data pomalejší ne quicksort, ale zaruèuje èasovou sloitost $O(n\log n)$ i v nejhorším pøípadì. Jde o \uv{in-place} algoritmus (halda se mùe nacházet pøímo v nesetøídìné èásti pole), ale není \uv{stabilní}.
 
-Algoritmus sÃ¡m, mÃ¡me-li vyÅ™eÅ¡enÃ© operace na haldÄ›, je velice jednoduchÃ½ -- nejdÅ™Ã­ve pro kaÅ¾dÃ½ prvek opakuje jeho vloÅ¾enÃ­ do haldy (takÅ¾e postupnÄ› vytvoÅ™Ã­ $n$-prvkovou haldu, kterÃ¡ se s kaÅ¾dÃ½m krokem zvÄ›tÅ¡uje o 1), pro implementaci haldy na zaÄÃ¡tku pole je vhodnÃ½ \uv{max-heap}, a potom opakuje odebrÃ¡nÃ­ maxima a jeho pÅ™esun na volnÃ© mÃ­sto hned za konci zmenÅ¡ivÅ¡Ã­ se haldy -- takÅ¾e od konce pole postupnÄ› roste smÄ›rem k zaÄÃ¡tku setÅ™Ã­dÄ›nÃ¡ posloupnost.
+Algoritmus sám, máme-li vyøešené operace na haldì, je velice jednoduchı -- nejdøíve pro kadı prvek opakuje jeho vloení do haldy (take postupnì vytvoøí $n$-prvkovou haldu, která se s kadım krokem zvìtšuje o 1), pro implementaci haldy na zaèátku pole je vhodnı \uv{max-heap}, a potom opakuje odebrání maxima a jeho pøesun na volné místo hned za konci zmenšivší se haldy -- take od konce pole postupnì roste smìrem k zaèátku setøídìná posloupnost.
 
-UpravenÃ½ heapsort s pouÅ¾itÃ­m ternÃ¡rnÃ­ haldy dosahuje o multiplikativnÃ­ konstantu lepÅ¡Ã­ vÃ½sledky, existuje i (prÃ½ :-)) sloÅ¾itÃ¡ varianta \emph{smoothsort}, kterÃ¡ se blÃ­Å¾Ã­ ÄasovÃ© sloÅ¾itosti $O(n)$, pokud jsou data ÄÃ¡steÄnÄ› pÅ™edtÅ™Ã­dÄ›nÃ¡ -- heapsort totiÅ¾ pracuje pro libovolnou posloupnost v Äase $O(n\log n)$.
-\end{algoritmusN}
+Upravenı heapsort s pouitím ternární haldy dosahuje o multiplikativní konstantu lepší vısledky, existuje i (prı :-)) sloitá varianta \emph{smoothsort}, která se blíí èasové sloitosti $O(n)$, pokud jsou data èásteènì pøedtøídìná -- heapsort toti pracuje pro libovolnou posloupnost v èase $O(n\log n)$.
+\end{e}
 
-\begin{algoritmusN}{Merge sort, tÅ™Ã­dÄ›nÃ­ slÃ©vÃ¡nÃ­m}
-DalÅ¡Ã­m tÅ™Ã­dÃ­cÃ­m algoritmem zaloÅ¾enÃ½m na porovnÃ¡vÃ¡nÃ­ prvkÅ¯ je mergesort. Je stabilnÃ­, takÅ¾e zachovÃ¡vÃ¡ poÅ™adÃ­ dat se stejnÃ½m klÃ­Äem. Jde o pÅ™Ã­klad algoritmu typu \uv{rozdÄ›l a panuj}, stejnÄ› jako u nÃ­Å¾e popsanÃ©ho quicksortu. Byl vynalezen Johnem Von Neumannem. Je zaloÅ¾en na rozdÄ›lenÃ­ posloupnosti na dvÄ› zhruba stejnÃ© poloviny, rekurzivnÃ­m setÅ™Ã­dÄ›nÃ­ a potom \uv{slÃ©vÃ¡nÃ­} dvou jiÅ¾ setÅ™Ã­dÄ›nÃ½ch posloupnostÃ­. Jeho ÄasovÃ¡ sloÅ¾itost je $O(n\log n)$ i v nejhorÅ¡Ã­m pÅ™Ã­padÄ›, provÃ¡dÃ­ vÄ›tÅ¡inou mÃ©nÄ› porovnÃ¡nÃ­ neÅ¾ quicksort, mÃ¡ vÄ›tÅ¡Ã­ nÃ¡roky na pamÄ›Å¥ v pÅ™Ã­padÄ› rekurzivnÃ­ho volÃ¡nÃ­ (existuje ale i nerekurzivnÃ­ verze), ale vÄ›tÅ¡inou nepracuje na mÃ­stÄ› a potÅ™ebuje alokovat pamÄ›Å¥ pro vÃ½stup setÅ™Ã­dÄ›nÃ½ch posloupnostÃ­ (i toto se dÃ¡ odstranit, ale je to zbyteÄnÄ› sloÅ¾itÃ© a pÅ™Ã­liÅ¡nÃ© zrychlenÃ­ oproti pouÅ¾itÃ­ jinÃ©ho algoritmu nepÅ™inese). Jeho pÅ™Ã­stup ho ale ÄinÃ­ ideÃ¡lnÃ­m k pouÅ¾itÃ­ na mÃ©diÃ­ch se sekvenÄnÃ­m pÅ™Ã­stupem k datÅ¯m (napÅ™. pÃ¡sky). Jde tedy pouÅ¾Ã­t i ke tÅ™Ã­dÄ›nÃ­ na vnÄ›jÅ¡Ã­ pamÄ›ti -- detaily viz sekce o databÃ¡zÃ­ch.
+\begin{e}{Algoritmus}{0}{Merge sort, tøídìní sléváním}
+Dalším tøídícím algoritmem zaloenım na porovnávání prvkù je mergesort. Je stabilní, take zachovává poøadí dat se stejnım klíèem. Jde o pøíklad algoritmu typu \uv{rozdìl a panuj}, stejnì jako u níe popsaného quicksortu. Byl vynalezen Johnem Von Neumannem. Je zaloen na rozdìlení posloupnosti na dvì zhruba stejné poloviny, rekurzivním setøídìní a potom \uv{slévání} dvou ji setøídìnıch posloupností. Jeho èasová sloitost je $O(n\log n)$ i v nejhorším pøípadì, provádí vìtšinou ménì porovnání ne quicksort, má vìtší nároky na pamì v pøípadì rekurzivního volání (existuje ale i nerekurzivní verze), ale vìtšinou nepracuje na místì a potøebuje alokovat pamì pro vıstup setøídìnıch posloupností (i toto se dá odstranit, ale je to zbyteènì sloité a pøílišné zrychlení oproti pouití jiného algoritmu nepøinese). Jeho pøístup ho ale èiní ideálním k pouití na médiích se sekvenèním pøístupem k datùm (napø. pásky). Jde tedy pouít i ke tøídìní na vnìjší pamìti -- detaily viz sekce o databázích.
 
-Postup prÃ¡ce je nÃ¡sledujÃ­cÃ­:
+Postup práce je následující:
 \begin{penumerate}
-    \item RozdÄ›l nesetÅ™Ã­dÄ›nou posloupnost na dvÄ› (zhruba) poloviÄnÃ­ ÄÃ¡sti    
-    \item Pokud majÃ­ vÃ­ce neÅ¾ jeden prvek, setÅ™iÄ je rekurzivnÃ­m zavolÃ¡nÃ­m mergesortu (tj. pro kaÅ¾dou z nich pokraÄuj od kroku 1 do konce algoritmu), jinak pokraÄuj nÃ¡sledujÃ­cÃ­m krokem.
-    \item Slij dvÄ› setÅ™Ã­dÄ›nÃ© posloupnosti do jednÃ© -- vyber z obou posloupnostÃ­ prvnÃ­ prvek, a pak opakovanÄ› prvky porovnÃ¡vej, zapisuj do setÅ™Ã­dÄ›nÃ© posloupnosti menÅ¡Ã­ z nich a doplÅˆuj dvojici z tÃ© poloviÄnÃ­ posloupnosti, odkud pochÃ¡zel zapsanÃ½ prvek.
+    \item Rozdìl nesetøídìnou posloupnost na dvì (zhruba) polovièní èásti    
+    \item Pokud mají více ne jeden prvek, setøiï je rekurzivním zavoláním mergesortu (tj. pro kadou z nich pokraèuj od kroku 1 do konce algoritmu), jinak pokraèuj následujícím krokem.
+    \item Slij dvì setøídìné posloupnosti do jedné -- vyber z obou posloupností první prvek, a pak opakovanì prvky porovnávej, zapisuj do setøídìné posloupnosti menší z nich a doplòuj dvojici z té polovièní posloupnosti, odkud pocházel zapsanı prvek.
 \end{penumerate}
-\end{algoritmusN}
+\end{e}
 
-\begin{algoritmusN}{Quicksort}
-Quicksort je jednÃ­m z nejrychlejÅ¡Ã­ch algoritmÅ¯ pro tÅ™Ã­dÄ›nÃ­ na vnitÅ™nÃ­ pamÄ›ti, pÅ™estoÅ¾e v nejhorÅ¡Ã­m pÅ™Ã­padÄ› mÅ¯Å¾e jeho ÄasovÃ¡ sloÅ¾itost dosÃ¡hnout aÅ¾ $\Theta(n^2)$. Pro ideÃ¡lnÃ­ i prÅ¯mÄ›rnÃ¡ data dosahuje $\Theta(n\log n)$. Je takÃ© zaloÅ¾en na principu \uv{rozdÄ›l a panuj}, i kdyÅ¾ ponÄ›kud jinÃ½m zpÅ¯sobem neÅ¾ pÅ™edchozÃ­ zmiÅˆovanÃ½, od nÄ›hoÅ¾ se liÅ¡Ã­ i tÃ­m, Å¾e nenÃ­ stabilnÃ­.
+\begin{e}{Algoritmus}{0}{Quicksort}
+Quicksort je jedním z nejrychlejších algoritmù pro tøídìní na vnitøní pamìti, pøestoe v nejhorším pøípadì mùe jeho èasová sloitost dosáhnout a $\Theta(n^2)$. Pro ideální i prùmìrná data dosahuje $\Theta(n\log n)$. Je také zaloen na principu \uv{rozdìl a panuj}, i kdy ponìkud jinım zpùsobem ne pøedchozí zmiòovanı, od nìho se liší i tím, e není stabilní.
 
-Algoritmus nejdÅ™Ã­v vybere nÄ›jakÃ½ prvek, tzv. \emph{pivot}, a prvky s klÃ­Äem vÄ›tÅ¡Ã­ neÅ¾ pivot pÅ™esune do jinÃ© ÄÃ¡sti pole neÅ¾ ty s klÃ­Äem menÅ¡Ã­m. Pak rekurzivnÄ› tÅ™Ã­dÃ­ obÄ› ÄÃ¡sti pole -- kdyÅ¾ se dostane k polÃ­m dÃ©lky 1, problÃ©m je vyÅ™eÅ¡en. Postup vypadÃ¡ takto:
+Algoritmus nejdøív vybere nìjakı prvek, tzv. \emph{pivot}, a prvky s klíèem vìtší ne pivot pøesune do jiné èásti pole ne ty s klíèem menším. Pak rekurzivnì tøídí obì èásti pole -- kdy se dostane k polím délky 1, problém je vyøešen. Postup vypadá takto:
 \begin{penumerate}
-    \item Vyber pivot (jeden prvek ze seznamu). Tady jde o nejvÄ›tÅ¡Ã­ magii, protoÅ¾e k dosaÅ¾enÃ­ nejlepÅ¡Ã­ rychlosti by se mÄ›l pokaÅ¾dÃ© vybÃ­rat mediÃ¡n. NejjednoduÅ¡Å¡Ã­ je vybrat prvnÃ­, ale tento vÃ½bÄ›r ovlivÅˆuje vÃ½slednou rychlost prÃ¡ce, takÅ¾e se vyplatÃ­ napÅ™ vzÃ­t tÅ™i prvky, porovnat je a vzÃ­t si z nich ten prostÅ™ednÃ­.
-    \item Postupuj od zaÄÃ¡tku pole a hledej prvnÃ­ prvek vÄ›tÅ¡Ã­ nebo rovnÃ½ neÅ¾ pivot. AÅ¾ ho najdeÅ¡, postupuj od konce a najdi prvnÃ­ prvek menÅ¡Ã­ neÅ¾ pivot. 
-    \item Prvky prohoÄ a opakuj krok 2 a 3, dokud se hledÃ¡nÃ­ od zaÄÃ¡tku a od konce nepotkÃ¡ na nÄ›jakÃ© pozici -- tu pojmenujeme tÅ™eba $k$.
-    \item RekurzivnÃ­m volÃ¡nÃ­m setÅ™iÄ prvky $(0,\dots,k)$ a $(k+1,\dots,n-1)$ (mÃ¡-li tÅ™Ã­dÄ›nÃ© pole dÃ©lku $n$) -- to znamenÃ¡ pro obÄ› ÄÃ¡sti pole pokraÄuj od kroku 1. Pokud je $k=0$ nebo $k=n-2$, nenÃ­ tÅ™eba uÅ¾ rekurzivnÃ­ho volÃ¡nÃ­, protoÅ¾e posloupnosti dÃ©lky 1 jsou setÅ™Ã­dÄ›nÃ©.
-\end{penumerate}
-
-Pro algoritmus existuje i nerekurzivnÃ­ verze (staÄÃ­ rekurzi nahradit zÃ¡sobnÃ­kem ÃºsekÅ¯ ÄekajÃ­cÃ­ch na zpracovÃ¡nÃ­). Je vidÄ›t, Å¾e na volbÄ› pivotu zÃ¡visÃ­ vÅ¡echno -- pokud pokaÅ¾dÃ© jako pivot volÃ­m 1. nebo $n-1$. hodnotu v poli v poÅ™adÃ­ podle velikosti, dÄ›lÃ­m pak vÅ¾dy na ÄÃ¡sti o dÃ©lce 1 a $n-1$, takÅ¾e tento rekurzivnÃ­ krok provedu aÅ¾ $n$-krÃ¡t a dostanu se k Äasu $\Theta(n^2)$. SamozÅ™ejmÄ›, dÃ­ky existenci algoritmu pro nalezenÃ­ mediÃ¡nu v Äase $\Theta(n)$ je moÅ¾nÃ© i tady dosÃ¡hnout zaruÄenÃ© sloÅ¾itosti $\Theta(n\log n)$, ale v praxi je to kvÅ¯li vysokÃ© multiplikativnÃ­ konstantÄ› nepouÅ¾itelnÃ© -- k vÃ½bÄ›ru pivotu se vÄ›tÅ¡inou s ÃºspÄ›chem uÅ¾Ã­vÃ¡ nÄ›jakÃ¡ jednoduchÃ¡ heuristika, jak je nastÃ­nÄ›no v popisu algoritmu samotnÃ©ho.
-
-Heapsort bÃ½vÃ¡ pomalejÅ¡Ã­ neÅ¾ quicksort, ale zaruÄuje nÃ­zkou Äasovou sloÅ¾itost i pro nejhorÅ¡Ã­ pÅ™Ã­pad a navÃ­c potÅ™ebuje mÃ©nÄ› pamÄ›ti -- nÃ¡roky quicksortu navÃ­c (kromÄ› tÅ™Ã­dÄ›nÃ© posloupnosti) jsou $O(\log n)$ minimÃ¡lnÄ›, kvÅ¯li nutnosti pouÅ¾itÃ­ rekurzivnÃ­ho volÃ¡nÃ­ nebo zÃ¡sobnÃ­ku. Oproti mergesortu ho nelze pouÅ¾Ã­t na data se sekvenÄnÃ­m pÅ™Ã­stupem, tyto nevÃ½hody ale vyvaÅ¾uje relativnÃ­ jednoduchostÃ­ implementace a rychlostÃ­ v prÅ¯mÄ›rnÃ©m pÅ™Ã­padÄ›.
-
-Variantou quicksortu je \emph{introsort}, kterÃ½ ho kombinuje s heapsortem, pokud hloubka rekurze dosÃ¡hne nÄ›jakÃ½ch nepÅ™ijatelnÃ½ch hodnot -- tak je zaruÄena ÄasovÃ¡ sloÅ¾itost $\Theta(n\log n)$ i v nejhorÅ¡Ã­m pÅ™Ã­padÄ› (samozÅ™ejmÄ› je to ale v nejhorÅ¡Ã­m pÅ™Ã­padÄ› poÅ™Ã¡d pomalejÅ¡Ã­ neÅ¾ pouÅ¾itÃ­ jen heapsortu). Jedna z variant tohoto algoritmu se dÃ¡ pouÅ¾Ã­t k hledÃ¡nÃ­ $k$-tÃ©ho nejmenÅ¡Ã­ho prvku (tedy i mediÃ¡nu), kdy dosahuje sloÅ¾itosti $O(n)$ prÅ¯mÄ›rnÄ› aÅ¾ $O(n^2)$ nejhÅ¯Å™e.
-\end{algoritmusN}
-
-
-\subsubsection*{PÅ™ihrÃ¡dkovÃ© tÅ™Ã­dÄ›nÃ­}
-
-\begin{algoritmusN}{Bucket sort, Radix sort, pÅ™ihrÃ¡dkovÃ© tÅ™Ã­dÄ›nÃ­}
-Radix sort je zvlÃ¡Å¡tnÃ­ tÅ™Ã­dÃ­cÃ­ algoritmus -- jeho sloÅ¾itost je totiÅ¾ lineÃ¡rnÃ­. Dosahuje to tÃ­m, Å¾e neporovnÃ¡vÃ¡ vÅ¡echny tÅ™Ã­dÄ›nÃ© prvky (sloÅ¾itost problÃ©mu tÅ™Ã­dÄ›nÃ­ pomocÃ­ porovnÃ¡vÃ¡nÃ­ je $\Theta(n\log n)$, takÅ¾e by to jinak nebylo moÅ¾nÃ©), je ho ale moÅ¾nÃ© pouÅ¾Ã­t jen pro tÅ™Ã­dÄ›nÃ­ dat podle klÃ­Äe z nÄ›jakÃ© ne pÅ™Ã­liÅ¡ velkÃ© mnoÅ¾iny -- max. rozsah tÅ™Ã­dÄ›nÃ½ch hodnot zÃ¡visÃ­ na tom, jak velkÃ© pole si mÅ¯Å¾eme dovolit vymezit v pamÄ›ti pro tento ÃºÄel.
-
-NejjednoduÅ¡Å¡Ã­ varianta (tzv. \emph{pigeonhole sort}, nebo-li \emph{counting sort}) opravdu poÄÃ­tÃ¡ s klÃ­Äi ze zadanÃ©ho rozmezÃ­ $[l,h]$. Pro nÄ›j si pÅ™ipravÃ­ cÃ­lovÃ© pole velikosti $h-l+1$, tj. \uv{pÅ™ihrÃ¡dky}. Do nich pak pÅ™Ã­mo podle klÃ­Äe pÅ™ehazuje ÄtenÃ© prvky (jestliÅ¾e pÅ™ihrÃ¡dky realizujeme jako seznamy, bude tÅ™Ã­dÄ›nÃ­ dokonce stabilnÃ­). Nakonec projde pÅ™ihrÃ¡dky od zaÄÃ¡tku do konce a co v nich najde, to vypÃ­Å¡e (a vÃ½stup bude setÅ™Ã­dÄ›nÃ½). Variantou counting sortu je \emph{bucket sort}, kdy se do jednÃ© pÅ™ihrÃ¡dky nedÃ¡vajÃ­ jen prvky se stejnÃ½m klÃ­Äem, ale prvky s klÃ­Äem v nÄ›jakÃ©m malÃ©m rozmezÃ­ -- ty pak lze setÅ™Ã­dit rychle, protoÅ¾e jich zÅ™ejmÄ› nebude mnoho, a navÃ­c se uÅ¡etÅ™Ã­ pamÄ›Å¥.
-
-
-ProtoÅ¾e ale klÃ­Äe velikosti max. tisÃ­cÅ¯ hodnot jsou vÄ›tÅ¡inou trochu mÃ¡lo, v praxi se bÄ›Å¾nÄ› pouÅ¾Ã­vajÃ­ sloÅ¾itÄ›jÅ¡Ã­ varianty -- ty zahrnujÃ­ nÄ›kolik prÅ¯chodÅ¯ nahoÅ™e popsanÃ©ho algoritmu, pÅ™i nichÅ¾ se tÅ™Ã­dÃ­ jenom podle ÄÃ¡sti klÃ­Äe. Ty se dÄ›lÃ­ na ty, kterÃ© zaÄÃ­najÃ­ od nejmÃ©nÄ› vÃ½znamnÃ© ÄÃ¡sti klÃ­Äe (\emph{least significant digit radix sort}) a ty, kterÃ© jdou od nejvÃ½znamnÄ›jÅ¡Ã­ ÄÃ¡sti (\emph{most significant digit}). PrvnÃ­ z nich majÃ­ tu vÃ½hodu, Å¾e lze zachovat stabilitu tÅ™Ã­dÄ›nÃ­, druhÃ¡ zase mÅ¯Å¾e tÅ™Ã­dit i podle klÃ­ÄÅ¯ rÅ¯znÃ© dÃ©lky a zastavovat se po nalezenÃ­ unikÃ¡tnÃ­ch prefixÅ¯, takÅ¾e se hodÃ­ napÅ™. pro lexikografickÃ© tÅ™Ã­dÄ›nÃ­ podle Å™etÄ›zcovÃ½ch klÃ­ÄÅ¯.
-
-TÅ™Ã­dÄ›nÃ­ typu least significant digit vypadÃ¡ nÃ¡sledovnÄ›:
-\begin{penumerate}
-    \item Vezmi nejmÃ©nÄ› vÃ½znamnou ÄÃ¡st klÃ­Äe (urÄitÃ½ poÄet bitÅ¯).
-    \item RozdÄ›l podle tÃ©to ÄÃ¡sti klÃ­Äe data do pÅ™ihrÃ¡dek, ale v nich zachovej jejich poÅ™adÃ­ (to je nutnÃ© kvÅ¯li nÃ¡slednÃ©mu prÅ¯chodu, zÃ¡roveÅˆ to dÄ›lÃ¡ z tohoto algoritmu stabilnÃ­ tÅ™Ã­dÄ›nÃ­).
-    \item Opakuj toto pro dalÅ¡Ã­ (vÃ½znamnÄ›jÅ¡Ã­) ÄÃ¡st klÃ­Äe.
+    \item Vyber pivot (jeden prvek ze seznamu). Tady jde o nejvìtší magii, protoe k dosaení nejlepší rychlosti by se mìl pokadé vybírat medián. Nejjednodušší je vybrat první, ale tento vıbìr ovlivòuje vıslednou rychlost práce, take se vyplatí napø vzít tøi prvky, porovnat je a vzít si z nich ten prostøední.
+    \item Postupuj od zaèátku pole a hledej první prvek vìtší nebo rovnı ne pivot. A ho najdeš, postupuj od konce a najdi první prvek menší ne pivot. 
+    \item Prvky prohoï a opakuj krok 2 a 3, dokud se hledání od zaèátku a od konce nepotká na nìjaké pozici -- tu pojmenujeme tøeba $k$.
+    \item Rekurzivním voláním setøiï prvky $(0,\dots,k)$ a $(k+1,\dots,n-1)$ (má-li tøídìné pole délku $n$) -- to znamená pro obì èásti pole pokraèuj od kroku 1. Pokud je $k=0$ nebo $k=n-2$, není tøeba u rekurzivního volání, protoe posloupnosti délky 1 jsou setøídìné.
 \end{penumerate}
 
-Most significant digit varianta (rekurzivnÃ­ verze, je zaloÅ¾enÃ¡ na bucket sortu) bÄ›hÃ¡ takto:
+Pro algoritmus existuje i nerekurzivní verze (staèí rekurzi nahradit zásobníkem úsekù èekajících na zpracování). Je vidìt, e na volbì pivotu závisí všechno -- pokud pokadé jako pivot volím 1. nebo $n-1$. hodnotu v poli v poøadí podle velikosti, dìlím pak vdy na èásti o délce 1 a $n-1$, take tento rekurzivní krok provedu a $n$-krát a dostanu se k èasu $\Theta(n^2)$. Samozøejmì, díky existenci algoritmu pro nalezení mediánu v èase $\Theta(n)$ je moné i tady dosáhnout zaruèené sloitosti $\Theta(n\log n)$, ale v praxi je to kvùli vysoké multiplikativní konstantì nepouitelné -- k vıbìru pivotu se vìtšinou s úspìchem uívá nìjaká jednoduchá heuristika, jak je nastínìno v popisu algoritmu samotného.
+
+Heapsort bıvá pomalejší ne quicksort, ale zaruèuje nízkou èasovou sloitost i pro nejhorší pøípad a navíc potøebuje ménì pamìti -- nároky quicksortu navíc (kromì tøídìné posloupnosti) jsou $O(\log n)$ minimálnì, kvùli nutnosti pouití rekurzivního volání nebo zásobníku. Oproti mergesortu ho nelze pouít na data se sekvenèním pøístupem, tyto nevıhody ale vyvauje relativní jednoduchostí implementace a rychlostí v prùmìrném pøípadì.
+
+Variantou quicksortu je \emph{introsort}, kterı ho kombinuje s heapsortem, pokud hloubka rekurze dosáhne nìjakıch nepøijatelnıch hodnot -- tak je zaruèena èasová sloitost $\Theta(n\log n)$ i v nejhorším pøípadì (samozøejmì je to ale v nejhorším pøípadì poøád pomalejší ne pouití jen heapsortu). Jedna z variant tohoto algoritmu se dá pouít k hledání $k$-tého nejmenšího prvku (tedy i mediánu), kdy dosahuje sloitosti $O(n)$ prùmìrnì a $O(n^2)$ nejhùøe.
+\end{e}
+
+
+\subsubsection*{Pøihrádkové tøídìní}
+
+\begin{e}{Algoritmus}{0}{Bucket sort, Radix sort, pøihrádkové tøídìní}
+Radix sort je zvláštní tøídící algoritmus -- jeho sloitost je toti lineární. Dosahuje to tím, e neporovnává všechny tøídìné prvky (sloitost problému tøídìní pomocí porovnávání je $\Theta(n\log n)$, take by to jinak nebylo moné), je ho ale moné pouít jen pro tøídìní dat podle klíèe z nìjaké ne pøíliš velké mnoiny -- max. rozsah tøídìnıch hodnot závisí na tom, jak velké pole si mùeme dovolit vymezit v pamìti pro tento úèel.
+
+Nejjednodušší varianta (tzv. \emph{pigeonhole sort}, nebo-li \emph{counting sort}) opravdu poèítá s klíèi ze zadaného rozmezí $[l,h]$. Pro nìj si pøipraví cílové pole velikosti $h-l+1$, tj. \uv{pøihrádky}. Do nich pak pøímo podle klíèe pøehazuje ètené prvky (jestlie pøihrádky realizujeme jako seznamy, bude tøídìní dokonce stabilní). Nakonec projde pøihrádky od zaèátku do konce a co v nich najde, to vypíše (a vıstup bude setøídìnı). Variantou counting sortu je \emph{bucket sort}, kdy se do jedné pøihrádky nedávají jen prvky se stejnım klíèem, ale prvky s klíèem v nìjakém malém rozmezí -- ty pak lze setøídit rychle, protoe jich zøejmì nebude mnoho, a navíc se ušetøí pamì.
+
+
+Protoe ale klíèe velikosti max. tisícù hodnot jsou vìtšinou trochu málo, v praxi se bìnì pouívají sloitìjší varianty -- ty zahrnují nìkolik prùchodù nahoøe popsaného algoritmu, pøi nich se tøídí jenom podle èásti klíèe. Ty se dìlí na ty, které zaèínají od nejménì vıznamné èásti klíèe (\emph{least significant digit radix sort}) a ty, které jdou od nejvıznamnìjší èásti (\emph{most significant digit}). První z nich mají tu vıhodu, e lze zachovat stabilitu tøídìní, druhá zase mùe tøídit i podle klíèù rùzné délky a zastavovat se po nalezení unikátních prefixù, take se hodí napø. pro lexikografické tøídìní podle øetìzcovıch klíèù.
+
+Tøídìní typu least significant digit vypadá následovnì:
 \begin{penumerate}
-    \item Vezmi nejvÃ½znamnÄ›jÅ¡Ã­ ÄÃ¡st klÃ­Äe (prvnÃ­ pÃ­smeno, napÅ™Ã­klad).
-    \item RozdÄ›l prvky podle tÃ©to ÄÃ¡sti do pÅ™ihrÃ¡dek (takÅ¾e v jednÃ© se jich octne docela hodnÄ›)
-    \item RekurzivnÄ› setÅ™iÄ kaÅ¾dou z pÅ™ihrÃ¡dek (zaÄni podle dalÅ¡Ã­ ÄÃ¡sti klÃ­Äe), pokud je v nÃ­ vÃ­ce neÅ¾ jeden prvek (tohle zaruÄÃ­ zastavenÃ­ za rozliÅ¡ujÃ­cÃ­m prefixem).
-    \item Slep pÅ™ihrÃ¡dky do jednÃ© (setÅ™Ã­dÄ›nÃ©) posloupnosti.
+    \item Vezmi nejménì vıznamnou èást klíèe (urèitı poèet bitù).
+    \item Rozdìl podle této èásti klíèe data do pøihrádek, ale v nich zachovej jejich poøadí (to je nutné kvùli následnému prùchodu, zároveò to dìlá z tohoto algoritmu stabilní tøídìní).
+    \item Opakuj toto pro další (vıznamnìjší) èást klíèe.
 \end{penumerate}
 
-PopisovanÃ© algoritmy vÄ›tÅ¡inou potÅ™ebujÃ­ $O(n+(h-l))$ Äasu k tÅ™Ã­dÄ›nÃ­, je-li $h-l$ (zhruba) poÄet pÅ™ihrÃ¡dek -- to znamenÃ¡, Å¾e sice jde o sloÅ¾itost lineÃ¡rnÃ­, ale lineÃ¡rnÃ­ i v poÄtu pÅ™ihrÃ¡dek, coÅ¾ se nemusÃ­ vÅ¾dy oproti konvenÄnÃ­mu tÅ™Ã­dÄ›nÃ­ vyplatit. NavÃ­c jsou problÃ©mem vysokÃ© nÃ¡roky na pamÄ›Å¥ (nelze tÅ™Ã­dÄ›nÃ­ provÃ©st \uv{na mÃ­stÄ›} v jedinÃ©m poli). Pro malou mnoÅ¾inu hodnot klÃ­ÄÅ¯ (nebo u most significant digit varianty krÃ¡tkÃ© odliÅ¡ujÃ­cÃ­ prefixy) jsou ale ÄasovÄ› efektivnÄ›jÅ¡Ã­.
-\end{algoritmusN}
+Most significant digit varianta (rekurzivní verze, je zaloená na bucket sortu) bìhá takto:
+\begin{penumerate}
+    \item Vezmi nejvıznamnìjší èást klíèe (první písmeno, napøíklad).
+    \item Rozdìl prvky podle této èásti do pøihrádek (take v jedné se jich octne docela hodnì)
+    \item Rekurzivnì setøiï kadou z pøihrádek (zaèni podle další èásti klíèe), pokud je v ní více ne jeden prvek (tohle zaruèí zastavení za rozlišujícím prefixem).
+    \item Slep pøihrádky do jedné (setøídìné) posloupnosti.
+\end{penumerate}
+
+Popisované algoritmy vìtšinou potøebují $O(n+(h-l))$ èasu k tøídìní, je-li $h-l$ (zhruba) poèet pøihrádek -- to znamená, e sice jde o sloitost lineární, ale lineární i v poètu pøihrádek, co se nemusí vdy oproti konvenènímu tøídìní vyplatit. Navíc jsou problémem vysoké nároky na pamì (nelze tøídìní provést \uv{na místì} v jediném poli). Pro malou mnoinu hodnot klíèù (nebo u most significant digit varianty krátké odlišující prefixy) jsou ale èasovì efektivnìjší.
+\end{e}
 
 
 
-\subsubsection*{TÅ™Ã­dÃ­cÃ­ sÃ­tÄ›}
+\subsubsection*{Tøídící sítì}
 
-Zdrojem tÃ©to sekce jsou zÃ¡pisky z pÅ™ednÃ¡Å¡ek Prof. L. KuÄery Algoritmy a datovÃ© struktury II.
+Zdrojem této sekce jsou zápisky z pøednášek Prof. L. Kuèery Algoritmy a datové struktury II.
 \bigskip
 
-\begin{definiceN}{BitonickÃ¡ posloupnost}
-Å˜ekneme, Å¾e posloupnost prvkÅ¯ je \emph{bitonickÃ¡}, pokud po spojenÃ­ do cyklu (tedy nultÃ½ prvek za $n$-tÃ½) obsahuje dva monotÃ³nnÃ­ Ãºseky. Nebo-li obsahuje aÅ¾ na fÃ¡zovÃ½ posuv dva monotÃ³nnÃ­ Ãºseky.
-\end{definiceN}
+\begin{e}{Definice}{0}{Bitonická posloupnost}
+Øekneme, e posloupnost prvkù je \emph{bitonická}, pokud po spojení do cyklu (tedy nultı prvek za $n$-tı) obsahuje dva monotónní úseky. Nebo-li obsahuje a na fázovı posuv dva monotónní úseky.
+\end{e}
 
-\begin{definiceN}{KomparÃ¡tor}
-\emph{KomparÃ¡tor} je speciÃ¡lnÃ­ typ hradla (pÅ™edstavme si pod tÃ­m nedÄ›litelnou elektronickou souÄÃ¡stku, pÅ™Ã­padnÄ› jen virtuÃ¡lnÃ­), kterÃ¡ mÃ¡ dva vÃ½stupy a dva vstupy. Pokud na vstupy pÅ™ivedeme dva prvky (klÃ­Äe, ÄÃ­sla), z levÃ©ho vÃ½stupu vydÃ¡ menÅ¡Ã­ z nich a z pravÃ©ho vÃ½stupu vÄ›tÅ¡Ã­ (takÅ¾e vlastnÄ› porovnÃ¡ dva prvky a na vÃ½stup je vyplivne ve sprÃ¡vnÃ©m poÅ™adÃ­). Pracuje v konstantnÃ­m Äase.
-\end{definiceN}
+\begin{e}{Definice}{0}{Komparátor}
+\emph{Komparátor} je speciální typ hradla (pøedstavme si pod tím nedìlitelnou elektronickou souèástku, pøípadnì jen virtuální), která má dva vıstupy a dva vstupy. Pokud na vstupy pøivedeme dva prvky (klíèe, èísla), z levého vıstupu vydá menší z nich a z pravého vıstupu vìtší (take vlastnì porovná dva prvky a na vıstup je vyplivne ve správném poøadí). Pracuje v konstantním èase.
+\end{e}
 
-\begin{definiceN}{TÅ™Ã­dÃ­cÃ­ sÃ­Å¥}
-TÅ™Ã­dÃ­cÃ­ sÃ­Å¥ je sprÃ¡vnÄ› sestavenÃ¡ mnoÅ¾ina komparÃ¡torÅ¯ dohromady spojenÃ¡ vstupy a vÃ½stupy tak, Å¾e pÅ™i pÅ™ivedenÃ­ posloupnosti dÃ©lky $n$ na vstup ji vydÃ¡ setÅ™Ã­dÄ›nou na vÃ½stupu. KomparÃ¡tory v nÃ­ jsou rozÄlenÄ›nÃ© do hladin, jejichÅ¾ poÄet pak udÃ¡vÃ¡ celkovou dobu vÃ½poÄtu -- pÅ™edpoklÃ¡dÃ¡ se tam, Å¾e komparÃ¡tory v jednotlivÃ½ch vrstvÃ¡ch pracujÃ­ paralelnÄ›, takÅ¾e tÅ™Ã­dÃ­cÃ­ sÃ­tÄ› mohou dosahovat ÄasovÃ© sloÅ¾itosti pouhÃ½ch $O(\log n)$. Algoritmus s takovou Äasovou sloÅ¾itostÃ­ sice existuje, ale mÃ¡ velmi vysokou multiplikativnÃ­ konstantu, takÅ¾e se v praxi nepouÅ¾Ã­vÃ¡. PÅ™Ã­kladem tÅ™Ã­dÃ­cÃ­ sÃ­tÄ› je i bitonickÃ© tÅ™Ã­dÄ›nÃ­.
-\end{definiceN}
+\begin{e}{Definice}{0}{Tøídící sí}
+Tøídící sí je správnì sestavená mnoina komparátorù dohromady spojená vstupy a vıstupy tak, e pøi pøivedení posloupnosti délky $n$ na vstup ji vydá setøídìnou na vıstupu. Komparátory v ní jsou rozèlenìné do hladin, jejich poèet pak udává celkovou dobu vıpoètu -- pøedpokládá se tam, e komparátory v jednotlivıch vrstvách pracují paralelnì, take tøídící sítì mohou dosahovat èasové sloitosti pouhıch $O(\log n)$. Algoritmus s takovou èasovou sloitostí sice existuje, ale má velmi vysokou multiplikativní konstantu, take se v praxi nepouívá. Pøíkladem tøídící sítì je i bitonické tøídìní.
+\end{e}
 
-\begin{algoritmusN}{BitonickÃ© tÅ™Ã­dÄ›nÃ­}
-BitonickÃ¡ tÅ™Ã­dÃ­cÃ­ sÃ­Å¥ je zaloÅ¾ena na pouÅ¾itÃ­ bitonickÃ½ch posloupnostÃ­ a rekurze. Obvod (pro tÅ™Ã­dÄ›nÃ­ dat dÃ©lky $n$) se dÄ›lÃ­ na dvÄ› ÄÃ¡sti:
+\begin{e}{Algoritmus}{0}{Bitonické tøídìní}
+Bitonická tøídící sí je zaloena na pouití bitonickıch posloupností a rekurze. Obvod (pro tøídìní dat délky $n$) se dìlí na dvì èásti:
 \begin{pitemize}
-    \item PrvnÃ­ ÄÃ¡st setÅ™Ã­dÃ­ (rekurzivnÄ›) $1/2$ vstupu vzestupnÄ›, druhou polovinu sestupnÄ› a tÃ­m vytvoÅ™Ã­ bitonickou posloupnost. Obsahuje tedy dvÄ› tÅ™Ã­dÃ­cÃ­ sÃ­tÄ› pro tÅ™Ã­dÄ›nÃ­ posloupnostÃ­ dÃ©lky $\frac{n}{2}$.
-    \item DruhÃ¡ ÄÃ¡st tÅ™Ã­dÃ­ jen bitonickÃ© posloupnosti -- prvnÃ­ jejÃ­ vrstva rozdÄ›lÃ­ bitonickou posloupnost na vstupu na dvÄ› bitonickÃ© posloupnosti (z vÄ›tÅ¡Ã­ch a menÅ¡Ã­ch ÄÃ­sel). DalÅ¡Ã­ vrstvy uÅ¾ jsou opÄ›t implementovÃ¡ny rekurzivnÄ› -- tedy druhÃ¡ vrstva dostane dvÄ› posloupnosti a vyrobÃ­ z nich ÄtyÅ™i atd., aÅ¾ nakonec dojde k \uv{bitonickÃ½m posloupnostem} dÃ©lky 1.
+    \item První èást setøídí (rekurzivnì) $1/2$ vstupu vzestupnì, druhou polovinu sestupnì a tím vytvoøí bitonickou posloupnost. Obsahuje tedy dvì tøídící sítì pro tøídìní posloupností délky $\frac{n}{2}$.
+    \item Druhá èást tøídí jen bitonické posloupnosti -- první její vrstva rozdìlí bitonickou posloupnost na vstupu na dvì bitonické posloupnosti (z vìtších a menších èísel). Další vrstvy u jsou opìt implementovány rekurzivnì -- tedy druhá vrstva dostane dvì posloupnosti a vyrobí z nich ètyøi atd., a nakonec dojde k \uv{bitonickım posloupnostem} délky 1.
 \end{pitemize}
 
-K rozdÄ›lenÃ­ jednÃ© bitonickÃ© posloupnosti dÃ©lky $k$ na dvÄ› staÄÃ­ jen $\frac{k}{2}$ komparÃ¡torÅ¯, kterÃ© porovnÃ¡vajÃ­ vÅ¾dy $i$-tÃ½ a $k+i$-tÃ½ prvek. Dojde sice k nÄ›jakÃ©mu fÃ¡zovÃ©mu posuvu, ale to niÄemu nevadÃ­. DobÅ™e je to vidÄ›t pÅ™i znÃ¡zornÄ›nÃ­ na kruÅ¾nici, doporuÄuji prohlÃ©dnout si postup v programu Algovision Prof. KuÄery (\texttt{http://kam.mff.cuni.cz/\~{}ludek/AlgovisionPage.html}).
+K rozdìlení jedné bitonické posloupnosti délky $k$ na dvì staèí jen $\frac{k}{2}$ komparátorù, které porovnávají vdy $i$-tı a $k+i$-tı prvek. Dojde sice k nìjakému fázovému posuvu, ale to nièemu nevadí. Dobøe je to vidìt pøi znázornìní na krunici, doporuèuji prohlédnout si postup v programu Algovision Prof. Kuèery (\texttt{http://kam.mff.cuni.cz/\~{}ludek/AlgovisionPage.html}).
 
-Je vidÄ›t, Å¾e poÄet vrstev potÅ™ebnÃ½ch k dÄ›lenÃ­ bitonickÃ½ch posloupnostÃ­ dÃ©lky $N$ je $log_2 N$ ($B(N)=\log N$). Pro celkovÃ½ poÄet vrstev, a tedy dobu zpracovÃ¡nÃ­ -- $T(n)$ nÃ¡m vychÃ¡zÃ­ nÃ¡sledujÃ­cÃ­ vzorec
+Je vidìt, e poèet vrstev potøebnıch k dìlení bitonickıch posloupností délky $N$ je $log_2 N$ ($B(N)=\log N$). Pro celkovı poèet vrstev, a tedy dobu zpracování -- $T(n)$ nám vychází následující vzorec
 $$T(N) = T(\frac{n}{2}) + B(N) = \log N + \log(N/2) + \dots + 1$$
-z ÄehoÅ¾ dÃ­ky vzorci pro souÄet aritmetickÃ© posloupnosti $1+2+\dots+k=\frac{k(k+1)}{2}$ vyjde
+z èeho díky vzorci pro souèet aritmetické posloupnosti $1+2+\dots+k=\frac{k(k+1)}{2}$ vyjde
 $$T(N) = O(\frac{1}{2} \log^2 N)$$
-\end{algoritmusN}
+\end{e}

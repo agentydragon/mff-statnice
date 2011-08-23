@@ -1,24 +1,24 @@
-\section{ZÃ¡klady lineÃ¡rnÃ­ho programovÃ¡nÃ­}
+\section{Základy lineárního programování}
 
-\begin{pozadavky}
+\begin{e}{Poadavky}{0}{0}
 \begin{pitemize}
-	\item SimplexovÃ¡ metoda
-	\item VÄ›ty o dualitÄ› (bez dÅ¯kazu)
+	\item Simplexová metoda
+	\item Vìty o dualitì (bez dùkazu)
 \end{pitemize}
-\end{pozadavky}
+\end{e}
 
-\ramcek{14cm}{LineÃ¡rnÃ­ programovÃ¡nÃ­ je oznaÄenÃ­ pro Ãºlohu maximalizovat jistou funkci $n$ reÃ¡lnÃ½ch promÄ›nnÃ½ch na mnoÅ¾inÄ› bodÅ¯ polytopu v prostoru $\mathbb{R}^n$.}
+\ramcek{14cm}{Lineární programování je oznaèení pro úlohu maximalizovat jistou funkci $n$ reálnıch promìnnıch na mnoinì bodù polytopu v prostoru $\mathbb{R}^n$.}
 
-Nejprve si udÄ›lejme malÃ½ vÃ½let do geometrie. {\it Polytop} je zobecnÄ›nÃ­m polygonu
-(mnohoÃºhelnÃ­ku) do vyÅ¡Å¡Ã­ch dimenzÃ­ch. Pro dimenzi $3$ se ale pouÅ¾Ã­vÃ¡ jeÅ¡tÄ› speciÃ¡lnÃ­
-nÃ¡zev {\it polyhedron} a pro dimenzi $4$ {\it polychoron}. My se v dalÅ¡Ã­m textu
-omezÃ­me na {\it konvexnÃ­ polytopy}, coÅ¾ jsou konvexnÃ­ obaly koneÄnÄ› mnoha bodÅ¯.
-Vzhledem k tomu, Å¾e tyto konvexnÃ­ polytopy jsou prÅ¯nikem jistÃ©ho mnoÅ¾stvÃ­ poloprostorÅ¯,
-mÅ¯Å¾eme je popsat maticovou rovnicÃ­ tvaru \[Ax\leq b,\] kde $A$ je matice Å™Ã¡du $m\times n$
-a $m$ je poÄet poloprostorÅ¯, jejichÅ¾ prÅ¯nikem je danÃ½ polytop,
-a $n$ je dimenze podprostoru, ve kterÃ©m polytop mÃ¡me.
+Nejprve si udìlejme malı vılet do geometrie. {\it Polytop} je zobecnìním polygonu
+(mnohoúhelníku) do vyšších dimenzích. Pro dimenzi $3$ se ale pouívá ještì speciální
+název {\it polyhedron} a pro dimenzi $4$ {\it polychoron}. My se v dalším textu
+omezíme na {\it konvexní polytopy}, co jsou konvexní obaly koneènì mnoha bodù.
+Vzhledem k tomu, e tyto konvexní polytopy jsou prùnikem jistého mnoství poloprostorù,
+mùeme je popsat maticovou rovnicí tvaru \[Ax\leq b,\] kde $A$ je matice øádu $m\times n$
+a $m$ je poèet poloprostorù, jejich prùnikem je danı polytop,
+a $n$ je dimenze podprostoru, ve kterém polytop máme.
 
-{\it Simplex} je \uv{$n$--dimenzionÃ¡lnÃ­} trojÃºhelnÃ­k (prÅ¯nik nÄ›kolika poloprostorÅ¯). Podle rostoucÃ­ dimenze je to tedy po Å™adÄ› bod, ÃºseÄka, trojÃºhelnÃ­k, ÄtyÅ™stÄ›n, pentachoron (viz obrÃ¡zek 1) atd. MÅ¯Å¾e bÃ½t omezenÃ½ i neomezenÃ½.
+{\it Simplex} je \uv{$n$--dimenzionální} trojúhelník (prùnik nìkolika poloprostorù). Podle rostoucí dimenze je to tedy po øadì bod, úseèka, trojúhelník, ètyøstìn, pentachoron (viz obrázek 1) atd. Mùe bıt omezenı i neomezenı.
 
 \begin{figure}[h]
 \label{obr1}
@@ -28,92 +28,92 @@ a $n$ je dimenze podprostoru, ve kterÃ©m polytop mÃ¡me.
 \end{center}
 \end{figure}
 
-NynÃ­ pÅ™istupme k formÃ¡lnÃ­ definici Ãºlohy lineÃ¡rnÃ­ho programovÃ¡nÃ­.
+Nyní pøistupme k formální definici úlohy lineárního programování.
 
 \medskip
 \ramcek{14cm}{
-\noindent{\bf\textsf{Ãšloha lineÃ¡rnÃ­ho programovÃ¡nÃ­}} \\
-Je dÃ¡n konvexnÃ­ polytop v prostoru $\mathbb{R}^n$ popsanÃ½ $m$ nerovnostmi.
-MaticovÄ› to mÅ¯Å¾eme zapsat ve tvaru $Ax\leq b$, kde $A$ je reÃ¡lnÃ¡ matice
-Å™Ã¡du $m\times n$ a $b$ je vektor $m$ reÃ¡lnÃ½ch ÄÃ­sel. DÃ¡le je dÃ¡n vektor
+\noindent{\bf\textsf{Úloha lineárního programování}} \\
+Je dán konvexní polytop v prostoru $\mathbb{R}^n$ popsanı $m$ nerovnostmi.
+Maticovì to mùeme zapsat ve tvaru $Ax\leq b$, kde $A$ je reálná matice
+øádu $m\times n$ a $b$ je vektor $m$ reálnıch èísel. Dále je dán vektor
 $c\in\mathbb{R}^n$. Funkce, kterou chceme maximalizovat, je $\sum_{i=1}^n c_ix_i$,
-neboli vektorovÄ› $c^Tx$.
-JeÅ¡tÄ› navÃ­c hledÃ¡me pouze mezi body se vÅ¡emi souÅ™adnicemi
-nezÃ¡pornÃ½mi (tj. $x_i\geq 0$ pro $i=1,\dots, n$).
+neboli vektorovì $c^Tx$.
+Ještì navíc hledáme pouze mezi body se všemi souøadnicemi
+nezápornımi (tj. $x_i\geq 0$ pro $i=1,\dots, n$).
 }
 
 \noindent\textsf{Terminologie}
 \begin{penumerate}
- \item Vektoru $c$ Å™Ã­kÃ¡me {\it cenovÃ½ vektor}, funkci $c^Tx$ pak {\it ÃºÄelovÃ¡ funkce}.
- \item Nerovnosti $Ax\leq b$ a $x\geq 0$ jsou {\it omezujÃ­cÃ­ podmÃ­nky}, vektor $b$ je {\it pravÃ¡ strana Ãºlohy}.
- \item KonkrÃ©tnÃ­ zadÃ¡nÃ­ Ãºlohy lineÃ¡rnÃ­ho programovÃ¡nÃ­ (tj. matice $A$ a vektory $b$, $c$) je {\it pÅ™Ã­pustnÃ©},
-pokud existuje nÄ›jakÃ½ bod splÅˆujÃ­cÃ­ $x\geq 0$ a $Ax\leq b$. Jinak je zadÃ¡nÃ­ {\it nepÅ™Ã­pustnÃ©}.
- \item Ãšloha je {\it neomezenÃ¡}, pokud mÅ¯Å¾eme ÃºÄelovou funkcÃ­ dosÃ¡hnout na pÅ™Ã­pustnÃ½ch bodech libovolnÄ› velikÃ© hodnoty.
-Jinak je {\it omezenÃ¡}.
+ \item Vektoru $c$ øíkáme {\it cenovı vektor}, funkci $c^Tx$ pak {\it úèelová funkce}.
+ \item Nerovnosti $Ax\leq b$ a $x\geq 0$ jsou {\it omezující podmínky}, vektor $b$ je {\it pravá strana úlohy}.
+ \item Konkrétní zadání úlohy lineárního programování (tj. matice $A$ a vektory $b$, $c$) je {\it pøípustné},
+pokud existuje nìjakı bod splòující $x\geq 0$ a $Ax\leq b$. Jinak je zadání {\it nepøípustné}.
+ \item Úloha je {\it neomezená}, pokud mùeme úèelovou funkcí dosáhnout na pøípustnıch bodech libovolnì veliké hodnoty.
+Jinak je {\it omezená}.
 \end{penumerate}
 
-\begin{veta}
-Pro pÅ™Ã­pustnou a omezenou Ãºlohu lineÃ¡rnÃ­ho programovÃ¡nÃ­\,\footnote{Tedy existuje alespoÅˆ jedno Å™eÅ¡enÃ­
-a ÃºÄelovÃ¡ funkce je shora omezenÃ¡.} existuje bod, ve kterÃ©m ÃºÄelovÃ¡ funkce nabÃ½vÃ¡ maxima. TÄ›chto
-bodÅ¯ obecnÄ› mÅ¯Å¾e bÃ½t vÃ­ce a Å™Ã­kÃ¡me jim optimÃ¡lnÃ­ Å™eÅ¡enÃ­.
-\end{veta}
+\begin{e}{Vìta}{0}{0}
+Pro pøípustnou a omezenou úlohu lineárního programování\,\footnote{Tedy existuje alespoò jedno øešení
+a úèelová funkce je shora omezená.} existuje bod, ve kterém úèelová funkce nabıvá maxima. Tìchto
+bodù obecnì mùe bıt více a øíkáme jim optimální øešení.
+\end{e}
 
-\subsection{SimplexovÃ¡ metoda}
+\subsection{Simplexová metoda}
 
-SimplexovÃ¡ metoda je oznaÄenÃ­ pro algoritmus Å™eÅ¡Ã­cÃ­ Ãºlohu lineÃ¡rnÃ­ho programovÃ¡nÃ­. Byla publikovÃ¡na
-v roce 1947 jednÃ­m ze zakladatelÅ¯ lineÃ¡rnÃ­ho programovÃ¡nÃ­ ameriÄanem Georgem Dantzigem.
+Simplexová metoda je oznaèení pro algoritmus øešící úlohu lineárního programování. Byla publikována
+v roce 1947 jedním ze zakladatelù lineárního programování amerièanem Georgem Dantzigem.
 
 \medskip
 \begin{center}
 {\bf\textsf{Idea}}
 \end{center}
 \ramcek{14cm}{
-Zkonstruujeme pÅ™Ã­pustnÃ© Å™eÅ¡enÃ­ v nÄ›kterÃ©m vrcholu polytopu. PotÃ© jdeme po hranÃ¡ch do vrcholÅ¯
-s vyÅ¡Å¡Ã­ hodnotou ÃºÄelovÃ© funkce.}
+Zkonstruujeme pøípustné øešení v nìkterém vrcholu polytopu. Poté jdeme po hranách do vrcholù
+s vyšší hodnotou úèelové funkce.}
 
-OmezujÃ­cÃ­ podmÃ­nku $Ax\leq b$ tedy zmÄ›nÃ­me na $Ax=b$. Toho docÃ­lÃ­me pÅ™idÃ¡nÃ­m jednÃ© nezÃ¡pornÃ© promÄ›nnÃ© pro kaÅ¾dou podmÃ­nku ( $\sum{x}<b$ je totiÅ¾ ekvivalentnÃ­ $\sum{x}+y=b$ kde $y\in\mathbb{R}^+$). Tuto Ãºpravu lze takÃ© zapsat jako $A:=(A\ I)$. DÃ¡le pÅ™edpoklÃ¡dÃ¡me, Å¾e matice $A$ mÃ¡ lineÃ¡rnÄ› nezÃ¡vislÃ© Å™Ã¡dky.
-Pro podmnoÅ¾inu indexÅ¯ $I\subseteq \{1, 2, \dots, n\}$
-oznaÄme $A_I$ matici $A$, ze kterÃ© ponechÃ¡me pouze sloupce, kterÃ© jsou v~$I$. Analogicky pro libovolnÃ½ vektor $w\in\mathbb{R}^n$
-oznaÄme jako $w_I$ vektor, z nÄ›hoÅ¾ ponechÃ¡me jenom souÅ™adnice z~$I$ (mÃ¡ dimenzi $n-|I|$).
+Omezující podmínku $Ax\leq b$ tedy zmìníme na $Ax=b$. Toho docílíme pøidáním jedné nezáporné promìnné pro kadou podmínku ( $\sum{x}<b$ je toti ekvivalentní $\sum{x}+y=b$ kde $y\in\mathbb{R}^+$). Tuto úpravu lze také zapsat jako $A:=(A\ I)$. Dále pøedpokládáme, e matice $A$ má lineárnì nezávislé øádky.
+Pro podmnoinu indexù $I\subseteq \{1, 2, \dots, n\}$
+oznaème $A_I$ matici $A$, ze které ponecháme pouze sloupce, které jsou v~$I$. Analogicky pro libovolnı vektor $w\in\mathbb{R}^n$
+oznaème jako $w_I$ vektor, z nìho ponecháme jenom souøadnice z~$I$ (má dimenzi $n-|I|$).
 
 \ramcek{14cm}{
-{\it BÃ¡ze} (a to nemÃ¡ nic spoleÄnÃ©ho s bÃ¡zÃ­ vektorovÃ©ho prostoru) je libovolnÃ¡ podmnoÅ¾ina indexÅ¯ $B\subseteq \{1, 2, \dots, n\}$ takovÃ¡, Å¾e matice $A_B$ je regulÃ¡rnÃ­.
-NavÃ­c Å™ekneme, Å¾e bÃ¡ze je {\it pÅ™Ã­pustnÃ¡}, pokud rovnice $A_Bx_B=b$ mÃ¡ nezÃ¡pornÃ© Å™eÅ¡enÃ­.
-Vektor $x\in\mathbb{R}^n$ je tzv. {\it bazickÃ© Å™eÅ¡enÃ­}\,\footnote{NÄ›kdy tÃ©Å¾ bÃ¡zovÃ© Å™eÅ¡enÃ­.}, pokud existuje bÃ¡ze $B$ takovÃ¡, Å¾e
-$A_Bx_B=b$ a $x_i=0$ pro kaÅ¾dÃ© $i\in\{1,2,\dots,m\}\backslash B$.
+{\it Báze} (a to nemá nic spoleèného s bází vektorového prostoru) je libovolná podmnoina indexù $B\subseteq \{1, 2, \dots, n\}$ taková, e matice $A_B$ je regulární.
+Navíc øekneme, e báze je {\it pøípustná}, pokud rovnice $A_Bx_B=b$ má nezáporné øešení.
+Vektor $x\in\mathbb{R}^n$ je tzv. {\it bazické øešení}\,\footnote{Nìkdy té bázové øešení.}, pokud existuje báze $B$ taková, e
+$A_Bx_B=b$ a $x_i=0$ pro kadé $i\in\{1,2,\dots,m\}\backslash B$.
 }
-Poznamenejme jen, Å¾e bazickÃ© Å™eÅ¡enÃ­ jeÅ¡tÄ› nemusÃ­ bÃ½t pÅ™Ã­pustnÃ©. Je-li navÃ­c i pÅ™Ã­pustnÃ©,
-Å™Ã­kÃ¡me mu pÅ™irozenÄ› {\it pÅ™Ã­pustnÃ© bazickÃ© Å™eÅ¡enÃ­}. PromÄ›nnÃ½m $x_j$ pro $j\in B$, kde
-$B$ je bÃ¡ze, Å™Ã­kÃ¡me bazickÃ©.
+Poznamenejme jen, e bazické øešení ještì nemusí bıt pøípustné. Je-li navíc i pøípustné,
+øíkáme mu pøirozenì {\it pøípustné bazické øešení}. Promìnnım $x_j$ pro $j\in B$, kde
+$B$ je báze, øíkáme bazické.
 
-\begin{veta}
-NechÅ¥ $x\in\mathbb{R}^n$ je pÅ™Ã­pustnÃ© Å™eÅ¡enÃ­. Pak $x$ je bazickÃ© Å™eÅ¡enÃ­, prÃ¡vÄ› kdyÅ¾
-sloupce matice $A$ odpovÃ­dajÃ­cÃ­ kladnÃ½m promÄ›nnÃ½m jsou lineÃ¡rnÄ› nezÃ¡vislÃ©.
-\end{veta}
-%\begin{dukaz}
-%Jako $K$ oznaÄme mnoÅ¾inu tÄ›ch indexÅ¯, pro kterÃ© je $x_j>0$. Implikace $\Rightarrow$ je jednoduchÃ¡,
-%neboÅ¥ je-li $x$ bazickÃ© Å™eÅ¡enÃ­, pak existuje bÃ¡ze $B$ tak, Å¾e $A_B$ je regulÃ¡rnÃ­ a $x_{[n]\backslash B}=0$.
-%JelikoÅ¾ jsou ale vÅ¡echny souÅ™adnice $x$ vnÄ› $B$ nulovÃ©, je nutnÄ› $K\subseteq B$, a tedy $A_K$ je rovnÄ›Å¾ regulÃ¡rnÃ­.
-%NynÃ­ ukaÅ¾me implikaci $\Leftarrow$.
-%\end{dukaz}
+\begin{e}{Vìta}{0}{0}
+Nech $x\in\mathbb{R}^n$ je pøípustné øešení. Pak $x$ je bazické øešení, právì kdy
+sloupce matice $A$ odpovídající kladnım promìnnım jsou lineárnì nezávislé.
+\end{e}
+%\begin{e}{Dùkaz}{0}{0}
+%Jako $K$ oznaème mnoinu tìch indexù, pro které je $x_j>0$. Implikace $\Rightarrow$ je jednoduchá,
+%nebo je-li $x$ bazické øešení, pak existuje báze $B$ tak, e $A_B$ je regulární a $x_{[n]\backslash B}=0$.
+%Jeliko jsou ale všechny souøadnice $x$ vnì $B$ nulové, je nutnì $K\subseteq B$, a tedy $A_K$ je rovnì regulární.
+%Nyní ukame implikaci $\Leftarrow$.
+%\end{e}
 
-\begin{veta}
-NechÅ¥ $B$ je $m$--prvkovÃ¡ indexovÃ¡ mnoÅ¾ina $B\subseteq \{1,\dots, n\}$ a $A_B$ je regulÃ¡rnÃ­. Pak existuje
-nejvÃ½Å¡e jedno pÅ™Ã­pustnÃ© bazickÃ© Å™eÅ¡enÃ­ $x$ ($x_i\neq 0 \Leftrightarrow i\in B$).
-\end{veta}
+\begin{e}{Vìta}{0}{0}
+Nech $B$ je $m$--prvková indexová mnoina $B\subseteq \{1,\dots, n\}$ a $A_B$ je regulární. Pak existuje
+nejvıše jedno pøípustné bazické øešení $x$ ($x_i\neq 0 \Leftrightarrow i\in B$).
+\end{e}
 
-Mezi prvnÃ­ tvrzenÃ­mi jsme uvedli, Å¾e mÃ¡-li danÃ¡ Ãºloha lineÃ¡rnÃ­ho programovÃ¡nÃ­ nÄ›jakÃ© pÅ™Ã­pustnÃ©
-Å™eÅ¡enÃ­ a je-li zÃ¡roveÅˆ ÃºÄelovÃ¡ funkce na mnoÅ¾inÄ› pÅ™Ã­pustnÃ½ch Å™eÅ¡enÃ­ omezenÃ¡, pak existuje
-optimÃ¡lnÃ­ Å™eÅ¡enÃ­ (tj. nabÃ½vÃ¡ se maxima). DÃ¡ se ale dokÃ¡zat dokonce nÃ¡sledujÃ­cÃ­.
+Mezi první tvrzeními jsme uvedli, e má-li daná úloha lineárního programování nìjaké pøípustné
+øešení a je-li zároveò úèelová funkce na mnoinì pøípustnıch øešení omezená, pak existuje
+optimální øešení (tj. nabıvá se maxima). Dá se ale dokázat dokonce následující.
 
 \ramcek{14cm}{
-\begin{veta}
-MÃ¡-li danÃ¡ Ãºloha optimÃ¡lnÃ­ Å™eÅ¡enÃ­, pak i nÄ›kterÃ© bazickÃ© Å™eÅ¡enÃ­ je optimÃ¡lnÃ­.
-\end{veta}}
-Tato vÄ›ta mÃ¡ obrovskou dÅ¯leÅ¾itost, neboÅ¥ je jasnÃ©, Å¾e {\bf bazickÃ½ch Å™eÅ¡enÃ­ je jen koneÄnÄ› mnoho}.
-UkaÅ¾me si fungovÃ¡nÃ­ simplexovÃ© metody na konkrÃ©tnÃ­m pÅ™Ã­kladu.
-\begin{priklad}
-Maximalizujte funkci $z(x_1,\dots,x_5) = x_1+x_2$ za omezujÃ­cÃ­ch podmÃ­nek $x_i\geq 0$ ($i=1,\dots, 5$) a
+\begin{e}{Vìta}{0}{0}
+Má-li daná úloha optimální øešení, pak i nìkteré bazické øešení je optimální.
+\end{e}}
+Tato vìta má obrovskou dùleitost, nebo je jasné, e {\bf bazickıch øešení je jen koneènì mnoho}.
+Ukame si fungování simplexové metody na konkrétním pøíkladu.
+\begin{e}{Pøíklad}{0}{0}
+Maximalizujte funkci $z(x_1,\dots,x_5) = x_1+x_2$ za omezujících podmínek $x_i\geq 0$ ($i=1,\dots, 5$) a
 \begin{center}
 \fbox{
 \begin{tabular}{rrrrrl}
@@ -122,10 +122,10 @@ $+x_1$ & & & $+x_4$ &  & $=3$       \\
 & $+x_2$ & & & $+x_5$ & $=2$       \\
 \end{tabular}}
 \end{center}
-\end{priklad}
+\end{e}
 
-\begin{proof}[Å˜eÅ¡enÃ­]
-Nejprve najdeme libovolnÃ© pÅ™Ã­pustnÃ© bazickÃ© Å™eÅ¡enÃ­. Matice $A$ a vektor $b$ tÃ©to Ãºlohy jsou ze zadÃ¡nÃ­
+\begin{proof}[Øešení]
+Nejprve najdeme libovolné pøípustné bazické øešení. Matice $A$ a vektor $b$ této úlohy jsou ze zadání
 \[
 A=
 \left(
@@ -138,10 +138,10 @@ b=\left(\begin{array}[h]{c}
    1 \\ 3 \\ 2
   \end{array}\right)
 \]
-a $m=3, n=5$. VidÃ­me tedy, Å¾e jednÃ­m z bazickÃ½ch Å™eÅ¡enÃ­ je $R_1 = (0,0,1,3,2)^T$. OdpovÃ­dajÃ­cÃ­
-bÃ¡ze indexÅ¯ je $B=\{3,4,5\}$ (matice $A_B$ je jednotkovÃ¡, a tedy regulÃ¡rnÃ­). Na zÃ¡kladÄ› tohoto
-vytvoÅ™Ã­me tzv. {\it simplexovou tabulku} (poÄÃ¡teÄnÃ­ pÅ™Ã­pustnou tabulku) tak, Å¾e vyjÃ¡dÅ™Ã­me bazickÃ© promÄ›nnÃ©
-pomocÃ­ nebazickÃ½ch a pÅ™idÃ¡me jeden Å™Ã¡dek s vyjÃ¡dÅ™enou ÃºÄelovou funkcÃ­ pomocÃ­ nebazickÃ½ch promÄ›nnÃ½ch.
+a $m=3, n=5$. Vidíme tedy, e jedním z bazickıch øešení je $R_1 = (0,0,1,3,2)^T$. Odpovídající
+báze indexù je $B=\{3,4,5\}$ (matice $A_B$ je jednotková, a tedy regulární). Na základì tohoto
+vytvoøíme tzv. {\it simplexovou tabulku} (poèáteèní pøípustnou tabulku) tak, e vyjádøíme bazické promìnné
+pomocí nebazickıch a pøidáme jeden øádek s vyjádøenou úèelovou funkcí pomocí nebazickıch promìnnıch.
 \[
 \begin{array}{c|ccc}
 x_3=& 1 & +x_1 & -x_2   \\
@@ -152,22 +152,22 @@ z=& & x_1 & +x_2
 \end{array}, \quad R_1 = (0,0,1,3,2)^T, \quad z=0
 \]
 
-V bodÄ› $R_1$ je $z(R_1) = 0$. NynÃ­ budeme, jak bylo naznaÄeno, postupnÄ› zvyÅ¡ovat
-hodnotu funkce $z$, dokud nezjistÃ­me, Å¾e jsme nalezli optimÃ¡lnÃ­ Å™eÅ¡enÃ­. Hodnotu funkce $z$ budeme
-zvÄ›tÅ¡ovat zvÄ›tÅ¡enÃ­m hodnoty nÄ›kterÃ© nebazickÃ© (volnÃ©) promÄ›nnÃ©.
+V bodì $R_1$ je $z(R_1) = 0$. Nyní budeme, jak bylo naznaèeno, postupnì zvyšovat
+hodnotu funkce $z$, dokud nezjistíme, e jsme nalezli optimální øešení. Hodnotu funkce $z$ budeme
+zvìtšovat zvìtšením hodnoty nìkteré nebazické (volné) promìnné.
 
-Ponechejme $x_1=0$ a zvÄ›tÅ¡eme $x_2$ z $0$ na $1$ (jedniÄka je nejlepÅ¡Ã­ moÅ¾nÃ¡, viz prvnÃ­ rovnici a $x_3\geq 0$).
-Pak pomocÃ­ tabulky dostaneme novÃ© pÅ™Ã­pustnÃ© Å™eÅ¡enÃ­, konkrÃ©tnÄ› $R_2=(0,1,0,3,1)^T$. Z prvnÃ­ rovnice teÄ
-vyjÃ¡dÅ™Ã­me $x_2$:
+Ponechejme $x_1=0$ a zvìtšeme $x_2$ z $0$ na $1$ (jednièka je nejlepší moná, viz první rovnici a $x_3\geq 0$).
+Pak pomocí tabulky dostaneme nové pøípustné øešení, konkrétnì $R_2=(0,1,0,3,1)^T$. Z první rovnice teï
+vyjádøíme $x_2$:
 \[
 x_2 = 1+x_1-x_3
 \]
-a nahradÃ­me touto rovnicÃ­ pÅ¯vodnÃ­ prvnÃ­ rovnici $x_3=1+x_1-x_2$. Toto Å™eÅ¡enÃ­ odpovÃ­dÃ¡ bÃ¡zi $B=\{2,4,5\}$.
-Snadno zjistÃ­me, Å¾e $z(R_2) = 0+1 = 1$. NynÃ­ se stalo, Å¾e promÄ›nnÃ¡ $x_2$ nahradila promÄ›nnou $x_3$ v bÃ¡zi.
-Tomuto procesu Å™Ã­kÃ¡me, Å¾e promÄ›nnÃ¡ $x_2$ \uv{vstoupila do bÃ¡ze}, $x_3$ z nÃ­ \uv{vystoupila}.
+a nahradíme touto rovnicí pùvodní první rovnici $x_3=1+x_1-x_2$. Toto øešení odpovídá bázi $B=\{2,4,5\}$.
+Snadno zjistíme, e $z(R_2) = 0+1 = 1$. Nyní se stalo, e promìnná $x_2$ nahradila promìnnou $x_3$ v bázi.
+Tomuto procesu øíkáme, e promìnná $x_2$ \uv{vstoupila do báze}, $x_3$ z ní \uv{vystoupila}.
 \smallskip
 
-DostÃ¡vÃ¡me tak novou simplexovou tabulku
+Dostáváme tak novou simplexovou tabulku
 \[
 \begin{array}{c|ccc}
 x_2=& 1 & +x_1 & -x_3   \\
@@ -177,12 +177,12 @@ x_5=& 1 & -x_1& +x_3        \\
 z=& 1& +2x_1 & -x_3
 \end{array}, \quad R_2=(0,1,0,3,1)^T, \quad z=1
 \]
-NynÃ­ budeme zvyÅ¡ovat $x_1$. PrvnÃ­ rovnice $x_1$ neomezuje, druhÃ¡ Å™Ã­kÃ¡ $x_1\leq 3$ a tÅ™etÃ­ nynÃ­ Å™Ã­kÃ¡ $x_1\leq 1$
-(jelikoÅ¾ $x_3=0$). PoloÅ¾me tedy $x_1=1$. DostÃ¡vÃ¡me novÃ© Å™eÅ¡enÃ­ $R_3=(1,2,0,2,0)^T, z(R_3) = 3$. PromÄ›nnÃ¡
-$x_1$ vstoupÃ­ do bÃ¡ze mÃ­sto promÄ›nnÃ¡ $x_5$. NovÃ¡ bÃ¡ze je $B=\{1,2,4\}$.
+Nyní budeme zvyšovat $x_1$. První rovnice $x_1$ neomezuje, druhá øíká $x_1\leq 3$ a tøetí nyní øíká $x_1\leq 1$
+(jeliko $x_3=0$). Polome tedy $x_1=1$. Dostáváme nové øešení $R_3=(1,2,0,2,0)^T, z(R_3) = 3$. Promìnná
+$x_1$ vstoupí do báze místo promìnná $x_5$. Nová báze je $B=\{1,2,4\}$.
 \smallskip
 
-DostÃ¡vÃ¡me dalÅ¡Ã­ simplexovou tabulku
+Dostáváme další simplexovou tabulku
 \[
 \begin{array}{c|ccc}
 x_1=& 1 & +x_3 & -x_5   \\
@@ -192,9 +192,9 @@ x_4=& 2 & -x_3& +x_5        \\
 z=& 3& +x_3 & -2x_5
 \end{array}, \quad R_3=(1,2,0,2,0)^T, \quad z=3
 \]
-ZvÄ›tÅ¡Ã­me $x_3$ z $0$ na $2$ ($x_3\leq 2$ plyne ze tÅ™etÃ­ rovnice tabulky) a tÃ­m obdrÅ¾Ã­me
-dalÅ¡Ã­ Å™eÅ¡enÃ­ $R_4=(3,2,2,0,0)^T$, bÃ¡ze je $B=\{1,2,3\}$, $z(R_4)=5$. OdpovÃ­dajÃ­cÃ­ novÃ¡
-simplexovÃ¡ tabulka je
+Zvìtšíme $x_3$ z $0$ na $2$ ($x_3\leq 2$ plyne ze tøetí rovnice tabulky) a tím obdríme
+další øešení $R_4=(3,2,2,0,0)^T$, báze je $B=\{1,2,3\}$, $z(R_4)=5$. Odpovídající nová
+simplexová tabulka je
 \[
 \begin{array}{c|ccc}
 x_1=& 3 & -x_4 &    \\
@@ -204,9 +204,9 @@ x_3=& 2 & -x_4& +x_5        \\
 z=& 5& -x_4 & -x_5
 \end{array}, \quad R_4=(3,2,2,0,0)^T, \quad z=5
 \]
-NynÃ­ je jasnÃ©, Å¾e libovolnÃ© zvÃ½Å¡enÃ­ volnÃ© promÄ›nnÃ© $x_4$ nebo $x_5$ snÃ­Å¾Ã­ hodnotu ÃºÄelovÃ© funkce.
-Z konstrukce simplexovÃ© metody plyne, Å¾e Å™eÅ¡enÃ­ $R_4$ je jiÅ¾ optimÃ¡lnÃ­, neboÅ¥ jsme provÃ¡dÄ›li pouze
-ekvivalentnÃ­ rovnicovÃ© Ãºpravy. OptimÃ¡lnÃ­m Å™eÅ¡enÃ­m danÃ© Ãºlohy je tedy bod $(3,2,2,0,0)$.
+Nyní je jasné, e libovolné zvıšení volné promìnné $x_4$ nebo $x_5$ sníí hodnotu úèelové funkce.
+Z konstrukce simplexové metody plyne, e øešení $R_4$ je ji optimální, nebo jsme provádìli pouze
+ekvivalentní rovnicové úpravy. Optimálním øešením dané úlohy je tedy bod $(3,2,2,0,0)$.
 
 
 
@@ -215,62 +215,62 @@ ekvivalentnÃ­ rovnicovÃ© Ãºpravy. OptimÃ¡lnÃ­m Å™eÅ¡enÃ­m danÃ© Ãºlohy je tedy b
 
 
 
-ÄŒasovÃ¡ sloÅ¾itost simplexovÃ© metody je $O(2^n)$.
-Jeden z nejhorÅ¡Ã­ch pÅ™Ã­padÅ¯ mÅ¯Å¾eme vzÃ­t $n$--dimenzionÃ¡lnÃ­ krychli,
-kterÃ¡ mÃ¡ pÅ™esnÄ› $2^n$ vrcholÅ¯. Na tÃ©to krychli algoritmus
-mÅ¯Å¾e postupnÄ› navÅ¡tÃ­vit vÅ¡echny jejÃ­ vrcholy. 
+Èasová sloitost simplexové metody je $O(2^n)$.
+Jeden z nejhorších pøípadù mùeme vzít $n$--dimenzionální krychli,
+která má pøesnì $2^n$ vrcholù. Na této krychli algoritmus
+mùe postupnì navštívit všechny její vrcholy. 
 
-SimplexovÃ¡ metoda nachÃ¡zÃ­ uplatnÄ›nÃ­ pÅ™evÃ¡Å¾nÄ› pÅ™i Å™eÅ¡enÃ­ optimalizaÄnÃ­ch Ãºloh v inÅ¾enÃ½rstvÃ­ nebo ekonomii.
+Simplexová metoda nachází uplatnìní pøevánì pøi øešení optimalizaèních úloh v inenırství nebo ekonomii.
 
-\subsection{DuÃ¡lnÃ­ Ãºloha}
+\subsection{Duální úloha}
 
-ProblÃ©m lineÃ¡rnÃ­ho programovÃ¡nÃ­ tak, jak byl popsÃ¡n vÃ½Å¡e, oznaÄujeme jako {\it primÃ¡rnÃ­}.
-Ke kaÅ¾dÃ©mu primÃ¡rnÃ­mu problÃ©mu mÅ¯Å¾eme zkonstruovat {\it duÃ¡lnÃ­ Ãºlohu}. PÅ™ipomeÅˆme, Å¾e
-primÃ¡rnÃ­ Ãºloha byla najÃ­t
+Problém lineárního programování tak, jak byl popsán vıše, oznaèujeme jako {\it primární}.
+Ke kadému primárnímu problému mùeme zkonstruovat {\it duální úlohu}. Pøipomeòme, e
+primární úloha byla najít
 \[
 \max\{ c^Tx : x\in\mathbb{R}^n, Ax\leq b, x\geq 0 \}.
 \]
-DuÃ¡lnÃ­ Ãºloha k tÃ©to pak je najÃ­t
+Duální úloha k této pak je najít
 \[
 \min\{ b^Ty : y\in\mathbb{R}^m, A^Ty\geq c, y\geq 0 \}.
 \]
-ZÃ¡kladem teorie duality lineÃ¡rnÃ­ho programu jsou nÃ¡sledujÃ­cÃ­ dvÄ› vÄ›ty -- {\it (SlabÃ¡) vÄ›ta o dualitÄ›}.
+Základem teorie duality lineárního programu jsou následující dvì vìty -- {\it (Slabá) vìta o dualitì}.
 
-\begin{vetaN}{SlabÃ¡ vÄ›ta o dualitÄ›}
-Pokud je $x$ pÅ™Ã­pustnÃ© Å™eÅ¡enÃ­ primÃ¡rnÃ­ Ãºlohy a $y$ pÅ™Ã­pustnÃ© Å™eÅ¡enÃ­ duÃ¡lnÃ­ Ãºlohy, pak
-hodnota duÃ¡lnÃ­ ÃºÄelovÃ© funkce v bodÄ› $y$ je alespoÅˆ tak velikÃ¡ jako hodnota primÃ¡rnÃ­ ÃºÄelovÃ©
-funkce v bodÄ› $x$.
-\end{vetaN}
+\begin{e}{Vìta}{0}{Slabá vìta o dualitì}
+Pokud je $x$ pøípustné øešení primární úlohy a $y$ pøípustné øešení duální úlohy, pak
+hodnota duální úèelové funkce v bodì $y$ je alespoò tak veliká jako hodnota primární úèelové
+funkce v bodì $x$.
+\end{e}
 
-\begin{vetaN}{VÄ›ta o dualitÄ›}
-NechÅ¥ $x_*$ je optimÃ¡lnÃ­ Å™eÅ¡enÃ­ primÃ¡rnÃ­ Ãºlohy. Pak existuje optimÃ¡lnÃ­ Å™eÅ¡enÃ­ $y_*$ duÃ¡lnÃ­ Ãºlohy takovÃ©, Å¾e
+\begin{e}{Vìta}{0}{Vìta o dualitì}
+Nech $x_*$ je optimální øešení primární úlohy. Pak existuje optimální øešení $y_*$ duální úlohy takové, e
 \[
 c^Tx_* = b^Ty_*.
 \]
-\end{vetaN}
+\end{e}
 \bigskip
 
-\noindent{\bf\textsf{DuÃ¡lnÃ­ Ãºloha ze Å¾ivota}}
+\noindent{\bf\textsf{Duální úloha ze ivota}}
 
 \dots 
 
-%MÄ›jme malou pekÃ¡rniÄku na rohu ulice a Å¡kolaÄku KaÄenku, kterÃ¡ si chce koupit
-%nÄ›co dobrÃ©ho ke~svaÄinÄ›. V pekÃ¡rniÄce prodÃ¡vajÃ­ dva druhy zboÅ¾Ã­ -- bÃ¡bovky a paÅ™Ã­Å¾skÃ© dorty.
-%BÃ¡bovka stojÃ­ 80 KÄ, paÅ™Ã­Å¾skÃ½ dort 50 KÄ. PekÃ¡rnÃ­Äku vlastnÃ­ jedna hodnÃ¡ panÃ­ ze sousedstvÃ­, a proto
-%si mÅ¯Å¾ete vzÃ­t i jen kousek bÃ¡bovky nebo dortÃ­ku. Na paÅ™Ã­Å¾skÃ½ dortÃ­k jsou potÅ™eba
-%3 unce ÄokolÃ¡dy, 2 unce cukru a 2 unce krÃ©mu. Na bÃ¡bovku pak jsou potÅ™eba
-%4 unce cukru a 5 uncÃ­ krÃ©mu. JelikoÅ¾ ale KaÄenka dÃ¡ na sprÃ¡vnou vÃ½Å¾ivu,\footnote{A daÅ™Ã­ se jÃ­ to pÅ™evelice.}
-%vÃ­, Å¾e musÃ­ jÃ­st hodnotnÄ›, a proto si stanovila, Å¾e chce, aby jejÃ­ svaÄinka mÄ›la alespoÅˆ 6
-%uncÃ­ ÄokolÃ¡dy, 10 uncÃ­ cukru a 8 uncÃ­ krÃ©mu. JelikoÅ¾ mÃ¡ ale malinkatou penÄ›Å¾enku, do kterÃ© se jÃ­
-%neveÅ¡elo moc penÃ­zkÅ¯, chce, aby si svaÄinku splÅˆujÃ­cÃ­ danÃ¡ kritÃ©ria nakoupila co nejlevnÄ›ji.
-%PomÅ¯Å¾ete milÃ© KaÄence?
+%Mìjme malou pekárnièku na rohu ulice a školaèku Kaèenku, která si chce koupit
+%nìco dobrého ke~svaèinì. V pekárnièce prodávají dva druhy zboí -- bábovky a paøíské dorty.
+%Bábovka stojí 80 Kè, paøískı dort 50 Kè. Pekárníèku vlastní jedna hodná paní ze sousedství, a proto
+%si mùete vzít i jen kousek bábovky nebo dortíku. Na paøískı dortík jsou potøeba
+%3 unce èokolády, 2 unce cukru a 2 unce krému. Na bábovku pak jsou potøeba
+%4 unce cukru a 5 uncí krému. Jeliko ale Kaèenka dá na správnou vıivu,\footnote{A daøí se jí to pøevelice.}
+%ví, e musí jíst hodnotnì, a proto si stanovila, e chce, aby její svaèinka mìla alespoò 6
+%uncí èokolády, 10 uncí cukru a 8 uncí krému. Jeliko má ale malinkatou penìenku, do které se jí
+%nevešelo moc penízkù, chce, aby si svaèinku splòující daná kritéria nakoupila co nejlevnìji.
+%Pomùete milé Kaèence?
 %\medskip
 
 
-%ZaveÄme nynÃ­ $m$ novÃ½ch promÄ›nnÃ½ch $x_{n+1}, x_{n+2}, \dots, x_{n+m}$ pomocÃ­ vztahu
+%Zaveïme nyní $m$ novıch promìnnıch $x_{n+1}, x_{n+2}, \dots, x_{n+m}$ pomocí vztahu
 %\[
 %x_{n+i} = b_i - \sum_{j=1}^n A_{ij}x_j,\quad i=1, 2, \dots, m
 %\]
-%a pÅ™idejme pro kaÅ¾dou takto novÄ› vytvoÅ™enou promÄ›nnou jeÅ¡tÄ› omezujÃ­cÃ­ podmÃ­nku $x_{n+i}\geq 0$.
-%KaÅ¾dÃ¡ promÄ›nnÃ¡ $x_{n+i}$ je tedy jakousi \uv{chybou} (rozdÃ­lem) hodnoty pravÃ© strany
-%a hodnoty levÃ© strany $i$--tÃ© nerovnosti.
+%a pøidejme pro kadou takto novì vytvoøenou promìnnou ještì omezující podmínku $x_{n+i}\geq 0$.
+%Kadá promìnná $x_{n+i}$ je tedy jakousi \uv{chybou} (rozdílem) hodnoty pravé strany
+%a hodnoty levé strany $i$--té nerovnosti.

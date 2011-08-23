@@ -1,64 +1,64 @@
-\subsection{KonkrÃ©tnÃ­ souborovÃ© systÃ©my}
+\subsection{Konkrétní souborové systémy}
 
 \subsubsection*{ext2 (second extended filesystem)}
 
 \begin{pitemize}
-  \item Prostor je rozdÄ›len na bloky a ty jsou uspoÅ™Ã¡dÃ¡ny do skupin blokÅ¯. To je kvÅ¯li
-  snÃ­Å¾enÃ­ vnitÅ™nÃ­ fragmentace a minimalizaci pohyb hlav na disku.
-  \item KaÅ¾dÃ¡ skupina blokÅ¯ obsahuje: superblock, mapu skupiny blokÅ¯, mapu inodÅ¯
+  \item Prostor je rozdìlen na bloky a ty jsou uspoøádány do skupin blokù. To je kvùli
+  sníení vnitøní fragmentace a minimalizaci pohyb hlav na disku.
+  \item Kadá skupina blokù obsahuje: superblock, mapu skupiny blokù, mapu inodù
   a bloky dat.
-  \item \textbf{superblock}~-- obsahuje zÃ¡kladnÃ­ (nezbytnÃ©) informace o svazku. Jeho kopie
-  je tedy v kaÅ¾dÃ© skupinÄ› blokÅ¯ 
+  \item \textbf{superblock}~-- obsahuje základní (nezbytné) informace o svazku. Jeho kopie
+  je tedy v kadé skupinì blokù 
   \item \textbf{i-node}~-- obsahuje informace o souboru
   \begin{pitemize}
-    \item poÄet linkÅ¯ na soubor
-    \item vlastnÃ­k, skupina
-    \item pÅ™Ã­stupovÃ¡ prÃ¡va
+    \item poèet linkù na soubor
+    \item vlastník, skupina
+    \item pøístupová práva
     \item typ souboru
     \item velikost souboru
-    \item Äasy~-- modifikace, pÅ™Ã­stup\dots
-    \item odkazy na datovÃ© bloky
-    \item neobsahuje nÃ¡zev souboru, ten je uloÅ¾en v adresÃ¡Å™i kam soubor patÅ™Ã­
+    \item èasy~-- modifikace, pøístup\dots
+    \item odkazy na datové bloky
+    \item neobsahuje název souboru, ten je uloen v adresáøi kam soubor patøí
   \end{pitemize}
-  \item velkost FS danÃ¡ pÅ™i formÃ¡tovÃ¡nÃ­
+  \item velkost FS daná pøi formátování
 \end{pitemize}
 
 \subsubsection*{ext3}
 \begin{pitemize}
-  \item nadstavba na ext2 a tedy moÅ¾nost pÅ™echodu mezi tÄ›mito dvÄ›ma FS bez
-  nutnosti pÅ™enÃ¡Å¡enÃ­ dat.
-  \item hlavnÃ­ novinka je, Å¾e pÅ™ibyl Å¾urnÃ¡l. Jsou moÅ¾nÃ© tÅ™i ÃºrovnÄ› Å¾urnÃ¡lovÃ¡nÃ­:
+  \item nadstavba na ext2 a tedy monost pøechodu mezi tìmito dvìma FS bez
+  nutnosti pøenášení dat.
+  \item hlavní novinka je, e pøibyl urnál. Jsou moné tøi úrovnì urnálování:
   \begin{pitemize}
-    \item \textbf{Journal}~-- (nejpomalejÅ¡Ã­, ale nejspolehlivÄ›jÅ¡Ã­) metadata i
-    obsah souborÅ¯ jsou zapisovÃ¡ny do Å¾urnÃ¡lu, jeÅ¡tÄ› pÅ™ed komitnutÃ­m do FS.
-    \item \textbf{Ordered}~-- (stÅ™ednÄ› rychlÃ½, stÅ™ednÄ› riskantnÃ­) 
-    \item \textbf{Writeback}~-- (nejrychlejÅ¡Ã­, ale riskantnÃ­ - v nÄ›kterÃ½ch
-    ohledech jako ext2) Å¾urnÃ¡lovÃ¡na jsou pouze metadata, ne jiÅ¾ obsah souborÅ¯.
+    \item \textbf{Journal}~-- (nejpomalejší, ale nejspolehlivìjší) metadata i
+    obsah souborù jsou zapisovány do urnálu, ještì pøed komitnutím do FS.
+    \item \textbf{Ordered}~-- (støednì rychlı, støednì riskantní) 
+    \item \textbf{Writeback}~-- (nejrychlejší, ale riskantní - v nìkterıch
+    ohledech jako ext2) urnálována jsou pouze metadata, ne ji obsah souborù.
   \end{pitemize}
-  \item pÅ™i havÃ¡rii systÃ©mu okamÅ¾itÃ¡ oprava podle Å¾urnÃ¡lu, FS se nemusÃ­ kontrolovat
-  \item FS roste za bÄ›hu jak je potÅ™eba
+  \item pøi havárii systému okamitá oprava podle urnálu, FS se nemusí kontrolovat
+  \item FS roste za bìhu jak je potøeba
 \end{pitemize}
 
 \subsubsection*{ReiserFS}
 \begin{pitemize}
-  \item Å¾unÃ¡lovÃ¡nÃ­ metadat
-  \item rÅ¯st velikosti FS za bÄ›hu, dle potÅ™eby
-  \item \uv{tail packing} pro snÃ­Å¾enÃ­ mÃ­ry fragmentace
-  \item metadata, adresÃ¡Å™ovÃ© poloÅ¾ky, inody a konce (tail) souborÅ¯ jsou uloÅ¾eny
-  v jednom \emph{B+ stromÄ›} podle univerzÃ¡lnÃ­ho ID
-  \item mnohdy rychlejÅ¡Ã­ neÅ¾ ext2 (ext3), kde jsou adresÃ¡Å™e jako seznamy souborÅ¯
-  a tak projitÃ­ adresÃ¡Å™e je lineÃ¡rnÃ­ na rozdÃ­l od logaritmickÃ©ho u stromu v ReiserFS.
+  \item unálování metadat
+  \item rùst velikosti FS za bìhu, dle potøeby
+  \item \uv{tail packing} pro sníení míry fragmentace
+  \item metadata, adresáøové poloky, inody a konce (tail) souborù jsou uloeny
+  v jednom \emph{B+ stromì} podle univerzálního ID
+  \item mnohdy rychlejší ne ext2 (ext3), kde jsou adresáøe jako seznamy souborù
+  a tak projití adresáøe je lineární na rozdíl od logaritmického u stromu v ReiserFS.
 \end{pitemize}
 
 \subsubsection*{FAT32 (File Allocatio Table)}
 \begin{pitemize}
-  \item jednoduchÃ¡ implementace $\Rightarrow$ tÃ©mÄ›Å™ na kaÅ¾dÃ©m OS
-  \item Å¾Ã¡dnÃ¡ ochrana proti fragmentaci
-  \item zjistit kolik je volnÃ©ho mÃ­sta znamenÃ¡ projÃ­t lineÃ¡rnÄ› celÃ½ disk
-  \item rozdÄ›lenÃ­ disku:
+  \item jednoduchá implementace $\Rightarrow$ témìø na kadém OS
+  \item ádná ochrana proti fragmentaci
+  \item zjistit kolik je volného místa znamená projít lineárnì celı disk
+  \item rozdìlení disku:
   \begin{pitemize}
     \item Boot sector
-    \item FAT~-- dvÄ› kopie FAT (mapy datovÃ© oblasti)
-    \item DatovÃ¡ oblast~-- soubory a adresÃ¡Å™e aÅ¾ do konce disku
+    \item FAT~-- dvì kopie FAT (mapy datové oblasti)
+    \item Datová oblast~-- soubory a adresáøe a do konce disku
   \end{pitemize}
 \end{pitemize}

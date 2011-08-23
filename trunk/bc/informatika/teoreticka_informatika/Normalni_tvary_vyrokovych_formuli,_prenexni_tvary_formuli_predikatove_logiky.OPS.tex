@@ -1,6 +1,6 @@
 \subsection{Normální tvary vırokovıch formulí, prenexní tvary formulí predikátové logiky}
 
-\begin{poznamkaN}{Vlastnosti log. spojek}
+\begin{e}{Poznámka}{0}{Vlastnosti log. spojek}
 Platí:
 \begin{penumerate}
     \item $A\wedge B\vdash A$; $A,B\vdash A\wedge B$
@@ -13,37 +13,37 @@ Platí:
     \item $\vee$ je monotonní ($\vdash A\rightarrow A\vee B$), idempotentní, komutativní a asociativní.
     \item $\vee$ a $\wedge$ jsou navzájem distributivní.
 \end{penumerate}
-\end{poznamkaN}
+\end{e}
 
-\begin{vetaN}{o ekvivalenci ve vırokové logice}
+\begin{e}{Vìta}{0}{o ekvivalenci ve vırokové logice}
 Jestlie jsou podformule $A_1\dots A_n$ formule $A$ ekvivalentní s $A'_1\dots A'_n$ ($\vdash A'_i \leftrightarrow A_i$) a $A'$ vytvoøím nahrazením $A'_i$ místo $A_i$, je i $A$ ekvivalentní s $A'$. (Dùkaz indukcí podle sloitosti formule, rozborem pøípadù $A_i$ tvaru $\neg B$, $B\rightarrow C$)
-\end{vetaN}
+\end{e}
 
 \begin{lemmaN}{o dùkazu rozborem pøípadù}
 Je-li $T$ mnoina formulí a $A,B,C$ formule, pak $T,(A\vee B)\vdash C$ platí právì kdy $T,A\vdash C$ a $T,B\vdash C$.
 \end{lemmaN}
 
-\begin{definiceN}{Normální tvary}
+\begin{e}{Definice}{0}{Normální tvary}
 Vırokovou promìnnou nebo její negaci nazveme \emph{literál}. \emph{Klauzule} budi disjunkce nìkolika literálù. \emph{Formule v normálním konjunktivním tvaru (CNF)} je konjunkce klauzulí. \emph{Formule v disjunktivním tvaru (DNF)} je disjunkce konjunkcí literálù.
-\end{definiceN}
+\end{e}
 
-\begin{vetaN}{o normálních tvarech}
+\begin{e}{Vìta}{0}{o normálních tvarech}
 Pro kadou formuli $A$ lze sestrojit formule $A_k,A_d$ v konjunktivním, resp. disjunktivním tvaru tak, e $\vdash A\leftrightarrow A_d$, $\vdash A\leftrightarrow A_k$. (Dùkaz z DeMorganovıch formulí a distributivity, indukcí podle sloitosti formule)
-\end{vetaN}
+\end{e}
 
 \subsubsection*{Prenexní tvary formulí predikátové logiky}
 
-\begin{vetaN}{o ekvivalenci v predikátové logice}
+\begin{e}{Vìta}{0}{o ekvivalenci v predikátové logice}
 Nech formule $A'$ vznikne z $A$ nahrazením nìkterıch vıskytù podformulí $B_1,\dots,B_n$ po øadì formulemi $B'_1,\dots,B'_n$. Je-li $\vdash B_1\leftrightarrow B'_1,\dots,\vdash B_n\leftrightarrow B'_n$, potom platí i $\vdash A\leftrightarrow A'$.
-\end{vetaN}
+\end{e}
 
-\begin{definiceN}{Prenexní tvar}
+\begin{e}{Definice}{0}{Prenexní tvar}
 Formule predikátové logiky $A$ je v \emph{prenexním tvaru}, je-li $$A\equiv (Q_1 x_1)(Q_2 x_2)\dots(Q_n x_n)B,$$ kde $n\geq 0$ a $\forall i\in\{1,\dots,n\}$ je $Q_i\equiv \forall$ nebo $\exists$, $B$ je otevøená formule a kvantifikované promìnné jsou navzájem rùzné. $B$ je \emph{otevøené jádro} $A$, èást s kvantifikátory je \emph{prefix} $A$.
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{Varianta formule predikátové logiky}
+\begin{e}{Definice}{0}{Varianta formule predikátové logiky}
 Formule $A'$ je \emph{varianta} $A$, jestlie vznikla z $A$ postupnım nahrazením podformulí $(Q x)B$ (kde $Q$ je $\forall$ nebo $\exists$) formulemi $(Q y)B_x[y]$ a $y$ není volná v $B$. Podle \emph{vìty o variantách} je varianta s pùvodní formulí ekvivalentní.
-\end{definiceN}
+\end{e}
 
 \begin{lemmaN}{o prenexních operacích}
 Pro pøevod formulí do prenexního tvaru se pouívají tyto operace (vısledná formule je s pùvodní ekvivalentní). Pro podformule $B$, $C$, kvantifikátor $Q$ a promìnnou $x$:
@@ -58,6 +58,6 @@ Pro pøevod formulí do prenexního tvaru se pouívají tyto operace (vısledná formu
 \end{penumerate}
 \end{lemmaN}
 
-\begin{vetaN}{o prenexních tvarech}
+\begin{e}{Vìta}{0}{o prenexních tvarech}
 Ke kadé formuli $A$ predikátové logiky lze sestrojit ekvivalentní formuli $A'$, která je v prenexním tvaru. (Dùkaz: indukcí podle sloitosti formule a z prenexních operací, nìkdy je nutné pøejmenovat volné promìnné)
-\end{vetaN}
+\end{e}

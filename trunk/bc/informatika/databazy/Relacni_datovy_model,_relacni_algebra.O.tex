@@ -1,13 +1,13 @@
 %&latex
 \subsection{Relaèní datový model, relaèní algebra}
-\begin{definiceN}{Relaèní datový model}
+\begin{e}{Definice}{0}{Relaèní datový model}
 \emph{Relaèní schéma} je n-tice $R(A_1: D_1, A_2: D_2, ..., A_n: D_n)$, kde množiny $D_i$ jsou tzv. \emph{(atributové) domény}  (odpovídá dat.typùm v tabulkách) - uvádìjí se nepovinnì, množina $A_i$ je \emph{atribut} (odpovídá sloupci hodnot v tabulce) dále definujme \emph{relaci}\footnote{ano $R$ -
 relace je nìco jiného než $R(A)$ - relaèní schéma, Skopal bohužel používá
 toto trošku matoucí znaèení} $R\subseteq A_1×A_2
 ... A_n$ jako množinu n-tic
 $(a_1, a_2,...,a_n)$ (odpovídá konktrétním datùm v tabulce) kde $a_i \in
 A_i$ a \emph{prvek relace} $r\in R$ (odpovídá øádku v tabulce).
-\end{definiceN}
+\end{e}
 
 \begin{prikladN}{Relaèní datový model}
 definujeme atributy:
@@ -28,13 +28,13 @@ je relace na kartézském souèinu (tzn. jeho podmnožina) $jméno × ulice × mìsto$
 \end{verbatim}  
 \end{prikladN}
 
-\begin{definiceN}{Relaèní algebra}
+\begin{e}{Definice}{0}{Relaèní algebra}
 \emph{Relaèní algebra} je množina operací (unárních, èi binárních) na relacích se schématy, jejichž výsledkem je opìt relace (a její schéma). 
 Deklarativní dotazovací jazyk – tj. neprocedurální, nicménì struktura výrazu navádí na poøadí a zpùsob vyhodnocení.
 Výsledkem je vždy koneèná relace –„bezpeènì“ definované operace.
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{Operace}
+\begin{e}{Definice}{0}{Operace}
 Nezbytné operace pro zachování vyjadøovací síly jazyka:
 \begin{pitemize}
 \item \textbf{pøejmenování} - unární operace, pouze se pøejmenují atributy schématu, s daty se nic nedìje (tj. výslekem je stejná relace a stejné schéma, pouze pøíslušné atributy mají jiná jména)
@@ -107,19 +107,19 @@ R)[A\setminus B]$
 pøíklad dìlení
 \end{center}
 \end{pitemize}
-\end{definiceN}
+\end{e}
 
-\begin{poznamkaN}{Relaèní úplnost}
+\begin{e}{Poznámka}{0}{Relaèní úplnost}
 Jestliže dva výrazy oznaèují stejný dotaz, jsou oba výrazy ekvivalentní.
 Dotazovací jazyk, kterým lze vyjádøit všechny konstrukce relaèní algebry (tj. všechny dotazy, které lze popsat relaèní algebrou) se nazývá \emph{relaènì úplný}.
-\end{poznamkaN}
+\end{e}
 
-\begin{definiceN}{Relaèní kalkulus}
+\begin{e}{Definice}{0}{Relaèní kalkulus}
 Využití aparátu predikátové logiky 1. øádu pro dotazování. Rozšíøení o „databázové“ predikáty, jejichž dvojí forma definuje:
 \\–doménový kalkul (DRK) –pracuje s daty na úrovni atributù
 \\–n-ticový kalkul (NRK) –pracuje s daty na úrovni n-tic (prvkù relace/øádkù)
 \\\\Výsledkem dotazu v DRK / NRK je opìt relace (a její schéma).
-\end{definiceN}
+\end{e}
 
 \begin{prikladN}{srovnání RA, DRK, NRK}
 definujeme rel.schémata:

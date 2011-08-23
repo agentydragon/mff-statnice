@@ -20,15 +20,15 @@ Historically, several different structuring techniques or methodologies have bee
 The two latter meanings for the term "structured programming" are more common. Years after Dijkstra (1969), object-oriented programming (OOP) was developed to handle very large or complex programs.
 
 \medskip
-\begin{definiceN}{Programovací jazyk s blokovou strukturou}
+\begin{e}{Definice}{0}{Programovací jazyk s blokovou strukturou}
 A language is described as "block-structured" when it has a syntax for enclosing structures between bracketed keywords, such as an if-statement bracketed by \texttt{if..fi}, or a code section bracketed by \texttt{BEGIN..END}.
 
 However, a language is described as "comb-structured" when it has a syntax for enclosing structures within an ordered series of keywords. A "comb-structured" language has multiple structure keywords to define separate sections within a block, analogous to the multiple teeth or prongs in a comb separating sections of the comb. For example, in Ada, a block is a 4-pronged comb with keywords DECLARE, BEGIN, EXCEPTION, END, and the if-statement in Ada is a 4-pronged comb with keywords IF, THEN, ELSE, END IF. Jako jazyk s \uv{høebenovou} strukturou by se dalo tedy brát tøeba i PL/SQL.
-\end{definiceN}
+\end{e}
 
-\begin{poznamka}
+\begin{e}{Poznámka}{0}{0}
 It is possible to do structured programming in any programming language, though it is preferable to use something like a procedural programming language. Since about 1970 when structured programming began to gain popularity as a technique, most new procedural programming languages have included features to encourage structured programming (and sometimes have left out features that would make unstructured programming easy). Some of the better known structured programming languages are Pascal, C, PL/I, and Ada.
-\end{poznamka}
+\end{e}
 
 \begin{obecne}{Vìta o strukturovaném programu???}
 \emph{The structured program theorem} is a result in programming language theory. It states that every computable function can be implemented in a programming language that combines subprograms in only three specific ways. These three control structures are
@@ -100,9 +100,9 @@ informace o volání procedur (\uv{aktivaèní záznamy}) --- návratové adresy, param
 \end{pitemize}
 
 
-\begin{poznamkaN}{Vnoøené funkce}
+\begin{e}{Poznámka}{0}{Vnoøené funkce}
 V Pascalu mohou být funkce definované uvnitø jiné funkce. Ta vnitøní potøebuje pøistupovat k~promìnným té vnìjší. Promìnné jsou sice na zásobníku, ale pouhý odkaz na volající funkci nestaèí, protože se vnoøená funkce mùže volat rekurzivnì. Proto je na zásobníku ukazatel na funkci sémanticky nadøazenou.
-\end{poznamkaN}
+\end{e}
 
 \begin{obecne}{Alokace místa pro rùzné typy promìnných}
 \begin{pitemize}
@@ -125,9 +125,9 @@ Although structuring a program into a hierarchy might help to clarify some times
 \end{obecne}
 
 
-\begin{definiceN}{Objektovì orientované programování}
+\begin{e}{Definice}{0}{Objektovì orientované programování}
 Na objektovì-orientované programování se dá nahlédnout jako na kolekci spolupracujících objektù -- v protikladu k tradiènímu pohledu, kdy se za program považuje sled instrukcí pro poèítaè. V OOP je každý objekt schopný pøijímat zprávy, zpracovávat data a posílat zprávy jiným objektùm. Na každý objekt se tak dá nahlížet jako na nezávislý \uv{malý stroj} s vlastní rolí a zodpovìdností. Zjednodušenì øeèeno jde o~dotažení konceptu \emph{data + algoritmy = program}. Data tvoøí s kódem, který je spravuje, jeden celek.
-\end{definiceN}
+\end{e}
 
 \begin{obecne}{Hlavní koncepty (a formálnìjší definice)}
 Objektovì orientované programování (zkracováno na OOP, z anglického Object-oriented programming) je metodika vývoje softwaru, založená na následujících myšlenkách, koncepci:

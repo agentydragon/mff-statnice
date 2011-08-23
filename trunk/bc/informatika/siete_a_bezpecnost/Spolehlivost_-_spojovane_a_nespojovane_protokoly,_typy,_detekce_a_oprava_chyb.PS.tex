@@ -1,43 +1,43 @@
-\subsection{Spolehlivost - spojovanÃ© a nespojovanÃ© protokoly, typy, detekce a oprava chyb}
+\subsection{Spolehlivost - spojované a nespojované protokoly, typy, detekce a oprava chyb}
 
 \subsubsection*{Spolehlivost}
 
 \textbf{Spolehlivost}:
 \begin{pitemize}
-	\item mÅ¯Å¾e bÃ½t zajiÅ¡tÄ›na na kterÃ©koliv vrstvÄ› (kromÄ› fyzickÃ©)
-	\item TCP/IP Å™eÅ¡Ã­ na transportnÃ­ (TCP), ISO/OSI oÄekÃ¡vÃ¡ spolehlivost na vÅ¡ech (poÄÃ­naje linkovou)
-	\item vÄ›tÅ¡i reÅ¾ie, zpoÅ¾dÄ›nÃ­ pÅ™i chybÃ¡ch 
+	\item mùe bıt zajištìna na kterékoliv vrstvì (kromì fyzické)
+	\item TCP/IP øeší na transportní (TCP), ISO/OSI oèekává spolehlivost na všech (poèínaje linkovou)
+	\item vìtši reie, zpodìní pøi chybách 
 \end{pitemize}
 
-\textbf{NespolehlivÃ¡ komunikace}:
+\textbf{Nespolehlivá komunikace}:
 \begin{pitemize}
-	\item menÅ¡Ã­ reÅ¾ie, lepÅ¡Ã­ odezva
-	\item vÃ½hodnÃ© pro audio/video pÅ™enosy, kde lze tolerovat ztrÃ¡ty 
+	\item menší reie, lepší odezva
+	\item vıhodné pro audio/video pøenosy, kde lze tolerovat ztráty 
 \end{pitemize}
 
-\subsubsection*{SpojovanÃ© a nespojovanÃ© protokoly}
+\subsubsection*{Spojované a nespojované protokoly}
 
-\textbf{SpojovanÃ¡ komunikace}: stavovÃ¡, virtuÃ¡lnÃ­ okruhy, navazovÃ¡nÃ­ a ukonÄenÃ­ spojenÃ­. Viz TCP.
+\textbf{Spojovaná komunikace}: stavová, virtuální okruhy, navazování a ukonèení spojení. Viz TCP.
 
-\textbf{NespojovanÃ¡ komunikace}: zasÃ­lÃ¡nÃ­ zprÃ¡v, datagramy (UDP), nestavovÃ¡, bez navazovÃ¡nÃ­ a ukonÄovÃ¡nÃ­.  Viz UDP.
+\textbf{Nespojovaná komunikace}: zasílání zpráv, datagramy (UDP), nestavová, bez navazování a ukonèování.  Viz UDP.
 
 \subsubsection*{Detekce a oprava chyb}
 \begin{pitemize}
-	\item schopnost poznat, Å¾e doÅ¡lo k nÄ›jakÃ© chybÄ› pÅ™i pÅ™enosu
-	\item Hammingovy kÃ³dy - pÅ™Ã­liÅ¡ velkÃ¡ redundance, nepouÅ¾Ã­vanÃ©
-	\item potvrzovÃ¡nÃ­ (ACK) - viz TCP/IP
+	\item schopnost poznat, e došlo k nìjaké chybì pøi pøenosu
+	\item Hammingovy kódy - pøíliš velká redundance, nepouívané
+	\item potvrzování (ACK) - viz TCP/IP
 		\begin{pitemize}
-			\item pÅ™Ã­jemce si znovu nechÃ¡ zaslat poÅ¡kozenÃ¡/nedoruÄenÃ¡ data
-			\item podmÃ­nkou existence zpÄ›tnÃ©ho kanÃ¡lu (alespoÅˆ half-duplex)
-			\item jednotlivÃ© vs. kontinuÃ¡lnÃ­
-			\item kladnÃ© (ACK) a zÃ¡pornÃ© (NAK)
-			\item samostatnÃ© vs. nesamostatnÃ© (piggybacking)
-			\item metoda okÃ©nka
-			\item selektivnÃ­ opakovÃ¡nÃ­ vs. opakovÃ¡nÃ­ s nÃ¡vratem 
+			\item pøíjemce si znovu nechá zaslat poškozená/nedoruèená data
+			\item podmínkou existence zpìtného kanálu (alespoò half-duplex)
+			\item jednotlivé vs. kontinuální
+			\item kladné (ACK) a záporné (NAK)
+			\item samostatné vs. nesamostatné (piggybacking)
+			\item metoda okénka
+			\item selektivní opakování vs. opakování s návratem 
 		\end{pitemize}
-	\item parita - pÅ™Ã­ÄnÃ¡, podÃ©lnÃ¡
-	\item kontrolnÃ­ souÄty
-	\item cyklickÃ© redundantnÃ­ souÄy (CRC)
-	\item druhy chyb: pozmÄ›nÄ›nÃ¡ data, shluky chyb, vÃ½padky dat
-	\item pÅ™i chybÄ› nutno vyÅ¾Ã¡dat si celÃ½ rÃ¡mec znovu 
+	\item parita - pøíèná, podélná
+	\item kontrolní souèty
+	\item cyklické redundantní souèy (CRC)
+	\item druhy chyb: pozmìnìná data, shluky chyb, vıpadky dat
+	\item pøi chybì nutno vyádat si celı rámec znovu 
 \end{pitemize}

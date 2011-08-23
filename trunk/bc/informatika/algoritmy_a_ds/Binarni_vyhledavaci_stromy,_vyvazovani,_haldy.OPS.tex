@@ -1,155 +1,155 @@
 \def\b#1{\mathbf{#1}}
 
 
-\subsection{BinÃ¡rnÃ­ vyhledÃ¡vacÃ­ stromy, vyvaÅ¾ovÃ¡nÃ­, haldy}
+\subsection{Binární vyhledávací stromy, vyvaování, haldy}
 
-\subsubsection*{BinÃ¡rnÃ­ strom}
+\subsubsection*{Binární strom}
 
-\begin{definice}
-\emph{DynamickÃ¡ mnoÅ¾ina} je mnoÅ¾ina prvkÅ¯ (datovÃ¡ struktura), mÄ›nÃ­cÃ­ se v Äase. KaÅ¾dÃ½ jejÃ­ prvek je pÅ™Ã­stupnÃ½ pÅ™es ukazatel a obsahuje:
+\begin{e}{Definice}{0}{0}
+\emph{Dynamická mnoina} je mnoina prvkù (datová struktura), mìnící se v èase. Kadı její prvek je pøístupnı pøes ukazatel a obsahuje:
 \begin{pitemize}
-    \item \emph{klÃ­Ä} (jednu poloÅ¾ku, typicky hodnotu z lin. uspoÅ™Ã¡danÃ© mnoÅ¾iny), 
-    \item \emph{ukazatel(e)} na dalÅ¡Ã­ prvky, 
-    \item pÅ™Ã­padnÄ› \emph{dalÅ¡Ã­ data}.
+    \item \emph{klíè} (jednu poloku, typicky hodnotu z lin. uspoøádané mnoiny), 
+    \item \emph{ukazatel(e)} na další prvky, 
+    \item pøípadnì \emph{další data}.
 \end{pitemize}
-Na takovÃ© mnoÅ¾inÄ› jsou definovÃ¡ny tyto operace:
+Na takové mnoinì jsou definovány tyto operace:
 \begin{pitemize}
-    \item \emph{find} - nalezenÃ­ prvku podle klÃ­Äe
-    \item \emph{insert} - pÅ™idÃ¡nÃ­ dalÅ¡Ã­ho prvku
-    \item \emph{delete} - odstranÄ›nÃ­ prvku
-    \item \emph{min}, \emph{max} - nalezenÃ­ nejvÄ›tÅ¡Ã­ho / nejmenÅ¡Ã­ho prvku
-    \item \emph{succ}, \emph{pred} - nalezenÃ­ nÃ¡sledujÃ­cÃ­ho / pÅ™edchÃ¡zejÃ­cÃ­ho prvku k nÄ›jakÃ©mu pÅ™edem danÃ©mu
+    \item \emph{find} - nalezení prvku podle klíèe
+    \item \emph{insert} - pøidání dalšího prvku
+    \item \emph{delete} - odstranìní prvku
+    \item \emph{min}, \emph{max} - nalezení nejvìtšího / nejmenšího prvku
+    \item \emph{succ}, \emph{pred} - nalezení následujícího / pøedcházejícího prvku k nìjakému pøedem danému
 \end{pitemize}
-\end{definice}
+\end{e}
 
 
-\begin{definice}
-\emph{BinÃ¡rnÃ­ strom} je dynamickÃ¡ mnoÅ¾ina, kde kaÅ¾dÃ½ prvek (uzel, node) mÃ¡ kromÄ› klÃ­Äe a pÅ™Ã­p. dalÅ¡Ã­ch dat tÅ™i ukazatele na \emph{levÃ©ho} a \emph{pravÃ©ho} syna a rodiÄe. SpeciÃ¡lnÃ­ uzel je \emph{koÅ™en}, kterÃ½ mÃ¡ NULLovÃ½ ukazatel na rodiÄe. Ten je v binÃ¡rnÃ­m stromÄ› jeden. Uzly, kterÃ© majÃ­ NULLovÃ© ukazatele na pravÃ©ho i levÃ©ho syna, se nazÃ½vajÃ­ \emph{listy}.
+\begin{e}{Definice}{0}{0}
+\emph{Binární strom} je dynamická mnoina, kde kadı prvek (uzel, node) má kromì klíèe a pøíp. dalších dat tøi ukazatele na \emph{levého} a \emph{pravého} syna a rodièe. Speciální uzel je \emph{koøen}, kterı má NULLovı ukazatel na rodièe. Ten je v binárním stromì jeden. Uzly, které mají NULLové ukazatele na pravého i levého syna, se nazıvají \emph{listy}.
 
-\emph{Podstrom} je ÄÃ¡st stromu (vybranÃ© prvky), kterÃ¡ je sama stromem - napÅ™. pokud se jako koÅ™en urÄÃ­ jeden z prvkÅ¯. \emph{LevÃ½(pravÃ½)} podstrom nÄ›jakÃ©ho prvku je strom, ve kterÃ©m je koÅ™enem levÃ½(pravÃ½) syn tohoto prvku. \emph{VÃ½Å¡ka stromu} je dÃ©lka nejdelÅ¡Ã­ cesty od koÅ™enu k listu.
-\end{definice}
+\emph{Podstrom} je èást stromu (vybrané prvky), která je sama stromem - napø. pokud se jako koøen urèí jeden z prvkù. \emph{Levı(pravı)} podstrom nìjakého prvku je strom, ve kterém je koøenem levı(pravı) syn tohoto prvku. \emph{Vıška stromu} je délka nejdelší cesty od koøenu k listu.
+\end{e}
 
-BinÃ¡rnÃ­ strom je \emph{vyvÃ¡Å¾enÃ½}, pokud max. 1 uzel mÃ¡ jednoho syna (tj. vÅ¡echny vnitÅ™nÃ­ uzly kromÄ› aÅ¾ na jeden majÃ­ oba syny, listy z definice nemajÃ­ Å¾Ã¡dnÃ©ho). VÃ½Å¡ka vyvÃ¡Å¾enÃ©ho stromu roste logaritmicky vzhledem k poÄtu uzlÅ¯. VÃ½Å¡ka nevyvÃ¡Å¾enÃ©ho stromu mÅ¯Å¾e rÅ¯st aÅ¾ lineÃ¡rnÄ› vzhledem k poÄtu prvkÅ¯ (i \uv{spojovÃ½ seznam} je platnÃ½ bin. strom).
+Binární strom je \emph{vyváenı}, pokud max. 1 uzel má jednoho syna (tj. všechny vnitøní uzly kromì a na jeden mají oba syny, listy z definice nemají ádného). Vıška vyváeného stromu roste logaritmicky vzhledem k poètu uzlù. Vıška nevyváeného stromu mùe rùst a lineárnì vzhledem k poètu prvkù (i \uv{spojovı seznam} je platnı bin. strom).
 
 
-\subsubsection*{BinÃ¡rnÃ­ vyhledÃ¡vacÃ­ strom}
+\subsubsection*{Binární vyhledávací strom}
 
-\begin{definice}
-\emph{BinÃ¡rnÃ­ vyhledÃ¡vacÃ­ strom} je takovÃ½ binÃ¡rnÃ­ strom, ve kterÃ©m je jeho struktura urÄenÃ¡ podle klÃ­Äu jeho uzlÅ¯: pro kaÅ¾dÃ½ uzel s klÃ­Äem hodnoty $k$ platÃ­, Å¾e jeho levÃ½ podstrom obsahuje jen uzly s menÅ¡Ã­ hodnotou klÃ­Äe neÅ¾ $k$ a jeho pravÃ½ podstrom jen uzly s hodnotou klÃ­Äe vÄ›tÅ¡Ã­ nebo rovnou $k$.
-\end{definice}
+\begin{e}{Definice}{0}{0}
+\emph{Binární vyhledávací strom} je takovı binární strom, ve kterém je jeho struktura urèená podle klíèu jeho uzlù: pro kadı uzel s klíèem hodnoty $k$ platí, e jeho levı podstrom obsahuje jen uzly s menší hodnotou klíèe ne $k$ a jeho pravı podstrom jen uzly s hodnotou klíèe vìtší nebo rovnou $k$.
+\end{e}
 
-\begin{algoritmusN}{VyhledÃ¡vÃ¡nÃ­ v bin. stromÄ›}
+\begin{e}{Algoritmus}{0}{Vyhledávání v bin. stromì}
 \begin{verbatim}
-Find( x - koÅ™en, k - hledanÃ¡ hodnota klÃ­Äe ){
-  while( x != NULL && k != x->klÃ­Ä ){
-    if ( k < x->klÃ­Ä )
-      x = x->levÃ½_syn;
+Find( x - koøen, k - hledaná hodnota klíèe ){
+  while( x != NULL && k != x->klíè ){
+    if ( k < x->klíè )
+      x = x->levı_syn;
     else
-      x = x->pravÃ½_syn;
+      x = x->pravı_syn;
   }
   return x;
 }
 \end{verbatim}
 
-SloÅ¾itost je $O(h)$ v nejhorÅ¡Ã­m pÅ™Ã­padÄ›, kde $h$ je vÃ½Å¡ka stromu (tj. pro nevyvÃ¡Å¾enÃ© stromy aÅ¾ $O(n)$ kde $n$ je poÄet prvkÅ¯). AsymptotickÃ¡ ÄasovÃ¡ sloÅ¾itost ostatnÃ­ch operacÃ­ je stejnÃ¡.
+Sloitost je $O(h)$ v nejhorším pøípadì, kde $h$ je vıška stromu (tj. pro nevyváené stromy a $O(n)$ kde $n$ je poèet prvkù). Asymptotická èasová sloitost ostatních operací je stejná.
 
-VloÅ¾enÃ­ a vymazÃ¡nÃ­ prvku se provÃ¡dÃ­ prostÃ½m nalezenÃ­m mÃ­sta, kam by se prvek mÄ›l vloÅ¾it (nebo kde uÅ¾ je), a pÅ™epojenÃ­m pointerÅ¯.
-\end{algoritmusN}
+Vloení a vymazání prvku se provádí prostım nalezením místa, kam by se prvek mìl vloit (nebo kde u je), a pøepojením pointerù.
+\end{e}
 
-\subsubsection*{VyvaÅ¾ovanÃ© vyhledÃ¡vacÃ­ stromy}
+\subsubsection*{Vyvaované vyhledávací stromy}
 
-KvÅ¯li zajiÅ¡tÄ›nÃ­ vÄ›tÅ¡Ã­ rychlosti (menÅ¡Ã­ asymptotickÃ© ÄasovÃ© sloÅ¾itosti) operacÃ­ byly vytvoÅ™eny speciÃ¡lnÃ­ druhy binÃ¡rnÃ­ch vyhledÃ¡vacÃ­ch stromÅ¯, kterÃ© jsou prÅ¯bÄ›Å¾nÄ› vyvaÅ¾ovÃ¡ny, aby mÄ›ly max. vÃ½Å¡ku menÅ¡Ã­ neÅ¾ $c\cdot\log n$, kde $n$ je poÄet uzlÅ¯ a $c$ nÄ›jakÃ¡ konstanta.
+Kvùli zajištìní vìtší rychlosti (menší asymptotické èasové sloitosti) operací byly vytvoøeny speciální druhy binárních vyhledávacích stromù, které jsou prùbìnì vyvaovány, aby mìly max. vıšku menší ne $c\cdot\log n$, kde $n$ je poèet uzlù a $c$ nìjaká konstanta.
 
-\begin{definiceN}{PomocnÃ© operace na stromech}
-Pro vyvaÅ¾ovÃ¡nÃ­ stromÅ¯ pÅ™i vklÃ¡dÃ¡nÃ­ a odebÃ­rÃ¡nÃ­ uzlÅ¯ se definujÃ­ pomocnÃ© operace: \emph{pravÃ¡} a \emph{levÃ¡ rotace}. ZachovÃ¡vajÃ­ vlastnosti bin. vyhledÃ¡vacÃ­ch stromÅ¯ a jsou proveditelnÃ© v konstatnÃ­m Äase - jde jen o pÅ™epojenÃ­ uzlÅ¯ nÃ¡sl. zpÅ¯sobem (pro pravou rotaci na uzlu $Q$ a levou na $P$):
+\begin{e}{Definice}{0}{Pomocné operace na stromech}
+Pro vyvaování stromù pøi vkládání a odebírání uzlù se definují pomocné operace: \emph{pravá} a \emph{levá rotace}. Zachovávají vlastnosti bin. vyhledávacích stromù a jsou proveditelné v konstatním èase - jde jen o pøepojení uzlù násl. zpùsobem (pro pravou rotaci na uzlu $Q$ a levou na $P$):
 
 \begin{center}
 \includegraphics[width=12cm]{informatika/algoritmy_a_ds/obrazky/tree_rotation.png}
 
-(Zdroj obrÃ¡zku: Wikipedia)
+(Zdroj obrázku: Wikipedia)
 \end{center}
-\end{definiceN}
+\end{e}
 
 
-\begin{definiceN}{ÄŒerveno-ÄernÃ© stromy}
-ÄŒerveno-ÄernÃ© stromy jsou binÃ¡rnÃ­ vyhledÃ¡vacÃ­ stromy s garantovanou max. vÃ½Å¡kou $O(\log n)$, kde $n$ je poÄet uzlÅ¯, tj. operace na nich mohou mÃ­t asymptotickou Äasovou sloÅ¾itost $O(\log n)$. Pro jejich popis je nutnÃ© definovat \emph{internÃ­ uzly} - vÅ¡echny uzly stromu a \emph{externÃ­ uzly} - na (internÃ­ch) listech (a uzlech s jednÃ­m potomkem) umÄ›le pÅ™idanÃ© NULLovÃ© ukazatele (de facto \uv{listy} Äerveno-ÄernÃ©ho stromu). ExternÃ­ uzly slouÅ¾Ã­ jenom jako abstrakce pro popis stromÅ¯, pÅ™i implementaci se s nimi neoperuje. ÄŒerveno-ÄernÃ½ strom mÃ¡ tyto ÄtyÅ™i povinnÃ© vlastnosti:
+\begin{e}{Definice}{0}{Èerveno-èerné stromy}
+Èerveno-èerné stromy jsou binární vyhledávací stromy s garantovanou max. vıškou $O(\log n)$, kde $n$ je poèet uzlù, tj. operace na nich mohou mít asymptotickou èasovou sloitost $O(\log n)$. Pro jejich popis je nutné definovat \emph{interní uzly} - všechny uzly stromu a \emph{externí uzly} - na (interních) listech (a uzlech s jedním potomkem) umìle pøidané NULLové ukazatele (de facto \uv{listy} èerveno-èerného stromu). Externí uzly slouí jenom jako abstrakce pro popis stromù, pøi implementaci se s nimi neoperuje. Èerveno-èernı strom má tyto ètyøi povinné vlastnosti:
 \begin{penumerate}
-    \item KaÅ¾dÃ½ uzel (externÃ­ i internÃ­) mÃ¡ definovanou barvu, a to Äernou nebo Äervenou.
-    \item KaÅ¾dÃ½ externÃ­ uzel je ÄernÃ½.
-    \item KaÅ¾dÃ½ ÄervenÃ½ vrchol musÃ­ mÃ­t oba syny ÄernÃ©.
-    \item KaÅ¾dÃ¡ cesta od libovolnÃ©ho vrcholu k listÅ¯m v jeho podstromÄ› musÃ­ obsahovat stejnÃ½ poÄet ÄernÃ½ch uzlÅ¯.
+    \item Kadı uzel (externí i interní) má definovanou barvu, a to èernou nebo èervenou.
+    \item Kadı externí uzel je èernı.
+    \item Kadı èervenı vrchol musí mít oba syny èerné.
+    \item Kadá cesta od libovolného vrcholu k listùm v jeho podstromì musí obsahovat stejnı poèet èernıch uzlù.
 \end{penumerate}
 
-Pro Äerveno-ÄernÃ© stromy se definuje \emph{vÃ½Å¡ka uzlu} $x$ ($\b{h}(x)$) jako poÄet uzlÅ¯ na nedelÅ¡Ã­ moÅ¾nÃ© cestÄ› k listu v jeho podstromÄ›. \emph{ÄŒernÃ¡ vÃ½Å¡ka uzlu} ($\b{bh}(x)$) je poÄet ÄernÃ½ch uzlÅ¯ na takovÃ© cestÄ›.
-\end{definiceN}
+Pro èerveno-èerné stromy se definuje \emph{vıška uzlu} $x$ ($\b{h}(x)$) jako poèet uzlù na nedelší moné cestì k listu v jeho podstromì. \emph{Èerná vıška uzlu} ($\b{bh}(x)$) je poèet èernıch uzlù na takové cestì.
+\end{e}
 
-\begin{vetaN}{Vlastnosti Äerveno-ÄernÃ½ch stromÅ¯}
-Podstrom libovolnÃ©ho uzlu $x$ obsahuje alespoÅˆ $2^{\b{bh}(x)}-1$ internÃ­ch uzlÅ¯. DÃ­ky tomu mÃ¡ Äerveno-ÄernÃ½ strom vÃ½Å¡ku vÅ¾dy nejvÃ½Å¡e $2\log(n+1)$ (kde $n$ je poÄet uzlÅ¯). (DÅ¯kaz prvnÃ­ho tvrzenÃ­ indukcÃ­ podle $\b{h}(x)$, druhÃ©ho z prvnÃ­ho a tÅ™etÃ­ vlastnosti Äerveno-ÄernÃ½ch stromÅ¯)
-    \end{vetaN}
+\begin{e}{Vìta}{0}{Vlastnosti èerveno-èernıch stromù}
+Podstrom libovolného uzlu $x$ obsahuje alespoò $2^{\b{bh}(x)}-1$ interních uzlù. Díky tomu má èerveno-èernı strom vıšku vdy nejvıše $2\log(n+1)$ (kde $n$ je poèet uzlù). (Dùkaz prvního tvrzení indukcí podle $\b{h}(x)$, druhého z prvního a tøetí vlastnosti èerveno-èernıch stromù)
+    \end{e}
 
-\begin{dusledek}
-Operace hledÃ¡nÃ­ (minima, maxima, nÃ¡slednÃ­ka, \dots), kterÃ© jsou stejnÃ© jako u obecnÃ½ch binÃ¡rnÃ­ch vyhledÃ¡vacÃ­ch stromÅ¯, majÃ­ garantovanou Äasovou sloÅ¾itost $O(\log n)$.
-\end{dusledek}
+\begin{e}{Dùsledek}{0}{0}
+Operace hledání (minima, maxima, následníka, \dots), které jsou stejné jako u obecnıch binárních vyhledávacích stromù, mají garantovanou èasovou sloitost $O(\log n)$.
+\end{e}
 
-\begin{algoritmusN}{VklÃ¡dÃ¡nÃ­ a odebÃ­rÃ¡nÃ­ uzlÅ¯ v Äerveno ÄernÃ½ch stromech}
-ObÄ› operace majÃ­ podle garantovanÃ© max. vÃ½Å¡ky garantovanou Äas. sloÅ¾itost $O(\log n)$ pro $n$ poÄet uzlÅ¯. ProtoÅ¾e bez poruÅ¡enÃ­ vlastnostÃ­ Äerveno-ÄernÃ½ch stromÅ¯ lze koÅ™en vÅ¾dy pÅ™ebarvit naÄerno, mÅ¯Å¾eme pro nÄ› pÅ™edpoklÃ¡dat, Å¾e \emph{koÅ™en stromu} je \emph{vÅ¾dy ÄernÃ½}.
+\begin{e}{Algoritmus}{0}{Vkládání a odebírání uzlù v èerveno èernıch stromech}
+Obì operace mají podle garantované max. vıšky garantovanou èas. sloitost $O(\log n)$ pro $n$ poèet uzlù. Protoe bez porušení vlastností èerveno-èernıch stromù lze koøen vdy pøebarvit naèerno, mùeme pro nì pøedpokládat, e \emph{koøen stromu} je \emph{vdy èernı}.
 
-\emph{VklÃ¡dÃ¡nÃ­} vypadÃ¡ nÃ¡sledovnÄ›:
+\emph{Vkládání} vypadá následovnì:
 \begin{pitemize}
-    \item NalezenÃ­ mÃ­sta pro vloÅ¾enÃ­ a pÅ™idÃ¡nÃ­ novÃ©ho prvku jako v obecnÃ½ch bin. vyhl. stromech, novÃ½ prvek se pÅ™ebarvÃ­ naÄerveno.
-    \item Pokud je jeho otec ÄernÃ½, mÅ¯Å¾eme skonÄit -- vlastnosti stromÅ¯ jsou splnÄ›nÃ©. Pokud je ÄervenÃ½, musÃ­me strom upravovat (tady pÅ™edpoklÃ¡dÃ¡m, Å¾e otec pÅ™idÃ¡vanÃ©ho uzlu je levÃ½m synem, opaÄnÃ½ pÅ™ipad je symetrickÃ½):
-    \item Je-li i strÃ½c ÄervenÃ½, pÅ™ebarvit otce a strÃ½ce naÄerno a pÅ™enÃ©st chybu o patro vÃ½Å¡ (je-li dÄ›d ÄernÃ½, konÄÃ­m, jinak mÅ¯Å¾u pokraÄovat aÅ¾ do koÅ™ene, kterÃ½ uÅ¾ lze pÅ™ebarvovat beztrestnÄ›).
-    \item Je-li strÃ½c ÄernÃ½ a pÅ™idanÃ½ uzel je levÃ½m synem, udÄ›lat pravou rotaci na dÄ›dovi a pÅ™ebarvit uzly tak, aby odpovÃ­daly vlastnostem stromÅ¯.
-    \item Je-li strÃ½c ÄernÃ½ a pÅ™idanÃ½ uzel je pravÃ½m synem, udÄ›lat levou rotaci na otci a pÅ™evÃ©st tak na pÅ™edchozÃ­ pÅ™Ã­pad.
+    \item Nalezení místa pro vloení a pøidání nového prvku jako v obecnıch bin. vyhl. stromech, novı prvek se pøebarví naèerveno.
+    \item Pokud je jeho otec èernı, mùeme skonèit -- vlastnosti stromù jsou splnìné. Pokud je èervenı, musíme strom upravovat (tady pøedpokládám, e otec pøidávaného uzlu je levım synem, opaènı pøipad je symetrickı):
+    \item Je-li i strıc èervenı, pøebarvit otce a strıce naèerno a pøenést chybu o patro vıš (je-li dìd èernı, konèím, jinak mùu pokraèovat a do koøene, kterı u lze pøebarvovat beztrestnì).
+    \item Je-li strıc èernı a pøidanı uzel je levım synem, udìlat pravou rotaci na dìdovi a pøebarvit uzly tak, aby odpovídaly vlastnostem stromù.
+    \item Je-li strıc èernı a pøidanı uzel je pravım synem, udìlat levou rotaci na otci a pøevést tak na pøedchozí pøípad.
 \end{pitemize}
 
-\emph{OdebÃ­rÃ¡nÃ­} se provÃ¡dÃ­ takto:
+\emph{Odebírání} se provádí takto:
 \begin{pitemize}
-    \item OdstranÃ­m uzel stejnÄ› jako v pÅ™edchozÃ­m pÅ™Ã­padÄ›. Opravdu odstranÄ›nÃ½ uzel (z pÅ™epojovÃ¡nÃ­) mÃ¡ max. jednoho syna. Pokud odstraÅˆovanÃ½ uzel byl ÄervenÃ½, neporuÅ¡Ã­m vlastnosti stromÅ¯, stejnÄ› tak pokud jeho syn byl ÄervenÃ½ -- to Å™eÅ¡Ã­m jeho pÅ™ebarvenÃ­m naÄerno.
-    \item V opaÄnÃ©m pÅ™Ã­padÄ› (tj. syn odebÃ­ranÃ©ho -- $x$ -- je ÄernÃ½) musÃ­m udÄ›lat nÃ¡sl. Ãºpravy (pÅ™ep. Å¾e $x$ je levÃ½m synem svÃ©ho novÃ©ho otce, v op. pÅ™Ã­padÄ› postupuji symetricky):
-    \item $x$ prohlÃ¡sÃ­m za \uv{dvojitÄ› ÄernÃ½} a tÃ©to vlastnosti se pokouÅ¡Ã­m zbavit.
-    \item Pokud je bratr $x$ (buÄ $w$) ÄervenÃ½, pak mÃ¡ 2 ÄernÃ© syny -- provedu levou rotaci na rodiÄi $x$, prohodÃ­m barvy rodiÄe $x$ a uzlu $w$ a pÅ™evedu tak situaci na jeden z nÃ¡sl. pÅ™Ã­padÅ¯:
-    \item Je-li $w$ ÄernÃ½ a mÃ¡-li 2 ÄernÃ© syny, prohlÃ¡sÃ­m $x$ za ÄernÃ½ a pÅ™ebarvÃ­m $w$ naÄerveno, rodiÄe pÅ™ebarvÃ­m buÄ na Äerno (a konÄÃ­m) nebo na \uv{dvojitÄ› Äernou} a propaguji chybu (mohu dojÃ­t aÅ¾ do koÅ™ene, kterÃ½ lze pÅ™ebarovat beztrestnÄ›).
-    \item Je-li $w$ ÄernÃ½, jeho levÃ½ syn ÄervenÃ½ a pravÃ½ ÄernÃ½, vymÄ›nÃ­m barvy $w$ s jeho levÃ½m synem a na $w$ pouÅ¾iji pravou rotaci, ÄÃ­mÅ¾ dostanu poslednÃ­ pÅ™Ã­pad:
-    \item Je-li $w$ ÄernÃ½ a jeho pravÃ½ syn ÄervenÃ½, pÅ™ebarvÃ­m pravÃ©ho syna naÄerno, odstranÃ­m dvojitÄ› Äernou z $x$, provedu levou rotaci na $w$ a pokud mÄ›l pÅ¯vodnÄ› $w$ (a $x$) ÄervenÃ©ho otce, pÅ™ebarvÃ­m $w$ naÄerveno a tohoto (teÄ uÅ¾ levÃ©ho syna $w$) pÅ™ebarvÃ­m naÄerno.
+    \item Odstraním uzel stejnì jako v pøedchozím pøípadì. Opravdu odstranìnı uzel (z pøepojování) má max. jednoho syna. Pokud odstraòovanı uzel byl èervenı, neporuším vlastnosti stromù, stejnì tak pokud jeho syn byl èervenı -- to øeším jeho pøebarvením naèerno.
+    \item V opaèném pøípadì (tj. syn odebíraného -- $x$ -- je èernı) musím udìlat násl. úpravy (pøep. e $x$ je levım synem svého nového otce, v op. pøípadì postupuji symetricky):
+    \item $x$ prohlásím za \uv{dvojitì èernı} a této vlastnosti se pokouším zbavit.
+    \item Pokud je bratr $x$ (buï $w$) èervenı, pak má 2 èerné syny -- provedu levou rotaci na rodièi $x$, prohodím barvy rodièe $x$ a uzlu $w$ a pøevedu tak situaci na jeden z násl. pøípadù:
+    \item Je-li $w$ èernı a má-li 2 èerné syny, prohlásím $x$ za èernı a pøebarvím $w$ naèerveno, rodièe pøebarvím buï na èerno (a konèím) nebo na \uv{dvojitì èernou} a propaguji chybu (mohu dojít a do koøene, kterı lze pøebarovat beztrestnì).
+    \item Je-li $w$ èernı, jeho levı syn èervenı a pravı èernı, vymìním barvy $w$ s jeho levım synem a na $w$ pouiji pravou rotaci, èím dostanu poslední pøípad:
+    \item Je-li $w$ èernı a jeho pravı syn èervenı, pøebarvím pravého syna naèerno, odstraním dvojitì èernou z $x$, provedu levou rotaci na $w$ a pokud mìl pùvodnì $w$ (a $x$) èerveného otce, pøebarvím $w$ naèerveno a tohoto (teï u levého syna $w$) pøebarvím naèerno.
 \end{pitemize}
-\end{algoritmusN}
+\end{e}
 
 
-\begin{definiceN}{AVL stromy (Adelson-Velsky \& Landis)}
-\emph{AVL stromy} jsou, podobnÄ› jako Äerveno-ÄernÃ© stromy, bin. vyhledÃ¡vacÃ­ stromy, kterÃ© zaruÄujÃ­ max. logaritmickÃ½ nÃ¡rÅ¯st vÃ½Å¡ky vzhledem k poÄtu prvkÅ¯. Pro kaÅ¾dÃ½ uzel $x$ se v AVL stromu definuje \emph{faktor vyvÃ¡Å¾enÃ­} jako rozdÃ­l vÃ½Å¡ky jeho levÃ©ho a pravÃ©ho podstromu: $\b{bf}(x) = h(\texttt{x->levÃ½}) - h(\texttt{x->pravÃ½})$. Pro vÅ¡echny uzly v AVL stromu platÃ­, Å¾e $|\b{bf}(x)|\leq 1$.
-\end{definiceN}
+\begin{e}{Definice}{0}{AVL stromy (Adelson-Velsky \& Landis)}
+\emph{AVL stromy} jsou, podobnì jako èerveno-èerné stromy, bin. vyhledávací stromy, které zaruèují max. logaritmickı nárùst vıšky vzhledem k poètu prvkù. Pro kadı uzel $x$ se v AVL stromu definuje \emph{faktor vyváení} jako rozdíl vıšky jeho levého a pravého podstromu: $\b{bf}(x) = h(\texttt{x->levı}) - h(\texttt{x->pravı})$. Pro všechny uzly v AVL stromu platí, e $|\b{bf}(x)|\leq 1$.
+\end{e}
 
-\begin{vetaN}{ZaruÄenÃ­ vÃ½Å¡ky AVL stromÅ¯}
-VÃ½Å¡ka AVL stromu s $n$ vrcholy je $O(\log n)$. (DÅ¯kaz: buÄ $T_n$ AVL strom vÃ½Å¡ky $n$ s minimÃ¡lnÃ­m poÄtem uzlÅ¯. Ten mÃ¡ podstromy $T_{n-1}$ a $T_{n-2}$ atd., tj. velikost minimÃ¡lnÃ­ho AVL stromu roste jako Fibonacciho posloupnost, tedy $|T_n|\geq (\frac{1+\sqrt{5}}{2})^{n-1}$. DÅ¯kaz tohoto indukcÃ­.)
-\end{vetaN}
+\begin{e}{Vìta}{0}{Zaruèení vıšky AVL stromù}
+Vıška AVL stromu s $n$ vrcholy je $O(\log n)$. (Dùkaz: buï $T_n$ AVL strom vıšky $n$ s minimálním poètem uzlù. Ten má podstromy $T_{n-1}$ a $T_{n-2}$ atd., tj. velikost minimálního AVL stromu roste jako Fibonacciho posloupnost, tedy $|T_n|\geq (\frac{1+\sqrt{5}}{2})^{n-1}$. Dùkaz tohoto indukcí.)
+\end{e}
 
-\begin{algoritmusN}{Operace na AVL stromech}
-VyhledÃ¡vacÃ­ operace se provÃ¡dÃ­ stejnÄ› jako na obecnÃ½ch bin. vyhledÃ¡vacÃ­ch stromech, vklÃ¡dÃ¡nÃ­ a odebÃ­rÃ¡nÃ­ prvkÅ¯ taky, ale pokud tyto operace poruÅ¡Ã­ zÃ¡kl. vlastnost AVL stromÅ¯ ($|\b{bf}(x)=2|$), je nutnÃ© provÃ©st vyvaÅ¾ovÃ¡nÃ­ -- pomocÃ­ rotacÃ­ (kterÃ© mohou bÃ½t propagovÃ¡ny aÅ¾ ke koÅ™eni). PÅ™i vklÃ¡dÃ¡nÃ­ a odebÃ­rÃ¡nÃ­ je navÃ­c nutnÃ© prÅ¯bÄ›Å¾nÄ› (nejhÅ¯Å™e aÅ¾ ke koÅ™eni) upravovat indikaci faktoru vyvÃ¡Å¾enÃ­ jednotlivÃ½ch uzlÅ¯.
-\end{algoritmusN}
+\begin{e}{Algoritmus}{0}{Operace na AVL stromech}
+Vyhledávací operace se provádí stejnì jako na obecnıch bin. vyhledávacích stromech, vkládání a odebírání prvkù taky, ale pokud tyto operace poruší zákl. vlastnost AVL stromù ($|\b{bf}(x)=2|$), je nutné provést vyvaování -- pomocí rotací (které mohou bıt propagovány a ke koøeni). Pøi vkládání a odebírání je navíc nutné prùbìnì (nejhùøe a ke koøeni) upravovat indikaci faktoru vyváení jednotlivıch uzlù.
+\end{e}
 
 \subsubsection*{Halda}
 
-\begin{definice}
-\emph{Halda(heap)} je dynamickÃ¡ mnoÅ¾ina se stromovou strukturou (binÃ¡rnÃ­ halda je binÃ¡rnÃ­ strom), pro kterou platÃ­ tzv. \uv{vlastnost haldy}: $$\text{ Je-li }x\text{ potomek }y\text{, pak }x\texttt{->klÃ­Ä}\geq y\texttt{->klÃ­Ä}$$ Haldy s touto nerovnostÃ­ jsou tzv. \emph{min-heap}y, pokud je nerovnost opaÄnÃ¡, jde o \emph{max-heap}.
-\end{definice}
+\begin{e}{Definice}{0}{0}
+\emph{Halda(heap)} je dynamická mnoina se stromovou strukturou (binární halda je binární strom), pro kterou platí tzv. \uv{vlastnost haldy}: $$\text{ Je-li }x\text{ potomek }y\text{, pak }x\texttt{->klíè}\geq y\texttt{->klíè}$$ Haldy s touto nerovností jsou tzv. \emph{min-heap}y, pokud je nerovnost opaèná, jde o \emph{max-heap}.
+\end{e}
 
-\begin{obecne}{(BinÃ¡rnÃ­) haldy}
-BinÃ¡rnÃ­ haldy jsou nejÄastÄ›jÅ¡Ã­m typem haldy. ZajiÅ¡Å¥ujÃ­ nalezenÃ­ minimÃ¡lnÃ­ho prvku v konstantnÃ­m Äase a odebrÃ¡nÃ­ a pÅ™idÃ¡nÃ­ minima v Äase $O(\log n)$. V kaÅ¾dÃ© hladinÄ› od prvnÃ­ aÅ¾ do pÅ™edposlednÃ­ je max. moÅ¾nÃ½ poÄet uzlÅ¯, v poslednÃ­ jsou uzly co nejvÃ­ce \uv{vlevo} -- tedy max. vÃ½Å¡ka haldy s $n$ prvky je $(\log n) + 1$. Proto je pro binÃ¡rnÃ­ haldy jednoduÅ¡e proveditelnÃ¡ jejich datovÃ¡ reprezentace polem (bez pointerÅ¯), kde pÅ™i indexovÃ¡nÃ­ od 0 mÃ¡ uzel na indexu $k$:
+\begin{obecne}{(Binární) haldy}
+Binární haldy jsou nejèastìjším typem haldy. Zajišují nalezení minimálního prvku v konstantním èase a odebrání a pøidání minima v èase $O(\log n)$. V kadé hladinì od první a do pøedposlední je max. monı poèet uzlù, v poslední jsou uzly co nejvíce \uv{vlevo} -- tedy max. vıška haldy s $n$ prvky je $(\log n) + 1$. Proto je pro binární haldy jednoduše proveditelná jejich datová reprezentace polem (bez pointerù), kde pøi indexování od 0 má uzel na indexu $k$:
 \begin{pitemize}
-    \item LevÃ©ho a pravÃ©ho syna na indexu $2k+1$, resp. $2k+2$ (pokud to nenÃ­ vÃ­c neÅ¾ celk. poÄet prvkÅ¯, potom syny nemÃ¡).
-    \item RodiÄe na indexu $\lceil\frac{k}{2}\rceil-1$. 
+    \item Levého a pravého syna na indexu $2k+1$, resp. $2k+2$ (pokud to není víc ne celk. poèet prvkù, potom syny nemá).
+    \item Rodièe na indexu $\lceil\frac{k}{2}\rceil-1$. 
 \end{pitemize}
 
-\emph{PÅ™idÃ¡nÃ­ uzlu} do haldy znamenÃ¡ pÅ™idÃ¡nÃ­ prvku na konec haldy a dokud mÃ¡ jeho rodiÄ vÄ›tÅ¡Ã­ klÃ­Ä, jeho prohazovÃ¡nÃ­ s rodiÄem (tedy posouvÃ¡nÃ­ o vrstvu vÃ½Å¡). PÅ™i \emph{odebÃ­rÃ¡nÃ­ uzlu} z haldy tento nahradÃ­m poslednÃ­m prvkem v haldÄ› a potom dokud neplatÃ­ vlastnost haldy (nejmÃ©nÄ› jeden z potomkÅ¯ mÃ¡ menÅ¡Ã­ klÃ­Ä), prohazuji ho s potomkem s menÅ¡Ã­m klÃ­Äem (a posouvÃ¡m o vrstvu nÃ­Å¾).
+\emph{Pøidání uzlu} do haldy znamená pøidání prvku na konec haldy a dokud má jeho rodiè vìtší klíè, jeho prohazování s rodièem (tedy posouvání o vrstvu vıš). Pøi \emph{odebírání uzlu} z haldy tento nahradím posledním prvkem v haldì a potom dokud neplatí vlastnost haldy (nejménì jeden z potomkù má menší klíè), prohazuji ho s potomkem s menším klíèem (a posouvám o vrstvu ní).
 
-VytvoÅ™enÃ­ haldy je moÅ¾nÃ© v Äase $O(n)$, kde $n$ je poÄet prvkÅ¯ v haldÄ› -- pÅ™idÃ¡nÃ­ 1 prvku do haldy trvÃ¡ $O(h)$, kde $h$ je aktuÃ¡lnÃ­ vÃ½Å¡ka (a $h$ roste od $0$ aÅ¾ k $\lceil\log n\rceil$, poÄet prvkÅ¯ ve vÃ½Å¡ce $k$ je $\frac{n}{2^{k+1}}$, bereme-li vÃ½Å¡ku listÅ¯ rovnou nule) - v souÄtu za vÅ¡echny prvky jde o $O(n\cdot\sum_{h=0}^{\lceil\log n\rceil}\frac{h}{2^h})$.
+Vytvoøení haldy je moné v èase $O(n)$, kde $n$ je poèet prvkù v haldì -- pøidání 1 prvku do haldy trvá $O(h)$, kde $h$ je aktuální vıška (a $h$ roste od $0$ a k $\lceil\log n\rceil$, poèet prvkù ve vıšce $k$ je $\frac{n}{2^{k+1}}$, bereme-li vıšku listù rovnou nule) - v souètu za všechny prvky jde o $O(n\cdot\sum_{h=0}^{\lceil\log n\rceil}\frac{h}{2^h})$.
 
-BinÃ¡rnÃ­ halda se pouÅ¾Ã­vÃ¡ napÅ™. k \emph{tÅ™Ã­dÄ›nÃ­ haldou} (heapsortu), kdy se z dat, kterÃ¡ je potÅ™eba utÅ™Ã­dit, nejdÅ™Ã­ve postavÃ­ halda, a potom se opakuje operace odebrÃ¡nÃ­ koÅ™ene (tj. minimÃ¡lnÃ­ho prvku).
+Binární halda se pouívá napø. k \emph{tøídìní haldou} (heapsortu), kdy se z dat, která je potøeba utøídit, nejdøíve postaví halda, a potom se opakuje operace odebrání koøene (tj. minimálního prvku).
 \end{obecne}
 
 \begin{obecne}{Fibonacciho haldy}
-Fibonacciho haldy majÃ­ nÃ­zkou Äasovou sloÅ¾itost bÄ›Å¾nÃ½ch operacÃ­ -- amortizovanÄ› $O(1)$ pro vloÅ¾enÃ­, hledÃ¡nÃ­ minima apod.; odebrÃ¡nÃ­ prvku a odebrÃ¡nÃ­ minima mÃ¡ sloÅ¾itost $O(\log n)$ pro $n$ prvkÅ¯ v haldÄ›. TvoÅ™Ã­ ji skupina stromÅ¯, vyhovujÃ­cÃ­ch \uv{vlastnosti haldy}. KaÅ¾dÃ½ uzel haldy s $n$ prvky mÃ¡ max. $\log n$ potomkÅ¯ a ve svÃ©m podstromÄ› minimÃ¡lnÄ› $F_{k+2}$ uzlÅ¯, kde $F_k$ je $k$-tÃ© Fibonacciho ÄÃ­slo. To je zajiÅ¡tÄ›no pravidlem, Å¾e pÅ™i odebÃ­rÃ¡nÃ­ prvkÅ¯ lze z nekoÅ™enovÃ©ho uzlu oddÄ›lit max. 1 syna, jinak je nutnÃ© oddÄ›lit i tento uzel a ten se pak stane koÅ™enem dalÅ¡Ã­ho stromu. PoÄet stromÅ¯ se sniÅ¾uje pÅ™i odebÃ­rÃ¡nÃ­ minima, kdy jsou spojovÃ¡ny dohromady.
+Fibonacciho haldy mají nízkou èasovou sloitost bìnıch operací -- amortizovanì $O(1)$ pro vloení, hledání minima apod.; odebrání prvku a odebrání minima má sloitost $O(\log n)$ pro $n$ prvkù v haldì. Tvoøí ji skupina stromù, vyhovujících \uv{vlastnosti haldy}. Kadı uzel haldy s $n$ prvky má max. $\log n$ potomkù a ve svém podstromì minimálnì $F_{k+2}$ uzlù, kde $F_k$ je $k$-té Fibonacciho èíslo. To je zajištìno pravidlem, e pøi odebírání prvkù lze z nekoøenového uzlu oddìlit max. 1 syna, jinak je nutné oddìlit i tento uzel a ten se pak stane koøenem dalšího stromu. Poèet stromù se sniuje pøi odebírání minima, kdy jsou spojovány dohromady.
 
-Fibonacciho haldy se pouÅ¾Ã­vajÃ­ pro efektivnÃ­ implementaci sloÅ¾itÄ›jÅ¡Ã­ch operacÃ­, jako napÅ™. JarnÃ­kova nebo Dijkstrova algoritmu.
+Fibonacciho haldy se pouívají pro efektivní implementaci sloitìjších operací, jako napø. Jarníkova nebo Dijkstrova algoritmu.
 \end{obecne}

@@ -1,192 +1,192 @@
-\subsection{Struktura pÅ™ekladaÄe, lexikÃ¡lnÃ­, syntaktickÃ¡ analÃ½za}
+\subsection{Struktura pøekladaèe, lexikální, syntaktická analıza}
 
-Zdroj: poznÃ¡mky a slidy z pÅ™ednÃ¡Å¡ek Principy pÅ™ekladaÄÅ¯ Dr. J. Yaghoba
+Zdroj: poznámky a slidy z pøednášek Principy pøekladaèù Dr. J. Yaghoba
 
-\subsubsection*{PÅ™ekladaÄe}
+\subsubsection*{Pøekladaèe}
 
-\begin{definiceN}{PÅ™ekladaÄ}
-FormÃ¡lnÃ­ definice: \emph{pÅ™ekladaÄ} je zobrazenÃ­ $L_{in}\to L_{out}$ pro nÄ›jakÃ© dva jazyky $L_{in},L_{out}$, vstupnÃ­ generovanÃ½ gramatikou $G_{in}$, vÃ½stupnÃ­ generovanÃ½ gramatikou $G_{out}$ nebo pÅ™ijÃ­manÃ½ automatem $A_{out}$. Je to takovÃ© zobrazenÃ­, kde $\forall w\in L_{in}\ \exists w'\in L_{out}$. Pro $w\notin L_{in}$ zobrazenÃ­ neexistuje.
+\begin{e}{Definice}{0}{Pøekladaè}
+Formální definice: \emph{pøekladaè} je zobrazení $L_{in}\to L_{out}$ pro nìjaké dva jazyky $L_{in},L_{out}$, vstupní generovanı gramatikou $G_{in}$, vıstupní generovanı gramatikou $G_{out}$ nebo pøijímanı automatem $A_{out}$. Je to takové zobrazení, kde $\forall w\in L_{in}\ \exists w'\in L_{out}$. Pro $w\notin L_{in}$ zobrazení neexistuje.
 
-NeformÃ¡lnÄ› jde o stroj, kterÃ½ nÄ›jakÃ½ zdrojovÃ½ kÃ³d (v nÄ›jakÃ©m zdrojovÃ©m jazyce) pÅ™evÃ¡dÃ­ na cÃ­lovÃ½ kÃ³d (v cÃ­lovÃ©m jazyce) a pÅ™Ã­padnÄ› vypisuje chybovÃ¡ hlÃ¡Å¡enÃ­.
+Neformálnì jde o stroj, kterı nìjakı zdrojovı kód (v nìjakém zdrojovém jazyce) pøevádí na cílovı kód (v cílovém jazyce) a pøípadnì vypisuje chybová hlášení.
 
-Definice neÅ™Ã­kÃ¡ nic o tÅ™Ã­dÃ¡ch jazykÅ¯ a gramatik, ve kterÃ½ch pÅ™ekladaÄ operuje. BÄ›Å¾nÃ© programovacÃ­ jazyky jsou \uv{plus minus} bezkontextovÃ© -- nebo se na bezkontextovÃ© pÅ™evÃ¡dÄ›jÃ­, aby byly rozpoznatelnÃ© nÄ›ÄÃ­m prakticky implementovatelnÃ½m (tedy zÃ¡sobnÃ­kovÃ½m automatem, Turingovy stroje jsou ponÄ›kud sloÅ¾itÃ©).
-\end{definiceN}
+Definice neøíká nic o tøídách jazykù a gramatik, ve kterıch pøekladaè operuje. Bìné programovací jazyky jsou \uv{plus minus} bezkontextové -- nebo se na bezkontextové pøevádìjí, aby byly rozpoznatelné nìèím prakticky implementovatelnım (tedy zásobníkovım automatem, Turingovy stroje jsou ponìkud sloité).
+\end{e}
 
 
-\begin{priklady}
-PÅ™Ã­klady pouÅ¾itÃ­ pÅ™ekladaÄÅ¯:
+\begin{e}{Pøíklady}{0}{0}
+Pøíklady pouití pøekladaèù:
 \begin{pitemize}
-    \item (pÅ™ekvapivÄ›) pÅ™eklad programÅ¯, psanÃ½ch v nÄ›jakÃ©m vyÅ¡Å¡Ã­m programovacÃ­m jazyce, do strojovÃ©ho kÃ³du cÃ­lovÃ© platformy
-    \item syntax-highlighting (vÄ›tÅ¡inou lexikÃ¡lnÄ› Å™Ã­zenÃ½)
+    \item (pøekvapivì) pøeklad programù, psanıch v nìjakém vyšším programovacím jazyce, do strojového kódu cílové platformy
+    \item syntax-highlighting (vìtšinou lexikálnì øízenı)
     \item pretty printer
-    \item statickÃ© kontroly programu (hledÃ¡nÃ­ chyb bez spouÅ¡tÄ›nÃ­ programÅ¯)
-    \item interpretery (napÅ™. skriptovacÃ­ch jazykÅ¯, run-time moduly pro interpretovanÃ© jazyky jako je Java)
-    \item databÃ¡zovÃ© stroje, dotazovacÃ­ jazyky
+    \item statické kontroly programu (hledání chyb bez spouštìní programù)
+    \item interpretery (napø. skriptovacích jazykù, run-time moduly pro interpretované jazyky jako je Java)
+    \item databázové stroje, dotazovací jazyky
 \end{pitemize}
-\end{priklady}
+\end{e}
 
 
-\begin{obecne}{PÅ™eklad programu}
-Program (pro jednoduchost jedinÃ½ modul) se 
+\begin{obecne}{Pøeklad programu}
+Program (pro jednoduchost jedinı modul) se 
 \begin{penumerate}
-    \item ze zdrojovÃ©ho kÃ³du v nÄ›jakÃ©m programovacÃ­m jazyce \emph{preprocesorem} (coÅ¾ je taky pÅ™ekladaÄ, upravujÃ­cÃ­ zdrojovÃ½ kÃ³d na textovÃ© Ãºrovni) pÅ™evede na textovÃ½ soubor (pÅ™ipravenÃ½ pro dalÅ¡Ã­ pÅ™eklad),
-    \item \emph{pÅ™ekladaÄem} se pÅ™evede dÃ¡l do assemblerovÃ©ho kÃ³du (jde o kÃ³d v jinÃ©m jazyce, mnohem bliÅ¾Å¡Ã­m cÃ­lovÃ© architektuÅ™e -- jde o textovÃ½ popis instrukcÃ­ procesoru),
-    \item \emph{assemblerem} se pÅ™evÃ¡dÃ­ na \uv{object-file} -- modul, ve kterÃ©m uÅ¾ jazyk odpovÃ­dÃ¡ strojovÃ©mu kÃ³du cÃ­lovÃ© CPU,
-    \item nakonec \emph{linker}, resp. \emph{loader} pÅ™ipojÃ­ dalÅ¡Ã­ informace a vytvoÅ™Ã­ finÃ¡lnÃ­ spustitelnÃ½ kÃ³d.
+    \item ze zdrojového kódu v nìjakém programovacím jazyce \emph{preprocesorem} (co je taky pøekladaè, upravující zdrojovı kód na textové úrovni) pøevede na textovı soubor (pøipravenı pro další pøeklad),
+    \item \emph{pøekladaèem} se pøevede dál do assemblerového kódu (jde o kód v jiném jazyce, mnohem bliším cílové architektuøe -- jde o textovı popis instrukcí procesoru),
+    \item \emph{assemblerem} se pøevádí na \uv{object-file} -- modul, ve kterém u jazyk odpovídá strojovému kódu cílové CPU,
+    \item nakonec \emph{linker}, resp. \emph{loader} pøipojí další informace a vytvoøí finální spustitelnı kód.
 \end{penumerate}
 \end{obecne}
 
-\begin{obecne}{FÃ¡ze pÅ™ekladu pÅ™ekladaÄem}
-TradiÄnÄ› se pÅ™ekladaÄe dÄ›lÃ­ na dvÄ› fÃ¡ze -- \emph{front-end} a \emph{back-end}. PrvnÃ­ z nich je zamÄ›Å™enÃ¡ hlavnÄ› na analÃ½zu zdrojovÃ©ho kÃ³du po lexikÃ¡lnÃ­ a syntaktickÃ© strÃ¡nce a jejÃ­ pÅ™evod do nÄ›jakÃ©ho mezikÃ³du, tj. pÅ™Ã­pravu pro back-end. Ãškolem back-endu je pak z pÅ™edpÅ™ipravenÃ© formy vygenerovat finÃ¡lnÃ­ kÃ³d v cÃ­lovÃ©m jazyce.
+\begin{obecne}{Fáze pøekladu pøekladaèem}
+Tradiènì se pøekladaèe dìlí na dvì fáze -- \emph{front-end} a \emph{back-end}. První z nich je zamìøená hlavnì na analızu zdrojového kódu po lexikální a syntaktické stránce a její pøevod do nìjakého mezikódu, tj. pøípravu pro back-end. Úkolem back-endu je pak z pøedpøipravené formy vygenerovat finální kód v cílovém jazyce.
 
-PrvnÃ­ fÃ¡ze se dÃ¡le dÄ›lÃ­ na tyto ÄÃ¡sti:
+První fáze se dále dìlí na tyto èásti:
 \begin{penumerate}
-    \item \emph{lexikÃ¡lnÃ­ analÃ½za} -- pÅ™evÃ¡dÃ­ vstupnÃ­ text do binÃ¡rnÃ­ formy, na sled identifikÃ¡torÅ¯ a konstant; hodnoty objektÅ¯ uklÃ¡dÃ¡ do spec. tabulek 
-    \item \emph{syntaktickÃ¡ analÃ½za} -- abstraktnÃ­ ÄÃ¡st, nezajÃ­mÃ¡ se o hodnoty a vÃ½znam elementÅ¯ jazyka, Ãºkolem je rozpoznat, zda vstupnÃ­ slovo (vstup) patÅ™Ã­ do jazyka; v dneÅ¡nÃ­ch pÅ™ekladaÄÃ­ch stavÃ­ tzv. \uv{syntaktickÃ½ strom} kÃ³du
-    \item \emph{sÃ©mantickÃ¡ analÃ½za} -- zkoumÃ¡ sÃ©mantiku (vÃ½znam, smysl) elementÅ¯ jazyka (napÅ™. u sÄÃ­tÃ¡nÃ­ promÄ›nnÃ½ch kontrola typÅ¯, pouÅ¾Ã­vÃ¡nÃ­ definovanÃ½ch promÄ›nnÃ½ch atd.)
-    \item \emph{generovÃ¡nÃ­ mezikÃ³du} -- Ãºzce svÃ¡zanÃ© se sÃ©mantickou analÃ½zou, naÄÃ­tÃ¡ hodnoty lexikÃ¡lnÃ­ch elementÅ¯ z tabulek a vytvÃ¡Å™Ã­ binÃ¡rnÃ­ formu kÃ³du, v ideÃ¡lnÃ­m pÅ™Ã­padÄ› nezÃ¡vislou na vstupnÃ­m ani vÃ½stupnÃ­m jazyce
-    \item \emph{optimalizace nad mezikÃ³dem} -- dÃ­ky pÅ™ekladu do nÄ›jakÃ©ho abstraktnÃ­ho mezikÃ³du lze nad nÃ­m potom provÃ¡dÄ›t rÅ¯znÃ© obecnÃ© (teoreticky dokÃ¡zanÃ©) optimalizace, aby byl vÃ½slednÃ½ kÃ³d ekvivalentnÃ­ s pÅ¯vodnÃ­m, ale rychlejÅ¡Ã­ pÅ™i provÃ¡dÄ›nÃ­ cÃ­lovÃ½m strojem
+    \item \emph{lexikální analıza} -- pøevádí vstupní text do binární formy, na sled identifikátorù a konstant; hodnoty objektù ukládá do spec. tabulek 
+    \item \emph{syntaktická analıza} -- abstraktní èást, nezajímá se o hodnoty a vıznam elementù jazyka, úkolem je rozpoznat, zda vstupní slovo (vstup) patøí do jazyka; v dnešních pøekladaèích staví tzv. \uv{syntaktickı strom} kódu
+    \item \emph{sémantická analıza} -- zkoumá sémantiku (vıznam, smysl) elementù jazyka (napø. u sèítání promìnnıch kontrola typù, pouívání definovanıch promìnnıch atd.)
+    \item \emph{generování mezikódu} -- úzce svázané se sémantickou analızou, naèítá hodnoty lexikálních elementù z tabulek a vytváøí binární formu kódu, v ideálním pøípadì nezávislou na vstupním ani vıstupním jazyce
+    \item \emph{optimalizace nad mezikódem} -- díky pøekladu do nìjakého abstraktního mezikódu lze nad ním potom provádìt rùzné obecné (teoreticky dokázané) optimalizace, aby byl vıslednı kód ekvivalentní s pùvodním, ale rychlejší pøi provádìní cílovım strojem
 \end{penumerate}
 
-Backend mÃ¡ na starosti hlavnÄ›
+Backend má na starosti hlavnì
 \begin{penumerate}
-    \item \emph{generovÃ¡nÃ­ kÃ³du} -- vytvÃ¡Å™Ã­ uÅ¾ kÃ³d pro konkrÃ©tnÃ­ cÃ­lovÃ½ stroj / architekturu / CPU. 
-    \item \emph{optimalizace nÃ­zkoÃºrovÅˆovÃ©ho kÃ³du} -- optimalizace, zamÄ›Å™enÃ© na vlastnosti konkrÃ©tnÃ­ch CPU a cÃ­lovÃ½ jazyk (tj. takovÃ©, kterÃ© nad obecnÃ½m mezikÃ³dem s vysokou abstrakcÃ­ provÃ©st nejde)
+    \item \emph{generování kódu} -- vytváøí u kód pro konkrétní cílovı stroj / architekturu / CPU. 
+    \item \emph{optimalizace nízkoúrovòového kódu} -- optimalizace, zamìøené na vlastnosti konkrétních CPU a cílovı jazyk (tj. takové, které nad obecnım mezikódem s vysokou abstrakcí provést nejde)
 \end{penumerate}
 
-VÅ¡echny fÃ¡ze pÅ™ekladaÄe (vÄ›tÅ¡inou, kdyÅ¾ se pominou tÅ™eba staÅ¡Ã­ verze GCC a podobnÄ›) sdÃ­lejÃ­ jednotnÃ© \emph{tabulky symbolÅ¯} -- hodnot lexikÃ¡lnÃ­ch elementÅ¯ a jinÃ½ch vÄ›cÃ­ a obsluhu chyb. PÅ™ekladaÄ musÃ­ rozpoznat vÅ¡echny chyby, ale bez velkÃ© ÄasovÃ© reÅ¾ie, navÃ­c nesmÃ­ mÃ­t faleÅ¡nÃ© poplachy. Taky by nemÄ›l vyrÃ¡bÄ›t chyby sÃ¡m ;-).
+Všechny fáze pøekladaèe (vìtšinou, kdy se pominou tøeba staší verze GCC a podobnì) sdílejí jednotné \emph{tabulky symbolù} -- hodnot lexikálních elementù a jinıch vìcí a obsluhu chyb. Pøekladaè musí rozpoznat všechny chyby, ale bez velké èasové reie, navíc nesmí mít falešné poplachy. Taky by nemìl vyrábìt chyby sám ;-).
 
-V dÅ™Ã­vÄ›jÅ¡Ã­ch pÅ™ekladaÄÃ­ch se vstupnÃ­ kÃ³d prochÃ¡zel nÄ›kolikrÃ¡t, protoÅ¾e nebylo technicky moÅ¾nÃ© ho udrÅ¾et celÃ½ v pamÄ›ti. Dnes je potÅ™eba vÄ›tÅ¡inou jen jeden pÅ™echod, ale nÄ›kdy je nutnÃ½ch vÃ­c (napÅ™. dopÅ™ednÃ© skoky v assembleru -- nevÃ­m jeÅ¡tÄ› jak daleko skÃ¡Äu).
+V døívìjších pøekladaèích se vstupní kód procházel nìkolikrát, protoe nebylo technicky moné ho udret celı v pamìti. Dnes je potøeba vìtšinou jen jeden pøechod, ale nìkdy je nutnıch víc (napø. dopøedné skoky v assembleru -- nevím ještì jak daleko skáèu).
 \end{obecne}
 
-\begin{poznamkaN}{Syntax-driven compilation}
-NejdÅ¯leÅ¾itÄ›jÅ¡Ã­ ÄÃ¡stÃ­ dneÅ¡nÃ­ch pÅ™ekladaÄÅ¯ bÃ½vÃ¡ syntaktickÃ¡ analÃ½za; provÃ¡dÃ­ se Äasto najednou se sÃ©mantickou analÃ½zou a generovÃ¡nÃ­m mezikÃ³du -- vÅ¡e mÃ­vÃ¡ na starosti jedinÃ½ zÃ¡sobnÃ­kovÃ½ automat. NavÃ­c si Äasto sÃ¡m vyvolÃ¡vÃ¡ lexikÃ¡lnÃ­ analÃ½zu, ta je jÃ­m tedy Å™Ã­zenÃ¡, takÅ¾e se takovÃ¡ technika oznaÄuje \emph{syntaxÃ­ Å™Ã­zenÃ½ pÅ™eklad}.
-\end{poznamkaN}
+\begin{e}{Poznámka}{0}{Syntax-driven compilation}
+Nejdùleitìjší èástí dnešních pøekladaèù bıvá syntaktická analıza; provádí se èasto najednou se sémantickou analızou a generováním mezikódu -- vše mívá na starosti jedinı zásobníkovı automat. Navíc si èasto sám vyvolává lexikální analızu, ta je jím tedy øízená, take se taková technika oznaèuje \emph{syntaxí øízenı pøeklad}.
+\end{e}
 
-\begin{obecne}{AutomatickÃ© generovÃ¡nÃ­ (ÄÃ¡stÃ­) pÅ™ekladaÄe}
-ProtoÅ¾e dneÅ¡nÃ­ programovacÃ­ jazyky jsou relativnÄ› sloÅ¾itÃ© (gramatiky kterÃ© je generujÃ­ majÃ­ Å™Ã¡dovÄ› stovky pÅ™episovacÃ­ch pravidel), konstrukce automatÅ¯ pÅ™ijÃ­majÃ­cÃ­ch takovÃ© jazyky \uv{ruÄnÄ›} je pÅ™Ã­liÅ¡ nÃ¡roÄnÃ¡. Proto existujÃ­ nÃ¡stroje, kterÃ© generujÃ­ nÄ›kterÃ© ÄÃ¡sti pÅ™ekladaÄe -- generÃ¡tor lexikÃ¡lnÃ­ch analyzÃ¡torÅ¯ -- \uv{scannerÅ¯} -- (popÃ­Å¡u lexikÃ¡lnÃ­ elementy a struktury a co s nimi dÄ›lÃ¡ a vypadne mi analyzÃ¡tor jako kÃ³d v jazyce C) je napÅ™. \emph{Flex}, pro vÃ½robu parserÅ¯ (syntaktickÃ½ch analyzÃ¡torÅ¯) z popisu gramatiky slouÅ¾Ã­ napÅ™. \emph{Bison}, \emph{Coco/R} nebo \emph{ANTLR}. NÄ›kterÃ© znÃ¡mÃ© pÅ™ekladaÄe majÃ­ ale i tak ruÄnÄ› generovanÃ© parsery (GCC).
+\begin{obecne}{Automatické generování (èástí) pøekladaèe}
+Protoe dnešní programovací jazyky jsou relativnì sloité (gramatiky které je generují mají øádovì stovky pøepisovacích pravidel), konstrukce automatù pøijímajících takové jazyky \uv{ruènì} je pøíliš nároèná. Proto existují nástroje, které generují nìkteré èásti pøekladaèe -- generátor lexikálních analyzátorù -- \uv{scannerù} -- (popíšu lexikální elementy a struktury a co s nimi dìlá a vypadne mi analyzátor jako kód v jazyce C) je napø. \emph{Flex}, pro vırobu parserù (syntaktickıch analyzátorù) z popisu gramatiky slouí napø. \emph{Bison}, \emph{Coco/R} nebo \emph{ANTLR}. Nìkteré známé pøekladaèe mají ale i tak ruènì generované parsery (GCC).
 
-ExistujÃ­ i generÃ¡tory generÃ¡torÅ¯ kÃ³du (ale jejich mÃ©nÄ›, protoÅ¾e to je dost sloÅ¾itÃ©) -- pro popis vÃ½stupnÃ­ho CPU dostanu z instrukÄnÃ­ho mezikÃ³du kÃ³d pÅ™Ã­mo pro nÄ›j. InstrukÄnÃ­ mezikÃ³d mÅ¯Å¾e bÃ½t pro vÃ­ce architektur ÃºplnÄ› stejnÃ½. PÅ™Ã­kladem tohoto je \emph{Mono JIT Compiler}.
+Existují i generátory generátorù kódu (ale jejich ménì, protoe to je dost sloité) -- pro popis vıstupního CPU dostanu z instrukèního mezikódu kód pøímo pro nìj. Instrukèní mezikód mùe bıt pro více architektur úplnì stejnı. Pøíkladem tohoto je \emph{Mono JIT Compiler}.
 \end{obecne}
 
 
-\begin{obecne}{MezikÃ³d}
-(VysokoÃºrovÅˆovÃ½) \emph{mezikÃ³d} je vlastnÄ› jakÃ©si rozhranÃ­ pro pÅ™echod (rozdÄ›lenÃ­ i spoluprÃ¡ci) mezi front-endem a back-endem. Jde o binÃ¡rnÃ­ reprezentaci zdrojovÃ©ho kÃ³du, mÃ¡ bÃ½t nezÃ¡vislÃ½ na vstupnÃ­m i vÃ½stupnÃ­m jazyce. Pokud tomu tak je, je moÅ¾nÃ© napÅ™. kombinovat rÅ¯znÃ© back-endy a front-endy, jako tomu je u GCC (vÃ­ce back-endÅ¯ pro 1 front-end) nebo .NET (vÃ­ce front-endÅ¯). VÄ›tÅ¡inou ale je mezikÃ³d o nÄ›co posunutÃ½ buÄ vÃ­ce k zÃ¡vislosti na back-endu nebo na front-endu.
+\begin{obecne}{Mezikód}
+(Vysokoúrovòovı) \emph{mezikód} je vlastnì jakési rozhraní pro pøechod (rozdìlení i spolupráci) mezi front-endem a back-endem. Jde o binární reprezentaci zdrojového kódu, má bıt nezávislı na vstupním i vıstupním jazyce. Pokud tomu tak je, je moné napø. kombinovat rùzné back-endy a front-endy, jako tomu je u GCC (více back-endù pro 1 front-end) nebo .NET (více front-endù). Vìtšinou ale je mezikód o nìco posunutı buï více k závislosti na back-endu nebo na front-endu.
 
-MezikÃ³d je moÅ¾nÃ© reprezentovat nÄ›kolika zpÅ¯soby -- napÅ™. syntaktickÃ½m stromem (vhodnÃ© v pamÄ›ti), postfixovÃ½m zÃ¡pisem (linearizace stromu) nebo tÅ™Ã­adresovÃ½m kÃ³dem (lineÃ¡rnÃ­, sekvence pÅ™Ã­kazÅ¯ $x:= y\ \mathrm{op}\ z$).
+Mezikód je moné reprezentovat nìkolika zpùsoby -- napø. syntaktickım stromem (vhodné v pamìti), postfixovım zápisem (linearizace stromu) nebo tøíadresovım kódem (lineární, sekvence pøíkazù $x:= y\ \mathrm{op}\ z$).
 \end{obecne}
 
-\begin{obecne}{Graf toku Å™Ã­zenÃ­}
-Graf toku Å™Ã­zenÃ­ je graf, vytvÃ¡Å™enÃ½ pÅ™ekladaÄi (vÄ›tÅ¡. pro 1 funkci) za ÃºÄelem optimalizacÃ­ a takÃ© generovÃ¡nÃ­ vÃ½slednÃ©ho kÃ³du. Uzly -- \emph{zÃ¡kladnÃ­ bloky} -- jsou nepÅ™eruÅ¡ovanÃ© vÃ½poÄty (bez instrukcÃ­ skokÅ¯ a bez cÃ­lÅ¯ skokÅ¯ uvnitÅ™ blokÅ¯), z nichÅ¾ prvnÃ­ instrukce bÃ½vÃ¡ cÃ­lem skoku nebo vstupnÃ­m bodem funkce. Hrany pak reprezentujÃ­ skoky -- pro podmÃ­nÄ›nÃ© skoky a case pÅ™Ã­kazy pak z uzlÅ¯ vede vÃ­ce hran.
+\begin{obecne}{Graf toku øízení}
+Graf toku øízení je graf, vytváøenı pøekladaèi (vìtš. pro 1 funkci) za úèelem optimalizací a také generování vısledného kódu. Uzly -- \emph{základní bloky} -- jsou nepøerušované vıpoèty (bez instrukcí skokù a bez cílù skokù uvnitø blokù), z nich první instrukce bıvá cílem skoku nebo vstupním bodem funkce. Hrany pak reprezentují skoky -- pro podmínìné skoky a case pøíkazy pak z uzlù vede více hran.
 \end{obecne}
 
-\subsubsection*{LexikÃ¡lnÃ­ analÃ½za}
+\subsubsection*{Lexikální analıza}
 
-\begin{definiceN}{LexikÃ¡lnÃ­ analÃ½za}
-LexikÃ¡lnÃ­ analÃ½za je ÄÃ¡st pÅ™ekladaÄe, zodpovÄ›dnÃ¡ za rozpoznÃ¡vÃ¡nÃ­ jednotlivÃ½ch nedÄ›litelnÃ½ch elementÅ¯ zdrojovÃ©ho jazyka (napÅ™. klÃ­ÄovÃ¡ slova, identifikÃ¡tory, zÃ¡vorky atd.) a jejich pÅ™evod na nÄ›jakou binÃ¡rnÃ­ reprezentaci, vhodnou pro syntaktickou analÃ½zu (napÅ™. uloÅ¾enÃ­ nÃ¡zvÅ¯ identifikÃ¡torÅ¯ do tabulek symbolÅ¯). V zÃ¡sadÄ› jde o rozpoznÃ¡vÃ¡nÃ­ regulÃ¡rnÃ­ch vÃ½razÅ¯. Historicky Å¡lo o provedenÃ­ analÃ½zy na celÃ©m zdrojÃ¡ku a pÅ™eposlÃ¡nÃ­ do dalÅ¡Ã­ fÃ¡ze, dnes je vÄ›tÅ¡inou ovlÃ¡danÃ¡ ze syntaktickÃ© analÃ½zy (opakovanÃ© volÃ¡nÃ­ \uv{vraÅ¥ dalÅ¡Ã­ element}). SlouÅ¾Ã­ takÃ© ke zvÄ›tÅ¡enÃ­ \uv{vÃ½hledu} dalÅ¡Ã­ch fÃ¡zÃ­ (jednÃ­m elementem pÅ™estÃ¡vÃ¡ bÃ½t jeden znak, je jÃ­m jeden element vstupnÃ­ho jazyka).
-\end{definiceN}
+\begin{e}{Definice}{0}{Lexikální analıza}
+Lexikální analıza je èást pøekladaèe, zodpovìdná za rozpoznávání jednotlivıch nedìlitelnıch elementù zdrojového jazyka (napø. klíèová slova, identifikátory, závorky atd.) a jejich pøevod na nìjakou binární reprezentaci, vhodnou pro syntaktickou analızu (napø. uloení názvù identifikátorù do tabulek symbolù). V zásadì jde o rozpoznávání regulárních vırazù. Historicky šlo o provedení analızy na celém zdrojáku a pøeposlání do další fáze, dnes je vìtšinou ovládaná ze syntaktické analızy (opakované volání \uv{vra další element}). Slouí také ke zvìtšení \uv{vıhledu} dalších fází (jedním elementem pøestává bıt jeden znak, je jím jeden element vstupního jazyka).
+\end{e}
 
-\begin{definiceN}{Token, pattern}
-\emph{Token} je vÃ½stup lexikÃ¡lnÃ­ analÃ½zy -- jeden nedÄ›litelnÃ½ element zdrojovÃ©ho jazyka. Je zÃ¡roveÅˆ vstupem syntaktickÃ© analÃ½zy (tam se nazÃ½vÃ¡ \emph{terminÃ¡l}). LexikÃ¡lnÃ­ analÃ½za uvaÅ¾uje mnoÅ¾inu Å™etÄ›zcÅ¯, kterÃ© produkujÃ­ pro syntaktickou analÃ½zu stejnÃ½ token (napÅ™. dÃ­ky ignore-caseovosti nebo jako dÅ¯sledek slouÄenÃ­ vÅ¡ech Å™etÄ›zcovÃ½ch nebo ÄÃ­selnÃ½ch konstant pod stejnÃ½ token, protoÅ¾e s nimi je dÃ¡le naklÃ¡dÃ¡no bez ohledu na hodnotu). MnoÅ¾ina Å™etÄ›zcÅ¯, produkujÃ­cÃ­ch danÃ½ token, se popisuje urÄ. pravidly -- \emph{patternem}, kde se obvykle uÅ¾Ã­vÃ¡ regulÃ¡rnÃ­ch vÃ½razÅ¯.
-\end{definiceN}
+\begin{e}{Definice}{0}{Token, pattern}
+\emph{Token} je vıstup lexikální analızy -- jeden nedìlitelnı element zdrojového jazyka. Je zároveò vstupem syntaktické analızy (tam se nazıvá \emph{terminál}). Lexikální analıza uvauje mnoinu øetìzcù, které produkují pro syntaktickou analızu stejnı token (napø. díky ignore-caseovosti nebo jako dùsledek slouèení všech øetìzcovıch nebo èíselnıch konstant pod stejnı token, protoe s nimi je dále nakládáno bez ohledu na hodnotu). Mnoina øetìzcù, produkujících danı token, se popisuje urè. pravidly -- \emph{patternem}, kde se obvykle uívá regulárních vırazù.
+\end{e}
 
-\begin{definiceN}{LexÃ©m}
-\emph{LexÃ©m} neboli \emph{lexikÃ¡lnÃ­ element} je sekvence znakÅ¯ ve zdrojovÃ©m kÃ³du, kterÃ¡ (vÄ›tÅ¡inou) odpovÃ­dÃ¡ nÄ›jakÃ©mu patternu nÄ›jakÃ©ho tokenu. NapÅ™. komentÃ¡Å™e ale jako svÅ¯j vÃ½stup Å¾Ã¡dnÃ½ token nemajÃ­.
-\end{definiceN}
+\begin{e}{Definice}{0}{Lexém}
+\emph{Lexém} neboli \emph{lexikální element} je sekvence znakù ve zdrojovém kódu, která (vìtšinou) odpovídá nìjakému patternu nìjakého tokenu. Napø. komentáøe ale jako svùj vıstup ádnı token nemají.
+\end{e}
 
-\begin{definiceN}{LiterÃ¡l}
-\emph{LiterÃ¡l} je konstanta ve vstupnÃ­m jazyce -- mÃ¡ svoji hodnotu (atribut), uklÃ¡danou do tabulek symbolÅ¯.
-\end{definiceN}
+\begin{e}{Definice}{0}{Literál}
+\emph{Literál} je konstanta ve vstupním jazyce -- má svoji hodnotu (atribut), ukládanou do tabulek symbolù.
+\end{e}
 
-\begin{poznamkaN}{Atributy tokenÅ¯}
-Je-li jeden token rozpoznÃ¡vÃ¡n vÃ­ce patterny, nebo je-li to literÃ¡l, mÃ¡ nÄ›jakÃ© dalÅ¡Ã­ atributy (vÄ›tÅ¡inou jenom jeden), kterÃ© jeho vÃ½znam upÅ™esÅˆujÃ­ -- napÅ™. token \uv{relaÄnÃ­ operÃ¡tor} mÃ¡ zpÅ™esnÄ›nÃ­ \uv{menÅ¡Ã­ nebo rovno}, token \uv{ÄÃ­selnÃ½ literÃ¡l} mÃ¡ zpÅ™esnÄ›nÃ­ \uv{12345}.
-\end{poznamkaN}
+\begin{e}{Poznámka}{0}{Atributy tokenù}
+Je-li jeden token rozpoznáván více patterny, nebo je-li to literál, má nìjaké další atributy (vìtšinou jenom jeden), které jeho vıznam upøesòují -- napø. token \uv{relaèní operátor} má zpøesnìní \uv{menší nebo rovno}, token \uv{èíselnı literál} má zpøesnìní \uv{12345}.
+\end{e}
 
-\begin{obecne}{ProblÃ©my lex. analÃ½zy}
-Mezi nÄ›kterÃ© problÃ©my, kterÃ© syntaktickÃ¡ analÃ½za musÃ­ Å™eÅ¡it, patÅ™Ã­
+\begin{obecne}{Problémy lex. analızy}
+Mezi nìkteré problémy, které syntaktická analıza musí øešit, patøí
 \begin{pitemize}
-    \item PoÄÃ­tÃ¡nÃ­ zarovnÃ¡nÃ­ -- nÄ›kterÃ© jazyky (Python) majÃ­ zarovnÃ¡nÃ­ na Å™Ã¡dce jako svoji syntaktickou konstrukci
-    \item IdentifikÃ¡tory s mezerami (rozliÅ¡it identifikÃ¡tor od jinÃ© konstrukce, i vÃ­ceslovnÃ©)
-    \item KlÃ­ÄovÃ¡ slova jako identifikÃ¡tory (nÄ›kdy se mohou pÅ™ekrÃ½vat)
-    \item KontextovÄ› zÃ¡vislÃ© tokeny -- token zÃ¡visÃ­ na jinÃ½ch informacÃ­ch (napÅ™. \texttt{a*b;} v C -- jde o nÃ¡sobenÃ­, nebo deklaraci pointerovÃ© promÄ›nnÃ©), tady je nutnÃ© tokeny sluÄovat pro oba vÃ½znamy ???
+    \item Poèítání zarovnání -- nìkteré jazyky (Python) mají zarovnání na øádce jako svoji syntaktickou konstrukci
+    \item Identifikátory s mezerami (rozlišit identifikátor od jiné konstrukce, i víceslovné)
+    \item Klíèová slova jako identifikátory (nìkdy se mohou pøekrıvat)
+    \item Kontextovì závislé tokeny -- token závisí na jinıch informacích (napø. \texttt{a*b;} v C -- jde o násobení, nebo deklaraci pointerové promìnné), tady je nutné tokeny sluèovat pro oba vıznamy ???
 \end{pitemize}
 \end{obecne}
 
-\begin{obecne}{PozadÃ­ lex. analÃ½zy}
-Na pozadÃ­ lexikÃ¡lnÃ­ho analyzÃ¡toru vÄ›tÅ¡inou pracuje nÄ›jakÃ½ koneÄnÃ½ automat (protoÅ¾e rozpoznÃ¡vÃ¡nÃ­ regulÃ¡rnÃ­ch vÃ½razÅ¯ -- hodnotou reg. vÃ½razu je reg. jazyk -- je prÃ¡ce pro koneÄnÃ© automaty). Po kaÅ¾dÃ©m rozpoznanÃ©m tokenu je potÅ™eba automat uvÃ©st zpÄ›t do vÃ½chozÃ­ho stavu.
+\begin{obecne}{Pozadí lex. analızy}
+Na pozadí lexikálního analyzátoru vìtšinou pracuje nìjakı koneènı automat (protoe rozpoznávání regulárních vırazù -- hodnotou reg. vırazu je reg. jazyk -- je práce pro koneèné automaty). Po kadém rozpoznaném tokenu je potøeba automat uvést zpìt do vıchozího stavu.
 \end{obecne}
 
-\begin{obecne}{LexikÃ¡lnÃ­ chyby}
-Chyba v lexikÃ¡lnÃ­ analÃ½ze nastane tehdy, kdyÅ¾ koneÄnÃ½ automat nemÅ¯Å¾e pokraÄovat dÃ¡l a nenÃ­ v koncovÃ©m stavu (napÅ™. pokud nalezne neplatnÃ½ znak, nebo neukonÄenÃ½ Å™etÄ›zec na konci Å™Ã¡dky apod.). VÄ›tÅ¡ina lexikÃ¡lnÃ­ch analyzÃ¡torÅ¯ (pomineme Turbo Pascal ;-)) by mÄ›la bÃ½t schopna nÄ›jakÃ©ho \uv{rozumnÃ©ho} zotavenÃ­ z chyby -- vypsat chybu a domyslet chybÄ›jÃ­cÃ­ znak nebo neplatnÃ½ znak ignorovat apod., tj. nezastavit se na prvnÃ­ chybÄ›. I logickÃ© zotavenÃ­ mÅ¯Å¾e ale scanner ÃºplnÄ› rozhodit a ten pak vyhazuje nesmyslnÃ© chyby. Je takÃ© spousta chyb, kterÃ© lexikÃ¡lnÃ­ analÃ½za nepoznÃ¡ a projevÃ­ se aÅ¾ u syntaktickÃ© analÃ½zy, napÅ™. \texttt{beign} mÃ­sto \texttt{begin}, chÃ¡panÃ© jako identifikÃ¡tor. 
+\begin{obecne}{Lexikální chyby}
+Chyba v lexikální analıze nastane tehdy, kdy koneènı automat nemùe pokraèovat dál a není v koncovém stavu (napø. pokud nalezne neplatnı znak, nebo neukonèenı øetìzec na konci øádky apod.). Vìtšina lexikálních analyzátorù (pomineme Turbo Pascal ;-)) by mìla bıt schopna nìjakého \uv{rozumného} zotavení z chyby -- vypsat chybu a domyslet chybìjící znak nebo neplatnı znak ignorovat apod., tj. nezastavit se na první chybì. I logické zotavení mùe ale scanner úplnì rozhodit a ten pak vyhazuje nesmyslné chyby. Je také spousta chyb, které lexikální analıza nepozná a projeví se a u syntaktické analızy, napø. \texttt{beign} místo \texttt{begin}, chápané jako identifikátor. 
 \end{obecne}
 
-\begin{poznamkaN}{BufferovÃ¡nÃ­ vstupu}
-SyntaktickÃ¡ analÃ½za ÄasovÄ› zabere cca 60-80\% pÅ™ekladu, takÅ¾e se pro jejÃ­ urychlenÃ­ pouÅ¾Ã­vÃ¡ bufferovÃ¡nÃ­ -- neÄte se po znacÃ­ch, ale o nÄ›co napÅ™ed. ProblÃ©mem pak jsou napÅ™. \texttt{\#include} direktivy (jsou-li ve vstupnÃ­m jazyce) -- v okamÅ¾iku vloÅ¾enÃ­ jinÃ©ho souboru je scanner v nÄ›jakÃ©m stavu apod.; scannery musÃ­ mÃ­t pak moÅ¾nost pÅ™epÃ­nat mezi vÃ­ce vstupnÃ­mi soubory (manipulovat s nÄ›kolika buffery).
-\end{poznamkaN}
+\begin{e}{Poznámka}{0}{Bufferování vstupu}
+Syntaktická analıza èasovì zabere cca 60-80\% pøekladu, take se pro její urychlení pouívá bufferování -- neète se po znacích, ale o nìco napøed. Problémem pak jsou napø. \texttt{\#include} direktivy (jsou-li ve vstupním jazyce) -- v okamiku vloení jiného souboru je scanner v nìjakém stavu apod.; scannery musí mít pak monost pøepínat mezi více vstupními soubory (manipulovat s nìkolika buffery).
+\end{e}
 
-\subsubsection*{SyntaktickÃ¡ analÃ½za}
+\subsubsection*{Syntaktická analıza}
 
-\begin{definiceN}{SyntaktickÃ¡ analÃ½za}
-SyntaktickÃ¡ analÃ½za je ÄÃ¡st pÅ™ekladaÄe, zodpovÄ›dnÃ¡ za:
+\begin{e}{Definice}{0}{Syntaktická analıza}
+Syntaktická analıza je èást pøekladaèe, zodpovìdná za:
 \begin{penumerate}
-    \item rozhodnutÃ­, zda danÃ© slovo (vstup) patÅ™Ã­ do zpracovÃ¡vanÃ©ho jazyka
-    \item syntaxÃ­ Å™Ã­zenÃ½ pÅ™eklad
-    \item stavbu derivaÄnÃ­ho stromu (nalezenÃ­ pÅ™episovacÃ­ch pravidel ze startovacÃ­ho neterminÃ¡lu gramatiky na vstupnÃ­ posloupnost tokenÅ¯ -- terminÃ¡lÅ¯)
+    \item rozhodnutí, zda dané slovo (vstup) patøí do zpracovávaného jazyka
+    \item syntaxí øízenı pøeklad
+    \item stavbu derivaèního stromu (nalezení pøepisovacích pravidel ze startovacího neterminálu gramatiky na vstupní posloupnost tokenù -- terminálù)
 \end{penumerate}
 
-VÄ›tÅ¡ina programovacÃ­ch jazykÅ¯ je bezkontextovÃ¡, proto je syntaktickÃ¡ analÃ½za pÅ™edstavovÃ¡na zÃ¡sobnÃ­kovÃ½m automatem. SyntaktickÃ¡ analÃ½za operuje s gramatikou danÃ©ho jazyka (snaÅ¾Ã­ se o pÅ™epis abstraktnÃ­ch neterminÃ¡lÅ¯ na terminÃ¡ly -- tokeny jazyka).
-\end{definiceN}
+Vìtšina programovacích jazykù je bezkontextová, proto je syntaktická analıza pøedstavována zásobníkovım automatem. Syntaktická analıza operuje s gramatikou daného jazyka (snaí se o pøepis abstraktních neterminálù na terminály -- tokeny jazyka).
+\end{e}
 
-\begin{definiceN}{DerivaÄnÃ­ strom}
-DerivaÄnÃ­ strom je \uv{grafickÃ¡} reprezentace slova vstupnÃ­ho jazyka, nebo spÃ­Å¡e derivacÃ­, kterÃ© bylo potÅ™eba provÃ©st, aby se v gramatice startovacÃ­ symbol pÅ™epsal na danÃ© slovo (posloupnost terminÃ¡lÅ¯). Uzly takovÃ©ho grafu jsou neterminÃ¡ly i terminÃ¡ly gramatiky jazyka (v listech ale jsou jen terminÃ¡ly, ve vnitÅ™nÃ­ch uzlech neterminÃ¡ly). Hrany grafu pÅ™edstavujÃ­ pÅ™epsÃ¡nÃ­ podle pravidla gramatiky -- vedou od neterminÃ¡lu kterÃ½ se pÅ™episuje, ke vÅ¡em neterminÃ¡lÅ¯m nebo terminÃ¡lÅ¯m na kterÃ© se pÅ™episuje (mluvÃ­me o bezkontextovÃ½ch gramatikÃ¡ch, takÅ¾e na levÃ© stranÄ› stojÃ­ jen jeden neterminÃ¡l).
+\begin{e}{Definice}{0}{Derivaèní strom}
+Derivaèní strom je \uv{grafická} reprezentace slova vstupního jazyka, nebo spíše derivací, které bylo potøeba provést, aby se v gramatice startovací symbol pøepsal na dané slovo (posloupnost terminálù). Uzly takového grafu jsou neterminály i terminály gramatiky jazyka (v listech ale jsou jen terminály, ve vnitøních uzlech neterminály). Hrany grafu pøedstavují pøepsání podle pravidla gramatiky -- vedou od neterminálu kterı se pøepisuje, ke všem neterminálùm nebo terminálùm na které se pøepisuje (mluvíme o bezkontextovıch gramatikách, take na levé stranì stojí jen jeden neterminál).
 
-PÅ™epsÃ¡nÃ­ v gramatice bohuÅ¾el nemusÃ­ bÃ½t jednoznaÄnÃ© (tj. pro stejnou posloupnost neterminÃ¡lÅ¯ existuje vÃ­ce platnÃ½ch derivaÄnÃ­ch stromÅ¯). PÅ™ikladem je problÃ©m \uv{dangling else} z jazykÅ¯ typu Pascal nebo C -- mÃ¡m-li za sebou 2x \texttt{if-then} a pak jedno \texttt{else}, nemusÃ­ bÃ½t (z gramatiky) jasnÃ©, ke kterÃ©mu \texttt{if-then} ono \texttt{else} patÅ™Ã­. TakovÃ© problÃ©my lze (a je nutnÃ©) odstranit pÅ™evodem na jednoznaÄnou gramatiku (napÅ™. pÅ™es dalÅ¡Ã­ neterminÃ¡l).
-\end{definiceN}
+Pøepsání v gramatice bohuel nemusí bıt jednoznaèné (tj. pro stejnou posloupnost neterminálù existuje více platnıch derivaèních stromù). Pøikladem je problém \uv{dangling else} z jazykù typu Pascal nebo C -- mám-li za sebou 2x \texttt{if-then} a pak jedno \texttt{else}, nemusí bıt (z gramatiky) jasné, ke kterému \texttt{if-then} ono \texttt{else} patøí. Takové problémy lze (a je nutné) odstranit pøevodem na jednoznaènou gramatiku (napø. pøes další neterminál).
+\end{e}
 
-\begin{obecne}{LevÃ¡ rekurze, levÃ¡ faktorizace, nebezkontextovost}
-LevÃ¡ rekurze v gramatice se objevuje, pokud je v nÃ­ neterminÃ¡l $A$, pro kterÃ½ platÃ­ $A\Rightarrow^{*} A\alpha$ pro nÄ›jakÃ© $\alpha\neq\lambda$. Tj. pÅ™es $A$ je moÅ¾nÃ© projÃ­t kolikrÃ¡t chci a vytvoÅ™it posloupnost $\alpha\alpha\dots$. Pokud parser zaÄÃ­nÃ¡ u startovacÃ­ho neterminÃ¡lu a hledÃ¡ derivace na na terminÃ¡ly \uv{shora dolÅ¯} (to jeden z druhÅ¯ scannerÅ¯ dÄ›lÃ¡), nevÃ­ jakou hloubku rekurze mÃ¡ pouÅ¾Ã­t. Proto je nutnÃ© i levou rekurzi, stejnÄ› jako nejednoznaÄnosti, z gramatiky napÅ™ed odstranit jejÃ­ Ãºpravou (zde opÄ›t pomÅ¯Å¾e pÅ™echod pÅ™es novÃ½ neterminÃ¡l).
+\begin{obecne}{Levá rekurze, levá faktorizace, nebezkontextovost}
+Levá rekurze v gramatice se objevuje, pokud je v ní neterminál $A$, pro kterı platí $A\Rightarrow^{*} A\alpha$ pro nìjaké $\alpha\neq\lambda$. Tj. pøes $A$ je moné projít kolikrát chci a vytvoøit posloupnost $\alpha\alpha\dots$. Pokud parser zaèíná u startovacího neterminálu a hledá derivace na na terminály \uv{shora dolù} (to jeden z druhù scannerù dìlá), neví jakou hloubku rekurze má pouít. Proto je nutné i levou rekurzi, stejnì jako nejednoznaènosti, z gramatiky napøed odstranit její úpravou (zde opìt pomùe pøechod pøes novı neterminál).
 
-ProblÃ©mem je i levÃ¡ faktorizace -- pÅ™Ã­pad, kdy se v gramatice vyskytujÃ­ pravidla jako $A\to \alpha\beta$ a zÃ¡roveÅˆ $A\to \alpha\gamma$. I ten je moÅ¾nÃ© Å™eÅ¡it Ãºpravou gramatiky (pÅ™enos rozhodnutÃ­ na pozdÄ›jÅ¡Ã­ dobu, kdy bude znÃ¡mo, kterÃ½ ze symbolÅ¯ $\beta,\gamma$ si vybrat).
+Problémem je i levá faktorizace -- pøípad, kdy se v gramatice vyskytují pravidla jako $A\to \alpha\beta$ a zároveò $A\to \alpha\gamma$. I ten je moné øešit úpravou gramatiky (pøenos rozhodnutí na pozdìjší dobu, kdy bude známo, kterı ze symbolù $\beta,\gamma$ si vybrat).
 
-MÅ¯Å¾e se takÃ© i pro bÄ›Å¾nÃ© konstrukce z programovacÃ­ch jazykÅ¯ stÃ¡t, Å¾e nevyhovujÃ­ bezkontextovÃ½m gramatikÃ¡m -- napÅ™. kontrola deklarace identifikÃ¡toru pÅ™ed pouÅ¾itÃ­m, kontrola poÄtu parametrÅ¯ funkce apod. Zde syntaktickÃ¡ analÃ½za bezkontextovÃ½m zpÅ¯sobem nestaÄÃ­ a tyto pÅ™Ã­pady je tÅ™eba Å™eÅ¡it jinak.
+Mùe se také i pro bìné konstrukce z programovacích jazykù stát, e nevyhovují bezkontextovım gramatikám -- napø. kontrola deklarace identifikátoru pøed pouitím, kontrola poètu parametrù funkce apod. Zde syntaktická analıza bezkontextovım zpùsobem nestaèí a tyto pøípady je tøeba øešit jinak.
 \end{obecne}
 
-\begin{definiceN}{NÃ¡zvoslovÃ­ gramatik, FIRST a FOLLOW}
-Gramatiky se v teorii pÅ™ekladaÄÅ¯ oznaÄujÃ­ dvÄ›ma aÅ¾ tÅ™emi znaky a ÄÃ­slem v zÃ¡vorce, obecnÄ› ve tvaru $PXY(k)$, kde:
+\begin{e}{Definice}{0}{Názvosloví gramatik, FIRST a FOLLOW}
+Gramatiky se v teorii pøekladaèù oznaèují dvìma a tøemi znaky a èíslem v závorce, obecnì ve tvaru $PXY(k)$, kde:
 \begin{pitemize}
-    \item $X$ je smÄ›r ÄtenÃ­ vstupu (V naÅ¡em pÅ™Ã­padÄ› vÅ¾dy $L$, tj. zleva doprava),
-    \item $Y$ jsou druhy derivace ($L$ â€“ levÃ©, $R$ â€“ pravÃ© derivace),
-    \item $P$ oznaÄuje prefix (jeÅ¡tÄ› jemnÄ›jÅ¡Ã­ dÄ›lenÃ­ na tÅ™Ã­dy u nÄ›kterÃ½ch gramatik) a
-    \item $k$ pÅ™edstavuje \emph{vÃ½hled} (lookahead), kaÅ¾dÃ½ parser totiÅ¾ vidÃ­ jen na jeden nebo nÄ›kolik tokenÅ¯ dopÅ™edu a dalÅ¡Ã­ neuvaÅ¾uje. Obvykle je to celÃ© ÄÃ­slo, vÄ›tÅ¡inou 1, ale takÃ© 0 nebo obecnÄ› $k$.
+    \item $X$ je smìr ètení vstupu (V našem pøípadì vdy $L$, tj. zleva doprava),
+    \item $Y$ jsou druhy derivace ($L$ – levé, $R$ – pravé derivace),
+    \item $P$ oznaèuje prefix (ještì jemnìjší dìlení na tøídy u nìkterıch gramatik) a
+    \item $k$ pøedstavuje \emph{vıhled} (lookahead), kadı parser toti vidí jen na jeden nebo nìkolik tokenù dopøedu a další neuvauje. Obvykle je to celé èíslo, vìtšinou 1, ale také 0 nebo obecnì $k$.
 \end{pitemize}
-PÅ™Ã­klady: $LL(1), LR(0), LR(1), LL(k), SLR(1), LALR(1)$
+Pøíklady: $LL(1), LR(0), LR(1), LL(k), SLR(1), LALR(1)$
 
-MnoÅ¾iny \emph{FIRST} a \emph{FOLLOW} pÅ™edstavujÃ­ mnoÅ¾inu pouÅ¾itelnÃ½ch neterminÃ¡lÅ¯ na urÄ. mÃ­stech (zaÄÃ¡tky Å™etÄ›zcÅ¯ derivovanÃ½ch z nÄ›jakÃ©ho pravidla, resp. Å™etÄ›zce kterÃ© mohou nÃ¡sledovat po nÄ›jakÃ©m neterminÃ¡lu) a pouÅ¾Ã­vajÃ­ se pro konstrukci parserovÃ½ch automatÅ¯ pro nÄ›jakou gramatiku.
-\end{definiceN}
+Mnoiny \emph{FIRST} a \emph{FOLLOW} pøedstavují mnoinu pouitelnıch neterminálù na urè. místech (zaèátky øetìzcù derivovanıch z nìjakého pravidla, resp. øetìzce které mohou následovat po nìjakém neterminálu) a pouívají se pro konstrukci parserovıch automatù pro nìjakou gramatiku.
+\end{e}
 
 TODO: formalizovat FIRST a FOLLOW, neni to moc slozite?
 
-\begin{definiceN}{AnalÃ½za shora dolÅ¯}
-AnalÃ½za shora dolÅ¯ je technika parserÅ¯, kdy se parser snaÅ¾Ã­ najÃ­t nejlevÄ›jÅ¡Ã­ derivaci pro vstupnÃ­ Å™etÄ›zec. PokouÅ¡Ã­ se tedy zkonstruovat derivaÄnÃ­ strom pro danÃ½ vstup poÄÃ­naje koÅ™enem a pÅ™idÃ¡vÃ¡nÃ­m uzlÅ¯ do stromu -- rozhoduje se, podle kterÃ©ho pravidla gramatiky pÅ™epÃ­Å¡e. Pravidlo pro odstranÄ›nÃ­ nejednoznaÄnosti je provÃ¡dÄ›nÃ­ \emph{jen levÃ½ch derivacÃ­}, proto pak automatÅ¯m vadÃ­ levÃ¡ rekurze a musÃ­ se odstraÅˆovat. Techniky pro nalezenÃ­ pÅ™episovacÃ­ho pravidla jsou:
+\begin{e}{Definice}{0}{Analıza shora dolù}
+Analıza shora dolù je technika parserù, kdy se parser snaí najít nejlevìjší derivaci pro vstupní øetìzec. Pokouší se tedy zkonstruovat derivaèní strom pro danı vstup poèínaje koøenem a pøidáváním uzlù do stromu -- rozhoduje se, podle kterého pravidla gramatiky pøepíše. Pravidlo pro odstranìní nejednoznaènosti je provádìní \emph{jen levıch derivací}, proto pak automatùm vadí levá rekurze a musí se odstraòovat. Techniky pro nalezení pøepisovacího pravidla jsou:
 \begin{pitemize}
-    \item \emph{RekurzivnÃ­ sestup} pomocÃ­ procedur -- pro kaÅ¾dÃ½ neterminÃ¡l existuje jedna procedura, kterÃ¡ se rozhodne, kterÃ© pravidlo pouÅ¾ije na zÃ¡kladÄ› vÃ½hledu. Pro rozhodovÃ¡nÃ­ se sestavujÃ­ mnoÅ¾iny FIRST a FOLLOW kaÅ¾dÃ©ho neterminÃ¡lu. Potom musÃ­ zkontrolovat, jestli pravÃ¡ strana tohoto pravidla odpovÃ­dÃ¡ vstupu (pÅ™iÄemÅ¾ vÃ½skyt neterminÃ¡lu na pravÃ© stranÄ› znamenÃ¡ zavolÃ¡nÃ­ jemu pÅ™Ã­sluÅ¡nÃ© procedury).     
-    \item \emph{NerekurzivnÃ­ analÃ½za s predikcÃ­} -- je implementovÃ¡no automatem s explicitnÃ­m zÃ¡sobnÃ­kem: ten mÃ¡ \emph{parsovacÃ­ tabulku}, kterÃ¡ se liÅ¡Ã­ podle gramatiky (sama prÃ¡ce automatu je vÅ¾dy stejnÃ¡) -- jsou v nÃ­ Å™Ã¡dky odpovÃ­dajÃ­cÃ­ neterminÃ¡lÅ¯m a sloupce terminÃ¡lÅ¯m, v polÃ­ÄkÃ¡ch jsou pÅ™episovacÃ­ pravidla  nebo chyby. Na zÃ¡sobnÃ­k automatu se uklÃ¡dajÃ­ symboly gramatiky a ze vstupu se Ätou (lineÃ¡rnÄ› terminÃ¡ly). V kaÅ¾dÃ©m kroku se automat rozhodne podle vstupu a vrcholu zÃ¡sobnÃ­ku -- je-li tam terminÃ¡l, vyhodÃ­ se a ukazatel vstupu se posune (nebo se skonÄÃ­); je-li na zÃ¡sobnÃ­ku neterminÃ¡l, rozhoduje se podle tabulky (poloÅ¾ka urÄenÃ¡ vstupem a neterminÃ¡lem, buÄto se pouÅ¾ije pÅ™episovacÃ­ pravidlo nebo skonÄÃ­ chybou). Konstrukce tabulky je opÄ›t zÃ¡vislÃ¡ na mnoÅ¾inÃ¡ch FIRST a FOLLOW.
+    \item \emph{Rekurzivní sestup} pomocí procedur -- pro kadı neterminál existuje jedna procedura, která se rozhodne, které pravidlo pouije na základì vıhledu. Pro rozhodování se sestavují mnoiny FIRST a FOLLOW kadého neterminálu. Potom musí zkontrolovat, jestli pravá strana tohoto pravidla odpovídá vstupu (pøièem vıskyt neterminálu na pravé stranì znamená zavolání jemu pøíslušné procedury).     
+    \item \emph{Nerekurzivní analıza s predikcí} -- je implementováno automatem s explicitním zásobníkem: ten má \emph{parsovací tabulku}, která se liší podle gramatiky (sama práce automatu je vdy stejná) -- jsou v ní øádky odpovídající neterminálùm a sloupce terminálùm, v políèkách jsou pøepisovací pravidla  nebo chyby. Na zásobník automatu se ukládají symboly gramatiky a ze vstupu se ètou (lineárnì terminály). V kadém kroku se automat rozhodne podle vstupu a vrcholu zásobníku -- je-li tam terminál, vyhodí se a ukazatel vstupu se posune (nebo se skonèí); je-li na zásobníku neterminál, rozhoduje se podle tabulky (poloka urèená vstupem a neterminálem, buïto se pouije pøepisovací pravidlo nebo skonèí chybou). Konstrukce tabulky je opìt závislá na mnoinách FIRST a FOLLOW.
 \end{pitemize}
-AnalÃ½za shora dolÅ¯ je pouÅ¾Ã­vÃ¡na v parserech jednoduchÃ½ch jazykÅ¯ ($LL(1)$ gramatiky s Å™eÅ¡enÃ­m konfliktÅ¯ zvÄ›tÅ¡enÃ­m vÃ½hledu na $k$ terminÃ¡lÅ¯) -- v generÃ¡torech parserÅ¯ ANTLR a Coco/R, napÅ™Ã­klad.
-\end{definiceN}
+Analıza shora dolù je pouívána v parserech jednoduchıch jazykù ($LL(1)$ gramatiky s øešením konfliktù zvìtšením vıhledu na $k$ terminálù) -- v generátorech parserù ANTLR a Coco/R, napøíklad.
+\end{e}
 
-\begin{definiceN}{AnalÃ½za zdola nahoru, LR automat}
-Parsery s analÃ½zou zdola nahoru se pokouÅ¡ejÃ­ najÃ­t pozpÃ¡tku nejpravÄ›jÅ¡Ã­ derivaci pro vstupnÃ­ Å™etÄ›zec -- zkonstruovat derivaÄnÃ­ strom pro danÃ½ vstup poÄÃ­naje listy a stavÄ›nÃ­m zespodu aÅ¾ po koÅ™en stromu. V jednom redukÄnÃ­m kroku je tak podÅ™etÄ›zec odpovÃ­dajÃ­cÃ­ pravÃ© stranÄ› pravidla gramatiky nahrazen neterminÃ¡lem z levÃ© strany pravidla. AnalÃ½za zdola nahoru se pouÅ¾Ã­vÃ¡ ve napÅ™. v generÃ¡toru parserÅ¯ Bison -â€“ je schopnÃ¡ vytvoÅ™it parsery pro $LALR(1), GLR(1)$ gramatiky, kterÃ© jsou oproti $LL(1)$ parserÅ¯m \uv{silnÄ›jÅ¡Ã­} (TÅ™Ã­da rozpoznÃ¡vanÃ½ch jazykÅ¯ LR(1) je vlastnÃ­ nadmnoÅ¾ina LL(1)), vÅ¡echny bÄ›Å¾nÃ© programovacÃ­ jazyky zapsatelnÃ© bezkontextovou gramatikou sem patÅ™Ã­. NavÃ­c se dÃ¡ implementovat zhruba stejnÄ› efektivnÄ› jako metoda shora dolÅ¯.
+\begin{e}{Definice}{0}{Analıza zdola nahoru, LR automat}
+Parsery s analızou zdola nahoru se pokoušejí najít pozpátku nejpravìjší derivaci pro vstupní øetìzec -- zkonstruovat derivaèní strom pro danı vstup poèínaje listy a stavìním zespodu a po koøen stromu. V jednom redukèním kroku je tak podøetìzec odpovídající pravé stranì pravidla gramatiky nahrazen neterminálem z levé strany pravidla. Analıza zdola nahoru se pouívá ve napø. v generátoru parserù Bison -– je schopná vytvoøit parsery pro $LALR(1), GLR(1)$ gramatiky, které jsou oproti $LL(1)$ parserùm \uv{silnìjší} (Tøída rozpoznávanıch jazykù LR(1) je vlastní nadmnoina LL(1)), všechny bìné programovací jazyky zapsatelné bezkontextovou gramatikou sem patøí. Navíc se dá implementovat zhruba stejnì efektivnì jako metoda shora dolù.
 
-V analÃ½ze zdola nahoru se pouÅ¾Ã­vÃ¡ nÄ›jakÃ½ zÃ¡sobnÃ­kovÃ½ automat (\emph{LR automat}) ÄtoucÃ­ ze vstupu, parametrizovanÃ½ tabulkami \emph{ACTION} a \emph{GOTO}. Na zÃ¡sobnÃ­ku se pak uchovÃ¡vajÃ­ stavy a symboly gramatiky (nebo jen stavy). Vrchol zÃ¡sobnÃ­ku pÅ™edstavuje aktuÃ¡lnÃ­ stav. V poÄÃ¡teÄnÃ­ konfiguraci je pointer vstupu nastavenÃ½ na zaÄÃ¡tek a na zÃ¡sobnÃ­ku je poÄÃ¡teÄnÃ­ stav. V kaÅ¾dÃ©m kroku podle stavu a tokenu na vstupu adresuji tabulku ACTION a zÃ­skÃ¡m akci k provedenÃ­:
+V analıze zdola nahoru se pouívá nìjakı zásobníkovı automat (\emph{LR automat}) ètoucí ze vstupu, parametrizovanı tabulkami \emph{ACTION} a \emph{GOTO}. Na zásobníku se pak uchovávají stavy a symboly gramatiky (nebo jen stavy). Vrchol zásobníku pøedstavuje aktuální stav. V poèáteèní konfiguraci je pointer vstupu nastavenı na zaèátek a na zásobníku je poèáteèní stav. V kadém kroku podle stavu a tokenu na vstupu adresuji tabulku ACTION a získám akci k provedení:
 \begin{pitemize}
-    \item \emph{SHIFT} $s$ -- posune vstup o 1 terminÃ¡l, kterÃ½ pÅ™idÃ¡ na zÃ¡sobnÃ­k spolu s novÃ½m stavem $s$.
-    \item \emph{REDUCE} $A\to\alpha$ -- zruÅ¡Ã­ ze zÃ¡sobnÃ­ku tolik dvojic stavÅ¯ a symbolÅ¯, jak dlouhÃ© je $\alpha$, na zÃ¡sobnÃ­k dÃ¡ $A$ a stav, kterÃ½ najde v tabulce GOTO na pozici odpovÃ­dajÃ­cÃ­ neterminÃ¡lu $A$ a aktuÃ¡lnÃ­mu stavu
-    \item \emph{ACCEPT} -- generuje nÄ›jakÃ½ vÃ½stup, slovo je ÃºspÄ›Å¡nÄ› rozpoznÃ¡no
-    \item \emph{ERROR} -- zahlÃ¡sÃ­ chybu
+    \item \emph{SHIFT} $s$ -- posune vstup o 1 terminál, kterı pøidá na zásobník spolu s novım stavem $s$.
+    \item \emph{REDUCE} $A\to\alpha$ -- zruší ze zásobníku tolik dvojic stavù a symbolù, jak dlouhé je $\alpha$, na zásobník dá $A$ a stav, kterı najde v tabulce GOTO na pozici odpovídající neterminálu $A$ a aktuálnímu stavu
+    \item \emph{ACCEPT} -- generuje nìjakı vıstup, slovo je úspìšnì rozpoznáno
+    \item \emph{ERROR} -- zahlásí chybu
 \end{pitemize}
-V LR automatech v klidu projdou i gramatiky s levou rekurzÃ­. ObecnÄ› se v nich pouÅ¾Ã­vajÃ­ nÄ›jakÃ© $LR(k)$ gramatiky, vÄ›tÅ¡inou \uv{rozÅ¡Ã­Å™enÃ©} -- doplnÄ›nÃ© o \uv{teÄky}, ukazatele pozice v pravidlech, kterÃ© pomÃ¡hajÃ­ s rozpoznÃ¡nÃ­m konce vstupu. Ke konstrukci tabulek ACTION a GOTO jsou opÄ›t potÅ™eba mnoÅ¾iny FIRST a FOLLOW, nynÃ­ rozÅ¡Ã­Å™enÃ© na $k$ symbolÅ¯.
-\end{definiceN}
+V LR automatech v klidu projdou i gramatiky s levou rekurzí. Obecnì se v nich pouívají nìjaké $LR(k)$ gramatiky, vìtšinou \uv{rozšíøené} -- doplnìné o \uv{teèky}, ukazatele pozice v pravidlech, které pomáhají s rozpoznáním konce vstupu. Ke konstrukci tabulek ACTION a GOTO jsou opìt potøeba mnoiny FIRST a FOLLOW, nyní rozšíøené na $k$ symbolù.
+\end{e}
 
 
-TODO: pÅ™idat popis LR(1) a LALR(1) gramatik?
+TODO: pøidat popis LR(1) a LALR(1) gramatik?

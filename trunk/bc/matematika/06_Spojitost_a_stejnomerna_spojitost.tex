@@ -4,7 +4,7 @@
 
 \obrazeknahore{matematika/obrazky/prostory_koule}{Rùzné koule}{fig:koule}
 
-\begin{definiceN}{otevøená a uzavøená koule}
+\begin{e}{Definice}{0}{otevøená a uzavøená koule}
 Buï $(M,d)$ metrický prostor, $x \in M, r > 0$, potom
 \begin{pitemize}
 \item \emph{otevøenou koulí} (\emph{$r$-okolím}) se støedem $x$ a polomìrem $r$ nazveme množinu
@@ -12,14 +12,14 @@ $$B(x,r)=\{y \in M | d(x,y)<r\}$$
 \item \emph{uzavøenou koulí} (\emph{$r$-okolím}) se støedem $x$ a polomìrem $r$ nazveme množinu
 $$\overline{B}(x,r) = \{y \in M | d(x,y) \le r \}$$
 \end{pitemize}
-\end{definiceN}
+\end{e}
 
-\begin{poznamka}
+\begin{e}{Poznámka}{0}{0}
     Na obrázku \ref{fig:koule} je ilustrace nìkolika koulí na rùzných metrikách. Obrázky jsou z~\url{http://kma.me.sweb.cz/metr-prostor.pdf}.
-\end{poznamka}
+\end{e}
 
 
-\begin{definiceN}{otevøená a uzavøená množina}
+\begin{e}{Definice}{0}{otevøená a uzavøená množina}
 Buï $(M,d)$ metrický prostor, $G \subseteq M$, potom
 \begin{pitemize}
 \item $G$ je \emph{otevøená} v $M$, pokud
@@ -28,29 +28,29 @@ $$\forall x \in G\;\exists r >\;0:\; B(x,r)\subseteq G$$
 \item $G$ je \emph{uzavøená} v $M$, pokud její doplnìk $M \setminus G$ je otevøený v $M$.
 \end{pitemize}
 Otevøená koule je otevøená množina v každém metrickém prostoru. Podobnì pro uzavøenou kouli.
-\end{definiceN}
+\end{e}
 
-\begin{vetaN}{vlastnosti otevøených množin}
+\begin{e}{Vìta}{0}{vlastnosti otevøených množin}
 Buï $(M,d)$ metrický prostor, potom platí, že
 \begin{penumerate}
 \item $\emptyset$, $M$ jsou otevøené v $M$,
 \item koneèný prùnik otevøených množin je otevøená množina v $M$,
 \item libovolnì velké sjednocení otevøených množin je otevøená množina v $M$.
 \end{penumerate}
-\begin{ideadukazu}
+\begin{e}{Idea dùkazu}{0}{0}
 Èást 1. platí pro prázdnou množinu (podmínka je prázdná) a doplòkem i pro celé $M$. Proè v èásti 2. musí být prùnik koneèný? Vezmìme nekoneènou posloupnost otevøených koulí $\left(B_n\left(x_0, 1/n\right)\right)_{n \geq 1}$, pak jejich prùnikem je pouze $\lbrace x_0\rbrace$, což není otevøená množina!
-\end{ideadukazu}
-\end{vetaN}
+\end{e}
+\end{e}
 
-\begin{vetaN}{vlastnosti uzavøených množin}
+\begin{e}{Vìta}{0}{vlastnosti uzavøených množin}
 Nech $(M,d)$ je metrický prostor, potom platí, že
 \begin{penumerate}
 \item $\emptyset$, $M$ jsou uzavøené v $M$,
 \item libovolný prùnik uzavøených množin je uzavøená množina v $M$,
 \item koneèné sjednocení uzavøených množin je uzavøená množina v $M$.
 \end{penumerate}
-\end{vetaN}
-\begin{definiceN}{okolí bodu, vnitøní, vnìjší a další body}
+\end{e}
+\begin{e}{Definice}{0}{okolí bodu, vnitøní, vnìjší a další body}
 Buï $(M, d)$ metrický prostor, $a \in M$ jeho bod. Každou otevøenou množinu $U \subset M$ splòující $a \in U$ nazveme \emph{okolím bodu $a$}. Tedy každá koule $B(a, r)$ je okolím bodu $a$ a ovšem každé okolí
 bodu $a$ obsahuje nìjakou takovou kouli. V následujících definicích buïte $a \in M$ bod, $X \subset M$ množina a $U$ okolí bodu $a$. Øekneme, že
 \begin{pitemize}
@@ -60,27 +60,27 @@ bodu $a$ obsahuje nìjakou takovou kouli. V následujících definicích buïte $a \in
     \item $a$ je \emph{limitním} bodem $X$, když je pro každé $U$ prùnik $U \cap X$ nekoneèný,
     \item $a$ je \emph{izolovaným} bodem $X$, když existuje $U$ tak, že $U \cap X = \lbrace a\rbrace$.
 \end{pitemize}
-\end{definiceN}
+\end{e}
 
-\begin{priklad}
+\begin{e}{Pøíklad}{0}{0}
 Vnitøní a izolované body $X$ nutnì leží v $X$, vnìjší body leží mimo $X$. Hranièní a limitní body $X$ mohou ležet v $X$ i mimo $X$. Vezmìme v euklidovské rovinì $R^2$ množinu $X = \lbrace x \in R^2\;\vert\;0 < \|x\| < 1\rbrace \cup \lbrace(0, 2)\rbrace$, jednotkový kruh se støedem v poèátku, z nìhož jsme poèátek odstranili a k
 nìmuž jsme pøidali bod $(0, 2)$. Pak vnitøní body $X$ tvoøí množinu $\lbrace x \in R^2\;\vert\;0 <
 \|x\| < 1\rbrace$, vnìjší body množinu $\lbrace x \in R^2\;\vert\; \|x\| > 1, x \neq (0, 2)\rbrace$, hranièní
 body množinu $\lbrace x \in R^2\;\vert\; \|x\| = 1\rbrace \cup \lbrace(0, 0), (0, 2)\rbrace$, limitní body množinu
 $\lbrace x \in R^2\;\vert\;\|x\| \leq 1\rbrace$ a izolované body množinu $\lbrace(0, 2)\rbrace$.
-\end{priklad}
+\end{e}
 
-\begin{definiceN}{vzdálenost bodu od množiny}
+\begin{e}{Definice}{0}{vzdálenost bodu od množiny}
 V metrickém prostoru $(X, d)$ buï $A\subset X$ množina a $x\in(X, d)$ bod. \emph{Vzdálenost bodu $x$ od množiny $A$} je èíslo $ d(x,A)=\inf\{ d(x,y)|y\in A\}$.
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{uzávìr}
+\begin{e}{Definice}{0}{uzávìr}
 \emph{Uzávìrem} množiny $A$ v metrickém prostoru $(M,d)$ nazýváme množinu
 $$\overline{A} = \bigcap_{\forall F}\{F\;\vert\;F \text{ uzavøená}, A \subseteq F \subseteq M\}$$
 Ekvivalentnì $\overline{A} = \lbrace a \in M\;\vert\;a = \lim_{n \to \infty} a_n$ pro nìjakou $(a_n) \subset A \rbrace$, neboli $\overline{A} = A \cup \lbrace \text{limitní body }A\rbrace$.
-\end{definiceN}
+\end{e}
 
-\begin{vetaN}{vlastnosti uzávìru}
+\begin{e}{Vìta}{0}{vlastnosti uzávìru}
 Buï $(M,d)$ metrický prostor a $A,B$ množiny v nìm, potom platí:
 \begin{penumerate}
 \item $\overline{\emptyset} = \emptyset$, $\overline{M} = M$
@@ -90,30 +90,30 @@ Buï $(M,d)$ metrický prostor a $A,B$ množiny v nìm, potom platí:
 \item charakteristika uzávìru: $\overline{A} = \{x \in M| d(x,A) = 0\}$
 \item $\overline{A}$ je nejmenší uzavøená množina obsahující $A$, proto $A$ je uzavøená právì když $\overline{A}=A$.
 \end{penumerate}
-\end{vetaN}
+\end{e}
 
-\begin{poznamkaN}{ekvivalentní definice uzavøené množiny}
+\begin{e}{Poznámka}{0}{ekvivalentní definice uzavøené množiny}
 Množina $X\subset(M, d)$ je uzavøená, jestliže každá posloupnost bodù $(x_n)_{n\geq 0}$, která v $X$ leží a konverguje, v $X$ má také svou limitu.
-\end{poznamkaN}
+\end{e}
 
 \subsubsection*{Spojitost a stejnomìrná spojitost}
 
 \obrazekvpravominipage{matematika/obrazky/spojitost}{Spojitost $\mathrm{e}^x$}{fig:spojitostex}{0.5}{0.5}{
 
 
-\begin{definiceN}{spojité zobrazení}
+\begin{e}{Definice}{0}{spojité zobrazení}
 Pro metrické prostory $(X, d_1)$ a $(Y, d_2)$ je zobrazení $f:X\to Y$ \emph{spojité v bodì} $x\in X$, jestliže
 $$\forall\varepsilon>0\ \exists\delta>0:  d_1(x,y)<\delta\;\Rightarrow\;  d_2(f(x),f(y))<\varepsilon$$
 Ekvivalentnì pro $\forall$ okolí $V$ bodu $f(x)$ $\exists$ okolí $U$ bodu $x$ tak, že $y \in U \Rightarrow f(y) \in V$.\\
 Zobrazení $f$ je \emph{spojité}, pokud je spojité v každém bodì $x\in X$. 
-\end{definiceN}
+\end{e}
 
 
 Na obrázku \ref{fig:spojitostex} je ilustrována definice spojitosti na funkci $f(x)=\mathrm{e}^x$, zobrazující z~$\mathbb{R}$ do $\mathbb{R}$. Pro dvì rùzná $\varepsilon$ u daného $x$ jsem našel odpovídající $\delta$. 
 }
 
 
-\begin{vetaN}{vlastnosti spojitosti}
+\begin{e}{Vìta}{0}{vlastnosti spojitosti}
 Nech je dáno zobrazení $f:X\to Y$ mezi dvìma metrickými prostory $(X, d_1)$, $(Y, d_2)$. Pak jsou následující tvrzení ekvivalentní.
 \begin{penumerate}
     \item $f$ je spojité.
@@ -123,7 +123,7 @@ Nech je dáno zobrazení $f:X\to Y$ mezi dvìma metrickými prostory $(X, d_1)$, $(
     \item Je-li $U \subset Y$ uzavøená v $Y$, pak $f^{-1}(U) \subset X$ je uzavøená v $X$.
     \item Pro každou $A\subseteq X$ platí $f[\overline{A}]\subseteq \overline{f[A]}$.
 \end{penumerate}
-\begin{ideadukazu}
+\begin{e}{Idea dùkazu}{0}{0}
 \begin{penumerate}
     \item[1$\Rightarrow$2] $f$ je spojité a $(x_n) \to x$ v $X$, chceme ukázat, že pro (každé) dané $\varepsilon > 0$ existuje $n_0$ tak, že $n \geq n_0 \Rightarrow d_2(f(x_n), f(x)) \leq \varepsilon$ (neboli $\lim f(x_n) = f(x) = f(\lim x_n)$). Máme $f$ spojité, proto pro dané $\varepsilon$ existuje $\delta > 0:\;d_1(x_n, x) < \delta \Rightarrow d_2(f(x_n), f(x)) < \varepsilon$. A protože $x_n \to x$ v $X$, máme pro takové $\delta$ vždy nìjaké $n_0:\;n\geq n_0 \Rightarrow d_1(x_n, x) < \delta$. Tím jsme získali hledané $n_0$. (Argumentoval jsem pozpátku od cíle k nalezení potøebného \uv{parametru} $n_0$.)
     
@@ -135,28 +135,28 @@ Nech je dáno zobrazení $f:X\to Y$ mezi dvìma metrickými prostory $(X, d_1)$, $(
     \item[5$\Rightarrow$6] $A \subseteq f^{-1}\left(f\left(A\right)\right) \subseteq f^{-1}\left(\overline{f\left(A\right)}\right)$ a vzory uzavøených jsou uzavøené, tak máme $\overline{A} \subseteq f^{-1}\left(\overline{f\left(A\right)}\right)$, protože $\overline{A}$ je \textbf{nejmenší} uzavøená množina, obsahující $A$ a $f^{-1}\left(\overline{f\left(A\right)}\right)$ je uzavøená množina, obsahující A. Proto $f\left(\overline{A}\right) \subseteq \overline{f\left(A\right)}$ (ze základní logiky zobrazení).
     \item[6$\Rightarrow$1] Nepøímo. Tedy máme $x, \varepsilon > 0$ tak, že pro všechna $\delta > 0$ existuje $y \in B(x, \delta)$ takové, že $d_2(f(x),f(y)) \geq \varepsilon$. Z nich vytvoøíme $A = \left\lbrace y\;\middle\vert\;d_2\left(f\left(y\right),f\left(x\right)\right) \geq \varepsilon\right\rbrace$. Pak ovšem $x \in \overline{A}$ (protože v~A jsou body $x$ blízko libovolnì malé $\delta$), ale $f(x) \notin  \overline{f(A)}$ (protože od $f(a)$ jsme vždy vzdáleni o $\varepsilon$), což je spor s 6.
 \end{penumerate}
-\end{ideadukazu}
-\end{vetaN}
+\end{e}
+\end{e}
 
 \obrazekvpravominipage{matematika/obrazky/nestejnomerna_spojitost}{Spojitost $\mathrm{e}^x$ není stejnomìrná}{fig:nestspojitostex}{0.5}{0.5}{
 
 
-\begin{definiceN}{stejnomìrnì spojité zobrazení}
+\begin{e}{Definice}{0}{stejnomìrnì spojité zobrazení}
 Øekneme, že zobrazení $f:(X, d_1)\to(Y, d_2)$ je \emph{stejnomìrnì spojité}, jestliže
 $$\forall\varepsilon>0\ \exists\delta>0\text{ takové, že }\forall(x,y): d_1(x,y)<\delta\;\Rightarrow\; d_2(f(x),f(y))<\varepsilon$$
-\end{definiceN}
+\end{e}
 
 
-\begin{poznamka}
+\begin{e}{Poznámka}{0}{0}
     Funkce $\mathrm{e}^x$ \emph{není} stejnomìrnì spojitá. Nemohu vybrat pro dané $\varepsilon$ takové $\delta$, že obraz z~$\delta$-okolí kolem $x$ bude ve $\varepsilon$ -- posouvám-li $x$ smìrem \uv{doprava}, obraz $\delta$-okolí se poøád zvìtšuje, až pøeroste $\varepsilon$, a zvolím $\delta$ libovolnì malé. Ilustrováno na obrázku \ref{fig:nestspojitostex}.
-\end{poznamka}
+\end{e}
 }
 
-\begin{vetaN}{skládání zobrazení}
+\begin{e}{Vìta}{0}{skládání zobrazení}
 Složení dvou spojitých (nebo stejnomìrnì spojitých) zobrazení je spojité (resp. stejnomìrnì spojité).
-\end{vetaN}
+\end{e}
 
-\begin{definiceN}{homeomorfismus}
+\begin{e}{Definice}{0}{homeomorfismus}
 Zobrazení $f:(X,d_1)\to(Y,d_2)$ nazveme \emph{(stejnomìrným) homeomorfismem}, pokud
 \begin{pitemize}
     \item $f$ je bijekce,
@@ -164,41 +164,41 @@ Zobrazení $f:(X,d_1)\to(Y,d_2)$ nazveme \emph{(stejnomìrným) homeomorfismem}, po
     \item inverzní zobrazení $f^{-1}$ je (stejnomìrnì) spojité.
 \end{pitemize}
 Prostory $X$ a $Y$ pak jsou \emph{(stejnomìrnì) homeomorfní}. Pokud je $f$ identické zobrazení z $(X, d_1)$ do $(X, d_2)$, øíkáme, že metriky $d_1$ a $ d_2$ jsou \emph{(stejnomìrnì) ekvivalentní}. (Jiná definice ekvivalentních metrik požaduje, aby metrické prostory $(X, d_1)$ a $(X, d_2)$ mìli tytéž otevøené množiny).
-\end{definiceN}
+\end{e}
 
-\begin{poznamka}
+\begin{e}{Poznámka}{0}{0}
 	Nezamìòovat s homomorfismem!
 	
 	Pro ilustraci, jak jsou si hrníèek a americký donut homeomorfní viz \url{http://en.wikipedia.org/wiki/File:Mug_and_Torus_morph.gif}.
-\end{poznamka}
+\end{e}
 
-\begin{vetaN}{aritmetika zobrazení}
+\begin{e}{Vìta}{0}{aritmetika zobrazení}
 Jsou-li $f,g$ spojité funkce $(X, d)\to\mathbb{R}$ (kde $(X, d)$ je metrický prostor) a $\alpha\in\mathbb{R}$, potom i funkce $f+g$, $\alpha\cdot f$, $f\cdot g$ a $\frac{f}{g}$ (má-li tato smysl) jsou spojité. Platí i pro spojitost zobrazení v nìjakém bodì $x_0\in X$.
 
-\begin{dukaz}
+\begin{e}{Dùkaz}{0}{0}
 Dùkaz této vìty je vlastnì stejný jako dùkaz vìty o aritmetice limit pro reálné funkce (jen pracujeme se zobrazeními na metrických prostorech).
-\end{dukaz}
-\end{vetaN}
+\end{e}
+\end{e}
 
 \subsubsection*{Podprostor metrického prostoru}
 
-\begin{definiceN}{podprostor}
+\begin{e}{Definice}{0}{podprostor}
 Pro metrický prostor $(X, d)$ a množinu $X_1\subset X$ vezmeme funkci $d_1:X_1\times X_1\to\mathbb{R}$ danou pøedpisem $d_1(x,y)= d(x,y)\ \forall x,y\in X_1$. Pak $(X_1, d_1)$ je \emph{podprostor} metrického prostoru $(X, d)$ (\emph{indukovaný} podmnožinou $X_1$).
-\end{definiceN}
+\end{e}
 
-\begin{poznamka}
+\begin{e}{Poznámka}{0}{0}
 Pro $X_1 \subset X$ je zobrazení vložení $j:(X_1, d)\to(X, d)$, definované pøedpisem $j(x)=x$ stejnomìrnì spojité.
-\end{poznamka}
+\end{e}
 
-\begin{vetaN}{vlastnosti podprostorù}
+\begin{e}{Vìta}{0}{vlastnosti podprostorù}
 Buï $Y$ podprostor metrického prostoru $X$. Potom platí
 \begin{penumerate}
     \item $B_Y(x,\varepsilon)=B_X(x,\varepsilon)\cap Y$,\hfill\emph{(o okolí bodù)}
     \item $U$ je otevøená v $Y$, právì když existuje otevøená $V \subset X$ taková, že $U=V\cap Y$ (to samé platí i pro uzavøené množiny),
     \item $\overline{A}^Y=\overline{A}^X\cap Y$.\hfill\emph{(o uzávìru množiny)}
 \end{penumerate}
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{podprostor zachovává spojitost}
+\begin{e}{Vìta}{0}{podprostor zachovává spojitost}
 Pro $f:(X, d_1)\to (Y, d_2)$ (stejnomìrnì) spojité zobrazení a $X_1\subseteq X$, $Y_1\subseteq Y$ takové, že $f[X_1]\subseteq Y_1$ je $f_1:X_1\to Y_1$ definované pøedpisem $f_1(x)=f(x)$ (stejnomìrnì) spojité.
-\end{vetaN}
+\end{e}

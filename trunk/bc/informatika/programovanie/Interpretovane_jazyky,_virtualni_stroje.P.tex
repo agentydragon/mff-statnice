@@ -1,29 +1,29 @@
-\subsection{InterpretovanÃ© jazyky, virtuÃ¡lnÃ­ stroje}
+\subsection{Interpretované jazyky, virtuální stroje}
 
-\subsubsection*{InterpretovanÃ½ jazyk}
+\subsubsection*{Interpretovanı jazyk}
 
-ZdrojovÃ½ jazyk se nepÅ™eklÃ¡dÃ¡ do kÃ³du skuteÄnÃ©ho procesoru, ale do kÃ³du nÄ›jakÃ©ho abstraktnÃ­ho stroje... Interpret pÅ™eloÅ¾enÃ½ do kÃ³du skuteÄnÃ©ho stroje simuluje zvolenÃ½ abstraktnÃ­ stroj.
+Zdrojovı jazyk se nepøekládá do kódu skuteèného procesoru, ale do kódu nìjakého abstraktního stroje... Interpret pøeloenı do kódu skuteèného stroje simuluje zvolenı abstraktní stroj.
 
-DÅ¯vodem mÅ¯Å¾e bÃ½t napÅ™. mÃ¡lo prostoru pro pÅ™ekladaÄ (8-bity a BASIC), nebo pÅ™enositelnost -- stejnÃ½ abstraktnÃ­ stroj mÅ¯Å¾e bÄ›Å¾et na rÅ¯znÃ½ch OS i rÅ¯znÃ½ch architekturÃ¡ch CPU (AS/400, Java).
+Dùvodem mùe bıt napø. málo prostoru pro pøekladaè (8-bity a BASIC), nebo pøenositelnost -- stejnı abstraktní stroj mùe bìet na rùznıch OS i rùznıch architekturách CPU (AS/400, Java).
 
-Tato metoda mÃ¡ i problÃ©my:
+Tato metoda má i problémy:
 
 \begin{pitemize}
-	\item ProblÃ©m s rychlostÃ­ - dÃ¡ se Å™eÅ¡it pomocÃ­ JIT (Just-In-Time compilation): Pokud interpret narazÃ­ na kÃ³d abstraktnÃ­ho stroje, kterÃ½ jeÅ¡tÄ› nenÃ­ pÅ™eloÅ¾en, okamÅ¾itÄ› ho pÅ™eloÅ¾Ã­ na kÃ³d cÃ­lovÃ©ho stroje a uloÅ¾Ã­ si ho vedle do svÃ© cache
-	\item ProblÃ©my s pÅ™enositelnostÃ­ - nevhodnÃ© zmÄ›ny v chovÃ¡nÃ­ abstraktnÃ­ho stroje mohou pÅ™ivodit problÃ©my s pÅ™enositelnostÃ­ (Java)
-	\item Jak zvolit abstraktnÃ­ stroj - aby pokryl chovÃ¡nÃ­ vÅ¡ech zdrojovÃ½ch jazykÅ¯ (napÅ™ .NET)
+	\item Problém s rychlostí - dá se øešit pomocí JIT (Just-In-Time compilation): Pokud interpret narazí na kód abstraktního stroje, kterı ještì není pøeloen, okamitì ho pøeloí na kód cílového stroje a uloí si ho vedle do své cache
+	\item Problémy s pøenositelností - nevhodné zmìny v chování abstraktního stroje mohou pøivodit problémy s pøenositelností (Java)
+	\item Jak zvolit abstraktní stroj - aby pokryl chování všech zdrojovıch jazykù (napø .NET)
 \end{pitemize}
 
-\begin{obecne}{PouÅ¾itÃ­ dynamickÃ© pamÄ›ti v interpretovanÃ½ch jazycÃ­ch}
-Pokud je dynamickÃ¡ pamÄ›Å¥ podporovÃ¡na, pak vÃ½hradnÄ› s garbage collectorem, protoÅ¾e:
+\begin{obecne}{Pouití dynamické pamìti v interpretovanıch jazycích}
+Pokud je dynamická pamì podporována, pak vıhradnì s garbage collectorem, protoe:
 \begin{pitemize}
 	\item Ukazatele jsou pod kontrolou
-	\item SnadnÄ›jÅ¡Ã­ programovÃ¡nÃ­
-	\item RychlejÅ¡Ã­ prÃ¡ce s dynamickou pamÄ›tÃ­ (program obvykle nepotÅ™ebuje tolik pamÄ›ti, aby GC vÅ¯bec musel zasahovat, takÅ¾e se pouze souvisle alokuje; simulÃ¡tor abstraktnÃ­ho ale obvykle zabere vÃ­ce pamÄ›ti, neÅ¾ by musel)
+	\item Snadnìjší programování
+	\item Rychlejší práce s dynamickou pamìtí (program obvykle nepotøebuje tolik pamìti, aby GC vùbec musel zasahovat, take se pouze souvisle alokuje; simulátor abstraktního ale obvykle zabere více pamìti, ne by musel)
 \end{pitemize}
 \end{obecne}
 
-\subsubsection*{Zo \uv{starÃ½ch} textov :-)}
+\subsubsection*{Zo \uv{starıch} textov :-)}
 
 In computer programming an emph{interpreted language} is a programming language whose implementation often takes the form of an interpreter. Theoretically, any language may be compiled or interpreted, so this designation is applied purely because of common implementation practice and not some underlying property of a language.
 

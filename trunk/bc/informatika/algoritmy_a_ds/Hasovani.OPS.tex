@@ -1,296 +1,296 @@
 \newcommand{\nadpis}[1]{\pagebreak[2]\ramcek{\subsubsection*{#1}}}
 
-\subsection{HaÅ¡ovÃ¡nÃ­}
+\subsection{Hašování}
 
-\begin{definiceN}{slovnÃ­kovÃ½ problÃ©m} DÃ¡no univerzum $U$, mÃ¡me reprezentovat
+\begin{e} Dáno univerzum $U$, máme reprezentovat{Definice}{0}{slovníkovı problém}
 $S \subseteq U$ a navrhnout algoritmy pro operace
 \begin{pitemize}
-\item MEMBER(x) - zjistÃ­ zda $x \in S$ a pokud ano nalezne kde,
-\item INSERT(x) - pokud $x \notin S$, vloÅ¾Ã­ $x$ do struktury reprezentujÃ­cÃ­ $S$,
-\item DELETE(x) - kdyÅ¾ $x \in S$, smaÅ¾e $x$ ze struktury reprezentujÃ­cÃ­ $S$.
+\item MEMBER(x) - zjistí zda $x \in S$ a pokud ano nalezne kde,
+\item INSERT(x) - pokud $x \notin S$, vloí $x$ do struktury reprezentující $S$,
+\item DELETE(x) - kdy $x \in S$, smae $x$ ze struktury reprezentující $S$.
 \end{pitemize}
-\end{definiceN}
+\end{e}
 
-NapÅ™Ã­klad pomocÃ­ pole mÅ¯Å¾eme tyto operace implementovat rychle, ale nevÃ½hodou
-je prostorovÃ¡ nÃ¡roÄnost. Pro velkÃ© mnoÅ¾iny je to nÄ›kdy dokonce nemoÅ¾nÃ©.
-\emph{HaÅ¡ovÃ¡nÃ­} se snaÅ¾Ã­ zachovat rychlost operacÃ­ a odstranit prostorovou
-nÃ¡roÄnost.
+Napøíklad pomocí pole mùeme tyto operace implementovat rychle, ale nevıhodou
+je prostorová nároènost. Pro velké mnoiny je to nìkdy dokonce nemoné.
+\emph{Hašování} se snaí zachovat rychlost operací a odstranit prostorovou
+nároènost.
 
-PodÃ­vejme se nynÃ­ na \emph{zÃ¡kladnÃ­ ideu} haÅ¡ovÃ¡nÃ­. MÄ›jme univerzum $U$ a
-mnoÅ¾inu $S \subseteq U$ takovou, Å¾e $|S| << |U|$. DÃ¡le mÄ›jme funkci
-$h:U\rightarrow\{0,1,\dots,m-1\}$. MnoÅ¾inu $S$ potom reprezentujeme tabulkou
-(polem) o velikosti $m$ tak, Å¾e prvek $x \in S$ je uloÅ¾en na Å™Ã¡dku $h(x)$.
+Podívejme se nyní na \emph{základní ideu} hašování. Mìjme univerzum $U$ a
+mnoinu $S \subseteq U$ takovou, e $|S| << |U|$. Dále mìjme funkci
+$h:U\rightarrow\{0,1,\dots,m-1\}$. Mnoinu $S$ potom reprezentujeme tabulkou
+(polem) o velikosti $m$ tak, e prvek $x \in S$ je uloen na øádku $h(x)$.
 
-\begin{definiceN}{HaÅ¡ovacÃ­ funkce, kolize} Funkci
-$h:U\rightarrow\{0,1,\dots,m-1\}$ potom nazÃ½vÃ¡me \textbf{haÅ¡ovacÃ­ funkcÃ­}.
+\begin{e} Funkci{Definice}{0}{Hašovací funkce, kolize}
+$h:U\rightarrow\{0,1,\dots,m-1\}$ potom nazıváme \textbf{hašovací funkcí}.
 Situaci $h(s)=h(t)$, pro $s \neq t; s,t \in S$  nazveme \textbf{kolize}.
-\end{definiceN}
+\end{e}
 
-JelikoÅ¾ mohutnost univerza $U$ je vÄ›tÅ¡Ã­ neÅ¾ velikost haÅ¡ovacÃ­ tabulky, nelze se
-kolizÃ­m ÃºplnÄ› vyhnout. Existuje spousta rÅ¯znÃ½ch metod, jak kolize Å™eÅ¡it.
-PodÃ­vejme se tedy na nÄ›kterÃ© podrobnÄ›ji.
+Jeliko mohutnost univerza $U$ je vìtší ne velikost hašovací tabulky, nelze se
+kolizím úplnì vyhnout. Existuje spousta rùznıch metod, jak kolize øešit.
+Podívejme se tedy na nìkteré podrobnìji.
 
-\begin{definice}
-JeÅ¡tÄ› si zavedeme nÄ›kterÃ© znaÄenÃ­. Velikost $S$ (haÅ¡ovanÃ© mnoÅ¾iny) oznaÄme
-\textbf{n}, velikost tabulky (pole) oznaÄme \textbf{m}, a faktor naplnÄ›nÃ­
+\begin{e}{Definice}{0}{0}
+Ještì si zavedeme nìkteré znaèení. Velikost $S$ (hašované mnoiny) oznaème
+\textbf{n}, velikost tabulky (pole) oznaème \textbf{m}, a faktor naplnìní
 \textbf{$\alpha=\frac{n}{m}$}.
-\end{definice}
+\end{e}
 
-\subsubsection*{HaÅ¡ovÃ¡nÃ­ se separovanÃ½mi Å™etÄ›zci}
+\subsubsection*{Hašování se separovanımi øetìzci}
 
-PouÅ¾ijeme pole velikosti $m$, jehoÅ¾ $i$-tÃ¡ poloÅ¾ka bude spojovÃ½ seznam $S_i$
-takovÃ½, Å¾e $s\in S_i \Leftrightarrow h(s)=i$, pro $s\in S$. ÄŒili kaÅ¾dÃ½ Å™Ã¡dek
-pole obsahuje spojovÃ½ seznam vÅ¡ech (kolidujÃ­cÃ­ch) prvkÅ¯, kterÃ© jsou haÅ¡ovÃ¡ny na
-tento Å™Ã¡dek. Seznamy nemusÃ­ bÃ½t uspoÅ™Ã¡danÃ©, vznikajÃ­ tak, jak jsou vklÃ¡dÃ¡ny
-jednotlivÃ© prvky do struktury.
+Pouijeme pole velikosti $m$, jeho $i$-tá poloka bude spojovı seznam $S_i$
+takovı, e $s\in S_i \Leftrightarrow h(s)=i$, pro $s\in S$. Èili kadı øádek
+pole obsahuje spojovı seznam všech (kolidujících) prvkù, které jsou hašovány na
+tento øádek. Seznamy nemusí bıt uspoøádané, vznikají tak, jak jsou vkládány
+jednotlivé prvky do struktury.
 
-\begin{algoritmusN}{HaÅ¡ovÃ¡nÃ­ se separovanÃ½mi Å™etÄ›zci}
+\begin{e}{Algoritmus}{0}{Hašování se separovanımi øetìzci}
 \begin{pitemize}
-\item \textbf{MEMBER} -- SpoÄteme hodnotu haÅ¡ovacÃ­ funkce $h(x)$, prohledÃ¡me
-Å™etÄ›zec zaÄÃ­najÃ­cÃ­ na pozici $h(x)$ a zjistÃ­me zda se prvek nachÃ¡zÃ­, Äi
-nenachÃ¡zÃ­ ve struktuÅ™e. Pokud se prvek v databÃ¡zi nachÃ¡zÃ­, tak musÃ­ nutnÄ› leÅ¾et
-v tomto Å™etÄ›zci.
-\item \textbf{INSERT} -- ZjistÃ­me zda $x$ je v Å™etÄ›zci $h(x)$, pokud ne, pÅ™idÃ¡me
-ho nakonec, v opaÄnÃ©m pÅ™Ã­padÄ› nedÄ›lÃ¡me nic.
-\item \textbf{DELETE} -- VyhledÃ¡ $x$ v Å™etÄ›zci $h(x)$ a smaÅ¾e ho. Pokud se tam
-$x$ nenachÃ¡zÃ­, neudÄ›lÃ¡ nic.
+\item \textbf{MEMBER} -- Spoèteme hodnotu hašovací funkce $h(x)$, prohledáme
+øetìzec zaèínající na pozici $h(x)$ a zjistíme zda se prvek nachází, èi
+nenachází ve struktuøe. Pokud se prvek v databázi nachází, tak musí nutnì leet
+v tomto øetìzci.
+\item \textbf{INSERT} -- Zjistíme zda $x$ je v øetìzci $h(x)$, pokud ne, pøidáme
+ho nakonec, v opaèném pøípadì nedìláme nic.
+\item \textbf{DELETE} -- Vyhledá $x$ v øetìzci $h(x)$ a smae ho. Pokud se tam
+$x$ nenachází, neudìlá nic.
 \end{pitemize}
-\end{algoritmusN}
+\end{e}
 
-\paragraph{OÄekÃ¡vanÃ½ poÄet testÅ¯} v neÃºspÄ›Å¡nÃ©m pÅ™Ã­padÄ› je pÅ™ibliÅ¾nÄ›
-$e^{-\alpha} + \alpha$ a pÅ™i ÃºspÄ›Å¡nÃ©m vyhledÃ¡vÃ¡nÃ­ pÅ™ibliÅ¾nÄ›
+\paragraph{Oèekávanı poèet testù} v neúspìšném pøípadì je pøiblinì
+$e^{-\alpha} + \alpha$ a pøi úspìšném vyhledávání pøiblinì
 $1+\frac{\alpha}{2}$.
 
-\subsubsection*{HaÅ¡ovÃ¡nÃ­ s uspoÅ™Ã¡danÃ½mi Å™etÄ›zci}
+\subsubsection*{Hašování s uspoøádanımi øetìzci}
 
-Jak jiÅ¾ je zÅ™ejmÃ© z nÃ¡zvu je tato metoda tÃ©mÄ›Å™ stejnÃ¡ jako pÅ™edchozÃ­. JedinÃ½
-rozdÃ­l je, Å¾e jednotlivÃ© seznamy jsou uspoÅ™Ã¡dÃ¡ny vzestupnÄ› dle velikosti
-prvkÅ¯.
+Jak ji je zøejmé z názvu je tato metoda témìø stejná jako pøedchozí. Jedinı
+rozdíl je, e jednotlivé seznamy jsou uspoøádány vzestupnì dle velikosti
+prvkù.
 
-\begin{algoritmusN}{HaÅ¡ovÃ¡nÃ­ s uspoÅ™Ã¡danÃ½mi Å™etÄ›zci}
-RozdÃ­ly jsou pouze pro operaci \textbf{MEMBER}, kde skonÄÃ­me prohledÃ¡vÃ¡nÃ­, kdyÅ¾
-dojdeme na konec, nebo kdyÅ¾ nalezneme prvek, kterÃ½ je vÄ›tÅ¡Ã­ neÅ¾ hledanÃ½ a
-operaci \textbf{INSERT}, kterÃ© vklÃ¡dÃ¡ prvek na mÃ­sto kde jsme ukonÄili
-vyhledÃ¡vÃ¡nÃ­ (pÅ™ed prvek, kterÃ½ ho ukonÄil).
-\end{algoritmusN}
+\begin{e}{Algoritmus}{0}{Hašování s uspoøádanımi øetìzci}
+Rozdíly jsou pouze pro operaci \textbf{MEMBER}, kde skonèíme prohledávání, kdy
+dojdeme na konec, nebo kdy nalezneme prvek, kterı je vìtší ne hledanı a
+operaci \textbf{INSERT}, které vkládá prvek na místo kde jsme ukonèili
+vyhledávání (pøed prvek, kterı ho ukonèil).
+\end{e}
 
-\paragraph{OÄekÃ¡vanÃ½ poÄet testÅ¯} v neÃºspÄ›Å¡nÃ©m pÅ™Ã­padÄ› je pÅ™ibliÅ¾nÄ› roven
-$e^{-\alpha}+1+\frac{\alpha}{2}-\frac{1}{\alpha}(1-e^{-\alpha})$ a v ÃºspÄ›Å¡nÃ©m
-pÅ™Ã­padÄ› je pÅ™ibliÅ¾nÄ› $1+\frac{\alpha}{2}$.
+\paragraph{Oèekávanı poèet testù} v neúspìšném pøípadì je pøiblinì roven
+$e^{-\alpha}+1+\frac{\alpha}{2}-\frac{1}{\alpha}(1-e^{-\alpha})$ a v úspìšném
+pøípadì je pøiblinì $1+\frac{\alpha}{2}$.
 
-NevÃ½hodou pÅ™edchozÃ­ch dvou metod je nerovnomÄ›rnÃ© vyuÅ¾itÃ­ pamÄ›ti. ZatÃ­mco
-nÄ›kterÃ© seznamy mohou bÃ½t dlouhÃ©, v nÄ›kterÃ½ch nenÃ­ prvek Å¾Ã¡dnÃ½. Å˜eÅ¡enÃ­m je najÃ­t
-zpÅ¯sob, jak kolidujÃ­cÃ­ prvky uklÃ¡dat na jinÃ© (prÃ¡zdnÃ©) Å™Ã¡dky tabulky. Potom je
-ale nutnÃ© kaÅ¾dÃ½ prvek tabulky rozÅ¡Ã­Å™it a poloÅ¾ky pro prÃ¡ci s tabulkou. 
+Nevıhodou pøedchozích dvou metod je nerovnomìrné vyuití pamìti. Zatímco
+nìkteré seznamy mohou bıt dlouhé, v nìkterıch není prvek ádnı. Øešením je najít
+zpùsob, jak kolidující prvky ukládat na jiné (prázdné) øádky tabulky. Potom je
+ale nutné kadı prvek tabulky rozšíøit a poloky pro práci s tabulkou. 
 
-ÄŒÃ­m pouÅ¾ijeme sofistikovanÄ›jÅ¡Ã­ metodu uklÃ¡dÃ¡nÃ­ dat do tabulky, tÃ­m vÃ­ce budeme
-potÅ™ebovat poloÅ¾ek pro prÃ¡ci s tabulkou a tedy vzroste pamÄ›Å¥ovÃ¡ nÃ¡roÄnost. NaÅ¡Ã­m
-cÃ­lem je tedy najÃ­t rozumnÃ½ kompromis mezi sofistikovanostÃ­ (rychlostÃ­)
-strategie a jejÃ­ pamÄ›Å¥ovou nÃ¡roÄnostÃ­. PodÃ­vejme se na dalÅ¡Ã­ algoritmy,
-kterÃ© se o to pokouÅ¡ejÃ­.
+Èím pouijeme sofistikovanìjší metodu ukládání dat do tabulky, tím více budeme
+potøebovat poloek pro práci s tabulkou a tedy vzroste pamìová nároènost. Naším
+cílem je tedy najít rozumnı kompromis mezi sofistikovaností (rychlostí)
+strategie a její pamìovou nároèností. Podívejme se na další algoritmy,
+které se o to pokoušejí.
 
-\subsubsection*{HaÅ¡ovÃ¡nÃ­ s pÅ™emÃ­sÅ¥ovÃ¡nÃ­m}
+\subsubsection*{Hašování s pøemísováním}
 
-Seznamy jsou tentokrÃ¡t uklÃ¡dÃ¡ny do tabulky a implementovÃ¡ny jako dvousmÄ›rnÃ©.
-PotÅ™ebujeme tedy dvÄ› poloÅ¾ky pro prÃ¡ci s tabulkou: \emph{next} -- ÄÃ­slo Å™Ã¡dku
-obsahujÃ­cÃ­ dalÅ¡Ã­ prvek seznamu a \emph{previous} -- ÄÃ­slo Å™Ã¡dku obsahujÃ­cÃ­
-pÅ™edchozÃ­ prvek seznamu. KdyÅ¾ dojde ke kolizi, tj. chceme vloÅ¾it prvek a jeho
-mÃ­sto je obsazenÃ© prvkem z jinÃ©ho Å™etÄ›zce, pak tento prvek z jinÃ©ho Å™etÄ›zce
-pÅ™emÃ­stÃ­me na jinÃ½ prÃ¡zdnÃ½ Å™Ã¡dek v tabulce (proto haÅ¡ovÃ¡nÃ­ s pÅ™emÃ­sÅ¥ovÃ¡nÃ­m).
+Seznamy jsou tentokrát ukládány do tabulky a implementovány jako dvousmìrné.
+Potøebujeme tedy dvì poloky pro práci s tabulkou: \emph{next} -- èíslo øádku
+obsahující další prvek seznamu a \emph{previous} -- èíslo øádku obsahující
+pøedchozí prvek seznamu. Kdy dojde ke kolizi, tj. chceme vloit prvek a jeho
+místo je obsazené prvkem z jiného øetìzce, pak tento prvek z jiného øetìzce
+pøemístíme na jinı prázdnı øádek v tabulce (proto hašování s pøemísováním).
 
-\begin{algoritmusN}{HaÅ¡ovÃ¡nÃ­ s pÅ™emÃ­sÅ¥ovÃ¡nÃ­m}
-Algoritmus \textbf{MEMBER} funguje stejnÄ› jako u haÅ¡ovÃ¡nÃ­ se separovanÃ½mi
-Å™etÄ›zci, jen mÃ­sto ukazatele na dalÅ¡Ã­ prvek pouÅ¾ije hodnotu \emph{next} z
-tabulky. PÅ™i operaci \textbf{INSERT} vloÅ¾Ã­me prvek kam patÅ™Ã­ pokud je tam mÃ­sto,
-pokud jiÅ¾ je mÃ­sto obsazeno prvkem kterÃ½ tam patÅ™Ã­, Äili zde zaÄÃ­nÃ¡ seznam
-kolidujÃ­cÃ­ch prvkÅ¯ (\emph{previous} = prÃ¡zdnÃ©), pak postupujeme po poloÅ¾kÃ¡ch
-\emph{next} aÅ¾ na konec seznamu, vloÅ¾Ã­me prvek na nÄ›kterÃ½ volnÃ½ Å™Ã¡dek
-tabulky a vyplnÃ­me sprÃ¡vnÄ› hodnoty \emph{next} a \emph{previous}. Pokud je mÃ­sto
-obsazeno prvkem z jinÃ©ho seznamu (\emph{previous} $\neq$ prÃ¡zdnÃ©), tak tento
-prvek pÅ™emÃ­stÃ­me na nÄ›kterÃ½ volnÃ½ Å™Ã¡dek, sprÃ¡vnÄ› pÅ™epÃ­Å¡eme poloÅ¾ky \emph{next} a
-\emph{previous} v mÄ›nÄ›nÃ©m seznamu a vklÃ¡danÃ½ prvek uloÅ¾Ã­me na jeho mÃ­sto.
-Operace \textbf{DELETE} je vcelku pÅ™Ã­moÄarÃ¡, jenom je tÅ™eba, pokud maÅ¾eme prvnÃ­
-prvek seznamu na jeho mÃ­sto pÅ™esunout ten druhÃ½ v poÅ™adÃ­ (pokud existuje).
-\end{algoritmusN}
+\begin{e}{Algoritmus}{0}{Hašování s pøemísováním}
+Algoritmus \textbf{MEMBER} funguje stejnì jako u hašování se separovanımi
+øetìzci, jen místo ukazatele na další prvek pouije hodnotu \emph{next} z
+tabulky. Pøi operaci \textbf{INSERT} vloíme prvek kam patøí pokud je tam místo,
+pokud ji je místo obsazeno prvkem kterı tam patøí, èili zde zaèíná seznam
+kolidujících prvkù (\emph{previous} = prázdné), pak postupujeme po polokách
+\emph{next} a na konec seznamu, vloíme prvek na nìkterı volnı øádek
+tabulky a vyplníme správnì hodnoty \emph{next} a \emph{previous}. Pokud je místo
+obsazeno prvkem z jiného seznamu (\emph{previous} $\neq$ prázdné), tak tento
+prvek pøemístíme na nìkterı volnı øádek, správnì pøepíšeme poloky \emph{next} a
+\emph{previous} v mìnìném seznamu a vkládanı prvek uloíme na jeho místo.
+Operace \textbf{DELETE} je vcelku pøímoèará, jenom je tøeba, pokud maeme první
+prvek seznamu na jeho místo pøesunout ten druhı v poøadí (pokud existuje).
+\end{e}
 
-\paragraph{OÄekÃ¡vanÃ½ poÄet testÅ¯} je v neÃºspÄ›Å¡nÃ©m pÅ™Ã­padÄ› roven pÅ™ibliÅ¾nÄ›
-$(1-\frac{1}{m})^n+\frac{n}{m}\approx e^{-\alpha}+\alpha$ a v ÃºspÄ›Å¡nÃ©m je stejnÃ½
-jako pro haÅ¡ovÃ¡nÃ­ se separovanÃ½mi Å™etÄ›zci a tedy $\frac{n-1}{2m}+1 \approx 1 +
+\paragraph{Oèekávanı poèet testù} je v neúspìšném pøípadì roven pøiblinì
+$(1-\frac{1}{m})^n+\frac{n}{m}\approx e^{-\alpha}+\alpha$ a v úspìšném je stejnı
+jako pro hašování se separovanımi øetìzci a tedy $\frac{n-1}{2m}+1 \approx 1 +
 \frac{1}{\alpha}$.
 
-\subsubsection*{HaÅ¡ovÃ¡nÃ­ se dvÄ›ma ukazateli}
+\subsubsection*{Hašování se dvìma ukazateli}
 
-HaÅ¡ovÃ¡nÃ­ s pÅ™emÃ­sÅ¥ovÃ¡nÃ­m mÃ¡ tu nevÃ½hodu, Å¾e dÃ­ky pÅ™emisÅ¥ovÃ¡nÃ­ prvkÅ¯ jsou operace
-INSERT a DELETE ÄasovÄ› nÃ¡roÄnÃ©. Tato metoda tedy implementuje Å™etÄ›zce jako
-jednosmÄ›rnÃ© seznamy, ale takovÃ© kterÃ© nemusejÃ­ zaÄÃ­nat na svÃ©m mÃ­stÄ›, tj.
-Å™etÄ›zec $S_j$ obsahujÃ­cÃ­ prvky $s \in S$ takovÃ©, Å¾e $h(s)=j$, nemusÃ­ zaÄÃ­nat na
-$j$-tÃ©m Å™Ã¡dku. MÃ­sto ukazatele na pÅ™edchozÃ­ prvek tak do poloÅ¾ek pro prÃ¡ci s
-tabulkou pÅ™idÃ¡me ukazatel na mÃ­sto, kde zaÄÃ­nÃ¡ Å™etÄ›zec pÅ™Ã­sluÅ¡nÃ½ danÃ©mu Å™Ã¡dku.
-PoloÅ¾ky pro prÃ¡ci s tabulkou tedy budou: \emph{next} -- ÄÃ­slo Å™Ã¡dku tabulky kde
-je dalÅ¡Ã­ prvek seznamu, \emph{begin} -- ÄÃ­slo Å™Ã¡dku tabulky obsahujÃ­cÃ­ prvnÃ­
-prvek seznamu pÅ™Ã­sluÅ¡nÃ©ho tomuto mÃ­stu.
+Hašování s pøemísováním má tu nevıhodu, e díky pøemisování prvkù jsou operace
+INSERT a DELETE èasovì nároèné. Tato metoda tedy implementuje øetìzce jako
+jednosmìrné seznamy, ale takové které nemusejí zaèínat na svém místì, tj.
+øetìzec $S_j$ obsahující prvky $s \in S$ takové, e $h(s)=j$, nemusí zaèínat na
+$j$-tém øádku. Místo ukazatele na pøedchozí prvek tak do poloek pro práci s
+tabulkou pøidáme ukazatel na místo, kde zaèíná øetìzec pøíslušnı danému øádku.
+Poloky pro práci s tabulkou tedy budou: \emph{next} -- èíslo øádku tabulky kde
+je další prvek seznamu, \emph{begin} -- èíslo øádku tabulky obsahující první
+prvek seznamu pøíslušného tomuto místu.
 
-\begin{algoritmusN}{HaÅ¡ovÃ¡nÃ­ se dvÄ›ma ukazateli}
-PoloÅ¾ka \emph{begin} v $j$-tÃ©m Å™Ã¡dku je vyplnÄ›na prÃ¡vÄ› tehdy, kdyÅ¾
-reprezentovanÃ¡ mnoÅ¾ina $S$ obsahuje prvek $s \in S$ takovÃ½, Å¾e $h(s)=j$.
-Algoritmy jsou potom podobnÃ© tÄ›m u haÅ¡ovÃ¡nÃ­ s pÅ™emÃ­sÅ¥ovÃ¡nÃ­m, ale pÅ™emÃ­sÅ¥ovÃ¡nÃ­
-prvkÅ¯ je nahrazeno odpovÃ­dajÃ­cÃ­mi zmÄ›nami v poloÅ¾ce \emph{begin} danÃ½ch Å™Ã¡dkÅ¯.
-\end{algoritmusN}
+\begin{e}{Algoritmus}{0}{Hašování se dvìma ukazateli}
+Poloka \emph{begin} v $j$-tém øádku je vyplnìna právì tehdy, kdy
+reprezentovaná mnoina $S$ obsahuje prvek $s \in S$ takovı, e $h(s)=j$.
+Algoritmy jsou potom podobné tìm u hašování s pøemísováním, ale pøemísování
+prvkù je nahrazeno odpovídajícími zmìnami v poloce \emph{begin} danıch øádkù.
+\end{e}
 
-DÃ­ky prÃ¡ci s poloÅ¾kami jsou operace INSERT a DELETE rychlejÅ¡Ã­ neÅ¾ pÅ™i haÅ¡ovÃ¡nÃ­ s
-pÅ™emÃ­sÅ¥ovÃ¡nÃ­m, ale zaÄÃ¡tek Å™etÄ›zce v jinÃ©m Å™Ã¡dku tabulky pÅ™idÃ¡ navÃ­c jeden test,
-coÅ¾ zmÄ›nÃ­ sloÅ¾itost operace MEMBER.
+Díky práci s polokami jsou operace INSERT a DELETE rychlejší ne pøi hašování s
+pøemísováním, ale zaèátek øetìzce v jiném øádku tabulky pøidá navíc jeden test,
+co zmìní sloitost operace MEMBER.
 
-\paragraph{OÄekÃ¡vanÃ½ poÄet testÅ¯} v neÃºspÄ›Å¡nÃ©m pÅ™Ã­padÄ› je pÅ™ibliÅ¾nÄ›
-$1+\frac{\alpha^2}{2}+\alpha+e^{-\alpha}(2+\alpha)-2$ a pÅ™i ÃºspÄ›Å¡nÃ©m vyhledÃ¡vÃ¡nÃ­
+\paragraph{Oèekávanı poèet testù} v neúspìšném pøípadì je pøiblinì
+$1+\frac{\alpha^2}{2}+\alpha+e^{-\alpha}(2+\alpha)-2$ a pøi úspìšném vyhledávání
 je roven $1+\frac{(n-1)(n-2)}{6m^2}+\frac{n-1}{2m} \approx 1 +
 \frac{\alpha^2}{6}+\frac{\alpha}{2}$
 
-\subsubsection*{SrÅ¯stajÃ­cÃ­ haÅ¡ovÃ¡nÃ­}
+\subsubsection*{Srùstající hašování}
 
-NynÃ­ se podÃ­vÃ¡me na nÄ›kolik verzÃ­ metody, kterÃ¡ se nazÃ½vÃ¡ srÅ¯stajÃ­cÃ­ haÅ¡ovÃ¡nÃ­.
-Budeme potÅ™ebovat jedinou poloÅ¾ku pro prÃ¡ci s tabulkou a to ukazatel
-jednosmÄ›rnÃ©ho spojovÃ©ho seznamu. Na rozdÃ­l od pÅ™edchozÃ­ch metod zde nejsou
-Å™etÄ›zce separovanÃ©, v jednom Å™etÄ›zci mohou bÃ½t prvky s rÅ¯znou hodnotou haÅ¡ovacÃ­
-funkce. KdyÅ¾ mÃ¡me pÅ™idat prvek $s$, tak ho zaÅ™adÃ­me do Å™etÄ›zce, kterÃ½ se nachÃ¡zÃ­
-na $h(s)$-tÃ©m Å™Ã¡dku tabulky. Å˜etÄ›zce tedy v tÃ©to metodÄ› \emph{srÅ¯stajÃ­}. RÅ¯znÃ©
-verze tÃ©to metody se liÅ¡Ã­ tÃ­m, kam pÅ™idÃ¡vÃ¡me novÃ½ prvek a podle prÃ¡ce s pamÄ›tÃ­.
-DÄ›lÃ­ se na \emph{standardnÃ­ srÅ¯stajÃ­cÃ­ haÅ¡ovÃ¡nÃ­} bez pomocnÃ© pamÄ›ti a na haÅ¡ovÃ¡nÃ­
-pouÅ¾Ã­vajÃ­cÃ­ pomocnou pamÄ›Å¥, kterÃ©mu se Å™Ã­kÃ¡ jen \emph{srÅ¯stajÃ­cÃ­ haÅ¡ovÃ¡nÃ­}.
+Nyní se podíváme na nìkolik verzí metody, která se nazıvá srùstající hašování.
+Budeme potøebovat jedinou poloku pro práci s tabulkou a to ukazatel
+jednosmìrného spojového seznamu. Na rozdíl od pøedchozích metod zde nejsou
+øetìzce separované, v jednom øetìzci mohou bıt prvky s rùznou hodnotou hašovací
+funkce. Kdy máme pøidat prvek $s$, tak ho zaøadíme do øetìzce, kterı se nachází
+na $h(s)$-tém øádku tabulky. Øetìzce tedy v této metodì \emph{srùstají}. Rùzné
+verze této metody se liší tím, kam pøidáváme novı prvek a podle práce s pamìtí.
+Dìlí se na \emph{standardní srùstající hašování} bez pomocné pamìti a na hašování
+pouívající pomocnou pamì, kterému se øíká jen \emph{srùstající hašování}.
 
-NejdÅ™Ã­ve se budeme vÄ›novat metodÃ¡m standardnÃ­ho srÅ¯stajÃ­cÃ­ho haÅ¡ovÃ¡nÃ­ (bez
-pomocnÃ© pamÄ›ti):
+Nejdøíve se budeme vìnovat metodám standardního srùstajícího hašování (bez
+pomocné pamìti):
 \begin{pitemize}
-\item \textbf{LISCH} -- late-insertion standard coalesced hashing -- vklÃ¡dÃ¡ se
-za poslednÃ­ prvek Å™etÄ›zce,
-\item \textbf{EISCH} -- early-insertion standard coalesced hashing -- vklÃ¡dÃ¡ se
-za prvnÃ­ prvek Å™etÄ›zce.
+\item \textbf{LISCH} -- late-insertion standard coalesced hashing -- vkládá se
+za poslední prvek øetìzce,
+\item \textbf{EISCH} -- early-insertion standard coalesced hashing -- vkládá se
+za první prvek øetìzce.
 \end{pitemize}
 
-PÅ™irozenÃ¡ efektivnÃ­ operace DELETE pro standardnÃ­ srÅ¯stajÃ­cÃ­ haÅ¡ovÃ¡nÃ­ nenÃ­
-znÃ¡ma. Na druhou stranu i primitivnÃ­ algoritmy majÃ­ rozumnou oÄekÃ¡vanou Äasovou
-sloÅ¾itost.
+Pøirozená efektivní operace DELETE pro standardní srùstající hašování není
+známa. Na druhou stranu i primitivní algoritmy mají rozumnou oèekávanou èasovou
+sloitost.
 
-DalÅ¡Ã­ otÃ¡zka znÃ­, proÄ pouÅ¾Ã­vat metodu EISCH, kdyÅ¾ programy pro metodu LISCH
-jsou jednoduÅ¡Å¡Ã­. OdpovÄ›Ä je na prvnÃ­ pohled dost pÅ™ekvapujÃ­cÃ­. PÅ™i ÃºspÄ›Å¡nÃ©m
-vyhledÃ¡vÃ¡nÃ­ je metoda EISCH rychlejÅ¡Ã­ neÅ¾ metoda LISCH. Je to proto, Å¾e je o
-nÄ›co pravdÄ›podobnÄ›jÅ¡Ã­, Å¾e se bude pracovat s novÃ½m prvkem. V neÃºspÄ›Å¡nÃ©m pÅ™Ã­padÄ›
-jsou samozÅ™ejmÄ› obÄ› metody stejnÃ©, neboÅ¥ Å™etÄ›zce jsou u obou stejnÄ› dlouhÃ©.
+Další otázka zní, proè pouívat metodu EISCH, kdy programy pro metodu LISCH
+jsou jednodušší. Odpovìï je na první pohled dost pøekvapující. Pøi úspìšném
+vyhledávání je metoda EISCH rychlejší ne metoda LISCH. Je to proto, e je o
+nìco pravdìpodobnìjší, e se bude pracovat s novım prvkem. V neúspìšném pøípadì
+jsou samozøejmì obì metody stejné, nebo øetìzce jsou u obou stejnì dlouhé.
 
-Metody srÅ¯stajÃ­cÃ­ho haÅ¡ovÃ¡nÃ­ (s pomocnou pamÄ›tÃ­) majÃ­ pouÅ¾itou pamÄ›Å¥ rozdÄ›lenou
-na dvÄ› ÄÃ¡sti. Na tu pÅ™Ã­mo adresovatelnou haÅ¡ovacÃ­ funkcÃ­ a na pomocnou ÄÃ¡st.
-AdresovacÃ­ ÄÃ¡st mÃ¡ $m$ Å™Ã¡dkÅ¯, pokud haÅ¡ovacÃ­ funkce mÃ¡ hodnoty z oboru
-$\{0,1,\dots,m-1\}$, v pomocnÃ© ÄÃ¡sti jsou Å™Ã¡dky ke kterÃ½m nemÃ¡me pÅ™Ã­stup pÅ™es
-haÅ¡ovacÃ­ funkci. KdyÅ¾ pÅ™i pÅ™idÃ¡vÃ¡nÃ­ novÃ©ho prvku vznikne kolize, tak se nejprve
-vybere volnÃ½ Å™Ã¡dek z pomocnÃ© ÄÃ¡sti a teprve kdyÅ¾ je pomocnÃ© ÄÃ¡st zaplnÄ›na
-pouÅ¾ijÃ­ se k uklÃ¡dÃ¡nÃ­ kolidujÃ­cÃ­ch prvkÅ¯ Å™Ã¡dky z adresovatelnÃ© ÄÃ¡sti tabulky.
-Tato strategie oddaluje srÅ¯stÃ¡nÃ­ Å™etÄ›zcÅ¯. SrÅ¯stajÃ­cÃ­ haÅ¡ovÃ¡nÃ­ se tedy, aspoÅˆ
-dokud nenÃ­ zaplnÄ›na pomocnÃ¡ ÄÃ¡st tabulky, podobÃ¡ haÅ¡ovÃ¡nÃ­ se separovanÃ½mi
-Å™etÄ›zci. ExistujÃ­ zÃ¡kladnÃ­ tÅ™i varianty:
+Metody srùstajícího hašování (s pomocnou pamìtí) mají pouitou pamì rozdìlenou
+na dvì èásti. Na tu pøímo adresovatelnou hašovací funkcí a na pomocnou èást.
+Adresovací èást má $m$ øádkù, pokud hašovací funkce má hodnoty z oboru
+$\{0,1,\dots,m-1\}$, v pomocné èásti jsou øádky ke kterım nemáme pøístup pøes
+hašovací funkci. Kdy pøi pøidávání nového prvku vznikne kolize, tak se nejprve
+vybere volnı øádek z pomocné èásti a teprve kdy je pomocné èást zaplnìna
+pouijí se k ukládání kolidujících prvkù øádky z adresovatelné èásti tabulky.
+Tato strategie oddaluje srùstání øetìzcù. Srùstající hašování se tedy, aspoò
+dokud není zaplnìna pomocná èást tabulky, podobá hašování se separovanımi
+øetìzci. Existují základní tøi varianty:
 \begin{pitemize}
-\item \textbf{LICH} -- late-insertion coalesced hashing -- vklÃ¡dÃ¡ prvek na konec
-Å™etÄ›zce,
-\item \textbf{VICH} -- early-insertion coalesced hashing -- vklÃ¡dÃ¡ prvek na
-Å™Ã¡dek $h(x)$ pokud je prÃ¡zdnÃ½ a nebo hned za prvek na Å™Ã¡dku $h(x)$,
-\item \textbf{EICH} -- varied-insertion coalesced hashing -- vklÃ¡dÃ¡ se za
-poslednÃ­ prvek Å™etÄ›zce, kterÃ½ je jeÅ¡tÄ› v pomocnÃ© ÄÃ¡sti. Pokud v pomocnÃ© ÄÃ¡sti
-Å¾Ã¡dnÃ½ nenÃ­, vklÃ¡dÃ¡ se hned za prvek na pozici $h(x)$.
+\item \textbf{LICH} -- late-insertion coalesced hashing -- vkládá prvek na konec
+øetìzce,
+\item \textbf{VICH} -- early-insertion coalesced hashing -- vkládá prvek na
+øádek $h(x)$ pokud je prázdnı a nebo hned za prvek na øádku $h(x)$,
+\item \textbf{EICH} -- varied-insertion coalesced hashing -- vkládá se za
+poslední prvek øetìzce, kterı je ještì v pomocné èásti. Pokud v pomocné èásti
+ádnı není, vkládá se hned za prvek na pozici $h(x)$.
 \end{pitemize}
 
-Tyto metody nepodporujÃ­ pÅ™irozenÃ© efektivnÃ­ algoritmy pro operaci DELETE.
+Tyto metody nepodporují pøirozené efektivní algoritmy pro operaci DELETE.
 
-\subsubsection*{HaÅ¡ovÃ¡nÃ­ s lineÃ¡rnÃ­m pÅ™idÃ¡vÃ¡nÃ­m}
+\subsubsection*{Hašování s lineárním pøidáváním}
 
-NÃ¡sledujÃ­cÃ­ metoda nepouÅ¾Ã­vÃ¡ Å¾Ã¡dnÃ© poloÅ¾ky pro prÃ¡ci s tabulkou to znamenÃ¡, Å¾e
-zpÅ¯sob nalezenÃ­ dalÅ¡Ã­ho Å™Ã¡dku Å™etÄ›zce je zabudovÃ¡n pÅ™Ã­mo do metody. Metoda
-funguje tak, Å¾e pokud chceme vloÅ¾it prvek do tabulky a nastane kolize, najdeme
-prvnÃ­ nÃ¡sledujÃ­cÃ­ volnÃ½ Å™Ã¡dek a tam prvek vloÅ¾Ã­me. PÅ™edpoklÃ¡dÃ¡me, Å¾e Å™Ã¡dky jsou
-ÄÃ­slovÃ¡ny modulo \emph{m}, Äili vytvÃ¡Å™ejÃ­ cyklus dÃ©lky \emph{m}.
+Následující metoda nepouívá ádné poloky pro práci s tabulkou to znamená, e
+zpùsob nalezení dalšího øádku øetìzce je zabudován pøímo do metody. Metoda
+funguje tak, e pokud chceme vloit prvek do tabulky a nastane kolize, najdeme
+první následující volnı øádek a tam prvek vloíme. Pøedpokládáme, e øádky jsou
+èíslovány modulo \emph{m}, èili vytváøejí cyklus délky \emph{m}.
 
-Tato metoda sice vyuÅ¾Ã­vÃ¡ minimÃ¡lnÃ­ velikost pamÄ›ti, ale v tabulce vznikajÃ­
-shluky obsazenÃ½ch Å™Ã¡dkÅ¯ a proto je pÅ™i velkÃ©m zaplnÄ›nÃ­ pomalÃ¡. NavÃ­c metoda
-nepodporuje efektivnÃ­ operaci DELETE.
+Tato metoda sice vyuívá minimální velikost pamìti, ale v tabulce vznikají
+shluky obsazenıch øádkù a proto je pøi velkém zaplnìní pomalá. Navíc metoda
+nepodporuje efektivní operaci DELETE.
 
-\subsubsection*{ShrnutÃ­}
+\subsubsection*{Shrnutí}
 
-Zde uvedeme poÅ™adÃ­ metod haÅ¡ovÃ¡nÃ­ podle oÄekÃ¡vanÃ©ho poÄtu testÅ¯.
+Zde uvedeme poøadí metod hašování podle oèekávaného poètu testù.
 
-\begin{obecne}{NeÃºspÄ›Å¡nÃ© vyhledÃ¡vÃ¡nÃ­:}
+\begin{obecne}{Neúspìšné vyhledávání:}
 \begin{penumerate}
-\item HaÅ¡ovÃ¡nÃ­ s uspoÅ™Ã¡danÃ½mi separovanÃ½mi Å™etÄ›zci,
-\item HaÅ¡ovÃ¡nÃ­ se separovanÃ½mi Å™etÄ›zci = HaÅ¡ovÃ¡nÃ­ s pÅ™emÃ­sÅ¥ovÃ¡nÃ­m,
-\item HaÅ¡ovÃ¡nÃ­ se dvÄ›ma ukazateli,
+\item Hašování s uspoøádanımi separovanımi øetìzci,
+\item Hašování se separovanımi øetìzci = Hašování s pøemísováním,
+\item Hašování se dvìma ukazateli,
 \item VICH = LICH
 \item EICH,
 \item LISCH = EISCH,
-\item HaÅ¡ovÃ¡nÃ­ s lineÃ¡rnÃ­m pÅ™idÃ¡vÃ¡nÃ­m.
+\item Hašování s lineárním pøidáváním.
 \end{penumerate}
 \end{obecne}
 
-\begin{obecne}{ÃšspÄ›Å¡nÃ© vyhledÃ¡vÃ¡nÃ­}
+\begin{obecne}{Úspìšné vyhledávání}
 \begin{penumerate}
-\item H. s uspoÅ™Ã¡danÃ½mi Å™etÄ›zci = H. se separovanÃ½mi Å™etÄ›zci = H. s pÅ™emÃ­sÅ¥ovÃ¡nÃ­m,
-\item HaÅ¡ovÃ¡nÃ­ se dvÄ›ma ukazateli,
+\item H. s uspoøádanımi øetìzci = H. se separovanımi øetìzci = H. s pøemísováním,
+\item Hašování se dvìma ukazateli,
 \item VICH,
 \item LICH,
 \item EICH,
 \item EISCH,
 \item LISCH,
-\item HaÅ¡ovÃ¡nÃ­ s lineÃ¡rnÃ­m pÅ™idÃ¡vÃ¡nÃ­m.
+\item Hašování s lineárním pøidáváním.
 \end{penumerate}
 \end{obecne}
 
-\begin{poznamka} Metody se separovanÃ½mi Å™etÄ›zci a srÅ¯stajÃ­cÃ­ haÅ¡ovÃ¡nÃ­ pouÅ¾Ã­vajÃ­
-vÃ­ce pamÄ›ti. Metoda s pÅ™emÃ­sÅ¥ovÃ¡nÃ­m vyÅ¾aduje vÃ­ce Äasu -- na pÅ™emÃ­stÄ›nÃ­ prvku.
-OtÃ¡zka kterÃ¡ z metod je nejlepÅ¡Ã­ nenÃ­ proto jednoznaÄnÄ› rozhodnutelnÃ¡ a je nutnÃ©
-peÄlivÄ› zvÃ¡Å¾it vÅ¡echny okolnosti nasazenÃ­ metody a vÅ¡echny naÅ¡e poÅ¾adavky na nÃ­,
-neÅ¾ se rozhodneme, kterou pouÅ¾ijeme.
-\end{poznamka}
+\begin{e} Metody se separovanımi øetìzci a srùstající hašování pouívají{Poznámka}{0}{0}
+více pamìti. Metoda s pøemísováním vyaduje více èasu -- na pøemístìní prvku.
+Otázka která z metod je nejlepší není proto jednoznaènì rozhodnutelná a je nutné
+peèlivì zváit všechny okolnosti nasazení metody a všechny naše poadavky na ní,
+ne se rozhodneme, kterou pouijeme.
+\end{e}
 
-\subsubsection*{UniverzÃ¡lnÃ­ haÅ¡ovÃ¡nÃ­}
+\subsubsection*{Univerzální hašování}
 
-Pro dobrÃ© fungovÃ¡nÃ­ haÅ¡ovÃ¡nÃ­ potÅ™ebujeme mimo jinÃ©, aby vstupnÃ­ data byla
-rovnomÄ›rnÄ› rozdÄ›lena a toho nÄ›kdy nenÃ­ moÅ¾nÃ© dosÃ¡hnout. Odstranit tento
-nedostatek se pokouÅ¡Ã­ metoda \emph{univerzÃ¡lnÃ­ haÅ¡ovÃ¡nÃ­}. ZÃ¡kladnÃ­ idea tÃ©to
-metody je takovÃ¡, Å¾e mÃ¡me mnoÅ¾inu \emph{H} haÅ¡ovacÃ­ch funkcÃ­ z univerza do
-tabulky velikosti \emph{m} takovÃ½ch, Å¾e pro $S \subseteq U$, $|S| \leq m$ se
-vÄ›tÅ¡ina funkcÃ­ chovÃ¡ dobÅ™e v tom smyslu, Å¾e mÃ¡ malÃ½ poÄet kolizÃ­. HaÅ¡ovacÃ­
-funkci potom zvolÃ­me z mnoÅ¾iny \emph{H} (takovou s rovnomÄ›rnÃ½m rozdÄ›lenÃ­m).
-JelikoÅ¾ funkci volÃ­me my, mÅ¯Å¾eme poÅ¾adavek rovnomÄ›rnÃ©ho rozdÄ›lenÃ­ zajistit.
+Pro dobré fungování hašování potøebujeme mimo jiné, aby vstupní data byla
+rovnomìrnì rozdìlena a toho nìkdy není moné dosáhnout. Odstranit tento
+nedostatek se pokouší metoda \emph{univerzální hašování}. Základní idea této
+metody je taková, e máme mnoinu \emph{H} hašovacích funkcí z univerza do
+tabulky velikosti \emph{m} takovıch, e pro $S \subseteq U$, $|S| \leq m$ se
+vìtšina funkcí chová dobøe v tom smyslu, e má malı poèet kolizí. Hašovací
+funkci potom zvolíme z mnoiny \emph{H} (takovou s rovnomìrnım rozdìlením).
+Jeliko funkci volíme my, mùeme poadavek rovnomìrného rozdìlení zajistit.
 
-\subsubsection*{PerfektnÃ­ haÅ¡ovÃ¡nÃ­}
+\subsubsection*{Perfektní hašování}
 
-JinÃ¡ moÅ¾nost jak vyÅ™eÅ¡it kolize, je najÃ­t takzvanou \emph{perfektnÃ­ haÅ¡ovacÃ­
-funkci}, tj. takovou kterÃ© nepÅ™ipouÅ¡tÃ­ kolize. NevÃ½hoda tÃ©to metody je, Å¾e nelze
-dost dobÅ™e implementovat operaci INSERT, proto se dÃ¡ prakticky pouÅ¾Ã­t pouze tam,
-kde pÅ™edpoklÃ¡dÃ¡me hodnÄ› operacÃ­ MEMBER a jen velmi mÃ¡lo operacÃ­ INSERT. Kolize
-se potom dajÃ­ Å™eÅ¡it tÅ™eba malou pomocnou tabulkou, kam se uklÃ¡dajÃ­ kolidujÃ­cÃ­
+Jiná monost jak vyøešit kolize, je najít takzvanou \emph{perfektní hašovací
+funkci}, tj. takovou které nepøipouští kolize. Nevıhoda této metody je, e nelze
+dost dobøe implementovat operaci INSERT, proto se dá prakticky pouít pouze tam,
+kde pøedpokládáme hodnì operací MEMBER a jen velmi málo operací INSERT. Kolize
+se potom dají øešit tøeba malou pomocnou tabulkou, kam se ukládají kolidující
 data. 
 
-Pro rozumnÃ© fungovÃ¡nÃ­ metody je nutnÃ©, aby haÅ¡ovacÃ­ funkce byla rychle
-spoÄitatelnÃ¡ a aby jejÃ­ zadÃ¡nÃ­ nevyÅ¾adovat mnoho pamÄ›ti, nejvÃ½hodnÄ›jÅ¡Ã­ je
-analytickÃ© zadÃ¡nÃ­. 
+Pro rozumné fungování metody je nutné, aby hašovací funkce byla rychle
+spoèitatelná a aby její zadání nevyadovat mnoho pamìti, nejvıhodnìjší je
+analytické zadání. 
 
-Naopak jedna z vÃ½hod je, Å¾e nalezenÃ­ perfektnÃ­ haÅ¡ovacÃ­ funkce, mÅ¯Å¾e trvat
-dlouho, neboÅ¥ ho provÃ¡dÃ­me pouze jednou na zaÄÃ¡tku algoritmu. 
+Naopak jedna z vıhod je, e nalezení perfektní hašovací funkce, mùe trvat
+dlouho, nebo ho provádíme pouze jednou na zaèátku algoritmu. 
 
-\subsubsection*{ExternÃ­ haÅ¡ovÃ¡nÃ­}
+\subsubsection*{Externí hašování}
 
-ExternÃ­ haÅ¡ovÃ¡nÃ­ Å™eÅ¡Ã­ trochu jinÃ½ problÃ©m, neÅ¾ vÃ½Å¡e popsanÃ© metody. Chceme
-uloÅ¾it data na externÃ­ mÃ©dium a protoÅ¾e pÅ™Ã­stup k externÃ­m mÃ©diÃ­m je o nÄ›kolik
-Å™Ã¡dÅ¯ pomalejÅ¡Ã­, neÅ¾ prÃ¡ce v internÃ­ pamÄ›ti, bude naÅ¡Ã­m cÃ­lem minimalizovat poÄet
-pÅ™Ã­stupÅ¯ do nÃ­. ExternÃ­ pamÄ›Å¥ bÃ½vÃ¡ rozdÄ›lena na strÃ¡nky a ty vÄ›tÅ¡inou naÄÃ­tÃ¡me
-do internÃ­ pamÄ›ti celÃ©. Tato operace je vÅ¡ak velice pomalÃ¡. ProblÃ©mem externÃ­ho
-haÅ¡ovÃ¡nÃ­ je tedy nalÃ©zt datovou strukturu pro uloÅ¾enÃ­ dat na vnÄ›jÅ¡Ã­ pamÄ›ti a
-algoritmy pro operace INSERT, DELETE a MEMBER, tak abychom pouÅ¾ili co nejmenÅ¡Ã­
-poÄet komunikacÃ­ mezi vnÄ›jÅ¡Ã­ a vnitÅ™nÃ­ pamÄ›tÃ­.
+Externí hašování øeší trochu jinı problém, ne vıše popsané metody. Chceme
+uloit data na externí médium a protoe pøístup k externím médiím je o nìkolik
+øádù pomalejší, ne práce v interní pamìti, bude naším cílem minimalizovat poèet
+pøístupù do ní. Externí pamì bıvá rozdìlena na stránky a ty vìtšinou naèítáme
+do interní pamìti celé. Tato operace je však velice pomalá. Problémem externího
+hašování je tedy nalézt datovou strukturu pro uloení dat na vnìjší pamìti a
+algoritmy pro operace INSERT, DELETE a MEMBER, tak abychom pouili co nejmenší
+poèet komunikací mezi vnìjší a vnitøní pamìtí.
 
-Metod externÃ­ho haÅ¡ovÃ¡nÃ­ je opÄ›t mnoho. NÄ›kterÃ© pouÅ¾Ã­vajÃ­ pomocnou datovou
-strukturu v internÃ­ pamÄ›ti, kterou Äasto nazÃ½vÃ¡me adresÃ¡Å™. Pokud metody nemajÃ­
-Å¾Ã¡dnou takovou pomocnou strukturu neobejdou se obvykle bez oblasti pÅ™eteÄenÃ­.
-NÄ›kterÃ© znÃ¡mÄ›jÅ¡Ã­ metody vnÄ›jÅ¡Ã­ho haÅ¡ovÃ¡nÃ­ jsou napÅ™Ã­klad: \uv{Litwinovo lineÃ¡rnÃ­
-haÅ¡ovÃ¡nÃ­}, \uv{Faginovo rozÅ¡iÅ™itelnÃ© haÅ¡ovÃ¡nÃ­}, \uv{Cormackovo perfektnÃ­
-haÅ¡ovÃ¡nÃ­} nebo \uv{PerfektnÃ­ haÅ¡ovÃ¡nÃ­ Larsona a Kajli}. 
+Metod externího hašování je opìt mnoho. Nìkteré pouívají pomocnou datovou
+strukturu v interní pamìti, kterou èasto nazıváme adresáø. Pokud metody nemají
+ádnou takovou pomocnou strukturu neobejdou se obvykle bez oblasti pøeteèení.
+Nìkteré známìjší metody vnìjšího hašování jsou napøíklad: \uv{Litwinovo lineární
+hašování}, \uv{Faginovo rozšiøitelné hašování}, \uv{Cormackovo perfektní
+hašování} nebo \uv{Perfektní hašování Larsona a Kajli}. 
 % to neni preklep, hasovani je opravdu od pana KAJLI z nakyho duvodu se to uci
 % blbe. viz http://portal.acm.org/citation.cfm?id=358193&coll=portal&dl=ACM
 % ajs

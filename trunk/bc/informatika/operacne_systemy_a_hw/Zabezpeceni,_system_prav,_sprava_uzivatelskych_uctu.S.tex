@@ -1,16 +1,16 @@
-\subsection{ZabezpeÄenÃ­, systÃ©m prÃ¡v, sprÃ¡va uÅ¾ivatelskÃ½ch ÃºÄtÅ¯}
+\subsection{Zabezpeèení, systém práv, správa uivatelskıch úètù}
 
 TODO: tohle je jenom copy \& paste z Wiki
 
-\subsubsection*{ZabezpeÄenÃ­}
+\subsubsection*{Zabezpeèení}
 
 \begin{pitemize}
-  \item procesy bÄ›Å¾Ã­ v uÅ¾ivatelskÃ©m reÅ¾imu s omezenÃ½mi moÅ¾nostmi, pÅ™i systÃ©movÃ½ch volÃ¡nÃ­ch se proces pÅ™epne do reÅ¾imu jÃ¡dra
-  \item preemptivnÃ­ plÃ¡novÃ¡nÃ­, priority
+  \item procesy bìí v uivatelském reimu s omezenımi monostmi, pøi systémovıch voláních se proces pøepne do reimu jádra
+  \item preemptivní plánování, priority
   \item firewall - iptables (Linux), pf (OpenBSD), ipfw (FreeBSD), FW-1 (Solaris), ipfilter aj.
-  \item vypnutÃ­ nepotÅ™ebnÃ½ch sluÅ¾eb (daemonÅ¯)
-  \item zÃ¡lohovÃ¡nÃ­
-  \item sledovÃ¡nÃ­ logÅ¯
+  \item vypnutí nepotøebnıch slueb (daemonù)
+  \item zálohování
+  \item sledování logù
   \item nmap
   \item Kerberos
   \item chroot
@@ -20,24 +20,24 @@ TODO: tohle je jenom copy \& paste z Wiki
   \item silna hesla 
 \end{pitemize}
 
-\subsubsection*{SystÃ©m prÃ¡v}
+\subsubsection*{Systém práv}
 
 \begin{pitemize}
-  \item kaÅ¾dÃ½ soubor a proces majÃ­ vlastnÃ­ka a skupinu
-  \item prÃ¡va pro vlastnÃ­ka, skupinu a ostatnÃ­ - ÄtenÃ­, zÃ¡pis, spouÅ¡tÄ›nÃ­
-  \item setuid, setgid - propÅ¯jÄenÃ­ prÃ¡v vlastnÃ­ka/skupiny pÅ™i spuÅ¡tÄ›nÃ­ programu
-  \item setgid pro adresÃ¡Å™e - novÃ© soubory budou mÃ­t stejnou skupinu jako adresÃ¡Å™
-  \item sticky bit pro adresÃ¡Å™e - prÃ¡va k souborÅ¯m majÃ­ jen vlastnÃ­ci souborÅ¯ a nikoliv vlastnÃ­ci adresÃ¡Å™e
-  \item uÅ¾ivatel root
-  \item reÃ¡lnÃ© a efektivnÃ­ UID/GID u bÄ›Å¾Ã­cÃ­ch procesÅ¯
+  \item kadı soubor a proces mají vlastníka a skupinu
+  \item práva pro vlastníka, skupinu a ostatní - ètení, zápis, spouštìní
+  \item setuid, setgid - propùjèení práv vlastníka/skupiny pøi spuštìní programu
+  \item setgid pro adresáøe - nové soubory budou mít stejnou skupinu jako adresáø
+  \item sticky bit pro adresáøe - práva k souborùm mají jen vlastníci souborù a nikoliv vlastníci adresáøe
+  \item uivatel root
+  \item reálné a efektivní UID/GID u bìících procesù
   \item chmod, chown, chgrp, umask 
 \end{pitemize}
 
-\subsubsection*{SprÃ¡va uÅ¾ivatelskÃ½ch ÃºÄtÅ¯}
+\subsubsection*{Správa uivatelskıch úètù}
 
 \begin{pitemize}
-  \item /etc/passwd - seznam uÅ¾ivatelÅ¯ - login, UID, GID, plnÃ© jmÃ©no, domovskÃ½ adresÃ¡Å™, shell
-  \item /etc/group - skupiny - nÃ¡zev, GID, seznam ÄlenÅ¯
-  \item /etc/shadow - zaÅ¡ifrovanÃ¡ hesla (hash) - mÅ¯Å¾e ÄÃ­st pouze root
+  \item /etc/passwd - seznam uivatelù - login, UID, GID, plné jméno, domovskı adresáø, shell
+  \item /etc/group - skupiny - název, GID, seznam èlenù
+  \item /etc/shadow - zašifrovaná hesla (hash) - mùe èíst pouze root
   \item useradd, userdel, usermod, groupadd, groupdel, groupmod, passwd
 \end{pitemize}

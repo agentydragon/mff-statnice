@@ -1,35 +1,35 @@
-\subsection{BezpeÄnost -- IPSec, principy fungovÃ¡nÃ­ AH, ESP, transport mode, tunnel mode, firewalls}
+\subsection{Bezpeènost -- IPSec, principy fungování AH, ESP, transport mode, tunnel mode, firewalls}
 
 \subsubsection*{IPSec}
 
 \begin{pitemize}
-	\item NenÃ­ to pouze jeden protokol ale soustava vzÃ¡jemnÄ› provÃ¡zanÃ½ch opatÅ™enÃ­ a dÃ­lÄÃ­ch protokolÅ¯ pro zabezpeÄenÃ­ komunikace pomocÃ­ IP protokolu, funguje na sÃ­Å¥ovÃ© vrstvÄ› -- nenÃ­ zÃ¡vislÃ½ na protokolech vyÅ¡Å¡Ã­ch vrstev jako je TCP a UDP (napÅ™. SSL protokol pracuje na transportnÃ­ vrstvÄ›)
-	\item PodporovÃ¡no jak vÂ IPv4 (podpora nepovinnÃ¡) i vÂ IPv6 (podpora povinnÃ¡)
-	\item ZajiÅ¡Å¥uje dÅ¯vÄ›rnost (Å¡ifruje pÅ™enÃ¡Å¡enÃ¡ data) a integritu (data nejsou pÅ™i pÅ™enosu zmÄ›nÄ›na)
-	\item nÄ›kolik desÃ­tek RFC dokumentÅ¯
-	\item autentifikace -- ovÄ›Å™enÃ­ pÅ¯vodu dat (odesÃ­latele)
-	\item kryptovÃ¡nÃ­ -- Å¡ifrovÃ¡nÃ­ komunikace (mimo IP hlaviÄky)
-	\item mÅ¯Å¾e bÃ½t implementovÃ¡no na brÃ¡nÄ› (security gateway, lokÃ¡lnÃ­ sÃ­Å¥ je povaÅ¾ovÃ¡na za bezpeÄnou) nebo na koncovÃ½ch zaÅ™Ã­zenÃ­ 
+	\item Není to pouze jeden protokol ale soustava vzájemnì provázanıch opatøení a dílèích protokolù pro zabezpeèení komunikace pomocí IP protokolu, funguje na síové vrstvì -- není závislı na protokolech vyšších vrstev jako je TCP a UDP (napø. SSL protokol pracuje na transportní vrstvì)
+	\item Podporováno jak v IPv4 (podpora nepovinná) i v IPv6 (podpora povinná)
+	\item Zajišuje dùvìrnost (šifruje pøenášená data) a integritu (data nejsou pøi pøenosu zmìnìna)
+	\item nìkolik desítek RFC dokumentù
+	\item autentifikace -- ovìøení pùvodu dat (odesílatele)
+	\item kryptování -- šifrování komunikace (mimo IP hlavièky)
+	\item mùe bıt implementováno na bránì (security gateway, lokální sí je povaována za bezpeènou) nebo na koncovıch zaøízení 
 
 	\item \textbf{SA (Security Association)}
 	\begin{pitemize}
-		\item point-to-point bezpeÄnostnÃ­ spoj (nÃ¡vrh uvaÅ¾uje i o jinÃ½ch variantÃ¡ch)
-		\item pro kaÅ¾dÃ½ smÄ›r a kaÅ¾dÃ½ prototokol nutnÃ© mÃ­t vlastnÃ­ SA spoj
+		\item point-to-point bezpeènostní spoj (návrh uvauje i o jinıch variantách)
+		\item pro kadı smìr a kadı prototokol nutné mít vlastní SA spoj
 	\end{pitemize}
 \end{pitemize}
 
-IPsec mÃ³dy:
+IPsec módy:
 \begin{pitemize}
 	\item \textbf{transport mode}
 	\begin{pitemize}
-		\item IP hlaviÄka nechrÃ¡nÄ›nÃ¡ (jeden zÂ dÅ¯vodÅ¯ je uÅ¾Ã­vÃ¡nÃ­ systÃ©mu NAT), tÄ›lo paketu Å¡ifrovÃ¡no (data vyÅ¡Å¡Ã­ch protokolÅ¯)
-		\item pouÅ¾itelnÃ© jen na koncovÃ½ch stanicÃ­ch 
+		\item IP hlavièka nechránìná (jeden z dùvodù je uívání systému NAT), tìlo paketu šifrováno (data vyšších protokolù)
+		\item pouitelné jen na koncovıch stanicích 
 	\end{pitemize}
 	\item \textbf{tunnel mode}
 	\begin{pitemize}
-		\item pakety jsou celÃ© (vÄetnÄ› hlaviÄky) zaÅ¡ifrovÃ¡ny a vloÅ¾eny do dalÅ¡Ã­ho paketu, na druhÃ© stranÄ› rozbaleny
-		\item povinnÃ© pro security gateways, volitelnÃ© pro koncovÃ© stanice
-		\item ve vnÄ›jÅ¡Ã­ IP hlaviÄce se jako pÅ™Ã­jemce uvÃ¡dÃ­ security gateway na hranici cÃ­lovÃ© sÃ­tÄ› 
+		\item pakety jsou celé (vèetnì hlavièky) zašifrovány a vloeny do dalšího paketu, na druhé stranì rozbaleny
+		\item povinné pro security gateways, volitelné pro koncové stanice
+		\item ve vnìjší IP hlavièce se jako pøíjemce uvádí security gateway na hranici cílové sítì 
 	\end{pitemize}
 \end{pitemize}
 
@@ -37,43 +37,43 @@ IPsec protokoly:
 \begin{pitemize}
 	\item \textbf{AH (Authentication Header)}
 	\begin{pitemize}
-		\item komunikujÃ­cÃ­ strany se dohodnou na klÃ­Äi
-		\item k datÅ¯m se pÅ™ipojuje hash
-		\item chrÃ¡nÃ­ takÃ© pÅ™ed replay attack
-		\item provÃ¡dÃ­ autentizaci a kontrolu zmÄ›ny dat, neprovÃ¡dÃ­ Å¡ifrovÃ¡nÃ­ 
+		\item komunikující strany se dohodnou na klíèi
+		\item k datùm se pøipojuje hash
+		\item chrání také pøed replay attack
+		\item provádí autentizaci a kontrolu zmìny dat, neprovádí šifrování 
 	\end{pitemize}
 	\item \textbf{ESP (Encapsulating Security Payload)}
 	\begin{pitemize}
-		\item provÃ¡dÃ­ autentizaci a takÃ© Å¡ifruje obsah
-		\item pro Å¡ifrovÃ¡nÃ­ pouÅ¾Ã­vÃ¡ 3DES, Blowfish aj. (pÅ¯vodnÄ› DES, jiÅ¾ nenÃ­ povaÅ¾ovÃ¡no za bezpeÄnÃ©) 
+		\item provádí autentizaci a také šifruje obsah
+		\item pro šifrování pouívá 3DES, Blowfish aj. (pùvodnì DES, ji není povaováno za bezpeèné) 
 	\end{pitemize}
 \end{pitemize}
 
-Dohoda klÃ­ÄÅ¯:
+Dohoda klíèù:
 \begin{pitemize}
-	\item pÅ™ed pouÅ¾itÃ­m protokolu AH Äi ESP si musÃ­ strany dohodnout klÃ­Äe
-	\item manuÃ¡lnÃ­ konfigurace
-	\item automatickÃ¡ konfigurace -- IKE (Internet Key Exchange) protokol 
+	\item pøed pouitím protokolu AH èi ESP si musí strany dohodnout klíèe
+	\item manuální konfigurace
+	\item automatická konfigurace -- IKE (Internet Key Exchange) protokol 
 \end{pitemize}
 
 \subsubsection*{Firewally}
 \begin{pitemize}
-	\item sledovÃ¡nÃ­ a filtrovÃ¡nÃ­ komunikace na sÃ­ti
+	\item sledování a filtrování komunikace na síti
 	\begin{pitemize}
-		\item blokovÃ¡nÃ­ -- zabraÅˆuje neoprÃ¡vnÄ›nÃ©mu pÅ™Ã­stupu
-		\item prostupnost -- propouÅ¡tÄ›nÃ­ povolenÃ©ho toku 
+		\item blokování -- zabraòuje neoprávnìnému pøístupu
+		\item prostupnost -- propouštìní povoleného toku 
 	\end{pitemize}
-	\item paketovÃ© filtry -- napÅ™. na routeru
-	\item stavovÃ½ firewall (stateful) -- sleduje vztahy mezi pakety, ohlÃ­Å¾Ã­ se na historii
-	\item na rÅ¯znÃ½ch vrstvÃ¡ch
+	\item paketové filtry -- napø. na routeru
+	\item stavovı firewall (stateful) -- sleduje vztahy mezi pakety, ohlíí se na historii
+	\item na rùznıch vrstvách
 	\begin{pitemize}
-		\item sÃ­Å¥ovÃ¡ -- pouze dle zdrojovÃ½ch a cÃ­lovÃ½ch adres a protokolu
-		\item transportnÃ­ -- takÃ© podle portÅ¯
-		\item aplikaÄnÃ­ -- dle obsahu (dat) 
+		\item síová -- pouze dle zdrojovıch a cílovıch adres a protokolu
+		\item transportní -- také podle portù
+		\item aplikaèní -- dle obsahu (dat) 
 	\end{pitemize}
-	\item demilitarizovanÃ¡ zÃ³na (DMZ):
+	\item demilitarizovaná zóna (DMZ):
 	\begin{pitemize}
-		\item jinÃ© Å™eÅ¡enÃ­ bezpeÄnosti
-		\item pÅ™Ã­stup ven pouze pÅ™es specializovanÃ¡ zaÅ™Ã­zenÃ­ (proxy, brÃ¡ny), nelze pÅ™Ã­mo -- platÃ­ pro oba smÄ›ry 
+		\item jiné øešení bezpeènosti
+		\item pøístup ven pouze pøes specializovaná zaøízení (proxy, brány), nelze pøímo -- platí pro oba smìry 
 	\end{pitemize}
 \end{pitemize}

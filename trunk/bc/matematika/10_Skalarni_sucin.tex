@@ -1,249 +1,249 @@
-\section{SkalÃ¡rnÃ­ souÄin}
+\section{Skalární souèin}
 
-\begin{pozadavky}
+\begin{e}{Poadavky}{0}{0}
 \begin{pitemize}
-	\item Vlastnosti v reÃ¡lnÃ©m i komplexnÃ­m pÅ™Ã­padÄ›
+	\item Vlastnosti v reálném i komplexním pøípadì
 	\item Norma
 	\item Cauchy-Schwarzova nerovnost
 	\item Kolmost
-	\item OrtogonÃ¡lnÃ­ doplnÄ›k a jeho vlastnosti
+	\item Ortogonální doplnìk a jeho vlastnosti
 \end{pitemize}
-\end{pozadavky}
+\end{e}
 
-\subsection{Vlastnosti v reÃ¡lnÃ©m i komplexnÃ­m pÅ™Ã­padÄ›}
-\begin{definice}
-NechÅ¥ $V$ je vektorovÃ½ prostor nad $\mathbb{C}$. Potom zobrazenÃ­ (funkce) z kartÃ©zskÃ©ho souÄinu $V \times V \rightarrow \mathbb{C}$, kterÃ© dvojici vektorÅ¯ $x$ a $y$ pÅ™iradÃ­ ÄÃ­slo $\left<x,y\right>$ se nazÃ½vÃ¡ \emph{skalÃ¡rnÃ­ souÄin}, pokud splÅˆuje nÃ¡sledujÃ­cÃ­ axiomy (pro vÅ¡echny $x, x', y \in V$ a $\alpha, \beta \in \mathbb{C}$):
+\subsection{Vlastnosti v reálném i komplexním pøípadì}
+\begin{e}{Definice}{0}{0}
+Nech $V$ je vektorovı prostor nad $\mathbb{C}$. Potom zobrazení (funkce) z kartézského souèinu $V \times V \rightarrow \mathbb{C}$, které dvojici vektorù $x$ a $y$ pøiradí èíslo $\left<x,y\right>$ se nazıvá \emph{skalární souèin}, pokud splòuje následující axiomy (pro všechny $x, x', y \in V$ a $\alpha, \beta \in \mathbb{C}$):
 \begin{penumerate}
-	\item $\left<x,x\right> \ge 0, \,\, \left<x,x\right> =0 \Leftrightarrow x = 0 \hfill \textit{(positivnÃ­ definitnost)}$
+	\item $\left<x,x\right> \ge 0, \,\, \left<x,x\right> =0 \Leftrightarrow x = 0 \hfill \textit{(positivní definitnost)}$
 	\item $\left<\alpha x+\beta x', y\right> = \alpha \left<x,y\right> + \beta \left<x',y\right> \hfill \textit{(bilinearita)}$
 		\begin{penumerate}
 			\item $\left<\alpha x,y\right> = \alpha \left<x,y\right>$
 			\item $\left<x+x',y\right> = \left<x,y\right> + \left<x',y\right>$
 		\end{penumerate}
-	\item $\left<x,y\right> = \overline{\left<y,x\right>} \hfill \textit{(symetrie - komplexnÄ› sdruÅ¾enÃ©)}$ \\
-		\begin{poznamka}
+	\item $\left<x,y\right> = \overline{\left<y,x\right>} \hfill \textit{(symetrie - komplexnì sdruené)}$ \\
+		\begin{e}{Poznámka}{0}{0}
 			Pro $V'$ nad $\mathbb{R}$ a vektory $\forall x,y \in V'$: $\left<x,y\right>=\left<y,x\right>$
-		\end{poznamka}
+		\end{e}
 \end{penumerate}
 
-SkalÃ¡rnÃ­ souÄin znaÄÃ­me: $\left<x,y\right>$, $\left<x|y\right>$, $x.y$ \dots
-\end{definice}
+Skalární souèin znaèíme: $\left<x,y\right>$, $\left<x|y\right>$, $x.y$ \dots
+\end{e}
 
-\begin{pozorovani}
+\begin{e}{Pozorování}{0}{0}
 \begin{pitemize}
-	\item $\left<x,x\right>=\overline{\left<x,x\right>}$, tedy je nutnÄ› reÃ¡lnÃ© ($\in\mathbb{R}$) i pro skalÃ¡rnÃ­ souÄiny nad $\mathbb{C}$
+	\item $\left<x,x\right>=\overline{\left<x,x\right>}$, tedy je nutnì reálné ($\in\mathbb{R}$) i pro skalární souèiny nad $\mathbb{C}$
 	\item $\left<x,\alpha y\right> = \overline{\left<\alpha y,x\right>} = \overline{\alpha}.\overline{\left<y,x\right>} = \overline{\alpha}.\left<x,y\right>$
-	\item SkalÃ¡rnÃ­ souÄin mÅ¯Å¾e nabÃ½vat zÃ¡pornÃ½ch hodnot
+	\item Skalární souèin mùe nabıvat zápornıch hodnot
 \end{pitemize}
-\end{pozorovani}
+\end{e}
 
-\begin{definice}
-EkvivalentnÃ­ definice: \emph{SkalÃ¡rnÃ­ souÄin} je pozitivnÄ› definitnÃ­ (1) bilineÃ¡rnÃ­ forma (2). V $\mathbb{R}$ navÃ­c symetrickÃ¡ (3). V $\mathbb{C}$ navÃ­c forma, jejÃ­Å¾ matice je hermitovskÃ¡ (3).
-\end{definice}
+\begin{e}{Definice}{0}{0}
+Ekvivalentní definice: \emph{Skalární souèin} je pozitivnì definitní (1) bilineární forma (2). V $\mathbb{R}$ navíc symetrická (3). V $\mathbb{C}$ navíc forma, její matice je hermitovská (3).
+\end{e}
 
-\begin{priklady}
+\begin{e}{Pøíklady}{0}{0}
 \begin{pitemize}
-	\item \uv{StandardnÃ­} skalÃ¡rnÃ­ souÄin pro $\mathbb{C}^n, \mathbb{R}^n$: $$\left<x,y\right> = \sum_{i=1}^{n} x_i \overline{y_i}$$
-	\item JinÃ½ souÄin v $\mathbb{R}^n$ definovanÃ½ pomocÃ­ regulÃ¡rnÃ­ matice $A$ Å™Ã¡du $n$
-		$$\left<x,y\right>=x^T A^T A y \;\;\;\;\;\; (\textit{pozorovÃ¡nÃ­: } \left<x,x\right> = x^T A^T A x = \sum_{i=1}^n (Ax)_i^2)$$
-	\item SkalÃ¡rnÃ­ souÄin ve vektorovÃ©m prostoru $C[a,b]$ (integrovatelnÃ½ch funkcÃ­ na intervalu $[a,b]$):
+	\item \uv{Standardní} skalární souèin pro $\mathbb{C}^n, \mathbb{R}^n$: $$\left<x,y\right> = \sum_{i=1}^{n} x_i \overline{y_i}$$
+	\item Jinı souèin v $\mathbb{R}^n$ definovanı pomocí regulární matice $A$ øádu $n$
+		$$\left<x,y\right>=x^T A^T A y \;\;\;\;\;\; (\textit{pozorování: } \left<x,x\right> = x^T A^T A x = \sum_{i=1}^n (Ax)_i^2)$$
+	\item Skalární souèin ve vektorovém prostoru $C[a,b]$ (integrovatelnıch funkcí na intervalu $[a,b]$):
 		$$\left<f,g\right> = \int_a^b f(x) g(x) dx$$
 \end{pitemize}
-\end{priklady}
+\end{e}
 
 \subsection{Norma}
 
-\begin{definiceN}{Norma}
-\emph{Norma} na vektorovÃ©m prostoru V (nad $\mathbb{R}$ nebo nad $\mathbb{C}$) je zobrazenÃ­ $V \rightarrow \mathbb{R}$, kterÃ© pÅ™iradÃ­ vektoru $x \in V$ ÄÃ­slo $\|x\|$ a splÅˆuje axiomy:
+\begin{e}{Definice}{0}{Norma}
+\emph{Norma} na vektorovém prostoru V (nad $\mathbb{R}$ nebo nad $\mathbb{C}$) je zobrazení $V \rightarrow \mathbb{R}$, které pøiradí vektoru $x \in V$ èíslo $\|x\|$ a splòuje axiomy:
 \begin{penumerate}
 	\item $\forall x \in V: \|x\| \ge 0, \|x\|=0 \Leftrightarrow x = 0$
 	\item $\forall x \in V, \forall \alpha \in \mathbb{C} (\mathbb{R}): \|\alpha x\| = |\alpha|.\|x\|$
-	\item $\forall x,y \in V: \|x\| \ge 0, \|x+y\| \le \|x\| + \|y\| \hfill \textit{(trojÃºhelnÃ­kovÃ¡ nerovnost)}$
+	\item $\forall x,y \in V: \|x\| \ge 0, \|x+y\| \le \|x\| + \|y\| \hfill \textit{(trojúhelníková nerovnost)}$
 \end{penumerate}
-Norma $\|x\|$ mÃ¡ vÃ½znam \uv{dÃ©lky} vektoru $x$.
-\end{definiceN}
+Norma $\|x\|$ má vıznam \uv{délky} vektoru $x$.
+\end{e}
 
-\begin{definiceN}{NormovanÃ½ vekt. prostor}
-VektorovÃ½ prostor s nÄ›jakou normou nazÃ½vÃ¡me \emph{normovanÃ½}.
-\end{definiceN}
+\begin{e}{Definice}{0}{Normovanı vekt. prostor}
+Vektorovı prostor s nìjakou normou nazıváme \emph{normovanı}.
+\end{e}
 
-\begin{priklady}
+\begin{e}{Pøíklady}{0}{0}
 \begin{pitemize}
-\item Norma urÄenÃ¡ skalÃ¡rnÃ­m souÄinem
+\item Norma urèená skalárním souèinem
 	$$\|x\| = \sqrt{\left<x,x\right>}$$
-	\begin{dukaz}
-		(1), (2) plyne z axiomÅ¯ skalÃ¡rnÃ­ho souÄinu, (3):
+	\begin{e}{Dùkaz}{0}{0}
+		(1), (2) plyne z axiomù skalárního souèinu, (3):
 		\begin{align*}
 			\left<x,y\right>^2 \le \left<x,x\right>\left<y,y\right> & \Rightarrow & \left<x,y\right> & \le & \sqrt{\left<x,x\right> \left<y,y\right>} \\
 			& \Leftrightarrow & \left<x,x\right>+\left<y,y\right>+2\left<x,y\right> & \le & (\sqrt{\left<x,x\right>} + \sqrt{\left<y,y\right>})^2 \\
 			& \Leftrightarrow & \left<x+y,x+y\right> & \le & (\sqrt{\left<x,x\right>} + \sqrt{\left<y,y\right>})^2 \\
 			& \Leftrightarrow & \|x+y\| & \le & \|x\| + \|y\|
 		\end{align*}
-		Kde prvnÃ­ nerovnost je dÅ¯sledek Cauchy-Swarzovy nerovnosti...
+		Kde první nerovnost je dùsledek Cauchy-Swarzovy nerovnosti...
 
-		Ze standardnÃ­ho skalÃ¡rnÃ­ho souÄinu na $\mathbb{R}^n$ dostaneme euklidovskou normu (tj. \uv{dÃ©lku} vektoru podle Pythagorovy vÄ›ty) a euklidovskou vzdÃ¡lenost (vzdÃ¡lenost bodÅ¯ $u$ a $v$ je $\|u-v\|$). KaÅ¾dÃ½ vektorovÃ½ prostor se skalÃ¡rnÃ­m souÄinem $\left<.,.\right>$ je normovanÃ½m vektorovÃ½m prostorem ($\|x\|=\sqrt{\left<x,x\right>}$), tedy i metrickÃ½m prostorem ($d(x,y)=\|x-y\|$) a tedy i topologickÃ½m prostorem.
-	\end{dukaz}
+		Ze standardního skalárního souèinu na $\mathbb{R}^n$ dostaneme euklidovskou normu (tj. \uv{délku} vektoru podle Pythagorovy vìty) a euklidovskou vzdálenost (vzdálenost bodù $u$ a $v$ je $\|u-v\|$). Kadı vektorovı prostor se skalárním souèinem $\left<.,.\right>$ je normovanım vektorovım prostorem ($\|x\|=\sqrt{\left<x,x\right>}$), tedy i metrickım prostorem ($d(x,y)=\|x-y\|$) a tedy i topologickım prostorem.
+	\end{e}
 \item $L_1$ norma na $\mathbb{R}^n$:
 	$$\|x\| = \sum_{i=1}^{n} |x_i|$$
-\item $L_2$ norma na $\mathbb{C}^n$ - EuklidovskÃ¡ norma:
+\item $L_2$ norma na $\mathbb{C}^n$ - Euklidovská norma:
 	$$\|x\| = \sqrt{\sum_{i=1}^{n} x_i \overline{x_i}}$$
 \item $L_p$ norma na $\mathbb{R}^n$:
 	$$\|x\| = \sqrt[p]{\sum_{i=1}^{n} |x_i|^p}$$
-\item $L_{\infty}$ norma (stejnÄ› jako $L_1$ norma neodpovÃ­dÃ¡ Å¾Ã¡dnÃ©mu skalÃ¡rnÃ­mu souÄinu):
+\item $L_{\infty}$ norma (stejnì jako $L_1$ norma neodpovídá ádnému skalárnímu souèinu):
 	$$\|x\| = \max_{i=1,\dots,n} \left( |x_i| \right)$$
-\item Norma v prostoru integrovatelnÃ½ch funkcÃ­ na intervalu $[a,b]$ - $C[a,b]$
+\item Norma v prostoru integrovatelnıch funkcí na intervalu $[a,b]$ - $C[a,b]$
 	$$\|f(x)\| = \int_a^b f^2(x) dx$$
 \end{pitemize}
-\end{priklady}
+\end{e}
 
 
 \subsection{Cauchy-Schwarzova nerovnost}
 
 
-\begin{vetaN}{Cauchyho-Schwarzova nerovnost}
-NechÅ¥ $V$ je prostor se skalÃ¡rnÃ­m souÄinem nad $\mathbb{C}$ a $\|x\|$ je norma odvozenÃ¡ ze skalÃ¡rnÃ­ho souÄinu. Potom platÃ­:
+\begin{e}{Vìta}{0}{Cauchyho-Schwarzova nerovnost}
+Nech $V$ je prostor se skalárním souèinem nad $\mathbb{C}$ a $\|x\|$ je norma odvozená ze skalárního souèinu. Potom platí:
 $$\left|\left<x,y\right>\right| \le \|x\|\cdot\|y\| \;\;\;\;\;\; (\forall x,y \in V)$$
 
-\begin{dukaz}
-Pro $x=0$ nebo $y=0$ mÃ¡me $0Â \le 0$.
+\begin{e}{Dùkaz}{0}{0}
+Pro $x=0$ nebo $y=0$ máme $0 \le 0$.
 
-Pro libovolnÃ© $\alpha \in \mathbb{C}$ platÃ­ $\|x+\alpha y\|^2 \ge 0$ (platÃ­ i bez $( )^2$)
+Pro libovolné $\alpha \in \mathbb{C}$ platí $\|x+\alpha y\|^2 \ge 0$ (platí i bez $( )^2$)
 \begin{align*}
 \|x+\alpha y\|^2 = \left<x+\alpha y, x+\alpha y\right> = \left<x, x+\alpha y\right> + \alpha \left<y, x+\alpha y\right> = \\
 = \left<x,x\right> + \overline{\alpha}\left<x,y\right> + \alpha\left<y,x\right> + \alpha \overline{\alpha}\left<y,y\right>
 \end{align*}
-ZvolÃ­me $\alpha = \frac{-\left<x,y\right>}{\left<y,y\right>}$ (\emph{tÃ­m se eliminujÃ­ $\overline{\alpha}\left<x,y\right>$ a $\alpha \overline{\alpha}\left<y,y\right>$})
+Zvolíme $\alpha = \frac{-\left<x,y\right>}{\left<y,y\right>}$ (\emph{tím se eliminují $\overline{\alpha}\left<x,y\right>$ a $\alpha \overline{\alpha}\left<y,y\right>$})
 
-Po dosazenÃ­:
+Po dosazení:
 \begin{align*}
 0 &\le& \left<x,x\right> + \alpha \left<y,x\right> \\
 0 &\le& \left<x,x\right> - \frac{\left<x,y\right>}{\left<y,y\right>}\left<y,x\right> \\
 \left<x,y\right>.\left<y,x\right> &\le& \left<x,x\right>.\left<y,y\right> \\
 |\left<x,y\right>|^2 & \le & \|x\|^2 . \|y\|^2 \\
-\textit{...a po odmocnÄ›nÃ­} \\
+\textit{...a po odmocnìní} \\
 |\left<x,y\right>| & \le & \|x\|.\|y\|
 \end{align*}
 
-\end{dukaz}
+\end{e}
 
-\begin{obecne}{DruhÃ½ moÅ¾nÃ½ dÅ¯kaz}
-\noindent Nadefinujeme promÄ›nnou $t\in\mathbb{R}$ a zavedeme funkci
+\begin{obecne}{Druhı monı dùkaz}
+\noindent Nadefinujeme promìnnou $t\in\mathbb{R}$ a zavedeme funkci
 $$p(t):=\left<u+t\cdot v,u+t\cdot v\right>=||u+tv||^2$$
 
 \noindent
-VÃ­me: $p(t)\geq 0\ \forall t\in\mathbb{R}$ (z axiomu 1 skal. souÄinu). Z linearity plyne, Å¾e $\left<u+tv,u+tv\right>=\left<u,u+tv\right>+t\left<v,u+tv\right>=\left<u,u\right>+t\left<u,v\right>+t\left<v,u\right>+t^2\left<v,v\right>=||u||^2+2t\left<u,v\right>+t^2||v||^2$. Tj. dostÃ¡vÃ¡me $p(t)$ jako kvadratickou funkci promÄ›nnÃ© $t$:
+Víme: $p(t)\geq 0\ \forall t\in\mathbb{R}$ (z axiomu 1 skal. souèinu). Z linearity plyne, e $\left<u+tv,u+tv\right>=\left<u,u+tv\right>+t\left<v,u+tv\right>=\left<u,u\right>+t\left<u,v\right>+t\left<v,u\right>+t^2\left<v,v\right>=||u||^2+2t\left<u,v\right>+t^2||v||^2$. Tj. dostáváme $p(t)$ jako kvadratickou funkci promìnné $t$:
 $$p(t)=t^2||v||^2+2t\left<u,v\right>+||u||^2$$
 
 \noindent
-ProtoÅ¾e $p(t)$ mÃ¡ nezÃ¡pornÃ© hodnoty na celÃ©m $\mathbb{R}$, musÃ­ mÃ­t tato rovnice max. jedno Å™eÅ¡enÃ­, tj. diskriminant pÅ™i poÄÃ­tÃ¡nÃ­ koÅ™enÅ¯ nesmÃ­ bÃ½t kladnÃ½:
+Protoe $p(t)$ má nezáporné hodnoty na celém $\mathbb{R}$, musí mít tato rovnice max. jedno øešení, tj. diskriminant pøi poèítání koøenù nesmí bıt kladnı:
 $$D=b^2-4ac=4\left<u,v\right>^2-4||u||^2||v||^2\leq 0$$
 
 \noindent
-Po vydÄ›lenÃ­ ÄtyÅ™mi a odmocnÄ›nÃ­ dostÃ¡vÃ¡me:
+Po vydìlení ètyømi a odmocnìní dostáváme:
 $$|\left<u,v\right>|\leq ||u||\cdot||v||$$
 \end{obecne}
 
-\begin{dusledek}
-Platnost trojÃºhelnÃ­kovÃ© nerovnosti pro normy odvozenÃ© od skalÃ¡rnÃ­ho souÄinu -- tj. normy odvozenÃ© od skalÃ¡rnÃ­ho souÄinu splÅˆujÃ­ vÅ¡echny axiomy normy.
-\end{dusledek}
+\begin{e}{Dùsledek}{0}{0}
+Platnost trojúhelníkové nerovnosti pro normy odvozené od skalárního souèinu -- tj. normy odvozené od skalárního souèinu splòují všechny axiomy normy.
+\end{e}
 
-\begin{dusledek}
-NechÅ¥ $x=(x_1,x_2,\dots,x_n)^T$, $y=(1,1,\dots,1)^T$ jsou dva vektory, pak pro standardnÃ­ skalÃ¡rnÃ­ souÄin platÃ­
+\begin{e}{Dùsledek}{0}{0}
+Nech $x=(x_1,x_2,\dots,x_n)^T$, $y=(1,1,\dots,1)^T$ jsou dva vektory, pak pro standardní skalární souèin platí
 \begin{align*}
 |\left<x,y\right>| &= \sum_{i=1}^n x_i\cdot 1\\
 \|x\| &= \sqrt{\sum_{i=1}^n x_i^2}\\
 \|y\| &= \sqrt{n}
 \end{align*}
-po dosazenÃ­ do Cauchy-Schwarzovy nerovnosti okamÅ¾itÄ› dostaneme nerovnost mezi aritmetickÃ½m a kvadratickÃ½m prÅ¯mÄ›rem
+po dosazení do Cauchy-Schwarzovy nerovnosti okamitì dostaneme nerovnost mezi aritmetickım a kvadratickım prùmìrem
 $$\frac{1}{n}\sum_{i=1}^{n} x_i \le \sqrt{\frac{1}{n}\sum_{i=1}^{n} x_i^2}$$
-\end{dusledek}
+\end{e}
 
 
 
-\begin{dusledek}
-Ve vektorovÃ½ch prostorech nad $\mathbb{R}$ a $\mathbb{C}$ lze definovat \emph{Ãºhel}, svÃ­ranÃ½ dvÄ›ma vektory: 
+\begin{e}{Dùsledek}{0}{0}
+Ve vektorovıch prostorech nad $\mathbb{R}$ a $\mathbb{C}$ lze definovat \emph{úhel}, svíranı dvìma vektory: 
 $$\cos\varphi = \frac{\left<u,v\right>}{\|u\|\ \|v\|}$$
-a Cauchyho-Schwarzova nerovnost zaruÄuje, Å¾e $|\cos\varphi|\leq 1$.
-\end{dusledek}
+a Cauchyho-Schwarzova nerovnost zaruèuje, e $|\cos\varphi|\leq 1$.
+\end{e}
 
-\begin{dusledek}
-Z takto definovanÃ©ho Ãºhlu mezi dvÄ›ma vektory plyne i \emph{kosinovÃ¡ vÄ›ta}: 
+\begin{e}{Dùsledek}{0}{0}
+Z takto definovaného úhlu mezi dvìma vektory plyne i \emph{kosinová vìta}: 
 $$\|u-v\|^2=\|u\|^2+\|v\|^2-2\|u\|\ \|v\|\cos\varphi$$
-\end{dusledek}
-\end{vetaN}
+\end{e}
+\end{e}
 
 
 \subsection{Kolmost}
-\begin{definiceN}{kolmÃ© vektory}
-Vektory $x$ aÂ $y$Â z prostoru se skalÃ¡rnÃ­m souÄinem jsou vzÃ¡jemnÄ› \emph{kolmÃ©}Â (\emph{ortogonÃ¡lnÃ­}), pokud $\left<x,y\right>=0$, znaÄÃ­me $x \bot y$.
-\end{definiceN}
+\begin{e}{Definice}{0}{kolmé vektory}
+Vektory $x$ a $y$ z prostoru se skalárním souèinem jsou vzájemnì \emph{kolmé} (\emph{ortogonální}), pokud $\left<x,y\right>=0$, znaèíme $x \bot y$.
+\end{e}
 
-\begin{definiceN}{ortogonÃ¡lnÃ­ a ortonormÃ¡lnÃ­ systÃ©m}
-Soustava (systÃ©m) vektorÅ¯ $v_1, \dots, v_n$ se nazÃ½vÃ¡ \emph{ortogonÃ¡lnÃ­}, jestliÅ¾e $\left<v_i,v_j\right> = 0$ ($v_i \bot v_j$) pro $\forall i \neq j$ (tj. vÅ¡echny jejÃ­ vektory jsou navzÃ¡jem kolmÃ©). 
+\begin{e}{Definice}{0}{ortogonální a ortonormální systém}
+Soustava (systém) vektorù $v_1, \dots, v_n$ se nazıvá \emph{ortogonální}, jestlie $\left<v_i,v_j\right> = 0$ ($v_i \bot v_j$) pro $\forall i \neq j$ (tj. všechny její vektory jsou navzájem kolmé). 
 
 \noindent
-PlatÃ­-li jeÅ¡tÄ› navÃ­c $\|v_i\|=1$ pro $\forall i=1,\dots,n$, jednÃ¡ se o soustavu \emph{ortonormÃ¡lnÃ­} (vektory jsou kolmÃ© a navÃ­c majÃ­ jednotkovou normu).
-\end{definiceN}
+Platí-li ještì navíc $\|v_i\|=1$ pro $\forall i=1,\dots,n$, jedná se o soustavu \emph{ortonormální} (vektory jsou kolmé a navíc mají jednotkovou normu).
+\end{e}
 
-\begin{pozorovani}
-KaÅ¾dÃ½ systÃ©m nenulovÃ½ch vzÃ¡jemnÄ› kolmÃ½ch vektorÅ¯ (tj. i ortonormÃ¡lnÃ­ nebo ortogonÃ¡lnÃ­) je lineÃ¡rnÄ› nezÃ¡vislÃ½.
-\end{pozorovani}
+\begin{e}{Pozorování}{0}{0}
+Kadı systém nenulovıch vzájemnì kolmıch vektorù (tj. i ortonormální nebo ortogonální) je lineárnì nezávislı.
+\end{e}
 
-\begin{dusledek}
-JestliÅ¾e ortogonÃ¡lnÃ­ systÃ©m generuje celÃ½ vektorovÃ½ prostor, je jeho bÃ¡zÃ­.
-\end{dusledek}
+\begin{e}{Dùsledek}{0}{0}
+Jestlie ortogonální systém generuje celı vektorovı prostor, je jeho bází.
+\end{e}
 
-\begin{algoritmusN}{Gram-Schmidtova ortogonalizace}
-Tento algoritmus zajiÅ¡Å¥uje pÅ™evedenÃ­ libovolnÃ© bÃ¡ze $(v_1,\dots,v_n)$ vektorovÃ©ho prostoru $V$ na ekvivalentnÃ­ ortogonÃ¡lnÃ­ bÃ¡zi $(w_1,\dots,w_n)$. Ortonormalizace bÃ¡ze uÅ¾ po jeho probÄ›hnutÃ­ znamenÃ¡ jen vynÃ¡sobenÃ­ kaÅ¾dÃ©ho $w_i$ ÄÃ­slem $\frac{1}{\|w_i\|}$. Jeho prÅ¯bÄ›h:
+\begin{e}{Algoritmus}{0}{Gram-Schmidtova ortogonalizace}
+Tento algoritmus zajišuje pøevedení libovolné báze $(v_1,\dots,v_n)$ vektorového prostoru $V$ na ekvivalentní ortogonální bázi $(w_1,\dots,w_n)$. Ortonormalizace báze u po jeho probìhnutí znamená jen vynásobení kadého $w_i$ èíslem $\frac{1}{\|w_i\|}$. Jeho prùbìh:
 \begin{penumerate}
     \item Zvolme $w_1 := v_1$.
-    \item Pro $i$ postupnÄ› od $1$ do $n$ opakujme:
+    \item Pro $i$ postupnì od $1$ do $n$ opakujme:
 \par\noindent
     Najdi $w_i=v_i-a_{i,1}w_1 - a_{i,2}w_2 - \dots - a_{i,i-1}w_{i-1}$ tak, aby pro $\forall j\in\{1,\dots,i\}$ platilo:
     $$w_i\bot w_j$$
-    DÃ¡ se ukÃ¡zat Å¾e koeficienty $a_{i,j}$ jsou tvaru
+    Dá se ukázat e koeficienty $a_{i,j}$ jsou tvaru
     $$a_{i,j}=\frac{\left<v_i,w_j\right>}{\|w_j\|^2}$$
-    \item Po $n$ iteracÃ­ch dostaneme $w_1,\dots,w_n$ jako ortogonÃ¡lnÃ­ bÃ¡zi prostoru $V$.
+    \item Po $n$ iteracích dostaneme $w_1,\dots,w_n$ jako ortogonální bázi prostoru $V$.
 \end{penumerate}
 
-\textbf{AlternativnÃ­ postup - Gram-Schmidtova normalizace}:
+\textbf{Alternativní postup - Gram-Schmidtova normalizace}:
 \begin{penumerate}
-	\item DÃ¡ny: $x_1,\dots,x_m \in V$ lineÃ¡rnÄ› nezÃ¡vislÃ©.
-	\item Pro $k=1,\dots,m$ proveÄ:
+	\item Dány: $x_1,\dots,x_m \in V$ lineárnì nezávislé.
+	\item Pro $k=1,\dots,m$ proveï:
 		$$y_k := x_k - \sum_{j=1}^{k-1} \left<x_k,z_j\right>z_j$$
 		$$z_k := \frac{1}{\|y_k\|}y_k$$
-	\item UkonÄi: $z_1,\dots,z_m$ je ortonormÃ¡lnÃ­ systÃ©m ve $V$ a\\$\mathcal{L}(z_1,\dots,z_m) = \mathcal{L}(x_1,\dots,x_m)$
+	\item Ukonèi: $z_1,\dots,z_m$ je ortonormální systém ve $V$ a\\$\mathcal{L}(z_1,\dots,z_m) = \mathcal{L}(x_1,\dots,x_m)$
 \end{penumerate}
-\end{algoritmusN}
+\end{e}
 
-\begin{dusledek}
-BuÄ $(v_1,\dots,v_n)$ bÃ¡ze vekt. prostoru se skal. souÄinem. Potom existuje ortonormÃ¡lnÃ­ bÃ¡ze $(w_1,\dots,w_n)$, kdy pro kaÅ¾dÃ© $k\in\{1,\dots,n\}$ je $\mathcal{L}(v_1,\dots,v_k)=\mathcal{L}(w_1,\dots,w_k)$. DÃ­ky tomu se kaÅ¾dÃ½ ortogonÃ¡lnÃ­ systÃ©m vektorÅ¯ v koneÄnÄ›dimensionÃ¡lnÃ­m vekt. prostoru se skalÃ¡rnÃ­m souÄinem dÃ¡ rozÅ¡Ã­Å™it na ortogonÃ¡lnÃ­ bÃ¡zi (to mÅ¯Å¾eme dÃ­ky Gram-SchmidtovÄ› ortogonalizaci a SteinitzovÄ› vÄ›tÄ› o vÃ½mÄ›nÄ›).
-\end{dusledek}
+\begin{e}{Dùsledek}{0}{0}
+Buï $(v_1,\dots,v_n)$ báze vekt. prostoru se skal. souèinem. Potom existuje ortonormální báze $(w_1,\dots,w_n)$, kdy pro kadé $k\in\{1,\dots,n\}$ je $\mathcal{L}(v_1,\dots,v_k)=\mathcal{L}(w_1,\dots,w_k)$. Díky tomu se kadı ortogonální systém vektorù v koneènìdimensionálním vekt. prostoru se skalárním souèinem dá rozšíøit na ortogonální bázi (to mùeme díky Gram-Schmidtovì ortogonalizaci a Steinitzovì vìtì o vımìnì).
+\end{e}
 
-\begin{vetaN}{Fourierovy koeficienty}
-MÃ¡me-li danou nÄ›jakou ortonormÃ¡lnÃ­ bÃ¡zi $B=b_1,\dots,b_n$ vektorovÃ©ho prostoru $V$, pak pro kaÅ¾dÃ© $x\in V$ platÃ­:
+\begin{e}{Vìta}{0}{Fourierovy koeficienty}
+Máme-li danou nìjakou ortonormální bázi $B=b_1,\dots,b_n$ vektorového prostoru $V$, pak pro kadé $x\in V$ platí:
 $$x=\sum_{i=1}^n\left<x,b_i\right>b_i$$
-a souÅ™adnice $\left<x,b_i\right>$ nazveme \emph{Fourierovy koeficienty} vektoru $x$.
-\end{vetaN}
+a souøadnice $\left<x,b_i\right>$ nazveme \emph{Fourierovy koeficienty} vektoru $x$.
+\end{e}
 
-\begin{poznamka}
-Fourierovy Å™ady jsou souÅ™adnice funkcÃ­ ve vektorovÃ©m prostoru spojitÃ½ch funkcÃ­ na $[-\pi,\pi]$ se skalÃ¡rnÃ­m souÄinem $\left<f,g\right>=\int_{-\pi}^{\pi}f(x)g(x)\mathrm{d}x$
-\end{poznamka}
+\begin{e}{Poznámka}{0}{0}
+Fourierovy øady jsou souøadnice funkcí ve vektorovém prostoru spojitıch funkcí na $[-\pi,\pi]$ se skalárním souèinem $\left<f,g\right>=\int_{-\pi}^{\pi}f(x)g(x)\mathrm{d}x$
+\end{e}
 
 
-\subsection{OrtogonÃ¡lnÃ­ doplnÄ›k a jeho vlastnosti}
-\begin{definice}
-NechÅ¥ $V$ je mnoÅ¾ina vektorÅ¯ ve vektorovÃ©m prostoru $W$ se skalÃ¡rnÃ­m souÄinem. \emph{OrtogonÃ¡lnÃ­m doplÅˆkem} $V$ (znaÄÃ­me $V^{\bot}$) rozumÃ­me mnoÅ¾inu
+\subsection{Ortogonální doplnìk a jeho vlastnosti}
+\begin{e}{Definice}{0}{0}
+Nech $V$ je mnoina vektorù ve vektorovém prostoru $W$ se skalárním souèinem. \emph{Ortogonálním doplòkem} $V$ (znaèíme $V^{\bot}$) rozumíme mnoinu
 $$V^{\bot}=\left\{v \in W; \forall x \in V: \left<v,x\right> = 0 \right\}$$
-\end{definice}
+\end{e}
 
 \begin{lemmaN}{Vlastnosti}
-NechÅ¥ $V$ je podprostor prostoru $W$ koneÄnÃ© dimenze. Potom platÃ­:
+Nech $V$ je podprostor prostoru $W$ koneèné dimenze. Potom platí:
 \begin{penumerate}
 	\item $V^{\bot}$ je podprostor $W$
 	\item $\dim(V^{\bot})=\dim(W)-\dim(V)$
-	\item $(V^{\bot})^{\bot} = V \hfill \textit{(z rozÅ¡iÅ™itelnosti ortogonÃ¡lnÃ­ bÃ¡ze)}$ 
-	\item $V \cap V^{\bot} = \{0\}, \;\;\; V \oplus V^{\bot} = W \\ \textit{(operace} \oplus \textit{je spojenÃ­ dvou podprostorÅ¯...} \mathcal{L}(V \cup V^{\bot})\textit{)}$
+	\item $(V^{\bot})^{\bot} = V \hfill \textit{(z rozšiøitelnosti ortogonální báze)}$ 
+	\item $V \cap V^{\bot} = \{0\}, \;\;\; V \oplus V^{\bot} = W \\ \textit{(operace} \oplus \textit{je spojení dvou podprostorù...} \mathcal{L}(V \cup V^{\bot})\textit{)}$
 	\item $U,V$ podprostory $W$. Je-li $U \subseteq V$, pak $U^{\bot} \supseteq V^{\bot}$\\
 		$(x \in V^{\bot} \Leftrightarrow x \bot y \in V \Rightarrow x \bot u \in U \Leftrightarrow x \in U^{\bot})$
 	\item $(U \cap V)^{\bot} = U^{\bot} \oplus V^{\bot}$
@@ -251,8 +251,8 @@ NechÅ¥ $V$ je podprostor prostoru $W$ koneÄnÃ© dimenze. Potom platÃ­:
 \end{penumerate}
 \end{lemmaN}
 
-\begin{definiceN}{OrtogonÃ¡lnÃ­ projekce}
-\emph{OrtogonÃ¡lnÃ­ projekce} vekt. prostoru $V$ na podprostor $U\subset V$ je zobrazenÃ­, kterÃ© kaÅ¾dÃ©mu vektoru $v\in V$ pÅ™iÅ™adÃ­ vektor $u\in U$ tak, Å¾e 
+\begin{e}{Definice}{0}{Ortogonální projekce}
+\emph{Ortogonální projekce} vekt. prostoru $V$ na podprostor $U\subset V$ je zobrazení, které kadému vektoru $v\in V$ pøiøadí vektor $u\in U$ tak, e 
 $$\|v-u\|=\min\{\|v-w\|, w \in U\}$$
-tedy vektor $u \in U$, kterÃ½ mÃ¡ ze vÅ¡ech vektorÅ¯ z $U$ nejmenÅ¡Ã­ vzdÃ¡lenost od $v$. Ten se pak nazÃ½vÃ¡ \emph{ortogonÃ¡lnÃ­ projekcÃ­} vektoru $v$.
-\end{definiceN}
+tedy vektor $u \in U$, kterı má ze všech vektorù z $U$ nejmenší vzdálenost od $v$. Ten se pak nazıvá \emph{ortogonální projekcí} vektoru $v$.
+\end{e}

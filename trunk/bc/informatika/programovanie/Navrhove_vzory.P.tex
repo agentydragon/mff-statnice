@@ -1,70 +1,70 @@
-\subsection{NÃ¡vrhovÃ© vzory}
+\subsection{Návrhové vzory}
 
-NÃ¡vrhovÃ½ vzor je pojmenovanÃ© a popsanÃ© Å™eÅ¡enÃ­ typickÃ©ho problÃ©mu. Princip existujÃ­ uÅ¾ dlouho: v architektuÅ™e -- napÅ™. baroknÃ­ styl, literatura -- tragickÃ½ hrdina, romantickÃ¡ novela\dots
+Návrhovı vzor je pojmenované a popsané øešení typického problému. Princip existují u dlouho: v architektuøe -- napø. barokní styl, literatura -- tragickı hrdina, romantická novela\dots
 
-V software se mnohÃ© postupy \uv{vynalÃ©zajÃ­} stÃ¡le znovu -- nÃ¡vrhovÃ© vzory majÃ­ potom pro typickou situaci popisovat:
+V software se mnohé postupy \uv{vynalézají} stále znovu -- návrhové vzory mají potom pro typickou situaci popisovat:
 \begin{pitemize}
-	\item jak a kdy majÃ­ bÃ½t objekty vytvÃ¡Å™eny
-	\item jakÃ© vztahy a struktury majÃ­ obsahovat tÅ™Ã­dy
-	\item jakÃ© chovÃ¡nÃ­ majÃ­ mÃ­t tÅ™Ã­dy, jak majÃ­ spolupracovat objekty
+	\item jak a kdy mají bıt objekty vytváøeny
+	\item jaké vztahy a struktury mají obsahovat tøídy
+	\item jaké chování mají mít tøídy, jak mají spolupracovat objekty
 \end{pitemize}
 
-NÃ¡vrhovÃ½ vzor (design pattern) je tedy obecnÄ› znovupouÅ¾itelnÃ© Å™eÅ¡enÃ­ problÃ©mÅ¯ Äasto se vyskytujÃ­cÃ­ch pÅ™i nÃ¡vrhu softwaru. NejednÃ¡ se o hotovÃ½ design, kterÃ½ by se dal transformovat pÅ™Ã­mo na kÃ³d -- je to vÃ­cemÃ©nÄ› jen popis nebo Å¡ablona, jak Å™eÅ¡it nÄ›jakÃ½ problÃ©m vyskytujÃ­cÃ­ se ve vÃ­ce rÅ¯znÃ½ch situacÃ­ch. ObjektovÄ›-orientovanÃ© nÃ¡vrhovÃ© vzory typicky ukazujÃ­ vztahy a interakce mezi tÅ™Ã­dami nebo objekty -- bez specifikace konkrÃ©tnÃ­ch koneÄnÃ½ch tÅ™Ã­d nebo objektÅ¯. Algoritmy nejsou povaÅ¾ovÃ¡ny za nÃ¡vrhovÃ© vzory, protoÅ¾e Å™eÅ¡Ã­ spÃ­Å¡e vÃ½poÄetnÃ­ problÃ©my neÅ¾ designovÃ©.
+Návrhovı vzor (design pattern) je tedy obecnì znovupouitelné øešení problémù èasto se vyskytujících pøi návrhu softwaru. Nejedná se o hotovı design, kterı by se dal transformovat pøímo na kód -- je to víceménì jen popis nebo šablona, jak øešit nìjakı problém vyskytující se ve více rùznıch situacích. Objektovì-orientované návrhové vzory typicky ukazují vztahy a interakce mezi tøídami nebo objekty -- bez specifikace konkrétních koneènıch tøíd nebo objektù. Algoritmy nejsou povaovány za návrhové vzory, protoe øeší spíše vıpoèetní problémy ne designové.
 
-Ne vÅ¡echny softwarovÃ© vzory (software patterns) jsou nÃ¡vrhovÃ©. NÃ¡vrhovÃ© vzory Å™eÅ¡Ã­ problÃ©my na Ãºrovni nÃ¡vrhu softwaru (software desing). JinÃ© druhy vzorÅ¯ (jako napÅ™. architekturÃ¡lnÃ­ vzory (architectural patterns)) popisujÃ­ problÃ©my a Å™eÅ¡enÃ­, kterÃ© se zamÄ›Å™ujÃ­ na jinÃ© ÃºrovnÄ›.
+Ne všechny softwarové vzory (software patterns) jsou návrhové. Návrhové vzory øeší problémy na úrovni návrhu softwaru (software desing). Jiné druhy vzorù (jako napø. architekturální vzory (architectural patterns)) popisují problémy a øešení, které se zamìøují na jiné úrovnì.
 
-ZÃ¡kladnÃ­ prvky nÃ¡vrhovÃ½ch vzorÅ¯:
+Základní prvky návrhovıch vzorù:
 \begin{pitemize}
-	\item \emph{NÃ¡zev} -- co nejvÃ­ce vystihujÃ­cÃ­ podstatu, usnadnÄ›nÃ­ komunikace -- spoleÄnÃ½ slovnÃ­k
-	\item \emph{ProblÃ©m} -- obecnÃ¡ situace kterou mÃ¡ NV Å™eÅ¡it
-	\item \emph{PodmÃ­nky} -- popis okolnostÃ­ ovlivÅˆujÃ­cÃ­ch pouÅ¾itÃ­ NV a kontextu vhodnÃ©m pro pouÅ¾itÃ­; nÄ›kterÃ© okolnosti mohou bÃ½t vyuÅ¾ity pÅ™i Å™eÅ¡enÃ­, jinÃ© naopak jsou v konfliktu
-	\item \emph{Å˜eÅ¡enÃ­} -- soubor pravidel a vztahÅ¯ popisujÃ­cÃ­ch jak dosÃ¡hnout Å™eÅ¡enÃ­ problÃ©mu; nejen statickÃ¡ struktura, ale i dynamika chovÃ¡nÃ­
-	\item \emph{Souvislosti a dÅ¯sledky} -- detailnÃ­ vysvÄ›tlenÃ­ pouÅ¾itÃ­, implementace a principu fungovÃ¡nÃ­; zpÅ¯sob prÃ¡ce s NV v praxi
-	\item \emph{PÅ™Ã­klady} -- definice konkrÃ©tnÃ­ho problÃ©mu, vstupnÃ­ podmÃ­nky, popis implementace a vÃ½sledek
-	\item \emph{SouvisejÃ­cÃ­ vzory} -- pouÅ¾itÃ­ jednoho NV nepÅ™edstavuje typicky ucelenÃ© Å™eÅ¡enÃ­ -- Å™etÄ›zec NV
+	\item \emph{Název} -- co nejvíce vystihující podstatu, usnadnìní komunikace -- spoleènı slovník
+	\item \emph{Problém} -- obecná situace kterou má NV øešit
+	\item \emph{Podmínky} -- popis okolností ovlivòujících pouití NV a kontextu vhodném pro pouití; nìkteré okolnosti mohou bıt vyuity pøi øešení, jiné naopak jsou v konfliktu
+	\item \emph{Øešení} -- soubor pravidel a vztahù popisujících jak dosáhnout øešení problému; nejen statická struktura, ale i dynamika chování
+	\item \emph{Souvislosti a dùsledky} -- detailní vysvìtlení pouití, implementace a principu fungování; zpùsob práce s NV v praxi
+	\item \emph{Pøíklady} -- definice konkrétního problému, vstupní podmínky, popis implementace a vısledek
+	\item \emph{Související vzory} -- pouití jednoho NV nepøedstavuje typicky ucelené øešení -- øetìzec NV
 \end{pitemize}
 
 \ramcek{14.5cm}{
-\emph{NasledujÃºce sa vyuÄuje na predmete NÃ¡vrhovÃ© vzory, ktorÃ½ je odporÃºÄanÃ½ aÅ¾ pre nmgr Å¡tÃºdium}:\par
-	Kategorie zÃ¡kladnÃ­ch NV:
+\emph{Nasledujúce sa vyuèuje na predmete Návrhové vzory, ktorı je odporúèanı a pre nmgr štúdium}:\par
+	Kategorie základních NV:
 	\par\begin{center}\includegraphics[width=12cm]{informatika/programovanie/obrazky/designpatterns.png}\end{center}
 	
-	NÃ¡vrhovÃ© vzory je moÅ¾no klasifikovat dle problÃ©mÅ¯ kterÃ© Å™eÅ¡Ã­. PrÃ­klady klasifikace vzorÅ¯ podle Å™eÅ¡enÃ½ch problÃ©mÅ¯:
+	Návrhové vzory je mono klasifikovat dle problémù které øeší. Príklady klasifikace vzorù podle øešenıch problémù:
 	\begin{pitemize}
-		\item \emph{Fundamental patterns}: ??? nevyhodÃ­me to, je to jen na wiki a nepopsane
-		\item \emph{Creation patterns}: vytvÃ¡Å™enÃ­ objektÅ¯
-		\item \emph{Structural patterns}: jak jsou tÅ™Ã­dy a objekty sloÅ¾enÃ½ do vÄ›tÅ¡Ã­ch struktur
-		\item \emph{Behavioral patterns}: rozdÄ›lenÃ­ funkÄnosti a zodpovÄ›dnosti mezi objekty; komunikace mezi objekty; umoÅ¾Åˆuje zamÄ›Å™it se pÅ™i nÃ¡vrhu na propojenÃ­ tÅ™Ã­d, ne na bÄ›hovÃ© detaily
+		\item \emph{Fundamental patterns}: ??? nevyhodíme to, je to jen na wiki a nepopsane
+		\item \emph{Creation patterns}: vytváøení objektù
+		\item \emph{Structural patterns}: jak jsou tøídy a objekty sloenı do vìtších struktur
+		\item \emph{Behavioral patterns}: rozdìlení funkènosti a zodpovìdnosti mezi objekty; komunikace mezi objekty; umoòuje zamìøit se pøi návrhu na propojení tøíd, ne na bìhové detaily
 		\item \emph{Concurrency patterns} ??? tohle taky
 	\end{pitemize}
 }
 
-\begin{priklady}
+\begin{e}{Pøíklady}{0}{0}
 Creational patterns:
 \begin{pitemize}
-    \item Factory method (zajiÅ¡Å¥uje rozhodnutÃ­ o typu vytvÃ¡Å™enÃ©ho objektu pÅ™i polymorfismu)
+    \item Factory method (zajišuje rozhodnutí o typu vytváøeného objektu pøi polymorfismu)
     \item Prototype (jak klonovat objekty)
     \item Singleton (jak omezit objekt jen na 1 instanci)
 \end{pitemize}
 
 Structural patterns:
 \begin{pitemize}
-    \item Adapter (konverze rozhranÃ­ objektÅ¯)
-    \item Bridge (oddÄ›lenÃ­ rozhranÃ­ a implementace tÅ™Ã­dy)
-    \item Composite (jak sloÅ¾it vÃ­ce objektÅ¯ do jednoho s jednotnÃ½m pÅ™Ã­stupem)
-    \item Proxy (jak zajistit pÅ™Ã­stup k jinÃ©mu objektu pÅ™es mÅ¯j objekt)
-    \item Decorator (jak zmÄ›nit vlastnosti tÅ™Ã­dy nebo zajistit rozÅ¡Ã­Å™enou funkÄnost bez oddÄ›ÄovÃ¡nÃ­)
+    \item Adapter (konverze rozhraní objektù)
+    \item Bridge (oddìlení rozhraní a implementace tøídy)
+    \item Composite (jak sloit více objektù do jednoho s jednotnım pøístupem)
+    \item Proxy (jak zajistit pøístup k jinému objektu pøes mùj objekt)
+    \item Decorator (jak zmìnit vlastnosti tøídy nebo zajistit rozšíøenou funkènost bez oddìïování)
 \end{pitemize}
 
 Behavioral patterns:
 \begin{pitemize}
-    \item Chain of responsibility (jak urÄit kdo vykonÃ¡ akci, kdyÅ¾ z venku pÅ™ijde poÅ¾adavek)
-    \item Command (odstÃ­nÄ›nÃ­ klienta od zpracovÃ¡nÃ­ poÅ¾adavku -- klient neurÄuje kdy a jak se to provede)
-    \item Iterator (projitÃ­ prvkÅ¯ pole bez znalosti jejich implementace)
-    \item Visitor (navÅ¡tÃ­venÃ­ vÅ¡ech objektÅ¯ nÄ›jakÃ© struktury a prÃ¡ce s nimi, aby vÅ¡echny nemusely implementovat stejnÃ© metody (a mÄ›nit se pÅ™i jejich zmÄ›nÄ›))
-    \item Template (jak mohou odvozenÃ© tÅ™Ã­dy ovlivÅˆovat algoritmy bÃ¡zovÃ© tÅ™Ã­dy)
+    \item Chain of responsibility (jak urèit kdo vykoná akci, kdy z venku pøijde poadavek)
+    \item Command (odstínìní klienta od zpracování poadavku -- klient neurèuje kdy a jak se to provede)
+    \item Iterator (projití prvkù pole bez znalosti jejich implementace)
+    \item Visitor (navštívení všech objektù nìjaké struktury a práce s nimi, aby všechny nemusely implementovat stejné metody (a mìnit se pøi jejich zmìnì))
+    \item Template (jak mohou odvozené tøídy ovlivòovat algoritmy bázové tøídy)
 \end{pitemize}
-\end{priklady}
+\end{e}
 
 
-TODO: rozÅ¡Ã­riÅ¥, doplniÅ¥, opraviÅ¥ :-)
+TODO: rozšíri, doplni, opravi :-)

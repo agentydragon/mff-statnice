@@ -1,17 +1,17 @@
 \subsection{Kompaktní metrické prostory}
 
-\begin{definiceN}{kompaktní prostor}
+\begin{e}{Definice}{0}{kompaktní prostor}
 Øekneme, že metrický prostor je \emph{kompaktní}, jestliže v nìm lze z každé posloupnosti bodù vybrat konvergentní podposloupnost.
-\end{definiceN}
+\end{e}
 
-\begin{priklady}
+\begin{e}{Pøíklady}{0}{0}
 \begin{pitemize}
     \item Každý koneèný prostor je kompaktní.
     \item Každý omezený uzavøený interval (v $\mathbb{R}$!) je kompaktní.
 \end{pitemize}
-\end{priklady}
+\end{e}
 
-\begin{vetaN}{zachování kompaktnosti}
+\begin{e}{Vìta}{0}{zachování kompaktnosti}
 Kompaktnost se zachovává:
 \begin{penumerate}
     \item pøechodem k uzavøenému podprostoru,
@@ -19,23 +19,23 @@ Kompaktnost se zachovává:
     \item kartézským souèinem.
 \end{penumerate}
 
-\begin{ideadukazu}
+\begin{e}{Idea dùkazu}{0}{0}
     1. -- mám vybranou s~limitou, musí zùstávat všechny limity v nìm (díky uzavøenosti). 2. -- dokážu za chvíli v~jiné vìtì :-) 
     
     3. -- u koneènì mnoha bych vybral z~každé konvergentní, aby byly se stejnými indexy (\uv{postupnì}), a jejich souèin by mìl být asi taky konvergentní. U nekoneèného souèinu nevím.
-\end{ideadukazu}
+\end{e}
 
-\end{vetaN}
+\end{e}
 
-\begin{definiceN}{omezená podmnožina}
+\begin{e}{Definice}{0}{omezená podmnožina}
 Podmnožina $A$ metrického prostoru $(M,d)$ je \emph{omezená}, pokud existuje koneèné $K$ takové, že 
 $$x,y\in A \;\Rightarrow\; d(x,y)<K$$
-\end{definiceN}
+\end{e}
 
-\begin{vetaN}{uzavøenost kompaktního prostoru}
+\begin{e}{Vìta}{0}{uzavøenost kompaktního prostoru}
 Každý kompaktní podprostor $Y$ libovolného metrického prostoru $X$ je uzavøený a omezený (v $X$).
 
-\begin{ideadukazu}
+\begin{e}{Idea dùkazu}{0}{0}
     \begin {itemize}
 \item Uzavøenost: Z definice (kompaktní prostory vždy mají konvergentní podposloupnosti a tudíž v nich leží i pøíslušné limity). 
 \item Omezenost: sporem, nech není omezený. 
@@ -44,10 +44,10 @@ Pokud není omezený, mùžeme pro nìjaký pevnì daný bod $a$ pro libovolnì velké $K$
 
 Pak vytvoøíme induktivnì posloupnost $(a_n)$ bez konvergentní podposloupnosti. Zaènìme v~libovolném $a_1$. Máme $k$ prvních èlenù, vezmu $R=\max\limits_{i \in \left\lbrace 2 .. k \right\rbrace}\left\lbrace d(a_1, a_i)\right\rbrace + 1 $. Jak jsem uvedl výše, existuje $a_{i+1}$, že $d(a,b)>R$. Díky trojúhelníkové nerovnosti pak $\forall i \neq j:\;d(a_i, a_j) \geq 1$ a proto $(a_n)$ nemá konvergentní podposloupnost.
     \end{itemize}
-\end{ideadukazu}
-\end{vetaN}
+\end{e}
+\end{e}
 
-\begin{vetaN}{spojitá zobrazení a kompaktní množiny}
+\begin{e}{Vìta}{0}{spojitá zobrazení a kompaktní množiny}
 Buï $f:(X,d_1)\to(Y,d_2)$ spojité zobrazení a $X$ kompaktní metrický prostor. Potom platí:
 \begin{penumerate}
     \item Zobrazení $f$ je stejnomìrnì spojité.
@@ -58,7 +58,7 @@ Buï $f:(X,d_1)\to(Y,d_2)$ spojité zobrazení a $X$ kompaktní metrický prostor. Po
 
 \end{penumerate}
 
-\begin{ideadukazu}
+\begin{e}{Idea dùkazu}{0}{0}
     \begin {enumerate}
         \item Sporem. Kdyby nebylo stejnomìrnì spojité, existovalo by $\varepsilon$, že pro každé $\delta$ existují body $x, y$, které jsou si blíž, než $\delta$, ale jejich zobrazení jsou od sebe minimálnì $\varepsilon$ (negace definice).
         
@@ -75,17 +75,17 @@ Buï $f:(X,d_1)\to(Y,d_2)$ spojité zobrazení a $X$ kompaktní metrický prostor. Po
         \item je totéž, co 3. (viz definice homeomorfismu).
         
     \end{enumerate}
-\end{ideadukazu}
+\end{e}
 
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{omezený euklidovský podprostor}
+\begin{e}{Vìta}{0}{omezený euklidovský podprostor}
 \begin{penumerate}
     \item Podprostor $X$ euklidovského prostoru dimenze $n$ ($\mathbb{E}_n$) je kompaktní, právì když je uzavøený a omezený. 
     \item Kompaktní podprostor $X\subseteq\mathbb{R}$ ($\equiv\mathbb{E}_1$) má nejvìtší a nejmenší prvek.
 \end{penumerate}
-\end{vetaN}
+\end{e}
 
-\begin{dusledek}
+\begin{e}{Dùsledek}{0}{0}
 Z bodù 2. pøedchozích dvou tvrzení plyne, že spojitá reálná funkce nabývá na kompaktním prostoru minima i maxima. (Což platí i pro spojité reálné funkce na koneèném definièním oboru, jelikož koneènost $\Rightarrow$ kompaktnost.)
-\end{dusledek}
+\end{e}

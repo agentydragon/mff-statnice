@@ -15,7 +15,7 @@
 \usepackage{wrapfig}
 \usepackage{capt-of}
 \usepackage{float}
-
+\usepackage{ifthen}
 
 
 % sirka a vyska textu nastavena jako papir, vsechny okraje vynulovany a pridano 20pt na kazdou stranu
@@ -131,12 +131,20 @@
 %KONEC PEKELNYCH MAKER
 %=====================
 
+\def\lebka{\includegraphics[width=3mm]{../common/lebka}}
+
 % makra pro poznamku u vyrokove a predikatove logiky
 \def\vl{ -- ve výrokové logice}
 \def\pl{ -- v predikátové logice}
 
 
 %Vacsina prostredi je dvojjazicne. V pripade, ze znenie napr pozorovania je pisane po slovensky, malo by byt po slovensky aj oznacenie.
+
+\def\ifis#1#2{\ifthenelse{\equal{#1}{0}}{}{#2}}
+
+%\newenvironment{e}[3]{\pagebreak[2]\noindent\textbf{\ifis{#2}{$\bigstar$}#1}\ifis{#3}{\emph{~(#3)}}\par\noindent\leftskip 10pt }{\odrovnej\par\bigskip}
+\newenvironment{e}[3]{\pagebreak[2]\noindent\textbf{\ifis{#2}{\lebka~}#1}\ifis{#3}{\emph{~(#3)}}\ifis{#2}{~\lebka}\par\noindent\leftskip 10pt }{\odrovnej\par\bigskip}
+
 
 \newenvironment{pozadavky}{\pagebreak[2]\noindent\textbf{Požadavky}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
 \newenvironment{poziadavky}{\pagebreak[2]\noindent\textbf{Požiadavky}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}

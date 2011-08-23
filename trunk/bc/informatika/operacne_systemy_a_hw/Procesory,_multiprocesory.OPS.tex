@@ -1,94 +1,94 @@
 \subsection{Procesory, multiprocesory}
 
-\begin{definiceN}{Procesor} 
-Procesor (CPU â€“ central processing unit) je ÃºstÅ™ednÃ­ vÃ½konnou jednotkou poÄÃ­taÄe, kterÃ¡ Äte z pamÄ›ti instrukce a na jejich zÃ¡kladÄ› vykonÃ¡vÃ¡ program.
+\begin{e} {Definice}{0}{Procesor}
+Procesor (CPU – central processing unit) je ústøední vıkonnou jednotkou poèítaèe, která ète z pamìti instrukce a na jejich základì vykonává program.
 
-ZÃ¡kladnÃ½mi sÃºÄasÅ¥ami procesora sÃº:
+Základnımi súèasami procesora sú:
 \begin{pitemize}
-	\item Å™adiÄ nebo Å™Ã­dicÃ­ jednotka, kterÃ¡ Å™Ã­dÃ­ tok programu, tj. naÄÃ­tÃ¡nÃ­ instrukcÃ­, jejich dekÃ³dovÃ¡nÃ­, naÄÃ­tÃ¡nÃ­ operandÅ¯ instrukcÃ­ z operaÄnÃ­ pamÄ›ti a uklÃ¡dÃ¡nÃ­ vÃ½sledkÅ¯ zpracovÃ¡nÃ­ instrukcÃ­
-	\item sada registrÅ¯ k uchovÃ¡nÃ­ operandÅ¯ a mezivÃ½sledkÅ¯.
-	\item jedna nebo vÃ­ce aritmeticko-logickÃ½ch jednotek (ALU), kterÃ© provÃ¡dÃ­ s daty aritmetickÃ© a logickÃ© operace.
-	\item nÄ›kterÃ© procesory obsahujÃ­ jednu nebo nÄ›kolik jednotek plovoucÃ­ ÄÃ¡rky (FPU), kterÃ© provÃ¡dÃ­ operace v plovoucÃ­ Å™Ã¡dovÃ© ÄÃ¡rce.
+	\item øadiè nebo øídicí jednotka, která øídí tok programu, tj. naèítání instrukcí, jejich dekódování, naèítání operandù instrukcí z operaèní pamìti a ukládání vısledkù zpracování instrukcí
+	\item sada registrù k uchování operandù a mezivısledkù.
+	\item jedna nebo více aritmeticko-logickıch jednotek (ALU), které provádí s daty aritmetické a logické operace.
+	\item nìkteré procesory obsahují jednu nebo nìkolik jednotek plovoucí èárky (FPU), které provádí operace v plovoucí øádové èárce.
 \end{pitemize}
-\end{definiceN}
+\end{e}
 
-\begin{poznamka}
-SÃºÄasnÃ© procesory navyÅ¡e Äasto obsahujÃº ÄalÅ¡ie rozsiahle funkÄnÃ© bloky (cache, rÃ´zne perifÃ©rie)~-- ktorÃ© z \uv{ortodoxnÃ©ho hladiska} nie sÃº priamo sÃºÄasÅ¥ou \emph{jadra procesoru}. NiektorÃ© procesory mÃ´Å¾u obsahovaÅ¥ viac jadier (+logiku slÃºÅ¾iacu k ich vzÃ¡jomnÃ©mu prepojeniu). ÄalÅ¡Ã­m trendom je SoC (System on Chip), kde sa na Äipe procesora nachÃ¡dzajÃº aj ÄalÅ¡ie subsystÃ©my napr. na spracovanie zvuku, grafiky alebo pripojenie externÃ½ch perifÃ©riÃ­ (takÃ©to rieÅ¡enia sa vyuÅ¾Ã­vajÃº vÃ¤ÄÅ¡inou v PDA, domÃ¡cej elektronike, mobiloch atÄ.).
-\end{poznamka}
+\begin{e}{Poznámka}{0}{0}
+Súèasné procesory navyše èasto obsahujú ïalšie rozsiahle funkèné bloky (cache, rôzne periférie)~-- ktoré z \uv{ortodoxného hladiska} nie sú priamo súèasou \emph{jadra procesoru}. Niektoré procesory môu obsahova viac jadier (+logiku slúiacu k ich vzájomnému prepojeniu). Ïalším trendom je SoC (System on Chip), kde sa na èipe procesora nachádzajú aj ïalšie subsystémy napr. na spracovanie zvuku, grafiky alebo pripojenie externıch periférií (takéto riešenia sa vyuívajú väèšinou v PDA, domácej elektronike, mobiloch atï.).
+\end{e}
 
-\begin{obecne}{DÄ›lenÃ­ podle instruÄnÃ­ sady}
-PodÄ¾a inÅ¡trukÄnej sady je moÅ¾nÃ© procesory rozdeliÅ¥ na:
+\begin{obecne}{Dìlení podle instruèní sady}
+Pod¾a inštrukènej sady je moné procesory rozdeli na:
 \begin{pitemize}
-	\item \textbf{CISC} (Complex Instruction Set Computer): poskytuje rozsiahlu inÅ¡trukÄnÃº sadu spolu s rÃ´znymi variantami inÅ¡trukciÃ­. Jedna inÅ¡trukcia napr. mÃ´Å¾e vykonaÅ¥ veÄ¾a low-level operÃ¡ciÃ­ (naÄÃ­tanie z pamÃ¤ti, vykonaÅ¥ aritmetickÃº operÃ¡ciu a vÃ½sledok uloÅ¾iÅ¥). TakÃ©to inÅ¡trukcie zjednoduÅ¡ovali zÃ¡pis programov (inÅ¡trukcie boli bliÅ¾Å¡ie vyÅ¡Å¡Ã­m programovacÃ­m jazykom) a zmenÅ¡ovali veÄ¾kosÅ¥ programu a poÄet prÃ­stupov do pamÃ¤ti~-- Äo bolo v 60tych rokoch dÃ´leÅ¾itÃ©. AvÅ¡ak nie vÅ¾dy je vykonanie jednej zloÅ¾itej operÃ¡cie rÃ½chlejÅ¡ie ako vykonanie viac menej zloÅ¾itÃ½ch miesto toho (napr. kvÃ´li zloÅ¾itÃ©mu dekÃ³dovaniu a pouÅ¾itiu mikrokÃ³du na volanie jednoduchÃ½ch \uv{podinÅ¡trukciÃ­}). PrÃ­kladmi CISC architektÃºr procesorov sÃº System/360, Motorola 68000 a Intel x86. V sÃºÄasnosti napr. x86 rozkladÃ¡ zloÅ¾itÃ© inÅ¡trukcie na \uv{micro-operations} ktorÃ© mÃ´Å¾u byÅ¥ pipeline-ou spracovanÃ© paralelne a vyÅ¡Å¡Ã­ vÃ½kon je tak dosahovanÃ½ na vÃ¤ÄÅ¡om rozsahu inÅ¡trukciÃ­. VÄaka tomu sÃº sÃºÄasnÃ© x86 procesory minimÃ¡lne rovnako vÃ½konnÃ© ako ozajstnÃ© RISC architektÃºry.
-	\item \textbf{RISC} (Reduced Instruction Set Computer): design CPU ktorÃ½ uprednosÅˆuje jednoduchÅ¡iu inÅ¡trukÄnÃº sadu a menÅ¡iu zloÅ¾itosÅ¥ adresovacÃ­ch modelov~-- vÄaka Äomu je moÅ¾nÃ© dosiahnuÅ¥ lacnejÅ¡iu implementÃ¡ciu, vÃ¤ÄÅ¡iu ÃºroveÅˆ paralelizmu a ÃºÄinnejÅ¡ie kompilÃ¡tory. DÃ´vodom vzniku bolo aj nevyuÅ¾Ã­vanie celej CISC inÅ¡trukÄnej sady a upredÅˆostÅˆovania len obmedzenej podmnoÅ¾iny (designÃ©ri procesorov potom optimalizovali len tieto podmnoÅ¾iny a tak sa zvyÅ¡nÃ© inÅ¡trukcie pouÅ¾Ã­vali eÅ¡te menej...). KvÃ´li vÃ¤ÄÅ¡iemu poÄtu inÅ¡trukciÃ­ vÅ¡ak musia RISC procesory ÄastejÅ¡ie pristupovaÅ¥ k pamÃ¤ti... PrÃ­kladmi RISC procesorov sÃº napr. SPARC a ARM. V architekturÃ¡ch typu \textbf{Post-RISC} jde o spojenÃ­ RISCovÃ½ch vlastnostÃ­ s technikami zvÃ½Å¡enÃ­ vÃ½konu, jako je out-of-order vykonÃ¡vÃ¡nÃ­ a paralelismus.
+	\item \textbf{CISC} (Complex Instruction Set Computer): poskytuje rozsiahlu inštrukènú sadu spolu s rôznymi variantami inštrukcií. Jedna inštrukcia napr. môe vykona ve¾a low-level operácií (naèítanie z pamäti, vykona aritmetickú operáciu a vısledok uloi). Takéto inštrukcie zjednodušovali zápis programov (inštrukcie boli blišie vyšším programovacím jazykom) a zmenšovali ve¾kos programu a poèet prístupov do pamäti~-- èo bolo v 60tych rokoch dôleité. Avšak nie vdy je vykonanie jednej zloitej operácie rıchlejšie ako vykonanie viac menej zloitıch miesto toho (napr. kvôli zloitému dekódovaniu a pouitiu mikrokódu na volanie jednoduchıch \uv{podinštrukcií}). Príkladmi CISC architektúr procesorov sú System/360, Motorola 68000 a Intel x86. V súèasnosti napr. x86 rozkladá zloité inštrukcie na \uv{micro-operations} ktoré môu by pipeline-ou spracované paralelne a vyšší vıkon je tak dosahovanı na väèšom rozsahu inštrukcií. Vïaka tomu sú súèasné x86 procesory minimálne rovnako vıkonné ako ozajstné RISC architektúry.
+	\item \textbf{RISC} (Reduced Instruction Set Computer): design CPU ktorı uprednosòuje jednoduchšiu inštrukènú sadu a menšiu zloitos adresovacích modelov~-- vïaka èomu je moné dosiahnu lacnejšiu implementáciu, väèšiu úroveò paralelizmu a úèinnejšie kompilátory. Dôvodom vzniku bolo aj nevyuívanie celej CISC inštrukènej sady a upredòostòovania len obmedzenej podmnoiny (designéri procesorov potom optimalizovali len tieto podmnoiny a tak sa zvyšné inštrukcie pouívali ešte menej...). Kvôli väèšiemu poètu inštrukcií však musia RISC procesory èastejšie pristupova k pamäti... Príkladmi RISC procesorov sú napr. SPARC a ARM. V architekturách typu \textbf{Post-RISC} jde o spojení RISCovıch vlastností s technikami zvıšení vıkonu, jako je out-of-order vykonávání a paralelismus.
     \item \textbf{VLIW}: Very Long Instruction Word or VLIW refers to a CPU architecture designed to take advantage of instruction level parallelism (ILP). A processor that executes every instruction one after the other (i.e. a non-pipelined scalar architecture) may use processor resources inefficiently, potentially leading to poor performance. The performance can be improved by executing different sub-steps of sequential instructions simultaneously (this is pipelining), or even executing multiple instructions entirely simultaneously as in superscalar architectures. The VLIW approach, on the other hand, executes operation in parallel based on a fixed schedule determined when programs are compiled. Since determining the order of execution of operations (including which operations can execute simultaneously) is handled by the compiler, the processor does not need the scheduling hardware that the three techniques described above require. As a result, VLIW CPUs offer significant computational power with less hardware complexity (but greater compiler complexity) than is associated with most superscalar CPUs.
-    \item \textbf{EPIC}: (NÄ›kdy oznaÄovÃ¡n za poddruh VLIW) Explicitly Parallel Instruction Computing (EPIC) is a computing paradigm that began to be researched in the 1990s. This paradigm is also called Independence architectures. It was used by Intel and HP in the development of Intelâ€™s IA-64 architecture, and has been implemented in Intelâ€™s Itanium and Itanium 2 line of server processors. The goal of EPIC was to increase the ability of microprocessors to execute software instructions in parallel, by using the compiler, rather than complex on-die circuitry, to identify and leverage opportunities for parallel execution. This would allow performance to be scaled more rapidly in future processor designs, without resorting to ever-higher clock frequencies, which have since become problematic due to associated power and cooling issues.
+    \item \textbf{EPIC}: (Nìkdy oznaèován za poddruh VLIW) Explicitly Parallel Instruction Computing (EPIC) is a computing paradigm that began to be researched in the 1990s. This paradigm is also called Independence architectures. It was used by Intel and HP in the development of Intel’s IA-64 architecture, and has been implemented in Intel’s Itanium and Itanium 2 line of server processors. The goal of EPIC was to increase the ability of microprocessors to execute software instructions in parallel, by using the compiler, rather than complex on-die circuitry, to identify and leverage opportunities for parallel execution. This would allow performance to be scaled more rapidly in future processor designs, without resorting to ever-higher clock frequencies, which have since become problematic due to associated power and cooling issues.
 \end{pitemize}
 \medskip
-TODO: asi opravit, moÅ¾nÃ¡ zpÅ™esnit VLIW a EPIC a urÄitÄ› pÅ™eloÅ¾it
+TODO: asi opravit, moná zpøesnit VLIW a EPIC a urèitì pøeloit
 
 \medskip
-Å˜ekneme, Å¾e procesor mÃ¡ \emph{ortogonÃ¡lnÃ­ instrukÄnÃ­ sadu}, pokud Å¾Ã¡dnÃ¡ instrukce nepÅ™edpoklÃ¡dÃ¡ implicitnÄ› pouÅ¾itÃ­ nÄ›kterÃ½ch registrÅ¯. To umoÅ¾Åˆuje jednoduÅ¡Å¡Ã­ prÃ¡ci algoritmÅ¯m pÅ™idÄ›lovÃ¡nÃ­ registrÅ¯ v pÅ™ekladaÄÃ­ch. PÅ™Ã­kladem neortogonÃ¡lnÃ­ instrukÄnÃ­ sady je i x86.
+Øekneme, e procesor má \emph{ortogonální instrukèní sadu}, pokud ádná instrukce nepøedpokládá implicitnì pouití nìkterıch registrù. To umoòuje jednodušší práci algoritmùm pøidìlování registrù v pøekladaèích. Pøíkladem neortogonální instrukèní sady je i x86.
 \end{obecne}
 
-\begin{obecne}{DalÅ¡Ã­ dÄ›lenÃ­}
-Äalej je moÅ¾nÃ© procesory rozdeliÅ¥ podÄ¾a dÄºÅ¾ky operandov v bitoch (8, 16, 32, 64...), ktorÃ½ je procesor schopnÃ½ spracovaÅ¥ v jednom kroku. V embedded zariadeniach sa najÄastejÅ¡ie pouÅ¾Ã­vajÃº 4- a 8-bitovÃ© procesory. V PDA, mobiloch a videohrÃ¡ch 8 resp. 16 bitovÃ©. 32 a viac bitov vyuÅ¾Ã­ajÃº napr. osobnÃ© poÄÃ­taÄe a laserovÃ© tlaÄiarne.
+\begin{obecne}{Další dìlení}
+Ïalej je moné procesory rozdeli pod¾a dåky operandov v bitoch (8, 16, 32, 64...), ktorı je procesor schopnı spracova v jednom kroku. V embedded zariadeniach sa najèastejšie pouívajú 4- a 8-bitové procesory. V PDA, mobiloch a videohrách 8 resp. 16 bitové. 32 a viac bitov vyuíajú napr. osobné poèítaèe a laserové tlaèiarne.
 
-DÃ´leÅ¾itou vlastnosÅ¥ou je aj taktovacia frekvencia jadra, MIPS (millions of instructions per second) a jeho rÃ½chlosÅ¥. V sÃºÄasnosti je Å¥aÅ¾kÃ© dÃ¡vaÅ¥ do sÃºvislosti vÃ½kon procesorov s ich frekvenciou (resp. MIPS)~-- kÃ½m Pentium zvlÃ¡dne na vÃ½poÄet vo floatoch, jednoduchÃ½ 8-bitovÃ½ PIC na to potrebuje oveÄ¾a viac taktov. ÄalÅ¡Ã­m \uv{problÃ©mom} je superskalarita procesorov, ktorÃ¡ im umoÅ¾Åˆuje vykonaÅ¥ viacero nezÃ¡vislÃ½ch inÅ¡trukciÃ­ poÄas jednÃ©ho taktu.
+Dôleitou vlastnosou je aj taktovacia frekvencia jadra, MIPS (millions of instructions per second) a jeho rıchlos. V súèasnosti je aké dáva do súvislosti vıkon procesorov s ich frekvenciou (resp. MIPS)~-- kım Pentium zvládne na vıpoèet vo floatoch, jednoduchı 8-bitovı PIC na to potrebuje ove¾a viac taktov. Ïalším \uv{problémom} je superskalarita procesorov, ktorá im umoòuje vykona viacero nezávislıch inštrukcií poèas jedného taktu.
 \end{obecne}
 
-\begin{obecne}{Techniky pro zvÃ½Å¡enÃ­ vÃ½konu}
-ZvyÅ¡ovaÅ¥ vÃ½kon (procesorov) je moÅ¾nÃ© viacerÃ½mi spÃ´sobmi. NajjednoduchÅ¡Ã­m (a najpomalÅ¡Ã­m) typom je SubskalÃ¡rny CPU (naÄÃ­ta a spracÃºva len jednu inÅ¡trukciu naraz~-- preto musÃ­ celÃ½ procesor ÄakaÅ¥ kÃ½m vykonÃ¡vanie inÅ¡trukcie skonÄÃ­; je tak zdrÅ¾ovanÃ½ dlhÅ¡ie trvajÃºcimi inÅ¡trukciami). 
+\begin{obecne}{Techniky pro zvıšení vıkonu}
+Zvyšova vıkon (procesorov) je moné viacerımi spôsobmi. Najjednoduchším (a najpomalším) typom je Subskalárny CPU (naèíta a spracúva len jednu inštrukciu naraz~-- preto musí celı procesor èaka kım vykonávanie inštrukcie skonèí; je tak zdrovanı dlhšie trvajúcimi inštrukciami). 
 
 \begin{center}
 \includegraphics[width=8cm]{informatika/operacne_systemy_a_hw/obrazky/Nopipeline.png}
 \end{center}
 
-Pokusy o dosiahnutie skalÃ¡rneho a lepÅ¡ieho vÃ½konu vyÃºstili do designov ktorÃ© sa sprÃ¡vajÃº menej lineÃ¡rne a viac paralelne. ÄŒo sa tÃ½ka paralelizmu v procesoroch, pouÅ¾Ã­vajÃº sa dva druhy pojmov na ich klasifikÃ¡ciu~-- \emph{Instruction level parallelism} (zvyÅ¡ovanie rÃ½chlosti vykonÃ¡vania inÅ¡trukciÃ­ v procesore a teda zvÃ¤ÄÅ¡ovanie vyuÅ¾itia prostriedkov na Äipe) a \emph{Thread level parallelism} (zvÃ¤ÄÅ¡ovanie poÄtu vlÃ¡kien, ktorÃ© dokÃ¡Å¾e CPU vykonÃ¡vaÅ¥ naraz).
+Pokusy o dosiahnutie skalárneho a lepšieho vıkonu vyústili do designov ktoré sa správajú menej lineárne a viac paralelne. Èo sa tıka paralelizmu v procesoroch, pouívajú sa dva druhy pojmov na ich klasifikáciu~-- \emph{Instruction level parallelism} (zvyšovanie rıchlosti vykonávania inštrukcií v procesore a teda zväèšovanie vyuitia prostriedkov na èipe) a \emph{Thread level parallelism} (zväèšovanie poètu vlákien, ktoré dokáe CPU vykonáva naraz).
 \begin{pitemize}
   \item \textbf{pipeline}: 
-  ZlepÅ¡enie je moÅ¾nÃ© dosiahnÃºÅ¥ pomocou \uv{instruction pipelining}-u, ktorÃ© je pouÅ¾Ã­tÃ© vo vÃ¤ÄÅ¡ine modernÃ½ch procesorov. UmoÅ¾Åˆuje vykonanie viac ako jednej inÅ¡trukcie v jednom kroku vÄaka rozloÅ¾eniu spracovÃ¡vania inÅ¡trukcie na viac menÅ¡Ã­ch krokov: 
+  Zlepšenie je moné dosiahnú pomocou \uv{instruction pipelining}-u, ktoré je pouíté vo väèšine modernıch procesorov. Umoòuje vykonanie viac ako jednej inštrukcie v jednom kroku vïaka rozloeniu spracovávania inštrukcie na viac menších krokov: 
   \begin{center}
   \includegraphics[width=8cm]{informatika/operacne_systemy_a_hw/obrazky/Fivestagespipeline.png}
   \end{center}
 
-  \item \textbf{superskalarita}: DialÅ¡a moÅ¾nosÅ¥ je pouÅ¾itie superscalar designu, ktorÃ½ obsahuje dlhÃº inÅ¡trukÄnÃº pipeline a viacero identickÃ½ch execution jednotiek.  
+  \item \textbf{superskalarita}: Dialša monos je pouitie superscalar designu, ktorı obsahuje dlhú inštrukènú pipeline a viacero identickıch execution jednotiek.  
   \begin{center}
   \includegraphics[width=8cm]{informatika/operacne_systemy_a_hw/obrazky/Superscalarpipeline.png}
   \end{center}	
 
   \item \textbf{Out of order execution}
   \begin{penumerate}
-	  \item NaÄtenÃ­ instrukce, pÅ™Ã­padnÄ› jejÃ­ rozdrobenÃ­ na mikroinstrukce
-	  \item ZaÅ™azenÃ­ do vyÄkÃ¡vacÃ­ stanice (instruction pool)
-	  \item Instrukce ÄekÃ¡ na vÅ¡echny svoje operandy
-	  \item Instrukce se vykonÃ¡ ve svÃ© vÃ½konnÃ© jednotce (je vybÃ­rÃ¡na z instruction poolu nezÃ¡visle na ostatnÃ­ch)
-	  \item VÃ½sledky se uchovajÃ­ ve frontÄ› (reorder buffer)
-	  \item AÅ¾ se vÅ¡echny starÅ¡Ã­ instrukce zapÃ­Å¡Ã­ do registrÅ¯, zapÃ­Å¡e se vÃ½sledek tÃ©to instrukce (opÄ›tovnÃ© Å™azenÃ­)
+	  \item Naètení instrukce, pøípadnì její rozdrobení na mikroinstrukce
+	  \item Zaøazení do vyèkávací stanice (instruction pool)
+	  \item Instrukce èeká na všechny svoje operandy
+	  \item Instrukce se vykoná ve své vıkonné jednotce (je vybírána z instruction poolu nezávisle na ostatních)
+	  \item Vısledky se uchovají ve frontì (reorder buffer)
+	  \item A se všechny starší instrukce zapíší do registrù, zapíše se vısledek této instrukce (opìtovné øazení)
   \end{penumerate}
 
-  \item \textbf{Predikce skokÅ¯}~-- hlubokÃ© pipeliny majÃ­ problÃ©m, pokud podmÃ­nÄ›nÃ½ skok nenÃ­ proveden; dynamickÃ¡ predicke skokÅ¯ (historie CPU~-- vzory nÄ›jakÃ© hloubky) vs. statickÃ¡ (bez nÃ¡povÄ›dy~-- skok vpÅ™ed se neprovede, skok vzad se provede; s nÃ¡povÄ›dou~-- pÅ™ekladaÄ odhaduje pravdÄ›podobnost skoku)
+  \item \textbf{Predikce skokù}~-- hluboké pipeliny mají problém, pokud podmínìnı skok není proveden; dynamická predicke skokù (historie CPU~-- vzory nìjaké hloubky) vs. statická (bez nápovìdy~-- skok vpøed se neprovede, skok vzad se provede; s nápovìdou~-- pøekladaè odhaduje pravdìpodobnost skoku)
 
-  \item \textbf{SpekulativnÃ­ vykonÃ¡vanÃ­}~-- vykonÃ¡vÃ¡nÃ­ kÃ³du, kterÃ½ nemusÃ­ bÃ½t zapotÅ™ebÃ­; vÃ½znamnÃ¡ disproporce mezi rychlostÃ­ CPU a pamÄ›ti; typickÃ© vyuÅ¾itÃ­ je znaÄnÃ© pÅ™edsunutÃ­ ÄtecÃ­ch operacÃ­; CPU provÃ¡dÃ­ i odsouvÃ¡nÃ­ zÃ¡pisovÃ½ch operacÃ­
+  \item \textbf{Spekulativní vykonávaní}~-- vykonávání kódu, kterı nemusí bıt zapotøebí; vıznamná disproporce mezi rychlostí CPU a pamìti; typické vyuití je znaèné pøedsunutí ètecích operací; CPU provádí i odsouvání zápisovıch operací
 
 
-  \item \textbf{Data parallelism}: SIMD inÅ¡trukcie (napr. multimediÃ¡lne inÅ¡trukcie), vektorovÃ© procesory...
+  \item \textbf{Data parallelism}: SIMD inštrukcie (napr. multimediálne inštrukcie), vektorové procesory...
 \end{pitemize}
 \end{obecne}
 
 \subsubsection*{Multiprocesory}
 
-TODO: jde o copy \& paste z Wiki ... pÅ™edÄ›lat Äesky/slovensky
+TODO: jde o copy \& paste z Wiki ... pøedìlat èesky/slovensky
 \medskip
 
-\begin{definiceN}{Multiprocesor}
-  O \emph{multiprocesoru} mluvÃ­me, pokud je pouÅ¾ito dvou nebo vÃ­ce procesorÅ¯
-  (CPU) v rÃ¡mci jednoho poÄÃ­taÄovÃ©ho systÃ©mu. TermÃ­n je takÃ© pouÅ¾Ã­vÃ¡n mluvÃ­me-li
-  o schopnosti systÃ©mu vyuÅ¾Ã­vat vÃ­ce procesorÅ¯ a/nebo schopnosti rozdÄ›lovat
-  Ãºlohy mezi jednotlivÃ½mi procesory.
-\end{definiceN}
+\begin{e}{Definice}{0}{Multiprocesor}
+  O \emph{multiprocesoru} mluvíme, pokud je pouito dvou nebo více procesorù
+  (CPU) v rámci jednoho poèítaèového systému. Termín je také pouíván mluvíme-li
+  o schopnosti systému vyuívat více procesorù a/nebo schopnosti rozdìlovat
+  úlohy mezi jednotlivımi procesory.
+\end{e}
 
-\begin{obecne}{Vztah k datÅ¯m a instrukcÃ­m}
+\begin{obecne}{Vztah k datùm a instrukcím}
 In multiprocessing, the processors can be used to execute a single sequence of instructions in multiple contexts (single-instruction, multiple-data or SIMD, often used in vector processing), multiple sequences of instructions in a single context (multiple-instruction, single-data or MISD, used for redundancy in fail-safe systems and sometimes applied to describe pipelined processors or hyperthreading), or multiple sequences of instructions in multiple contexts (multiple-instruction, multiple-data or MIMD).
 \end{obecne}
 
@@ -98,7 +98,7 @@ In a multiprocessing system, all CPUs may be equal, or some may be reserved for 
 Systems that treat all CPUs equally are called symmetric multiprocessing (SMP) systems. In systems where all CPUs are not equal, system resources may be divided in a number of ways, including asymmetric multiprocessing (ASMP), non-uniform memory access (NUMA) multiprocessing, and clustered multiprocessing (qq.v.).
 \end{obecne}
 
-\begin{obecne}{TÄ›snost spojenÃ­ multiprocesorÅ¯}
+\begin{obecne}{Tìsnost spojení multiprocesorù}
 \begin{pitemize}
     \item \textbf{Tightly-coupled} multiprocessor systems contain multiple CPUs that are connected at the bus level. These CPUs may have access to a central shared memory (SMP or UMA), or may participate in a memory hierarchy with both local and shared memory (NUMA). The IBM p690 Regatta is an example of a high end SMP system. Intel Xeon processors dominated the multiprocessor market for business PCs and were the only x86 option till the release of AMD's Opteron range of processors in 2004. Both ranges of processors had their own onboard cache but provided access to shared memory; the Xeon processors via a common pipe and the Opteron processors via independent pathways to the system RAM.
 
@@ -108,5 +108,5 @@ Systems that treat all CPUs equally are called symmetric multiprocessing (SMP) s
 \end{pitemize}
 Tightly-coupled systems perform better and are physically smaller than loosely-coupled systems, but have historically required greater initial investments and may depreciate rapidly; nodes in a loosely-coupled system are usually inexpensive commodity computers and can be recycled as independent machines upon retirement from the cluster.
 
-\textbf{SMP} (Symmetric Multiprocessing): viac procesorov so zdieÄ¾anou operaÄnou pamÃ¤Å¥ou (nutnÃ© mechanizmy na zabrÃ¡nenie nesprÃ¡vnych nÃ¡hÄ¾adov na pamÃ¤Å¥ a migrÃ¡ciu procesov medzi procesormi). SMP systems allow any processor to work on any task no matter where the data for that task are located in memory; with proper operating system support, SMP systems can easily move tasks between processors to balance the workload efficiently.
+\textbf{SMP} (Symmetric Multiprocessing): viac procesorov so zdie¾anou operaènou pamäou (nutné mechanizmy na zabránenie nesprávnych náh¾adov na pamä a migráciu procesov medzi procesormi). SMP systems allow any processor to work on any task no matter where the data for that task are located in memory; with proper operating system support, SMP systems can easily move tasks between processors to balance the workload efficiently.
 \end{obecne}

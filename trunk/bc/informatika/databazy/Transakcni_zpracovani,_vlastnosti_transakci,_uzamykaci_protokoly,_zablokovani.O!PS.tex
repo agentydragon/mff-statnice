@@ -1,220 +1,220 @@
-\subsection{TransakÄnÃ­ zpracovÃ¡nÃ­, vlastnosti transakcÃ­, uzamykacÃ­ protokoly, zablokovÃ¡nÃ­}
+\subsection{Transakèní zpracování, vlastnosti transakcí, uzamykací protokoly, zablokování}
 
-\begin{definiceN}{Transakce}
-\emph{Transakce} je jistÃ¡ posloupnost nebo specifikace posloupnosti akcÃ­ prÃ¡ce s databÃ¡zÃ­, jako
-jsou ÄtenÃ­, zÃ¡pis nebo vÃ½poÄet, se kterou se zachÃ¡zÃ­ jako s jednÃ­m celkem.
-\end{definiceN}
+\begin{e}{Definice}{0}{Transakce}
+\emph{Transakce} je jistá posloupnost nebo specifikace posloupnosti akcí práce s databází, jako
+jsou ètení, zápis nebo vıpoèet, se kterou se zachází jako s jedním celkem.
+\end{e}
 
-HlavnÃ­m smyslem pouÅ¾Ã­vÃ¡nÃ­ transakcÃ­, tj. \emph{transakÄnÃ­ho zpracovÃ¡nÃ­}, je
-udrÅ¾enÃ­ databÃ¡ze v konzistentnÃ­m stavu. JestliÅ¾e na sobÄ› nÄ›kterÃ© operace zÃ¡visÃ­,
-sdruÅ¾Ã­me je do jednÃ© transakce a tÃ­m zabezpeÄÃ­me, Å¾e budou vykonÃ¡ny buÄ
-vÅ¡echny, nebo Å¾Ã¡dnÃ¡. DatabÃ¡ze tak pÅ™ed i po vykonÃ¡nÃ­ transakce bude v
-konzistentnÃ­m stavu. Aby se uÅ¾ivateli transakce jevila jako jedna atomickÃ¡
-operace, je nutnÃ© zavÃ©st pÅ™Ã­kazy COMMIT a ROLLBACK. PrvnÃ­ z nich signalizuje
-databÃ¡zi ÃºspÄ›Å¡nost provedenÃ­ transakce, tj. veÅ¡kerÃ© zmÄ›ny v databÃ¡zi se stanou
-trvalÃ½mi a jsou zviditelnÄ›ny pro ostatnÃ­ transakce, druhÃ½ pÅ™Ã­kaz signalizuje
-opak, tj. databÃ¡ze musÃ­ bÃ½t uvedena do pÅ¯vodnÃ­ho stavu.
+Hlavním smyslem pouívání transakcí, tj. \emph{transakèního zpracování}, je
+udrení databáze v konzistentním stavu. Jestlie na sobì nìkteré operace závisí,
+sdruíme je do jedné transakce a tím zabezpeèíme, e budou vykonány buï
+všechny, nebo ádná. Databáze tak pøed i po vykonání transakce bude v
+konzistentním stavu. Aby se uivateli transakce jevila jako jedna atomická
+operace, je nutné zavést pøíkazy COMMIT a ROLLBACK. První z nich signalizuje
+databázi úspìšnost provedení transakce, tj. veškeré zmìny v databázi se stanou
+trvalımi a jsou zviditelnìny pro ostatní transakce, druhı pøíkaz signalizuje
+opak, tj. databáze musí bıt uvedena do pùvodního stavu.
 
-Tyto pÅ™Ã­kazy vÄ›tÅ¡inou nenÃ­ nutnÃ© volat explicitnÄ›, napÅ™. pÅ™Ã­kaz COMMIT je vyvolÃ¡n po
-normÃ¡lnÃ­m ukonÄenÃ­ programu realizujÃ­cÃ­ho transakci. PÅ™Ã­kaz ROLLBACK pro svou
-funkci vyÅ¾aduje pouÅ¾itÃ­ tzv. \emph{Å¾urnÃ¡lu} (logu) na nÄ›jakÃ©m stabilnÃ­m
-pamÄ›Å¥ovÃ©m mÃ©diu. Å½urnÃ¡l obsahuje historii vÅ¡ech zmÄ›n databÃ¡ze v jistÃ© ÄasovÃ©
-periodÄ›.
+Tyto pøíkazy vìtšinou není nutné volat explicitnì, napø. pøíkaz COMMIT je vyvolán po
+normálním ukonèení programu realizujícího transakci. Pøíkaz ROLLBACK pro svou
+funkci vyaduje pouití tzv. \emph{urnálu} (logu) na nìjakém stabilním
+pamìovém médiu. urnál obsahuje historii všech zmìn databáze v jisté èasové
+periodì.
 
-JednoduchÃ¡ transakce vypadÃ¡ vÄ›tÅ¡inou takto:
+Jednoduchá transakce vypadá vìtšinou takto:
 \begin{penumerate}
-  \item ZaÄÃ¡tek transakce,
-  \item provedenÃ­ nÄ›kolika dotazÅ¯ -- ÄtenÃ­ a zÃ¡pisÅ¯ (Å¾Ã¡dnÃ© zmÄ›ny v databÃ¡zi nejsou zatÃ­m vidÄ›t pro
-  okolnÃ­ svÄ›t),
-  \item PotvrzenÃ­ (pÅ™Ã­kaz COMMIT) transakce (pokud se transakce povedla, zmÄ›ny
-  v databÃ¡zi se stanou viditelnÃ©).
+  \item Zaèátek transakce,
+  \item provedení nìkolika dotazù -- ètení a zápisù (ádné zmìny v databázi nejsou zatím vidìt pro
+  okolní svìt),
+  \item Potvrzení (pøíkaz COMMIT) transakce (pokud se transakce povedla, zmìny
+  v databázi se stanou viditelné).
 \end{penumerate}
-Pokud nÄ›jakÃ½ z provedenÃ½ch dotazÅ¯ selÅ¾e, systÃ©m by mÄ›l celou transakci zruÅ¡it a
-vrÃ¡tit databÃ¡zi do stavu v jakÃ©m byla pÅ™ed zahÃ¡jenÃ­m transakce (operace ROLLBACK).
+Pokud nìjakı z provedenıch dotazù sele, systém by mìl celou transakci zrušit a
+vrátit databázi do stavu v jakém byla pøed zahájením transakce (operace ROLLBACK).
 
-TransakÄnÃ­ zpracovÃ¡nÃ­ je takÃ© ochrana databÃ¡ze pÅ™ed hardwarovÃ½mi nebo
-softwarovÃ½mi chybami, kterÃ© mohou zanechat databÃ¡zi po ÄÃ¡steÄnÃ©m zpracovÃ¡nÃ­
-transakce v nekonzistentnÃ­m stavu. Pokud poÄÃ­taÄ selÅ¾e uprostÅ™ed provÃ¡dÄ›nÃ­
-nÄ›kterÃ© transakce, transakÄnÃ­ zpracovÃ¡nÃ­ zaruÄÃ­, Å¾e vÅ¡echny operace z
-nepotvrzenÃ½ch (\uv{uncommitted}) transakcÃ­ budou zruÅ¡eny. 
+Transakèní zpracování je také ochrana databáze pøed hardwarovımi nebo
+softwarovımi chybami, které mohou zanechat databázi po èásteèném zpracování
+transakce v nekonzistentním stavu. Pokud poèítaè sele uprostøed provádìní
+nìkteré transakce, transakèní zpracování zaruèí, e všechny operace z
+nepotvrzenıch (\uv{uncommitted}) transakcí budou zrušeny. 
 
-\subsubsection*{Vlastnosti transakcÃ­}
+\subsubsection*{Vlastnosti transakcí}
 
-PodÃ­vejme se nynÃ­ na vlastnosti poÅ¾adovanÃ© po transakcÃ­ch. Obvykle se pouÅ¾Ã­vÃ¡
-zkratka prvnÃ­ch pÃ­smen anglickÃ½ch nÃ¡zvÅ¯ vlastnostÃ­ \textbf{ACID}~-- atomicity,
+Podívejme se nyní na vlastnosti poadované po transakcích. Obvykle se pouívá
+zkratka prvních písmen anglickıch názvù vlastností \textbf{ACID}~-- atomicity,
 consistency, isolation (independence), durability. 
 \begin{description}
-  \item[atomicita] -- transakce se tvÃ¡Å™Ã­ jako jeden celek, musÃ­ buÄ probÄ›hnout
-  celÃ¡, nebo vÅ¯bec ne.
-  \item[konzistence] -- transakce transformuje databÃ¡zi z jednoho konzistentnÃ­ho
-  stavu do jinÃ©ho konzistentnÃ­ho stavu.
-  \item[nezÃ¡vislost] -- transakce jsou nezÃ¡vislÃ©, tj. dÃ­lÄÃ­ efekty transakce
-  nejsou viditelnÃ© jinÃ½m transakcÃ­m.
-  \item[trvanlivost] -- efekty ÃºspÄ›Å¡nÄ› ukonÄenÃ© (potvrzenÃ©,\uv{commited})
-  transakce jsou nevratnÄ› uloÅ¾eny do databÃ¡ze a nemohou bÃ½t zruÅ¡eny.
+  \item[atomicita] -- transakce se tváøí jako jeden celek, musí buï probìhnout
+  celá, nebo vùbec ne.
+  \item[konzistence] -- transakce transformuje databázi z jednoho konzistentního
+  stavu do jiného konzistentního stavu.
+  \item[nezávislost] -- transakce jsou nezávislé, tj. dílèí efekty transakce
+  nejsou viditelné jinım transakcím.
+  \item[trvanlivost] -- efekty úspìšnì ukonèené (potvrzené,\uv{commited})
+  transakce jsou nevratnì uloeny do databáze a nemohou bıt zrušeny.
 \end{description}
 
-Transakce mohou bÃ½t v uÅ¾ivatelskÃ½ch programech provÃ¡dÄ›ny paralelnÄ› (spÃ­Å¡e
-zdÃ¡nlivÄ› paralelnÄ›, stejnÄ› jako je paralelismus multitaskingu na jednoprocesorovÃ½ch
-strojÃ­ch jen zdÃ¡nlivÃ½, zajistÃ­ to ale moÅ¾nost paralelizace \uv{nedatabÃ¡zovÃ½ch} 
-akcÃ­ a pomalÃ© transakce nebrzdÃ­ rychlÃ©). Je
-zÅ™ejmÃ©, Å¾e posloupnost transakcÃ­ mÅ¯Å¾e bÃ½t zpracovÃ¡na paralelnÄ› rÅ¯znÃ½m zpÅ¯sobem.
-KaÅ¾dÃ¡ transakce se sklÃ¡dÃ¡ z nÄ›kolika akcÃ­. StanovenÃ© poÅ™adÃ­ provÃ¡dÄ›nÃ­ akcÃ­
-vÃ­ce transakcÃ­ v Äase nazveme \textbf{rozvrhem}.
+Transakce mohou bıt v uivatelskıch programech provádìny paralelnì (spíše
+zdánlivì paralelnì, stejnì jako je paralelismus multitaskingu na jednoprocesorovıch
+strojích jen zdánlivı, zajistí to ale monost paralelizace \uv{nedatabázovıch} 
+akcí a pomalé transakce nebrzdí rychlé). Je
+zøejmé, e posloupnost transakcí mùe bıt zpracována paralelnì rùznım zpùsobem.
+Kadá transakce se skládá z nìkolika akcí. Stanovené poøadí provádìní akcí
+více transakcí v èase nazveme \textbf{rozvrhem}.
 
-Rozvrh, kterÃ½ splÅˆuje nÃ¡sledujÃ­cÃ­ podmÃ­nky, budeme nazÃ½vat \textbf{legÃ¡lnÃ­}:
+Rozvrh, kterı splòuje následující podmínky, budeme nazıvat \textbf{legální}:
 \begin{pitemize}
-  \item Objekt je nutnÃ© mÃ­t uzamknutÃ½, pokud k nÄ›mu chce transakce pÅ™istupovat.
-  \item Transakce se nebude pokouÅ¡et uzamknout objekt jiÅ¾ uzamknutÃ½ jinou
-  transakcÃ­ (nebo musÃ­ poÄkat, neÅ¾ bude objekt odemknut).
+  \item Objekt je nutné mít uzamknutı, pokud k nìmu chce transakce pøistupovat.
+  \item Transakce se nebude pokoušet uzamknout objekt ji uzamknutı jinou
+  transakcí (nebo musí poèkat, ne bude objekt odemknut).
 \end{pitemize}
 
-DÅ¯leÅ¾itÃ½mi pojmy pro paralelnÃ­ zpracovÃ¡nÃ­ jsou sÃ©riovost Äi uspoÅ™Ã¡datelnost.
-\textbf{SÃ©riovÃ© rozvrhy} zachovÃ¡vajÃ­ operace kaÅ¾dÃ© transakce pohromadÄ› (a 
-provÃ¡dÃ­ se jen jedna transakce najednou). Pro $n$
-transakcÃ­ tedy existuje $n!$ rÅ¯znÃ½ch sÃ©riovÃ½ch rozvrhÅ¯. Pro zÃ­skÃ¡nÃ­ korektnÃ­ho
-vÃ½sledku vÅ¡ak mÅ¯Å¾eme pouÅ¾Ã­t i rozvrhu, kde jsou operace rÅ¯znÃ½ch transakcÃ­
-navzÃ¡jem proklÃ¡dÃ¡ny.
-PÅ™irozenÃ½m poÅ¾adavkem na korektnost je, aby efekt paralelnÃ­ho zpracovÃ¡nÃ­
-transakcÃ­ byl tÃ½Å¾, jako kdyby transakce byly provedeny v nÄ›jakÃ©m sÃ©riovÃ©m rozvrhu.
-PÅ™edpoklÃ¡dÃ¡me-li totiÅ¾, Å¾e kaÅ¾dÃ¡ transakce je korektnÃ­ program, mÄ›l by vÃ©st
-vÃ½sledek sÃ©riovÃ©ho zpracovÃ¡nÃ­ ke konzistentnÃ­mu stavu. O systÃ©mu zpracovÃ¡nÃ­
-transakcÃ­, kterÃ½ zaruÄuje dosaÅ¾enÃ­ konzistentnÃ­ho stavu nebo stejnÃ©ho stavu
-jako sÃ©riovÃ© rozvrhy, se Å™Ã­kÃ¡, Å¾e zaruÄuje \textbf{uspoÅ™Ã¡datelnost}.
+Dùleitımi pojmy pro paralelní zpracování jsou sériovost èi uspoøádatelnost.
+\textbf{Sériové rozvrhy} zachovávají operace kadé transakce pohromadì (a 
+provádí se jen jedna transakce najednou). Pro $n$
+transakcí tedy existuje $n!$ rùznıch sériovıch rozvrhù. Pro získání korektního
+vısledku však mùeme pouít i rozvrhu, kde jsou operace rùznıch transakcí
+navzájem prokládány.
+Pøirozenım poadavkem na korektnost je, aby efekt paralelního zpracování
+transakcí byl tı, jako kdyby transakce byly provedeny v nìjakém sériovém rozvrhu.
+Pøedpokládáme-li toti, e kadá transakce je korektní program, mìl by vést
+vısledek sériového zpracování ke konzistentnímu stavu. O systému zpracování
+transakcí, kterı zaruèuje dosaení konzistentního stavu nebo stejného stavu
+jako sériové rozvrhy, se øíká, e zaruèuje \textbf{uspoøádatelnost}.
 
-Mohou se vyskytnout problÃ©my, kterÃ© uspoÅ™Ã¡datelnosti zamezujÃ­. Ty nazÃ½vÃ¡me \emph{konflikty}. Plynou z poÅ™adÃ­ dvojic akcÃ­ rÅ¯znÃ½ch transakcÃ­ na stejnÃ©m objektu. ExistujÃ­ tÅ™i typy konfliktnÃ­ch situacÃ­:
+Mohou se vyskytnout problémy, které uspoøádatelnosti zamezují. Ty nazıváme \emph{konflikty}. Plynou z poøadí dvojic akcí rùznıch transakcí na stejném objektu. Existují tøi typy konfliktních situací:
 \begin{penumerate}
-    \item WRITE-WRITE -- pÅ™epsÃ¡nÃ­ nepotvrzenÃ½ch dat
-    \item READ-WRITE -- neopakovatelnÃ© ÄtenÃ­
-    \item WRITE-READ -- ÄtenÃ­ nepotvrzenÃ½ch (\uv{uncommitted}) dat
+    \item WRITE-WRITE -- pøepsání nepotvrzenıch dat
+    \item READ-WRITE -- neopakovatelné ètení
+    \item WRITE-READ -- ètení nepotvrzenıch (\uv{uncommitted}) dat
 \end{penumerate}
 
-Å˜ekneme, Å¾e rozvrh je \emph{konfliktovÄ› uspoÅ™Ã¡datelnÃ½}, je-li konfliktovÄ› ekvivalentnÃ­ nÄ›jakÃ©mu sÃ©riovÃ©mu rozvrhu (tedy jsou v nÄ›m stejnÃ©, tj. Å¾Ã¡dnÃ© konflikty). Test na konfliktovou uspoÅ™Ã¡datelnost se dÃ¡ provÃ©st jako test acykliÄnosti grafu, ve kterÃ©m konfliktnÃ­ situace pÅ™edstavujÃ­ hrany a transakce vrcholy. KonfliktovÃ¡ uspoÅ™Ã¡datelnost je slabÅ¡Ã­ podmÃ­nka neÅ¾ uspoÅ™Ã¡datelnost -- nezohledÅˆuje ROLLBACK (\emph{zotavitelnost} -- zachovÃ¡nÃ­ konzistence, i kdyÅ¾ kterÃ¡koliv transakce selÅ¾e) a dynamickou povahu databÃ¡ze (vklÃ¡dÃ¡nÃ­ a mazÃ¡nÃ­ objektÅ¯). Zotavitelnosti se dÃ¡ dosÃ¡hnout tak, Å¾e kaÅ¾dÃ¡ transakce $T$ je potvrzena aÅ¾ potÃ©, co jsou potvrzeny vÅ¡echny ostatnÃ­ transakce, kterÃ© zmÄ›nily data ÄtenÃ¡ v $T$. Pokud v zotavitelnÃ©m rozvrhu dochÃ¡zÃ­ ke ÄtenÃ­ zmÄ›n pouze potvrzenÃ½ch transakcÃ­, nemÅ¯Å¾e dojÃ­t ani k jejich \emph{kaskÃ¡dovÃ©mu ruÅ¡enÃ­}.
+Øekneme, e rozvrh je \emph{konfliktovì uspoøádatelnı}, je-li konfliktovì ekvivalentní nìjakému sériovému rozvrhu (tedy jsou v nìm stejné, tj. ádné konflikty). Test na konfliktovou uspoøádatelnost se dá provést jako test acykliènosti grafu, ve kterém konfliktní situace pøedstavují hrany a transakce vrcholy. Konfliktová uspoøádatelnost je slabší podmínka ne uspoøádatelnost -- nezohledòuje ROLLBACK (\emph{zotavitelnost} -- zachování konzistence, i kdy kterákoliv transakce sele) a dynamickou povahu databáze (vkládání a mazání objektù). Zotavitelnosti se dá dosáhnout tak, e kadá transakce $T$ je potvrzena a poté, co jsou potvrzeny všechny ostatní transakce, které zmìnily data ètená v $T$. Pokud v zotavitelném rozvrhu dochází ke ètení zmìn pouze potvrzenıch transakcí, nemùe dojít ani k jejich \emph{kaskádovému rušení}.
 
-PÅ™i zpracovÃ¡nÃ­ (i uspoÅ™Ã¡datelnÃ©ho) rozvrhu mÅ¯Å¾e dojÃ­t k situaci \emph{uvÃ¡znutÃ­} -- \emph{deadlocku}. To nastane tehdy, pokud jedna transakce $T_1$ ÄekÃ¡ na zÃ¡mek na objekt, kterÃ½ mÃ¡ pÅ™idÄ›lenÃ½ $T_2$ a naopak. Situaci lze zobecnit i na vÃ­ce transakcÃ­. UvÃ¡znutÃ­ lze buÄ pÅ™Ã­mo zamezit charakterem rozvrhu, nebo detekovat (hledÃ¡nÃ­m cyklu v grafu ÄekajÃ­cÃ­ch transakcÃ­, tzv. \uv{waits-for} grafu) a jednu z transakcÃ­ \uv{zabÃ­t} a spustit znova.
+Pøi zpracování (i uspoøádatelného) rozvrhu mùe dojít k situaci \emph{uváznutí} -- \emph{deadlocku}. To nastane tehdy, pokud jedna transakce $T_1$ èeká na zámek na objekt, kterı má pøidìlenı $T_2$ a naopak. Situaci lze zobecnit i na více transakcí. Uváznutí lze buï pøímo zamezit charakterem rozvrhu, nebo detekovat (hledáním cyklu v grafu èekajících transakcí, tzv. \uv{waits-for} grafu) a jednu z transakcí \uv{zabít} a spustit znova.
 
 \medskip
-K zajiÅ¡tÄ›nÃ­ uspoÅ™Ã¡datelnosti a zotavitelnosti a zabezpeÄenÃ­ proti kaskÃ¡dovÃ½m rollbackÅ¯m a deadlocku se pouÅ¾Ã­vajÃ­ rÅ¯znÃ¡ schÃ©mata (poÅ¾adavky na rozvrhy). JednÃ­m z nich jsou uzamykacÃ­ protokoly.
+K zajištìní uspoøádatelnosti a zotavitelnosti a zabezpeèení proti kaskádovım rollbackùm a deadlocku se pouívají rùzná schémata (poadavky na rozvrhy). Jedním z nich jsou uzamykací protokoly.
 
-\subsubsection*{UzamykacÃ­ protokoly}
+\subsubsection*{Uzamykací protokoly}
 
-VytvÃ¡Å™enÃ­ rozvrhÅ¯ a testovÃ¡nÃ­ jejich uspoÅ™Ã¡datelnosti nenÃ­ pro praxi zÅ™ejmÄ› ten
-nejvhodnÄ›jÅ¡Ã­ zpÅ¯sob. Pokud ale budeme transakce konstruovat podle urÄitÃ½ch
-pravidel, tak za urÄitÃ½ch pÅ™edpokladÅ¯ bude kaÅ¾dÃ½ jejich rozvrh uspoÅ™Ã¡datelnÃ½.
-SoustavÄ› takovÃ½ch pravidel se Å™Ã­kÃ¡ \textbf{protokol}.
+Vytváøení rozvrhù a testování jejich uspoøádatelnosti není pro praxi zøejmì ten
+nejvhodnìjší zpùsob. Pokud ale budeme transakce konstruovat podle urèitıch
+pravidel, tak za urèitıch pøedpokladù bude kadı jejich rozvrh uspoøádatelnı.
+Soustavì takovıch pravidel se øíká \textbf{protokol}.
 
-NejznÃ¡mÄ›jÅ¡Ã­ protokoly jsou zaloÅ¾eny na dynamickÃ©m zamykÃ¡nÃ­ a odemykÃ¡nÃ­ objektÅ¯ v
-databÃ¡zi. ZamykÃ¡nÃ­ (operace LOCK) je akce, kterou vyvolÃ¡ transakce na objektu,
-aby ho chrÃ¡nila pÅ™ed pÅ™Ã­stupem ostatnÃ­ch transakcÃ­.
+Nejznámìjší protokoly jsou zaloeny na dynamickém zamykání a odemykání objektù v
+databázi. Zamykání (operace LOCK) je akce, kterou vyvolá transakce na objektu,
+aby ho chránila pøed pøístupem ostatních transakcí.
 
-\begin{definiceN}{DobÅ™e formovanÃ¡ transakce}
-Transakci nazveme \textbf{dobÅ™e formovanou} pokud podporuje pÅ™irozenÃ© poÅ¾adavky
+\begin{e}{Definice}{0}{Dobøe formovaná transakce}
+Transakci nazveme \textbf{dobøe formovanou} pokud podporuje pøirozené poadavky
 na transakce:
 \begin{penumerate}
-  \item transakce zamykÃ¡ objekt, chce-li k nÄ›mu pÅ™istupovat,
-  \item transakce nezamykÃ¡ objekt, kterÃ½ jiÅ¾ je touto transakcÃ­ uzamÄenÃ½,
-  \item transakce neodmykÃ¡ objekt, kterÃ½ nenÃ­ touto transakcÃ­ zamÄenÃ½,
-  \item po ukonÄenÃ­ transakce jsou vÅ¡echny objekty uzamÄenÃ© touto transakcÃ­
-  odemÄeny.
+  \item transakce zamyká objekt, chce-li k nìmu pøistupovat,
+  \item transakce nezamyká objekt, kterı ji je touto transakcí uzamèenı,
+  \item transakce neodmyká objekt, kterı není touto transakcí zamèenı,
+  \item po ukonèení transakce jsou všechny objekty uzamèené touto transakcí
+  odemèeny.
 \end{penumerate}
-\end{definiceN}
+\end{e}
 
-\paragraph{DvoufÃ¡zovÃ½ protokol (2PL)} -- DvoufÃ¡zovÃ¡ transakce v prvnÃ­ fÃ¡zi
-zamykÃ¡ vÅ¡e co je potÅ™eba a od prvnÃ­ho odemknutÃ­ (druhÃ¡ fÃ¡ze) jiÅ¾ jen odemykÃ¡ co
-mÄ›la zamÄeno (jiÅ¾ Å¾Ã¡dnÃ¡ operace LOCK). Tedy transakce musÃ­ mÃ­t vÅ¡echny objekty
-uzamÄeny pÅ™edtÃ­m, neÅ¾ nÄ›jakÃ½ objekt odemkne. DÃ¡ se dokÃ¡zat, Å¾e pokud jsou
-vÅ¡echny transakce v danÃ© mnoÅ¾inÄ› transakcÃ­ dobÅ™e formovanÃ© a dvoufÃ¡zovÃ©, pak
-kaÅ¾dÃ½ jejich legÃ¡lnÃ­ rozvrh je uspoÅ™Ã¡datelnÃ½.
+\paragraph{Dvoufázovı protokol (2PL)} -- Dvoufázová transakce v první fázi
+zamyká vše co je potøeba a od prvního odemknutí (druhá fáze) ji jen odemyká co
+mìla zamèeno (ji ádná operace LOCK). Tedy transakce musí mít všechny objekty
+uzamèeny pøedtím, ne nìjakı objekt odemkne. Dá se dokázat, e pokud jsou
+všechny transakce v dané mnoinì transakcí dobøe formované a dvoufázové, pak
+kadı jejich legální rozvrh je uspoøádatelnı.
 
-DvoufÃ¡zovÃ½ protokol zajiÅ¡Å¥uje uspoÅ™Ã¡datelnost, ale ne zotavitelnost ani
-bezpeÄnost proti kaskÃ¡dovÃ©mu ruÅ¡enÃ­ transakcÃ­ nebo uvÃ¡znutÃ­.
+Dvoufázovı protokol zajišuje uspoøádatelnost, ale ne zotavitelnost ani
+bezpeènost proti kaskádovému rušení transakcí nebo uváznutí.
 
-\paragraph{StriktnÃ­ dvoufÃ¡zovÃ½ protokol (S2PL)} -- ProblÃ©my 2PL jsou nezotavitelnost
-a kaskÃ¡dovÃ© ruÅ¡enÃ­ transakcÃ­. Tyto nedostatky lze odstranit pomocÃ­ striktnÃ­ch
-dvoufÃ¡zovÃ½ch protokolÅ¯, kterÃ© uvolÅˆujÃ­ zÃ¡mky aÅ¾ po skonÄenÃ­ transakce (COMMIT).
-ZÅ™ejmÃ¡ nevÃ½hoda je omezenÃ­ paralelismu. 2PL navÃ­c stÃ¡le nevyluÄuje moÅ¾nost deadlocku.
+\paragraph{Striktní dvoufázovı protokol (S2PL)} -- Problémy 2PL jsou nezotavitelnost
+a kaskádové rušení transakcí. Tyto nedostatky lze odstranit pomocí striktních
+dvoufázovıch protokolù, které uvolòují zámky a po skonèení transakce (COMMIT).
+Zøejmá nevıhoda je omezení paralelismu. 2PL navíc stále nevyluèuje monost deadlocku.
 
-\paragraph{KonzervativnÃ­ dvoufÃ¡zovÃ½ protokol (C2PL)} -- RozdÃ­l oproti 2PL je
-ten, Å¾e transakce Å¾Ã¡dÃ¡ o vÅ¡echny svÃ© zÃ¡mky, jeÅ¡tÄ› neÅ¾ se zaÄne
-vykonÃ¡vat. To sice vede obÄas k zbyteÄnÃ©mu zamykÃ¡nÃ­ (nevÃ­me co pÅ™esnÄ› budeme
-potÅ™ebovat, tak radÅ¡i zamkneme vÃ­c), ale staÄÃ­ to jiÅ¾ k prevenci uvÃ¡znutÃ­
+\paragraph{Konzervativní dvoufázovı protokol (C2PL)} -- Rozdíl oproti 2PL je
+ten, e transakce ádá o všechny své zámky, ještì ne se zaène
+vykonávat. To sice vede obèas k zbyteènému zamykání (nevíme co pøesnì budeme
+potøebovat, tak radši zamkneme víc), ale staèí to ji k prevenci uváznutí
 (deadlocku).
 
-\subsubsection*{\uv{VylepÅ¡enÃ­} zamykacÃ­ch protokolÅ¯}
+\subsubsection*{\uv{Vylepšení} zamykacích protokolù}
 
-\paragraph{SdÃ­lenÃ© a vÃ½luÄnÃ© zÃ¡mky} -- NevÃ½hodou 2PL je, Å¾e objekt mÅ¯Å¾e mÃ­t
-uzamÄenÃ½ pouze jedna transakce. Abychom uzamykÃ¡nÃ­ provedli preciznÄ›ji, je dobrÃ©
-vzÃ­t na vÄ›domÃ­ rozdÃ­l mezi operacemi READ a WRITE. \emph{VÃ½luÄnÃ½ zÃ¡mek}
-(W\_LOCK) mÅ¯Å¾e bÃ½t aplikovÃ¡n na objekty jak pro operaci READ tak pro WRITE,
-\emph{sdÃ­lenÃ½ zÃ¡mek} (R\_LOCK) uzamykÃ¡ objekt, kterÃ½ chceme pouze ÄÃ­st. Jeden
-objekt potom mÅ¯Å¾e bÃ½t uzamÄen sdÃ­lenÃ½m zÃ¡mkem vÃ­ce transakcÃ­ a zvyÅ¡uje se tak
-moÅ¾nost paralelnÃ­ho zpracovÃ¡nÃ­. Budeme-li s tÄ›mito zÃ¡mky zachÃ¡zet stejnÄ› jako u
-2PL, opÄ›t mÃ¡me zaruÄenou uspoÅ™Ã¡datelnost rozvrhu, ovÅ¡em nikoliv absenci uvÃ¡znutÃ­.
-
-
-\paragraph{StrukturovanÃ© uzamykÃ¡nÃ­ (multiple granularity)} -- Objekty jsou v
-tomto pÅ™Ã­padÄ› chÃ¡pÃ¡ny hierarchicky dle relace \emph{obsahuje}. NapÅ™Ã­klad
-databÃ¡ze obsahuje soubory, kterÃ© obsahujÃ­ strÃ¡nky a ty zase obsahujÃ­ jednotlivÃ©
-zÃ¡znamy. Na tuto hierarchii se mÅ¯Å¾eme dÃ­vat jako na strom, ve kterÃ©m kaÅ¾dÃ½
-vrchol obsahuje svÃ© potomky. KdyÅ¾ transakce zamykÃ¡ objekt (vrchol) zamykÃ¡ takÃ©
-vÅ¡echny jeho potomky. Protokol se tak snaÅ¾Ã­ minimalizovat poÄet zÃ¡mkÅ¯, tÃ­m
-snÃ­Å¾it reÅ¾ii a zvÃ½Å¡it moÅ¾nosti paralelnÃ­ho zpracovÃ¡nÃ­.
+\paragraph{Sdílené a vıluèné zámky} -- Nevıhodou 2PL je, e objekt mùe mít
+uzamèenı pouze jedna transakce. Abychom uzamykání provedli preciznìji, je dobré
+vzít na vìdomí rozdíl mezi operacemi READ a WRITE. \emph{Vıluènı zámek}
+(W\_LOCK) mùe bıt aplikován na objekty jak pro operaci READ tak pro WRITE,
+\emph{sdílenı zámek} (R\_LOCK) uzamyká objekt, kterı chceme pouze èíst. Jeden
+objekt potom mùe bıt uzamèen sdílenım zámkem více transakcí a zvyšuje se tak
+monost paralelního zpracování. Budeme-li s tìmito zámky zacházet stejnì jako u
+2PL, opìt máme zaruèenou uspoøádatelnost rozvrhu, ovšem nikoliv absenci uváznutí.
 
 
-\subsubsection*{AlternativnÃ­ protokoly}
+\paragraph{Strukturované uzamykání (multiple granularity)} -- Objekty jsou v
+tomto pøípadì chápány hierarchicky dle relace \emph{obsahuje}. Napøíklad
+databáze obsahuje soubory, které obsahují stránky a ty zase obsahují jednotlivé
+záznamy. Na tuto hierarchii se mùeme dívat jako na strom, ve kterém kadı
+vrchol obsahuje své potomky. Kdy transakce zamyká objekt (vrchol) zamyká také
+všechny jeho potomky. Protokol se tak snaí minimalizovat poèet zámkù, tím
+sníit reii a zvıšit monosti paralelního zpracování.
 
-\paragraph{ÄŒasovÃ¡ razÃ­tka} -- DalÅ¡Ã­ z protokolÅ¯ zaruÄujÃ­cÃ­ uspoÅ™Ã¡datelnost je
-vyuÅ¾itÃ­ ÄasovÃ½ch razÃ­tek. Na zaÄÃ¡tku dostane transakce $T$ \emph{ÄasovÃ©
-razÃ­tko}~-- $TS(T)$ (ÄasovÃ¡ razÃ­tka jsou unikÃ¡tnÃ­ a v Äase rostou), abychom vÄ›dÄ›li
-poÅ™adÃ­, ve kterÃ©m by mÄ›li bÃ½t transakce vykonÃ¡ny. KaÅ¾dÃ½ objekt v databÃ¡zi mÃ¡
-\emph{ÄtecÃ­ razÃ­tko}~-- $RTS(O)$ (read timestamp), kterÃ© je aktualizovÃ¡no, kdyÅ¾ je
-objekt Äten, a \emph{zapisovacÃ­ razÃ­tko}~-- $WTS(O)$ (write timestamp), kterÃ© je
-aktualizovÃ¡no, kdyÅ¾ nÄ›jakÃ¡ transakce objekt mÄ›nÃ­.
 
-Pokud chce transakce $T$ ÄÃ­st objekt $O$ mohou nastat dva pÅ™Ã­pady:
+\subsubsection*{Alternativní protokoly}
+
+\paragraph{Èasová razítka} -- Další z protokolù zaruèující uspoøádatelnost je
+vyuití èasovıch razítek. Na zaèátku dostane transakce $T$ \emph{èasové
+razítko}~-- $TS(T)$ (èasová razítka jsou unikátní a v èase rostou), abychom vìdìli
+poøadí, ve kterém by mìli bıt transakce vykonány. Kadı objekt v databázi má
+\emph{ètecí razítko}~-- $RTS(O)$ (read timestamp), které je aktualizováno, kdy je
+objekt èten, a \emph{zapisovací razítko}~-- $WTS(O)$ (write timestamp), které je
+aktualizováno, kdy nìjaká transakce objekt mìní.
+
+Pokud chce transakce $T$ èíst objekt $O$ mohou nastat dva pøípady:
 \begin{pitemize}
 
-  \item $TS(T) < WTS(O)$, tzn. nÄ›kdo zmÄ›nil objekt $O$ potom co byla spuÅ¡tÄ›na
-  transakce $T$. V tomto pÅ™Ã­padÄ› musÃ­ bÃ½t transakce zruÅ¡ena a spouÅ¡tÄ›na znovu (a
-  tedy s jinÃ½m ÄasovÃ½m razÃ­tkem).
+  \item $TS(T) < WTS(O)$, tzn. nìkdo zmìnil objekt $O$ potom co byla spuštìna
+  transakce $T$. V tomto pøípadì musí bıt transakce zrušena a spouštìna znovu (a
+  tedy s jinım èasovım razítkem).
 
-  \item $TS(T) > WTS(O)$, tzn. je bezpeÄnÃ© objekt ÄÃ­st. V tomto pÅ™Ã­padÄ› $T$
-  pÅ™eÄte $O$ a $RTS(O)$ je nastaveno na $\max\{TS(T),\ RTS(O)\}$.
+  \item $TS(T) > WTS(O)$, tzn. je bezpeèné objekt èíst. V tomto pøípadì $T$
+  pøeète $O$ a $RTS(O)$ je nastaveno na $\max\{TS(T),\ RTS(O)\}$.
 
 \end{pitemize}
 
-Pokud chce transakce $T$ zapisovat do objektu $O$ rozliÅ¡ujeme pÅ™Ã­pady tÅ™i:
+Pokud chce transakce $T$ zapisovat do objektu $O$ rozlišujeme pøípady tøi:
 \begin{pitemize}
 
-  \item $TS(T) < RTS(O)$, tzn. nÄ›kdo Äetl $O$ potÃ© co byla spuÅ¡tÄ›na $T$ a
-  pÅ™edpoklÃ¡dÃ¡me, Å¾e si poÅ™Ã­dil lokÃ¡lnÃ­ kopii. NemÅ¯Å¾eme tedy $O$ zmÄ›nit, protoÅ¾e
-  by lokÃ¡lnÃ­ kopie pÅ™estala bÃ½t platnÃ¡ a tedy je nutnÃ© $T$ zruÅ¡it a spustit
+  \item $TS(T) < RTS(O)$, tzn. nìkdo èetl $O$ poté co byla spuštìna $T$ a
+  pøedpokládáme, e si poøídil lokální kopii. Nemùeme tedy $O$ zmìnit, protoe
+  by lokální kopie pøestala bıt platná a tedy je nutné $T$ zrušit a spustit
   znova.
 
-  \item $TS(T) < WTS(O)$, tzn. nÄ›kdo zmÄ›nil $O$ po startu $T$. V tomto pÅ™Ã­padÄ›
-  pÅ™eskoÄÃ­me write operaci a pokraÄujeme dÃ¡le normÃ¡lnÄ›. $T$ nemusÃ­ bÃ½t
-  restartovÃ¡na.
+  \item $TS(T) < WTS(O)$, tzn. nìkdo zmìnil $O$ po startu $T$. V tomto pøípadì
+  pøeskoèíme write operaci a pokraèujeme dále normálnì. $T$ nemusí bıt
+  restartována.
 
-  \item V ostatnÃ­ch pÅ™Ã­padech $T$ zmÄ›nÃ­ $O$ a $WTS(O)$ je nastaveno na $TS(T)$.
+  \item V ostatních pøípadech $T$ zmìní $O$ a $WTS(O)$ je nastaveno na $TS(T)$.
 \end{pitemize}
 
-\paragraph{OptimistickÃ© protokoly} -- V situaci kdy se vÄ›tÅ¡ina transakcÃ­
-neovlivÅˆuje, je reÅ¾ie vÃ½Å¡e uvedenÃ½ch protokolÅ¯ zbyteÄnÄ› velkÃ¡ a mÅ¯Å¾eme pouÅ¾Ã­t
-takzvanÃ½ optimistickÃ½ protokol. V protokolu mÅ¯Å¾eme rozliÅ¡it tÅ™i fÃ¡ze.
+\paragraph{Optimistické protokoly} -- V situaci kdy se vìtšina transakcí
+neovlivòuje, je reie vıše uvedenıch protokolù zbyteènì velká a mùeme pouít
+takzvanı optimistickı protokol. V protokolu mùeme rozlišit tøi fáze.
 \begin{penumerate}
 
-  \item \textbf{FÃ¡ze ÄtenÃ­:} ÄŒtou se objekty z databÃ¡ze do lokÃ¡lnÃ­ pamÄ›ti a jsou
-  na nich provÃ¡dÄ›ny potÅ™ebnÃ© zmÄ›ny.
+  \item \textbf{Fáze ètení:} Ètou se objekty z databáze do lokální pamìti a jsou
+  na nich provádìny potøebné zmìny.
 
-  \item \textbf{FÃ¡ze kontroly:} Po dokonÄenÃ­ vÅ¡ech zmÄ›n v lokÃ¡lnÃ­ pamÄ›ti je
-  vyvolÃ¡n pokus o zapsÃ¡nÃ­ vÃ½sledkÅ¯ do databÃ¡ze. Algoritmus zkontroluje, zda
-  nehrozÃ­ potenciÃ¡lnÃ­ kolize s jiÅ¾ potvrzenÃ½mi transakcemi, nebo s nÄ›kterÃ½mi
-  prÃ¡vÄ› probÃ­hajÃ­cÃ­mi. Pokud konflikt existuje, je tÅ™eba spustit algoritmus pro
-  Å™eÅ¡enÃ­ kolizÃ­, kterÃ½ se je snaÅ¾Ã­ vyÅ™eÅ¡it. Pokud se mu to nepodaÅ™Ã­, je vyuÅ¾ita
-  poslednÃ­ moÅ¾nost a tou je zruÅ¡enÃ­ a restartovÃ¡nÃ­ transakce.
+  \item \textbf{Fáze kontroly:} Po dokonèení všech zmìn v lokální pamìti je
+  vyvolán pokus o zapsání vısledkù do databáze. Algoritmus zkontroluje, zda
+  nehrozí potenciální kolize s ji potvrzenımi transakcemi, nebo s nìkterımi
+  právì probíhajícími. Pokud konflikt existuje, je tøeba spustit algoritmus pro
+  øešení kolizí, kterı se je snaí vyøešit. Pokud se mu to nepodaøí, je vyuita
+  poslední monost a tou je zrušení a restartování transakce.
 
-  \item \textbf{FÃ¡ze zÃ¡pisu:} Pokud nehrozÃ­ Å¾Ã¡dnÃ© konflikty, jsou data z lokÃ¡lnÃ­
-  pamÄ›ti zapsÃ¡ny do databÃ¡ze a transakce potvrzena.
+  \item \textbf{Fáze zápisu:} Pokud nehrozí ádné konflikty, jsou data z lokální
+  pamìti zapsány do databáze a transakce potvrzena.
 
 \end{penumerate}
 

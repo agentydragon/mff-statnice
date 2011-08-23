@@ -1,51 +1,51 @@
-\subsection{KonceptualnÃ­, logickÃ¡ a fyzickÃ¡ ÃºroveÅˆ pohledu na data}
+\subsection{Konceptualní, logická a fyzická úroveò pohledu na data}
 
-TODO: sjednotit terminologii, snad to popisuje to co tu mÃ¡ bÃ½t, ale zdroje jsou pochybnÃ© (Wikipedie tady neodvÃ¡dÃ­ zrovna ideÃ¡lnÃ­ prÃ¡ci a ÄŒVUT Wiki se moc nerozepisuje).
+TODO: sjednotit terminologii, snad to popisuje to co tu má bıt, ale zdroje jsou pochybné (Wikipedie tady neodvádí zrovna ideální práci a ÈVUT Wiki se moc nerozepisuje).
 
-\begin{definiceN}{DatovÃ© modelovÃ¡nÃ­}
-\emph{DatovÃ© modelovÃ¡nÃ­} je proces vytvoÅ™enÃ­ konkrÃ©tnÃ­ho datovÃ©ho modelu (schÃ©matu) databÃ¡ze pomocÃ­ aplikace nÄ›jakÃ©ho abstraktnÃ­ho databÃ¡zovÃ©ho modelu. DatovÃ© modelovÃ¡nÃ­ zahrnuje kromÄ› definice struktury a organizace dat jeÅ¡tÄ› dalÅ¡Ã­ implictinÃ­ nebo explicitnÃ­ omezenÃ­ na data do struktury uklÃ¡danÃ¡. 
-\end{definiceN}
+\begin{e}{Definice}{0}{Datové modelování}
+\emph{Datové modelování} je proces vytvoøení konkrétního datového modelu (schématu) databáze pomocí aplikace nìjakého abstraktního databázového modelu. Datové modelování zahrnuje kromì definice struktury a organizace dat ještì další implictiní nebo explicitní omezení na data do struktury ukládaná. 
+\end{e}
 
-\begin{obecne}{Vrstvy modelovÃ¡nÃ­}
-Druhy datovÃ½ch modelÅ¯ mohou bÃ½t tÅ™Ã­ typÅ¯, podle tÅ™Ã­ rÅ¯znÃ½ch pohledÅ¯ na databÃ¡ze (tÅ™i \uv{vrstvy}, kterÃ© se navzÃ¡jem doplÅˆujÃ­):
+\begin{obecne}{Vrstvy modelování}
+Druhy datovıch modelù mohou bıt tøí typù, podle tøí rùznıch pohledù na databáze (tøi \uv{vrstvy}, které se navzájem doplòují):
 \begin{pitemize}
-    \item konceptuÃ¡lnÃ­ schÃ©ma (datovÃ½ model) -- nejabstraktnÄ›jÅ¡Ã­, popisuje vÃ½znam organizace databÃ¡ze -- tÅ™Ã­dy entit a jejich vztahy.
-    \item logickÃ© schÃ©ma -- popisuje vÃ½znam konceptuÃ¡lnÃ­ho schÃ©matu z hlediska databÃ¡zovÃ© implementace -- popisy tabulek, programovÃ½ch tÅ™Ã­d nebo XML tagÅ¯ (podle zvolenÃ©ho databÃ¡zovÃ©ho modelu)
-    \item fyzickÃ© schÃ©ma -- nejkonkrÃ©tnÄ›jÅ¡Ã­, popisuje fyzickÃ© uloÅ¾enÃ­ dat a stroje na kterÃ½ch systÃ©m pobÄ›Å¾Ã­.
+    \item konceptuální schéma (datovı model) -- nejabstraktnìjší, popisuje vıznam organizace databáze -- tøídy entit a jejich vztahy.
+    \item logické schéma -- popisuje vıznam konceptuálního schématu z hlediska databázové implementace -- popisy tabulek, programovıch tøíd nebo XML tagù (podle zvoleného databázového modelu)
+    \item fyzické schéma -- nejkonkrétnìjší, popisuje fyzické uloení dat a stroje na kterıch systém pobìí.
 \end{pitemize}
-Na tomto rozdÄ›lenÃ­ je dÅ¯leÅ¾itÃ¡ nezÃ¡vislost jednotlivÃ½ch vrstev -- takÅ¾e se implementace jednÃ© z nich mÅ¯Å¾e zmÄ›nit, aniÅ¾ by bylo nutnÃ© vÃ½raznÄ› upravovat ostatnÃ­ (samozÅ™ejmÄ› musÃ­ zÅ¯stat konzistetnÃ­ vzhledem k ostatnÃ­m vrstvÃ¡m). BÄ›hem implementace nÄ›jakÃ© databÃ¡zovÃ© aplikace se zaÄÃ­nÃ¡ vytvoÅ™enÃ­m konceptuÃ¡lnÃ­ho schÃ©matu, pokraÄuje jeho upÅ™esnÄ›nÃ­ logickÃ½m schÃ©matem a naknec jeho fyzickou implementacÃ­ podle fyzickÃ©ho schÃ©matu (modelu).
+Na tomto rozdìlení je dùleitá nezávislost jednotlivıch vrstev -- take se implementace jedné z nich mùe zmìnit, ani by bylo nutné vıraznì upravovat ostatní (samozøejmì musí zùstat konzistetní vzhledem k ostatním vrstvám). Bìhem implementace nìjaké databázové aplikace se zaèíná vytvoøením konceptuálního schématu, pokraèuje jeho upøesnìní logickım schématem a naknec jeho fyzickou implementací podle fyzického schématu (modelu).
 \end{obecne}
 
-\begin{poznamka}
-V tomto pohledu (kterÃ½ je podle standardu ANSI z r. 1975) jsou databÃ¡zovÃ© modely, popsanÃ© v pÅ™edchozÃ­ sekci, pÅ™Ã­klady abstraktnÃ­ch logickÃ½ch datovÃ½ch modelÅ¯. NÄ›kde je vÅ¡ak tato ÃºroveÅˆ oznaÄovÃ¡na jako \uv{fyzickÃ¡} a \uv{jinÃ¡ logickÃ¡} se vtÄ›snÃ­ jeÅ¡tÄ› mezi ni a konceptuÃ¡lnÃ­.
-\end{poznamka}
+\begin{e}{Poznámka}{0}{0}
+V tomto pohledu (kterı je podle standardu ANSI z r. 1975) jsou databázové modely, popsané v pøedchozí sekci, pøíklady abstraktních logickıch datovıch modelù. Nìkde je však tato úroveò oznaèována jako \uv{fyzická} a \uv{jiná logická} se vtìsní ještì mezi ni a konceptuální.
+\end{e}
 
 
-\begin{obecne}{KonceptuÃ¡lnÃ­ schÃ©ma}
-\emph{KonceptuÃ¡lnÃ­ schÃ©ma} (datovÃ½ model) popisuje podstatnÃ© objekty (\emph{tÅ™Ã­dy entit}, \uv{koncepty}), jejich charakteristiky (\emph{atributy}) a vztahy mezi nimi (asociace mezi dvojicemi tÅ™Ã­d entit). Nepopisuje pÅ™Ã­mo implementaci v databÃ¡zi, jen vÃ½znam nÄ›jakÃ©ho celku, kterÃ½ bude databÃ¡zÃ­ pÅ™edstavovÃ¡n. Jde o modelovÃ¡nÃ­ \uv{datovÃ© reality}, z pohledu uÅ¾ivatele (analytika, konstruktÃ©ra databÃ¡ze).
+\begin{obecne}{Konceptuální schéma}
+\emph{Konceptuální schéma} (datovı model) popisuje podstatné objekty (\emph{tøídy entit}, \uv{koncepty}), jejich charakteristiky (\emph{atributy}) a vztahy mezi nimi (asociace mezi dvojicemi tøíd entit). Nepopisuje pøímo implementaci v databázi, jen vıznam nìjakého celku, kterı bude databází pøedstavován. Jde o modelování \uv{datové reality}, z pohledu uivatele (analytika, konstruktéra databáze).
 
 \medskip
-\begin{priklady}
-PÃ¡r pÅ™Ã­kladÅ¯ vztahÅ¯ mezi tÅ™Ã­dami entit (z Wikipedie):
+\begin{e}{Pøíklady}{0}{0}
+Pár pøíkladù vztahù mezi tøídami entit (z Wikipedie):
 \begin{pitemize}
     \item Each PERSON may be the vendor in one or more ORDERS.
     \item Each ORDER must be from one and only one PERSON.
     \item PERSON is a sub-type of PARTY. (Meaning that every instance of PERSON is also an instance of PARTY.)
 \end{pitemize}
-\end{priklady}
-De-facto standardem pro konceptuÃ¡lnÃ­ datovÃ© modelovÃ¡nÃ­ jsou \emph{ER-diagramy} (entity-relationship diagramy). HodÃ­ se hlavnÄ› pro \uv{plochÃ¡} formÃ¡tovanÃ¡ data (takÅ¾e tÅ™eba pro objektovÃ© nebo relaÄnÃ­ databÃ¡ze, ale ne pro XML apod.). PouÅ¾Ã­vajÃ­ dva typy \uv{objektÅ¯} -- \emph{entity} (tÅ™Ã­dy entit) a \emph{vztahy}. Jde o obdobu UML z objektovÃ©ho programovÃ¡nÃ­. PÅ™Ã­klad ER-diagramu se vztahem dvou entit je na nÃ¡sledujÃ­cÃ­m obrÃ¡zku (popisuje i dalÅ¡Ã­ vlastnosti -- atributy entit a kardinality vztahÅ¯):
+\end{e}
+De-facto standardem pro konceptuální datové modelování jsou \emph{ER-diagramy} (entity-relationship diagramy). Hodí se hlavnì pro \uv{plochá} formátovaná data (take tøeba pro objektové nebo relaèní databáze, ale ne pro XML apod.). Pouívají dva typy \uv{objektù} -- \emph{entity} (tøídy entit) a \emph{vztahy}. Jde o obdobu UML z objektového programování. Pøíklad ER-diagramu se vztahem dvou entit je na následujícím obrázku (popisuje i další vlastnosti -- atributy entit a kardinality vztahù):
 \begin{center}
 \includegraphics[width=14cm]{informatika/databazy/obrazky/er-schema.png}
 
-(ObrÃ¡zek je upravenÃ½, rozÅ¡Ã­Å™enÃ½ a popsanÃ½ pÅ™Ã­klad ze slidÅ¯ Dr. T. Skopala k DatabÃ¡zovÃ½m systÃ©mÅ¯m)
+(Obrázek je upravenı, rozšíøenı a popsanı pøíklad ze slidù Dr. T. Skopala k Databázovım systémùm)
 \end{center}
 \end{obecne}
 
-\begin{obecne}{LogickÃ© schÃ©ma}
-\emph{LogickÃ© schÃ©ma} je datovÃ½ model organizace nÄ›jakÃ©ho specifickÃ©ho celku pomocÃ­ jednoho z databÃ¡zovÃ½ch modelÅ¯ -- podle databÃ¡zovÃ½ch modelÅ¯ popsanÃ½ch v pÅ™edchozÃ­ sekci, tj. napÅ™. pomocÃ­ relaÄnÃ­ch tabulek, objektovÃ½ch tÅ™Ã­d nebo XML. SvojÃ­ ÃºrovnÃ­ abstrakce se nachÃ¡zÃ­ mezi konceptuÃ¡lnÃ­m a fyzickÃ½m schÃ©matem.
+\begin{obecne}{Logické schéma}
+\emph{Logické schéma} je datovı model organizace nìjakého specifického celku pomocí jednoho z databázovıch modelù -- podle databázovıch modelù popsanıch v pøedchozí sekci, tj. napø. pomocí relaèních tabulek, objektovıch tøíd nebo XML. Svojí úrovní abstrakce se nachází mezi konceptuálním a fyzickım schématem.
 \end{obecne}
 
-\begin{obecne}{FyzickÃ© schÃ©ma}
-\emph{FyzickÃ© datovÃ© modely} jsou modely, ktere pouÅ¾Ã­vajÃ­ databazovÃ© stroje smÄ›rem k niÅ¾Å¡Ã­m vrstvÃ¡m (operaÄnÃ­ho) systÃ©mu. V zÃ¡sadÄ› jde o rÅ¯znÃ© zpÅ¯soby fyzickÃ©ho uloÅ¾enÃ­ dat (tedy schÃ©mata organizace souborÅ¯) -- sekvenÄnÃ­ soubory, B-stromy apod.
+\begin{obecne}{Fyzické schéma}
+\emph{Fyzické datové modely} jsou modely, ktere pouívají databazové stroje smìrem k niším vrstvám (operaèního) systému. V zásadì jde o rùzné zpùsoby fyzického uloení dat (tedy schémata organizace souborù) -- sekvenèní soubory, B-stromy apod.
 \end{obecne}
 

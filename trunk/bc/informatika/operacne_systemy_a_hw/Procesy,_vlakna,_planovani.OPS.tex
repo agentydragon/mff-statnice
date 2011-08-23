@@ -3,10 +3,10 @@
 \subsubsection*{Procesy a vlákna}
 Systémové volání je interface mezi OS (kernelspace) a uívatelskımi programy (userspace).
 
-\begin{definiceN}{Proces}
+\begin{e}{Definice}{0}{Proces}
   \emph{Proces} je inštancia vykonávaného programu. Kım program je len súbor
   inštrukcií, proces je vlastnı \uv{vıkon} tıchto inštrukcií. Proces má vlastnı adresnı priestor (pamä), prostriedky, child procesy, globání promìnné, otevøené soubory, práva a napr. aj ID (Process ID).
-\end{definiceN}
+\end{e}
 
 Poèas ivota sa môe proces nachádza v rôznych stavoch:
 \begin{pitemize}
@@ -16,13 +16,13 @@ Poèas ivota sa môe proces nachádza v rôznych stavoch:
   \item \emph{zombie}~-- po ukonèení procesu, keï u nepracuje~-- ale ešte nebol vymazanı.
 \end{pitemize}
 
-\begin{definiceN}{Vlákno (Thread)}
+\begin{e}{Definice}{0}{Vlákno (Thread)}
   \emph{Vlákno} je monos pre program ako sa \uv{rozdeli} na dva alebo viac
   zároveò (resp. pseudo-zároveò) vykonávanıch úloh. Oproti procesu mu nie je
   pridelená vlastná pamä~-- je to len miesto vykonávania inštrukcií v programe.
   Oproti procesu sú jeho \uv{atribútmi} len \textbf{hodnota programového èítaèa, stav
   registrov CPU a zásobník}.
-\end{definiceN}
+\end{e}
 Implementace:
 \begin{pitemize}
         \item \textbf{User Level Threads}(1.diagram) - thread management dìlá aplikace (nemusí bıt podporovány OS), kadı proces ma thread table, kdy systém zablokuje proces zablokují se i všechny jeho thready

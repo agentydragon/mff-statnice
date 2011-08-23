@@ -2,7 +2,7 @@
 
 \subsubsection*{Metrický prostor, metrika}
 
-\begin{definiceN}{metrický prostor}
+\begin{e}{Definice}{0}{metrický prostor}
 \emph{Metrický prostor} je dvojice $(M, d)$, kde $M$ je množina a $d: M \times M \rightarrow \mathbb{R}$ je zobrazení, zvané \emph{metrika}, splòující tøi axiomy:
 \begin{penumerate}
     \item $d(x, y) = 0 \Leftrightarrow x = y$
@@ -10,7 +10,7 @@
     \item $d(x, y) \le d(x, z) + d(z, y)$ \hfill\emph{(trojúhelníková nerovnost)}
 \end{penumerate}
 Metrické prostory jsou abstrakcí jevu vzdálenosti. Z axiomù 1. a 3. vyplývá nezápornost hodnot metriky (která se ale vìtšinou explicitnì uvádí jako souèást prvního axiomu). Prvky metrického prostoru nazveme \emph{body}.
-\end{definiceN}
+\end{e}
 
 \begin{obecne}{Pøíklady metrik}
 \begin{itemize}
@@ -47,25 +47,25 @@ Je-li $A$ koneèná množina (abeceda), máme na množinì $M = A^m$ slov délky $m$ na
 \end{itemize}
 \end{obecne}
 
-\begin{definiceN}{euklidovský prostor}
+\begin{e}{Definice}{0}{euklidovský prostor}
 \emph{Euklidovským prostorem} rozumíme metrický prostor $(\mathbb{R}^n, d_2)$, kde $d_2$ je funkce daná pøedpisem $d_2(x,y)=\sqrt{\sum_{i=1}^n(x_i-y_i)^2}$.
-\end{definiceN}
+\end{e}
 
 \subsubsection*{Konvergence}
 
-\begin{definiceN}{konvergence posloupnosti bodù}
+\begin{e}{Definice}{0}{konvergence posloupnosti bodù}
 Øekneme, že posloupnost bodù $(x_n)_{n\geq 0}$ nìjakého metrického prostoru $(M, d)$ \emph{konverguje k bodu $x \in M$} ($x_n\to x$), nebo že $x=\lim_{n\geq 0} x_n$, jestliže
 $$\forall\varepsilon>0\ \exists n_0:n\geq n_0\;\Rightarrow\; d(x_n,x)<\varepsilon.$$
-\end{definiceN}
+\end{e}
 
-\begin{poznamkaN}{vlastnosti konvergence}
+\begin{e}{Poznámka}{0}{vlastnosti konvergence}
 Nech je dán metrický prostor $(M, d)$ a v nìm posloupnost bodù $(x_n)_{n\geq 0}$. Potom platí:
 \begin{penumerate}
     \item Jestliže pro bod $y\in M$ platí, že $\exists n_0\in\mathbb{N}: \forall n\geq n_0: x_n = y$, pak $x_n\to y$
     \item Nech $x_n\to y_1$ a zároveò $x_n\to y_2$. Potom $y_1=y_2$.
     \item Podposloupnost konvergentní posloupnosti konverguje ke stejnému bodu.
 \end{penumerate}
-\begin{dukaz}
+\begin{e}{Dùkaz}{0}{0}
 Obdobnì jako pro konvergenci posloupností z $\mathbb{R}$ -- pouze místo absolutní hodnoty použijeme obecnou metriku.
-\end{dukaz}
-\end{poznamkaN}
+\end{e}
+\end{e}

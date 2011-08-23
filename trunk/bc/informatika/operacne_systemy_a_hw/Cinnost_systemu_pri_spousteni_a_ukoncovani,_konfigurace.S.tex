@@ -1,25 +1,25 @@
-\subsection{ÄŒinnost systÃ©mu pÅ™i spouÅ¡tÄ›nÃ­ a ukonÄovÃ¡nÃ­, konfigurace}
+\subsection{Èinnost systému pøi spouštìní a ukonèování, konfigurace}
 
 TODO: tohle je jenom copy \& paste z Wiki
 
-\subsubsection*{SpouÅ¡tÄ›nÃ­ systÃ©mu}
+\subsubsection*{Spouštìní systému}
 
 \begin{pitemize}
-  \item start zavadÄ›Äe (LILO, GRUB)
-  \item nahrÃ¡nÃ­ kernelu
-  \item spuÅ¡tÄ›nÃ­ kernelu, detekce HW, spuÅ¡tÄ›nÃ­ ovladaÄÅ¯
+  \item start zavadìèe (LILO, GRUB)
+  \item nahrání kernelu
+  \item spuštìní kernelu, detekce HW, spuštìní ovladaèù
   \item mount root readonly
-  \item spuÅ¡tÄ›nÃ­ procesu init
-  \item kontrola diskÅ¯
+  \item spuštìní procesu init
+  \item kontrola diskù
   \item re-mount root read-write
   \item start-up skript (/etc/init.d)
-  \item bÄ›Å¾Ã­cÃ­ systÃ©m, spuÅ¡tÄ›nÃ­ konzolÃ­ (getty) 
-  \item pÅ™i spouÅ¡tÄ›nÃ­ moÅ¾nost aktivovat single-user reÅ¾im 
-  \item ÃºrovnÄ› bÄ›hu (SystemV, Linux):
+  \item bìící systém, spuštìní konzolí (getty) 
+  \item pøi spouštìní monost aktivovat single-user reim 
+  \item úrovnì bìhu (SystemV, Linux):
   \begin{pitemize}
-    \item 0 - systÃ©m zastaven
+    \item 0 - systém zastaven
     \item 1 - single-user
-    \item 2 - multi-user, bez sÃ­tÄ› a bez NFS
+    \item 2 - multi-user, bez sítì a bez NFS
     \item 3 - multi-user
     \item 5 - multi-user + X11
     \item 6 - reboot
@@ -27,18 +27,18 @@ TODO: tohle je jenom copy \& paste z Wiki
     \end{pitemize}
 \end{pitemize}
 
-\subsubsection*{VypnutÃ­ systÃ©mu}
+\subsubsection*{Vypnutí systému}
 
 \begin{pitemize}
-    \item ukonÄenÃ­ programÅ¯, zastavenÃ­ sluÅ¾eb, signÃ¡l TERM, po chvÃ­li KILL
-    \item vyprÃ¡znÄ›nÃ­ diskovÃ½ch cache, uloÅ¾enÃ­ dat, odpojenÃ­ diskÅ¯
-    \item vypnutÃ­ napÃ¡jenÃ­
-    \item shutdown - moÅ¾no nastavit Äas vypnutÃ­ a zaslat oznÃ¡menÃ­ vÅ¡em pÅ™ihlÃ¡Å¡enÃ½m 
+    \item ukonèení programù, zastavení slueb, signál TERM, po chvíli KILL
+    \item vypráznìní diskovıch cache, uloení dat, odpojení diskù
+    \item vypnutí napájení
+    \item shutdown - mono nastavit èas vypnutí a zaslat oznámení všem pøihlášenım 
 \end{pitemize}
 
 \subsubsection*{Konfigurace}
 
 \begin{pitemize}
-    \item na UnixovÃ½ch systÃ©mech se konfigurace ve vÄ›tÅ¡inÄ› pÅ™Ã­padÅ¯ provÃ¡dÃ­ editacÃ­ textovÃ½ch souborÅ¯
-    \item vÄ›tÅ¡ina konfigurace schovÃ¡na v adresÃ¡Å™i /etc
+    \item na Unixovıch systémech se konfigurace ve vìtšinì pøípadù provádí editací textovıch souborù
+    \item vìtšina konfigurace schována v adresáøi /etc
 \end{pitemize}

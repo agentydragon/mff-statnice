@@ -20,7 +20,7 @@ Ideálnì by relaèní databáze mìla být navržena tak, aby vyluèovala možnost takový
 Abychom mohli definovat normální formy, potøebujeme znát funkèní závislosti jednotlivých atributù entit relaèní databáze a vìdìt, které atributy jsou klíèové a které ne.
 \end{obecne}
 
-\begin{definiceN}{Funkèní závislosti}
+\begin{e}{Definice}{0}{Funkèní závislosti}
 
 \medskip\noindent
 Øekneme, že atribut \emph{B} je \textbf{funkènì závislý} na atributu \emph{A}
@@ -34,9 +34,9 @@ Funkèní závislosti splòují tzv. \emph{Armstrongova pravidla}, což zahrnuje pro m
     \item kompozici: $X\to Y \wedge X\to Z\ \Rightarrow X\to YZ$
     \item dekompozici: $X\to YZ \ \Rightarrow \ X\to Y \wedge X\to Z$
 \end{penumerate}
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{Klíè}
+\begin{e}{Definice}{0}{Klíè}
 \textbf{Nadklíèem}, nìkdy též \textbf{superklíèem}, schématu $A$ rozumíme každou
 podmnožinu množiny $A$, na níž $A$ funkènì závisí. Jinak øeèeno nadklíè je množina
 atributù, která jednoznaènì urèuje øádek tabulky.
@@ -47,9 +47,9 @@ $A$. Èili minimální nadklíè.
 
 Každý atribut, který je obsažen alespoò v jednom potenciálním klíèi se nazývá
 \textbf{klíèový}, ostatní atributy jsou \textbf{neklíèové}.
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{Normální formy}
+\begin{e}{Definice}{0}{Normální formy}
 \begin{pitemize}
 	\item \emph{První normální forma} \\ -- Tabulka je v první normální formì, jestliže lze do každého pole dosadit pouze jednoduchý datový typ (jsou dále nedìlitelné). To zahrnuje i neexistenci více sloupcù tabulky se stejným druhem obsahu:
 $$
@@ -69,7 +69,7 @@ $$\textrm{(deptID, deptName, managerID, hireDate)} \rightarrow \textrm{(deptID, 
 Atribut \uv{hireDate} je sice funkènì závislý na klíèi deptID, ale jen proto, že hireDate závisí na managerID, které závisí na deptID.
 	\item \emph{Boyce-Coddova normální forma}\\ -- Pro každou netriviální závislost $X \rightarrow Y$ platí, že $X$ obsahuje klíè schématu $R$ ($X$ je nadklíè).
 \end{pitemize}
-\end{definiceN}
+\end{e}
 
 \subsubsection*{Algoritmy návrhu schémat relací}
 
@@ -84,16 +84,16 @@ První možnost je relativnì intuitivní (s ER diagramy) a jednoduchá, ale hrozí ri
 Jediným zpùsobem, jak u nìjakého obecného relaèního schématu dosáhnout normální formy (obecnì se požaduje vìtšinou 3NF nebo BCNF), je rozdìlení na nìkolik podschémat. Dá se to provést ruènì nebo algoritmicky a existuje více pøístupù podle požadavku na normální formu, \emph{bezztrátovost} (dekompozice relace $R( A, F )$ do $R_1(A_1,F_1)$ a $R_2(A_2,F_2)$ je bezeztrátová, když $A1 \cap A2\to A1$ nebo $A1 \cap A2 \to A2$, tedy opìtovným spojením do pùvodní relace nevzniknou další øádky) nebo \emph{pokrytí závislostí} (dekompozice $R(A,F)$ do $R_1(A_1,F_1)$ zachovává pokrytí závislostí, když $F^{+}=F^{+}_1\cup F^{+}_2$ -- nesmí se ztratit závislost ani v rámci dílèího schématu, ani jdoucí napøíè schématy).
 \end{obecne}
 
-\begin{algoritmusN}{Dekompozice}
+\begin{e}{Algoritmus}{0}{Dekompozice}
 Dekompozice je algoritmus, který relaèní schéma pøevede do Boyce-Coddovy normální formy. Zaruèuje zachování bezeztrátovosti, ale už ne pokrytí závislostí (bez ohledu na algoritmus toto u BCNF nìkdy není možné). Jeho bìh vypadá následovnì:
 \begin{penumerate}
     \item Vyber nìjaké schéma, které není v BCNF.
     \item Vezmi pro nìj neklíèovou závislost $X\to Y$ (tak že $X$ není klíè) a dekomponuj podle ní -- vyhoï ze schématu $Y$ a dej $XY$ do zvláštní tabulky.
     \item Opakuj od kroku 1, dokud existuje schéma, které není v BCNF.
 \end{penumerate}
-\end{algoritmusN}
+\end{e}
 
-\begin{algoritmusN}{Syntéza}
+\begin{e}{Algoritmus}{0}{Syntéza}
 Algoritmus syntézy obecnì dosahuje tøetí normální formy a zachovává pokrytí závislostí (ale ne bezeztrátovost). Pro relaèní schéma $R$ s množinou funkèních závislostí $F$ vypadá následovnì:
 \begin{penumerate}
     \item Udìlej minimální pokrytí $F$ (vzhledem k tranzitivitì), nazvi ho $G$.
@@ -101,9 +101,9 @@ Algoritmus syntézy obecnì dosahuje tøetí normální formy a zachovává pokrytí závi
     \item Zahoï schémata, která jsou podmnožiny jiných.
 \end{penumerate}
 Nakonec je možné slouèit schémata s funkènì ekviv. klíèi ($K1 \leftrightarrow K2$), ale mùže to porušit normální formu, které bylo dosaženo! Pro zachování bezeztrátovosti lze do pøidat nìjaké schéma, obsahující univerzální klíè celého pùvodního (nedìleného) schématu.
-\end{algoritmusN}
+\end{e}
 
-\begin{poznamka}
+\begin{e}{Poznámka}{0}{0}
 Pro nalezení minimálního pokrytí atributù se používá pomocný algoritmus, který se chová takto:
 \begin{penumerate} 
     \item Dekomponuj všechny funkèní závislosti na elementární (na pravé stranì je jen jeden sloupec)
@@ -111,7 +111,7 @@ Pro nalezení minimálního pokrytí atributù se používá pomocný algoritmus, který s
     \item Odstraò redundantní funkèní závislosti (tj. takové, které jsou tranzitivním dùsledkem jiných -- pravá strana funkènì závisí na levé, i když z množiny funkèních závislostí onu redundantní odstraním)
 \end{penumerate}
 Pro druhý i tøetí krok je potøeba získat \emph{atributový uzávìr} (množina všech atributù i tranzitivnì závislých na levé stranì) -- to se opakovanì zkouší, jestli díky funkèním závislostem nedostanu z atributù pùvodní množiny nìjaké další atributy (dokud nacházím další, pøidávám je do množiny a opakuji).
-\end{poznamka}
+\end{e}
 
 \subsubsection*{Referenèní integrita}
 

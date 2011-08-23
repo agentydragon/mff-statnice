@@ -1,16 +1,16 @@
 \subsection{Metoda rozdìl a panuj -- aplikace a analıza sloitosti}
 Je to celé napsané dost rozvláènì, ale podle mì není nutné umìt celé (napøíklad vzorce ze Strassena mùe chtít jenom sadista), spíš tomu všemu nìjak rozumìt. Zdroje: Èepkovy a MJovy pøednášky na ADS1.
 \\\\
-\begin{definiceN}{Metoda rozdìl a panuj}
+\begin{e}{Definice}{0}{Metoda rozdìl a panuj}
 \emph{Rozdìl a panuj} je metoda návrhu algoritmù (ne strukturované programování), která má 3 kroky:
 \begin{penumerate}
     \item \emph{rozdìl} -- rozdìlí úlohu na nìkolik podúloh stejného typu, ale menší velikosti
     \item \emph{vyøeš} -- vyøeší podúlohy buï pøímo pro dostateènì malé (èasto triviální), nebo rekurzivnì dìlíme dál pokud jsou ještì moc velké
     \item \emph{sjedno} -- sjednotí øešení podúloh do øešení pùvodní úlohy
 \end{penumerate}
-\end{definiceN}
+\end{e}
 
-\begin{poznamkaN}{Vytvoøení rekurentní rovnice}
+\begin{e}{Poznámka}{0}{Vytvoøení rekurentní rovnice}
 Pro èasovou sloitost algoritmù typu rozdìl a panuj zpravidla dostávám nìjakou rekurentní rovnici.
 \begin{pitemize}
     \item $T(n)$ budi doba zpracování úlohy velikosti $n$, za pøedpokladu, e $T(n)=\Theta(1)$ pro $n\leq n_0$.
@@ -19,27 +19,27 @@ Pro èasovou sloitost algoritmù typu rozdìl a panuj zpravidla dostávám nìjakou r
 \end{pitemize}
 Dostávám rovnici
 $$T(n)=\begin{cases} D(n)+aT(\frac{n}{c})+S(n) \quad\quad & n > n_0 \\ \Theta(1) & n \leq n_0 \end{cases}$$
-\end{poznamkaN}
+\end{e}
 
 \subsubsection*{Metody øešení rekurentních rovnic}
 
-\begin{poznamkaN}{k øešení rekurentních rovnic}
+\begin{e}{Poznámka}{0}{k øešení rekurentních rovnic}
 \begin{pitemize}
     \item Pøedpoklad $T(n) = \Theta(1)$  pro dostateènì malá n nepíšeme explicitnì do rovnice
     \item Zanedbáváme celoèíselnost (tj. píšeme $\frac{n}{2}$ místo $\lceil\frac{n}{2}\rceil$ a $\lfloor\frac{n}{2}\rfloor$)
     \item Nehledíme na konkrétní hodnoty aditivních a multiplikativních konstant, asymptotické notace pouívám i v zadání rekurentních rovnic, i v jejich øešení.
 \end{pitemize}
-\end{poznamkaN}
+\end{e}
 
 
-\begin{vetaNSkull}{Substituèní metoda}
+\begin{e}{Vìta}{1}{Substituèní metoda}
 \begin{penumerate}
     \item Uhodnu asymptoticky správné øešení
     \item Pøímo nebo indukcí ovìøím správnost (zvláštì horní a dolní odhad)
 \end{penumerate}
-\end{vetaNSkull}
+\end{e}
 
-\begin{vetaNSkull}{Metoda \uv{kuchaøka} (Master Theorem)}
+\begin{e}{Vìta}{1}{Metoda \uv{kuchaøka} (Master Theorem)}
 Nech $a\geq 1, c>1,d\geq 0\in \mathbb{R}$ a nech $T:\mathbb{N}\to\mathbb{N}$ je neklesající funkce taková, e $\forall n$ tvaru $c^k$ platí
 $$T(n)=aT(\frac{n}{c}) + \Theta(n^d)$$
 Potom
@@ -47,15 +47,15 @@ Potom
     \item Je-li $a \neq c^d$, pak $T(n)$ je $\Theta( n^{\max\{\log_c a, d\}} )$
     \item Je-li $a = c^d$, pak $T(n)$ je $\Theta( n^d \log_c n )$
 \end{penumerate}
-\end{vetaNSkull}
+\end{e}
 
-\begin{vetaN}{Master Theorem, varianta 2}
+\begin{e}{Vìta}{0}{Master Theorem, varianta 2}
 Nech $0<a_i<1$, kde $i\in\{1,\dots,k\}$  a $d\geq 0$ jsou reálná èísla a nech $T:\mathbb{N}\to\mathbb{N}$ splòuje rekurenci $$T(n)=\sum_{i=1}^k T(a_i\cdot n) + \Theta(n^d)$$ Nech je èíslo $x$ øešením rovnice $\sum_{i=1}^k a_i^x = 1$. Potom
 \begin{penumerate}
     \item Je-li $x \neq d$ (tedy $\sum_{i=1}^k a_i^d \neq 1$), pak $T(n)$ je $\Theta( n^{\max\{x, d\}} )$
     \item Je-li $x = d$ (tedy $\sum_{i=1}^k a_i^d = 1$), pak $T(n)$ je $\Theta( n^d \log n )$
 \end{penumerate}
-\end{vetaN}
+\end{e}
 
 \subsubsection{Násobení dlouhıch èísel v lepším ne kvadratickém èase.}
 Klasickım "školním" algoritmem pro násobení na papíøe \Rightarrow $O(n^2)$
@@ -150,7 +150,7 @@ T_4 = D\cdot(R-P)                                        \cr
 
 \\\\
 \subsubsection{Hledání k-tého nejmenšího prvku (mediánu) v lin. èase (Blum et al.)}
-\begin{algoritmusN}{Blum et al.}
+\begin{e}{Algoritmus}{0}{Blum et al.}
 \emph{Select(X,k)}
 \begin{penumerate}
 \item Pokud $n \leq 5 \Rightarrow$ vyøešíme pøímo
@@ -176,7 +176,7 @@ Pøímo e $T(n) = \Theta(n)\Leftrightarrow\exists k>0: \exists n_0\in \mathbb{N}~
 
 Tento tøídící algoritmus pracuje na~principu, e vstup rozdìlíme na~dvì (skoro) stejnì velké èásti, které rekurzivním voláním setøídíme, a~nakonec vısledné dvì posloupnosti slijeme do~jedné. 
 
-\begin{algoritmusN}{MergeSort}
+\begin{e}{Algoritmus}{0}{MergeSort}
 
 \begin{penumerate}
 \item Vstup: posloupnost $x_1,\dots, x_n$.

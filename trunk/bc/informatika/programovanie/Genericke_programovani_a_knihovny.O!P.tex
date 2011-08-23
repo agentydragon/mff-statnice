@@ -6,15 +6,15 @@ U kompilovaných jazykù dochází k rozvinutí kódu v dobì pøekladu. Typickým pøíkla
 jsou takzvané šablony (templates).
 
 \medskip
-\begin{poznamkaN}{Metaprogramování a Generické programování}
+\begin{e}{Poznámka}{0}{Metaprogramování a Generické programování}
 Generické programování se liší od normálního tím, že rozšiøuje jazyk o možnosti metaprogramování. Úzce souvisí s metaprogramováním, ale negeneruje žádný další zdrojový kód (alespoò ne takový jaký by vidìl programátor). Liší se od maker, protože ty provádìjí jen preprocesorové "search-and-replace" a nejsou souèástí gramatiky jazyka (viz níže podrobnìjší srovnání). Jediná vyjímka jsou makra a v Common Lisp, kde parsují stromy a ne text (?? zkontrolovat Lisp).
-\end{poznamkaN}
+\end{e}
 
-\begin{definiceN}{Šablony}
+\begin{e}{Definice}{0}{Šablony}
 Šablony jsou používány kompilátorem pro vygenerování doèasného zdrojového kódu, který se pak spojí se zbytkem a je pak zkompilován. Výstup šablon mùžou tvoøit compile-time konstanty , datové struktury i celé funkce. Použití šablon mùže být chápáno jako spouštìní kódu bìhem kompilace. Tato technika je používána v mnoha jazycích, napøíklad C++, Curl, D a XL.
 
 Obyèejné fce v C++ mají pøednost pøed generickými.
-\end{definiceN}
+\end{e}
 
 \begin{prikladN}{Tøída parametrizovaná typem (kontejner)}
 Pøíklad ukazuje výhodu generického programování, místo abychom psali specifickou implementaci pro každý typ (i když bude kód témìø identický), vytvoøíme si šablonu tøídy:
@@ -148,7 +148,7 @@ Urèeny k definování urèitého chování. Jsou to tøídy, ze kterých obvykle nejsou v
 \end{verbatim}
 \end{prikladN}
 \newpage
-\begin{definiceN}{Dynamický (run-time) polymorfismus}
+\begin{e}{Definice}{0}{Dynamický (run-time) polymorfismus}
 Dìdìní + VMT = flexibilita. Zde uvedeno jako jako srovnání k šablonám.
 \begin{verbatim}
 class Base
@@ -174,9 +174,9 @@ int main()
 \end{verbatim}
 
 Lze rozšíøit o šablony.
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{Statický (compile-time) polymorfismus}
+\begin{e}{Definice}{0}{Statický (compile-time) polymorfismus}
 Je pøetìžování fukcí a operátorù, øeší se pøi kompilaci = rychlost.
 Pøípadnì jeho varianta s šablonami:
 \begin{verbatim}
@@ -197,7 +197,7 @@ struct derived : base<derived>
 };
 \end{verbatim}
 Lze tak dosáhnout podobných vìcí jako s VMT.
-\end{definiceN}
+\end{e}
 
 \begin{obecne}{Použití v programovacích jazycích}
 Jazyk D také nabízí plnì generické šablony založené na svém pøedchùdci C++ ale má jednodušší syntaxi. Java má syntaxi generického programování založenou na  C++ od uvedení J2SE 5.0 a implementuje generiky (anglicky "generics") neboli "kontejnery-typu-T" (tedy pouze podmnožinu generického programování).

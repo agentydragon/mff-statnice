@@ -1,16 +1,16 @@
 \subsection{Základy kryptografie, RSA, DES}
 
 \subsubsection*{Základy kryptografie\footnote{sestaveno podle vrazedneho zkouseni Jaghobem}} 
-\begin{definiceN}{Kryptografický systém (!)}
+\begin{e}{Definice}{0}{Kryptografický systém (!)}
 Prostor otevøených zpráv $M$, šifrovaných zpráv $C$, šifrovacích a dešifrovacích klíèù $K$ a $K'$. Efektivní generování klíèù
                         $G:N\to K\times K'$, šifrování $E:M\times K\to C$, dešifrování $D:C\times K'\to M$.
 \begin{pitemize}
   \item \textbf{Symetrické} (sdílený klíè $k_e = k_d$) rychlé, krátké klíèe, potreba menit klice a bezpecne si je vymenit
   \item\textbf{Asymetrické} (veøejný klíè $k_e \neq k_d$) delsi klice a pomalejsi nez symetrické, neni potøeba tajná výmìna, neni potøeba tak èasto mìnit klíèe 
 \end{pitemize}                  
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{Nahodné generátory}
+\begin{e}{Definice}{0}{Nahodné generátory}
 Používají se pro generování klíèù pro šifry (napø RSA) a v proudových šifrách.
 \begin{pitemize}
   \item\textbf{HW} zaøízení èasto založená na jevech generujících statisticky náhodné "šumové" signály, napøíklad z tepelného šumu polovodièe.
@@ -21,9 +21,9 @@ Používají se pro generování klíèù pro šifry (napø RSA) a v proudových šifrách.
                 \item používají se v proudových šifrách
         \end{pitemize}  
 \end{pitemize} 
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{Hashovaci funkce}
+\begin{e}{Definice}{0}{Hashovaci funkce}
 Funkci $h:U\rightarrow\{0,1,\dots,m-1\}$ nazýváme \textbf{hašovací funkcí}.\footnote{viz otázku Hašování}
 \\\\
 \textbf{Požadavky:}
@@ -36,9 +36,9 @@ Funkci $h:U\rightarrow\{0,1,\dots,m-1\}$ nazýváme \textbf{hašovací funkcí}.\foot
 \textbf{Využití:}
 CRC (kontrolní souèet), ukládání hesel (MD5,SHA) ...      
 
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{Model utocnika podle Doleva a Yao}
+\begin{e}{Definice}{0}{Model utocnika podle Doleva a Yao}
 \begin{pitemize}
   \item Mùže získat libovolnou zprávu putující po síti
   \item Je právoplatným uživatelem sítì a tudíž mùže zahájit komunikaci s jiným uživatelem
@@ -47,21 +47,21 @@ CRC (kontrolní souèet), ukládání hesel (MD5,SHA) ...
   \item Neumi rozume resit NP-uplne problemy (ani slozitejsi)\footnote{tzn. i slabší: Nemùže odhadnout náhodné èíslo z dostateènì velkého prostoru}   
   \item Bez správného klíèe nemùže nalézt zprávu k šifrované zprávì a nemùže vytvoøit platnou šifrovanou zprávu z dané zprávy, vše vzhledem k nìjakému šifrovacímu algoritmu 
 \end{pitemize}  
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{Cile utoku}
+\begin{e}{Definice}{0}{Cile utoku}
         \begin{description}
                 \item\textbf{dùvìrnost dat} uživatel mùže urèit kdo má data vidìt, a systém skuteènì dovolí pracovat s daty pouze povoleným uživatelùm
                 \item\textbf{celistvost dat} možnost podstrèení falešných dat
                 \item\textbf{dostupnost systému} \emph{DoS (Denial of Service)}
         \end{description}
-\end{definiceN}
+\end{e}
 
-\begin{priklad}
+\begin{e}{Pøíklad}{0}{0}
 Ukazku pouziti nejakeho sifrovaciho protokolu (zvolil jsem kombinace symetricka sifra sifrovani, asymetricka predani klicu k symetricke).
 \\\\TODO
-\end{priklad}
-\begin{definiceN}{protokol Diffie-Hellman}
+\end{e}
+\begin{e}{Definice}{0}{protokol Diffie-Hellman}
 \begin{pitemize} 
 \item Diffie-Hellman výmena klícu je kryptografický protokol, který umožnuje navázat bezpecné spojení. Pro bezpecné spojení je potreba si vymenit klíc k symetrické šifre pres ješte nezabezpecený kanál. Práve tento protokol to umožnuje aniž by byl klíc jednoduše poslán v otevrené forme.
 \item Alice si vymyslí velké prvocíslo $p$, generátor $g$ koneèné grupy $G=(Z^*_p,\cdot)$
@@ -79,7 +79,7 @@ a $a\in[1,p-1)$ vypocte A pošle Bobovi [g,p,A], Bob vypocte B a pošle ho Alici o
 \item Puvodne nezabezpecoval autentifikaci ucastniku = nachylny k utoku man-in-the-middle. Man-in-the-middle muze vytvorit komunikaci s dvema ruznymi Diffie-Hellman klici, jeden s Alici a druhej s Bobem, a pak se tvarit jako Alice k Bobovi a obracene, treba pomoci dekodovani a rekodovani zprav mezi nimi. Nejaka metoda autentifikace mezi temito osobami je nutna.
 \item Problému nalezení císla  a  ze znalosti ga  mod  p  se ríká problém diskrétního logaritmu.  Tento problém je stále považován za velmi obtížný. \end{pitemize} 
 
-\end{definiceN}
+\end{e}
 
 \subsubsection*{RSA (Rivest-Shamir-Adleman)}
 Asymetrická šifra (rùzné klíèe pro šifrování a dešifrování), použitelná jako šifra s veøejným klíèem. Kryptoschéma je založeno na Eulerove formuli.

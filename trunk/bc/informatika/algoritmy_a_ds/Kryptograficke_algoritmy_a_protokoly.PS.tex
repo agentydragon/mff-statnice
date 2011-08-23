@@ -1,362 +1,362 @@
-\subsection{KryptografickÃ© algoritmy a protokoly}
+\subsection{Kryptografické algoritmy a protokoly}
 
-\begin{obecne}{CÃ­le kryptografie}
+\begin{obecne}{Cíle kryptografie}
   \begin{pitemize}
-    \item dÅ¯vÄ›rnost dat
+    \item dùvìrnost dat
     \item celistvost dat
     \item autentifikace~-- od koho jsou data
-    \item nepopiratelnost~-- kdyÅ¾ jednou nÄ›co potvrdÃ­m, nemohu to popÅ™Ã­t.
+    \item nepopiratelnost~-- kdy jednou nìco potvrdím, nemohu to popøít.
   \end{pitemize}
 \end{obecne}
 
-\begin{definiceN}{KryptografickÃ½ systÃ©m}
- \textbf{ KryptografickÃ½ systÃ©m} obsahuje:
+\begin{e}{Definice}{0}{Kryptografickı systém}
+ \textbf{ Kryptografickı systém} obsahuje:
   \begin{pitemize}
-    \item prostor zprÃ¡v~-- \emph{plaintext},
-    \item prostor Å¡ifrovanÃ½ch zprÃ¡v~-- \emph{ciphertext},
-    \item prostory Å¡ifrovacÃ­ch a deÅ¡ifrovacÃ­ch \emph{klÃ­ÄÅ¯},
-    \item efektivnÃ­ algoritmus pro \emph{generovÃ¡nÃ­ klÃ­ÄÅ¯},
-    \item efektivnÃ­ algoritmus pro \emph{Å¡ifrovÃ¡nÃ­},
-    \item efektivnÃ­ algoritmus pro \emph{deÅ¡ifrovÃ¡nÃ­}.
+    \item prostor zpráv~-- \emph{plaintext},
+    \item prostor šifrovanıch zpráv~-- \emph{ciphertext},
+    \item prostory šifrovacích a dešifrovacích \emph{klíèù},
+    \item efektivní algoritmus pro \emph{generování klíèù},
+    \item efektivní algoritmus pro \emph{šifrování},
+    \item efektivní algoritmus pro \emph{dešifrování}.
   \end{pitemize}
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{oznaÄenÃ­}
-  $C$~-- Å¡ifra, $P$~-- otevÅ™enÃ½ text, $K$~-- klÃ­Ä,\\
-  $\mathbf{E}$~-- Å¡ifrovacÃ­ algoritmus, $\mathbf{D}$~-- deÅ¡ifrovacÃ­ algoritmus.\\[3mm]
-  \emph{Å ifrovÃ¡nÃ­:} $C = \mathbf{E}(P)$, resp. $C = \mathbf{E}(K, P)$\\
-  \emph{DeÅ¡ifrovÃ¡nÃ­:} $P = \mathbf{D}(C)$, resp. $P = \mathbf{D}(K, C)$\\
-\end{definiceN}
+\begin{e}{Definice}{0}{oznaèení}
+  $C$~-- šifra, $P$~-- otevøenı text, $K$~-- klíè,\\
+  $\mathbf{E}$~-- šifrovací algoritmus, $\mathbf{D}$~-- dešifrovací algoritmus.\\[3mm]
+  \emph{Šifrování:} $C = \mathbf{E}(P)$, resp. $C = \mathbf{E}(K, P)$\\
+  \emph{Dešifrování:} $P = \mathbf{D}(C)$, resp. $P = \mathbf{D}(K, C)$\\
+\end{e}
 
 
-\begin{obecne}{Kerchoffovy principy dobrÃ©ho krypt. systÃ©mu}
+\begin{obecne}{Kerchoffovy principy dobrého krypt. systému}
 \begin{pitemize}
-    \item E a D neobs. tajnou ÄÃ¡st
-    \item E distribuuje rozumnÃ© zprÃ¡vy rovnomÄ›rnÄ› po C
-    \item se sprÃ¡vnÃ½m klÃ­Äem jsou E \& D efektivnÃ­
-    \item bez sprÃ¡vnÃ©ho klÃ­Äe je deÅ¡ifrovÃ¡nÃ­ minimÃ¡nÄ› NP-ÃºplnÃ©. 
+    \item E a D neobs. tajnou èást
+    \item E distribuuje rozumné zprávy rovnomìrnì po C
+    \item se správnım klíèem jsou E \& D efektivní
+    \item bez správného klíèe je dešifrování minimánì NP-úplné. 
 \end{pitemize}
 \end{obecne}
 
-\begin{obecne}{dÄ›lenÃ­ kryptografickÃ½ch systÃ©mÅ¯}
+\begin{obecne}{dìlení kryptografickıch systémù}
 \begin{pitemize}
-    \item symetrickÃ© krypt. systÃ©my : $k = k'$
-    \item asymetrickÃ© : $k \neq k'$ ( veÅ™ejnÃ½ a tajnÃ½ klÃ­Ä ). 
+    \item symetrické krypt. systémy : $k = k'$
+    \item asymetrické : $k \neq k'$ ( veøejnı a tajnı klíè ). 
 \end{pitemize}
 \end{obecne}
 
-\begin{obecne}{Model ÃºtoÄnÃ­ka podle Doleva a Yao}
+\begin{obecne}{Model útoèníka podle Doleva a Yao}
 \begin{pitemize}
-    \item mÅ¯Å¾e zÃ­skat jakokoliv zprÃ¡vu jdoucÃ­ po sÃ­ti, mÅ¯Å¾e zahÃ¡jit komunikaci s jinÃ½m uÅ¾ivatelem, mÅ¯Å¾e se stÃ¡t pÅ™Ã­jemcem zprÃ¡v od kohokoliv, mÅ¯Å¾e zasÃ­lat zprÃ¡vy komukoliv \& vydÃ¡vat se za jinÃ©ho uÅ¾ivatele, 
-    \item nemÅ¯Å¾e uhÃ¡dnout nÃ¡h. ÄÃ­slo z dost velkÃ© mnoÅ¾iny, bez klÃ­Äe nemÅ¯Å¾e deÅ¡ifrovat zprÃ¡vu \& nemÅ¯Å¾e vytvoÅ™it platnou Å¡ifrovanou zprÃ¡vu (vzhledem k Å¡ifr. alg.).
+    \item mùe získat jakokoliv zprávu jdoucí po síti, mùe zahájit komunikaci s jinım uivatelem, mùe se stát pøíjemcem zpráv od kohokoliv, mùe zasílat zprávy komukoliv \& vydávat se za jiného uivatele, 
+    \item nemùe uhádnout náh. èíslo z dost velké mnoiny, bez klíèe nemùe dešifrovat zprávu \& nemùe vytvoøit platnou šifrovanou zprávu (vzhledem k šifr. alg.).
 \end{pitemize}
 \end{obecne}
 
-\subsubsection*{KryptografickÃ© protokoly}
+\subsubsection*{Kryptografické protokoly}
 
 \begin{pitemize}
-   \item \textbf{ArbitrovanÃ© protokoly}~-- rozhodÄÃ­ dÄ›lÃ¡ skoro vÅ¡echno.
-   \item \textbf{RozhodovanÃ© protokoly}~-- rozhodÄÃ­ je dobrÃ½ jenom pÅ™i sporu aby rozhodl.
-   \item \textbf{SamozabezpeÄovacÃ­ protokoly}~-- nenÃ­ Å¾Ã¡dnÃ¡ tÅ™etÃ­ strana.
+   \item \textbf{Arbitrované protokoly}~-- rozhodèí dìlá skoro všechno.
+   \item \textbf{Rozhodované protokoly}~-- rozhodèí je dobrı jenom pøi sporu aby rozhodl.
+   \item \textbf{Samozabezpeèovací protokoly}~-- není ádná tøetí strana.
 \end{pitemize}
 
-\begin{obecne}{AnonymnÃ­ platby}
-  ProblÃ©m kreditnÃ­ch karet spoÄÃ­vÃ¡ v sledovatelnosti toku penÄ›z. HledÃ¡me protokol
-  pro tvorbu autentizovanÃ½ch ale nesledovatelnÃ½ch zprÃ¡v.
+\begin{obecne}{Anonymní platby}
+  Problém kreditních karet spoèívá v sledovatelnosti toku penìz. Hledáme protokol
+  pro tvorbu autentizovanıch ale nesledovatelnıch zpráv.
 \end{obecne}
 
-\begin{obecne}{ÄŒasovÃ© znÃ¡mky}
-  NejjednoduÅ¡Å¡Ã­ metodou je zasÃ­lat kopie zprÃ¡v dÅ¯vÄ›ryhodnÃ©mu arbitrovi, problÃ©my s
-  mnoÅ¾stvÃ­m uchovÃ¡vanÃ½ch dat lze vyÅ™eÅ¡it pouÅ¾itÃ­m haÅ¡ovacÃ­ch funkcÃ­.
+\begin{obecne}{Èasové známky}
+  Nejjednodušší metodou je zasílat kopie zpráv dùvìryhodnému arbitrovi, problémy s
+  mnostvím uchovávanıch dat lze vyøešit pouitím hašovacích funkcí.
 
-  PouÅ¾Ã­vajÃ­ se spojenÃ© (linked) aby odesÃ­latel spolu s arbitrem nemohli podvÃ¡dÄ›t.
+  Pouívají se spojené (linked) aby odesílatel spolu s arbitrem nemohli podvádìt.
   \begin{penumerate}
-    \item OdesÃ­latel $S$ zaÅ¡le arbitrovi $A$ hashkod zprÃ¡vy $H_n$.
-    \item $A$ vrÃ¡tÃ­ odesÃ­lateli 
+    \item Odesílatel $S$ zašle arbitrovi $A$ hashkod zprávy $H_n$.
+    \item $A$ vrátí odesílateli 
     $T_n=S_K(n,S,H_n,Tm_n;Id_{n-1},H_{n-1},T_{n-1},H(Id_{n-1},H_{n-1},T_{n-1}))$
-    kde $n$ je poÅ™adÃ­ zprÃ¡vy, $Tm_n$ Äas podpisu zprÃ¡vy, $Id_{n-1}\ldots$ jsou informace
-    o pÅ™edeÅ¡lÃ© zprÃ¡vÄ›, kterou arbitr vyÅ™izoval.
-    \item Po vyÅ™Ã­zenÃ­ nÃ¡sledujÃ­cÃ­ zprÃ¡vy arbitr zaÅ¡le odesÃ­lateli identifikaci
-    nÃ¡sledujÃ­cÃ­ho odesilatele
+    kde $n$ je poøadí zprávy, $Tm_n$ èas podpisu zprávy, $Id_{n-1}\ldots$ jsou informace
+    o pøedešlé zprávì, kterou arbitr vyøizoval.
+    \item Po vyøízení následující zprávy arbitr zašle odesílateli identifikaci
+    následujícího odesilatele
   \end{penumerate}
-  Chce-li nÄ›kdo ovÄ›Å™it Äasovou znÃ¡mku zprÃ¡vy, kontaktuje odesilatele $Id_{n-1}$ a
-  $Id_{n+1}$ a pomoci nich ovÄ›Å™Ã­ platnost $T_n$
+  Chce-li nìkdo ovìøit èasovou známku zprávy, kontaktuje odesilatele $Id_{n-1}$ a
+  $Id_{n+1}$ a pomoci nich ovìøí platnost $T_n$
 \end{obecne}
 
-\begin{obecne}{DigitÃ¡lnÃ­ podpisy}
-  MusÃ­ bÃ½t nefalÅ¡ovatelnÃ©, autentickÃ©, nemÄ›nitelnÃ©, \uv{nerecyklovatelnÃ©}.
-  \paragraph{SymetrickÃ© systÃ©my:}
-   NechÅ¥ odesÃ­latel $S$ zasÃ­lÃ¡ pÅ™Ã­jemci $R$ zprÃ¡vu $M$
+\begin{obecne}{Digitální podpisy}
+  Musí bıt nefalšovatelné, autentické, nemìnitelné, \uv{nerecyklovatelné}.
+  \paragraph{Symetrické systémy:}
+   Nech odesílatel $S$ zasílá pøíjemci $R$ zprávu $M$
    \begin{penumerate}
-      \item $S$ zaÅ¡le arbitrovi $A$ zprÃ¡vu $\mathbf{E}(M,K_S)$.
-      \item Arbitr verifikuje odesÃ­latele a pÅ™Ã­jemci $R$ zaÅ¡le 
+      \item $S$ zašle arbitrovi $A$ zprávu $\mathbf{E}(M,K_S)$.
+      \item Arbitr verifikuje odesílatele a pøíjemci $R$ zašle 
       $\mathbf{E}((M,S, \mathbf{E}(M,K_S)),K_R)$
-      \item PÅ™Ã­jemce uchovÃ¡ $M$ a $\mathbf{E}(M,K_S)$ pro ÃºÄely pÅ™Ã­padnÃ©ho dokazovÃ¡nÃ­ pÅ™ijetÃ­.
+      \item Pøíjemce uchová $M$ a $\mathbf{E}(M,K_S)$ pro úèely pøípadného dokazování pøijetí.
    \end{penumerate}
 
-   \paragraph{AsymetrickÃ© systÃ©my:}
-   StaÄÃ­ provÃ©st $\mathbf{E}(\mathbf{D}(M,K_S),K_R)$
+   \paragraph{Asymetrické systémy:}
+   Staèí provést $\mathbf{E}(\mathbf{D}(M,K_S),K_R)$
 
 \end{obecne}
 
-\begin{obecne}{DÅ¯kazy s nulovou znalostÃ­}
+\begin{obecne}{Dùkazy s nulovou znalostí}
   \begin{pitemize}
-    \item dokazovatel nesmÃ­ podvÃ¡dÄ›t - pokud dÅ¯kaz neznÃ¡, jeho Å¡ance pÅ™esvedÄit arbitra
-    je mizivÃ¡
-    \item ovÄ›Å™ovatel nesmÃ­ podvÃ¡dÄ›t - o dÅ¯kazu smÃ­ zjistit jenom to, ze ho dokazovatel znÃ¡.
-    V Å¾Ã¡dnÃ©m pÅ™Ã­padÄ› nesmÃ­ bÃ½t schopen dÅ¯kaz zrekonstruovat a sÃ¡m provÃ©st.
-    \item ovÄ›Å™ovatel se nesmÃ­ dozvÄ›dÄ›t nic, co by nebyl schopen zjistit bez pomoci 
+    \item dokazovatel nesmí podvádìt - pokud dùkaz nezná, jeho šance pøesvedèit arbitra
+    je mizivá
+    \item ovìøovatel nesmí podvádìt - o dùkazu smí zjistit jenom to, ze ho dokazovatel zná.
+    V ádném pøípadì nesmí bıt schopen dùkaz zrekonstruovat a sám provést.
+    \item ovìøovatel se nesmí dozvìdìt nic, co by nebyl schopen zjistit bez pomoci 
     dokazovatele.
   \end{pitemize}
-  NenÃ­-li splnÄ›na poslednÃ­ podmÃ­nka mluvÃ­me o \emph{dÅ¯kazech s minimÃ¡lnÃ­m vyzrazenÃ­m}.
-  Jeden z moÅ¾nÃ½ch dÅ¯kazÅ¯ je zaloÅ¾en na problematice HamiltonovskÃ½ch kruÅ¾nic v grafu.
+  Není-li splnìna poslední podmínka mluvíme o \emph{dùkazech s minimálním vyzrazením}.
+  Jeden z monıch dùkazù je zaloen na problematice Hamiltonovskıch krunic v grafu.
   \begin{penumerate}
-    \item NechÅ¥ $A$ znÃ¡ Hamiltonovskou kruÅ¾nici v grafu $G$.
-    \item $A$ provede nÃ¡hodnou permutaci oÄÃ­slovÃ¡nÃ­ vrcholÅ¯ $G$. PÅ¯vodnÃ­ graf a vzniklÃ½ $H$ jsou izomorfnÃ­.
-    \item Kopie grafu $H$ je zaslÃ¡na entitÄ› $B$.
-    \item OvÄ›Å™ovatel $B$ poloÅ¾Ã­ dokazovateli $A$ jednu z nÃ¡sledujÃ­cÃ­ch otÃ¡zek
+    \item Nech $A$ zná Hamiltonovskou krunici v grafu $G$.
+    \item $A$ provede náhodnou permutaci oèíslování vrcholù $G$. Pùvodní graf a vzniklı $H$ jsou izomorfní.
+    \item Kopie grafu $H$ je zaslána entitì $B$.
+    \item Ovìøovatel $B$ poloí dokazovateli $A$ jednu z následujících otázek
     \begin{penumerate}
-	\item DokÃ¡zat, Å¾e $G$ a $H$ jsou izomorfnÃ­
-	\item UkÃ¡zat Hamiltonovskou kruÅ¾nici v grafu $H$
+	\item Dokázat, e $G$ a $H$ jsou izomorfní
+	\item Ukázat Hamiltonovskou krunici v grafu $H$
     \end{penumerate}
-    \item OpakovÃ¡nÃ­m kroku 1. aÅ¾ 4. lze docÃ­lit potÅ™ebnÃ© jistoty. 
+    \item Opakováním kroku 1. a 4. lze docílit potøebné jistoty. 
   \end{penumerate}
 \end{obecne}
 
-\begin{obecne}{NeurÄitÃ½ obnos (Oblivious transfer)}
-  Protokol umoÅ¾Åˆuje, aby si adresÃ¡t vybral z nÄ›kolika nabÃ­zenÃ½ch moÅ¾nostÃ­ aniÅ¾
-  by odesÃ­latel pÅ™edem znal jeho volbu, moÅ¾nÃ© doplnÄ›nÃ­ o nÃ¡slednou vzÃ¡jemnou
+\begin{obecne}{Neurèitı obnos (Oblivious transfer)}
+  Protokol umoòuje, aby si adresát vybral z nìkolika nabízenıch moností ani
+  by odesílatel pøedem znal jeho volbu, moné doplnìní o následnou vzájemnou
   kontrolu.
 \end{obecne}
 
-\begin{obecne}{PodepisovÃ¡nÃ­ kontraktÅ¯ (Contract signing)}
-  V kaÅ¾dÃ©m okamÅ¾iku musÃ­ bÃ½t obÄ› smluvnÃ­ strany vÃ¡zÃ¡ny stejnÄ› moc.
-  NejjednoduÅ¡Å¡Ã­m Å™eÅ¡enÃ­m je arbitrovanÃ½ protokol, kde obÄ› strany pÅ™edajÃ­
-  centrÃ¡lnÃ­ autoritÄ› svÃ© podepsanÃ© kopie a tato tÅ™etÃ­ strana zajistÃ­ vÃ½mÄ›nu po
-  obdrÅ¾enÃ­ obou kopiÃ­.
+\begin{obecne}{Podepisování kontraktù (Contract signing)}
+  V kadém okamiku musí bıt obì smluvní strany vázány stejnì moc.
+  Nejjednodušším øešením je arbitrovanı protokol, kde obì strany pøedají
+  centrální autoritì své podepsané kopie a tato tøetí strana zajistí vımìnu po
+  obdrení obou kopií.
 \end{obecne}
 
-\begin{obecne}{ElektronickÃ¡ potvrzovanÃ¡ poÅ¡ta (digital certified mail)}
-  Chceme, aby adresÃ¡t mohl pÅ™eÄÃ­st naÅ¡i zprÃ¡vu aÅ¾ potÃ©, co zÃ­skÃ¡me potvrzenÃ­ o
-  tom, Å¾e ji obdrÅ¾el (elektronickÃ½ doporuÄenÃ½ dopis).
+\begin{obecne}{Elektronická potvrzovaná pošta (digital certified mail)}
+  Chceme, aby adresát mohl pøeèíst naši zprávu a poté, co získáme potvrzení o
+  tom, e ji obdrel (elektronickı doporuèenı dopis).
 \end{obecne}
 
-\begin{obecne}{BezpeÄnÃ© volby}
+\begin{obecne}{Bezpeèné volby}
   \begin{pitemize}
-    \item volit smÃ­ pouze oprÃ¡vnÄ›nÃ­ voliÄi,
-    \item kaÅ¾dÃ½ smÃ­ hlasovat nejvÃ½Å¡e jednou,
-    \item nikdo nesmÃ­ vÄ›dÄ›t, kdo jak volil,
-    \item nikdo nesmÃ­ mÄ›nit volbu jinÃ½ch,
-    \item kaÅ¾dÃ½ hlas musÃ­ bÃ½t zapoÄÃ­tÃ¡n.
+    \item volit smí pouze oprávnìní volièi,
+    \item kadı smí hlasovat nejvıše jednou,
+    \item nikdo nesmí vìdìt, kdo jak volil,
+    \item nikdo nesmí mìnit volbu jinıch,
+    \item kadı hlas musí bıt zapoèítán.
   \end{pitemize}
 
-  NejjednoduÅ¡Å¡Ã­ moÅ¾nost je pouÅ¾Ã­t protokol se dvÄ›mi centrÃ¡lnÃ­mi autoritami.
-  PouÅ¾Ã­vÃ¡ registraÄnÃ­ autoritu $RA$ provÃ¡dÄ›jÃ­cÃ­ registraci voliÄÅ¯ a sÄÃ­tacÃ­
-  autoritu $SA$, kterÃ¡ sÄÃ­tÃ¡ hlasovacÃ­ lÃ­stky a zveÅ™ejÅˆuje vÃ½sledky voleb.
+  Nejjednodušší monost je pouít protokol se dvìmi centrálními autoritami.
+  Pouívá registraèní autoritu $RA$ provádìjící registraci volièù a sèítací
+  autoritu $SA$, která sèítá hlasovací lístky a zveøejòuje vısledky voleb.
   \begin{penumerate}
-    \item VÅ¡ichni voliÄi zaÅ¡lou $RA$ Å¾Ã¡dost o validaÄnÃ­ ÄÃ­slo.
-    \item $RA$ zaÅ¡le kaÅ¾dÃ©mu voliÄi nÃ¡hodnÄ› zvolenÃ© validaÄnÃ­ ÄÃ­slo $L$ a zÃ¡roveÅˆ
-    si poznamenÃ¡ kdo jakÃ© ÄÃ­slo dostal.
-    \item $RA$ zaÅ¡le seznam validaÄnÃ­ch ÄÃ­sel $SA$.
-    \item Kazdy z voliÄÅ¯ si nÃ¡hodnÄ› vybere svoje identifikaÄnÃ­ ÄÃ­slo $Id$ a $SA$
-    zaÅ¡le zprÃ¡vu $(L, Id, v)$ kde v je jeho volba.
-    \item $SA$ porovnÃ¡ $L$ se seznamem validaÄnÃ­ch ÄÃ­sel z kroku 3. OdpovÃ­dajÃ­cÃ­
-    ÄÃ­slo Å¡krtne a voliÄovo $Id$ pÅ™idÃ¡ do seznamu asociovanÃ©ho s volenÃ½m kandidÃ¡tem.
-    \item Po skonÄenÃ­ voleb $SA$ zveÅ™ejnÃ­ vÃ½sledky a seznamy identifikaÄnÃ­ch ÄÃ­sel
-    spojenÃ© se jmÃ©ny kandidÃ¡tÅ¯.
+    \item Všichni volièi zašlou $RA$ ádost o validaèní èíslo.
+    \item $RA$ zašle kadému volièi náhodnì zvolené validaèní èíslo $L$ a zároveò
+    si poznamená kdo jaké èíslo dostal.
+    \item $RA$ zašle seznam validaèních èísel $SA$.
+    \item Kazdy z volièù si náhodnì vybere svoje identifikaèní èíslo $Id$ a $SA$
+    zašle zprávu $(L, Id, v)$ kde v je jeho volba.
+    \item $SA$ porovná $L$ se seznamem validaèních èísel z kroku 3. Odpovídající
+    èíslo škrtne a volièovo $Id$ pøidá do seznamu asociovaného s volenım kandidátem.
+    \item Po skonèení voleb $SA$ zveøejní vısledky a seznamy identifikaèních èísel
+    spojené se jmény kandidátù.
   \end{penumerate}
 \end{obecne}
 
-\begin{obecne}{Ãštoky na protokoly}
+\begin{obecne}{Útoky na protokoly}
   \begin{pitemize}
-    \item \emph{pÅ™ehrÃ¡nÃ­ zprÃ¡v}~-- M odposlouchÃ¡ vÅ¡echny zprÃ¡vy a pak totÃ©Å¾ udÄ›lÃ¡ sÃ¡m
-    \item \emph{muÅ¾ uprostÅ™ed} (man-in-the-middle)
-    \item \emph{paralelnÃ­ spojenÃ­}~-- nÄ›kolik bÄ›hÅ¯ protokolÅ¯ provÃ¡dÄ›nÃ½ch souÄasnÄ› pod
-    Å™Ã­zenÃ­m M
-    \item \emph{odraÅ¾enÃ­}~-- A zahÃ¡jÃ­ komunikaci, M zachytÃ­ zprÃ¡vu, upravÃ­ ji, aby
-    nebyl poznat pÅ¯vodnÃ­ A a poÅ¡le ji zpÄ›t A
-    \item \emph{proklÃ¡dÃ¡nÃ­}~-- NÄ›kolik bÄ›hÅ¯ protokolu provÃ¡dÄ›nÃ½ch souÄasnÄ› pod
-    Å™Ã­zenÃ­m M, zprÃ¡vy z jednoho se pouÅ¾ijÃ­ u dalÅ¡Ã­ho, atd.
-    \item \emph{chyba typu}~-- NedodrÅ¾enÃ­ pÅ™esnÃ©ho sÃ©mantickÃ©ho vÃ½znamu zprÃ¡vy
-    \item \emph{vypuÅ¡tÄ›nÃ­ jmÃ©na}~-- Pokud v protokolu nenÃ­ poznat, kdo za to mÅ¯Å¾e
-    \item \emph{chybnÃ© pouÅ¾itÃ­ Å¡ifrovacÃ­ sluÅ¾by}~-- Å patnÃ½ algoritmus pouÅ¾itÃ½ na nevhodnÃ©m mÃ­stÄ›
+    \item \emph{pøehrání zpráv}~-- M odposlouchá všechny zprávy a pak toté udìlá sám
+    \item \emph{mu uprostøed} (man-in-the-middle)
+    \item \emph{paralelní spojení}~-- nìkolik bìhù protokolù provádìnıch souèasnì pod
+    øízením M
+    \item \emph{odraení}~-- A zahájí komunikaci, M zachytí zprávu, upraví ji, aby
+    nebyl poznat pùvodní A a pošle ji zpìt A
+    \item \emph{prokládání}~-- Nìkolik bìhù protokolu provádìnıch souèasnì pod
+    øízením M, zprávy z jednoho se pouijí u dalšího, atd.
+    \item \emph{chyba typu}~-- Nedodrení pøesného sémantického vıznamu zprávy
+    \item \emph{vypuštìní jména}~-- Pokud v protokolu není poznat, kdo za to mùe
+    \item \emph{chybné pouití šifrovací sluby}~-- Špatnı algoritmus pouitı na nevhodném místì
   \end{pitemize}
 \end{obecne}
 
-\subsubsection*{KryptografickÃ© algoritmy}
+\subsubsection*{Kryptografické algoritmy}
 
-\begin{definiceN}{Substitution-box~-- S-box}
+\begin{e}{Definice}{0}{Substitution-box~-- S-box}
   \begin{pitemize}
-    \item krabiÄka kterÃ¡ z \emph{m} bitÅ¯ vstupu dÄ›lÃ¡ \emph{n} bitÅ¯ vÃ½stupu.
-    \item nÄ›kdy je pouÅ¾ita pevnÃ¡ tabulka. NapÅ™. u DES
-    \item nÄ›kdy je vÃ½stup s-boxu zÃ¡vislÃ½ na klÃ­Äi. NapÅ™. u Blowfish, Twofish
-    \item v blokovÃ½ch Å¡ifrÃ¡ch je to Äasto s-box kdo zamlÅ¾uje vztah mezi plaintextem a Å¡ifrou.
-    \item dost Äasto na nÄ›m zÃ¡visÃ­ jak je Å¡ifra napadnutelnÃ¡ $\Rightarrow$ musÃ­
-    se volit dost obezÅ™etnÄ›
+    \item krabièka která z \emph{m} bitù vstupu dìlá \emph{n} bitù vıstupu.
+    \item nìkdy je pouita pevná tabulka. Napø. u DES
+    \item nìkdy je vıstup s-boxu závislı na klíèi. Napø. u Blowfish, Twofish
+    \item v blokovıch šifrách je to èasto s-box kdo zamluje vztah mezi plaintextem a šifrou.
+    \item dost èasto na nìm závisí jak je šifra napadnutelná $\Rightarrow$ musí
+    se volit dost obezøetnì
   \end{pitemize}
-\end{definiceN}
+\end{e}
 
-\begin{obecne}{SymetrickÃ©}
+\begin{obecne}{Symetrické}
   \begin{pitemize}
-    \item vysokÃ¡ datovÃ¡ propustnost
-    \item klÃ­Äe na obou koncÃ­ch musÃ­ zÅ¯stat utajeny $\Rightarrow$ je tÅ™eba Äasto
-    mÄ›nit klÃ­Äe
-    \item potÅ™eba ovÄ›Å™enÃ© TTP (Trusted Third Party)
+    \item vysoká datová propustnost
+    \item klíèe na obou koncích musí zùstat utajeny $\Rightarrow$ je tøeba èasto
+    mìnit klíèe
+    \item potøeba ovìøené TTP (Trusted Third Party)
   \end{pitemize}
 \end{obecne}
 
 \begin{obecne}{DES}
-  Vyvinula firma IBM na zakÃ¡zku NBS poÄÃ¡tkem 70. let. PÅ¯vodnÃ­ nÃ¡zev DEA, v USA
-  DEA1. Jako standard pÅ™ijat 23. 11. 1976 Dodnes pouÅ¾Ã­vÃ¡n v komerÄnÃ­ sfÃ©Å™e, pro
-  vojenskÃ© ÃºÄely nenÃ­ certifikovÃ¡n ani pro ochranu neklasifikovanÃ½ch informacÃ­.
-  PatrnÄ› nejrozsÃ¡hleji pouÅ¾Ã­vanÃ½ Å¡ifrovacÃ­ algoritmus vÅ¡ech dob.
+  Vyvinula firma IBM na zakázku NBS poèátkem 70. let. Pùvodní název DEA, v USA
+  DEA1. Jako standard pøijat 23. 11. 1976 Dodnes pouíván v komerèní sféøe, pro
+  vojenské úèely není certifikován ani pro ochranu neklasifikovanıch informací.
+  Patrnì nejrozsáhleji pouívanı šifrovací algoritmus všech dob.
 
-  Å ifruje 64-bitovÃ© bloky otevÅ™enÃ©ho textu na 64-bitovÃ© vÃ½stupnÃ­ bloky, dÃ©lka
-  klÃ­Äe 64 bitÅ¯.
+  Šifruje 64-bitové bloky otevøeného textu na 64-bitové vıstupní bloky, délka
+  klíèe 64 bitù.
 
   \begin{figure}[!ht]
     \begin{center}
       \includegraphics[scale=.7, angle=90]{informatika/algoritmy_a_ds/obrazky/DES-main-network.png}
-      \caption{Struktura hlavnÃ­ sÃ­tÄ› algoritmu DES (zdroj: Wikipedie)}
+      \caption{Struktura hlavní sítì algoritmu DES (zdroj: Wikipedie)}
     \end{center}
   \end{figure}
 
-  \paragraph{AnalÃ½za:}
+  \paragraph{Analıza:}
   \begin{pitemize}
-    \item velkÃ¡ slabina je 64-bitovÃ½ klÃ­Ä (navÃ­c efektivnÄ› pouze 56-bitovÃ½).
-    Prolomen za mÃ©nÄ› neÅ¾ 24 hodin.
-    \item ÃºvodnÃ­ permutace nemÃ¡ prakticky Å¾Ã¡dnÃ½ vliv
-    \item existence slabÃ½ch $(\mathbf{E}(K)=\mathbf{D}(K))$ a poloslabÃ½ch
-    $(\mathbf{E}(K_1)\mathbf{E}(K_2)=Id.)$ klÃ­ÄÅ¯
-    \item komplementÃ¡rnost $C=\mathbf{E}(K,P)\Leftrightarrow\lnot C= \lnot
+    \item velká slabina je 64-bitovı klíè (navíc efektivnì pouze 56-bitovı).
+    Prolomen za ménì ne 24 hodin.
+    \item úvodní permutace nemá prakticky ádnı vliv
+    \item existence slabıch $(\mathbf{E}(K)=\mathbf{D}(K))$ a poloslabıch
+    $(\mathbf{E}(K_1)\mathbf{E}(K_2)=Id.)$ klíèù
+    \item komplementárnost $C=\mathbf{E}(K,P)\Leftrightarrow\lnot C= \lnot
     \mathbf{E} (\lnot K,\lnot P)$
   \end{pitemize}
 \end{obecne}
 
 \begin{obecne}{Blowfish}
   \begin{pitemize}
-    \item nÃ¡stupce systÃ©mu DES, 
-    \item opÄ›t Feistelova Å¡ifra, dÃ©lka bloku je 64 bitÅ¯, promÄ›nnÃ¡ dÃ©lka klÃ­Äe aÅ¾ 448 bitÅ¯
-    \item algoritmus provÃ¡dÃ­ 16 cyklÅ¯ nad vstupem dÃ©lky 64-bitÅ¯
+    \item nástupce systému DES, 
+    \item opìt Feistelova šifra, délka bloku je 64 bitù, promìnná délka klíèe a 448 bitù
+    \item algoritmus provádí 16 cyklù nad vstupem délky 64-bitù
   \end{pitemize}
 \end{obecne}
 
 \begin{obecne}{IDEA}
   \begin{pitemize}
-    \item z roku 1991, vyÅ¡el pod nÃ¡zvem IPES. 
+    \item z roku 1991, vyšel pod názvem IPES. 
     \item IDEA (International Data Encryption Algorithm)
-    \item blokovÃ¡ Å¡ifra s dÃ©lkou bloku 64-bitÅ¯ a dÃ©lkou klÃ­Äe 128-bitu
-    \item algoritmus je patentovÃ¡n 
-    \item zajÃ­mavÃ© je Å¾e pokud bychom algoritmus upravili tak, Å¾e bychom vÅ¡echny Å™etÄ›zce
-    se kterÃ½mi pracuje zvÄ›tÅ¡ili na dvojnÃ¡sobek, tak dojde ke ztrÃ¡tÄ› bezpeÄnosti.
-    \item algoritmus je povaÅ¾ovÃ¡n za bezpeÄnÃ½.
+    \item bloková šifra s délkou bloku 64-bitù a délkou klíèe 128-bitu
+    \item algoritmus je patentován 
+    \item zajímavé je e pokud bychom algoritmus upravili tak, e bychom všechny øetìzce
+    se kterımi pracuje zvìtšili na dvojnásobek, tak dojde ke ztrátì bezpeènosti.
+    \item algoritmus je povaován za bezpeènı.
   \end{pitemize}
 \end{obecne}
 
 \begin{obecne}{RC5}
   \begin{pitemize}
     \item z roku 1994 od R. Rivesta
-    \item pouÅ¾Ã­vÃ¡ rotace zÃ¡vislÃ© na datech.
-    \item algoritmus umoÅ¾Åˆuje nastavit spoustu parametrÅ¯:
+    \item pouívá rotace závislé na datech.
+    \item algoritmus umoòuje nastavit spoustu parametrù:
     \begin{pitemize}
-      \item dÃ©lka Å¡ifrovacÃ­ho klÃ­Äe (0\dots255 bytÅ¯)
-      \item poÄet kol Å¡ifrovacÃ­ho procesu (0\dots255)
-      \item z hodnot 16, 32, 64, ale i vyÅ¡Å¡Ã­ch lze zvolit dÃ©lku slova, algoritmus
-      zpracovÃ¡vÃ¡ bloky o dÃ©lce dvojnÃ¡sobku slova
+      \item délka šifrovacího klíèe (0\dots255 bytù)
+      \item poèet kol šifrovacího procesu (0\dots255)
+      \item z hodnot 16, 32, 64, ale i vyšších lze zvolit délku slova, algoritmus
+      zpracovává bloky o délce dvojnásobku slova
     \end{pitemize}
   \end{pitemize}
 
 \end{obecne}
 
-\begin{obecne}{KryptosystÃ©m Rijndael}
+\begin{obecne}{Kryptosystém Rijndael}
   \begin{pitemize}
-    \item produkÄnÃ­ blokovÃ¡ Å¡ifra
-    \item promÄ›nnÃ¡ dÃ©lka bloku~-- 16, 24 nebo 32 bajtÅ¯
-    \item promÄ›nnÃ¡ dÃ©lka klÃ­Äe~-- 128, 192 nebo 256 bitÅ¯
+    \item produkèní bloková šifra
+    \item promìnná délka bloku~-- 16, 24 nebo 32 bajtù
+    \item promìnná délka klíèe~-- 128, 192 nebo 256 bitù
   \end{pitemize}
 
-  \paragraph{AnalÃ½za:} Po rozsÃ¡hlÃ© analÃ½ze nenalezena Å¾Ã¡dnÃ¡ slabina a tak
-  zvolen jako novÃ½ standard AES.
+  \paragraph{Analıza:} Po rozsáhlé analıze nenalezena ádná slabina a tak
+  zvolen jako novı standard AES.
 \end{obecne}
 
 \begin{obecne}{RC4}
   \begin{pitemize}
-    \item proudovÃ¡ Å¡ifra od R. Rivesta
-    \item jednoduchÃ½ a rychlÃ½ algoritmus 
+    \item proudová šifra od R. Rivesta
+    \item jednoduchı a rychlı algoritmus 
 
-    \paragraph{AnalÃ½za:} ZatÃ­m nenÃ­ znÃ¡mÃ½ Å¾Ã¡dnÃ½ zpÅ¯sob Ãºtoku $\Rightarrow$
-    algoritmus povaÅ¾ovÃ¡n za bezpeÄnÃ½.
+    \paragraph{Analıza:} Zatím není známı ádnı zpùsob útoku $\Rightarrow$
+    algoritmus povaován za bezpeènı.
   \end{pitemize}
 \end{obecne}
 
 \begin{obecne}{FISH}
   \begin{pitemize}
-    \item proudovÃ¡ Å¡ifra zaloÅ¾ena na Fibonacciho generÃ¡toru pseudonÃ¡hodnÃ½ch ÄÃ­sel.
-    \item z fibonacciho generÃ¡toru se zÃ­skÃ¡ posloupnost a Å¡ifrovanÃ­ se provÃ¡dÃ­
-    napÅ™Ã­klad XORovÃ¡nÃ­m tÃ©to posloupnosti s \emph{P}
+    \item proudová šifra zaloena na Fibonacciho generátoru pseudonáhodnıch èísel.
+    \item z fibonacciho generátoru se získá posloupnost a šifrovaní se provádí
+    napøíklad XORováním této posloupnosti s \emph{P}
   \end{pitemize}
 \end{obecne}
 
-\begin{obecne}{AsymetrickÃ©}
+\begin{obecne}{Asymetrické}
   \begin{pitemize}
-    \item Å¡ifry s asymetrickÃ½m klÃ­Äem~-- RSA, DSA (ElGammal)
-    \item mnohem pomalejÅ¡Ã­
-    \item nenÃ­ potÅ™eba TTP
-    \item pouze jeden klÃ­Ä tajnÃ½, nemusÃ­ se mÄ›nit tak Äasto
-    \item o Å¾Ã¡dnÃ©m schÃ©matu veÅ™ejnÃ©ho klÃ­Äe nebylo dokÃ¡zÃ¡no, Å¾e je bezpeÄnÃ©
+    \item šifry s asymetrickım klíèem~-- RSA, DSA (ElGammal)
+    \item mnohem pomalejší
+    \item není potøeba TTP
+    \item pouze jeden klíè tajnı, nemusí se mìnit tak èasto
+    \item o ádném schématu veøejného klíèe nebylo dokázáno, e je bezpeèné
   \end{pitemize}
 \end{obecne}
 
 \begin{obecne}{RSA}
-  KryptoschÃ©ma je zaloÅ¾eno na EulerovÄ› formuli: 
+  Kryptoschéma je zaloeno na Eulerovì formuli: 
   $$a^{\varphi(n)} \equiv 1(mod\ n)$$ 
-  kde $\varphi(n)$ je poÄet ÄÃ­sel z intervalu $1..n$ kterÃ¡ jsou s $n$ nesoudÄ›lnÃ¡.
+  kde $\varphi(n)$ je poèet èísel z intervalu $1..n$ která jsou s $n$ nesoudìlná.
 
-  \paragraph{Å ifrovÃ¡nÃ­:} Je tÅ™eba znÃ¡t ÄÃ­slo $n$ a malÃ© prvoÄÃ­slo $e$. OtevÅ™enÃ½
-  text pÅ™evedeme do posloupnosti modulo $n$. KaÅ¾dÃ½ blok $P_j$ zaÅ¡ifrujeme dle
-  vzorce: $$C_j\equiv P_j^e\ (mod\ n)$$ SpojenÃ­m vÃ½slednÃ½ch blokÅ¯ vznikne
-  zaÅ¡ifrovanÃ½ text.
+  \paragraph{Šifrování:} Je tøeba znát èíslo $n$ a malé prvoèíslo $e$. Otevøenı
+  text pøevedeme do posloupnosti modulo $n$. Kadı blok $P_j$ zašifrujeme dle
+  vzorce: $$C_j\equiv P_j^e\ (mod\ n)$$ Spojením vıslednıch blokù vznikne
+  zašifrovanı text.
 
-  \paragraph{DeÅ¡ifrovÃ¡nÃ­:} Je tÅ™eba znÃ¡t ÄÃ­slo $n$ a ÄÃ­slo $d$. KaÅ¾dÃ½ z blokÅ¯
-  potom deÅ¡ifrujeme takto: $$P_j\equiv C_j^d\ (mod\ n)$$ Pro deÅ¡ifrovacÃ­ klÃ­Ä
-  $d$ musÃ­ platit: $$ed\equiv 1\,(mod\ \varphi(n))$$ PrvoÄÃ­slo $e$ nesmÃ­ dÄ›lit
-  $\varphi(n)$. $d$ urÄÃ­me z pÅ™edchozÃ­ho vztahu rozÅ¡Ã­Å™enÃ½m eukleidovÃ½m
+  \paragraph{Dešifrování:} Je tøeba znát èíslo $n$ a èíslo $d$. Kadı z blokù
+  potom dešifrujeme takto: $$P_j\equiv C_j^d\ (mod\ n)$$ Pro dešifrovací klíè
+  $d$ musí platit: $$ed\equiv 1\,(mod\ \varphi(n))$$ Prvoèíslo $e$ nesmí dìlit
+  $\varphi(n)$. $d$ urèíme z pøedchozího vztahu rozšíøenım eukleidovım
   algoritmem.
 
-  VeÅ™ejnÃ½ klÃ­Ä tvoÅ™Ã­ pÃ¡r $(n, e)$, soukromÃ½ klÃ­Ä pÃ¡r $(n, d)$. ÄŒÃ­slo $n$ musÃ­ bÃ½t velmi
-  velkÃ© a nesmÃ­ mÃ­t malÃ© faktory. Pro reÃ¡lnÃ© pouÅ¾itÃ­ 100 aÅ¾ 200 bitÅ¯. Hranice bezpeÄnosti
-  1024 bitÅ¯ modulu $n$, rozumnÃ© 1500 bitÅ¯, lÃ©pe 2048 bitÅ¯.
+  Veøejnı klíè tvoøí pár $(n, e)$, soukromı klíè pár $(n, d)$. Èíslo $n$ musí bıt velmi
+  velké a nesmí mít malé faktory. Pro reálné pouití 100 a 200 bitù. Hranice bezpeènosti
+  1024 bitù modulu $n$, rozumné 1500 bitù, lépe 2048 bitù.
 
-  NenÃ­ znÃ¡ma Å¾Ã¡dnÃ¡ metoda vedoucÃ­ k rozbitÃ­ algoritmu RSA. 
+  Není známa ádná metoda vedoucí k rozbití algoritmu RSA. 
 \end{obecne}
 
-\begin{obecne}{Merkle-Hellman kryptosystÃ©m}
+\begin{obecne}{Merkle-Hellman kryptosystém}
   \begin{pitemize}
-    \item zaloÅ¾en na problÃ©mu batohu
-    \item plaintext je chÃ¡pÃ¡n jako posloupnost vah (Å™eÅ¡enÃ­)
-    \item ciphertext je vÃ½slednÃ¡ hmotnost batohu
-    \item pro superrostoucÃ­ posloupnost je problÃ©m Å™eÅ¡itelnÃ½ v lineÃ¡rnÃ­m Äase
-    \item superrostoucÃ­ posloupnost je souÄÃ¡st soukromÃ©ho klÃ­Äe a tak
-    deÅ¡ifrovÃ¡nÃ­ pomocÃ­ nÃ­ je zvlÃ¡dnutelnÃ© lineÃ¡rnÄ›, kdeÅ¾to bez nÃ­ je to NP-ÃºplnÃ½
-    problÃ©m
-    \item systÃ©m byl prolomen! NenÃ­ tedy povaÅ¾ovÃ¡n za bezpeÄnÃ½. ÃštoÄnÃ­k je
-    schopen zÃ­skat superrostoucÃ­ posloupnost a pomocÃ­ nÃ­ mÅ¯Å¾e deÅ¡ifrovat
+    \item zaloen na problému batohu
+    \item plaintext je chápán jako posloupnost vah (øešení)
+    \item ciphertext je vısledná hmotnost batohu
+    \item pro superrostoucí posloupnost je problém øešitelnı v lineárním èase
+    \item superrostoucí posloupnost je souèást soukromého klíèe a tak
+    dešifrování pomocí ní je zvládnutelné lineárnì, kdeto bez ní je to NP-úplnı
+    problém
+    \item systém byl prolomen! Není tedy povaován za bezpeènı. Útoèník je
+    schopen získat superrostoucí posloupnost a pomocí ní mùe dešifrovat
   \end{pitemize}
 \end{obecne}
 
-\begin{obecne}{Elgamal kryptosystÃ©m}
-  ZaloÅ¾en na obtÃ­Å¾nosti vÃ½poÄtu diskrÃ©tnÃ­ho logaritmu nad kruhem.
+\begin{obecne}{Elgamal kryptosystém}
+  Zaloen na obtínosti vıpoètu diskrétního logaritmu nad kruhem.
 
-  PotÅ™ebujeme spoleÄnÃ½ modul $q$ a ÄÃ­slo $g$ co nejvyÅ¡Å¡Ã­ho Å™Ã¡du. KaÅ¾dÃ½ ÃºÄastnÃ­k si zvolÃ­ tajnÃ½
-  klÃ­Ä $y_i$ a vypoÄÃ­tÃ¡ veÅ™ejnÃ½ klÃ­Ä $g^{y_i}$ mod $q$.
-  \paragraph{Å ifrovÃ¡nÃ­:} NechÅ¥ uÅ¾ivatel \emph{A} posÃ­lÃ¡ zprÃ¡vu \emph{P}
-  uÅ¾ivateli \emph{B}. NÃ¡hodnÄ›
-  vybere ÄÃ­slo $k$ a vypoÄÃ­tÃ¡: $$ g^k \mod q;\ P \otimes{(g^{y_b})}^k \mod q
-  $$ obÄ› ÄÃ­sla zaÅ¡le \emph{B}.
+  Potøebujeme spoleènı modul $q$ a èíslo $g$ co nejvyššího øádu. Kadı úèastník si zvolí tajnı
+  klíè $y_i$ a vypoèítá veøejnı klíè $g^{y_i}$ mod $q$.
+  \paragraph{Šifrování:} Nech uivatel \emph{A} posílá zprávu \emph{P}
+  uivateli \emph{B}. Náhodnì
+  vybere èíslo $k$ a vypoèítá: $$ g^k \mod q;\ P \otimes{(g^{y_b})}^k \mod q
+  $$ obì èísla zašle \emph{B}.
 
-  \paragraph{DeÅ¡ifrovÃ¡nÃ­:} UÅ¾ivatel \emph{B} vypoÄÃ­tÃ¡: $$ {(g^k)}^{y_b} \mod q$$
-  a najde inverznÃ­ prvek. Z druhÃ©ho ÄÃ­sla potom snadno zÃ­skÃ¡ \emph{P}.
+  \paragraph{Dešifrování:} Uivatel \emph{B} vypoèítá: $$ {(g^k)}^{y_b} \mod q$$
+  a najde inverzní prvek. Z druhého èísla potom snadno získá \emph{P}.
 
-  SystÃ©m je povaÅ¾ovÃ¡n za bezpeÄnÃ½. NevÃ½hodou je nutnost generovat nÃ¡hodnÃ© ÄÃ­slo
-  $k$ a zdvojnÃ¡sobenÃ­ dat bÄ›hem Å¡ifrovÃ¡nÃ­.
+  Systém je povaován za bezpeènı. Nevıhodou je nutnost generovat náhodné èíslo
+  $k$ a zdvojnásobení dat bìhem šifrování.
 \end{obecne}

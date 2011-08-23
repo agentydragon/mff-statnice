@@ -28,19 +28,19 @@ Ze symbolù jazyka tvoøíme dva druhy slov:
 \end{pitemize}
 \end{obecne}
 
-\begin{definiceN}{jazyk výrokové logiky}
+\begin{e}{Definice}{0}{jazyk výrokové logiky}
 Jazyk $L_P$ výrokové logiky nad množinou $P$ obsahuje prvky množiny $P$ zvané \emph{prvotní formule} nebo \emph{výrokové promìnné} (typicky jde o slova nìjakého formálního jazyka napø. $x, y, ABC, nula$), symboly pro \emph{logické spojky} ($\neg,\vee,\&,\rightarrow,\leftrightarrow$) a pomocné symboly (závorky).
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{jazyk predikátové logiky}
+\begin{e}{Definice}{0}{jazyk predikátové logiky}
 Jazyk predikátové logiky obsahuje symboly pro promìnné, \emph{predikátové} a \emph{funkèní} symboly, symboly pro \emph{logické spojky}, symboly pro \emph{kvantifikátory} a \emph{pomocné} symboly (závorky).
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{redukce jazyka}
+\begin{e}{Definice}{0}{redukce jazyka}
 Pro zmenšení množiny axiomù je vhodné redukovat poèet logických spojek, se kterými pracujeme, na nìkolik základních a ostatní vnímat jako odvozené. Je možno zvolit negaci a implikaci jako spojky základní a v predikátové logice obecný kvantifikátor. Zkratky pak vypadají jako $(A \& B)$ za formuli $\neg(A \to \neg B)$, $(A \vee B)$ odpovídá $(\neg A \to B)$ a nakonec $(A \leftrightarrow B)$ redukujeme na $((A \to B)\&(B \to A))$.
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{formule výrokové logiky}
+\begin{e}{Definice}{0}{formule výrokové logiky}
 Pro jazyk výrokové logiky jsou následující výrazy formule:
 \begin{penumerate}
     \item každá výroková promìnná $p \in P$
@@ -49,9 +49,9 @@ Pro jazyk výrokové logiky jsou následující výrazy formule:
     \item každý výraz vzniknuvší koneèným užitím pravidel 1. a 2.
 \end{penumerate}
 Tedy všechny formule jsou koneèná slova.
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{term\pl}
+\begin{e}{Definice}{0}{term\pl}
 V predikátové logice je \emph{term}:
 \begin{penumerate}
     \item každá promìnná
@@ -59,25 +59,25 @@ V predikátové logice je \emph{term}:
     \item každý výraz vzniknuvší koneèným užitím pravidel 1. a 2.
 \end{penumerate}
 Podslovo termu, které je samo o sobì term, se nazývá \emph{podterm}.
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{formule predikátové logiky}
+\begin{e}{Definice}{0}{formule predikátové logiky}
 V predikátové logice je formule každý výraz tvaru $p(t_1,\dots,t_n)$ pro $p$ predikátový symbol a $t_1,\dots,t_n$ termy. Stejnì jako ve výrokové logice je formule i (koneèné) spojení jednodušších formulí log. spojkami.
 Formule jsou navíc i výrazy $(\exists x)A$ a $(\forall x)A$ pro formuli $A$ a samozøejmì cokoliv, co vznikne koneèným užitím tìchto pravidel. Podslovo formule, které je samo o sobì formule, se nazývá \emph{podformule}.
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{volné a vázané promìnné}
+\begin{e}{Definice}{0}{volné a vázané promìnné}
 Výskyt promìnné $x$ ve formuli je \emph{vázaný}, je-li tato souèástí nìjaké podformule tvaru $(\exists x)A$ nebo $(\forall x)A$. V opaèném pøípadì je \emph{volný}. Formule je \emph{otevøená}, pokud neobsahuje vázanou promìnnou, je \emph{uzavøená}, když neobsahuje volnou promìnnou. Promìnná mùže být v téže formuli volná i vázaná (napø. $(x=z)\rightarrow(\exists x)(x=z)$).
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{pravdivostní ohodnocení\vl}
+\begin{e}{Definice}{0}{pravdivostní ohodnocení\vl}
 \emph{Sémantika} zkoumá pravdivost formulí. Výrokové promìnné samotné neanalyzujeme -- jejich hodnoty máme dány už z vnìjšku, máme pro nì \emph{množinu pravdivostních hodnot} ($\lbrace 0,1\rbrace$).
 
 \emph{Pravdivostní ohodnocení} $e: P \to \lbrace 0,1\rbrace$ je zobrazení, které každé výrokové promìnné pøiøadí právì jednu hodnotu z množiny pravdivostních hodnot. Je-li známo ohodnocení promìnných, lze urèit \emph{pravdivostní hodnotu} $\overline{v}$ pro každou formuli (pøi daném ohodnocení) -- indukcí podle její složitosti, podle tabulek pro logické spojky. 
-\end{definiceN}
+\end{e}
 
 
-\begin{definiceN}{realizace jazyka, termù a ohodnocení promìnných\pl}
+\begin{e}{Definice}{0}{realizace jazyka, termù a ohodnocení promìnných\pl}
 \emph{Realizace jazyka} nebo též \emph{interpretace jazyka} je definována množinovou strukturou $\c{M}$, která ke každému symbolu jazyka a množinì promìnných pøiøadí nìjakou množinu individuí. Popisuje \uv{hodnoty} všech funkèních a predikátových symbolù. $\c{M}$ obsahuje:
 \begin{pitemize}
     \item neprázdnou množinu individuí $M$.
@@ -91,28 +91,28 @@ Realizace termù se uvažuje pro daný jazyk $L$ a jeho realizaci $\c{M}$. \emph{Oh
     \item $t[e]=f_M(t_1[e],\dots,t_n[e])$ pro term $t$ tvaru $f(t_1,\dots,t_n)$.
 \end{pitemize}
 Ohodnocení závisí na zvoleném $\c{M}$, realizace termù pøi daném ohodnocení pak jen na koneènì mnoha hodnotách z nìj. Pokud jsou $x_1,\dots,x_n$ všechny promìnné termu $t$ a $e,e'$ dvì ohodnocení tak, že $\forall i\in\lbrace 1,\dots,n\rbrace$ platí $e(x_i)=e'(x_i)$, pak $t[e]=t[e']$.
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{pozmìnìné ohodnocení\pl}
+\begin{e}{Definice}{0}{pozmìnìné ohodnocení\pl}
 \emph{Pozmìnìné ohodnocení} $e(x/m)$ je ohodnocení, ve kterém jsme zmìnili hodnotu jedné promìnné. Formálnì pro ohodnocení $e$, promìnnou $x$ a individuum $m \in M$ je definováno: $$e(x/m)(y)=
     \begin{cases}
 	m &\text{(je-li $y$ promìnná $x$, $y \equiv x$)} \\
 	e(y) &\text{(jinak, )}
     \end{cases}$$
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{tautologie $\models$\vl}
+\begin{e}{Definice}{0}{tautologie $\models$\vl}
 Formule je \emph{tautologie}, jestliže je pravdivá pøi libovolném ohodnocení promìnných ($\models A$).
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{teorie}
+\begin{e}{Definice}{0}{teorie}
 Množinì formulí øíkáme \emph{teorie}.
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{pravdivá formule\vl}
+\begin{e}{Definice}{0}{pravdivá formule\vl}
 Formule výrokové logiky $A$ je \emph{pravdivá pøi ohodnocení $e$}, je-li $\bar{e}(A) = 1$ (kde $\bar{e}$ je definováno z ohodnocení prvotních formulí $e$ induktivnì podle tabulek pro logické spojky). V opaèném pøípadì je formule \emph{nepravdivá}.
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{model, tautologický dùsledek $T\models$ \vl}
+\begin{e}{Definice}{0}{model, tautologický dùsledek $T\models$ \vl}
 \emph{Model} nìjaké teorie ve výrokové logice je takové ohodnocení promìnných, že každá formule z této teorie je pravdivá. Teorie $U$ je \emph{tautologický dùsledek} teorie $T$, jestliže každý model $T$ je také modelem $U$ ($T\models U$).
-\end{definiceN}
+\end{e}

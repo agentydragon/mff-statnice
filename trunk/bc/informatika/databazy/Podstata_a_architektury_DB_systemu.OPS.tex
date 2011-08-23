@@ -1,108 +1,108 @@
-\subsection{Podstata a architektury DB systemÅ¯}
+\subsection{Podstata a architektury DB systemù}
 
-Zdroje: Wikipedie, slidy Dr. T. Skopala k DatabÃ¡zovÃ½m systÃ©mÅ¯m
+Zdroje: Wikipedie, slidy Dr. T. Skopala k Databázovım systémùm
 \bigskip
 
-\begin{definiceN}{DatabÃ¡ze}
-DatabÃ¡ze je logicky uspoÅ™Ã¡danÃ¡ (integrovanÃ¡) kolekce navzÃ¡jem souvisejÃ­cÃ­ch dat. Je sebevysvÄ›tlujÃ­cÃ­, protoÅ¾e data jsou uchovÃ¡vÃ¡na spoleÄnÄ› sÂ popisy, znÃ¡mÃ½mi jako metadata (takÃ© schÃ©ma databÃ¡ze). Data jsou uklÃ¡dÃ¡na tak, aby na nich bylo moÅ¾nÃ© provÃ¡dÄ›t strojovÃ© dotazy -- zÃ­skat pro nÄ›jakÃ© parametry vyhovujÃ­cÃ­ podmnoÅ¾inu zÃ¡znamÅ¯.
+\begin{e}{Definice}{0}{Databáze}
+Databáze je logicky uspoøádaná (integrovaná) kolekce navzájem souvisejících dat. Je sebevysvìtlující, protoe data jsou uchovávána spoleènì s popisy, známımi jako metadata (také schéma databáze). Data jsou ukládána tak, aby na nich bylo moné provádìt strojové dotazy -- získat pro nìjaké parametry vyhovující podmnoinu záznamù.
 
-NÄ›kdy se slovem \uv{databÃ¡ze} myslÃ­ obecnÄ› celÃ½ databÃ¡zovÃ½ systÃ©m.
-\end{definiceN}
+Nìkdy se slovem \uv{databáze} myslí obecnì celı databázovı systém.
+\end{e}
 
-\begin{definiceN}{SystÃ©m Å™Ã­zenÃ­ bÃ¡ze dat}
-SystÃ©m Å™Ã­zenÃ­ bÃ¡ze dat (SÅ˜BD, anglicky database management system, DBMS) je obecnÃ½ softwarovÃ½ systÃ©m, kterÃ½ Å™Ã­dÃ­ sdÃ­lenÃ½ pÅ™Ã­stup kÂ databÃ¡zi, a poskytuje mechanismy, pomÃ¡hajÃ­cÃ­ zajistit bezpeÄnost a integritu uloÅ¾enÃ½ch dat. Spravuje databÃ¡zi a zajiÅ¡Å¥uje provÃ¡dÄ›nÃ­ dotazÅ¯.
-\end{definiceN}
+\begin{e}{Definice}{0}{Systém øízení báze dat}
+Systém øízení báze dat (SØBD, anglicky database management system, DBMS) je obecnı softwarovı systém, kterı øídí sdílenı pøístup k databázi, a poskytuje mechanismy, pomáhající zajistit bezpeènost a integritu uloenıch dat. Spravuje databázi a zajišuje provádìní dotazù.
+\end{e}
 
-\begin{definiceN}{DatabÃ¡zovÃ½ systÃ©m}
-DatabÃ¡zovÃ½m systÃ©mem rozumÃ­me trojici, sestÃ¡vajÃ­cÃ­ z:
+\begin{e}{Definice}{0}{Databázovı systém}
+Databázovım systémem rozumíme trojici, sestávající z:
 \begin{pitemize}
-    \item databÃ¡ze
-    \item systÃ©mu Å™Ã­zenÃ­ bÃ¡ze dat
-    \item chudÃ¡ka admina
+    \item databáze
+    \item systému øízení báze dat
+    \item chudáka admina
 \end{pitemize}
-\end{definiceN}
+\end{e}
 
-\begin{obecne}{Smysl databÃ¡zÃ­}
-HlavnÃ­m smyslem databÃ¡ze je schraÅˆovat datovÃ© zÃ¡znamy a informace za ÃºÄelem:
+\begin{obecne}{Smysl databází}
+Hlavním smyslem databáze je schraòovat datové záznamy a informace za úèelem:
 \begin{pitemize}
-    \item sdÃ­lenÃ­ dat vÃ­ce uÅ¾ivateli,
-    \item zajiÅ¡tÄ›nÃ­ unifikovanÃ©ho rozhranÃ­ a jazykÅ¯ definice dat a manipulace s daty,
-    \item znovuvyuÅ¾itelnosti dat,
+    \item sdílení dat více uivateli,
+    \item zajištìní unifikovaného rozhraní a jazykù definice dat a manipulace s daty,
+    \item znovuvyuitelnosti dat,
     \item bezespornosti dat a
-    \item snÃ­Å¾enÃ­ objemu dat (odstranÄ›nÃ­ redundance).
+    \item sníení objemu dat (odstranìní redundance).
 \end{pitemize}
 \end{obecne}
 
-\subsubsection*{DatabÃ¡zovÃ© modely}
+\subsubsection*{Databázové modely}
 
-\begin{definiceN}{schÃ©ma, model}
-Typicky pro kaÅ¾dou databÃ¡zi existuje strukturÃ¡lnÃ­ popis druhÅ¯ dat v nÃ­ udrÅ¾ovanÃ½ch, ten nazÃ½vÃ¡me \emph{schÃ©ma}. SchÃ©ma popisuje objekty reprezentovanÃ© v databÃ¡zi a vztahy mezi nimi. Je nÄ›kolik moÅ¾nÃ½ch zpÅ¯sobÅ¯ organizace schÃ©mat (modelovÃ¡nÃ­ databÃ¡zovÃ© struktury), znÃ¡mÃ½ch jako \emph{modely}. V modelu jde nejen o zpÅ¯sob strukturovÃ¡nÃ­ dat, definuje se takÃ© sada operacÃ­ nad daty proveditelnÃ¡. RelaÄnÃ­ model napÅ™Ã­klad definuje operace jako \uv{select} nebo \uv{join}. I kdyÅ¾ tyto operace se nemusejÃ­ pÅ™Ã­mo vyskytovat v dotazovacÃ­m jazyce, tvoÅ™Ã­ zÃ¡klad, na kterÃ©m je jazyk postaven. NejdÅ¯leÅ¾itÄ›jÅ¡Ã­ modely v tÃ©to sekci popÃ­Å¡eme.
-\end{definiceN}
+\begin{e}{Definice}{0}{schéma, model}
+Typicky pro kadou databázi existuje strukturální popis druhù dat v ní udrovanıch, ten nazıváme \emph{schéma}. Schéma popisuje objekty reprezentované v databázi a vztahy mezi nimi. Je nìkolik monıch zpùsobù organizace schémat (modelování databázové struktury), známıch jako \emph{modely}. V modelu jde nejen o zpùsob strukturování dat, definuje se také sada operací nad daty proveditelná. Relaèní model napøíklad definuje operace jako \uv{select} nebo \uv{join}. I kdy tyto operace se nemusejí pøímo vyskytovat v dotazovacím jazyce, tvoøí základ, na kterém je jazyk postaven. Nejdùleitìjší modely v této sekci popíšeme.
+\end{e}
 
-\begin{poznamka}
-VÄ›tÅ¡ina databÃ¡zovÃ½ch systÃ©mÅ¯ je zaloÅ¾ena na jednom konkrÃ©tnÃ­m modelu, ale ÄÃ­m dÃ¡l ÄastÄ›jÅ¡Ã­ je podpora vÃ­ce pÅ™Ã­stupÅ¯. Pro kaÅ¾dÃ½ logickÃ½ model existuje vÃ­ce fyzickÃ½ch pÅ™Ã­stupÅ¯ implementace a vÄ›tÅ¡ina systÃ©mÅ¯ dovolÃ­ uÅ¾ivateli nÄ›jakou ÃºroveÅˆ jejich kontroly a Ãºprav, protoÅ¾e toto mÃ¡ velkÃ½ vliv na vÃ½kon systÃ©mu. PÅ™Ã­kladem nechÅ¥ jsou indexy, provozovanÃ© nad relaÄnÃ­m modelem.
-\end{poznamka}
+\begin{e}{Poznámka}{0}{0}
+Vìtšina databázovıch systémù je zaloena na jednom konkrétním modelu, ale èím dál èastìjší je podpora více pøístupù. Pro kadı logickı model existuje více fyzickıch pøístupù implementace a vìtšina systémù dovolí uivateli nìjakou úroveò jejich kontroly a úprav, protoe toto má velkı vliv na vıkon systému. Pøíkladem nech jsou indexy, provozované nad relaèním modelem.
+\end{e}
 
-\begin{obecne}{\uv{PlochÃ½} model}
-Toto sice nevyhovuje ÃºplnÄ› definici modelu, pÅ™esto se jako triviÃ¡lnÃ­ pÅ™Ã­pad uvÃ¡dÃ­. PÅ™edstavuje jedinou dvoudimensionÃ¡lnÃ­ tabulku, kde data v jednom sloupci jsou povaÅ¾ovÃ¡na za popis stejnÃ© vlastnosti (takÅ¾e majÃ­ podobnÃ© hodnoty) a data v jednom Å™Ã¡dku se uvaÅ¾ujÃ­ jako popis jedinÃ©ho objektu.
+\begin{obecne}{\uv{Plochı} model}
+Toto sice nevyhovuje úplnì definici modelu, pøesto se jako triviální pøípad uvádí. Pøedstavuje jedinou dvoudimensionální tabulku, kde data v jednom sloupci jsou povaována za popis stejné vlastnosti (take mají podobné hodnoty) a data v jednom øádku se uvaují jako popis jediného objektu.
 \end{obecne}
 
-\begin{obecne}{RelaÄnÃ­ model}
-RelaÄnÃ­ model je zaloÅ¾en na predikÃ¡tovÃ© logice a teorii mnoÅ¾in. VÄ›tÅ¡ina fyzicky implementovanÃ½ch databÃ¡zovÃ½ch systÃ©mÅ¯ ve skuteÄnosti pouÅ¾Ã­vÃ¡ jen aproximaci matematicky definovanÃ©ho relaÄnÃ­ho modelu. Jeho zÃ¡kladem jsou \emph{relace} (dvoudimensionÃ¡lnÃ­ tabulky), \emph{atributy} (jejich pojmenovanÃ© sloupce) a \emph{domÃ©ny} (mnoÅ¾iny hodnot, kterÃ© se ve sloupcÃ­ch mÅ¯Å¾ou objevit). HlavnÃ­ datovou strukturou je tabulka, kde se nachÃ¡zÃ­ informace o nÄ›jakÃ© konkrÃ©tnÃ­  tÅ™Ã­dÄ› entit. KaÅ¾dÃ¡ entita tÃ© tÅ™Ã­dy je potom reprezentovÃ¡na Å™Ã¡dkem v tabulce -- $n$-ticÃ­ atributÅ¯.
+\begin{obecne}{Relaèní model}
+Relaèní model je zaloen na predikátové logice a teorii mnoin. Vìtšina fyzicky implementovanıch databázovıch systémù ve skuteènosti pouívá jen aproximaci matematicky definovaného relaèního modelu. Jeho základem jsou \emph{relace} (dvoudimensionální tabulky), \emph{atributy} (jejich pojmenované sloupce) a \emph{domény} (mnoiny hodnot, které se ve sloupcích mùou objevit). Hlavní datovou strukturou je tabulka, kde se nachází informace o nìjaké konkrétní  tøídì entit. Kadá entita té tøídy je potom reprezentována øádkem v tabulce -- $n$-ticí atributù.
 
-VÅ¡echny relace (tj. tabulky) musÃ­ splÅˆovat zÃ¡kladnÃ­ pravidla -- poÅ™adÃ­ sloupcÅ¯ nesmÃ­ hrÃ¡t roli, v tabulce se nesmÃ­ vyskytovat identickÃ© Å™Ã¡dky a kaÅ¾dÃ½ Å™Ã¡dek musÃ­ obsahovat jen jednu hodnotu pro kaÅ¾dÃ½ svÅ¯j atribut. RelaÄnÃ­ databÃ¡ze obsahuje vÃ­ce tabulek, mezi kterÃ½mi lze popisovat vztahy (vÅ¡ech rÅ¯znÃ½ch kardinalit, tj. $1:1$, $1:n$ apod.). Vztahy vznikajÃ­ i implicitnÄ› napÅ™. uloÅ¾enÃ­m stejnÃ© hodnoty jednoho atributu do dvou Å™Ã¡dkÅ¯ v tabulce. K tabulkÃ¡m lze pÅ™idat informaci o tom, kterÃ¡ podmnoÅ¾ina atributÅ¯ funguje jako \emph{klÃ­Ä}, tj. unikÃ¡tnÄ› identifikuje kaÅ¾dÃ½ Å™Ã¡dek, nÄ›kterÃ½ z klÃ­ÄÅ¯ mÅ¯Å¾e bÃ½t oznaÄen jako primÃ¡rnÃ­. NÄ›kterÃ© klÃ­Äe mÅ¯Å¾ou mÃ­t nÄ›jakÃ½ vztah k vnÄ›jÅ¡Ã­mu svÄ›tu, jinÃ© jsou jen pro vnitÅ™nÃ­ potÅ™eby schÃ©matu databÃ¡ze (generovanÃ¡ ID).
+Všechny relace (tj. tabulky) musí splòovat základní pravidla -- poøadí sloupcù nesmí hrát roli, v tabulce se nesmí vyskytovat identické øádky a kadı øádek musí obsahovat jen jednu hodnotu pro kadı svùj atribut. Relaèní databáze obsahuje více tabulek, mezi kterımi lze popisovat vztahy (všech rùznıch kardinalit, tj. $1:1$, $1:n$ apod.). Vztahy vznikají i implicitnì napø. uloením stejné hodnoty jednoho atributu do dvou øádkù v tabulce. K tabulkám lze pøidat informaci o tom, která podmnoina atributù funguje jako \emph{klíè}, tj. unikátnì identifikuje kadı øádek, nìkterı z klíèù mùe bıt oznaèen jako primární. Nìkteré klíèe mùou mít nìjakı vztah k vnìjšímu svìtu, jiné jsou jen pro vnitøní potøeby schématu databáze (generovaná ID).
 \end{obecne}
 
-\begin{obecne}{HierarchickÃ½ model}
-V hierarchickÃ©m modelu jsou data organizovÃ¡na do stromovÃ© struktury -- kaÅ¾dÃ½ uzel mÃ¡ odkaz na nadÅ™Ã­zenÃ½ (k popisu hierarchie) a setÅ™Ã­dÄ›nÃ© pole zÃ¡znamÅ¯ na stejnÃ© Ãºrovni. Tyto struktury byly pouÅ¾Ã­vÃ¡ny ve starÃ½ch mainframeovÃ½ch databÃ¡zÃ­ch, nynÃ­ je mÅ¯Å¾eme vidÄ›t napÅ™ ve struktuÅ™e XML dokumentÅ¯. DovolujÃ­ vztahy $1:N$ mezi dvÄ›ma druhy dat, coÅ¾ je velice efektivnÃ­ k popisu rÅ¯znÃ½ch reÃ¡lnÃ½ch vztahÅ¯ (obsahy, Å™azenÃ­ odstavcÅ¯ textu, tÅ™Ã­dÄ›nÃ© informace). NevÃ½hodou je ale nutnost znÃ¡t celou cestu k zÃ¡znamu ve struktuÅ™e a neschopnost systÃ©mu reprezentovat redundance v datech (strom nemÃ¡ cykly).
+\begin{obecne}{Hierarchickı model}
+V hierarchickém modelu jsou data organizována do stromové struktury -- kadı uzel má odkaz na nadøízenı (k popisu hierarchie) a setøídìné pole záznamù na stejné úrovni. Tyto struktury byly pouívány ve starıch mainframeovıch databázích, nyní je mùeme vidìt napø ve struktuøe XML dokumentù. Dovolují vztahy $1:N$ mezi dvìma druhy dat, co je velice efektivní k popisu rùznıch reálnıch vztahù (obsahy, øazení odstavcù textu, tøídìné informace). Nevıhodou je ale nutnost znát celou cestu k záznamu ve struktuøe a neschopnost systému reprezentovat redundance v datech (strom nemá cykly).
 \end{obecne}
 
-\begin{obecne}{SÃ­Å¥ovÃ½ model}
-SÃ­Å¥ovÃ½ model organizuje data pomocÃ­ dvou hlavnÃ­ch prvkÅ¯, \emph{zÃ¡znamÅ¯} a \emph{mnoÅ¾in}. ZÃ¡znamy obsahujÃ­ pole dat, mnoÅ¾iny definujÃ­ vztahy $1:N$ mezi zÃ¡znamy (jeden \emph{vlastnÃ­k}, mnoho \emph{prvkÅ¯}). ZÃ¡znam mÅ¯Å¾e bÃ½t vlastnÃ­kem i prvkem v nÄ›kolika rÅ¯znÃ½ch mnoÅ¾inÃ¡ch. Jde vlastnÄ› o variantu hierarchickÃ©ho modelu, protoÅ¾e sÃ­Å¥ovÃ½ model je takÃ© zaloÅ¾en na konceptu vÃ­ce struktur niÅ¾Å¡Ã­ ÃºrovnÄ› zÃ¡vislÃ½ch na strukturÃ¡ch ÃºrovnÄ› vyÅ¡Å¡Ã­. UÅ¾ ale umoÅ¾Åˆuje reprezentovat i redundantnÃ­ data. Operace nad tÃ­mto modelem probÃ­hajÃ­ \uv{navigaÄnÃ­m} stylem: program si uchovÃ¡vÃ¡ svoji souÄasnou pozici mezi zÃ¡znamy a postupuje podle zÃ¡vislostÃ­, ve kterÃ½ch se danÃ½ zÃ¡znam nÃ¡chÃ¡zÃ­. ZÃ¡znamy mohou bÃ½t i vyhledÃ¡vÃ¡ny podle klÃ­Äe. 
+\begin{obecne}{Síovı model}
+Síovı model organizuje data pomocí dvou hlavních prvkù, \emph{záznamù} a \emph{mnoin}. Záznamy obsahují pole dat, mnoiny definují vztahy $1:N$ mezi záznamy (jeden \emph{vlastník}, mnoho \emph{prvkù}). Záznam mùe bıt vlastníkem i prvkem v nìkolika rùznıch mnoinách. Jde vlastnì o variantu hierarchického modelu, protoe síovı model je také zaloen na konceptu více struktur niší úrovnì závislıch na strukturách úrovnì vyšší. U ale umoòuje reprezentovat i redundantní data. Operace nad tímto modelem probíhají \uv{navigaèním} stylem: program si uchovává svoji souèasnou pozici mezi záznamy a postupuje podle závislostí, ve kterıch se danı záznam náchází. Záznamy mohou bıt i vyhledávány podle klíèe. 
 
-Fyzicky jsou vÄ›tÅ¡inou mnoÅ¾iny -- vztahy -- reprezentovÃ¡ny pÅ™Ã­mo ukazateli na umÃ­stÄ›nÃ­ dat na disku, coÅ¾ zajiÅ¡Å¥uje vysokÃ½ vÃ½kon pÅ™i vyhledÃ¡vÃ¡nÃ­, ale zvyÅ¡uje nÃ¡klady na reorganizace. Smysl sÃ­Å¥ovÃ© navigace mezi objekty se pouÅ¾Ã­vÃ¡ i v objektovÃ½ch modelech.
+Fyzicky jsou vìtšinou mnoiny -- vztahy -- reprezentovány pøímo ukazateli na umístìní dat na disku, co zajišuje vysokı vıkon pøi vyhledávání, ale zvyšuje náklady na reorganizace. Smysl síové navigace mezi objekty se pouívá i v objektovıch modelech.
 \end{obecne}
 
-\begin{obecne}{ObjektovÃ½ model}
-ObjektovÃ½ model je aplikacÃ­ pÅ™Ã­stupÅ¯ znÃ¡mÃ½ch z objektovÄ›-orientovanÃ©ho programovÃ¡nÃ­. Je zaloÅ¾en na sbliÅ¾ovÃ¡nÃ­ programovÃ© aplikace a databÃ¡ze, hlavnÄ› ve smyslu pouÅ¾itÃ­ datovÃ½ch typÅ¯ (objektÅ¯) definovanÃ½ch na jednom mÃ­stÄ›; ty zpÅ™Ã­stupÅˆuje k pouÅ¾itÃ­ v nÄ›jakÃ©m bÄ›Å¾nÃ©m programovacÃ­m jazyce. OdstranÃ­ se tak nutnost zbyteÄnÃ½ch konverzÃ­ dat. PÅ™inÃ¡Å¡Ã­ do databÃ¡zÃ­ takÃ© vÄ›ci jako zapouzdÅ™enÃ­ nebo polymorfismus. ProblÃ©mem objektovÃ½ch modelÅ¯ je neexistence standardÅ¯ (nebo spÃ­Å¡ produktÅ¯, kterÃ© by je implementovaly).
+\begin{obecne}{Objektovı model}
+Objektovı model je aplikací pøístupù známıch z objektovì-orientovaného programování. Je zaloen na sbliování programové aplikace a databáze, hlavnì ve smyslu pouití datovıch typù (objektù) definovanıch na jednom místì; ty zpøístupòuje k pouití v nìjakém bìném programovacím jazyce. Odstraní se tak nutnost zbyteènıch konverzí dat. Pøináší do databází také vìci jako zapouzdøení nebo polymorfismus. Problémem objektovıch modelù je neexistence standardù (nebo spíš produktù, které by je implementovaly).
 
-KombinacÃ­ objektovÃ©ho a relaÄnÃ­ho pÅ™Ã­stupu vznikajÃ­ \emph{objektovÄ›-relaÄnÃ­} databÃ¡ze -- relaÄnÃ­ databÃ¡ze, dovolujÃ­cÃ­ uÅ¾ivateli definovat vlastnÃ­ datovÃ© typy a operace na nich. ObsahujÃ­ pak hybrid mezi procedurÃ¡lnÃ­m a dotazovacÃ­m programovacÃ­m jazykem.
+Kombinací objektového a relaèního pøístupu vznikají \emph{objektovì-relaèní} databáze -- relaèní databáze, dovolující uivateli definovat vlastní datové typy a operace na nich. Obsahují pak hybrid mezi procedurálním a dotazovacím programovacím jazykem.
 
 \end{obecne}
 
 
-\subsubsection*{Architektury databÃ¡zovÃ½ch systÃ©mÅ¯}
+\subsubsection*{Architektury databázovıch systémù}
 
-Zdroj: Wiki ÄŒVUT (stÃ¡tnice na FELu ;-))
+Zdroj: Wiki ÈVUT (státnice na FELu ;-))
 \bigskip
 
-Architektury databÃ¡zovÃ½ch systÃ©mÅ¯ se obecnÄ› dÄ›lÃ­ na 
+Architektury databázovıch systémù se obecnì dìlí na 
 \begin{pitemize}
-    \item \emph{centralizovanÃ©} (kde se databÃ¡ze pÅ™edpoklÃ¡dÃ¡ fyzicky na jednom poÄÃ­taÄi) a
-    \item \emph{distribuovanÃ©},
+    \item \emph{centralizované} (kde se databáze pøedpokládá fyzicky na jednom poèítaèi) a
+    \item \emph{distribuované},
 \end{pitemize}
-pÅ™Ã­padnÄ› na
+pøípadnì na
 \begin{pitemize}
-    \item \emph{jednouÅ¾ivatelskÃ©} a
-    \item \emph{vÃ­ceuÅ¾ivatelskÃ©}.
-\end{pitemize}
-
-\begin{obecne}{DistribuovanÃ© databÃ¡zovÃ© systÃ©my}
-\emph{DistribuovanÃ½ systÃ©m Å™Ã­zenÃ­ bÃ¡ze dat} je vlastnÄ› speciÃ¡lnÃ­m pÅ™Ã­padem obecnÃ©ho distribuovanÃ©ho vÃ½poÄetnÃ­ho systÃ©mu. Jeho implementace zahrnuje fyzickÃ© rozloÅ¾enÃ­ dat (vÄetnÄ› moÅ¾nÃ½ch replikacÃ­ databÃ¡ze) na vÃ­ce poÄÃ­taÄÅ¯ -- \emph{uzlÅ¯}, pÅ™iÄemÅ¾ jejich popis je integrovÃ¡n v globÃ¡lnÃ­m databÃ¡zovÃ©m schÃ©matu. Data v uzlech mohou bÃ½t zpracovÃ¡vÃ¡na lokÃ¡lnÃ­mi SÅ˜BD, komunikace je organizovÃ¡na v sÃ­Å¥ovÃ©m provozu pomocÃ­ speciÃ¡lnÃ­ho softwaru, kterÃ½ umÃ­ zachÃ¡zet s distribuovanÃ½mi daty. Fyzicky se Å™eÅ¡Ã­ rozloÅ¾enÃ­ do uzlÅ¯, svÃ¡zanÃ½ch komunikaÄnÃ­mi kanÃ¡ly, a jeho transparence (neviditelnost -- navenek se mÃ¡ tvÃ¡Å™it jako jednolitÃ½ systÃ©m). KaÅ¾dÃ½ uzel v sÃ­ti je sÃ¡m o sobÄ› databÃ¡zovÃ½ systÃ©m a z kaÅ¾dÃ©ho uzlu lze zpÅ™Ã­stupnit data kdekoliv v sÃ­ti.
-
-DÃ¡le se dÄ›lÃ­ na dva typy:
-\begin{pitemize}
-    \item FederativnÃ­ databÃ¡ze -- neexistuje globÃ¡lnÃ­ schÃ©ma ani centrÃ¡lnÃ­ Å™Ã­dÃ­cÃ­ autorita, Å™Ã­zenÃ­ je takÃ© distribuovanÃ©.
-    \item HeterogennÃ­ databÃ¡zovÃ© systÃ©my -- jednotlivÃ© autonomnÃ­ SÅ˜BD existujÃ­ (vznikly nezÃ¡visle na sobÄ›) a jsou integrovÃ¡ny, aby spolu mohly komunikovat.
+    \item \emph{jednouivatelské} a
+    \item \emph{víceuivatelské}.
 \end{pitemize}
 
-VÃ½hodou oproti centralizovanÃ½m systÃ©mÅ¯m je vyÅ¡Å¡Ã­ efektivita (data mohou bÃ½t uloÅ¾ena blÃ­zko mÃ­sta nejÄastÄ›jÅ¡Ã­ho pouÅ¾Ã­vÃ¡nÃ­), zvÃ½Å¡enÃ¡ dostupnost, vÃ½konnost a rozÅ¡iÅ™itelnost; nevÃ½hodou zÅ¯stÃ¡vÃ¡ problÃ©m sloÅ¾itosti implementace, distribuce Å™Ã­zenÃ­ a niÅ¾Å¡Ã­ bezpeÄnost takovÃ½ch Å™eÅ¡enÃ­.
+\begin{obecne}{Distribuované databázové systémy}
+\emph{Distribuovanı systém øízení báze dat} je vlastnì speciálním pøípadem obecného distribuovaného vıpoèetního systému. Jeho implementace zahrnuje fyzické rozloení dat (vèetnì monıch replikací databáze) na více poèítaèù -- \emph{uzlù}, pøièem jejich popis je integrován v globálním databázovém schématu. Data v uzlech mohou bıt zpracovávána lokálními SØBD, komunikace je organizována v síovém provozu pomocí speciálního softwaru, kterı umí zacházet s distribuovanımi daty. Fyzicky se øeší rozloení do uzlù, svázanıch komunikaèními kanály, a jeho transparence (neviditelnost -- navenek se má tváøit jako jednolitı systém). Kadı uzel v síti je sám o sobì databázovı systém a z kadého uzlu lze zpøístupnit data kdekoliv v síti.
+
+Dále se dìlí na dva typy:
+\begin{pitemize}
+    \item Federativní databáze -- neexistuje globální schéma ani centrální øídící autorita, øízení je také distribuované.
+    \item Heterogenní databázové systémy -- jednotlivé autonomní SØBD existují (vznikly nezávisle na sobì) a jsou integrovány, aby spolu mohly komunikovat.
+\end{pitemize}
+
+Vıhodou oproti centralizovanım systémùm je vyšší efektivita (data mohou bıt uloena blízko místa nejèastìjšího pouívání), zvıšená dostupnost, vıkonnost a rozšiøitelnost; nevıhodou zùstává problém sloitosti implementace, distribuce øízení a niší bezpeènost takovıch øešení.
 \end{obecne}
 
-\begin{obecne}{VÃ­ceuÅ¾ivatelskÃ© databÃ¡zovÃ© systÃ©my}
-\emph{VÃ­ceuÅ¾ivatelskÃ©} jsou takovÃ© systÃ©my, kterÃ© umoÅ¾ÅˆujÃ­ vÃ­cenÃ¡sobnÃ½ uÅ¾ivatelskÃ½ pÅ™Ã­stup k datÅ¯m ve stejnÃ©m okamÅ¾iku. V dÅ¯sledku moÅ¾nÃ©ho souÄasnÃ©ho pÅ™Ã­stupu vÃ­ce uÅ¾ivatelÅ¯ je nutnÃ© systÃ©m zabezpeÄit tak, aby i nadÃ¡le zajiÅ¡Å¥oval integritu a konzistenci uloÅ¾enÃ½ch dat. ExistujÃ­ obecnÄ› dva moÅ¾nÃ© pÅ™Ã­stupy:
+\begin{obecne}{Víceuivatelské databázové systémy}
+\emph{Víceuivatelské} jsou takové systémy, které umoòují vícenásobnı uivatelskı pøístup k datùm ve stejném okamiku. V dùsledku moného souèasného pøístupu více uivatelù je nutné systém zabezpeèit tak, aby i nadále zajišoval integritu a konzistenci uloenıch dat. Existují obecnì dva moné pøístupy:
 \begin{pitemize}
-    \item UzamykÃ¡nÃ­ -- DÅ™Ã­ve Äasto pouÅ¾Ã­vanÃ¡ metoda zaloÅ¾enÃ¡ na uzamykÃ¡nÃ­ aktualizovanÃ½ch zÃ¡znamÅ¯, v pÅ™Ã­padÄ› masivnÃ­ho vyuÅ¾itÃ­ aktualizaÄnÃ­ch pÅ™Ã­kazÅ¯ u nÃ­ ale mÅ¯Å¾e dochÃ¡zet k znaÄnÃ½m prodlevÃ¡m. 
-    \item Multiversion Concurency Control -- ModernÄ›jÅ¡Ã­ vynÃ¡lez. Jeho princip spoÄÃ­vÃ¡ v tom, Å¾e pÅ™i poÅ¾adavku o aktualizaci zÃ¡znamu v tabulce je vytvoÅ™ena kopie zÃ¡znamu, kterÃ¡ nenÃ­ pro ostatnÃ­ uÅ¾ivatele aÅ¾ do provedenÃ©ho commitu viditelnÃ¡.
+    \item Uzamykání -- Døíve èasto pouívaná metoda zaloená na uzamykání aktualizovanıch záznamù, v pøípadì masivního vyuití aktualizaèních pøíkazù u ní ale mùe docházet k znaènım prodlevám. 
+    \item Multiversion Concurency Control -- Modernìjší vynález. Jeho princip spoèívá v tom, e pøi poadavku o aktualizaci záznamu v tabulce je vytvoøena kopie záznamu, která není pro ostatní uivatele a do provedeného commitu viditelná.
 \end{pitemize}
 \end{obecne}

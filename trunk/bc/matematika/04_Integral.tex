@@ -2,95 +2,95 @@
 \def\vol{\mathrm{vol\ }}
 
 
-\section{IntegrÃ¡l}
+\section{Integrál}
 
-\begin{pozadavky}
+\begin{e}{Poadavky}{0}{0}
 \begin{pitemize}
-	\item PrimitivnÃ­ funkce, metody vÃ½poÄtu
-	\item UrÄitÃ½ (RiemannÅ¯v) integrÃ¡l, uÅ¾itÃ­ urÄitÃ©ho integrÃ¡lu
-	\item VÃ­cerozmÄ›rnÃ½ integrÃ¡l a Fubiniho vÄ›ta
+	\item Primitivní funkce, metody vıpoètu
+	\item Urèitı (Riemannùv) integrál, uití urèitého integrálu
+	\item Vícerozmìrnı integrál a Fubiniho vìta
 \end{pitemize}
-\end{pozadavky}
+\end{e}
 
-\subsection{PrimitivnÃ­ funkce, metody vÃ½poÄtu}
+\subsection{Primitivní funkce, metody vıpoètu}
 
-\begin{definice}
-NechÅ¥ funkce $f$ je definovÃ¡na na otevÅ™enÃ©m intervalu $I$. Å˜ekneme, Å¾e funkce $F$ je \emph{primitivnÃ­ funkce k $f$ na $I$}, jestliÅ¾e pro kaÅ¾dÃ© $x \in I$ existuje $F'(x)$ a platÃ­ $F'(x)=f(x)$.
-\end{definice}
+\begin{e}{Definice}{0}{0}
+Nech funkce $f$ je definována na otevøeném intervalu $I$. Øekneme, e funkce $F$ je \emph{primitivní funkce k $f$ na $I$}, jestlie pro kadé $x \in I$ existuje $F'(x)$ a platí $F'(x)=f(x)$.
+\end{e}
 
-\begin{vetaN}{Tvar primitivnÃ­ funkce}
-NechÅ¥ $F$ a $G$ jsou dvÄ› primitivnÃ­ funkce k funkci $f$ na otevÅ™enÃ©m intervalu $I$. Pak existuje $c \in \mathbb{R}$ tak, Å¾e $F(x)=G(x)+c$ pro kaÅ¾dÃ© $x \in I$.
-\end{vetaN}
+\begin{e}{Vìta}{0}{Tvar primitivní funkce}
+Nech $F$ a $G$ jsou dvì primitivní funkce k funkci $f$ na otevøeném intervalu $I$. Pak existuje $c \in \mathbb{R}$ tak, e $F(x)=G(x)+c$ pro kadé $x \in I$.
+\end{e}
 
-\begin{vetaN}{Linearita primitivnÃ­ funkce}
-NechÅ¥ f mÃ¡ na otevÅ™enÃ©m intervalu $I$ primitivnÃ­ funkci $F$, funkce $g$ mÃ¡ na na $I$ primitivnÃ­ funkci $G$ a $\alpha, \beta \in \mathbb{R}$. Potom funkce $\alpha F + \beta G$ je primitivnÃ­ funkcÃ­ k $\alpha f + \beta g$ na $I$.
+\begin{e}{Vìta}{0}{Linearita primitivní funkce}
+Nech f má na otevøeném intervalu $I$ primitivní funkci $F$, funkce $g$ má na na $I$ primitivní funkci $G$ a $\alpha, \beta \in \mathbb{R}$. Potom funkce $\alpha F + \beta G$ je primitivní funkcí k $\alpha f + \beta g$ na $I$.
 
-\begin{poznamka}
-PÅ™edchozÃ­ tvrzenÃ­ Äasto zapisujeme (pokud alespoÅˆ jedno z ÄÃ­sel $\alpha, \beta$ je rÅ¯znÃ© od nuly)
+\begin{e}{Poznámka}{0}{0}
+Pøedchozí tvrzení èasto zapisujeme (pokud alespoò jedno z èísel $\alpha, \beta$ je rùzné od nuly)
 $$\int (\alpha f(x) + \beta g(x)) \d x = \alpha \int f(x) \d x + \beta \int g(x) \d x.$$
-\end{poznamka}
-\end{vetaN}
+\end{e}
+\end{e}
 
-\begin{vetaN}{Spojitost a existence primitivnÃ­ funkce}
-NechÅ¥ $f$ je spojitÃ¡ funkce na otevÅ™enÃ©m intervalu $I$. Pak $f$ mÃ¡ na $I$ primitivnÃ­ funkci.
-\end{vetaN}
+\begin{e}{Vìta}{0}{Spojitost a existence primitivní funkce}
+Nech $f$ je spojitá funkce na otevøeném intervalu $I$. Pak $f$ má na $I$ primitivní funkci.
+\end{e}
 
-\begin{vetaN}{O substituci}
+\begin{e}{Vìta}{0}{O substituci}
 \begin{penumerate}
-\item NechÅ¥ $F$ je primitivnÃ­ funkce k $f$ na $(a,b)$. NechÅ¥ $\varphi$ je funkce definovÃ¡na na $(\alpha, \beta)$ s hodnotami v intervalu $(a,b)$, kterÃ¡ mÃ¡ v kaÅ¾dÃ©m bodÄ› $tÂ \in (\alpha, \beta)$ vlastnÃ­ derivaci. Pak
+\item Nech $F$ je primitivní funkce k $f$ na $(a,b)$. Nech $\varphi$ je funkce definována na $(\alpha, \beta)$ s hodnotami v intervalu $(a,b)$, která má v kadém bodì $t \in (\alpha, \beta)$ vlastní derivaci. Pak
 $$\int f(\varphi(t))\varphi'(t)dt=F(\varphi(t))+C \textit{ na } (\alpha,\beta)$$
-\item NechÅ¥ funkce $\varphi$ mÃ¡ v kaÅ¾dÃ©m bodÄ› intervalu $(\alpha,\beta)$ nenulovou vlastnÃ­ derivaci a $\varphi((\alpha,\beta)) = (a,b)$. NechÅ¥ funkce $f$ je definovÃ¡na na intervalu $(a,b)$ a platÃ­
+\item Nech funkce $\varphi$ má v kadém bodì intervalu $(\alpha,\beta)$ nenulovou vlastní derivaci a $\varphi((\alpha,\beta)) = (a,b)$. Nech funkce $f$ je definována na intervalu $(a,b)$ a platí
 $$\int f(\varphi(t))\varphi'(t)dt=G(t)+C \textit{ na } (\alpha,\beta)$$
 Pak
 $$\int f(x)\d x=G(\varphi^{-1}(x))+C \textit{ na } (a,b)$$
 \end{penumerate}
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{Integrace per partes}
-NechÅ¥ $I$ je otevÅ™enÃ½ interval a funkce $f$ a $g$ jsou spojitÃ© na $I$. NechÅ¥ $F$ je primitivnÃ­ funkce k $f$ na $I$ a $G$ je primitivnÃ­ funkce ke $g$ na $I$. Pak platÃ­
+\begin{e}{Vìta}{0}{Integrace per partes}
+Nech $I$ je otevøenı interval a funkce $f$ a $g$ jsou spojité na $I$. Nech $F$ je primitivní funkce k $f$ na $I$ a $G$ je primitivní funkce ke $g$ na $I$. Pak platí
 $$\int g(x)F(x)\d x=G(x)F(x) - \int G(x)f(x)\d x \textit{ na } I$$
 
-(\emph{PoznÃ¡mka autora}: $\int u'v = uv - \int uv'$)
-\end{vetaN}
+(\emph{Poznámka autora}: $\int u'v = uv - \int uv'$)
+\end{e}
 
-\subsubsection{Postup integrace racionÃ¡lnÃ­ funkce}
+\subsubsection{Postup integrace racionální funkce}
 
-\begin{vetaN}{DÄ›lenÃ­ polynomu}
-NechÅ¥ P a Q jsou polynomy s reÃ¡lnÃ½mi koeficienty, pÅ™iÄemÅ¾ Q nenÃ­ identicky roven nule. Pak existujÃ­ (jednoznaÄnÄ› urÄenÃ©) polynomy R a S takovÃ©, Å¾e stupeÅˆ S je menÅ¡Ã­ neÅ¾ stupeÅˆ Q a pro vÅ¡echna $x \in \mathbb{R}$ platÃ­ $P(x)=R(x)Q(x)+S(x)$.
-\end{vetaN}
+\begin{e}{Vìta}{0}{Dìlení polynomu}
+Nech P a Q jsou polynomy s reálnımi koeficienty, pøièem Q není identicky roven nule. Pak existují (jednoznaènì urèené) polynomy R a S takové, e stupeò S je menší ne stupeò Q a pro všechna $x \in \mathbb{R}$ platí $P(x)=R(x)Q(x)+S(x)$.
+\end{e}
 
-\begin{vetaN}{ZÃ¡kladnÃ­ vÄ›ta algebry}
-NechÅ¥ $P(x)=a_nx^n+\dots+a_1x+a_0$ je polynom stupnÄ› $n$ s reÃ¡lnÃ½mi koeficienty. Pak existujÃ­ ÄÃ­sla $x_1,\dots,x_nÂ \in \mathbb{C}$ takovÃ¡, Å¾e
+\begin{e}{Vìta}{0}{Základní vìta algebry}
+Nech $P(x)=a_nx^n+\dots+a_1x+a_0$ je polynom stupnì $n$ s reálnımi koeficienty. Pak existují èísla $x_1,\dots,x_n \in \mathbb{C}$ taková, e
 $$P(x)=a_n(x-x_1)\dots(x-x_n), \,\, x \in \mathbb{R}$$
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{O koÅ™enech polynomu}
-NechÅ¥ $P$ je polynom s reÃ¡lnÃ½mi koeficienty a $z \in \mathbb{C}$ je koÅ™en $P$ nÃ¡sobnosti $k \in \mathbb{N}$. Pak i $\overline{z}$ je koÅ™en $P$ nÃ¡sobnosti k.
-\end{vetaN}
+\begin{e}{Vìta}{0}{O koøenech polynomu}
+Nech $P$ je polynom s reálnımi koeficienty a $z \in \mathbb{C}$ je koøen $P$ násobnosti $k \in \mathbb{N}$. Pak i $\overline{z}$ je koøen $P$ násobnosti k.
+\end{e}
 
-\begin{vetaN}{O rozkladu polynomu}
-NechÅ¥ $P(x)=a_nx^n +\dots+a_1x+a_0$ je polynom stupnÄ› $n$ s reÃ¡lnÃ½mi koeficienty. Pak existujÃ­ reÃ¡lnÃ¡ ÄÃ­sla $x_1,\dots,x_k,\alpha_1,\dots,\alpha_l,\beta_1,\dots,\beta_l$ a pÅ™irozenÃ¡ ÄÃ­sla $p_1,\dots,p_k,q_1,\dots,q_l$ takovÃ¡, Å¾e:
+\begin{e}{Vìta}{0}{O rozkladu polynomu}
+Nech $P(x)=a_nx^n +\dots+a_1x+a_0$ je polynom stupnì $n$ s reálnımi koeficienty. Pak existují reálná èísla $x_1,\dots,x_k,\alpha_1,\dots,\alpha_l,\beta_1,\dots,\beta_l$ a pøirozená èísla $p_1,\dots,p_k,q_1,\dots,q_l$ taková, e:
 
 \begin{penumerate}
 	\item $P(x)=a_n(x-x_1)^{p_1} \dots (x-x_k)^{p_k}(x^2+\alpha_1x+\beta_1)^{q_1}\dots(x^2+\alpha_lx+\beta_l)^{q_l}$,
-	\item Å¾Ã¡dnÃ© dva z mnohoÄlenÅ¯ $x-x_1,x-x_2,\dots,x-x_k,x^2+\alpha_1x+\beta_1,\dots,x^2+\alpha_lx+\beta_l$ nemajÃ­ spoleÄnÃ½ koÅ™en,
-	\item mnohoÄleny $x^2+\alpha_1x+\beta_1,\dots,x^2+\alpha_lx+\beta_l$ nemajÃ­ Å¾Ã¡dnÃ½ reÃ¡lnÃ½ koÅ™en.
+	\item ádné dva z mnohoèlenù $x-x_1,x-x_2,\dots,x-x_k,x^2+\alpha_1x+\beta_1,\dots,x^2+\alpha_lx+\beta_l$ nemají spoleènı koøen,
+	\item mnohoèleny $x^2+\alpha_1x+\beta_1,\dots,x^2+\alpha_lx+\beta_l$ nemají ádnı reálnı koøen.
 \end{penumerate}
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{O rozkladu na parciÃ¡lnÃ­ zlomky}
-NechÅ¥ $P,Q$ jsou polynomy s reÃ¡lnÃ½mi koeficienty takovÃ©, Å¾e
+\begin{e}{Vìta}{0}{O rozkladu na parciální zlomky}
+Nech $P,Q$ jsou polynomy s reálnımi koeficienty takové, e
 
 \begin{penumerate}
-	\item stupeÅˆ $P$ je ostÅ™e menÅ¡Ã­ neÅ¾ stupeÅˆ $Q$,
+	\item stupeò $P$ je ostøe menší ne stupeò $Q$,
 	\item $Q(x)=a_n(x-x_1)^{p_1}\dots(x-x_k)^{p_k} (x^2+\alpha_1x+\beta_1)^{q_1}\dots(x^2+\alpha_lx+\beta_l)^{q_l}$,
 	\item $a_n,x_1,\dots,x_k,\alpha_1,\dots,\alpha_l,\beta_1,\dots,\beta_l \in \mathbb{R}, a_n \neq 0$
 	\item $p_1,\dots,p_k,q_1,\dots,q_l \in \mathbb{N}$
-	\item Å¾Ã¡dnÃ© dva z mnohoÄlenÅ¯ $x-x_1, x-x_2,\dots,x-x_k,x^2+\alpha_1x+\beta_1,\dots,x^2+\alpha_lx+\beta_l$ nemajÃ­ spoleÄnÃ½ koÅ™en
-	\item mnohoÄleny $x^2+\alpha_1x+\beta_1, \dots, x^2+\alpha_lx+\beta_l$ nemajÃ­ reÃ¡lnÃ½ koÅ™en
+	\item ádné dva z mnohoèlenù $x-x_1, x-x_2,\dots,x-x_k,x^2+\alpha_1x+\beta_1,\dots,x^2+\alpha_lx+\beta_l$ nemají spoleènı koøen
+	\item mnohoèleny $x^2+\alpha_1x+\beta_1, \dots, x^2+\alpha_lx+\beta_l$ nemají reálnı koøen
 \end{penumerate}
 
-Pak existujÃ­ jednoznaÄnÄ› urÄenÃ¡ ÄÃ­sla $A_1^1,\dots,A_{p_1}^{1},\dots,A_1^k,\dots,A_{p_k}^k,\\B_1^1,C_1^1,\dots,B_{q_1}^1,C_{q_1}^{1},\dots,B_1^l,C_1^l,\dots,B_{q_l}^l,C_{q_l}^l$ takovÃ¡, Å¾e platÃ­
+Pak existují jednoznaènì urèená èísla $A_1^1,\dots,A_{p_1}^{1},\dots,A_1^k,\dots,A_{p_k}^k,\\B_1^1,C_1^1,\dots,B_{q_1}^1,C_{q_1}^{1},\dots,B_1^l,C_1^l,\dots,B_{q_l}^l,C_{q_l}^l$ taková, e platí
 
 
 \begin{align*}
@@ -99,229 +99,229 @@ Pak existujÃ­ jednoznaÄnÄ› urÄenÃ¡ ÄÃ­sla $A_1^1,\dots,A_{p_1}^{1},\dots,A_1^
 &+ \frac{B_1^lx+C_1^l}{(x^2+\alpha_lx+\beta_l)^{q_l}} + \dots + \frac{B_{q_l}^lx+C_{q_l}^l}{x^2+\alpha_lx+\beta_l}.
 \end{align*}
 
-\end{vetaN}
+\end{e}
 
-\textbf{Postup integrace racionÃ¡lnÃ­ funkce $\frac{P(x)}{Q(x)}$ je:}
+\textbf{Postup integrace racionální funkce $\frac{P(x)}{Q(x)}$ je:}
 \begin{penumerate}
-\item VydÄ›lÃ­me polynomy $P$Â a $Q$ - najdeme polynomy $R$ a $S$ takovÃ©, Å¾e
+\item Vydìlíme polynomy $P$ a $Q$ - najdeme polynomy $R$ a $S$ takové, e
 	$$\frac{P(x)}{Q(x)} = R(x) + \frac{S(x)}{Q(x)}$$
-	a stupeÅˆ S je menÅ¡Ã­ neÅ¾ stupeÅˆ Q.
+	a stupeò S je menší ne stupeò Q.
 
-\item Najdeme rozklad polynomu Q ve tvaru uvedenÃ©m ve \emph{vÄ›tÄ› o rozkladu polynomu}.
+\item Najdeme rozklad polynomu Q ve tvaru uvedeném ve \emph{vìtì o rozkladu polynomu}.
 
-\item Najdeme rozklad $\frac{S}{Q}$ na parciÃ¡lnÃ­ zlomky ve tvaru uvedenÃ©m ve \emph{vÄ›tÄ› o rozkladu na parciÃ¡lnÃ­ zlomky}.
+\item Najdeme rozklad $\frac{S}{Q}$ na parciální zlomky ve tvaru uvedeném ve \emph{vìtì o rozkladu na parciální zlomky}.
 
-\item Najdeme primitivnÃ­ funkce ke vÅ¡em parciÃ¡lnÃ­m zlomkÅ¯m.
+\item Najdeme primitivní funkce ke všem parciálním zlomkùm.
 \end{penumerate}
 
-\subsection{UrÄitÃ½ (RiemannÅ¯v) integrÃ¡l, uÅ¾itÃ­ urÄitÃ©ho integrÃ¡lu}
+\subsection{Urèitı (Riemannùv) integrál, uití urèitého integrálu}
 
-\begin{definice}
-KoneÄnou posloupnost $D=\{x_j\}_{j=0}^n$ nazÃ½vÃ¡me \emph{dÄ›lenÃ­m intervalu} $\left<a,b\right>$, jestliÅ¾e platÃ­
+\begin{e}{Definice}{0}{0}
+Koneènou posloupnost $D=\{x_j\}_{j=0}^n$ nazıváme \emph{dìlením intervalu} $\left<a,b\right>$, jestlie platí
 $$a=x_0 < x_1 < \dots < x_n = b$$
 
-Body $x_0,\dots,x_n$ nazÃ½vÃ¡me dÄ›lÃ­cÃ­mi body. \emph{Normou dÄ›lenÃ­} $D$ rozumÃ­me ÄÃ­slo
+Body $x_0,\dots,x_n$ nazıváme dìlícími body. \emph{Normou dìlení} $D$ rozumíme èíslo
 $$\upsilon(D)=\max\{x_j-x_{j-1}; j=1,\dots,n\}.$$
 
-Å˜ekneme, Å¾e dÄ›lenÃ­ $D'$ intervalu $\left<a,b\right>$ je \emph{zjemnÄ›nÃ­m dÄ›lenÃ­} $D$ intervalu $\left<a,b\right>$, jestliÅ¾e kaÅ¾dÃ½ dÄ›lÃ­cÃ­ bod $D$ je i dÄ›lÃ­cÃ­m bodem $D'$.
-\end{definice}
+Øekneme, e dìlení $D'$ intervalu $\left<a,b\right>$ je \emph{zjemnìním dìlení} $D$ intervalu $\left<a,b\right>$, jestlie kadı dìlící bod $D$ je i dìlícím bodem $D'$.
+\end{e}
 
-\begin{definice}
-NechÅ¥ $f$ je omezenÃ¡ funkce definovanÃ¡ na intervalu $\left<a,b\right>$ a $D=\{x_j\}_{j=0}^n$ je dÄ›lenÃ­ $\left<a,b\right>$. OznaÄme
+\begin{e}{Definice}{0}{0}
+Nech $f$ je omezená funkce definovaná na intervalu $\left<a,b\right>$ a $D=\{x_j\}_{j=0}^n$ je dìlení $\left<a,b\right>$. Oznaème
 $$S(f,D)=\sum_{j=1}^{n} M_j(x_j-x_{j-1}), \textit{ kde } M_j=\sup\{f(x); x\in \left<x_{j-1},x_j\right>\}$$
 $$s(f,D)=\sum_{j=1}^{n} m_j(x_j-x_{j-1}), \textit{ kde } m_j=\inf\{f(x); x\in \left<x_{j-1},x_j\right>\}$$
 
-\begin{poznamka}
-NechÅ¥ $f$ je omezenÃ¡ funkce definovanÃ¡ na intervalu $\left<a,b\right>$.
+\begin{e}{Poznámka}{0}{0}
+Nech $f$ je omezená funkce definovaná na intervalu $\left<a,b\right>$.
 \begin{penumerate}
-	\item Pro kaÅ¾dÃ© dÄ›lanÃ­ $D$ intervalu $\left<a,b\right>$. platÃ­ $s(f,D)\le S(f,D)$.
-	\item Je-li $D_1$ zjemnÄ›nÃ­m $D_2$, pak $s(f,D_1) \ge s(f,D_2)$ a $S(f,D_1) \le S(f, D_2)$
-	\item Jsou-li $D_1$ a $D_2$ dÄ›lenÃ­ intervalu $\left<a,b\right>$, pak $s(f,D_1) \le S(f, D_2)$.
+	\item Pro kadé dìlaní $D$ intervalu $\left<a,b\right>$. platí $s(f,D)\le S(f,D)$.
+	\item Je-li $D_1$ zjemnìním $D_2$, pak $s(f,D_1) \ge s(f,D_2)$ a $S(f,D_1) \le S(f, D_2)$
+	\item Jsou-li $D_1$ a $D_2$ dìlení intervalu $\left<a,b\right>$, pak $s(f,D_1) \le S(f, D_2)$.
 \end{penumerate}
-\end{poznamka}
-\end{definice}
+\end{e}
+\end{e}
 
-\begin{definice}
-NechÅ¥ $f$ je omezenÃ¡ funkce definovanÃ¡ na intervalu $\left<a,b\right>$.
+\begin{e}{Definice}{0}{0}
+Nech $f$ je omezená funkce definovaná na intervalu $\left<a,b\right>$.
 \begin{penumerate}
 \item
-OznaÄme
-$$\overline{\int_a^b}f=\inf\{S(f,D); D \textit{ je dÄ›lenÃ­m intervalu } \left<a,b\right>\}$$
-\begin{center}(tzv. hornÃ­ \emph{RiemannÅ¯v integrÃ¡l funkce} $f$ pÅ™es $\left<a,b\right>$),\end{center}
+Oznaème
+$$\overline{\int_a^b}f=\inf\{S(f,D); D \textit{ je dìlením intervalu } \left<a,b\right>\}$$
+\begin{center}(tzv. horní \emph{Riemannùv integrál funkce} $f$ pøes $\left<a,b\right>$),\end{center}
 
-$$\underline{\int_a^b}f=\sup\{s(f,D); D \textit{ je dÄ›lenÃ­m intervalu } \left<a,b\right>\}$$
-\begin{center}(tzv. dolnÃ­ \emph{RiemannÅ¯v integrÃ¡l funkce} $f$ pÅ™es $\left<a,b\right>$)\end{center}
+$$\underline{\int_a^b}f=\sup\{s(f,D); D \textit{ je dìlením intervalu } \left<a,b\right>\}$$
+\begin{center}(tzv. dolní \emph{Riemannùv integrál funkce} $f$ pøes $\left<a,b\right>$)\end{center}
 
-\item Å˜ekneme, Å¾e funkce $f$ mÃ¡ \emph{RiemannÅ¯v integrÃ¡l pÅ™es} $\left<a,b\right>$, pokud $\overline{\int_a^b}f=\underline{\int_a^b}f$. Hodnota tohoto integrÃ¡lu je pak rovna $\overline{\int_a^bf}$ a znaÄÃ­me ji $\int_a^bf$. 
+\item Øekneme, e funkce $f$ má \emph{Riemannùv integrál pøes} $\left<a,b\right>$, pokud $\overline{\int_a^b}f=\underline{\int_a^b}f$. Hodnota tohoto integrálu je pak rovna $\overline{\int_a^bf}$ a znaèíme ji $\int_a^bf$. 
 
-Pokud $a>b$, definujeme $\int_a^bf=-\int_b^af$, v pÅ™Ã­padÄ›, Å¾e $a=b$, definujeme $\int_a^b=0$.
+Pokud $a>b$, definujeme $\int_a^bf=-\int_b^af$, v pøípadì, e $a=b$, definujeme $\int_a^b=0$.
 \end{penumerate}
-\end{definice}
+\end{e}
 
-\begin{vetaN}{KritÃ©rium existence Riemannova integrÃ¡lu}
-NechÅ¥ $a<b$ a $f$ je funkce omezenÃ¡ na $\left<a,b\right>$. Pak $\int_a^bf$ existuje, prÃ¡vÄ› kdyÅ¾ pro kaÅ¾dÃ© $\varepsilon > 0$ existuje dÄ›lenÃ­ $D$ intervalu $\left<a,b\right>$ takovÃ©, Å¾e $S(f,D)-s(f,D)<\varepsilon$
-\end{vetaN}
+\begin{e}{Vìta}{0}{Kritérium existence Riemannova integrálu}
+Nech $a<b$ a $f$ je funkce omezená na $\left<a,b\right>$. Pak $\int_a^bf$ existuje, právì kdy pro kadé $\varepsilon > 0$ existuje dìlení $D$ intervalu $\left<a,b\right>$ takové, e $S(f,D)-s(f,D)<\varepsilon$
+\end{e}
 
-\begin{vetaN}{Monotonie a linearita Riemannova integrÃ¡lu}
-NechÅ¥ $a,b\in \mathbb{R}, a<b$ a funkce $f,g$ majÃ­ RiemannÅ¯v integrÃ¡l pÅ™es interval $\left<a,b\right>$. Pak platÃ­:
+\begin{e}{Vìta}{0}{Monotonie a linearita Riemannova integrálu}
+Nech $a,b\in \mathbb{R}, a<b$ a funkce $f,g$ mají Riemannùv integrál pøes interval $\left<a,b\right>$. Pak platí:
 \begin{penumerate}
-	\item JestliÅ¾e pro kaÅ¾dÃ© $x \in \left<a,b\right>$ je $f(x) \le g(x)$, pak $\int_a^bfÂ \le \int_a^bg$
+	\item Jestlie pro kadé $x \in \left<a,b\right>$ je $f(x) \le g(x)$, pak $\int_a^bf \le \int_a^bg$
 	\item $\int_a^b(f+g) = \int_a^bf + \int_a^bg$
-	\item $\int_a^bcf=c\int_a^bf$ pro kaÅ¾dÃ© $c \in \mathbb{R}$
+	\item $\int_a^bcf=c\int_a^bf$ pro kadé $c \in \mathbb{R}$
 \end{penumerate}
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{Spojitost a RiemannovskÃ¡ integrovatelnost}
-NechÅ¥ $a,b\in \mathbb{R}, a<b$ a funkce $f$ je spojitÃ¡ na intervalu $\left<a,b\right>$. Pak existuje $\int_a^bf$.
-\begin{poznamka}
-PlatÃ­ dokonce: Pokud je $f$ omezenÃ¡ na $\left<a,b\right>$ a je spojitÃ¡ ve vÅ¡ech bodech intervalu $\left<a,b\right>$ s vÃ½jimkou koneÄnÄ› mnoha, pak existuje $\int_a^bf$.
-\end{poznamka}
-\end{vetaN}
+\begin{e}{Vìta}{0}{Spojitost a Riemannovská integrovatelnost}
+Nech $a,b\in \mathbb{R}, a<b$ a funkce $f$ je spojitá na intervalu $\left<a,b\right>$. Pak existuje $\int_a^bf$.
+\begin{e}{Poznámka}{0}{0}
+Platí dokonce: Pokud je $f$ omezená na $\left<a,b\right>$ a je spojitá ve všech bodech intervalu $\left<a,b\right>$ s vıjimkou koneènì mnoha, pak existuje $\int_a^bf$.
+\end{e}
+\end{e}
 
 
-\begin{vetaN}{Monotonie a RiemannovskÃ¡ integrovatelnost}
-Je li $f$ omezenÃ¡ a monotÃ³nnÃ­ na uzavÅ™enÃ©m intervalu, pak je Riemannovsky integrovatelnÃ¡. % Proc ty otazniky? to plati. -- Tuetschek
-\end{vetaN}
+\begin{e}{Vìta}{0}{Monotonie a Riemannovská integrovatelnost}
+Je li $f$ omezená a monotónní na uzavøeném intervalu, pak je Riemannovsky integrovatelná. % Proc ty otazniky? to plati. -- Tuetschek
+\end{e}
 
-\begin{vetaN}{Vlastnosti $\int$}
-NechÅ¥ $a,b\in \mathbb{R}, a<b$ a funkce $f$ je omezenÃ¡ na intervalu $\left<a,b\right>$. Pak platÃ­
+\begin{e}{Vìta}{0}{Vlastnosti $\int$}
+Nech $a,b\in \mathbb{R}, a<b$ a funkce $f$ je omezená na intervalu $\left<a,b\right>$. Pak platí
 \begin{penumerate}
-	\item JestliÅ¾e existuje $\int_a^bf$, pak pro kaÅ¾dÃ½ interval $\left<c,d\right> \subset \left<a,b\right>$ existuje $\int_c^df$.
-	\item Je-li $c \in (a,b)$, pak $\int_a^bf=\int_a^cf+\int_c^bf$, mÃ¡-li alespoÅˆ jedna strana smysl (\emph{aditivita Riemannova integrÃ¡lu jako funkce intervalu})
+	\item Jestlie existuje $\int_a^bf$, pak pro kadı interval $\left<c,d\right> \subset \left<a,b\right>$ existuje $\int_c^df$.
+	\item Je-li $c \in (a,b)$, pak $\int_a^bf=\int_a^cf+\int_c^bf$, má-li alespoò jedna strana smysl (\emph{aditivita Riemannova integrálu jako funkce intervalu})
 \end{penumerate}
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{RiemannÅ¯v integrÃ¡l jako primitivnÃ­ funkce}
-NechÅ¥ $a,b\in \mathbb{R}, a<b$ a funkce $f$ je omezenÃ¡ na intervalu $\left<a,b\right>$. Pro $x \in \left<a,b\right>$ poloÅ¾me $F(x)=\overline{\int_a^x}f$. Potom platÃ­:
+\begin{e}{Vìta}{0}{Riemannùv integrál jako primitivní funkce}
+Nech $a,b\in \mathbb{R}, a<b$ a funkce $f$ je omezená na intervalu $\left<a,b\right>$. Pro $x \in \left<a,b\right>$ polome $F(x)=\overline{\int_a^x}f$. Potom platí:
 \begin{penumerate}
-	\item Funkce $F$ je spojitÃ¡ na $\left<a,b\right>$
-	\item Je-li $x_0 \in (a,b)$ a funkce $f$ je v bodÄ› $x_0$ spojitÃ¡, pak $F'(x_0)=f(x_0)$.
+	\item Funkce $F$ je spojitá na $\left<a,b\right>$
+	\item Je-li $x_0 \in (a,b)$ a funkce $f$ je v bodì $x_0$ spojitá, pak $F'(x_0)=f(x_0)$.
 \end{penumerate}
-StejnÃ¡ tvrzenÃ­ platÃ­ i pro funkci $G(x)=\underline{\int_a^x}f$
-\end{vetaN}
+Stejná tvrzení platí i pro funkci $G(x)=\underline{\int_a^x}f$
+\end{e}
 
-\begin{poznamka}
-Pro Riemannovy integrÃ¡ly lze pouÅ¾Ã­t i metodu per partes nebo pravidlo substituce. % tohle by mozna chtelo formulovat nejak formalneji -- Tuetschek
-\end{poznamka}
+\begin{e}{Poznámka}{0}{0}
+Pro Riemannovy integrály lze pouít i metodu per partes nebo pravidlo substituce. % tohle by mozna chtelo formulovat nejak formalneji -- Tuetschek
+\end{e}
 
 
-\begin{vetaN}{ZÃ¡kladnÃ­ vÄ›ta analÃ½zy}
-NechÅ¥ $a,b\in \mathbb{R}, a<b$ a funkce $f$ je spojitÃ¡ na intervalu $\left<a,b\right>$. NechÅ¥ $F$ je primitivnÃ­ funkce k $f$ na intervalu $(a,b)$. Pak existujÃ­ vlastnÃ­ limity $\lim_{x\rightarrow a+}F(x)$ a $\lim_{x\rightarrow b-}F(x)$ a platÃ­:
+\begin{e}{Vìta}{0}{Základní vìta analızy}
+Nech $a,b\in \mathbb{R}, a<b$ a funkce $f$ je spojitá na intervalu $\left<a,b\right>$. Nech $F$ je primitivní funkce k $f$ na intervalu $(a,b)$. Pak existují vlastní limity $\lim_{x\rightarrow a+}F(x)$ a $\lim_{x\rightarrow b-}F(x)$ a platí:
 $$\int_a^bf = (\lim_{x\rightarrow b-}F(x))-(\lim_{x\rightarrow a+}F(x))$$
-\end{vetaN}
+\end{e}
 
 
-\begin{definiceN}{NewtonÅ¯v integrÃ¡l}
-NechÅ¥ funkce $f$ je definovÃ¡na na intervalu $(a,b)$ a $F$ je primitivnÃ­ funkce k $f$ na $(a,b)$. \emph{NewtonovÃ½m integrÃ¡lem} funkce $f$ pÅ™es interval $(a,b)$ nazÃ½vÃ¡me ÄÃ­slo
+\begin{e}{Definice}{0}{Newtonùv integrál}
+Nech funkce $f$ je definována na intervalu $(a,b)$ a $F$ je primitivní funkce k $f$ na $(a,b)$. \emph{Newtonovım integrálem} funkce $f$ pøes interval $(a,b)$ nazıváme èíslo
 $$(N)\int_a^bf = (\lim_{x\rightarrow b-}F(x))-(\lim_{x\rightarrow a+}F(x))$$
-pokud obÄ› limity na pravÃ© stranÄ› existujÃ­ a jsou vlastnÃ­.
-\end{definiceN}
+pokud obì limity na pravé stranì existují a jsou vlastní.
+\end{e}
 
-\begin{poznamkaN}{Vztah Riemannova a Newtonova integrÃ¡lu}
-Je-li funkce $f$ spojitÃ¡ na intervalu $\left<a,b\right>$, pak platÃ­: 
+\begin{e}{Poznámka}{0}{Vztah Riemannova a Newtonova integrálu}
+Je-li funkce $f$ spojitá na intervalu $\left<a,b\right>$, pak platí: 
 $$(N)\int_a^b f(x) \d x = (R)\int_a^b f(x) \d x$$
 
-MnoÅ¾iny funkcÃ­ integrovatelnÃ½ch newtonovsky a riemannovsky jsou neporovnatelnÃ©.
-\end{poznamkaN}
+Mnoiny funkcí integrovatelnıch newtonovsky a riemannovsky jsou neporovnatelné.
+\end{e}
 
 
-\subsubsection{UÅ¾itÃ­ urÄitÃ©ho integrÃ¡lu}
+\subsubsection{Uití urèitého integrálu}
 
-Obsahy rovinnÃ½ch ÃºtvarÅ¯...
+Obsahy rovinnıch útvarù...
 
-\begin{vetaN}{DÃ©lka kÅ™ivky}
-NechÅ¥ $f$ mÃ¡ na $(a,b)$ spojitou derivaci. DÃ©lka kÅ™ivky v $\mathbb{R}^2$, vyznaÄenÃ© prÅ¯bÄ›hem funkce $f$ z $[a;f(a)]$ do $[b;f(b)]$ potom je dÃ¡na pÅ™edpisem:
+\begin{e}{Vìta}{0}{Délka køivky}
+Nech $f$ má na $(a,b)$ spojitou derivaci. Délka køivky v $\mathbb{R}^2$, vyznaèené prùbìhem funkce $f$ z $[a;f(a)]$ do $[b;f(b)]$ potom je dána pøedpisem:
 $$L(f)=\int_a^b \sqrt{1+(f'(x))^2}\d x.$$
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{Objem rotaÄnÃ­ho tÄ›lesa}
-NechÅ¥ $f$ je definovÃ¡na na $\left<a,b\right>$ a $f>0$. Objem tÄ›lesa vzniknutÃ©ho rotacÃ­ kÅ™ivky je $V=\pi \int_a^bf(x)^2\d x$
-\end{vetaN}
+\begin{e}{Vìta}{0}{Objem rotaèního tìlesa}
+Nech $f$ je definována na $\left<a,b\right>$ a $f>0$. Objem tìlesa vzniknutého rotací køivky je $V=\pi \int_a^bf(x)^2\d x$
+\end{e}
 
-\begin{vetaN}{IntegrÃ¡lnÃ­ kritÃ©rium konvergence Å™ad}
-NechÅ¥ $f$ je spojitÃ¡, nezÃ¡pornÃ¡ a nerostoucÃ­ na $\left<n_0-1,\infty\right)$, kde $n_0 \in \mathbb{N}$. Potom
+\begin{e}{Vìta}{0}{Integrální kritérium konvergence øad}
+Nech $f$ je spojitá, nezáporná a nerostoucí na $\left<n_0-1,\infty\right)$, kde $n_0 \in \mathbb{N}$. Potom
 
 $$\sum_{n=1}^{\infty} f(n) \textit{ konverguje} \Leftrightarrow (N)\int_{n_0}^{\infty}f(t)dt < \infty$$
-\end{vetaN}
+\end{e}
 
-\subsection{VÃ­cerozmÄ›rnÃ½ integrÃ¡l a Fubiniho vÄ›ta}
+\subsection{Vícerozmìrnı integrál a Fubiniho vìta}
 
-\begin{definice}
-(KompaktnÃ­m) \emph{intervalem} v $n$-rozmÄ›rnÃ©m euklidovskÃ©m prostoru $E_n$ rozumÃ­me souÄin
+\begin{e}{Definice}{0}{0}
+(Kompaktním) \emph{intervalem} v $n$-rozmìrném euklidovském prostoru $E_n$ rozumíme souèin
 $$J = \left<a_1,b_1\right> \times \dots \times \left<a_n,b_n\right>$$
-kde $\left<a_i,b_i\right>$ jsou kompaktnÃ­ intervaly v $\mathbb{R}$.
-\end{definice}
+kde $\left<a_i,b_i\right>$ jsou kompaktní intervaly v $\mathbb{R}$.
+\end{e}
 
-\begin{definice}
+\begin{e}{Definice}{0}{0}
 \begin{pitemize}
-\item \emph{RozdÄ›lenÃ­m} $D$ takovÃ©ho intervalu $J$ rozumÃ­me $n$-tici $D_1, \dots, D_n$, kde $D_i$ je rozdÄ›lenÃ­ intervalu $\left<a_i,b_i\right>$.
-\item RozdÄ›lenÃ­ $D=(D_1,\dots,D_n)$ je \emph{zjemnÄ›nÃ­m} $D'=(D'_1,\dots,D'_n)$ jestliÅ¾e $D_i$ zjemÅˆuje $D'_i$.
+\item \emph{Rozdìlením} $D$ takového intervalu $J$ rozumíme $n$-tici $D_1, \dots, D_n$, kde $D_i$ je rozdìlení intervalu $\left<a_i,b_i\right>$.
+\item Rozdìlení $D=(D_1,\dots,D_n)$ je \emph{zjemnìním} $D'=(D'_1,\dots,D'_n)$ jestlie $D_i$ zjemòuje $D'_i$.
 \end{pitemize}
-\end{definice}
+\end{e}
 
-\begin{pozorovani}
-KaÅ¾dÃ© dvÄ› rozdÄ›lenÃ­ majÃ­ spoleÄnÃ© zjemnÄ›nÃ­.
-\end{pozorovani}
+\begin{e}{Pozorování}{0}{0}
+Kadé dvì rozdìlení mají spoleèné zjemnìní.
+\end{e}
 
-\begin{definice}
-\emph{ÄŒlen rozdÄ›lenÃ­} $D=(D_1,\dots,D_n)$ je kterÃ½koliv interval $K=\left<t_{1, i_1}, t_{1, i_1+1}\right> \times \dots \times \left<t_{n, i_n}, t_{n, i_n+1}\right>$, kde $D_k: t_{k0} < \dots < t_{k,r(k)}, \, \, 0 \le i_j \le r(j)$. MnoÅ¾ina vÅ¡ech ÄlenÅ¯ rozdÄ›lenÃ­ $D$ bude oznaÄovÃ¡na $|D|$. % urcite tu melo byt podrozdeleni?? -- Tuetschek
-\end{definice}
+\begin{e}{Definice}{0}{0}
+\emph{Èlen rozdìlení} $D=(D_1,\dots,D_n)$ je kterıkoliv interval $K=\left<t_{1, i_1}, t_{1, i_1+1}\right> \times \dots \times \left<t_{n, i_n}, t_{n, i_n+1}\right>$, kde $D_k: t_{k0} < \dots < t_{k,r(k)}, \, \, 0 \le i_j \le r(j)$. Mnoina všech èlenù rozdìlení $D$ bude oznaèována $|D|$. % urcite tu melo byt podrozdeleni?? -- Tuetschek
+\end{e}
 
-\begin{definice}
-\emph{Objem intervalu} $J=\left<a_1,b_1\right> \times \dots \times \left<a_n,b_n\right>$ je ÄÃ­slo
+\begin{e}{Definice}{0}{0}
+\emph{Objem intervalu} $J=\left<a_1,b_1\right> \times \dots \times \left<a_n,b_n\right>$ je èíslo
 $$\vol J=(b_1-a_1).(b_2-a_2)\dots(b_n-a_n)$$
-\end{definice}
+\end{e}
 
-\begin{definice}
-BuÄ $f$ omezenÃ¡ funkce na intervalu $J$, buÄ $D$ rozdÄ›lenÃ­ $J$. \emph{DolnÃ­ (resp. hornÃ­) sumou} funkce $f$ v rozdÄ›lenÃ­ $D$ rozumÃ­me ÄÃ­slo
+\begin{e}{Definice}{0}{0}
+Buï $f$ omezená funkce na intervalu $J$, buï $D$ rozdìlení $J$. \emph{Dolní (resp. horní) sumou} funkce $f$ v rozdìlení $D$ rozumíme èíslo
 $$s(f,D)=\sum_{K\in |D|}m_K\cdot\vol K \textit{\;\;resp.\;\;} S(f,D) = \sum_{K \in |D|} M_K\cdot\vol K,$$
 kde $m_K$ je infimum a $M_k$ supremum funkce $f$ na intervalu $K$.
-\end{definice}
+\end{e}
 
-\begin{pozorovani}
-Pro libovolnÃ¡ dvÄ› rozdÄ›lenÃ­ $D$ a $D'$ platÃ­ $s(f,D) \le S(f,D')$
-\end{pozorovani}
+\begin{e}{Pozorování}{0}{0}
+Pro libovolná dvì rozdìlení $D$ a $D'$ platí $s(f,D) \le S(f,D')$
+\end{e}
 
-\begin{definice}
-DolnÃ­ a hornÃ­ RiemannÅ¯v integrÃ¡l definujeme jako
+\begin{e}{Definice}{0}{0}
+Dolní a horní Riemannùv integrál definujeme jako
 $$\underline{\int}_Jf=\sup_Ds(f,D), \;\;\; \overline{\int}_Jf=\inf_DS(f,D)$$
-a pÅ™i rovnosti tÄ›chto hodnot mluvÃ­me o RiemannovÄ› integrÃ¡lu a pÃ­Å¡eme prostÄ›
+a pøi rovnosti tìchto hodnot mluvíme o Riemannovì integrálu a píšeme prostì
 $$\int_Jf \textit{ nebo } \int_Jf(x_1,\dots,x_n)\d x_1\dots x_n, \;\;\;\int_Jf(\overrightarrow{x})d\overrightarrow{x}.$$
-\end{definice}
+\end{e}
 
-\begin{veta}
-Pro vÃ­cerozmÄ›rnÃ½ RiemannÅ¯v integrÃ¡l platÃ­ (podobnÄ› jako pro jednorozmÄ›rnÃ½ pÅ™Ã­pad) Å¾e $f$ je Riemannovsky integrovatelnÃ¡, prÃ¡vÄ› kdyÅ¾ ke kaÅ¾dÃ©mu $\varepsilon > 0$ existuje rozdÄ›lenÃ­ $D$ takovÃ©, Å¾e
+\begin{e}{Vìta}{0}{0}
+Pro vícerozmìrnı Riemannùv integrál platí (podobnì jako pro jednorozmìrnı pøípad) e $f$ je Riemannovsky integrovatelná, právì kdy ke kadému $\varepsilon > 0$ existuje rozdìlení $D$ takové, e
 $$S(f,D)-s(f,D)<\varepsilon$$
 
-PlatÃ­ i vÄ›ta, Å¾e spojitÃ¡ funkce na intervalu $J$ je Riemannovsky integrovatelnÃ¡.
-\end{veta}
+Platí i vìta, e spojitá funkce na intervalu $J$ je Riemannovsky integrovatelná.
+\end{e}
 
-\begin{vetaN}{Vlastnosti Riemannova vÃ­cerozmÄ›rnÃ©ho integrÃ¡lu}
-PlatÃ­:
+\begin{e}{Vìta}{0}{Vlastnosti Riemannova vícerozmìrného integrálu}
+Platí:
 \begin{penumerate}
-	\item $|\int_J f| \le \int_J|f|$ (existujÃ­-li pÅ™Ã­sluÅ¡nÃ© integrÃ¡ly)
-	\item BuÄte $f,g$ Riemannovsky integrovatelnÃ© funkce na $J$, buÄ $f \le g$. Potom $\int_J f \le \int_J g$.
-	\item SpeciÃ¡lnÄ›, je-li $f(\overrightarrow{x})\le C$ pro nÄ›jakou konstantu $C$, platÃ­ $\int_J f \le C\cdot \vol J$
+	\item $|\int_J f| \le \int_J|f|$ (existují-li pøíslušné integrály)
+	\item Buïte $f,g$ Riemannovsky integrovatelné funkce na $J$, buï $f \le g$. Potom $\int_J f \le \int_J g$.
+	\item Speciálnì, je-li $f(\overrightarrow{x})\le C$ pro nìjakou konstantu $C$, platí $\int_J f \le C\cdot \vol J$
 \end{penumerate}
-\end{vetaN}
+\end{e}
 
-\begin{vetaN}{Fubiniova}
-BuÄte $J' \subseteq E^n, J'' \subseteq E^m$ intervaly, $J=J' \times J''$, buÄ $f$ spojitÃ¡ funkce definovanÃ¡ na $J$. Potom
+\begin{e}{Vìta}{0}{Fubiniova}
+Buïte $J' \subseteq E^n, J'' \subseteq E^m$ intervaly, $J=J' \times J''$, buï $f$ spojitá funkce definovaná na $J$. Potom
 $$\int_J f(\overrightarrow x,\overrightarrow y)d\overrightarrow x\overrightarrow y =
 \int_{J'}\left(\int_{J''}f(\overrightarrow x,\overrightarrow y)d\overrightarrow y\right)d\overrightarrow x =
 \int_{J''}\left(\int_{J'}f(\overrightarrow x,\overrightarrow y)d\overrightarrow x\right)d\overrightarrow y
 $$
 
-(InÃ½mi slovami: Hodnota \uv{integrÃ¡lu} cez celÃ½ interval je rovnÃ¡ hodnote po integrovanÃ­ postupne cez (jednotlivÃ©) \uv{rozmery} - priÄom je moÅ¾nÃ© integrovaÅ¥ v Ä¾ubovoÄ¾nom poradÃ­.)
-\end{vetaN}
+(Inımi slovami: Hodnota \uv{integrálu} cez celı interval je rovná hodnote po integrovaní postupne cez (jednotlivé) \uv{rozmery} - prièom je moné integrova v ¾ubovo¾nom poradí.)
+\end{e}
 
-\begin{definiceN}{ParciÃ¡lnÃ­ derivace}
-\emph{ParciÃ¡lnÃ­ derivace} funkce $f$ v bodÄ› $a\in\mathbb{R}^n$ podle promÄ›nnÃ© $x_i$ se definuje nÃ¡sledovnÄ›:
+\begin{e}{Definice}{0}{Parciální derivace}
+\emph{Parciální derivace} funkce $f$ v bodì $a\in\mathbb{R}^n$ podle promìnné $x_i$ se definuje následovnì:
 $$\frac{\partial f}{\partial x_i}(a)=\lim_{h\to 0}\frac{f(a_1,\dots,a_{i-1},a_i + h,a_{i+1},\dots,a_n)-f(a_1,\dots,a_n)}{h}$$
-\end{definiceN}
+\end{e}
 
-\begin{definiceN}{Jacobiho matice, jakobiÃ¡n}
-\emph{Jacobiho matice} funkce $\overrightarrow f:D\to \mathbb{R}^n$ v bodÄ› $a\in D$, kde $D$ je otevÅ™enÃ¡ mnoÅ¾ina v $\mathbb{R}^m$ a $f_1,f_2,\dots f_n$ jsou souÅ™adnicovÃ© funkce $f$, je dÃ¡na pÅ™edpisem:
+\begin{e}{Definice}{0}{Jacobiho matice, jakobián}
+\emph{Jacobiho matice} funkce $\overrightarrow f:D\to \mathbb{R}^n$ v bodì $a\in D$, kde $D$ je otevøená mnoina v $\mathbb{R}^m$ a $f_1,f_2,\dots f_n$ jsou souøadnicové funkce $f$, je dána pøedpisem:
 $$
 \left(\frac{\partial f_i}{\partial x_j}(a)\right)_{i,j=1}^{n,m} =
 \left( \begin{matrix}
@@ -331,16 +331,16 @@ $$
 \end{matrix} \right)
 $$
 
-\noindent TÃ¡to ÄtvercovÃ¡ matice se obvykle znaÄÃ­ $\frac{D(f_1,\dots,f_n)}{D(x_1,\dots,x_n)}$ -- a je-li $m=n$, jejÃ­ determinant se nazÃ½vÃ¡ \emph{JakobiÃ¡n} (a znaÄÃ­ se rovnako???).
-\end{definiceN}
+\noindent Táto ètvercová matice se obvykle znaèí $\frac{D(f_1,\dots,f_n)}{D(x_1,\dots,x_n)}$ -- a je-li $m=n$, její determinant se nazıvá \emph{Jakobián} (a znaèí se rovnako???).
+\end{e}
 
-\begin{definiceN}{RegulÃ¡rnÃ­ zobrazenÃ­}
-NechÅ¥ $U \subseteq \mathbb{R}^n$ je otevÅ™enÃ¡ mnoÅ¾ina, $\overrightarrow f: U \rightarrow \mathbb{R}^n$ mÃ¡ spojitÃ© parciÃ¡lnÃ­ derivace. \emph{ZobrazenÃ­ $\overrightarrow f$ je regulÃ¡rnÃ­}, je-li jakobiÃ¡n
+\begin{e}{Definice}{0}{Regulární zobrazení}
+Nech $U \subseteq \mathbb{R}^n$ je otevøená mnoina, $\overrightarrow f: U \rightarrow \mathbb{R}^n$ má spojité parciální derivace. \emph{Zobrazení $\overrightarrow f$ je regulární}, je-li jakobián
 $$\frac{D(f_1,\dots,f_n)}{D(x_1,\dots,x_n)}(\overrightarrow x) \neq 0, \,\, \forall \overrightarrow x \in U$$
-\end{definiceN}
+\end{e}
 
 
-\begin{vetaN}{O substituci}
-NechÅ¥ $\varphi: U \subseteq \mathbb{R}^n \rightarrow \mathbb{R}^n$ je regulÃ¡rnÃ­ zobrazenÃ­, $A$ je uzavÅ™enÃ¡ mnoÅ¾ina v $\mathbb{R}^n$, $A \subseteq U$ na kterÃ© existuje $\int_{\varphi(A)}f(\overrightarrow x)d\overrightarrow x$. Potom platÃ­:
+\begin{e}{Vìta}{0}{O substituci}
+Nech $\varphi: U \subseteq \mathbb{R}^n \rightarrow \mathbb{R}^n$ je regulární zobrazení, $A$ je uzavøená mnoina v $\mathbb{R}^n$, $A \subseteq U$ na které existuje $\int_{\varphi(A)}f(\overrightarrow x)d\overrightarrow x$. Potom platí:
 $$\int_A f(\overrightarrow{\varphi}(\overrightarrow t)) \frac{D(\overrightarrow \varphi)}{D(\overrightarrow t)}d\overrightarrow t = \int_{\varphi (A)} f(\overrightarrow x)d\overrightarrow x$$
-\end{vetaN}
+\end{e}

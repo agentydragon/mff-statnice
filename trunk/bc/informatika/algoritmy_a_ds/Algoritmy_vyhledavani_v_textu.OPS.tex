@@ -1,10 +1,10 @@
-\subsection{Algoritmy vyhledÃ¡vÃ¡nÃ­ v textu}
-Toto sÃº len veÄ¾mi struÄnÃ© vÃ½Å¥ahy z wikipedie. AktuÃ¡lne sÃº tu len preto, aby si Älovek rÃ½chlo vybavil, o Äom tie algoritmy sÃº :-)
+\subsection{Algoritmy vyhledávání v textu}
+Toto sú len ve¾mi struèné vıahy z wikipedie. Aktuálne sú tu len preto, aby si èlovek rıchlo vybavil, o èom tie algoritmy sú :-)
 
 \subsubsection*{Rabin-Karp}
-UmoÅ¾Åˆuje vyhÄ¾adÃ¡vanie viacerÃ½ch reÅ¥azcov v texte naraz - uÅ¾itoÄnÃ© napr. na hÄ¾adanie plagiÃ¡tov. ZÃ¡kladnou myÅ¡lienkou je vyhÄ¾adÃ¡vanie v texte pomocou hashov (rolling hashes - idea je \texttt{s[i+1..i+m] = s[i..i+m-1] - s[i] + s[i+m]})...
+Umoòuje vyh¾adávanie viacerıch reazcov v texte naraz - uitoèné napr. na h¾adanie plagiátov. Základnou myšlienkou je vyh¾adávanie v texte pomocou hashov (rolling hashes - idea je \texttt{s[i+1..i+m] = s[i..i+m-1] - s[i] + s[i+m]})...
 
-Algoritmus pre vyhÄ¾adÃ¡vanie jednÃ©ho reÅ¥azca:
+Algoritmus pre vyh¾adávanie jedného reazca:
 \begin{verbatim}
  1 function RabinKarp(string s[1..n], string sub[1..m])
  2     hsub := hash(sub[1..m])
@@ -17,31 +17,31 @@ Algoritmus pre vyhÄ¾adÃ¡vanie jednÃ©ho reÅ¥azca:
  9     return not found
 \end{verbatim}
 
-NajhorÅ¡ia zloÅ¾itosÅ¥ je $\Omega(mn)$. Pri vyhÄ¾adÃ¡vanÃ­ viacerÃ½ch reÅ¥azcov len spoÄÃ­tame hashe vÅ¡ekÃ½ch hÄ¾adanÃ½ch stringov a pri nÃ¡jdenÃ­ niektorÃ©ho z hashov prÃ­sluÅ¡nÃ½ reÅ¥azec porovnÃ¡me s textom... OstatnÃ© algoritmy spotrebujÃº Äas $O(n)$ na nÃ¡jdenie 1 reÅ¥azca a teda $O(nk)$ na vyhÄ¾adanie $k$ reÅ¥azcov. Naproti tomu tento algoritmus mÃ¡ oÄakÃ¡vanÃº zloÅ¾itosÅ¥ $O(n+k)$ - pretoÅ¾e vyhÄ¾adÃ¡vanie v hashovacej tabuÄ¾ke, Äi je hash podreÅ¥azca textu rovnÃ½ hashu niektorÃ©ho z hÄ¾adanÃ©ho reÅ¥azcov, trvÃ¡ $O(1)$.
+Najhoršia zloitos je $\Omega(mn)$. Pri vyh¾adávaní viacerıch reazcov len spoèítame hashe všekıch h¾adanıch stringov a pri nájdení niektorého z hashov príslušnı reazec porovnáme s textom... Ostatné algoritmy spotrebujú èas $O(n)$ na nájdenie 1 reazca a teda $O(nk)$ na vyh¾adanie $k$ reazcov. Naproti tomu tento algoritmus má oèakávanú zloitos $O(n+k)$ - pretoe vyh¾adávanie v hashovacej tabu¾ke, èi je hash podreazca textu rovnı hashu niektorého z h¾adaného reazcov, trvá $O(1)$.
 
 \subsubsection*{Aho-Corasick}
 
-DokÃ¡Å¾e vyhÄ¾adÃ¡vaÅ¥ viacero reÅ¥azcov naraz - pouÅ¾Ã­va na to trie-like Å¡truktÃºru (koneÄnÃ½ automat), ktorÃ½ obsahuje nasledujÃºce \uv{prvky}:
+Dokáe vyh¾adáva viacero reazcov naraz - pouíva na to trie-like štruktúru (koneènı automat), ktorı obsahuje nasledujúce \uv{prvky}:
 \begin{penumerate}
-	\item koneÄnÃ¡ mnoÅ¾ina $Q$ - stavy
-	\item koneÄnÃ¡ abeceda $A$
+	\item koneèná mnoina $Q$ - stavy
+	\item koneèná abeceda $A$
 	\item transition funkcia $g$: $Q \times A \rightarrow Q + \{fail\}$
-	\item failure funkcia $h$: $Q \rightarrow Q + \{fail\}$. $h(q)=q'$ prÃ¡ve vtedy keÄ spomedzi vÅ¡etkÃ½ch stavov Q dÃ¡va $q'$ najdlhÅ¡Ã­ suffix z $path(q)$.
-	\item koneÄnÃ¡ mnoÅ¾ina $F$ - koncovÃ© stavy
+	\item failure funkcia $h$: $Q \rightarrow Q + \{fail\}$. $h(q)=q'$ práve vtedy keï spomedzi všetkıch stavov Q dáva $q'$ najdlhší suffix z $path(q)$.
+	\item koneèná mnoina $F$ - koncové stavy
 \end{penumerate}
 
-PrÃ­klad \uv{hotovÃ©ho} automatu pre slovÃ¡ P=\{ab, ba, babb, bb\}:
+Príklad \uv{hotového} automatu pre slová P=\{ab, ba, babb, bb\}:
 
 \par\begin{center}\includegraphics[width=8cm]{informatika/algoritmy_a_ds/obrazky/ahocorasick-automatron.png}\end{center}
 
-ZloÅ¾itosÅ¥ vyhÄ¾adÃ¡vania je lineÃ¡rna vzhÄ¾adom k dÄºÅ¾ke textu a poÄtu nÃ¡jdenÃ½ch \uv{slov} (pozn.: ten mÃ´Å¾e byÅ¥ aÅ¾ kvadradickÃ½ - slovnÃ­k a, aa, aaa, aaaa; reÅ¥azec aaaa). Trie Å¡truktÃºru je moÅ¾nÃ© vyrobiÅ¥ raz a potom pouÅ¾Ã­vaÅ¥ poÄas vyhÄ¾adÃ¡vania - uchovÃ¡vame si najdlÅ¡Ã­ match a pouÅ¾Ã­vame suffix odkazy (aby sme udrÅ¾ali linearitu vÃ½poÄtu).
+Zloitos vyh¾adávania je lineárna vzh¾adom k dåke textu a poètu nájdenıch \uv{slov} (pozn.: ten môe by a kvadradickı - slovník a, aa, aaa, aaaa; reazec aaaa). Trie štruktúru je moné vyrobi raz a potom pouíva poèas vyh¾adávania - uchovávame si najdlší match a pouívame suffix odkazy (aby sme udrali linearitu vıpoètu).
 
-VÃ½stavba stromu se provede prostÃ½m zaÅ™azovÃ¡nÃ­m slov do trie-stromu podle prefixÅ¯. Na tÃ©to struktuÅ™e je potom moÅ¾nÃ© v lineÃ¡rnÃ­m Äase (vzhledem k poÄtu znakÅ¯ hledanÃ½ch slov) pÅ™edpoÄÃ­tat hodnoty failure funkce: automat vÅ¾dy pustÃ­me na sufix aktuÃ¡lnÄ› zkouÅ¡enÃ©ho slova, bez prvnÃ­ho znaku. DÃ­ky tomu, Å¾e prÅ¯bÄ›Å¾nÄ› uklÃ¡dÃ¡me hodnoty nalezenÃ½ch slov, pro kaÅ¾dÃ© pÃ­smeno provede max. 2 kroky (postup vpÅ™ed a uloÅ¾enÃ­ hodnoty, kam bych spadnul).
+Vıstavba stromu se provede prostım zaøazováním slov do trie-stromu podle prefixù. Na této struktuøe je potom moné v lineárním èase (vzhledem k poètu znakù hledanıch slov) pøedpoèítat hodnoty failure funkce: automat vdy pustíme na sufix aktuálnì zkoušeného slova, bez prvního znaku. Díky tomu, e prùbìnì ukládáme hodnoty nalezenıch slov, pro kadé písmeno provede max. 2 kroky (postup vpøed a uloení hodnoty, kam bych spadnul).
 
 
 \subsubsection*{Knuth-Morris-Pratt}
 
-Obdoba Aho-Corasick, ale hÄ¾adÃ¡ len jedno slovo. Samozrejme nie je potrebnÃ¡ doprednÃ¡ funkcia (vÅ¾dy iba nasledujÃºci znak), pouÅ¾Ã­va sa \uv{partial match} tabuÄ¾ka (failure funkcia).
+Obdoba Aho-Corasick, ale h¾adá len jedno slovo. Samozrejme nie je potrebná dopredná funkcia (vdy iba nasledujúci znak), pouíva sa \uv{partial match} tabu¾ka (failure funkcia).
 
 \begin{verbatim}
 algorithm kmp_search:
@@ -67,9 +67,9 @@ algorithm kmp_search:
     return the length of S
 \end{verbatim}
 
-ZloÅ¾itosÅ¥ algoritmu je je $O(k)$ (k je dÄºÅ¾ka S) - cyklus je vykonanÃ½ najviac $2k$ krÃ¡t.
+Zloitos algoritmu je je $O(k)$ (k je dåka S) - cyklus je vykonanı najviac $2k$ krát.
 
-Algoritmus na vÃ½robu tabuÄ¾ky:
+Algoritmus na vırobu tabu¾ky:
 \begin{verbatim}
 algorithm kmp_table:
     input:
@@ -103,4 +103,4 @@ algorithm kmp_table:
 \end{verbatim}
 
 
-ZloÅ¾itosÅ¥ tohoto algoritmu je $O(n)$ (n je dÄºÅ¾ka W) - cyklus skonÄÃ­ najviac po $2n$ iterÃ¡ciÃ¡ch.
+Zloitos tohoto algoritmu je $O(n)$ (n je dåka W) - cyklus skonèí najviac po $2n$ iteráciách.
