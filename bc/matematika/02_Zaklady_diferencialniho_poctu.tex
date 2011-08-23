@@ -50,13 +50,6 @@ $f$ mùe bıt na $M$:
 \end{pitemize}
 \end{e}
 
-\begin{reportN}{Majerech}
-Vytáhl jsem si funkce jedné promìnné... to neznìlo špatnì co pøišlo byl docela šok... otázka byla toti:
-Dokate vìtu o Darbouxouvì vlastnosti pro spojité funkce - ádné vìty nebo definice - prostì jeden dùkaz
-uff dùkaz jsem nevidìl od prváku... no vymyslel jsem nìco co vypadalo dùvìryhodnì 
-majerech se podíval konstatoval, e takhle si dùkaz nepøedstavoval... a e se to normálnì dokazuje jinak, uznal e to co jsem vyrobil má hlavu a patu nicménì pouil jsem e uzavøenı interval je kompaktní mnoina a e tam lze tedy vybrat konvergentní podposloupnost co majerech prohlásil e je dùsledek toho co mám dokazovat... a e bych asi to mìl ukázat... naštìstí z toho sešlo po této co majerech po drobném pøesvìdèování uznal e vìta byla +- dokázána 
-\end{reportN}
-
 \subsection{Spojitost, limita funkce v bodì (vlastní i nevlastní)}
 
 \obrazekvpravominipage{matematika/obrazky/limita_funkce}{Ilustrace limity}{fig:limitafunkce}{0.6}{0.4} {
@@ -93,7 +86,7 @@ Heineho vìta umoòuje tvrzení, vyslovená o limitách posloupností, pøevádìt na li
 \begin{e}{Idea dùkazu}{0}{0}
     (nejsem si jist, jestli dùkaz funguje i pro nekoneèna)
     
-    1$\Rightarrow$2 Pro $\varepsilon$ okolí $A$ najdu odpovídající $\delta$ okolí $a$, pro $x_n$ jsou od nìjakého $n_0$ všechny hodnoty v~tomto $\delta$ okolí, jejich obrazy ale musí bıt i v~$\varepsilon$ okolí $A$ .
+    1$\Rightarrow$2 Pro $\varepsilon$ okolí $A$ najdu odpovídající $\delta$ okolí $a$, $x_n$ jsou od nìjakého $n_0$ všechny v~tomto $\delta$ okolí, jejich obrazy ale musí bıt i v~$\varepsilon$ okolí $A$ .
     
     2$\Rightarrow$1 Sporem. Musí existovat $\varepsilon$, e $\forall \delta \exists x \in P(a, \delta)$ takové, e $f(x) \notin B(A, \varepsilon)$ (pouze negace definice limity). Mùeme tedy postupnì zmenšovat $\delta$, v~kadém $ P(a, \delta)$ najít takové $x$ a vytvoøit tak posloupnost, která má limitu v~$a$, ale její obrazy nebudou mít limitu v~$A$, protoe jsou vdy vzdálené $\varepsilon$ -- spor.
 \end{e}
@@ -206,7 +199,7 @@ Ilustrováno na obrázku \ref{fig:darboux}.
 K dùkazu se nám bude hodit lemma, vyplıvající z~definice limity.
 
 \begin{e}{Lemma}{0}{0}
-Pokud má spojitá funkce v $x_0$ hodnotu ostøe vìtší ne $y$, má hodnotu $f(x)>y$ i v~nìjakém okolí $x_0$.
+Pokud má spojitá funkce v $x_0$ hodnotu ostøe vìtší ne $y$, má hodnotu $f(x)>y$ i v~nìjakém okolí $x_0$. (vezmeme si chytøe epsilon)
 \end{e}
 
 Pokraèujeme s dùkazem Darbouxe.
@@ -228,7 +221,7 @@ Hodnota $f(s)$ tedy musí bıt $y$.
 Nech funkce $f: I \rightarrow \mathbb{R}$ je spojitá na intervalu $I$. Potom $f(I)$ je také interval.
 
 \begin{e}{Idea dùkazu}{0}{0}
-Pultr dokazuje pøes Darbouxe -- krajní body $I$ tam mají svoje hodnoty, všechny hodnoty mezi tìmito hodnotami tam musí bıt a proto je to interval. Já si nejsem úplnì jistı, ale budu Pultrovi vìøit.
+Pultr dokazuje pøes Darbouxe -- krajní body $I$ tam mají svoje hodnoty, všechny hodnoty mezi tìmito hodnotami tam musí bıt a proto je to interval. Já si nejsem úplnì jistı, ale budu Pultrovi vìøit. V~kapitole o prostorech se beztak podobné dùkazy opakují.
 
 \end{e}
 \end{e}
@@ -269,6 +262,13 @@ Nech $f$ je prostá na $M$, tedy $f: M \rightarrow f(M)$. Pak \emph{inverzní fun
 \begin{e}{Vìta}{0}{O inverzní funkci}
 Nech $I$ je interval a funkce $f$ je definovaná, spojitá a rostoucí (klesající) na $I$. Potom inverzní funkce $f^{-1}$ je definována, spojitá a rostoucí (klesající) na $f(I)$.
 \end{e}
+
+\begin{reportN}{Majerech}
+Vytáhl jsem si funkce jedné promìnné... to neznìlo špatnì co pøišlo byl docela šok... otázka byla toti:
+Dokate vìtu o Darbouxouvì vlastnosti pro spojité funkce - ádné vìty nebo definice - prostì jeden dùkaz
+uff dùkaz jsem nevidìl od prváku... no vymyslel jsem nìco co vypadalo dùvìryhodnì 
+majerech se podíval konstatoval, e takhle si dùkaz nepøedstavoval... a e se to normálnì dokazuje jinak, uznal e to co jsem vyrobil má hlavu a patu nicménì pouil jsem e uzavøenı interval je kompaktní mnoina a e tam lze tedy vybrat konvergentní podposloupnost co majerech prohlásil e je dùsledek toho co mám dokazovat... a e bych asi to mìl ukázat... naštìstí z toho sešlo po této co majerech po drobném pøesvìdèování uznal e vìta byla +- dokázána 
+\end{reportN}
 
 
 \begin{reportN}{Zahradník}
@@ -359,7 +359,9 @@ Moná trochu osvìtlující obrázek je \ref{fig:derivace} -- snaíme se o smìrnici 
 }
 \medskip
 \begin{e}{Vìta}{0}{Vztah derivace a spojitosti}
-Má-li $f$ v $a$ vlastní derivaci, potom je $f$ v $a$ spojitá.
+Má-li $f$ v $a$ vlastní (tj. koneènou) derivaci, potom je $f$ v $a$ spojitá.
+
+
 \begin{e}{Idea dùkazu}{0}{0}
 	$\lim_{x\rightarrow a}(f(x)-f(a)) = \lim_{x\rightarrow a}\frac{f(x)-f(a)}{x-a}(x-a)=f'(x)\cdot 0 = 0$, $\lim_{x\rightarrow a}f(x)=\lim(f(x)-f(a)+f(a)) = f(a)$.
 \end{e}
@@ -375,18 +377,49 @@ Nech existují $f'(a)$, $g'(a)$:
 	\item je-li $g$ nebo $f$ spojitá v $a$, pak $(fg)'(a)=f'(a)g(a)+f(a)g'(a)$
 	\item je-li $g$ spojitá v $a$, $g(a) \neq 0$, pak $(\frac{f}{g})'(a)=\frac{f'(a)g(a)-f(a)g'(a)}{g^2(a)}$
 \end{penumerate}
+
+\begin{e}{Dùkaz}{0}{0}
+
+Je pracnı.
+
+\end{e}
+
 \end{e}
 
 \begin{e}{Vìta}{0}{O derivaci sloené funkce}
 Nech funkce $f$ má derivaci v $y_0$, $g$ má derivaci v $x_0$, $g$ je spojitá v $x_0$ a $y_0=g(x_0)$. Potom $(f \circ g)'(x_0)=f'(y_0)\cdot g'(x_0)=f'(g(x_0))\cdot g'(x_0)$.
+
+
+\begin{e}{Idea dùkazu}{0}{0}
+	Je velmi pracnı, jen naznaèím. Zlomek upravíme na
+
+	$$\frac{f(g(x))-f(g(a))}{x-a}=\frac{f(g(x))*f(g(a))}{g(x)-g(a)}\cdot\frac{g(x)-g(a)}{x-a}.$$
+
+	Rozloíme na dvì mnoiny -- $A=\{x|g(x)\neq g(a)\}$, $B=\{x|g(x)= g(a)\}$. Kadá se musí vyøešit zvláš, díky spojitosti to ale jde.
+
+
+\end{e}
+
 \end{e}
 
 \begin{e}{Vìta}{0}{O derivaci inverzní funkce}
 Nech funkce $f$ je na intervalu $(a,b)$ spojitá a ryze monotonní\footnote{aby vùbec mìla inverzní}  a má v bodì $x_0 \in (a,b)$ derivaci $f'(x_0)$ vlastní a rùznou od nuly. Potom má funkce $f^{-1}$ derivaci v bodì $y_0=f(x_0)$ a platí rovnost
-$$(f^{-1})'(y_0) = \frac{1}{f'(f^{-1}(y_0))}.$$
+$$(f^{-1})'(y_0) = \frac{1}{f'(f^{-1}(y_0))}=\frac{1}{f'(x_0)}.$$
 \begin{e}{Poznámka}{0}{0}
 Pokud v situaci popsané v právì uvedené vìtì je $f'(x_0)$ nevlastní, je $(f^{-1})'(y_0)=0$. Je-li $f'(x_0)=0$, je $(f^{-1})'(y_0)=+\infty$ (je-li $f$ rostoucí), resp. $=-\infty$ (je-li $f$ klesající).
 \end{e}
+
+\begin{e}{Pøíklad}{0}{0}
+Definice není úplnì prùhledná. Øeknìme, e zkoumáme funkci $f(x)=x^2$ na intervalu $(0,+\infty)$. V bodì $x_0=1$ má derivaci $f'(x_0)=2x_0 = 2$. Funkce $f^{-1}$, tedy $\sqrt{y}$ má derivaci v bodì $y_0=f(x_0)=x_0^2=1^2=1$ (to je bod, odkud zobrazujeme inverzní funkci, ale kam dopadá hlavní funkce) a platí, e $\left(\sqrt{y_0}\right)'=\frac{1}{\left(x_0^2\right)'}=\frac{1}{2}$.
+
+(nevím, jak moc jsem to ujasnil :-))
+
+\end{e}
+
+\begin{e}{Dùkaz}{0}{0}
+
+\end{e}
+
 \end{e}
 
 \begin{e}{Vìta}{0}{Nutná podmínka lokálního extrému}
