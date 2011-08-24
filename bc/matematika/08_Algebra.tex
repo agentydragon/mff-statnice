@@ -509,7 +509,7 @@ Je-li $(T,+,\cdot,-,0,1)$ nìjaké komutativní tìleso, pak $T[x]$ je eukleidovskım
 \begin{e}{Algoritmus}{0}{Eukleidùv algoritmus}
 Na eukleidovském okruhu $R$ s eukleidovskou funkcí $\nu$ pro dva prvky $a_0,a_1\in R\setminus\{0\}$ najdeme nejvìtší spoleènı dìlitel následujícím postupem:
 \begin{pitemize}
-    \item Je-li $i\geq 1$ a $a_i\not |\ a_{i-1}$, vezmeme $a_{i+1}\in R$ takové, e $a_{i-1}=a_i\cdot q_i+a_{i+1}$ pro nìjaké $q_i$ a $\nu(a_{i+1})<\nu(a_i)$. $i$ zvıšíme o $1$ a pokraèujeme další iterací.
+    \item Je-li $i\geq 1$ a $a_i\not |\ a_{i-1}$, vezmeme $a_{i+1}\in R$ takové, e $a_{i-1}=a_i\cdot q_i+a_{i+1}$ pro nìjaké $q_i$ a $\nu(a_{i+1})<\nu(a_i)$. $i$ zvıšíme o $1$ a pokraèujeme další iterací \footnote{znak $\not |\ $ znamená nedìlí }.
     \item Je-li $i\geq 1$ a $a_i|a_{i-1}$, potom $a_i = \NSD(a_0,a_1)$ a vıpoèet konèí.
 \end{pitemize}
 Dá se dokázat, e se vıpoèet zastaví a kroky jsou dobøe definované (lze nalézt $a_{i+1}$ a $q_i$), tedy libovolné dva polynomy mají nejvìtšího spoleèného dìlitele.
@@ -519,6 +519,8 @@ Dá se dokázat, e se vıpoèet zastaví a kroky jsou dobøe definované (lze nalézt $
 Nejvìtší spoleènı dìlitel je v polynomech $R[x]$ urèen a na asociovanost ($||$) jednoznaènì. Pro asociované polynomy $p,q$ vdy platí, e $\deg p=\deg q$ a $p=r\cdot q$ pro nìjaké $r\in R$.
 \end{e}
 
+\begin{reportN}{Kratochvíl} Dal mi jeste prakticky priklad na delitelnost, jestli jeden zadany polynom je delitelem druheho (ze by zachrana? bo toto pocitaji decka nekde v sexte na gymplu :D). Tak priklad spocitan, k tomu stranka teorie. Myslim, ze jsem nektere hlavni veci mel, NSD, Eukleida, co je to koren a rozklad, co je ireducibilni polynom a take to, ze v C - narozdil od R - ma kazdy polynom koren a polynom stupne $\geq2$ je vzdy reducibilni. No a pak zacal. :) Chtel mimo jine "nejak popsat" vsechny ireducibilni polynomy v R,Q a C. No tady jsem to moc nedaval, dost mi pomahal... Spolecnymi silami jsme to nakonec dali dohromady (pro zvedavce spr. odpoved: polynom je ireducibilni v C $\Leftrightarrow$ je stupne 1, ireducibilni v R $\Leftrightarrow$ je stupne 1 nebo 2, a v Q pro libovolne n existuje ireducibilni - napr $x^n-2$) 
+\end{reportN}
 
 \subsection{Rozklady polynomù na koøenové èinitele}
 
@@ -540,6 +542,8 @@ Nech $(S,+,\cdot,-,0,1)$ je okruh, $R$ jeho podokruh ($R\subset S$) a nech $\a
 
 \begin{e}{Poznámka}{0}{Dosazovaní a $\deg p$}
 Pro obor integrity $R[x]$ nad oborem integrity $(R,+,\cdot,-,0,1)$ je polynom $p[x]$ invertibilní, právì kdy $\deg p=0$ a $j_0(p)=p(0)$ je invertibilní na $R$.
+\\Napø.: kdy mám polynom $(x^n+...)$, kde $n>0$, nièím ho u nemùu vynásobit,
+abych získal 1.
 \end{e}
 
 \begin{e}{Definice}{0}{Koøen polynomu}
@@ -565,7 +569,8 @@ Kadı polynom v okruhu polynomù o jedné neznámé nad algebraicky uzavøenım tìlese
 \end{e}
 
 \begin{e}{Vìta}{0}{Základní vìta algebry}
-Tìleso $\Complex$ komplexních èísel je algebraicky uzavøené.
+Tìleso $\Complex$ komplexních èísel je algebraicky uzavøené \footnote{$\Real$
+nebo $\mathbb{Q}$ ne}.
 \end{e}
 
 \begin{e}{Dùsledek}{0}{0}
@@ -580,6 +585,7 @@ Má-li polynom $p$ nad $\Complex[x]$ s reálnımi koeficienty ($a_i\in\Real$) koøen
 Polynom $p(x)\in\Real[x]$ stupnì alespoò 1 má v $\Real[x]$ rozklad tvaru 
 $$p(x)=a(x-\alpha_1)^{k_1}\cdot\dots(x-\alpha_r)^{k_r}\cdot(x^2-a_1 x+b_1)^{l_1}\cdot\dots(x^2-a_s x+b_s)^{l_s}$$
 a polynomy $x^2+a_j x+b_j$, kde $j\in\{1,\dots s\}$ mají za koøeny dvojice komplexnì sdruenıch èísel (která nejsou èistì reálná). Navíc $\deg p=k_1+\dots+k_r+2(l_1+\dots+l_s)$.
+\\V $\Real$ existují ireducibilní polynomy stupnì max 2!
 \end{e}
 
 \begin{e}{Dùsledek}{0}{0}
@@ -618,11 +624,16 @@ Nad oborem integrity $(R,+,\cdot,-,0,1)$ buï $p\in R[x]$ polynom. Je-li $\alpha\
 \end{e}
 
 \begin{e}{Definice}{0}{Charakteristika oboru integrity}
-Pro obor integrity $(R,+,\cdot,-,0,1)$ definujeme \emph{charakteristiku oboru integrity} jako
+Pro obor integrity $(R,+,\cdot,-,0,1)$ definujeme \emph{charakteristiku oboru integrity $char R$} jako
 \begin{pitemize}
     \item $0$ (nebo nìkdy $\infty$), pokud cyklická podgrupa grupy $(R,+,0)$ generovaná prvkem $1$ je nekoneèná.
     \item $p$, pokud cyklická pogrupa grupy $(R,+,0)$ generovaná jednièkou má koneènı øád $p$.
 \end{pitemize}
+\end{e}
+
+\begin{e}{Pøíklad}{0}{0}
+$char \Complex= char \Real=char \mathbb{Q}=char \mathbb{Z}=0$
+\\$char \Whole_p=p$
 \end{e}
 
 \begin{e}{Vìta}{0}{derivace sniuje stupeò polynomu}
@@ -647,5 +658,25 @@ Mìjme tìleso $(T,+,\cdot,-,0,1)$ charakteristiky $0$ a nad ním polynom $p\in T[x
 \end{e}
 
 \begin{e}{Vìta}{0}{0}
-Nech $(R,+,\cdot,-,0,1)$ je obor integrity a jeho charakteristika nedìlí pøir. èíslo $n$. Potom polynomy $x^n-1$ a $x^{n+1}-x$ v $R[x]$ nemají vícenásobnı koøen.
+Nech $(R,+,\cdot,-,0,1)$ je obor integrity a jeho charakteristika nedìlí èíslo $n\in \mathbb{N}$. Potom polynomy $x^n-1$ a $x^{n+1}-x$ v $R[x]$ nemají vícenásobnı koøen.
 \end{e}
+
+\begin{reportN}{emlieka} souvislost derivace s viacnasobnym korenom polynomu (tam odo mna chcel zemlicka aj priklad pouzitia a naviedol ma na dake specialne sposoby vypoctu korenov polynomov) 
+\end{reportN}
+\begin{reportN}{Zahradnik} mi dal suvislost nasobnosti korena a derivacie polynomu. K tej druhej otazke som napisal akurat 2 vety a to im na zaciatok stacilo...
+\end{reportN}
+\begin{reportN}{Majerech} Druhá otázka algebra... no todle se mi moc nelíbilo ... ale otázky byly ješte záludnejší....
+Mejme reálnı polynom, o kterém víte, e ádné dva koreny nemají stejnou násobnost
+\\a) Kolik má takovı polynom reálnıch korenu? má všechny koreny reálné nebo? libovolnı komplexní koren a jeho sdruenı parták mají shodnou násobnost 
+toto je trivialita... ale prijít na to... mi trvalo... pul hodiny... je to divoce formulované...
+\\b)Najdete všechny koreny tohoto polynomu /presne/
+\\První pozorování: kdy je kooen násobnı tak je kooenem derivace...
+\\Druhé pozorování: derivace puvodního polynomu je tvaru
+\\$Q'(x)=P(x)*balast0$
+\\puvodní polynom je tvaru
+\\$Q(x)=P(x)*balast1$
+\\Tretí pozorování: P(x) je NSD Q(x) a Q'(x), kde P(x) je produkt tech násobnıch korenu
+\\Øešení: Nalezneme NSD eukleidovım algoritmem a pak rekurzivni pustíme na P(x)
+\\\\
+s velkou majerechovou pomocí jsem toto vymyslel... dosti mi zaskoeilo jak matika probíhala... cekal jsem teorii vety definice... ádná teorie se nekonala .) take poucení... dukazy je dobré znát a praktické príklady aspon lehce prohlédnout... jeden kolega tam invertoval matici
+\end{reportN}
