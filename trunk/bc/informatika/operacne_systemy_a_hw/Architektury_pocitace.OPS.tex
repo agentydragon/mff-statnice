@@ -132,9 +132,8 @@ Oproti Von Neumannovì nehrozí nebezpeèí pøepsání programu sebou samým, ale kvùli
     \includegraphics[width=8cm]{informatika/operacne_systemy_a_hw/obrazky/architektura.png}
   \end{center}
 
-
-\textbf{Zpracování instrukcí
-}  \begin{pitemize}
+\textbf{Zpracování instrukcí}
+\begin{pitemize}
       \item \textbf{ètení} instrukce z pamìti na adrese v registru PC (program counter, obsahuje adresu následující instrukce)
       \item \textbf{dekódování} instrukce a ètení operandù z registrù
       \item \textbf{vykonání} operace odpovídající instrukènímu kódu (operace s obsahem registrù, výpoèet adresy a ètení/zápis do pamìti, porovnání operandù pro podmínìný skok)
@@ -144,7 +143,6 @@ instrukcí, pokud není øeèeno jinak - tzn. podmínìný/nepodmínìný
 skok, výjimka)       
   \end{pitemize} 
 
-  
   \textbf{Typy instrukci (architektura MIPS):}
   \begin{pitemize}
       \item operace registr/registr, registr/immediate\footnote{operand (èíslo) uložené
@@ -154,6 +152,16 @@ skok, výjimka)
       \item nepodmínìné skoky (vèetnì nepøímých skokù a skokù do podprogramu)
       \item speciální instrukce (práce se speciálními registry)
   \end{pitemize} 
+\end{e}
+
+\begin{e}{Start-up PC}{1}{zmáèknu \uv{power on} a následuje...}
+\begin{penumerate}
+    \item \emph{procesor} zaène vykonávat kód (program) BIOSu (Basic Input/Output System)
+    \item \emph{BIOS} zjistí, jaký HW je nainstalován, provede inicializaci grafické karty a z (uživatelem definovaného) disku naète a spustí boot sektor
+    \item \emph{boot sektor} obsahuje kód, který s pomocí služeb BIOSu pøeète z disku a spustí zavadìè OS
+    \item \emph{zavadìè OS} pøeète z disku kód OS a spustí ho
+    \item OS nastartuje systémové služby a uživatelské rozhraní
+\end{penumerate}
 \end{e}
 
 \begin{reportN}{Bulej}
