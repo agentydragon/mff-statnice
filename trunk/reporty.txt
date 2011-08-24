@@ -1,0 +1,200 @@
+1. - je komplet v TeXu
+2.1
+(Majerech) Vytáhl jsem si funkce jedné promìnné... to neznìlo špatnì co pøišlo byl docela šok... otázka byla toti:
+Dokate vìtu o Darbouxouvì vlastnosti pro spojité funkce - ádné vìty nebo definice - prostì jeden dùkaz
+uff dùkaz jsem nevidìl od prváku... no vymyslel jsem nìco co vypadalo dùvìryhodnì 
+majerech se podíval konstatoval, e takhle si dùkaz nepøedstavoval... a e se to normálnì dokazuje jinak, uznal e to co jsem vyrobil má hlavu a patu nicménì pouil jsem e uzavøenı interval je kompaktní mnoina a e tam lze tedy vybrat konvergentní podposloupnost co majerech prohlásil e je dùsledek toho co mám dokazovat... a e bych asi to mìl ukázat... naštìstí z toho sešlo po této co majerech po drobném pøesvìdèování uznal e vìta byla +- dokázána 
+2.2
+(Zahradník) v podstate jen definice, Heineho veta a par pozorovani
+ Zde jsem napsal definici spojitosti, tu vìtu, a pøehled vìt a vlastností nìjak se vztahujících k spojitosti. Napsal jsem znìní Darbouxovy vìty + dùkaz. To staèilo. 
+2.4
+(neznamy hodny pan) Derivace + 3 vety o stredni hodnote 
+(Surynek) Derivace: definice a základní pravidla, vìty o støední hodnotì - dokazy ... 
+(Kucera) Derivacie, vety o strednej hodnote -> napisal som definicie, par viet o derivaciach a vety o strednych hodnotach. Pan Kucera sa prisiel pozriet ako mi to ide, s tym, ze este par viet som chcel dopisal. Pozrel sa na to, povedal "Ale jo", a nic viac nepozadoval, ani dokazy (znamku nepovedal) 
+(Majerech) vety o stredni hodnote (vyzadoval dukaz bez aplikace jine vety o strednu hodnote) vety o stredni hodnote jsem sepsal a nejak odkyval dukaz
+(Matousek) Trapili me trochu na dukazu te Lagrangeovy vety, kde sem nemel jasno v predpokladech - popravde s takovym spankovym deficitem me to, ze jsem si tam hodil silnejsi, moc nevzrusovalo. Matousek se me ptal na nejaky algoritmicky aspekty - jestli bych dokazal vypocitat determinant rychlejs nez v n^3, coz sem moc nevedel, tak on pry jestli alespon nasobeni, coz sem mu rekl, ze Strassen a on na to, ze se to da aplikovat i na determinanty. 
+(Kopecky) Z matiky jsem mel vetu o stredni hodnote, tak jsem napsal Rolleovu, Lagrangeovu a Cauchyovu vetu o kterych jsem si myslel ze k tomu patri. Ale se zlou jsem se potazal. 
+(Majerech) u matiky stacily definice potrebnych veci a Majerech celkem navedl. Jen ma netradicni definice vety o str. hodnote. Chtel dukaz Darboux. vlast. + proc jde na R a ne na Q, Newton metoda - vsechno se odehravalo na magickem prikladu x<sup>2</sup> = 2 
+2.5
+(IOI 21.6.2011) Definujte Taylorùv polynom.
+Vyslovte vìtu o zbytku Taylorova polynomu.
+Vypoètìte Taylorovu øadu pro funkci sin(x). 
+(?) fuuuuuuuuuuuuuuuuuuj, dala jsem dohromady zakladni definici, jeden priklad pro exponencialu, jeden priklad zbytku (zkonenej:), pak po me chtel spocitat sin(168 stupnu) pomocí taylora (coze???), no s velkou pomoci jsem to nejak dala... 
+(Majerech) newtonova metoda (chtel pomoci ni spocitat dom(n)) pricemz Newtona jsem si skoro vubec nepamatoval a smolil a smolil...nakonec jsem delal jen matiku 
+(Matousek) tayloruv polynom, pouziti. A dodal, ze kdybych vedel i nejake tvrzeni, "tak by to bylo skvely" - taylora jsem zadefinoval, napsal i pouziti. Tvrzeni jsem vedel jen jedno jednoduche (nejaka ta limita jde k nule), ale predpoklady moc ne-e - to se mu nelibilo, takze to jeste rozebiral - nejak jsme se dostali ke zbytku a on chtel aspon lagrangeovu vetu o stredni hodnote, ze ktere se to da tak nejak vyjadrit (ja jsem v podstate rekl jen tu vetu, zbytek odrikal on) 
+(neznámı) v kazdom pripade newtona si myslim ze spocitas pre nejaky polynom vcelku jednoducho - tak isto ako taylorov polynom pre exp tiez spocitas podla definicie 
+(Majerech) Taylor+zbytek, Newtonova metoda pro funkci x^2+2 a vìty o pevném bodì. 
+Hned na zaèátku mi øekl, e ty vìty o pevném bodì co jsme brali nejsou ty, co po mnì chce a nadefinoval mi vlastní, kterou jsem mìl dokázat a navíc dokázat, e neplatí pro fukce nad Q. 
+Taylor a NM byly v pohodì, u Taylora staèila definice a NM jsem si pamatoval z numeriky, kdy jsem se dostal k odm ze dvou s pøesností na tøi místa, tak jsme to prohlásili za konvergentní. Pak ale zaèalo pøituhovat. Pouil jsem metodu nahrazení kvality kvantitou a sesypal jsem na nìkolik A4 úplnì všechna fakta, která by se v tom dùkazu vìty o pevném bodì dala pouít. Pak jsme se v tom dost dlouho pøehrabovali a nakonec mì k tomu nìjak dokormidloval a kupodivu mi to dal takté za 1. 
+(Zemlicka) Dalsi otazka bylo hledani korene polynomu numerickymi metodami, tedy Newtonovu metodu + dalsi algoritmy, kde po
+me chtel abych srovnal jejich vyhody, nevyhody, rychlosti, ... nicmene musim rict, ze Zemlicka je vic v pohode, nez jsem
+cekal. 
+(Klazar) Taylorove polynomu jsem napsala jen, jak vypada, Tayloruv rozvoj funkce, k cemu se to pouziva. Jeste se me pak ptal na par veci, ty uz jsem moc nevedela. A pak jeste rozepsat e na xtou a sin x.  http://forum.matfyz.info/viewtopic.php?f=418&t=3406&p=16319
+3.????
+(neznámı) kritéria konvergence èíselnıch øad 
+3.1
+(Fiala) Posloupnost funkcí + stejnomìrná spojitost  - Napsal jsem zase to, na co jsem si vzpomnìl z materiálù (ty tøi definice na posloupnost a asi ètyøi "vìty"). Mìl jsem ještì ukázat rozdíly mezi nimi na nìjakıch konkrétních funkcích... Pan Fiala mìl sice záludnìjší otázky, ale zkoušení bylo naprosto férové a vcelku mírné. 
+3.2
+(Klazar) Napsal jsem definici mocnine rady, stred konvergence, zdrbal zapis polomeru konvergence (zapomnel ze je 1 lomeno), vztah polomeru konvergence a konvergence mocninne rady. Napsal vlastnosti geometricke rady (taky je to mocninna rada) + ze je hodna. A horempadem jsem chtel utect k Taylorovi.
+Avsak dostal jsem otazky - co se deje kdyz |x - a| = R, pote najit radu s touto vlastnosti, ktera diverguje a ktera konverguje. (1.uspech, 2. neuspech (suma nul fakt nestacila)), p.Klazar me zaskocil ukolem spocitat nekolik polomeru konvergence ruznych rad (vedlo na ruzne limity (n-ta odmocnina z 2^n) pro n -> inf). 
+(neznámı) Po chvíli (kdy jsem nenapsal témìø nic, prostì vokno) pøipsal ještì Èíselné øady, a kdy jsem se v záchvatu nervozity stále nechytal, zaèal mi na papír kreslit nápovìdu. Kreslil tak dlouho, ne jsem øekl "No jo, ono je to vlastnì takhle"... To se opakovalo ještì jednou, sám jsem neøekl skoro nic. K mému velkému pøekvapení mi bylo sdìleno, e to staèí, sice jen na slabší trojku, ale staèí.
+(Kuèera) napsal jsem jen definici, co to je polomìr konvergence a ten vzoreèek, kterım se poèítá. To vše. Fiala s Kuèerou se pak ptali na definice tìch typù konvergence, jestli neznám nìjakou speciální mocninnou øadu (støelil jsem Taylorovu), tak jsme nìjak pøešli k aproximaci funkcí v bodì Taylorovım polynomem (uff, ádné zbytky!) a nakonec po mnì chtìli aproximovat sinus v nule kubickım polynomem, co je jen dosazení do Taylora øádu 3, ale to jsem si v dané psychické situaci neuvìdomil :-p. Nakonec jsem to napsal a byli spokojení. 
+3.3
+(Klazar) Pak konecne Taylor (museli u me tehdy stat vsichni rohati, ze nechtel tvary zbytku to by byla konecna) + napsat Tayloruv rozvoj pro sin(x), cos(x), e^(x) a ln(x). Tuto otazku jsem fakt nechtel a byl jsem hodne nervozni - naflakal jsem ve zmatku nekolik zbytecnych chyb. P.Klazar byl opravdu tolerantni, vzdy v klidu pockal nez se vyjadrim a ihned 2x opravim. V jedne chvili povedel, ze mu to staci (nevedel jsem znamku) a odesel.
+Statnicove materialy zde stacily bohate. 
+(Klazar) Taylorove rady Moc som toho nevedel, len definicie a tu jednu vetu o suvisloti mocnineeho radu a Taylorovho radu samozrejme bez sance na dokaz Tak mi dal spocitat este nejake Taylorove rozvoje v nule ( sinus, logaritmus, exponenciala ). Znamku neviem. (max 3)
+3.4
+(Majerech) Fourierovy øady (ty má Majerech asi rád - ale staèí v podstatì jen definice) 
+----------------1-3 jsou komplet ----------------
+5.1
+(Fiala) Parciální derivace a tot. diferenciál. - Uvedl jsem definice, jak to souvisí se spojitostí funkce a jak se navzájem implikují, geometrickı vıznam a nutnou podmínku 1. øádu pro extrém. Vše bez dùkazu. Po troše dokopávání ze mì dostal, e gradient je kolmı na vrstevnici v daném bodì a kdy se mì ptal, jestli bych to umìl dokázat a já øekl, e ne, odpovìdìl: "No vidíte, to jste se taky v analıze uèili" 
+6.1
+(Majerech) Druhou otázkou byly metrické prostory. Zde jsem mìl volnou ruku, nadefinoval jsem tedy metrickı prostor, napsal nìkolik pøíkladù metrickıch prostorù a pokraèoval základními tvrzeními o metrickıch prostorech. Zde jsem ale pokazil definici otevøenıch a uzavøenıch mnoin (špatné poøadí kvantifikátorù), dr. Majerech mne ale nechal nad touto definicí tak dlouho pøemıšlet, dokud jsem svou chybu sám nenašel a neopravil. Na závìr jeètì pøidal doplòující otázku v podobì definice kompatkních prostorù. Mùj vıstup pak ohodnotil známkou 2, i zde se však jednalo o velmi pøíjemné zkoušení a nebıt mé vlastní chyby, tak i bez problémù.
+
+(Majerech) Statnicove materialy stacily bohate.
+
+p. Majerech tradicne vybiral otazky modulenim cisla stranky z diplomky, kterou dal studentovi beze slova k otevreni. (Vladane chce to aspon rict, ze at ji student otevre a NELISTUJE. Takto nebylo zrejme zda student drzi v ruce zajimavost k nahlednuti (nez na nej prijde rada se zkousenim) nebo voli potencialni vrazednou zbran).
+Napsal jsem definici, asi 5 metrik, okoli bodu, otevrenou/uzavrenou mnozinu, homeomorfismus, kontrahujici zobrazeni, Banach-Pickardova veta o pevnem bode, Cauchyovska posloupnost, kovergentni posloupnost, uplny a kompaktni prostor, nekolik vlastnosti spojitosti + definici. 
+
+Vladan prisel, bezeslova si procetl papiry - fixou do papiru zaznacil Cauchyovskost,konvergenci a uplnost a rekl, at se na to jeste podivam. Podival jsem se, zastydel, opravil (mezi podivanim a zastydenim ubehlo 15minut). Pouze slovy jsem povedel to, co bylo na mat. strukturach o topologii jakozto rozsireni metrickych prostoru (na tohle jsem nebyl tazan). A hotovo (znamku jsem se nedozvedel).
+
+
+8.2
+(Kral) zda lze z definice neutrálního prvku, kterı je nadefinovanı e*x=x vyvodit i x*e=x, kdy je * jen asociativní 
+(IP 21.6.2011) Vypsat všechny podgrupy grupy S_3 (grupa permutací na 3 prvcích) a jejich index.
+Definovat index podgrupy a vyslovit vìtu o vztahu velikosti grupy, její podgrupy a indexu (to mìla bıt Lagrangeova vìta). 
+(emlièka ozd) Grupa, okruh, teleso. Definice, priklady
+nakreslil jsem na papir toto:(obrazek dedicnosti) 
+a podebatovali jsme 
+(zkousel Fiala) Normalni grupy a faktorgrupy -  normalni grupu jsem dal dohromady, jednoduchy priklad taky. U faktorgrupy jsem poradne nevedel, co to je [docela ostudne po vsech tech vetach o homomorfismu/isomorfismu apod z Algebry I], malem jsem byl proto odejit, kvuli ostatnim znamkam ale 3- 
+(Matousek) 1) grupy, hodne prikladu + normalni podgrupy a priklady (normalnich a nenormalnich) definici grupy jsem tak nejak popsal pres algebru a monoid (u monoidu jsem zapomel na asociativitu, na to se me pak zeptal), priklady grup jsem nejake vedel, normalnich podgrup ani moc ne, ale trosku mi pomohl a nejak jsme to dali dohromady  
+8.4   8.2 	  6.1   5
+(Kratochvíl) Dal mi jeste prakticky priklad na delitelnost, jestli jeden zadany polynom je delitelem druheho (ze by zachrana? bo toto pocitaji decka nekde v sexte na gymplu :D). Tak priklad spocitan, k tomu stranka teorie. Myslim, ze jsem nektere hlavni veci mel, NSD, Eukleida, co je to koren a rozklad, co je ireducibilni polynom a take to, ze v C - narozdil od R - ma kazdy polynom koren a polynom stupne >=2 je vzdy reducibilni. No a pak zacal. :) Chtel mimo jine "nejak popsat" vsechny ireducibilni polynomy v R,Q a C. No tady jsem to moc nedaval, dost mi pomahal... Spolecnymi silami jsme to nakonec dali dohromady (pro zvedavce spr. odpoved: polynom je ireducibilni v C <=> je stupne 1, ireducibilni v R => je stupne 1 nebo 2, a v Q pro libovolne n existuje ireducibilni - napr xn-2) 
+8.6
+(emlièka) souvislost derivace s viacnasobnym korenom polynomu (tam odo mna chcel zemlicka aj priklad pouzitia a naviedol ma na dake specialne sposoby vypoctu korenov polynomov) 
+{Zahradnik} mi dal suvislost nasobnosti korena a derivacie polynomu. K tej druhej otazke som napisal akurat 2 vety a to im na zaciatok stacilo...
+(Majerech) Druhá otázka algebra... no todle se mi moc nelíbilo ... ale otázky byly ještì záludnìjší....
+Mìjme reálnı polynom, o kterém víte, e ádné dva koøeny nemají stejnou násobnost
+a) Kolik má takovı polynom reálnıch koøenù? má všechny koøeny reálné nebo libovolnı komplexní koøen a jeho sdruenı parák mají shodnou násobnost 
+toto je trivialita... ale pøijít na to... mi trvalo... pùl hodiny... je to divoce formulované...
+b)Najdìte všechny koøeny tohoto polynomu /pøesnì/
+První pozorování:
+kdy je koøen násobnı tak je koøenem derivace...
+Druhé pozorování:
+derivace pùvodního polynomu je tvaru
+Q'(x)=P(x)*balast0
+pùvodní polynom je tvaru
+Q(x)=P(x)*balast1
+Tøetí pozorování:
+P(x) je NSD Q(x) a Q'(x), kde P(x) je produkt tìch násobnıch koøenù
+Øešení:
+Nalezneme NSD eukleidovım algoritmem a pak rekurzivnì pustíme na P(x)
+
+s velkou majerechovou pomocí jsem toto vymyslel... dosti mì zaskoèilo jak matika probíhala... èekal jsem teorii vìty definice... ádná teorie se nekonala .) take pouèení... dùkazy je dobré znát a praktické pøíklady aspoò lehce prohlédnout... jeden kolega tam invertoval matici
+
+-neèekal jsem praktické pøíklady...:S 
+9.1
+(?) lineární nezávislost, báze ...Vektorové prostory byly rychlé, sepisoval jsem si axiomy, zkoušející mì v tom pøerušil, chtìl vìdìt co je báze, co lineární obal...v podstatì jen definice. 
+10.1
+(Matoušek): Definice, jejich zøejmé dùsledky v R a C, k èemu co slouí. Zeptal se jen co je ta èárka nad (komplexním èíslem) a následnì co je komplexnì sdruené èíslo, a chtìl rozepsat CS-nerovnost pro eukleidovskı prostor. Zapomnìl jsem na jeden axiom skalárního souèinu (nezápornost <u|u>), to mi vytkl, a pøimhouøil oko i nad tím,e jsem mu zprvu tvrdil, e plyne z ostatních (spletl jsem si to s normou). Kolmost jsem stihl u jen definovat, dál jsem se nedostal. Ještì jsem Matouškovi tak trochu vnutil náznak dùkazu CS nerovnosti (kdy u jsem se to uèil;)), nebyl ale vyadován. 
+10.3
+(emlièka) Zaèal jsem tou nerovností. Definoval jsem tìleso, VP, sk. souèin a nakonec normu. Chybìl mi jeden axiom a jinı vztah tam byl navíc, procházení a nalézání bylo docela úmorné, dùkaz C-S nerovnosti jsem mìl z poloviny, ale kdy prohlásili, e alfa je jen technická záleitost, bylo to lepší, ne celı dùkaz špatnì. Chtìli dùsledky nerovnosti, tøeba jako trojúhelníkovou nebo srovnání prùmìrù. Ten druhı jsme spoleènımi silami odvodili, u jsem byl opìt dost nervózní. 
+(Gregor) Napsal jsem definice skalarniho soucinu a normy. U normy chtel nekolik moznych "typu" normy, tj. maximalni, manhattonska atd. coz jsem moc nevedel, musel jsem patrat v pameti jeste z dob kdy to bylo na prednasce. Pak jsem napsal CS nerovnost a ideu dukazu, na detaily jsem si nevzpomel. Potom trojuhelnikovou nerovnost. Tu jsem mel s dukazem pro R, ale on chtel i pro C. Nakonec jsem to s jeho pomoci dal do kupy. 
+12.2
+(IOI 21. 6. 2011) 2.1 Definujte pojmy øádkovı prostor, sloupcovı prostor a jádro matice
+2.2 Jaké platí vztahy mezi dimenzemi tìchto prostorù a hodností matice?
+2.3 Existuje nad libovolnım tìlesem matice velikosti 3x3, která má dimenzi jádra 2? (Uveïte pøíklad nebo dokate, e neexistuje) 
+15.1
+(Dvorak) Na matiku docela rejpal, chtel vedet jak moc tomu rozumim. U simplexovky se ptal, proc tahle uprava tabulky, atd. A co je tohle v tabulce, atd. No jeste, ze jsem chodil na zaklady optimalizace, jinak bych tyhle veci nevedel. Btw: byl rad, ze jsem vedel, ze existuji i jine metody nez simplex - chacijan a karmarkar. 
+----------------17 je komplet ----------------
+17.1
+(?) Representace grafu byla docela jednoducha, popsal jsem ty representace, hlavni rozdil byl v casove narocnosti nalezeni sousedu vrcholu, bavili jsem se o BFS, DFS, jak jednotlive representace tedy ovlivni casovou narocnost. Popsal jsem a dokazal, co jsou mocniny matice sousednosti.
+(Majerech) teorie grafu: zakl. pojmy, souvislost, stromy (jen definice), kostry (chtel obecnou definici i pro nesouvisle grafy); 
+eulerovy & hamilt. grafy, rovinne grafy a barveni - definice a informace o tom, jak jsou problemy tezke z algoritmickeho hlediska. 
+17.3
+(Fiala) Zaèal jsem stromy a kostrami, prakticky to, co je v materiálech + napsal jsem dùkaz Cayleyho formule (je opravdu lehkı a zabere hodnì papíru). Mìl jsem ještì dokázat nìjakou implikaci u tìch stromù. Tam jsem se trošièku zamotal, ale nakonec +- 
+(Fiala) Stromy, min. kostra - Uvedl jsem definice, ekvivalentní podmínky, e graf je stromem (bez dùkazu), Kruskalùv a Primùv algoritmus. U Kruskalova alg. jsem se zamotal pøi vysvìtlování, proè je korektní, o Primovì alg. ani sloitosti obou mì nenechal mluvit (ale mìl jsem nìco na papíøe a èetl si to). 
+(Surynek): napsal jsem ekvivalentni definice stromu, par ekvivalenci dokazal, par obecnych kydu, definoval jsem kostru a vyslovil par vet pro kostry (pocet koster uplnaku, pocet koster grafu pres Laplaceovu matici), rekl jsem, jak se algoritmicky hleda kostra. Krom tech ekvivalenci u stromu jsem neumel nic dokazat (pocet koster uplnaku jsem tusil obrysy Obratlovcù, ale jinak nic moc, prı e je to "takové nìjaké podivné"), proto za 2. 
+(Mlèek) Definice, základní tvrzení. Nebylo toho moc, tak jsem pro jistotu pøipsal ještì nìco o minimální kostøe a nastínil algoritmy (Jarník, Borùvka, Kruskal). U tvrzení o poètu koster úplného grafu o (resp. poètu stromù na) n vrcholech se mì ptal na dùkaz, nevìdìl jsem ho, ale to zøejmì nevadilo (ostatní bylo snad bez vıtek). Pár obecnıch otázek kolem. 
+(Mlèek) Na stromy jsem øekl ideu dùkazu Cayleyho formule a fakt sem se divil, kdy se mì po drsnostech z diferenciálních rovnic zeptal "No a víte prosímvás, co je to indukovanı podgraf??" .. take z trivialit prváku sem dostal jednièku, celkovì jedna. 
+17.4
+(Kratochvil) Def Eul. grafu + veta + dukaz. Def Ham. kruznice, jak je to tezky, postacitelna podminka (D) a dukaz, ktery neni uplne easy, ale ktery jsem z kombagry u Kratochvila umel a rozumel mu. Evidentne ho to potesilo. :) Nakonec par dotazu, jak je to tezke - NP, a to i na rovinnych grafech, ovsem navedl me k tomu, ze na urcite tride grafu (myslim ze "hranove") je otazka HK polynomialni - prevedl jsem to na testovani Eulera. 
+(Majerech) eulerùv graf + hamiltonovskı (sloitosti) 
+(Dvoøák) Podrobnì vyjmenoval podotázky, naštìstí jsem prakticky všechno vìdìl, take pohoda. Kus dùkazu nutné a postaèující podmínky eulerovskosti jsem vymyslel na místì, dost jinak ne se uèí a lehce neohrabanì, ale fungovalo to. Nakonec jsem se zasekl na odhadu sloitosti nalezení E. tahu, take 1-2. 
+(Dvoøák) definice, slozitosti, alg. hledani eulera, pokus o dukaz postacujici podminky eulera 
+(?) Eulerovské a hamiltonovské grafy - definice + vybrat si jednu vìtu a dokázat ji (dokazoval jsem Chvátalùv uzávìr) 
+(Kuèera) Definice, a vety ktere to popisuji, Diracovu se mi podarilo dokazat, vpodstate jsem mu to pak cele povypravel a bylo to. Zadne dalsi otazky. 
+17.5
+(Klazar) Rovinné grafy - popsal jsem definice, Kuratowského vìtu a Eulerovu formuli, kterou jsem dokázal. Doc. Klazar se ze mì ještì pokoušel vytáhnout formální definici oblouku, ale kdy jsem nevìdìl, tak se v tom nenimral. Musím øíct, e pan Klazar byl fajn, kdy máte nìco navíc, tak to ocení, a kdy cítí e vám nìco nejde, tak se v tom nerıpá. 
+(?) definice, Kuratowského vìta, Eulerova formule, maximální poèet hran + nìjaká souvislost s barevností grafu, jsem trochu zamotal u zmìní Kuratowského vìty a u Eulerovi formule jsem pozapomnìl, e platí pouze pro souvislé grafy (co je docela logické, ale prostì mi to vypadlo), na co jsem pøišel pøi improvizovaném dùkazu. Uvedl jsem vìtu o 4 barvách, s tím e dùkaz je sloitı. Zkoušející mi docela pomáhal, trochu ho sralo, e vìtšina definic byla taková pofidérní, ale nakonec prohlásil nìco v tom smyslu, e tomu rozumím a v pohodì. 
+(Dvorak) Tady to chce hlavne definice a znat vety a vlastnosti rovinnych grafu + naznak dukazu u tech jednodussich, napriklad to, jak se dokazuje 
+Euleruv vzorec. Nakonec jsme se dostali az k NP a 3-barevnosti grafu, ale to byla jen odbocka, do ktere rekli, ze zabihat nebudeme. 
+(Fiala) Fiala pøeèetl grafy (formální definice rovinnıch grafù a co k tomu patøí, vzorce o poètu hran, stìn a tak a Kuratowskı), upozornil mne na chybku, poloil doplòujícíc otázku a bylo to. 
+(Gregor) Rovinne grafy, barveni: Napsal jsem nekolik definici a par vet. Jednu chtel dokazat, tak jsem dokazal tu |V| - |E| + s = 2. U barveni se mu nelibila moje verze Kuratowskeho vety, tak mi ukazal protipriklad a ja to opravil (chybelo mi tam slovo "deleni"). Potom jsem jeste zacal dokazovat vetu o peti barvach, ale uprostred me zastavil s tim, ze si neni jistej jestli to rikam dobre (ale myslim, ze jsem to rikal dobre) a zeptal se me jeste na problem barveni pomoci tri barev (NP-uplny problem). To mu stacilo a rek, ze se pujde poradit s kolegou.
+Gregor stoural trochu vic nez skopal, ale v pohode. 
+(Fiala) pohoda, akurat som sa strapnoval s Eulerovou ci Euklidovou ci akou to formulou (pocet stien, vrcholov a hran) ked som si na nu nespomenul a odvodzoval som ju. (a aj tak som tak nejake +/- 2 zabudol) 
+17.6
+(Majerech) lze tøemi barvami? algoritmus na zjištìní, zdali lze ho obarvit 3 - prej nìco dvakrát pustit prohledávání do hloubky - nepochopil jsem 
+(Dvorak) Barveni grafu v pohode, ale pres to jsme se dostali az k NP-uplnosti a jijim definicim a hromadu veci kolem. Mimo jine se i ptal, jestli znam nejake odhady pro chromaticke cislo grafu atd. 
+Ale matika celkove v pohode. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+Informatika
+1.1
+Predikatova logika - (zkousel Necasky) popis jazyka, realizace, ohodnoceni, splnitelnost, tarskeho definice pravdivosti (znamka tusim 1-) 
+(IOI 21. 6. 2011) Zformulujte vìtu o existenci modelu a dokate pomocí ní tvrzení: je-li T nìjaká L-teorie a \phi je L-sentence, tak T \models \phi \Rightarrow T \vdash \phi.
+1.2
+Bednarek: Pravdivost, Dokazatelnost, Splnitelnost, Rozhodnutelnost
+Tady se da popsat hooodne papiru definicemi - napriklad definice pravdivosti je v PL o neco komplikovanejsi.
+To jsem taky ucinil a po projiti 5 listu A4 (pisu velkym pismem) mi bylo satisfakci Bednarkovo: "no myslim ze to bylo celkem vycerpavajici" 
+(Kofron) Rozhodnutelnost, splnitelnost, pravdivost, dokazatelnost - to mì nepotìšilo, ale zplodil jsem co je vıroková logika, ohodnocení, vysvìtlil ty pojmy v otázce, ukázal cnf, dnf jak na nì upravit... zkoušející byl nedoèkavı, tak jsem nakonec nenapsal nic o PL, s tím, e to kdytak dopíšu pak (co nechtìl).
+Ptal se docela dost, hlavnì otázky které jsem neèekal, tak pro další generace tu máme vıbìr:
+Sloitost zjišování splnitelnosti pro cnf (3-sat je NP, ale chtìl vìdìt co tøeba 2-sat - to je polynomiální, chtìl vìdìt jak by se to naprogramovalo), stejnì ho zajímala sloitost u zjištìní tautologie... nakonec z toho byl docela pøíjemnı pokec. 
+(Skopal) Pro skopala na tuhle otázku si pøipravte nìjakı pìknı pøíklad nedokazatelné formule nebo nerozhodnutelného problému. 
+Definiciu rozhodnutelnosti som vedel, ale nevedel som mu nic blizsie povedat a rekurzivne spocetnych mnozinach, vyzeral byt trosku nahnevany (lebo prave o tom chcel pocut a bol velmi prekvapeny ako je mozne, ze sme to nebrali) ale podarilo sa mi spravne argumentovat a vysvetlit, ze to je az Slozitost I a nie bc predmety, takze nakoniec v poho. (Ale mal som strach ako male decko.) 
+1.3
+NIKDY NEBYLA ZKOUSENA?
+3.3
+vsechno je v TeXu
+3.12-13
+vsechno je v TeXu
+3.11
+(Skopal) RSA, DES (tady chtìl Skopal konkrétní vzoreèky, jak funguje symetrická šifra nebo šifrování s vìøejnım klíèem ho nezájímalo) 
+----------------4 je komplet ----------------
+4.2 Konceptualni model
+(Skopal): Ještì jednou mi tu øeknete "primární klíè" a rovnou vás tady vyhodím (a pak o chvíli pozdìji) V IVOTÌ... U NEØEKNETE... PRIMÁRNÍ KLÍÈ!!  jinak je to obecny cerveny prapor na nej.. proste tam jsou klíèe, primární klíè je zajimavy "jen" tim, ze je podle nej setrideny ten soubor 
+4.3 Rel.alg
+vsechno je v TeXu
+4.4
+(Mlynkova) Tady jsem se tesil, ze je to pekna otazka, ale bylo mi ukazano, ze toho moc neumim. Celkem jsem vyjmenoval a popsal NF + algoritmy na dosazeni(dekompozice a synteza). Horsi uz to bylo s predvedenim na prikladu, tak nakonec za 3. 
+(Mlynkova) Tohle neni uplne moje parketa, takze jsem se snazil rict to co jsem vedel s jistotou. Zaklad byl asi v poradku, jenom jsem nevedel zadnej algoritmus pro prevod schematu do nejake te normalni formy. Odhad 2-3
+(Bednarek) U tìch normálních forem chtìl jenom pøíklady a vıhody nevıhody, take pohodièka. 
+4.5 SQL 
+(Rychta) tak jsem rekla ze SQL je norma, priklady jeji implementace, co zahrnuje (popis schemat databaze, dotazovaci jazyk, transakce, intergitni omezeni ...), zakladni popis SELECT a dalsich basic dotazu, dal se me ptali na to nad jakou DB SQL pracuje (->relacni), zda se pouziva SQL i u jinych typu, jako je XML (ne), co je to SQL dotaz (je to prikaz, neni to program, musi byt necim interpretovan), co to je transakce (mnozina operaci co se tvari atomicky) atd... jo a co neni v textu a chteli: prikazy pro prirazovani prav uzivatelum (GRANT), prikazy pro transakce (COMMIT/ROLLBACK) 
+(Yaghob) 3 A4, +- popis pøíkazù, 2-3 doplòující otázky typu, co je trigger?
+4.6 Transakce
+(Zavoral) Popsal jsem ACID s mírnım nedorozumìním u konzistence (je dùleité øici, e DB v konz. stavu splòuje všechny integritní omezení), kdy obecnì má smysl pouívat transakce (víceuivatelské DB sys.), napsal jsem pár slov k rozvrhování a pøíklad C2PL. Celkovì v pohodì, sem tam drobné záseky, ale Dr. Zavoral spíš poradil, resp. smìroval k tomu, abych øekl, co chtìl slyšet. 
+(Bednarek) Vyplodil jsem poadavky na transakce, zamotal se ve vysvìtlování konfliktù a konfliktové uspoøádatelnosti, vìdìl jsem zamykací protokoly, optimistické protokoly a èasová razítka i nìco málo o implementaci transakcí. 
+(?) Transakce jsem moc neumel, popsal jsem ACID, usporadatelnost, konfliktni dvojce (WW, WR, RW), neznal jsem precedencni graf. 
+(Skopal) Co me docela prekvapilo byla Skopalova otazka na to, jestli se v realnem provozu nejak berou v potaz rozvrhy transakci a graf konfliktu. Odpoved je ne, protoze s tim zpetne uz nejde nic udelat a misto toho se pouzivaji prave uzamykaci protokoly, ktere vynuty urcite vlastnosti rozvrhu dopredu. 
+(Galambos) transakce a jejich vlastnosti -- napsal jsem mu tam ACID + nejake dalsi obecna veci okolo ala co je to rozvrh a pod.; pak se me ptal na protokol casovych razitek, coz jsem nevedel a nedokazal vymyslet. 
+4.8 XML, XML Schema
+(Mlınková) jsem dostal XSLT a o tom jazyku jsem slysel tak maximalne na co se to pouziva, ... to ji 
+bohuzel nestacilo 
+(Bednarek) XML, XSLT a trochu HTML protokoly- jsme se o nich zacli bavit (vedel jsem toho o nich asi jako vetsina z vas) a nakonec se konverzace prenesla na site obecneji (nastesti), takze to bylo v pohode.. 
+(?) Nestaèí vìdìt co to je, co je k tomu pøidruené a povrchní pøedstavu o tom jak to funguje, èi k èemu se to pouívá. Je dobré znát alespoò základní syntaxi, pøedstavu o tom jak funguje XSLT procesor, atd. 
+5.3
+Prenos dat z disku do operacni pameti (Bulej): 1-2. Pøekvapivì dobrı vısledek, nicménì den pøedtím jsem si èetl o DMA, take bych to mìl vìdìt ejo Chtìl by prej ještì vìdìt, e to, co sedí na sbìrnici a øídí ten pøenos, se ovládá z procesoru tak, e v tom jsou nìjakı registry, do kterejch se hodí instrukce, a taky e se naètou data z disku do diskovı cache, pak se vyvolá pøerušení, a pak se teprva ty data nìjak dostanou do RAMky, tøebas tim DMA nebo jinejma zpùsobama (a jakejma, pochopitelnì). 
+5.9
+vsechno v TeXu
