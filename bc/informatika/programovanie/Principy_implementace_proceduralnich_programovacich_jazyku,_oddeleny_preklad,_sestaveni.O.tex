@@ -53,6 +53,19 @@ Volací konvence dvou nejtypiètìjších jazykù:
 \end{pitemize}
 \end{obecne}
 
+\begin{obecne}{Volání funkcí a procedur z pohledu procesoru}
+\begin{penumerate}
+    \item uložení vstupních parametrù pro funkci
+    \item pøedání øízené do kódu funkce - \uv{skok}
+    \item získání prostøedkù pro vykonání funkce
+    \item provedení požadované funkce
+    \item uložení výsledkù pro volajícího
+    \item návrat do místa volání
+\end{penumerate}
+Máme registry pro data (vstupní parametry a návratovou hodnotu) a registr pro návratovou hodnotu, kam se uloží adresa instrukce následující po instrukci volání (neboli hodnota Program Counteru PC + 4).\\
+V pøípadì rekurzivního volání nebo vìtšího poètu parametrù musíme registry dostat na zásobník v pamìti (ten roste smìrem k nižším adresám, tj. èím vìtší zásobník, tím nižší hodnota stack pointeru SP).
+\end{obecne}
+
 
 \subsubsection*{Organizace pamìti}
 
