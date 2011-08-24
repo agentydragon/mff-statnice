@@ -148,17 +148,17 @@ Pøíklady podgrup:
     \item $G$ a $\{e\}$ jsou vdy normální podgrupy grupy $(G,\cdot,^{-1},e)$. 
     \item Mnoina $Z(G)=\{z\in G|gz = zg\ \forall g\in G\}$ je normální podgrupou $G$ (\uv{\emph{centrum grupy}}).
     \item $\Whole_8$ má dvì netriviální podgrupy -- $\{0,4\}$ a $\{0,2,4,6\}$ (je sama cyklická, take obì jsou cyklické), plus samozøejmì triviální $\Whole_8$ a $\{0\}$.
-    \item grupa $(\Whole_8^*,\cdot,1)$ není cyklická, skládá se z 4 prvkù: $\Whole_8^*=\{1,3,5,7\}$ a $3^2=5^2=7^2=1$ \footnote{je $\Whole_8$ obsahující invertibilní prvky ($[0]_8$ ne)}
+    \item grupa $(\Whole_8^*,\cdot,1)$ není cyklická\footnote{$\Whole_8^*$
+    je $\Whole_8$ obsahující invertibilní prvky ($[0]_8$ ne)}, skládá se z 4 prvkù: $\Whole_8^*=\{1,3,5,7\}$ a $3^2=5^2=7^2=1^2 =1$ 
 \end{pitemize}
 \end{e}
 
 \begin{e}{Definice}{0}{0}
 Pro grupu $G$ a její podgrupu $H$ se relace $\rmod_H$ definuje pøedpisem  $a,b\in G:(a,b)\in\rmod_H\equiv ab^{-1}\in H$. Symetricky se definuje relace $\lmod_H$ ($(a,b)\in\lmod_H\equiv a^{-1}b\in H$). Tyto relace jsou ekvivalence. \emph{Index podgrupy v grupì} je $[G:H]=|G/\rmod_H|=|G/\lmod_H|$ (poèet tøíd ekvivalence podle $\rmod_H$ nebo $\lmod_H$).
-\\\\\emph{Øád} G (poèet jeho prvkù) se znaèí $|G|$.
+\\\\\emph{Øád} G (poèet jeho prvkù grupy) se znaèí $|G|$.
 
 \begin{center}
 \includegraphics[scale=0.6]{matematika/obrazky/lmod_rmod}
-\\lmod, rmod. Mám grupu $G$ a její podgrupu $H$. Potom $(a,b) \in \rmod H \leftrightarrow\ ab^{-1} \in H. (a,b) \in \lmod H \leftrightarrow\ a^{-1}b \in H$. 
 \end{center}
 \end{e}
 
@@ -177,12 +177,12 @@ Potom se ukáe, e vynásobení zprava je bijekce, tj. $H\rightarrow [a]_{\rmod H}
 
 \end{e}
 
-\end{e}
-
 \begin{center}
 \includegraphics[scale=0.6]{matematika/obrazky/lagrange}
 \\Index podgrupy $H$ v grupì $G$ ($[G:H]$) je prostì poèet tøíd ekvivalence relace $\rmod H$. Dále øád grupy $|G|$ a ukázka Lagrangeovy vìty v praxi. 
 \end{center}
+
+\end{e}
 
 \begin{e}{ Definice}{0}{0}
 $H,K$ jsou podgrupy $G(\cdot,^{-1},1),\ g\in G:\ \emph{HK}= \{h.k |\
@@ -219,11 +219,14 @@ Pøíklady faktorgrup:
     \{ \{0, 3\}, \{1, 4\}, \{2, 5\}, \{0, 3\}, \{1, 4\}, \{2, 5\} \} =
 \newline    
     \{ \{0, 3\}, \{1, 4\}, \{2, 5\} \} $
-\end{pitemize}
-
 \begin{center}
-\includegraphics[scale=0.5]{matematika/obrazky/faktorgrupa}
+\includegraphics[scale=1.5]{matematika/obrazky/faktorgrupy}
 \end{center}
+\item $\Whole/6\Whole$
+\begin{center}
+\includegraphics[scale=0.6]{matematika/obrazky/faktorgrupa}
+\end{center}
+\end{pitemize}
 \end{e}
 
 \begin{e}{Definice}{0}{kongruence}
@@ -277,6 +280,21 @@ Ideál n$\mathbb{Z}$ je prvoideál $\Leftrightarrow$ n je prvoèíslo.
 \end{center}
 \end{e}
 
+\begin{reportN}{Kral} zda lze z definice neutrálního prvku, kterı je nadefinovanı e*x=x vyvodit i x*e=x, kdy je * jen asociativní (podle me nelze, te definici
+se rika levy neutralni prvek)
+\end{reportN}
+\begin{reportN}{IP 21.6.2011} Vypsat všechny podgrupy grupy $S_3$ (grupa permutací na 3 prvcích) a jejich index.
+Definovat index podgrupy a vyslovit vitu o vztahu velikosti grupy, její podgrupy a indexu (to mìla bıt Lagrangeova vita). 
+\end{reportN}
+\begin{reportN}{emlièka KSI} Grupa, okruh, teleso. Definice, priklady
+nakreslil jsem na papir toto:(obrazek dedicnosti) 
+a podebatovali jsme 
+\end{reportN}
+\begin{reportN}{Fiala} Normalni grupy a faktorgrupy -  normalni grupu jsem dal dohromady, jednoduchy priklad taky. U faktorgrupy jsem poradne nevedel, co to je [docela ostudne po vsech tech vetach o homomorfismu/isomorfismu apod z Algebry I], malem jsem byl proto odejit, kvuli ostatnim znamkam ale 3- 
+\end{reportN}
+\begin{reportN}{Matousek} grupy, hodne prikladu + normalni podgrupy a priklady (normalnich a nenormalnich) definici grupy jsem tak nejak popsal pres algebru a monoid (u monoidu jsem zapomel na asociativitu, na to se me pak zeptal), priklady grup jsem nejake vedel, normalnich podgrup ani moc ne, ale trosku mi pomohl a nejak jsme to dali dohromady  
+\end{reportN}
+
 \subsection{Homomorfismy grup}
 
 \subsubsection*{Obecná tvrzení o homomorfismech algeber (platí i pro grupy)}
@@ -314,8 +332,8 @@ Nech $f:A\to B$ je homomorfismus algeber stejného typu a $\rho$ kongruence na $
 \end{penumerate}
 \end{e}
 
-\begin{e} je relace{Definice}{0}{faktor-ekvivalence} $\rho\subseteq\sigma$ 2 ekvivalence na $A$. Pak \emph{$\sigma$/$\rho$ - faktor-ekvivalence}
-    definovaná: $([a]_{\rho},[b]_{\rho})\in\sigma/\rho\ \stackrel{\mathrm{def}}\equiv (a,b)\in\sigma$.
+\begin{e}{Definice}{0}{faktor-ekvivalence} $\rho\subseteq\sigma$ 2 ekvivalence na $A$. Pak \emph{$\sigma$/$\rho$ - faktor-ekvivalence}
+je relace definovaná: $([a]_{\rho},[b]_{\rho})\in\sigma/\rho\ \stackrel{\mathrm{def}}\equiv (a,b)\in\sigma$.
 \\\\
 Relace \emph{$\rho$ sluèitelná s $\alpha$}, pak $\alpha$ na A/$\rho$
 def.: $\alpha([a_1]_{\rho},... [a_n]_{\rho}) = [ \alpha(a_1, ... a_n) ]_{\rho}$.
