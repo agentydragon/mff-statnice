@@ -165,7 +165,7 @@ T_4 = D\cdot(R-P)                                        \cr
 \begin{obecne}{Èasová složitost:} V každém kroku vypadne alespoò $\frac{3n}{10}$ prvkù.
 \proof Pøedstavme si vybrané pìtice seøazené podle velikosti od nejvìtšího prvku a zakresleme je do sloupcù. Jejich mediány tedy vyplòují prostøední øadu. Tyto pìtice pak seøaïme podle velikosti jejich mediánù (nejmenší vlevo)\footnote{bacha algoritmus nic takoveho nedìlá, jen nám to pomùže v úvaze o správnosti}. Hledaný pivot se tedy nachází (pokud pøedpokládáme pro jednoduchost lichý poèet pìtic) pøesnì uprostøed. O prvcích nad pivotem a napravo od nìj mùžeme urèitì øíct, že jsou vìtší nebo rovny pivotu, prvky pod ním a nalevo od nìj jsou zase urèitì menší nebo rovny pivotu. Podle algoritmu vždy vypadne jedna nebo druhá skupina prvkù o velikosti alespoò $\frac{3n}{10}$ prvkù (z obrázku).
 \begin{center}
-\includegraphics[scale=1.8]{informatika/algoritmy_a_ds/obrazky/petice.png}
+\includegraphics[width=0.5\textwidth]{informatika/algoritmy_a_ds/obrazky/petice.png}
 \end{center}
 V každém kroku funkce volá sama sebe na vstup velikosti nejvýše n/5 a pak na 7n/10 ostatní operace jsou lineární, nejhorší pøípad: $T(n)=O(n)+T(\frac{n}{5})+T(\frac{7n}{10}) $, odhadneme že odpovídá lin.složitosti O(n).
 \proof
