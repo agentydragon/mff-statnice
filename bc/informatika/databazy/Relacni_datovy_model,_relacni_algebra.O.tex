@@ -1,4 +1,3 @@
-%&latex
 \subsection{Relaèní datový model, relaèní algebra}
 \begin{e}{Definice}{0}{Relaèní datový model}
 \emph{Relaèní schéma} je n-tice $R(A_1: D_1, A_2: D_2, ..., A_n: D_n)$, kde množiny $D_i$ jsou tzv. \emph{(atributové) domény}  (odpovídá dat.typùm v tabulkách) - uvádìjí se nepovinnì, množina $A_i$ je \emph{atribut} (odpovídá sloupci hodnot v tabulce) dále definujme \emph{relaci}\footnote{ano $R$ -
@@ -54,7 +53,7 @@ stejná jména atributù musí se nejdøíve pøejmenovat
  kartézský souèin množiny atributù s jenoprvkovou množinou "$R_1$" vlastnì pøejmenoval atributy na "$R_1A_1,R_2A_2,...$"
  aby nám ve výsledném schématu nevznikly atributy s totožným jménem
 \begin{center}
-\includegraphics[scale=0.5]{informatika/databazy/obrazky/kart_soucin}
+\includegraphics[width=5cm]{informatika/databazy/obrazky/kart_soucin}
 \\pøíklad kart.souèinu
 \end{center}
 \item \textbf{selekce} - výbìr tìch prvkù u relace z $R$, které splòují logickou podmínku $\varphi(u)$ – podmínka je zadána Boolským výrazem (tj. pomocí spojek and, or, not) atomických formulí $t_1\Theta t_2$ nebo $t_1\Theta a$, kde $\Theta \in\{<, >, =, \geq, \leq, \neq \}$ a $t_i$ jsou jména atributù
@@ -63,7 +62,7 @@ stejná jména atributù musí se nejdøíve pøejmenovat
 \\$<R[C], R(A)>= <\{u[C] \in R\}, R(C)>$ kde $C\subseteq A$
 
 \begin{center}
-\includegraphics[scale=0.5]{informatika/databazy/obrazky/projekce}
+\includegraphics[width=5cm]{informatika/databazy/obrazky/projekce}
 \\pøíklad projekce pro $R[A,C]$
 \end{center}
 
@@ -88,7 +87,7 @@ $<R, R(A)> * <S, S(B)>= <\{u | u[A] \in R ~\&~ u[B] \in S\}, R_x(A\cup B)>$
 –lze vyjádøit pomocí kartézského souèinu, selekce a projekce 
 
 \begin{center}
-\includegraphics[scale=0.5]{informatika/databazy/obrazky/natural_join}
+\includegraphics[width=5cm]{informatika/databazy/obrazky/natural_join}
 \\ 
 pøíklad pøirozeného spojení
 \end{center}
@@ -102,7 +101,7 @@ $R \div S = R[A\setminus B] \setminus ((R[A\setminus B] \times S)\setminus
 R)[A\setminus B]$
 
 \begin{center}
-\includegraphics[scale=0.5]{informatika/databazy/obrazky/deleni}
+\includegraphics[width=5cm]{informatika/databazy/obrazky/deleni}
 \\ 
 pøíklad dìlení
 \end{center}
