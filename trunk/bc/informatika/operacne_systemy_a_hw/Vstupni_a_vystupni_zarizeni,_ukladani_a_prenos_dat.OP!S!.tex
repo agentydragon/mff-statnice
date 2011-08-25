@@ -1,68 +1,106 @@
-\subsection{Vstupní a vıstupní zaøízení}
-
-K I/O zaøízením je moné pøistupovat dvìma zpùsoby: pomocí \textbf{port}ù (speciální adresovı port CPU) nebo \textbf{pamìtovım mapováním} (namapování do fyzické pamìti).
+\subsection{Vstupní a vıstupní zaøízení, ukládání a pøenos dat}
 
 Zaøízení mají rùzné charakteristiky:
 \begin{pitemize}
-        \item \textbf{druh}~-- blokové (disk, síová karta), znakové (klávesnice, myš)
-        \item \textbf{pøístup}~-- sekvenèní (datová páska), náhodnı (hdd, cd)
-        \item \textbf{komunikace}~-- synchronní (pracuje s daty na ádost~-- disk), asynchronní (\uv{nevyádaná} data~-- síová karta)
-        \item \textbf{sdílení}~-- sdílené (preemptivní, lze odebrat~-- síová karta (po multiplexu OS)), vyhrazené (nepreemptivní~-- tiskárna, sdílení se realizuje pøes \emph{spooling} - frontou). Reálnì se rozdíly stírají.
-        \item \textbf{rychlost} (od nìkolika Bps po GBps)
-        \item \textbf{smìr dat}~-- R/W, R/O (CD-ROM), W/O (tiskárna) 
+    \item \textbf{druh}~-- blokové (disk, síová karta), znakové (klávesnice, myš)
+    \item \textbf{pøístup}~-- sekvenèní (datová páska), náhodnı (hdd, cd)
+    \item \textbf{komunikace}~-- synchronní (pracuje s daty na ádost~-- disk), asynchronní (\uv{nevyádaná} data~-- síová karta)
+    \item \textbf{sdílení}~-- sdílené (preemptivní, lze odebrat~-- síová karta (po multiplexu OS)), vyhrazené (nepreemptivní~-- tiskárna, sdílení se realizuje pøes \textbf{spooling} - frontou). Reálnì se rozdíly stírají.
+    \item \textbf{rychlost} (od nìkolika Bps po GBps)
+    \item \textbf{smìr dat}~-- R/W, R/O (CD-ROM), W/O (tiskárna) 
 \end{pitemize}
 
-Pøenos dat mezi zaøízením a CPU/pamìtí:
-\begin{pitemize}
-        \item \textbf{PIO (Programmed Input Output)}~-- data pøenášena za úèasti CPU (plnì zamìstnán), pak pøišlo DMA
-        \item \textbf{polling}~-- aktivní èekání na zmìnu zaøízení, pøenos provádí CPU
-        \item \textbf{pøerušení}~-- asynchronní pøerušení od zaøízení, pøenos provádí CPU,CPU uloí stav programu $\rightarrow$ stojí èas
-        \item \textbf{DMA (Direct Memory Access)}~-- zaøízení si samo øídí pøístup na sbìrnici a pøenáší data z/do pamìti; po skonèení pøenosu pøerušení (oznámení o dokonèení) napø, pøenos dat mezi HDD a RAM
-\end{pitemize}  
-\subsubsection*{Øadiè DMA}
-Obvod pro øízení pøenosù na sbìrnici
-\begin{pitemize}
-        \item generuje adresy pamìti a periferie, generuje øídící
-signály pro ètení/zápis
-        \item generuje signály pro procesor, aby zajistil, e procesor
-nepøistupuje (nezapisuje) na sbìrnici
-        \item øadiè sám se chová jako periferie
-        \item program nastavuje parametry pøenosu, tj. odkud se bude
-pøenášet, kam, a kolik (2 èítaèe, kanál DMA)
-        \item zaøízení pøipojena na kanál DMA, pøi pøenosu je cílové zaøízení
-aktivováno øadièem, nikoliv vystavením adresy   
-\end{pitemize}  
+\begin{e}{Propojovací systémy}{0}{0}
+Dìlí se na \textbf{dvoubodové spoje} (vztah 1:1), jde napø. o pøímé spojení porty, køíovı pøepínaè, kde není nutná ádná adresace. Druhou moností jsou \textbf{vícebodové spoje}, kde více úèastníkù sdílí pøenosové médium jako napø. sbìrnice nebo pøi broadcastingu.
+\end{e}
 
-Posloupnost událostí:
+\textbf{Procesor} mùe pøistupovat k I/O zaøízením dvìma zpùsoby:
 \begin{pitemize}
-        \item program nastaví øadiè a periferii a povolí pøenos
-        \item aktivací signálu DREQx periferie poádá øadiè DMA o
-pøenos slova z/do pamìti
-        \item øadiè DMA zkontroluje nastavení kanálu vyhodnotí
-prioritu ádosti
-        \item aktivací signálu HOLD øadiè DMA poádá CPU o
-pøidìlení sbìrnice
-        \item pokud CPU nepotøebuje sbìrnici, odpojí se od sbìrnice
-a signalizuje HLDA
-  \subitem - CPU testuje HOLD na zaèátku strojového cyklu
-        \item po pøijetí HLDA øadiè pøipraví sbìrnici pro pøenos
-        \subitem - vystaví adresu v pamìti a øídící signály pro ètení/zápis z/do
-pamìti/periferie
-        \item øadiè DMA aktivuje signál DACKx, kterım vyzve periferii
-k vystavení/pøeètení dat na/ze sbìrnice
-        \item v závislosti na reimu buï pøenos konèí, nebo pokraèuje
-dalším slovem dokud je DREQx aktivní
-        \item pøi posledním slovì øadiè aktivuje signál EOP
-        \item pøi ukonèení pøenosu øadiè uvolní signál HOLD
-        \item procesor uvolní HLDA a pøipojí se ke sbìrnici
-\end{pitemize}  
-        
+    \item \textbf{port-mapped I/O} -- speciální adresovı port CPU, kterı má i speciální instrukce pro práci (IN, OUT) s I/O zaøízením, která také mají vlastní adresovı prostor (buï pøímo vlastní sbìrnici, nebo extra I/O pinem), díky tomu se také øíká \uv{isolated I/O},
+    \item \textbf{memory-mapped I/O} -- pamìové mapování, kterı mapuje I/O zaøízení pøímo do fyzické pamìti, kterou tak sdílí s ostatními daty, tato èást pamìti mùe bıt vyhrazená trvale nebo i jen doèasnì. Zaøízení poslouchá na adresové sbìrnici, aby vìdìlo, kdy má pracovat (odpovídat, ...).
+\end{pitemize}
+
+  \begin{center}
+    \includegraphics[width=8cm]{informatika/operacne_systemy_a_hw/obrazky/bus_north_south_bridge.png}
+  \end{center}
+
+\begin{e}{Sbìrnice}{0}{0}
+Sbìrnice je sada vodièù propojující více zaøízení. Vodièe jsou oddìlené pro øízení (poadavky, potvrzení, typ dat) a data (pøenos dat, adresování). Vıhodou je univerzálnost a nízká cena, nevıhodami pak omezení délkou a dané v dùsledku pouívání rozmanitıch zaøízení, také potenciální \uv{bottleneck}.\\
+Transakce na sbìrnici zaèíná poadavkem (vyslání pøíkazu a adresy cíle), na kterı musí cíl odpovìdìt potvrzením, naèe následuje pøenos dat mezi úèastníky \textbf{master/initiator} (kteøí posílají poadavek) a \textbf{slave/target}, kteøí posílají/pøijímají data.\\
+\textbf{øízení} -- \textbf{synchronní} (podle hodin, jednodušší, rychlejší, ale omezená délka sbìrnice a stejnı èas všem) vs. \textbf{asynchronní} (obecnìjší, sloitìjší, zato bez omezení délky, ale s niší rychlostí, napø. USB, FireWire)\\
+\textbf{pøidìlování} -- \textbf{centralizované} (master ádá a èeká na pøidìlení, které pøidìluje arbitr podle priority a fairness, master po provedení operace dá arbitrovi vìdìt, e je sbìrnice opìt volná) vs. \textbf{distribuované}, které mùe bıt kolizní nebo zaloené na \uv{samovıbìru}.
+\end{e}
+
+\begin{figure}[h]
+  \centering
+  \subfloat[polling]{\label{fig:bus_polling}\includegraphics[width=0.49\textwidth]{informatika/operacne_systemy_a_hw/obrazky/bus_polling.png}} \hfill
+  \subfloat[prioritní zøetìzení, daisy chain]{\label{fig:bus_daisy_chain}\includegraphics[width=0.49\textwidth]{informatika/operacne_systemy_a_hw/obrazky/bus_daisy_chain.png}} \hfill
+  \subfloat[nezávislé ádosti]{\label{fig:bus_independent}\includegraphics[width=7cm]{informatika/operacne_systemy_a_hw/obrazky/bus_independent.png}}
+    \caption{centralizované pøidìlování}
+  \label{fig:bus_centralizovane_pridelovani}
+\end{figure}
+Informace o stavu zaøízení mùe CPU získávat:
+\begin{penumerate}
+    \item \textbf{polling}~-- aktivní èekání na zmìnu zaøízení (program periodicky kontroluje stav), pro pomalá zaøízení vzniká znaèná reie
+    \item \textbf{interrupt-driven I/O}~-- asynchronní pøerušení od zaøízení, které samo signalizuje zmìnu stavu, na co reaguje obsluná rutina. CPU ovšem není na pøerušení pøipraven, tak musí uloit stav programu $\rightarrow$ stojí to èas. CPU musí podporovat tuto signalizaci pøerušení, identifikovat zdroj pøerušení, vybrat správnou obslunou rutinu. Systém musí zajistit doruèení pøerušení k CPU a dále øadiè jejich podle priority urèí jejich poøadí (mùe jich bıt více ne má CPU vstupù).
+\end{penumerate}
+
+Pøenos dat mezi zaøízením a CPU/pamìtí:
+\begin{penumerate}
+    \item \textbf{PIO (Programmed I/O)}~-- data pøenášena za úèasti CPU (plnì zamìstnán), pøenos realizován cyklem v programu, rychlı pøenos, ale neefektivní vyuití CPU, pak pøišlo DMA
+    \item \textbf{DMA (Direct Memory Access)}~-- zaøízení si samo øídí pøístup na sbìrnici a pøenáší data z/do pamìti bez úèasti CPU; po skonèení pøenosu pøerušení (oznámení o dokonèení) napø, pøenos dat mezi HDD a RAM
+\end{penumerate}
+
+\begin{e}{Bus mastering}{0}{0}
+Slouí pro pøenos dat mezi zaøízením a pamìtí nebo mezi dvìma zaøízeními. Jde o to, e sbìrnici mùe øídit (zaèít transakci, bıt masterem) libovolnı úèastník (CPU vnímán jako jeden z nich), stále je nutné pøenos \emph{nastavit} z programu.
+\end{e}
+
+\subsubsection*{DMA}
+CPU nastaví pøenos a nechá DMA pracovat, a je operace dokonèena, pošle se pøerušení, tedy mezitím mùe CPU pracovat jinde. DMA øadiè je obvod pro øízení pøenosù na sbìrnici mezi pamìtí a zaøízeními nebo i pouze v pamìti. U multiprocesorù se uívá i k pøenosu dat mezi jádry. Dále bìnì u pevnıch diskù, grafickıch, zvukovıch a síovıch karet. DMA øadiè obsahuje registry, do kterıch mùe CPU zapisovat nastavení pøenosu (adresa v pamìti, poèet bytù, smìr r/w, jaké zaøízení) -- tomu se øíká \textbf{burst mode}, ve kterém vystaèí jeden adresovı cyklus na celı blok dat. Dále se vyuívá pøi pøenosu dat do/z více nesouvislıch bufferù (\textbf{scatter/gather}, také vektorové I/O).
+
+\begin{e}{Práce øadièe DMA}{0}{0}
+\begin{pitemize}
+    \item generuje adresy pamìti a periferie, generuje øídící signály pro ètení/zápis
+    \item generuje signály pro procesor, aby zajistil, e procesor nepøistupuje (nezapisuje) na sbìrnici
+    \item øadiè sám se chová jako periferie
+    \item program nastavuje parametry pøenosu, tj. odkud se bude pøenášet, kam, a kolik (2 èítaèe, kanál DMA)
+    \item zaøízení pøipojena na kanál DMA, pøi pøenosu je cílové zaøízení aktivováno øadièem, nikoliv vystavením adresy   
+\end{pitemize}
+\end{e}
+
+\begin{e}{Posloupnost událostí}{0}{0}
+\begin{penumerate}
+    \item program nastaví øadiè a periferii a povolí pøenos
+    \item aktivací signálu DREQx periferie poádá øadiè DMA o pøenos slova z/do pamìti
+    \item øadiè DMA zkontroluje nastavení kanálu vyhodnotí prioritu ádosti
+    \item aktivací signálu HOLD øadiè DMA poádá CPU o pøidìlení sbìrnice
+    \item pokud CPU nepotøebuje sbìrnici, odpojí se od sbìrnice a signalizuje HLDA
+      \subitem - CPU testuje HOLD na zaèátku strojového cyklu
+    \item po pøijetí HLDA øadiè pøipraví sbìrnici pro pøenos
+    \subitem - vystaví adresu v pamìti a øídící signály pro ètení/zápis z/do pamìti/periferie
+    \item øadiè DMA aktivuje signál DACKx, kterım vyzve periferii k vystavení/pøeètení dat na/ze sbìrnice
+    \item v závislosti na reimu buï pøenos konèí, nebo pokraèuje dalším slovem dokud je DREQx aktivní
+    \item pøi posledním slovì øadiè aktivuje signál EOP
+    \item pøi ukonèení pøenosu øadiè uvolní signál HOLD
+    \item procesor uvolní HLDA a pøipojí se ke sbìrnici
+\end{penumerate}
+\end{e}
+
+Problémy u DMA spoèívají v odstínìní CPU od pamìti, co mùe vyvolat \textbf{pamìovou koherenci}, slušnì øeèeno pomocí DMA obejdeme cache CPU, kde mohou bıt aktuálnìjší hodnoty ne v pamìti, a tudí máme problém Houstone. Øeší se to tím, e procesor sleduje, na jaké adresy se pøistupuje a pokud tam padne nìjaká, kterou má v cache, tak to zaène øešit.
+
+\begin{figure}[h]
+  \centering
+  \label{fig:dma_memory_incoherency}
+  \includegraphics[width=12cm]{informatika/operacne_systemy_a_hw/obrazky/pametova_koherence.png}
+  \caption{pamìová koherence}
+\end{figure}
+
 Cíle I/O software:
 \begin{pitemize}
-        \item \textbf{Nezávislost zaøízení}~-- programy nemusí dopøedu vìdìt, s jakım pøesnì zaøízením budou pracovat~-- je jedno jestli pracuji se souborem na pevném disku, disketì nebo na CD-ROM
-        \item \textbf{Jednotné pojmenování} (na UNIXu /dev)
-        \item \textbf{Pøipojení (mount)}~-- èasté u vymìnitelnıch zaøízení (disketa); moné i u pevnıch zaøízení (disk); nutné pro správnou funkci cache OS
-        \item \textbf{Obsluha chyb}~-- v mnoha pøípadech oprava bez vìdomí uivatele (velmi èasto zpùsobeno právì uivatelem)
+    \item \textbf{Nezávislost zaøízení}~-- programy nemusí dopøedu vìdìt, s jakım pøesnì zaøízením budou pracovat~-- je jedno jestli pracuji se souborem na pevném disku, disketì nebo na CD-ROM
+    \item \textbf{Jednotné pojmenování} (na UNIXu /dev)
+    \item \textbf{Pøipojení (mount)}~-- èasté u vymìnitelnıch zaøízení (disketa); moné i u pevnıch zaøízení (disk); nutné pro správnou funkci cache OS
+    \item \textbf{Obsluha chyb}~-- v mnoha pøípadech oprava bez vìdomí uivatele (velmi èasto zpùsobeno právì uivatelem)
 \end{pitemize}
 
 \begin{reportN}{Bulej + Yaghob}
