@@ -29,17 +29,17 @@ TODO: doplnit, tohle asi nestaci na pohodovou zkousku (aspon podle toho co jsem 
 \end{e}
 
 Jiná definice: Mìjme rozhodovací algoritmus $A$, výsledek algoritmu chápejme jako funkce $A(x)$ na vstupu $x$, pak algoritmus $A$ je redukovatelný na $B$ ($A \rightarrow B$) když $\forall A: B(f(x))=A(x)$ pro polynomiální $f$.
-
+\medskip
 Obì definice øíkají, že $B$ je \uv{aspoò tak tìžký}, jako $A$ (mùže ale být tìžší!). Název je trochu zavádìjící -- neredukujeme na \emph{lehèí}, ale na \emph{tìžší} algoritmus. Platí ale, že pokud $B$ je polynomiálnì složitý, je i $A$.
 
 Pøevoditelnost je kvaziuspoøádání -- je reflexivní a tranzitivní. Není ale symetrický -- na to je potøeba vytvoøit tøídy složitosti, ty potom symetrické jsou a nad nimi je pøevoditelnost uspoøádání.
 
 \begin{e}{Definice}{0}{3-SAT}
- 3-SAT (z anglického \uv{satisfiability}) je rozhodovací problém, který jako vstup dostane logickou formuli urèitého typu a rozhodne, zda je, nebo není plnitelná, tj. jestli existuje nìjaké její ohodnocení, které je pravdivé. Logická formule musí být následujícího typu:
+ 3-SAT (z anglického \uv{satisfiability}) je rozhodovací problém, který jako vstup dostane logickou formuli urèitého typu a rozhodne, zda je, nebo není splnitelná, tj. jestli existuje nìjaké její ohodnocení, které je pravdivé. Logická formule musí být následujícího typu:
 
 $$(a_1\vee b_1 \vee c_1) \wedge (a_2 \vee b_2 \vee c_2) .... \wedge (a_n \vee b_n \vee c_n),$$
 
-kde $a_n, b_n, c_n$ jsou buï $x_i$ nebo $\not x_i$ pro nìjaká $i\subset \mathbb{N}$.
+kde $a_n, b_n, c_n$ jsou buï $x_i$ nebo $\neg x_i$ pro nìjaká $i=(1...k)$.
 \end{e}
 
 \begin{e}{Definice}{0}{3-COL}
@@ -65,21 +65,60 @@ Nejdøíve si udìlám \uv{konstrukt}, co mi pro každou kombinaci tøí barev \uv{vrát
 
 Když do výše uvedeného konstruktu jakoby \uv{vložím} do horní øádky barvy, odpovídající tøí pravdivostním hodnotám, nemùžu spodní vrchol obarvit jinak, než jako logický or tøí barev. Tyto konstrukty mi budou sloužit pro reprezentaci $(a \vee b \vee c)$.
 
-Udìlám si teï jeden støední bod ($C$ jako centrum), k~nìmu pøidám nejdøív dva body $T$ a $F$ a potom pro každou promìnnou pøidám dva body, reprezentující $x$ a $\not x$ a spojím je dohromady a s~$C$. Než zaènu pøidávat \uv{konstrukty} na vyhodnocování trojic, podívám se na vlastnosti. Musí platit:
+Udìlám si teï jeden støední bod ($C$ jako centrum -- viz další obrázek), k~nìmu pøidám nejdøív dva body $T$ a $F$ a potom pro každou promìnnou pøidám dva body, reprezentující $x$ a $\neg x$ a spojím je dohromady a s~$C$. Než zaènu pøidávat \uv{konstrukty} na vyhodnocování trojic, podívám se na vlastnosti. Musí platit:
 
 \begin{itemize}
 \item $C$, $T$ a $F$ musí mít každá jinou barvu
-\item pro všechny body musí být buï $x$ nebo $\not x$ $T$ barva a ta druhá $F$ barva
+\item pro všechny body musí $x$ nebo $\neg x$ $T$ barva a ta druhá $F$ barva
 \end{itemize}
 
-\includegraphics[width=0.8\textwidth]{informatika/teoreticka_informatika/obrazky/3COL2}
+\includegraphics[width=0.5\textwidth]{informatika/teoreticka_informatika/obrazky/3COL2}
 
-BÚNO mùžu øíct, že $C$ je šedivá, $T$ bílá a $F$ èerná, èerná mi vyjadøuje nepravdu, bílá pravdu. Potom za nì \uv{navìsím} ty konstrukty -- buï na $x$, nebo na $\not x$, podle toho, která z nich ve trojici zrovna je --  a jejich spodní vrchol pøipojím $F$ vrchol (to \uv{vynucuje}, aby vrchol byl $T$). Na obrázku je formule $(\not x_1 \vee \not x_2 \vee \not x_3)$.
+BÚNO mùžu øíct, že $C$ je šedivá, $T$ bílá a $F$ èerná, èerná mi vyjadøuje nepravdu, bílá pravdu. Potom za nì \uv{navìsím} ty konstrukty -- buï na $x$, nebo na $\neg x$, podle toho, která z nich ve trojici zrovna je --  a jejich spodní vrchol pøipojím $F$ vrchol (to \uv{vynucuje}, aby vrchol byl $T$). Na obrázku je formule $(\neg x_1 \vee \neg x_2 \vee \neg x_3)$.
 
 Tento graf je obarvitelný právì tehdy, když je formule splnitelná, a je sestavitelný v~polynomiálním èase.
 
 \end{e}
 \end{e}
+
+\begin{e}{Vìta}{0}{0}
+3-COL $\rightarrow$ existence nezávislé množiny v grafu
+
+\begin{e}{Dùkaz}{0}{0}
+
+Graf zkopírujeme tøikrát pod sebe, každá kopie bude reprezentovat jednu barvu. Budeme chtít pøesnì stejnì velkou množinu, jako je bodù v~pùvodnì obarvovaném grafu. Mám-li množinu, mám pak nutnì i obarvení.
+
+Víc to snad ujasní obrázek.
+
+\includegraphics[width=0.5\textwidth]{informatika/teoreticka_informatika/obrazky/3COL2}
+
+\end{e}
+
+\end{e}
+
+
+\begin{e}{Vìta}{0}{0}
+existence nezávislé množiny v grafu $\rightarrow$ 3-SAT
+\begin{e}{Dùkaz}{0}{0}
+%V dùkazu ještì využiji toho, že 
+
+Udìlám si formuli, která bude odpovídat grafu, následovnì:
+
+\begin{itemize}
+\item každý vrchol $v \Rightarrow$ promìnná $x_v$
+\item každá hrana $v-w \Rightarrow$ klauzule $(\neg x_v \vee \neg x_w)$
+\item pøidám klauzuli takovou, že bude splnìná právì, když $K$ promìnných je rovno 1. Budeme Kuèerovi vìøit, že se dá vytvoøit v~polynomiálním èase.
+\end{itemize}
+
+\end{e}
+
+\end{e}
+
+Dokázali jsme, že 3-SAT, 3-COL a nezávislá množina jsou ve stejné tøídì ekvivalence, jsou na sebe navzájem pøevoditelné. Pøeskoèím dopøedu a øeknu, že jde o tøídu NP a že ve stejné tøídì je spousta dalších problémù.
+
+*\subsubsection{P, NP, NP-úplnost, NP-tìžkost}
+
+
 
 \begin{e}{Definice}{0}{tøída P}
  \textbf{Tøídu složitosti P} (nìkdy též PTIME) tvoøí problémy øešitelné
@@ -90,44 +129,76 @@ Tento graf je obarvitelný právì tehdy, když je formule splnitelná, a je sestavit
 
 \begin{e}{Definice}{0}{tøída NP}
  \textbf{Tøída NP} (NPTIME) je tøída problémù øešitelných v polynomiálním èase
- sekvenèními nedeterministickými algoritmy. 
+ sekvenèními nedeterministickými algoritmy. \emph{(nedeterministické algoritmy samozøejmì na nekvantových poèítaèích nespustíme, a netuším, jak je to vlastnì s~tìmi kvantovými)}
+
+Jiná, ekvivalentní definice øíká, že jde o problémy, které s~polynomiálnì velkou nápovìdou ovìøíme v~polynomiálním èase.
+\end{e}
+
+\begin{e}{Pøíklad}{0}{0}
+Jednoduchý pøíklad - SAT je NP problém, museli bychom vyzkoušet všechny možnosti, což zvládneme v~polynomiálním èase nedeterministicky (v~každém kroku máme všechny možnosti pro jednotlivé promìnné). Pokud už ale máme dané, co je v~jednotlivých promìnných, ovìøíme to v~polynomiálním èase deterministicky.
+
+Trochu poetiètìjší a naprosto neexaktní a filosofický pøíklad -- nikdo nevidíme do budoucnosti všechny možnosti, co se nám naskýtají, takže nemùžeme øíct, jestli se nìco povede, nebo ne, protože možností je pøíliš mnoho. Pokud hledíme do minulosti, je možné svoje èiny zhodnotit v~polynomiálním èase, ale do budoucnosti ne. Pokud bychom ovšem nemìli pøesnou informaci o tom, co se stane; v~tom pøípadì by bylo ovìøení taky polynomiální. :-)
+
 \end{e}
 
 \begin{e}{Poznámka}{0}{0}
-  Ví se, že $P \subseteq NP$. Neví se však, zda $P \neq NP$. Pøedpokládá se to,
-  ale ještì to nikdo nedokázal.
+ $P \subseteq NP$ -- deterministický automat je vlastnì taky nedeterministický.
+
+  Neví se však, zda $P \neq NP$. Pøedpokládá se to,
+  ale ještì to nikdo nedokázal. (Jde o tzv. Millenium Prize Problem)
+
+Bylo by ovšem \emph{velmi} podivné, kdyby platil opak.
 \end{e}
 
-\begin{obecne}{Pøíklady problémù ze tøídy NP}
-  \begin{pitemize}
-    \item \textbf{KLIKA}(úplný podgraf)~-- Je dán neorientovaný graf $G$ a èíslo
-    $k$. Existuje v $G$ úplný podgraf velikosti aspoò $k$?
-    \item \textbf{HK}(Hamiltonovská kružnice)~-- Je dán neorientovaný graf $G$.
-    Existuje v $G$ Hamiltonovská kružnice?
-    \item \textbf{SP}(Souèet podmnožiny)~-- Jsou dána pøirozená èísla $a_1,
-    \dots, a_n,b$. Existuje podmnožina èísel $a_1,\dots,a_n$, jejíž souèet je
-    pøesnì $b$?
-  \end{pitemize}
-\end{obecne}
+\includegraphics[width=0.5\textwidth]{informatika/teoreticka_informatika/obrazky/PNP}
 
 \begin{e}{Definice}{0}{NP-tìžký problém}
   Problém $B$ je \textbf{NP-tìžký}, pokud pro libovolný problém $A$ ze tøídy NP
   platí, že $A$ je polynomiálnì redukovatelný na $B$.
+
+\begin{e}{Poznámka}{0}{0}
+Pokud se nám tedy povede nìjaký náš algoritmus redukovat na nìjaký NP-tìžký, víme, že je NP. Zde se ukazuje trochu dle mého neintuitivnost pojmu redukce -- redukujeme vždy \uv{lehèí} na \uv{tìžší}.
+
+NP-tìžký problém nemùže být P (resp. pokud by byl, potom by P=NP). Mùže a nemusí být NP (napø. halting problem není NP, ale každý NP na nìj lze redukovat).
+\end{e}
 \end{e}
 
 \begin{e}{Definice}{0}{NP-úplný problém}
   Problém je \textbf{NP-úplný}, pokud patøí do tøídy NP a je NP-tìžký.
+
+\begin{e}{Poznámka}{0}{0}
+NP-úplné problémy jsou nejtìžší problémy v~NP. Opìt, stejnì jako u NP-tìžkých víme, že pokud na nìj cokoliv redukujeme, tak to cokoliv je $NP$.
+%NP-úplné problémy se nám \uv{líbí} -- pokud u nìèeho ukážeme, že je NP-úplný, víme, že je NP. Zároveò víme, že pokud u libovolného z~nich dokážeme, že je v~P, tak P=NP.
+\end{e}
 \end{e}
 
 \begin{obecne}{Dùsledky}
   \begin{pitemize}
     \item Pokud je $A$ NP-tìžký a navíc je $A$ polynomiálnì redukovatelný na $B$, tak je
       $B$ taky NP-tìžký.
+\item Pokud je $A$ NP-tìžký a navíc je $B$ polynomiálnì redukovatelný na $A$, tak je $A$ NP.
     \item Pokud existuje polynomiální algoritmus pro nìjaký NP-tìžký problém, pak
-      existují polynomiální algoritmy pro všechny problémy ve tøídì NP.
+      existují polynomiální algoritmy pro všechny problémy ve tøídì NP. (tedy P=NP)
   \end{pitemize}
 \end{obecne}
 
 \begin{e}{Vìta}{0}{Cook-Levin 1971}
  Existuje NP-úplný problém. (Dokázáno pro SAT)
 \end{e}
+
+
+\begin{obecne}{Pøíklady problémù ze tøídy NP}
+  \begin{pitemize}
+    \item \textbf{KLIKA}(úplný podgraf)~-- Je dán neorientovaný graf $G$ a èíslo
+    $k$. Existuje v $G$ úplný podgraf velikosti aspoò $k$? - je zároveò NP-úplný
+    \item \textbf{HK}(Hamiltonovská kružnice)~-- Je dán neorientovaný graf $G$.
+    Existuje v $G$ Hamiltonovská kružnice? - je zároveò NP-úplný
+    \item \textbf{BATOH}(Souèet podmnožiny)~-- Jsou dána pøirozená èísla $a_1,
+    \dots, a_n,b$. Existuje podmnožina èísel $a_1,\dots,a_n$, jejíž souèet je
+    pøesnì $b$? - je zároveò NP-úplný
+	\item testování normálních forem v databázi, obarvení grafu, 3-SAT, celoèíselné lineární programování... - NP úplný
+	\item testování isomorfismu grafù (jsou 2 grafy izomorfní?) -- \textbf{není} NP-úplný, ale není P.
+	\item testování isomorfismu subgrafù (existuje v~grafu B subgraf isomorfní s A?) -- už je NP-úplný
+  \end{pitemize}
+\end{obecne}
+
