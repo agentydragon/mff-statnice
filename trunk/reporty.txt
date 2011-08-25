@@ -59,40 +59,9 @@ Napsal jsem definici, asi 5 metrik, okoli bodu, otevrenou/uzavrenou mnozinu, hom
 Vladan prisel, bezeslova si procetl papiry - fixou do papiru zaznacil Cauchyovskost,konvergenci a uplnost a rekl, at se na to jeste podivam. Podival jsem se, zastydel, opravil (mezi podivanim a zastydenim ubehlo 15minut). Pouze slovy jsem povedel to, co bylo na mat. strukturach o topologii jakozto rozsireni metrickych prostoru (na tohle jsem nebyl tazan). A hotovo (znamku jsem se nedozvedel).
 
 
-8.2
-(Kral) zda lze z definice neutrálního prvku, kterı je nadefinovanı e*x=x vyvodit i x*e=x, kdy je * jen asociativní 
-(IP 21.6.2011) Vypsat všechny podgrupy grupy S_3 (grupa permutací na 3 prvcích) a jejich index.
-Definovat index podgrupy a vyslovit vìtu o vztahu velikosti grupy, její podgrupy a indexu (to mìla bıt Lagrangeova vìta). 
-(emlièka ozd) Grupa, okruh, teleso. Definice, priklady
-nakreslil jsem na papir toto:(obrazek dedicnosti) 
-a podebatovali jsme 
-(zkousel Fiala) Normalni grupy a faktorgrupy -  normalni grupu jsem dal dohromady, jednoduchy priklad taky. U faktorgrupy jsem poradne nevedel, co to je [docela ostudne po vsech tech vetach o homomorfismu/isomorfismu apod z Algebry I], malem jsem byl proto odejit, kvuli ostatnim znamkam ale 3- 
-(Matousek) 1) grupy, hodne prikladu + normalni podgrupy a priklady (normalnich a nenormalnich) definici grupy jsem tak nejak popsal pres algebru a monoid (u monoidu jsem zapomel na asociativitu, na to se me pak zeptal), priklady grup jsem nejake vedel, normalnich podgrup ani moc ne, ale trosku mi pomohl a nejak jsme to dali dohromady  
-8.4   8.2 	  6.1   5
-(Kratochvíl) Dal mi jeste prakticky priklad na delitelnost, jestli jeden zadany polynom je delitelem druheho (ze by zachrana? bo toto pocitaji decka nekde v sexte na gymplu :D). Tak priklad spocitan, k tomu stranka teorie. Myslim, ze jsem nektere hlavni veci mel, NSD, Eukleida, co je to koren a rozklad, co je ireducibilni polynom a take to, ze v C - narozdil od R - ma kazdy polynom koren a polynom stupne >=2 je vzdy reducibilni. No a pak zacal. :) Chtel mimo jine "nejak popsat" vsechny ireducibilni polynomy v R,Q a C. No tady jsem to moc nedaval, dost mi pomahal... Spolecnymi silami jsme to nakonec dali dohromady (pro zvedavce spr. odpoved: polynom je ireducibilni v C <=> je stupne 1, ireducibilni v R => je stupne 1 nebo 2, a v Q pro libovolne n existuje ireducibilni - napr xn-2) 
-8.6
-(emlièka) souvislost derivace s viacnasobnym korenom polynomu (tam odo mna chcel zemlicka aj priklad pouzitia a naviedol ma na dake specialne sposoby vypoctu korenov polynomov) 
-{Zahradnik} mi dal suvislost nasobnosti korena a derivacie polynomu. K tej druhej otazke som napisal akurat 2 vety a to im na zaciatok stacilo...
-(Majerech) Druhá otázka algebra... no todle se mi moc nelíbilo ... ale otázky byly ještì záludnìjší....
-Mìjme reálnı polynom, o kterém víte, e ádné dva koøeny nemají stejnou násobnost
-a) Kolik má takovı polynom reálnıch koøenù? má všechny koøeny reálné nebo libovolnı komplexní koøen a jeho sdruenı parák mají shodnou násobnost 
-toto je trivialita... ale pøijít na to... mi trvalo... pùl hodiny... je to divoce formulované...
-b)Najdìte všechny koøeny tohoto polynomu /pøesnì/
-První pozorování:
-kdy je koøen násobnı tak je koøenem derivace...
-Druhé pozorování:
-derivace pùvodního polynomu je tvaru
-Q'(x)=P(x)*balast0
-pùvodní polynom je tvaru
-Q(x)=P(x)*balast1
-Tøetí pozorování:
-P(x) je NSD Q(x) a Q'(x), kde P(x) je produkt tìch násobnıch koøenù
-Øešení:
-Nalezneme NSD eukleidovım algoritmem a pak rekurzivnì pustíme na P(x)
+8
+cela v TeXu
 
-s velkou majerechovou pomocí jsem toto vymyslel... dosti mì zaskoèilo jak matika probíhala... èekal jsem teorii vìty definice... ádná teorie se nekonala .) take pouèení... dùkazy je dobré znát a praktické pøíklady aspoò lehce prohlédnout... jeden kolega tam invertoval matici
-
--neèekal jsem praktické pøíklady...:S 
 9.1
 (?) lineární nezávislost, báze ...Vektorové prostory byly rychlé, sepisoval jsem si axiomy, zkoušející mì v tom pøerušil, chtìl vìdìt co je báze, co lineární obal...v podstatì jen definice. 
 10.1
@@ -195,6 +164,6 @@ bohuzel nestacilo
 (Bednarek) XML, XSLT a trochu HTML protokoly- jsme se o nich zacli bavit (vedel jsem toho o nich asi jako vetsina z vas) a nakonec se konverzace prenesla na site obecneji (nastesti), takze to bylo v pohode.. 
 (?) Nestaèí vìdìt co to je, co je k tomu pøidruené a povrchní pøedstavu o tom jak to funguje, èi k èemu se to pouívá. Je dobré znát alespoò základní syntaxi, pøedstavu o tom jak funguje XSLT procesor, atd. 
 5.3
-Prenos dat z disku do operacni pameti (Bulej): 1-2. Pøekvapivì dobrı vısledek, nicménì den pøedtím jsem si èetl o DMA, take bych to mìl vìdìt ejo Chtìl by prej ještì vìdìt, e to, co sedí na sbìrnici a øídí ten pøenos, se ovládá z procesoru tak, e v tom jsou nìjakı registry, do kterejch se hodí instrukce, a taky e se naètou data z disku do diskovı cache, pak se vyvolá pøerušení, a pak se teprva ty data nìjak dostanou do RAMky, tøebas tim DMA nebo jinejma zpùsobama (a jakejma, pochopitelnì). 
+vsechno v TeXu
 5.9
 vsechno v TeXu
