@@ -93,57 +93,68 @@ Nechù $a, b \in \mathbb{R}, a<b$ a $(f_n)$ je posloupnost funkcÌ definovan˝ch na
 Pak posloupnost $f_n \rightrightarrows f$ na $(a,b)$, funkce $f$ m· v kaûdÈm bodÏ $x \in (a,b)$ vlastnÌ derivaci a platÌ $f'(x) = \lim_{n \rightarrow \infty} f_n'(x)$.
 \end{e}
 
-\begin{obecne}{\color{red}TODO dal}
-content...
-\end{obecne}
+\begin{e}{VÏta}{0}{Weierstrassova vÏta o aproximaci polynomy}
+Nechù $f: [a, b] \to \mathbb{R}$ je funkce spojit· na kompaktnÌm intervalu. Pak $p_n \rightrightarrows f$
+na $[a, b]$ pro nÏjakou posloupnost polynom˘ $(p_n)$. Jinak ¯eËeno,
+$$ \forall \varepsilon > 0\; \exists \text{ polynom } p:\; \forall x \in [a, b]:\;|p(x)-f(x)| < \varepsilon.$$
+\end{e}
 
 \begin{e}{Definice}{0}{Bodov·/stejnomÏrn· konvergence ¯ady funkcÌ}
-ÿekneme, ûe ¯ada $\sum_{n=1}^{\infty} u_n$ \emph{konverguje bodovÏ na mnoûinÏ $M$}, pokud posloupnost jejich Ë·steËn˝ch souËt˘ je bodovÏ konvergentnÌ na $M$, tj, pro kaûdÈ $x \in M$ konverguje ¯ada $\sum_{n=1}^{\infty} u_n(x)$.
+ÿekneme, ûe ¯ada $\sum_{n=1}^{\infty} f_n$ \emph{konverguje bodovÏ na mnoûinÏ $M$}, pokud posloupnost jejich Ë·steËn˝ch souËt˘ je bodovÏ konvergentnÌ na $M$, tj, pro kaûdÈ $x \in M$ konverguje ¯ada $\sum_{n=1}^{\infty} f_n(x)$.
 
-\emph{SouËtem ¯ady} $\sum_{n=1}^{\infty} u_n$ nazveme funkci
-$$S(x) = \sum_{n=1}^{\infty} u_n(x) = \lim_{n \rightarrow \infty} s_n(x), \, x \in M,$$
-pokud ¯ada konverguje bodovÏ na $M$.
-
-ÿekneme, ûe ¯ada $\sum_{n=1}^{\infty} u_n$ \emph{konverguje stejnomÏrnÏ na mnoûinÏ $M$}, pokud posloupnost jejich Ë·steËn˝ch souËt˘ je stejnomÏrnÏ konvergentnÌ na $M$.
-
-Je-li navÌc $M \subset \mathbb{R}$, ¯ekneme, ûe ¯ada $\sum_{n=1}^{\infty} u_n$ \emph{konverguje lok·lnÏ stejnomÏrnÏ na mnoûinÏ $M$}, pokud posloupnost jejich Ë·steËn˝ch souËt˘ je lok·lnÏ stejnomÏrnÏ konvergentnÌ.
+\emph{SouËtem ¯ady} $\sum_{n=1}^{\infty} f_n$ nazveme funkci
+$$S(x) = \sum_{n=1}^{\infty} f_n(x) = \lim_{n \rightarrow \infty} s_n(x), \, x \in M,$$
+pokud ¯ada konverguje bodovÏ na $M$. ÿekneme, ûe ¯ada $\sum_{n=1}^{\infty} f_n$ \emph{konverguje stejnomÏrnÏ na mnoûinÏ $M$}, pokud posloupnost jejich Ë·steËn˝ch souËt˘ je stejnomÏrnÏ konvergentnÌ na $M$. Je-li navÌc $M \subset \mathbb{R}$, ¯ekneme, ûe ¯ada $\sum_{n=1}^{\infty} f_n$ \emph{konverguje lok·lnÏ stejnomÏrnÏ na mnoûinÏ $M$}, pokud posloupnost jejich Ë·steËn˝ch souËt˘ je lok·lnÏ stejnomÏrnÏ konvergentnÌ.
 \end{e}
 
-\begin{e}{VÏta}{0}{Nutn· podmÌnka stejnomÏrnÈ konvergence ¯ady}
-Nechù ¯ada $\sum_{n=1}^{\infty} u_n$ konverguje stejnomÏrnÏ na mnoûinÏ $M$. Pak $u_n \rightrightarrows 0$ na $M$.
+\begin{obecne}{}
+(\emph{Pozn. autora: D·le platÌ i vÏty ekvivalentnÌ vÏt·m o z·mÏnÏ limit p¯i posloupnostech\dots})
+\end{obecne}
+
+\begin{e}{VÏta}{0}{nutn· podmÌnka stejnomÏrnÈ konvergence ¯ady}
+Nechù ¯ada $\sum_{n=1}^{\infty} f_n$ konverguje stejnomÏrnÏ na mnoûinÏ $M$. Pak $f_n \rightrightarrows 0$ na $M$.
 \end{e}
 
-\begin{e}{VÏta}{0}{Srovn·vacÌ kritÈrium pro stejnomÏrnou konvergenci}
-Nechù M je (nepr·zdn·) mnoûina a $(u_n)_{n=1}^{\infty}$, $(v_n)_{n=1}^{\infty}$ dvÏ posloupnosti funkcÌ definovan˝ch na M, pro kterÈ platÌ $|u_n(x)| \le v_n(x)$ pro vöechna $x \in M$. Jestliûe ¯ada $\sum_{n=1}^{\infty} v_n$ konverguje stejnomÏrnÏ na M, pak i ¯ada $\sum_{n=1}^{\infty} u_n$ konverguje stejnomÏrnÏ na $M$.
+\begin{e}{VÏta}{0}{srovn·vacÌ kritÈrium pro stejnomÏrnou konvergenci}
+Nechù M je (nepr·zdn·) mnoûina a $(f_n)_{n=1}^{\infty}$, $(g_n)_{n=1}^{\infty}$ dvÏ posloupnosti funkcÌ definovan˝ch na M, pro kterÈ platÌ $|f_n(x)| \le g_n(x)$ pro vöechna $x \in M$. Jestliûe ¯ada $\sum_{n=1}^{\infty} g_n$ konverguje stejnomÏrnÏ na M, pak i ¯ada $\sum_{n=1}^{\infty} f_n$ konverguje stejnomÏrnÏ na $M$.
 \end{e}
 
-\begin{e}{VÏta}{0}{Weierstrassovo kritÈrium}
-Nechù $M$ je (nepr·zdn·) mnoûina, $(u_n)_{n=1}^{\infty}$ posloupnost funkcÌ definovan˝ch na $M$ a $\sum_{n=1}^{\infty} c_n$ konvergentnÌ ¯ada re·ln˝ch ËÌsel. Pokud pro kaûdÈ $x \in M$ platÌ $|u_n(x)| \le c_n$, pak ¯ada $\sum_{n=1}^{\infty} u_n$ konverguje stejnomÏrnÏ na $M$.
+\begin{e}{VÏta}{1}{Weierstrassovo kritÈrium}
+Nechù $M$ je (nepr·zdn·) mnoûina, $(f_n)_{n=1}^{\infty}$ posloupnost funkcÌ definovan˝ch na $M$ a $\sum_{n=1}^{\infty} c_n$ konvergentnÌ ¯ada re·ln˝ch ËÌsel. Pokud pro kaûdÈ $x \in M$ platÌ $|f_n(x)| \le c_n$, pak ¯ada $\sum_{n=1}^{\infty} f_n$ konverguje stejnomÏrnÏ na $M$.\\
+(verze M. Klazar:)\\
+Nechù $f_n : M \to \mathbb{R}$ jsou takovÈ funkce, ûe ¯ada nez·porn˝ch ËÌsel
+$$\sum\limits_{n=1}^{\infty} \|f_n\|_{\infty} = \sum\limits_{n=1}^{\infty} \sup\limits_{x \in M} |f_n(x)|$$
+konverguje. Pak $\sum\limits_{n=1}^{\infty} f_n \rightrightarrows f$ na $[a,b]$.
+\end{e}
+
+\begin{e}{D˘sledek}{0}{d˘sledek Diniho vÏty}
+Jsou-li funkce $f_n :  [a, b] \to \mathbb{R}$ na kompaktnÌm intervalu $[a, b]$ spojitÈ a nez·pornÈ a $\sum\limits_{n=1}^{\infty} f_n \to f$ na $[a, b]$, kde $f$ je tÈû spojit·, potom $\sum\limits_{n=1}^{\infty} f_n \rightrightarrows f$ na $[a, b]$.
+\end{e}
+
+\begin{e}{VÏta}{1}{Dirichletovo a Abelovo kritÈrium}
+Nechù $M$ je (nepr·zdn·) mnoûina a $(f_n)_{n=1}^{\infty}$, $(g_n)_{n=1}^{\infty}$ dvÏ posloupnosti funkcÌ definovan˝ch na $M$. Nechù navÌc platÌ alespoÚ jedna z podmÌnek.
+\begin{pitemize}
+	\item (Abelovo kritÈrium)
+	\begin{penumerate}
+		\item ÿada $\sum_{n=1}^{\infty} f_n$ konverguje stejnomÏrnÏ na M,
+		\item pro kaûdÈ pevnÈ $x$ je posloupnost hodnot funkcÌ $(g_n(x))$ monotÛnnÌ (klidnÏ pro kaûdÈ $x$ jinak),
+		\item existuje $K\in\mathbb{R}$ takovÈ, ûe $\forall n\in\mathbb{N}\ \forall x\in M: |g_n(x)|<K$ (tj. $(g_n)$ je \emph{stejnomÏrnÏ (/stejnÏ) omezen·} na $M$). % tahle verze Abelova kriteria je podle Picka a Klazara
+	\end{penumerate}
+	\item (Dirichletovo kritÈrium)
+	\begin{penumerate}
+		\item Existuje $K \in \mathbb{R}$ takovÈ, ûe pro vöechna $x \in M$ a $n \in \mathbb{N}$ je $|f_1(x) + \dots + f_n(x)| \le K$ (tj. posloupnost Ë·st. souËt˘ $(\sum_{i=1}^n f_i(x))$ je \emph{stejnomÏrnÏ (/stejnÏ) omezen·} na $M$),
+		\item pro kaûdÈ pevnÈ $x$ je posloupnost hodnot funkcÌ $(g_n(x))$ monotÛnnÌ (klidnÏ pro kaûdÈ $x$ jinak),
+		\item $g_n \rightrightarrows 0$ na $M$ (konverguje stejnomÏrnÏ k nulovÈ funkci).
+	\end{penumerate} 
+\end{pitemize}
+Pak ¯ada $\sum_{n=1}^{\infty} f_n\cdot g_n$ konverguje stejnomÏrnÏ na $M$.
 \end{e}
 
 \begin{e}{VÏta}{0}{Leibnizovo kritÈrium pro stejnomÏrnou konvergenci}
-Nechù $M$ je (nepr·zdn·) mnoûina, $(u_n)_{n=1}^{\infty}$ posloupnost funkcÌ definovan˝ch na $M$ splÚujÌcÌch \emph{obÏ} podmÌnky:
-
+Nechù $M$ je (nepr·zdn·) mnoûina, $(f_n)_{n=1}^{\infty}$ posloupnost funkcÌ definovan˝ch na $M$ splÚujÌcÌch \emph{obÏ} podmÌnky:
 \begin{penumerate}
-	\item Pro vöechna $x \in M$ a $n \in \mathbb{N}$ je $u_n(x) \ge u_{n+1}(x) \ge 0$
-	\item $u_n \rightrightarrows 0$ na $M$
+	\item Pro vöechna $x \in M$ a $n \in \mathbb{N}$ je $f_n(x) \ge u_{n+1}(x) \ge 0$
+	\item $f_n \rightrightarrows 0$ na $M$
 \end{penumerate}
-Pak ¯ada $\sum_{n=1}^{\infty} (-1)^{n}u_n$ konverguje stejnomÏrnÏ na $M$.
+Pak ¯ada $\sum_{n=1}^{\infty} (-1)^{n}f_n$ konverguje stejnomÏrnÏ na $M$.
 \end{e}
-
-\begin{e}{VÏta}{0}{Dirichletovo a Abelovo kritÈrium}
-Nechù $M$ je (nepr·zdn·) mnoûina a $(u_n)_{n=1}^{\infty}$, $(v_n)_{n=1}^{\infty}$ dvÏ posloupnosti funkcÌ definovan˝ch na $M$, p¯iËemû pro kaûdÈ $x \in M$ a kaûdÈ $n \in \mathbb{N}$ platÌ $v_n(x) \ge v_{n+1}(x) \ge 0$. Nechù navÌc platÌ alespoÚ jedna z podmÌnek:
-\begin{enumerate}
-	\item (Abelovo) ÿada $\sum_{n=1}^{\infty} u_n$ konverguje stejnomÏrnÏ na M, % a funkce $v_1$ je shora omezen· na $M$ -- to je malo, ne? (Tuetschek)
-	pro kaûdÈ pevnÈ $x$ je posloupnost hodnot funkcÌ $(v_n(x))$ monotÛnnÌ (klidnÏ pro kaûdÈ $x$ jinak)
-	a existuje $K\in\mathbb{R}$ takovÈ, ûe $\forall n\in\mathbb{N}\ \forall x\in M: |v_n(x)|<K$ 
-	(tj. $(v_n)$ je stejnomÏrnÏ omezen· na $M$). % tahle verze Abelova kriteria je podle Picka a Klazara
-	\item (Dirichletovo) Existuje $K \in \mathbb{R}$ takovÈ, ûe pro vöechna $x \in M$ a $n \in \mathbb{N}$ je $|u_1(x) + \dots + u_n(x)| \le K$
-	(tj. posloupnost Ë·st. souËt˘ $(\sum_{i=1}^n u_n(x))$ je \emph{stejnomÏrnÏ omezen·} na $M$)
-	a d·le $v_n \rightrightarrows 0$ na $M$ (konverguje stejnomÏrnÏ k nulovÈ funkci).
-\end{enumerate}
-
-Pak ¯ada $\sum_{n=1}^{\infty} u_n\cdot v_n$ konverguje stejnomÏrnÏ na $M$.
-\end{e}
-
-(\emph{Pozn. autora: D·le platÌ i vÏty ekvivalentnÌ vÏt·m o z·mÏnÏ limit p¯i posloupnostech\dots})
