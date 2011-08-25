@@ -2,7 +2,7 @@
 
 \subsection{Hašování}
 
-\begin{e} Dáno univerzum $U$, máme reprezentovat{Definice}{0}{slovníkový problém}
+\begin{e}{Definice}{0}{slovníkový problém} Dáno univerzum $U$, máme reprezentovat
 $S \subseteq U$ a navrhnout algoritmy pro operace
 \begin{pitemize}
 \item MEMBER(x) - zjistí zda $x \in S$ a pokud ano nalezne kde,
@@ -21,7 +21,7 @@ množinu $S \subseteq U$ takovou, že $|S| << |U|$. Dále mìjme funkci
 $h:U\rightarrow\{0,1,\dots,m-1\}$. Množinu $S$ potom reprezentujeme tabulkou
 (polem) o velikosti $m$ tak, že prvek $x \in S$ je uložen na øádku $h(x)$.
 
-\begin{e} Funkci{Definice}{0}{Hašovací funkce, kolize}
+\begin{e}{Definice}{0}{Hašovací funkce, kolize} Funkci
 $h:U\rightarrow\{0,1,\dots,m-1\}$ potom nazýváme \textbf{hašovací funkcí}.
 Situaci $h(s)=h(t)$, pro $s \neq t; s,t \in S$  nazveme \textbf{kolize}.
 \end{e}
@@ -240,7 +240,7 @@ Zde uvedeme poøadí metod hašování podle oèekávaného poètu testù.
 \end{penumerate}
 \end{obecne}
 
-\begin{e} Metody se separovanými øetìzci a srùstající hašování používají{Poznámka}{0}{0}
+\begin{e}{Poznámka}{0}{0} Metody se separovanými øetìzci a srùstající hašování používají
 více pamìti. Metoda s pøemísováním vyžaduje více èasu -- na pøemístìní prvku.
 Otázka která z metod je nejlepší není proto jednoznaènì rozhodnutelná a je nutné
 peèlivì zvážit všechny okolnosti nasazení metody a všechny naše požadavky na ní,
