@@ -1,209 +1,209 @@
-\subsection{Rodina protokolË˜ TCP/IP (ARP, IPv4, IPv6, ICMP, UDP, TCP) -- adresace, routing, fragmentace, spolehlivost, flow control, congestion control, NAT}
+\subsection{Rodina protokolù TCP/IP (ARP, IPv4, IPv6, ICMP, UDP, TCP) -- adresace, routing, fragmentace, spolehlivost, flow control, congestion control, NAT}
 \begin{center}
 \begin{tabular}{|c|c|}
 	\hline
 	ISO/OSI & TCP/IP \\
 	\hline
 	\hline
-	aplikaÃ‹nÃŒ vrstva & aplikaÃ‹nÃŒ vrstva\\
-	prezentaÃ‹nÃŒ vrstva &\\
-	relaÃ‹nÃŒ vrstva &\\
+	aplikaèní vrstva & aplikaèní vrstva\\
+	prezentaèní vrstva &\\
+	relaèní vrstva &\\
 	\hline
-	transportnÃŒ vrstva & transportnÃŒ vrstva \\
+	transportní vrstva & transportní vrstva \\
 	\hline
-	sÃŒÃ¹ovÂ· vrstva & sÃŒÃ¹ovÂ· vrstva (tÃˆÃ» IP vrstva) \\
+	síová vrstva & síová vrstva (té IP vrstva) \\
 	\hline
-	linkovÂ· vrstva & vrstva sÃŒÃ¹ovÃˆho rozhranÃŒ\\
-	fyzickÂ· vrstva & \\
+	linková vrstva & vrstva síového rozhraní\\
+	fyzická vrstva & \\
 	\hline
 \end{tabular}
 \end{center}
 
-ObvyklÃˆ oznaÃ‹enie je \emph{TCP/IP protocol suite} (sË™Ã‹asÃ¹ou je viac ako 100 protokolov). ArchitektË™ra vznikla postupne (v akademickom prostredÃŒ, neskÃ™r sa rozÃ¶ÃŒrila aj do komerÃ‹nej sfÃˆry) -- najprv vznikli protokoly, potom vrstvy -- a od vzniku sa toho zmenilo len mÂ·lo (zmeny sË™ aditÃŒvne). Je to najpouÃ»ÃŒvanejÃ¶ia sieÃ¹ovÂ· technolÃ›gia (IP over everything, everything over IP). PrÃŒstup autorov bol, na rozdiel od ISO/OSI, od jednoduchÃ¶ieho k zloÃ»itejÃ¶iemu -- najprv sa vytvÂ·rajË™ jednoduchÃˆ rieÃ¶enia, ktorÃˆ sa postupne obohacujË™. AÃ» sa rieÃ¶enie prakticky overÃŒ (2 nezÂ·vislÃˆ implementÂ·cie), vznikne Ã¶tandard. TCP/IP predpokladÂ· Ã»e siete sË™ typu nespojovanÃˆ, nespoÃ¦ahlivÃˆ a best effort. VÃ¶etkÂ· inteligencia je sË™stredenÂ· do koncovËch uzlov, sieÃ¹ je \uv{hlË™pa} ale rËchla.
+Obvyklé oznaèenie je \emph{TCP/IP protocol suite} (súèasou je viac ako 100 protokolov). Architektúra vznikla postupne (v akademickom prostredí, neskôr sa rozšírila aj do komerènej sféry) -- najprv vznikli protokoly, potom vrstvy -- a od vzniku sa toho zmenilo len málo (zmeny sú aditívne). Je to najpouívanejšia sieová technológia (IP over everything, everything over IP). Prístup autorov bol, na rozdiel od ISO/OSI, od jednoduchšieho k zloitejšiemu -- najprv sa vytvárajú jednoduché riešenia, ktoré sa postupne obohacujú. A sa riešenie prakticky overí (2 nezávislé implementácie), vznikne štandard. TCP/IP predpokladá e siete sú typu nespojované, nespo¾ahlivé a best effort. Všetká inteligencia je sústredená do koncovıch uzlov, sie je \uv{hlúpa} ale rıchla.
 
-TCP/IP bol pÃ™vodne urÃ‹enË pre ARPAnet -- nemohol maÃ¹ teda Ã»iadnu centrÂ·lnu Ã‹asÃ¹ a musel byÃ¹ robustnË voÃ‹i chybÂ·m (nespoÃ¦ahlivÃˆ/nespojovanÃˆ prenosy). DÃ™raz sa klÂ·dol aj na "internetworking". Nebolo vÃ¶ak poÃ»adovanÃˆ zabezpeÃ‹enie, mobilita ani kvalita sluÃ»ieb.
+TCP/IP bol pôvodne urèenı pre ARPAnet -- nemohol ma teda iadnu centrálnu èas a musel by robustnı voèi chybám (nespo¾ahlivé/nespojované prenosy). Dôraz sa kládol aj na "internetworking". Nebolo však poadované zabezpeèenie, mobilita ani kvalita sluieb.
 
-TCP/IP nedefinuje rÃ™zne siete (Ã‹o sa hardvÃˆrovËch vlastnostÃŒ tËka) a technolÃ›gie vo vrstve sieÃ¹ovÃˆho rozhrania -- iba sa snaÃ»ÃŒ nad nimi prevÂ·dzkovaÃ¹ protokol IP (okrem SLIP a PPP pre dvojbodovÃˆ spoje). V sieÃ¹ovej vrstve je IP protokol, v transportnej jednotnÃˆ transportnÃˆ protokoly (TCP a UDP), v aplikaÃ‹nej potom jednotnÃˆ zÂ·klady aplikÂ·ciÃŒ (email, prenos sË™borov, remote login...).
+TCP/IP nedefinuje rôzne siete (èo sa hardvérovıch vlastností tıka) a technológie vo vrstve sieového rozhrania -- iba sa snaí nad nimi prevádzkova protokol IP (okrem SLIP a PPP pre dvojbodové spoje). V sieovej vrstve je IP protokol, v transportnej jednotné transportné protokoly (TCP a UDP), v aplikaènej potom jednotné základy aplikácií (email, prenos súborov, remote login...).
 
 \subsubsection*{Adresace, IPv4, IPv6}
-Data se v IP sÃŒti posÃŒlajÃŒ po blocÃŒch nazËvanËch datagramy. JednotlivÃˆ datagramy putujÃŒ sÃŒtÃŒ zcela nezÂ·visle, na zaÃ‹Â·tku komunikace nenÃŒ potÂ¯eba navazovat spojenÃŒ Ã‹i jinak \uv{pÂ¯ipravovat cestu} datË˜m, pÂ¯estoÃ»e spolu tÂ¯eba pÂ¯ÃŒsluÃ¶nÃˆ stroje nikdy pÂ¯edtÃŒm nekomunikovaly.
+Data se v IP síti posílají po blocích nazıvanıch datagramy. Jednotlivé datagramy putují sítí zcela nezávisle, na zaèátku komunikace není potøeba navazovat spojení èi jinak \uv{pøipravovat cestu} datùm, pøestoe spolu tøeba pøíslušné stroje nikdy pøedtím nekomunikovaly.
 
-IP protokol v doruÃ‹ovÂ·nÃŒ datagramË˜ poskytuje nespolehlivou sluÃ»bu, oznaÃ‹uje se takÃˆ jako best effort Ã± \uv{nejlepÃ¶ÃŒ Ë™silÃŒ}; tj. vÃ¶echny stroje na trase se datagram snaÃ»ÃŒ podle svËch moÃ»nostÃŒ poslat blÃŒÃ»e k cÃŒli, ale nezaruÃ‹ujÃŒ prakticky nic. Datagram vË˜bec nemusÃŒ dorazit, mË˜Ã»e bËt naopak doruÃ‹en nÃkolikrÂ·t a neruÃ‹ÃŒ se ani za poÂ¯adÃŒ doruÃ‹enËch paketË˜. Pokud aplikace potÂ¯ebuje spolehlivost, je potÂ¯eba ji implementovat v jinÃˆ vrstvÃ sÃŒÃ¹ovÃˆ architektury, typicky protokoly bezprostÂ¯ednÃ nad IP (viz TCP).
+IP protokol v doruèování datagramù poskytuje nespolehlivou slubu, oznaèuje se také jako best effort – \uv{nejlepší úsilí}; tj. všechny stroje na trase se datagram snaí podle svıch moností poslat blíe k cíli, ale nezaruèují prakticky nic. Datagram vùbec nemusí dorazit, mùe bıt naopak doruèen nìkolikrát a neruèí se ani za poøadí doruèenıch paketù. Pokud aplikace potøebuje spolehlivost, je potøeba ji implementovat v jiné vrstvì síové architektury, typicky protokoly bezprostøednì nad IP (viz TCP).
 
-Pokud by sÃŒÃ¹ Ã‹asto ztrÂ·cela pakety, mÃnila jejich poÂ¯adÃŒ nebo je poÃ¶kozovala, vËkon sÃŒtÃ pozorovanË uÃ»ivatelem by byl malË. Na druhou stranu pÂ¯ÃŒleÃ»itostnÂ· chyba nemÃŒvÂ· pozorovatelnË efekt, navÃŒc se obvykle pouÃ»ÃŒvÂ· vyÃ¶Ã¶ÃŒ vrstva, kterÂ· ji automaticky opravÃŒ.
+Pokud by sí èasto ztrácela pakety, mìnila jejich poøadí nebo je poškozovala, vıkon sítì pozorovanı uivatelem by byl malı. Na druhou stranu pøíleitostná chyba nemívá pozorovatelnı efekt, navíc se obvykle pouívá vyšší vrstva, která ji automaticky opraví.
 
-V \textbf{IPv4} je \emph{adresou} 32bitovÃˆ Ã‹ÃŒslo, zapisovanÃˆ po jednotlivËch bajtech, oddÃlenËch teÃ‹kami. TakovËch Ã‹ÃŒsel existuje celkem $2^{32}$. UrÃ‹itÂ· Ã‹Â·st adres je ovÃ¶em rezervovÂ·na pro vnitÂ¯nÃŒ potÂ¯eby protokolu a nemohou bËt pÂ¯idÃleny. DÂ·le pak praktickÃˆ dË˜vody vedou k tomu, Ã»e adresy je nutno pÂ¯idÃlovat hierarchicky, takÃ»e celË adresnÃŒ prostor nenÃŒ moÃ»nÃˆ vyuÃ»ÃŒt beze zbytku. To vede k tomu, Ã»e v souÃ‹asnosti je jiÃ» znatelnË nedostatek IP adres, kterË Â¯eÃ¶ÃŒ rË˜znËmi zpË˜soby: dynamickËm pÂ¯idÃlovÂ·nÃŒm (tzn. napÂ¯. kaÃ»dË uÃ»ivatel dial-up pÂ¯ipojenÃŒ dostane doÃ‹asnou IP adresu ve chvÃŒli, kdy se pÂ¯ipojÃŒ, ale jakmile se odpojÃŒ, je jeho IP adresa pÂ¯idÃlena nÃkomu jinÃˆmu; pÂ¯i pÂ¯ÃŒÃ¶tÃŒm pÂ¯ipojenÃŒ pak mË˜Ã»e tentËÃ» uÃ»ivatel dostat Ë™plnÃ jinou adresu), pÂ¯ekladem adres (NAT) a podobnÃ. Ke sprÂ·vÃ tohoto pÂ¯idÃlovÂ·nÃŒ slouÃ»ÃŒ specializovanÃˆ sÃŒÃ¹ovÃˆ protokoly, jako napÂ¯. DHCP.
+V \textbf{IPv4} je \emph{adresou} 32bitové èíslo, zapisované po jednotlivıch bajtech, oddìlenıch teèkami. Takovıch èísel existuje celkem $2^{32}$. Urèitá èást adres je ovšem rezervována pro vnitøní potøeby protokolu a nemohou bıt pøidìleny. Dále pak praktické dùvody vedou k tomu, e adresy je nutno pøidìlovat hierarchicky, take celı adresní prostor není moné vyuít beze zbytku. To vede k tomu, e v souèasnosti je ji znatelnı nedostatek IP adres, kterı øeší rùznımi zpùsoby: dynamickım pøidìlováním (tzn. napø. kadı uivatel dial-up pøipojení dostane doèasnou IP adresu ve chvíli, kdy se pøipojí, ale jakmile se odpojí, je jeho IP adresa pøidìlena nìkomu jinému; pøi pøíštím pøipojení pak mùe tentı uivatel dostat úplnì jinou adresu), pøekladem adres (NAT) a podobnì. Ke správì tohoto pøidìlování slouí specializované síové protokoly, jako napø. DHCP.
 
-PÃ™vodnË koncept adries poÃ‹ÃŒtal so Ã¶truktË™rou adresy IPv4 v tvare \emph{sieÃ¹:poÃ‹ÃŒtaÃ‹}, kde bolo delenie Ã‹astÃŒ pevne danÃˆ. NeskÃ™r sa to ale ukÂ·zalo ako prÃŒliÃ¶ hrubÃˆ delenie a lokÂ·lna Ã‹asÃ¹ adresy (v rÂ·mci jednej podsiete) moÃ»e mâ€°Ã¹ dnes promenlivË™ dÃ‚Ã»ku. Obecne platÃŒ, Ã»e medzi adresami v rovnakej podsieti (majË™ rovnakË™ sieÃ¹ovË™ Ã‹asÃ¹) je moÃ»nÃˆ dopravovaÃ¹ dÂ·ta priamo -- dotyÃ‹nÃŒ Ë™Ã‹astnÃŒci sË™ prepojenÃŒ jednËm ethernetom alebo inou lokÂ·lnou sieÃ¹ou. V opaÃ‹nom prÃŒpade sa dÂ·ta dopravujË™ \emph{smerovaÃ‹mi/routermi}. Hranicu v adrese medzi adresou siete a poÃ‹ÃŒtaÃ‹a urÃ‹uje dnes maska podsiete. JednÂ· sa o 32 bitovË™ hodnotu, ktorÂ· obsahuje jednotky tam, kde je v adrese urÃ‹enÂ· sieÃ¹.
+Pôvodnı koncept adries poèítal so štruktúrou adresy IPv4 v tvare \emph{sie:poèítaè}, kde bolo delenie èastí pevne dané. Neskôr sa to ale ukázalo ako príliš hrubé delenie a lokálna èas adresy (v rámci jednej podsiete) moe mä dnes promenlivú dåku. Obecne platí, e medzi adresami v rovnakej podsieti (majú rovnakú sieovú èas) je moné dopravova dáta priamo -- dotyèní úèastníci sú prepojení jednım ethernetom alebo inou lokálnou sieou. V opaènom prípade sa dáta dopravujú \emph{smerovaèmi/routermi}. Hranicu v adrese medzi adresou siete a poèítaèa urèuje dnes maska podsiete. Jedná sa o 32 bitovú hodnotu, ktorá obsahuje jednotky tam, kde je v adrese urèená sie.
 
-\textbf{Adresovanie sietÃŒ} bolo v prvopoÃ‹iatkoch internetu vyrieÃ¶enÃˆ staticky -- prvËch 8 bitov adresy urÃ‹ovalo sieÃ¹, zvyÃ¶ok jednotlivÃˆ poÃ‹ÃŒtaÃ‹e (existovaÃ¹ tak mohlo max. 256 sietÃŒ). S nÂ·stupom lokÂ·lnych sietÃŒ bolo tento systÃˆm potrebnÃˆ zmeniÃ¹ -- zaviedli sa \emph{triedy IP adries}. Existovalo 5 tried (A(zaÃ‹iatok 0, hodnoty prvÃˆho bajtu 0-127, maska 255.0.0.0), B(10, 128-191, 255.255.0.0), C(110, 192-223, 255.255.255.0), D(1110, 224-239, urÃ‹enÃˆ na multicast) a E(1111, 240-255, urÃ‹enÃˆ ako rezerva)). Postupom Ã‹asu sa ale aj toto rozdelenie ukÂ·zalo ako nepruÃ»nÃˆ a bol zavedenË CIDR (Classless Inter-Domain Routing) systÃˆm v ktorom je moÃ»nÃˆ hranicu medzi adresou siete a lokÂ·lnou Ã‹asÃ¹ou adresy umiestniÃ¹ Ã¦ubovoÃ¦ne (oznaÃ‹uje sa potom ako kombinÂ·cia prefixu a dÃ‚Ã»ky vo forme 192.168.0.0/24, kde 24 znamenÂ· Ã»e adresu tvorÃŒ prvËch 24 bitov -- jinË zÂ·pis je pomocÃŒ uÃ» zmiÃšovanÃˆ masky podsÃŒtÃ, tj. 192.168.0.0 s maskou 255.255.255.0).
+\textbf{Adresovanie sietí} bolo v prvopoèiatkoch internetu vyriešené staticky -- prvıch 8 bitov adresy urèovalo sie, zvyšok jednotlivé poèítaèe (existova tak mohlo max. 256 sietí). S nástupom lokálnych sietí bolo tento systém potrebné zmeni -- zaviedli sa \emph{triedy IP adries}. Existovalo 5 tried (A(zaèiatok 0, hodnoty prvého bajtu 0-127, maska 255.0.0.0), B(10, 128-191, 255.255.0.0), C(110, 192-223, 255.255.255.0), D(1110, 224-239, urèené na multicast) a E(1111, 240-255, urèené ako rezerva)). Postupom èasu sa ale aj toto rozdelenie ukázalo ako nepruné a bol zavedenı CIDR (Classless Inter-Domain Routing) systém v ktorom je moné hranicu medzi adresou siete a lokálnou èasou adresy umiestni ¾ubovo¾ne (oznaèuje sa potom ako kombinácia prefixu a dåky vo forme 192.168.0.0/24, kde 24 znamená e adresu tvorí prvıch 24 bitov -- jinı zápis je pomocí u zmiòované masky podsítì, tj. 192.168.0.0 s maskou 255.255.255.0).
 
-Medzi adresami existujË™ niektorÃˆ tzv. \textbf{vyhradenÃˆ adresy}, ktorÃˆ majË™ Ã¶peciÂ·lny vËznam.
+Medzi adresami existujú niektoré tzv. \textbf{vyhradené adresy}, ktoré majú špeciálny vıznam.
 \begin{pitemize}
-	\item Adresa s (binÂ·rnymi) nulami v Ã‹asti urÃ‹ujË™cej poÃ‹ÃŒtaÃ‹ (192.168.0.\textbf{0} (/24)) znamenÂ· \uv{tÂ·to sieÃ¹}, resp. \uv{tÂ·to stanica}.
-	\item Adresa s jednotkami v Ã‹asti urÃ‹ujË™cej poÃ‹ÃŒtaÃ‹ (192.168.0.\textbf{255} (/24)) znamenÂ· broadcast -- vÃ¶esmerovÃˆ vysielanie.
-	\item Adresy 10.0.0.0 -- 10.255.255.255, 172.16.0.0 -- 172.31.255.255 a 192.168.0.0 -- 192.168.255.255 sa pouÃ»ÃŒvajË™ na adresovanie internËch sietÃŒ -- smerovaÃ‹e tieto adresy nesmie smerovaÃ¹ Ã”alej do internetu.
+	\item Adresa s (binárnymi) nulami v èasti urèujúcej poèítaè (192.168.0.\textbf{0} (/24)) znamená \uv{táto sie}, resp. \uv{táto stanica}.
+	\item Adresa s jednotkami v èasti urèujúcej poèítaè (192.168.0.\textbf{255} (/24)) znamená broadcast -- všesmerové vysielanie.
+	\item Adresy 10.0.0.0 -- 10.255.255.255, 172.16.0.0 -- 172.31.255.255 a 192.168.0.0 -- 192.168.255.255 sa pouívajú na adresovanie internıch sietí -- smerovaèe tieto adresy nesmie smerova ïalej do internetu.
 \end{pitemize}
 
-\textbf{IPv6} je trvalejÃ¶ÃŒm rieÃ¶enÃŒm nedostatku adries -- zatiaÃ¦ sa ale rozÃ¶iruje veÃ¦mi pozvolna. Adresa v IPv6 mÂ· dÃ‚Ã»ku 128 bitov (oproti 32), Ã‹o znamenÂ· cca. $6 \times 10^{23}$ IP adries na $1 m^2$ zemskÃˆho povrchu -- umoÃ»Ãšuje teda, aby kaÃ»dÃˆ zariadenie na zemi malo vlastnË™ jednoznaÃ‹nË™ adresu. Adresa IPv6 sa zapisuje ako osem skupÃŒn po Ã¶tyroch hexadecimÂ·lnych Ã‹ÃŒslach (napr. 2001:0718:1c01:0016:0214:22ff:fec9:0ca5) -- priÃ‹om Ë™vodnÃˆ nuly v Ã‹ÃŒslach je moÃ»nÃˆ vynechaÃ¹. Ak po sebe nasleduje niekoÃ¦ko nulovËch skupÃŒn, je moÃ»nÃˆ pouÃ»iÃ¹ len znaky :: -- napr. ::1 miesto 0000:0000:.......:0001. Toto je moÃ»nÃˆ pouÃ»iÃ¹ len raz v zÂ·pise adresy. RFC 4291 zavÂ·dza 3 typy adries:
+\textbf{IPv6} je trvalejším riešením nedostatku adries -- zatia¾ sa ale rozširuje ve¾mi pozvolna. Adresa v IPv6 má dåku 128 bitov (oproti 32), èo znamená cca. $6 \times 10^{23}$ IP adries na $1 m^2$ zemského povrchu -- umoòuje teda, aby kadé zariadenie na zemi malo vlastnú jednoznaènú adresu. Adresa IPv6 sa zapisuje ako osem skupín po štyroch hexadecimálnych èíslach (napr. 2001:0718:1c01:0016:0214:22ff:fec9:0ca5) -- prièom úvodné nuly v èíslach je moné vynecha. Ak po sebe nasleduje nieko¾ko nulovıch skupín, je moné poui len znaky :: -- napr. ::1 miesto 0000:0000:.......:0001. Toto je moné poui len raz v zápise adresy. RFC 4291 zavádza 3 typy adries:
 \begin{pitemize}
-	\item \textbf{inidividuÂ·lne / unicast} -- identifikujË™ prÂ·ve jedno rozhranie
-	\item \textbf{skupinovÃˆ / multicast} -- urÃ‹uje skupinu zariadenÃŒ, ktorËm sa mÂ· sprÂ·va dopraviÃ¹
-	\item \textbf{vËberovÃˆ / anycast} -- urÃ‹uje tieÃ» skupinu zariadenÃŒ, dÂ·ta sa vÃ¶ak doruÃ‹ia len jednÃˆmu z Ã‹lenov (najbliÃ»Ã¶iemu)
+	\item \textbf{inidividuálne / unicast} -- identifikujú práve jedno rozhranie
+	\item \textbf{skupinové / multicast} -- urèuje skupinu zariadení, ktorım sa má správa dopravi
+	\item \textbf{vıberové / anycast} -- urèuje tie skupinu zariadení, dáta sa však doruèia len jednému z èlenov (najblišiemu)
 \end{pitemize}
-IPv6 neobsahuje vÃ¶esmÃrovÃˆ (broadcast) adresy. Byly nahrazeny obecnÃjÃ¶ÃŒm modelem skupinovËch adres a pro potÂ¯eby doruÃ‹enÃŒ dat vÃ¶em zaÂ¯ÃŒzenÃŒm pÂ¯ipojenËm k urÃ‹itÃˆ sÃŒti slouÃ»ÃŒ speciÂ·lnÃŒ skupinovÃˆ adresy (napÂ¯. ff02::1 oznaÃ‹uje vÃ¶echny uzly na danÃˆ lince).
+IPv6 neobsahuje všesmìrové (broadcast) adresy. Byly nahrazeny obecnìjším modelem skupinovıch adres a pro potøeby doruèení dat všem zaøízením pøipojenım k urèité síti slouí speciální skupinové adresy (napø. ff02::1 oznaèuje všechny uzly na dané lince).
 
-IPv6 zavÂ·dÃŒ takÃˆ koncepci dosahu (scope) adres. Adresa je jednoznaÃ‹nÂ· vÃ»dy jen v rÂ·mci svÃˆho dosahu. NejÃ‹astÃjÃ¶ÃŒ dosah je pochopitelnÃ globÂ·lnÃŒ, kdy adresa je jednoznaÃ‹nÂ· v celÃˆm Internetu. KromÃ toho se Ã‹asto pouÃ»ÃŒvÂ· dosah linkovË, definujÃŒcÃŒ jednoznaÃ‹nou adresu v rÂ·mci jednÃˆ linky (lokÂ·lnÃŒ sÃŒtÃ, napÂ¯. Ethernetu). Propracovanou strukturu dosahË˜ majÃŒ skupinovÃˆ adresy (viz nÃŒÃ»e).
+IPv6 zavádí také koncepci dosahu (scope) adres. Adresa je jednoznaèná vdy jen v rámci svého dosahu. Nejèastìjší dosah je pochopitelnì globální, kdy adresa je jednoznaèná v celém Internetu. Kromì toho se èasto pouívá dosah linkovı, definující jednoznaènou adresu v rámci jedné linky (lokální sítì, napø. Ethernetu). Propracovanou strukturu dosahù mají skupinové adresy (viz níe).
 
-AdresnÃŒ prostor je rozdÃlen nÂ·sledovnÃ:
+Adresní prostor je rozdìlen následovnì:
 \begin{center}
 \begin{tabular}{|l|l|}
 	\hline
-	prefix & vËznam \\
+	prefix & vıznam \\
 	\hline
 	\hline
-	::/128 & neurÃ‹enÂ· \\
-	::1/128 & smyÃ‹ka (loopback) \\
-	ff00::/8 & skupinovÃˆ \\
-	fe80::/10 & individuÂ·lnÃŒ lokÂ·lnÃŒ linkovÃˆ \\
-	ostatnÃŒ & individuÂ·lnÃŒ globÂ·lnÃŒ \\
+	::/128 & neurèená \\
+	::1/128 & smyèka (loopback) \\
+	ff00::/8 & skupinové \\
+	fe80::/10 & individuální lokální linkové \\
+	ostatní & individuální globální \\
 	\hline
 \end{tabular}
 \end{center}
 
-VËbÃrovÃˆ adresy nemajÃŒ rezervovÂ·nu svou vlastnÃŒ Ã‹Â·st adresnÃŒho prostoru. Jsou promÃŒchÂ·ny s individuÂ·lnÃŒmi a je otÂ·zkou lokÂ·lnÃŒ konfigurace, aby uzel poznal, zda se jednÂ· o individuÂ·lnÃŒ Ã‹i vËbÃrovou adresu.
+Vıbìrové adresy nemají rezervovánu svou vlastní èást adresního prostoru. Jsou promíchány s individuálními a je otázkou lokální konfigurace, aby uzel poznal, zda se jedná o individuální èi vıbìrovou adresu.
 
-Strukturu globÂ·lnÃŒch individuÂ·lnÃŒch IPv6 adres definuje RFC 3587. Je velmi jednoduchÂ· a de facto odpovÃŒdÂ· (aÃ» na rozmÃry jednotlivËch Ã‹Â·stÃŒ) vËÃ¶e uvedenÃˆ struktuÂ¯e IPv4 adresy.
+Strukturu globálních individuálních IPv6 adres definuje RFC 3587. Je velmi jednoduchá a de facto odpovídá (a na rozmìry jednotlivıch èástí) vıše uvedené struktuøe IPv4 adresy.
 
 \begin{center}
 \begin{tabular}{|l|l|l|}
 	\hline
-	n bitË˜ & 64-n bitË˜ & 64 bitË˜ \\
-	globÂ·lnÃŒ smÃrovacÃŒ prefix & adresa podsÃŒtÃ & adresa rozhranÃŒ \\
+	n bitù & 64-n bitù & 64 bitù \\
+	globální smìrovací prefix & adresa podsítì & adresa rozhraní \\
 	\hline
 \end{tabular}
 \end{center}
 
-GlobÂ·lnÃŒ smÃrovacÃŒ prefix je de facto totÃˆÃ» co adresa sÃŒtÃ, nÂ·sleduje adresa podsÃŒtÃ a poÃ‹ÃŒtaÃ‹e (pÂ¯esnÃji sÃŒÃ¹ovÃˆho rozhranÃŒ). V praxi je adresa podsÃŒtÃ aÃ» na vËjimky 16bitovÂ· a globÂ·lnÃŒ prefix 48bitovË. Ten je pak pÂ¯idÃlovÂ·n obvyklou hierarchiÃŒ, jejÃŒÃ» stÂ·vajÃŒcÃŒ pravidla jsou:
+Globální smìrovací prefix je de facto toté co adresa sítì, následuje adresa podsítì a poèítaèe (pøesnìji síového rozhraní). V praxi je adresa podsítì a na vıjimky 16bitová a globální prefix 48bitovı. Ten je pak pøidìlován obvyklou hierarchií, její stávající pravidla jsou:
 \begin{pitemize}
-    \item prvnÃŒ dva bajty obsahujÃŒ hodnotu 2001 (psÂ·no v Ã¶estnÂ·ctkovÃˆ soustavÃ)
-    \item dalÃ¶ÃŒ dva bajty pÂ¯idÃluje regionÂ·lnÃŒ registrÂ·tor (RIR)
-    \item dalÃ¶ÃŒ dva bajty pÂ¯idÃluje lokÂ·lnÃŒ registrÂ·tor (LIR)
+    \item první dva bajty obsahují hodnotu 2001 (psáno v šestnáctkové soustavì)
+    \item další dva bajty pøidìluje regionální registrátor (RIR)
+    \item další dva bajty pøidìluje lokální registrátor (LIR)
 \end{pitemize}
 
-ReÂ·lnÂ· struktura globÂ·lnÃŒ individuÂ·lnÃŒ adresy tedy vypadÂ· nÂ·sledovnÃ:
+Reálná struktura globální individuální adresy tedy vypadá následovnì:
 
 \begin{center}
 \begin{tabular}{|l|l|l|l|l|}
 	\hline
-	16 bitË˜ & 16 bitË˜ & 16 bitË˜ & 16 bitË˜ & 64 bitË˜ \\
-	2001 & pÂ¯idÃluje RIR &pÂ¯idÃluje LIR &adresa podsÃŒtÃ & adresa rozhranÃŒ \\
+	16 bitù & 16 bitù & 16 bitù & 16 bitù & 64 bitù \\
+	2001 & pøidìluje RIR &pøidìluje LIR &adresa podsítì & adresa rozhraní \\
 	\hline
 \end{tabular}
 \end{center}
-Adresa rozhranÃŒ by pak mÃla obsahovat modifikovanË EUI-64 identifikÂ·tor. Ten zÃŒskÂ·te z MAC adresy jednoduchËm postupem: invertuje se druhË bit MAC adresy a doprostÂ¯ed se vloÃ»ÃŒ dva bajty obsahujÃŒcÃŒ hodnotu fffe. Z ethernetovÃˆ adresy 00:14:22:c9:0c:a5 tak vznikne identifikÂ·tor 0214:22ff:fec9:0ca5.
+Adresa rozhraní by pak mìla obsahovat modifikovanı EUI-64 identifikátor. Ten získáte z MAC adresy jednoduchım postupem: invertuje se druhı bit MAC adresy a doprostøed se vloí dva bajty obsahující hodnotu fffe. Z ethernetové adresy 00:14:22:c9:0c:a5 tak vznikne identifikátor 0214:22ff:fec9:0ca5.
 
-Adresy zaÃ‹ÃŒnajË™ce hodnotou ff sË™ tzv. "skupinovÃˆ adresy" -- Ã¶tyri nasledujË™ce bity v nej obsahujË™ prÃŒznaky, Ã”alÃ¶ie Ã¶tyri potom dosah (napr. interface-local, link-local, admin-local, site-local, organization-local, global...)
+Adresy zaèínajúce hodnotou ff sú tzv. "skupinové adresy" -- štyri nasledujúce bity v nej obsahujú príznaky, ïalšie štyri potom dosah (napr. interface-local, link-local, admin-local, site-local, organization-local, global...)
 
-IPv6 Ã”alej podporuje QoS a bezpeÃ‹nosÃ¹ (IPsec).
+IPv6 ïalej podporuje QoS a bezpeènos (IPsec).
 
 \subsubsection*{Routing} 
-Pojmem \textbf{smÃrovÂ·nÃŒ} (routing, routovÂ·nÃŒ) je oznaÃ‹ovÂ·no hledÂ·nÃŒ cest v poÃ‹ÃŒtaÃ‹ovËch sÃŒtÃŒch. Jeho Ë™kolem je dopravit datovË paket urÃ‹enÃˆmu adresÂ·tovi, pokud moÃ»no co nejefektivnÃjÃ¶ÃŒ cestou. SÃŒÃ¹ovÂ· infrastruktura mezi odesÃŒlatelem a adresÂ·tem paketu mË˜Ã»e bËt velmi sloÃ»itÂ·. SmÃrovÂ·nÃŒ se proto zpravidla nezabËvÂ· celou cestou paketu, ale Â¯eÃ¶ÃŒ vÃ»dy jen jeden krok Ã± komu data pÂ¯edat jako dalÃ¶ÃŒmu (tzv. \uv{distribuovanÃˆ smÃrovÂ·nÃŒ}). Ten pak rozhoduje, co s paketem udÃlat dÂ·l.
+Pojmem \textbf{smìrování} (routing, routování) je oznaèováno hledání cest v poèítaèovıch sítích. Jeho úkolem je dopravit datovı paket urèenému adresátovi, pokud mono co nejefektivnìjší cestou. Síová infrastruktura mezi odesílatelem a adresátem paketu mùe bıt velmi sloitá. Smìrování se proto zpravidla nezabıvá celou cestou paketu, ale øeší vdy jen jeden krok – komu data pøedat jako dalšímu (tzv. \uv{distribuované smìrování}). Ten pak rozhoduje, co s paketem udìlat dál.
 
-V prÃŒpade, Ã»e je cieÃ¦ovÂ· stanica packetu v rovnakej sieti ako je odosielateÃ¦, o doruÃ‹enie sa postarÂ· linkovÂ· vrstva. V opaÃ‹nom prÃŒpade musÃŒ odosielateÃ¦ urÃ‹iÃ¹ najvhodnejÃ¶ÃŒ odchodzÃŒ smer a poslaÃ¹ datagram smerovaÃ‹u vo zvolenom smere.
+V prípade, e je cie¾ová stanica packetu v rovnakej sieti ako je odosielate¾, o doruèenie sa postará linková vrstva. V opaènom prípade musí odosielate¾ urèi najvhodnejší odchodzí smer a posla datagram smerovaèu vo zvolenom smere.
 
-ZÂ·kladnÃŒ datovou strukturou pro smÃrovÂ·nÃŒ je smÃrovacÃŒ tabulka (routing table). PÂ¯edstavuje vlastnÃ onu sadu ukazatelË˜, podle kterËch se rozhoduje, co udÃlat s kterËm paketem. SmÃrovacÃŒ tabulka je sloÃ»ena ze zÂ·znamË˜ obsahujÃŒcÃŒch:
+Základní datovou strukturou pro smìrování je smìrovací tabulka (routing table). Pøedstavuje vlastnì onu sadu ukazatelù, podle kterıch se rozhoduje, co udìlat s kterım paketem. Smìrovací tabulka je sloena ze záznamù obsahujících:
 \begin{pitemize}
-	\item cÃŒlovou adresu, kterÃˆ se dotyÃ‹nË zÂ·znam tËkÂ·. MË˜Ã»e se jednat o adresu individuÂ·lnÃŒho poÃ‹ÃŒtaÃ‹e, Ã‹astÃji vÃ¶ak je cÃŒl definovÂ·n prefixem, tedy zaÃ‹Â·tkem adresy. Prefix mÃŒvÂ· podobu 147.230.0.0/16. Hodnota pÂ¯ed lomÃŒtkem je adresa cÃŒle, hodnota za lomÃŒtkem pak urÃ‹uje poÃ‹et vËznamnËch bitË˜ adresy. UvedenÃˆmu prefixu tedy vyhovuje kaÃ»dÂ· adresa, kterÂ· mÂ· v poÃ‹Â·teÃ‹nÃŒch 16 bitech (Ã‹ili prvnÃŒch dvou bajtech) hodnotu 147.230.
-    \item akci urÃ‹ujÃŒcÃŒ, co provÃˆst s datagramy, jejichÃ» adresa vyhovuje prefixu. Akce mohou bËt dvou typË˜: doruÃ‹it pÂ¯ÃŒmo adresÂ·tovi (pokud je dotyÃ‹nË stroj s adresÂ·tem pÂ¯ÃŒmo spojen) nebo pÂ¯edat nÃkterÃˆmu ze sousedË˜ (jestliÃ»e je adresÂ·t vzdÂ·len).
+	\item cílovou adresu, které se dotyènı záznam tıká. Mùe se jednat o adresu individuálního poèítaèe, èastìji však je cíl definován prefixem, tedy zaèátkem adresy. Prefix mívá podobu 147.230.0.0/16. Hodnota pøed lomítkem je adresa cíle, hodnota za lomítkem pak urèuje poèet vıznamnıch bitù adresy. Uvedenému prefixu tedy vyhovuje kadá adresa, která má v poèáteèních 16 bitech (èili prvních dvou bajtech) hodnotu 147.230.
+    \item akci urèující, co provést s datagramy, jejich adresa vyhovuje prefixu. Akce mohou bıt dvou typù: doruèit pøímo adresátovi (pokud je dotyènı stroj s adresátem pøímo spojen) nebo pøedat nìkterému ze sousedù (jestlie je adresát vzdálen).
 \end{pitemize}
 
-SmÃrovacÃŒ rozhodnutÃŒ pak probÃŒhÂ· samostatnÃ pro kaÃ»dË prochÂ·zejÃŒcÃŒ datagram. Vezme se jeho cÃŒlovÂ· adresa a porovnÂ· se smÃrovacÃŒ tabulkou nÂ·sledovnÃ:
+Smìrovací rozhodnutí pak probíhá samostatnì pro kadı procházející datagram. Vezme se jeho cílová adresa a porovná se smìrovací tabulkou následovnì:
 \begin{pitemize}
-	\item Z tabulky se vyberou vÃ¶echny vyhovujÃŒcÃŒ zÂ·znamy (jejichÃ» prefix vyhovuje cÃŒlovÃˆ adrese datagramu).
-	\item Z vybranËch zÂ·znamË˜ se pouÃ»ije ten s nejdelÃ¶ÃŒm prefixem. Toto pravidlo vyjadÂ¯uje pÂ¯irozenË princip, Ã»e konkrÃˆtnÃjÃ¶ÃŒ zÂ·znamy (jejichÃ» prefix je delÃ¶ÃŒ, tedy pÂ¯esnÃjÃ¶ÃŒ; specielnÃŒm pÂ¯ÃŒpadem je \emph{host-specific route}) majÃŒ pÂ¯ednost pÂ¯ed obecnÃjÃ¶ÃŒmi (co mË˜Ã»e bËt napÂ¯. i \emph{default route}; ps: \emph{agregace}).
+	\item Z tabulky se vyberou všechny vyhovující záznamy (jejich prefix vyhovuje cílové adrese datagramu).
+	\item Z vybranıch záznamù se pouije ten s nejdelším prefixem. Toto pravidlo vyjadøuje pøirozenı princip, e konkrétnìjší záznamy (jejich prefix je delší, tedy pøesnìjší; specielním pøípadem je \emph{host-specific route}) mají pøednost pøed obecnìjšími (co mùe bıt napø. i \emph{default route}; ps: \emph{agregace}).
 \end{pitemize}
 
-ZajÃŒmavou otÂ·zkou je, jak vznikne a jak je udrÃ»ovÂ·na smÃrovacÃŒ tabulka. Tento proces majÃŒ obecnÃ na starosti smÃrovacÃŒ algoritmy. KdyÃ» jsou pak pro urÃ‹itË algoritmus definovÂ·na pÂ¯esnÂ· pravidla komunikace a formÂ·ty zprÂ·v nesoucÃŒch smÃrovacÃŒ informace, vznikne smÃrovacÃŒ protokol (routing protocol). SmÃrovacÃŒ algoritmy mË˜Ã»eme rozdÃlit do dvou zÂ·kladnÃŒch skupin: na statickÃˆ a dynamickÃˆ. Â»asto se takÃˆ mluvÃŒ o statickÃˆm a dynamickÃˆm smÃrovÂ·nÃŒ, kterÃˆ je dË˜sledkem Ã‹innosti pÂ¯ÃŒsluÃ¶nËch protokolË˜.
+Zajímavou otázkou je, jak vznikne a jak je udrována smìrovací tabulka. Tento proces mají obecnì na starosti smìrovací algoritmy. Kdy jsou pak pro urèitı algoritmus definována pøesná pravidla komunikace a formáty zpráv nesoucích smìrovací informace, vznikne smìrovací protokol (routing protocol). Smìrovací algoritmy mùeme rozdìlit do dvou základních skupin: na statické a dynamické. Èasto se také mluví o statickém a dynamickém smìrování, které je dùsledkem èinnosti pøíslušnıch protokolù.
 
-PÂ¯i \textbf{statickÃˆm (tÃˆÃ» neadaptivnÃŒm) smÃrovÂ·nÃŒ} se smÃrovacÃŒ tabulka nijak nemÃnÃŒ. Je dÂ·na konfiguracÃŒ poÃ‹ÃŒtaÃ‹e a pÂ¯ÃŒpadnÃˆ zmÃny je tÂ¯eba v nÃŒ provÃˆst ruÃ‹nÃ. Tato varianta vypadÂ· jako nepÂ¯ÃŒliÃ¶ atraktivnÃŒ, ve skuteÃ‹nosti ale drtivÂ· vÃtÃ¶ina zaÂ¯ÃŒzenÃŒ v Internetu smÃruje staticky.
+Pøi \textbf{statickém (té neadaptivním) smìrování} se smìrovací tabulka nijak nemìní. Je dána konfigurací poèítaèe a pøípadné zmìny je tøeba v ní provést ruènì. Tato varianta vypadá jako nepøíliš atraktivní, ve skuteènosti ale drtivá vìtšina zaøízení v Internetu smìruje staticky.
 
-\textbf{DynamickÃˆ (adaptivnÃŒ) smÃrovÂ·nÃŒ} prË˜bÃÃ»nÃ reaguje na zmÃny v sÃŒÃ¹ovÃˆ topologii a pÂ¯izpË˜sobuje jim smÃrovacÃŒ tabulky. Na vytvÂ·ranie tabuliek existuje niekoÃ¦ko algoritmov -- routovacÃŒch protokolov (vector-distance/link-state) -- RIP, BGP, OSPF.
+\textbf{Dynamické (adaptivní) smìrování} prùbìnì reaguje na zmìny v síové topologii a pøizpùsobuje jim smìrovací tabulky. Na vytváranie tabuliek existuje nieko¾ko algoritmov -- routovacích protokolov (vector-distance/link-state) -- RIP, BGP, OSPF.
 
 \medskip
-\begin{obecne}{DistribuovanÃˆ smÃrovÂ·nÃŒ}
-V distribuovanÃˆm smÃrovÂ·nÃŒ mË˜Ã»e vËpoÃ‹et cesty (smÃru pÂ¯edÂ·nÃŒ paketu) provÂ·dÃt buÃ” kaÃ»dË uzel nezÂ·visle, nebo mohou uzly kooperovat (distribuovanË vËpoÃ‹et). RozliÃ¶uje se takÃˆ Ã‹etnost aktualizace informacÃŒ. Dva zÂ·kladnÃŒ algoritmy distribuovanÃˆho smÃrovÂ·nÃŒ jsou:
+\begin{obecne}{Distribuované smìrování}
+V distribuovaném smìrování mùe vıpoèet cesty (smìru pøedání paketu) provádìt buï kadı uzel nezávisle, nebo mohou uzly kooperovat (distribuovanı vıpoèet). Rozlišuje se také èetnost aktualizace informací. Dva základní algoritmy distribuovaného smìrování jsou:
 \begin{pitemize}
-    \item \emph{vector distance} -- kaÃ»dË uzel si udrÃ»uje tabulku vzdÂ·lenostÃŒ, pÂ¯ÃŒmÃŒ sousedÃˆ si vymÃÃšujÃŒ informace o cestÂ·ch ke vÃ¶em uzlË˜m, tj. jde o distribuovanË vËpoÃ‹et, pÂ¯enÂ·Ã¶ÃŒ se dost informacÃŒ. TrpÃŒ problÃˆmem \uv{count-to-infinity} -- tj. kdyÃ» 1 uzel pÂ¯estane existovat, postupnÃ si jeho sousedÃˆ mezi sebou pÂ¯ehazujÃŒ vzdÂ·lenost, postupnÃ o 1 zvÃtÃ¶ovanou (do nekoneÃ‹na). Ã¿eÃ¶ÃŒ se pomocÃŒ technik \uv{split horizon} (neinzeruj vzdÂ·lenost zpÃt) a \uv{poisoned reverse} (inzeruj zpÃt nekoneÃ‹no), nÃkde ale pÂ¯esto selhÂ·vÂ·.
-    \item \emph{link state} -- kaÃ»dË uzel hledÂ· zmÃny svËch sousedË˜ a pokud k nÃjakÃˆ dojde, poÃ¶le floodem informaci do celÃˆ sÃŒtÃ. VËpoÃ‹et vzdÂ·lenostÃŒ dÃlÂ· kaÃ»dË uzel sÂ·m.
+    \item \emph{vector distance} -- kadı uzel si udruje tabulku vzdáleností, pøímí sousedé si vymìòují informace o cestách ke všem uzlùm, tj. jde o distribuovanı vıpoèet, pøenáší se dost informací. Trpí problémem \uv{count-to-infinity} -- tj. kdy 1 uzel pøestane existovat, postupnì si jeho sousedé mezi sebou pøehazují vzdálenost, postupnì o 1 zvìtšovanou (do nekoneèna). Øeší se pomocí technik \uv{split horizon} (neinzeruj vzdálenost zpìt) a \uv{poisoned reverse} (inzeruj zpìt nekoneèno), nìkde ale pøesto selhává.
+    \item \emph{link state} -- kadı uzel hledá zmìny svıch sousedù a pokud k nìjaké dojde, pošle floodem informaci do celé sítì. Vıpoèet vzdáleností dìlá kadı uzel sám.
 \end{pitemize}
-Tyto algoritmy se pouÃ»ÃŒvajÃŒ u nÃkterËch znÂ·mËch smÃrovacÃŒch protokolË˜:
+Tyto algoritmy se pouívají u nìkterıch známıch smìrovacích protokolù:
 \begin{pitemize}
-    \item \emph{RIP} (Routing Information Protocol) -- protokol z BSD Unixu, typu vector distance. PoÃ‹ÃŒtÂ· s max. 16 pÂ¯eskoky, zmÃny se updatujÃŒ 2x za minutu. Informace ve smÃrovacÃŒ tabulce mË˜Ã»e zahrnovat max. 25 sÃŒtÃŒ, pouÃ»ÃŒvÂ· split horizon \& poisoned reverse. HodÃŒ se ale jen pro malÃˆ sÃŒtÃ.
-    \item \emph{OSPF} (Open Shortest Path First) -- jde o protokol typu link state, uzly si poÃ‹ÃŒtajÃŒ vzdÂ·lenosti do vÃ¶ech sÃŒtÃŒ DijkstrovËm algoritmem. Pro zjiÃ¶Ã¹ovÂ·nÃŒ zmÃn se posÃŒlajÃŒ pakety "HELLO" a "ECHO". MÂ· lepÃ¶ÃŒ Ã¶kÂ·lovatelnost, hodÃŒ se pro vÃtÃ¶ÃŒ sÃŒtÃ.
+    \item \emph{RIP} (Routing Information Protocol) -- protokol z BSD Unixu, typu vector distance. Poèítá s max. 16 pøeskoky, zmìny se updatují 2x za minutu. Informace ve smìrovací tabulce mùe zahrnovat max. 25 sítí, pouívá split horizon \& poisoned reverse. Hodí se ale jen pro malé sítì.
+    \item \emph{OSPF} (Open Shortest Path First) -- jde o protokol typu link state, uzly si poèítají vzdálenosti do všech sítí Dijkstrovım algoritmem. Pro zjišování zmìn se posílají pakety "HELLO" a "ECHO". Má lepší škálovatelnost, hodí se pro vìtší sítì.
 \end{pitemize}
 \end{obecne}
 
-\begin{obecne}{HierarchickÃˆ smÃrovÂ·nÃŒ, autonomnÃŒ systÃˆmy}
-HierarchickÃˆ smÃrovÂ·nÃŒ znamenÂ· rozdÃlenÃŒ sÃŒtÃ do oblastÃŒ (\emph{areas}) a smÃrovÂ·nÃŒ mezi nimi jen pÂ¯es vstupnÃŒ body. Je vhodnÃˆ pro velkÃˆ, sloÃ»itÃ propojenÃˆ nebo rË˜znËm zpË˜sobem spravovanÃˆ sÃŒtÃ. Nad oblastmi se vytvoÂ¯ÃŒ propojenÃŒ -- \emph{backbone area} (pÂ·teÂ¯nÃŒ systÃˆm), pÂ¯es kterÃˆ se smÃrovÂ·nÃŒ mezi oblastmi provÂ·dÃŒ. CelÃˆmu tomuto (areas + backbone area) se Â¯ÃŒkÂ· \emph{autonomnÃŒ systÃˆm}. DetailnÃŒ smÃrovacÃŒ informace neopouÃ¶tÃjÃŒ jednotlivÃˆ oblasti. 
+\begin{obecne}{Hierarchické smìrování, autonomní systémy}
+Hierarchické smìrování znamená rozdìlení sítì do oblastí (\emph{areas}) a smìrování mezi nimi jen pøes vstupní body. Je vhodné pro velké, sloitì propojené nebo rùznım zpùsobem spravované sítì. Nad oblastmi se vytvoøí propojení -- \emph{backbone area} (páteøní systém), pøes které se smìrování mezi oblastmi provádí. Celému tomuto (areas + backbone area) se øíká \emph{autonomní systém}. Detailní smìrovací informace neopouštìjí jednotlivé oblasti. 
 
-Pro smÃrovÂ·nÃŒ v rÂ·mci jednÃˆ oblasti i mezi oblastmi v rÂ·mci jednoho autonomnÃŒho systÃˆmu slouÃ»ÃŒ jeden z tzv. \emph{interior gateway protocol}s, mË˜Ã»e bËt pouÃ»it napÂ¯. OSPF nebo RIP, pÂ¯ÃŒpadnÃ dalÃ¶ÃŒ jako IGRP (interior gateway routing protocol, typu vector distance) nebo EIGRP (enhaced IGRP, hybrid mezi vector distance a link state). Mezi jednotlivËmi autonomnÃŒmi systÃˆmy (pÂ¯es AS boundary routers) se smÃruje pomocÃŒ \emph{exterior gateway protocolu}, jednÃŒm z nich je napÂ¯. \emph{Border Gateway Protocol} (BGP).
+Pro smìrování v rámci jedné oblasti i mezi oblastmi v rámci jednoho autonomního systému slouí jeden z tzv. \emph{interior gateway protocol}s, mùe bıt pouit napø. OSPF nebo RIP, pøípadnì další jako IGRP (interior gateway routing protocol, typu vector distance) nebo EIGRP (enhaced IGRP, hybrid mezi vector distance a link state). Mezi jednotlivımi autonomními systémy (pøes AS boundary routers) se smìruje pomocí \emph{exterior gateway protocolu}, jedním z nich je napø. \emph{Border Gateway Protocol} (BGP).
 
-DÃŒky existenci autonomnÃŒch systÃˆmË˜ jde napÂ¯. pÂ¯i peeringu stanovit, kterË provoz pË˜jde pÂ¯es peering a kterË vËÃ¶e po upstreamu do pÂ·teÂ¯nÃŒch sÃŒtÃŒ.
+Díky existenci autonomních systémù jde napø. pøi peeringu stanovit, kterı provoz pùjde pøes peering a kterı vıše po upstreamu do páteøních sítí.
 \end{obecne}
 
 
 \subsubsection*{Fragmentace}
 
-\textbf{Maximum transmission unit} (MTU) je maximÂ·lnÃŒ velikost paketu, kterË je moÃ»nÃˆ pÂ¯enÃˆst z jednoho sÃŒÃ¹ovÃˆho zaÂ¯ÃŒzenÃŒ na druhÃˆ. ObvyklÂ· hodnota MTU v pÂ¯ÃŒpadÃ Ethernetu je cca 1500 bajtË˜, nicmÃˆnÃ mezi nÃkterËmi mÃŒsty poÃ‹ÃŒtaÃ‹ovÃˆ sÃŒtÃ (spojenËch napÂ¯ÃŒklad modemem nebo sÃˆriovou linkou) mË˜Ã»e bËt maximÂ·lnÃŒ dÃˆlka pÂ¯enesenÃˆho paketu niÃ»Ã¶ÃŒ. Hodnotu MTU lze zjistit prostÂ¯ednictvÃŒm protokolu ICMP. PÂ¯i posÃŒlÂ·nÃŒ paketË˜ pÂ¯es nÃkolik sÃŒÃ¹ovËch zaÂ¯ÃŒzenÃŒ je samozÂ¯ejmÃ dË˜leÃ»itÃˆ nalÃˆzt nejmenÃ¶ÃŒ MTU na danÃˆ cestÃ. Hodnota MTU je omezena zdola na 576 bajtË˜.
+\textbf{Maximum transmission unit} (MTU) je maximální velikost paketu, kterı je moné pøenést z jednoho síového zaøízení na druhé. Obvyklá hodnota MTU v pøípadì Ethernetu je cca 1500 bajtù, nicménì mezi nìkterımi místy poèítaèové sítì (spojenıch napøíklad modemem nebo sériovou linkou) mùe bıt maximální délka pøeneseného paketu niší. Hodnotu MTU lze zjistit prostøednictvím protokolu ICMP. Pøi posílání paketù pøes nìkolik síovıch zaøízení je samozøejmì dùleité nalézt nejmenší MTU na dané cestì. Hodnota MTU je omezena zdola na 576 bajtù.
 
-U pÂ¯enosovÃˆho protokolu TCP je pÂ¯i smÃrovÂ·nÃŒ paketu do pÂ¯enosovÃˆho kanÂ·lu s niÃ»Ã¶ÃŒm MTU neÃ» je dÃˆlka paketu, provedena \textbf{fragmentace paketu}. U protokolu UDP nenÃŒ fragmentace paketu podporovÂ·na a paket je v takovÃˆm pÂ¯ÃŒpadÃ zahozen.
+U pøenosového protokolu TCP je pøi smìrování paketu do pøenosového kanálu s niším MTU ne je délka paketu, provedena \textbf{fragmentace paketu}. U protokolu UDP není fragmentace paketu podporována a paket je v takovém pøípadì zahozen.
 
- Pokud dorazÃŒ na smÃrovaÃ‹ paket o velikosti vÃtÃ¶ÃŒ, neÃ» kterou je pÂ¯enosovÂ· trasa schopna pÂ¯enÃˆst (napÂ¯. pÂ¯i pÂ¯echodu z Token Ringu pouÃ»ÃŒvajÃŒcÃŒho 4 kByte pakety na Ethernet pouÃ»ÃŒvajÃŒcÃŒho maximÂ·lnÃ 1,5 kByte pakety), musÃŒ smÃrovaÃ‹ zajistit tzv. fragmentaci, neboli rozebrÂ·nÃŒ paketu na menÃ¶ÃŒ Ã‹Â·sti a cÃŒlovË uzel musÃŒ zajistit opÃtovnÃˆ sloÃ»enÃŒ, neboli defragmentaci.
+ Pokud dorazí na smìrovaè paket o velikosti vìtší, ne kterou je pøenosová trasa schopna pøenést (napø. pøi pøechodu z Token Ringu pouívajícího 4 kByte pakety na Ethernet pouívajícího maximálnì 1,5 kByte pakety), musí smìrovaè zajistit tzv. fragmentaci, neboli rozebrání paketu na menší èásti a cílovı uzel musí zajistit opìtovné sloení, neboli defragmentaci.
 
-Fragmenty prochÂ·zejÃŒ pÂ¯es sÃŒÃ¹ jako samostatnÃˆ datagramy. Aby byl koncovË uzel schopen fragmenty sloÃ»it do originÂ·lnÃŒho datagramu, musÃŒ bËt fragmenty pÂ¯ÃŒsluÃ¶nÃ oznaÃ‹eny. Toto oznaÃ‹ovÂ·nÃŒ se provÂ·dÃŒ v pÂ¯ÃŒsluÃ¶nËch polÃŒch IP hlaviÃ‹ky.
+Fragmenty procházejí pøes sí jako samostatné datagramy. Aby byl koncovı uzel schopen fragmenty sloit do originálního datagramu, musí bıt fragmenty pøíslušnì oznaèeny. Toto oznaèování se provádí v pøíslušnıch polích IP hlavièky.
 
-Pokud nesmÃŒ bËt datagram fragmentovÂ·n, je oznaÃ‹en v pÂ¯ÃŒsluÃ¶nÃˆm mÃŒstÃ IP hlaviÃ‹ky pÂ¯ÃŒznakem \uv{Don`t Fragment}. JestliÃ»e takto oznaÃ‹enË paket dorazÃŒ na smÃrovaÃ‹, kterË by jej mÃl poslat prostÂ¯edÃŒm s niÃ»Ã¶ÃŒm MTU a tudÃŒÃ» je nutnost provÃˆst fragmentaci, provede smÃrovaÃ‹ jeho zruÃ¶enÃŒ a informuje odesÃŒlatele chybovou zprÂ·vou ICMP. 
+Pokud nesmí bıt datagram fragmentován, je oznaèen v pøíslušném místì IP hlavièky pøíznakem \uv{Don`t Fragment}. Jestlie takto oznaèenı paket dorazí na smìrovaè, kterı by jej mìl poslat prostøedím s niším MTU a tudí je nutnost provést fragmentaci, provede smìrovaè jeho zrušení a informuje odesílatele chybovou zprávou ICMP. 
 
-Aby byl cÃŒlovË uzel schopen sloÃ»it originÂ·lnÃŒ datagram, musÃŒ mÃŒt dostateÃ‹nË buffer do nÃhoÃ» jsou jednotlivÃˆ fragmenty uklÂ·dÂ·ny na pÂ¯ÃŒsluÃ¶nou pozici danou offsetem. SloÃ»enÃŒ je dokonÃ‹eno v okamÃ»iku, kdy je vyplnÃn celË datagram zaÃ‹ÃŒnajÃŒcÃŒ fragmentem s nulovËm offsetem (identification a fragmentation offset v hlaviÃ‹ke) a konÃ‹ÃŒcÃŒ segmentem s pÂ¯ÃŒznakem \uv{More Data Flag} (resp. More Fragments) nastavenËm na False.
+Aby byl cílovı uzel schopen sloit originální datagram, musí mít dostateènı buffer do nìho jsou jednotlivé fragmenty ukládány na pøíslušnou pozici danou offsetem. Sloení je dokonèeno v okamiku, kdy je vyplnìn celı datagram zaèínající fragmentem s nulovım offsetem (identification a fragmentation offset v hlavièke) a konèící segmentem s pøíznakem \uv{More Data Flag} (resp. More Fragments) nastavenım na False.
 
-V IPv4 je moÃ»nÃˆ fragmentovanÃˆ pakety Ã”alej deliÃ¹; naproti tomu v IPv6 musÃŒ fragmentÂ·ciu zabezpeÃ‹iÃ¹ odosielateÃ¦ -- nevyhovujË™ce pakety sa zahadzujË™.
+V IPv4 je moné fragmentované pakety ïalej deli; naproti tomu v IPv6 musí fragmentáciu zabezpeèi odosielate¾ -- nevyhovujúce pakety sa zahadzujú.
 
 
 \subsubsection*{Spolehlivost, Flow control, Congestion control}
-KeÃ”Ã»e TCP/IP funguje nad obecne nespojovanËmi a nespoÃ¦ahlivËmi mÃˆdiami, \textbf{spoÃ¦ahlivosÃ¹} ktorË™ TCP poskytuje nie je \uv{skutoÃ‹nÂ·}, ale len \uv{softvÃˆrovo emulovanÂ·} -- medziÃ¦ahlÃˆ uzly o spojenÃŒ niÃ‹ nevedia, fungujË™ nespojovane (pre komunikÂ·ciu sa pouÃ»ÃŒva sieÃ¹ovÂ· vrstva, transportnÂ· \uv{existuje} iba medzi koncovËmi uzlami). Je teda nutnÃˆ oÃ¶etriÃ¹ napr. nespoÃ¦ahlivosÃ¹ infraÃ¶truktË™ry (strÂ·canie dÂ·t, duplicity -- priÃ‹om stratiÃ¹ sa mÃ™Ã»e aj Ã»iadosÃ¹ o vytvorenie pripojenia, potvrdenie...) a reboot uzlov (uzol stratÃŒ histÃ›riu, je potrebnÃˆ oÃ¶etriÃ¹ existujË™ce spojenia...).
+Keïe TCP/IP funguje nad obecne nespojovanımi a nespo¾ahlivımi médiami, \textbf{spo¾ahlivos} ktorú TCP poskytuje nie je \uv{skutoèná}, ale len \uv{softvérovo emulovaná} -- medzi¾ahlé uzly o spojení niè nevedia, fungujú nespojovane (pre komunikáciu sa pouíva sieová vrstva, transportná \uv{existuje} iba medzi koncovımi uzlami). Je teda nutné ošetri napr. nespo¾ahlivos infraštruktúry (strácanie dát, duplicity -- prièom strati sa môe aj iados o vytvorenie pripojenia, potvrdenie...) a reboot uzlov (uzol stratí históriu, je potrebné ošetri existujúce spojenia...).
 
-PouÃ»ÃŒva sa celÂ· rada technÃŒk, kde zÂ·kladom je kontinuÂ·lne potvrdzovanie: prÃŒjemca posiela kladnÃˆ potvrdenia; odosielateÃ¦ po kaÃ»dom odoslanÃŒ spË™Ã¶Ã¹a Ã‹asovaÃ‹ a ak mu do vyprÃ¶ania neprÃŒde potvrdenie, posiela dÂ·ta znovu.  Potvrdzovanie nie je samostatnÃˆ ale vkladÂ· sa do paketov cestujË™cich opaÃ‹nËm smerom -- \emph{piggybacking}.
+Pouíva sa celá rada techník, kde základom je kontinuálne potvrdzovanie: príjemca posiela kladné potvrdenia; odosielate¾ po kadom odoslaní spúša èasovaè a ak mu do vypršania nepríde potvrdenie, posiela dáta znovu.  Potvrdzovanie nie je samostatné ale vkladá sa do paketov cestujúcich opaènım smerom -- \emph{piggybacking}.
 
-TCP priebeÃ»ne kontroluje \uv{dobu obrÂ·tky} a vyhodnocuje vÂ·Ã»enË priemer a rozptyl dÃ™b obrÂ·tky. Â»akaciu dobu (na potvrdenie) potom vypoÃ‹ÃŒtava ako funkciu tohto vÂ·Ã»enÃˆho priemeru a rozptylu. VËslednË efekt je potom ten, Ã»e Ã‹akacia doba je tesne nad strednou dobou obrÂ·tky. V prÃŒpade konÃ¶tantnej doby obrÂ·tky sa Ã‹akacia doba pribliÃ»uje strednej dobe obrÂ·tky; ak kolÃŒÃ¶e, Ã‹akacia doba sa zvâ€°Ã‹Ã¶uje.
+TCP priebene kontroluje \uv{dobu obrátky} a vyhodnocuje váenı priemer a rozptyl dôb obrátky. Èakaciu dobu (na potvrdenie) potom vypoèítava ako funkciu tohto váeného priemeru a rozptylu. Vıslednı efekt je potom ten, e èakacia doba je tesne nad strednou dobou obrátky. V prípade konštantnej doby obrátky sa èakacia doba pribliuje strednej dobe obrátky; ak kolíše, èakacia doba sa zväèšuje.
 
-DÂ·ta v TCP sa prÃŒjÃŒmajË™/posielajË™ po jednotlivËch byteoch -- interne sa vÃ¶ak bufferujË™ a posielajË™ aÃ» po naplnenÃŒ buffera (priÃ‹om aplikÂ·cia si mÃ™Ã»e vyÃ»iadaÃ¹ okamÃ»itÃˆ odoslanie -- operÂ·cia PUSH). TCP si potrebuje oznaÃ‹ovaÃ¹ jednotlivÃˆ byty v rÂ·mci prË™du (keÃ”Ã»e nepracuje s blokmi) -- napr. kvÃ™li potvrdzovaniu; pouÃ»ÃŒva sa na to 32-bitovÂ· pozÃŒcia v bytovom prË™de (zaÃ‹ÃŒna sa od nÂ·hodne zvolenÃˆho Ã‹ÃŒsla).
+Dáta v TCP sa príjímajú/posielajú po jednotlivıch byteoch -- interne sa však bufferujú a posielajú a po naplnení buffera (prièom aplikácia si môe vyiada okamité odoslanie -- operácia PUSH). TCP si potrebuje oznaèova jednotlivé byty v rámci prúdu (keïe nepracuje s blokmi) -- napr. kvôli potvrdzovaniu; pouíva sa na to 32-bitová pozícia v bytovom prúde (zaèína sa od náhodne zvoleného èísla).
 
-TCP sa snaÃ»ÃŒ \textbf{riadiÃ¹ tok dÂ·t} -- aby odosielateÃ¦ nezahlcoval prÃŒjemcu a kvÃ™li tomu nedochÂ·dzalo k strÂ·te dÂ·t. Podstata rieÃ¶enia je tzv. \emph{metÃ›da okienka}. Okienko udÂ·va veÃ¦kosÃ¹ voÃ¦nËch bufferov na strane prijÃŒmajË™ceho a odosielateÃ¦ mÃ™Ã»e posielaÃ¹ dÂ·ta aÃ» do \uv{zaplnenia} okienka. PrÃŒjemca spolu s kaÃ»dËm potvrdenÃŒm posiela aj svoju ponuku -- Ë™daj o veÃ¦kosti okienka (window advertisment)., ktorË hovorÃŒ koÃ¦ko eÃ¶te dÂ·t je schopnË prijaÃ¹ (naviac k prÂ·ve potvrdenËm). Znovu -- pouÃ»ÃŒva sa metÃ›da kontinuÂ·lneho potvrÃ”ovania.
+TCP sa snaí \textbf{riadi tok dát} -- aby odosielate¾ nezahlcoval príjemcu a kvôli tomu nedochádzalo k stráte dát. Podstata riešenia je tzv. \emph{metóda okienka}. Okienko udáva ve¾kos vo¾nıch bufferov na strane prijímajúceho a odosielate¾ môe posiela dáta a do \uv{zaplnenia} okienka. Príjemca spolu s kadım potvrdením posiela aj svoju ponuku -- údaj o ve¾kosti okienka (window advertisment)., ktorı hovorí ko¾ko ešte dát je schopnı prija (naviac k práve potvrdenım). Znovu -- pouíva sa metóda kontinuálneho potvrïovania.
 
-Vâ€°Ã‹Ã¶ina strÂ·t prenÂ·Ã¶anËch dÂ·t ide skÃ™r na vrub zahlteniu ako chybÂ·m HW a transportnÃˆ protokoly mÃ™Ã»u nevhodnËm chovanÃŒm zhorÃ¶ovaÃ¹ dÃ™sledky. TCP kaÃ»dË™ stratu dÂ·t chÂ·pe ako dÃ™sledok zahltenia -- nasadzuje \textbf{opatrenia proti zahlteniu} (congestion control). Po strÂ·te paketu ho poÃ¶le znovu ale neposiela Ã”alÃ¶ie a Ã‹akÂ· na potvrdenie (tj. prechod z kontinuÂ·lneho potvrdzovania na jednotlivÃˆ $\Rightarrow$ vysiela menej dÂ·t ako mu umoÃ»Ãšuje okienko). Ak prÃŒde potvrdenie vÃ‹as, zdvojnÂ·sobÃŒ mnoÃ»stvo odosielanËch dÂ·t -- a tak pokraÃ‹uje kËm nenarazÃŒ na aktuÂ·lnu veÃ¦kosti okienka (postupne sa tak vracia na kontinuÂ·lne potvrdzovanie).
+Väèšina strát prenášanıch dát ide skôr na vrub zahlteniu ako chybám HW a transportné protokoly môu nevhodnım chovaním zhoršova dôsledky. TCP kadú stratu dát chápe ako dôsledok zahltenia -- nasadzuje \textbf{opatrenia proti zahlteniu} (congestion control). Po stráte paketu ho pošle znovu ale neposiela ïalšie a èaká na potvrdenie (tj. prechod z kontinuálneho potvrdzovania na jednotlivé $\Rightarrow$ vysiela menej dát ako mu umoòuje okienko). Ak príde potvrdenie vèas, zdvojnásobí mnostvo odosielanıch dát -- a tak pokraèuje kım nenarazí na aktuálnu ve¾kosti okienka (postupne sa tak vracia na kontinuálne potvrdzovanie).
 
-DÃ™leÃ»itou vlastnosÃ¹ou je aj korektnÃˆ chovanie pri navâ€°zovanÃŒ a ruÃ¶enÃŒ spojenia (v prostredÃŒ, kde mÃ™Ã»e dÃ™jsÃ¹ k spomaleniu, strate, duplicite...) -- pouÃ»ÃŒva sa tzv. 3-fÂ·zovË handshake. Vytvorenie spojenia prebieha nasledovne:
+Dôleitou vlastnosou je aj korektné chovanie pri naväzovaní a rušení spojenia (v prostredí, kde môe dôjs k spomaleniu, strate, duplicite...) -- pouíva sa tzv. 3-fázovı handshake. Vytvorenie spojenia prebieha nasledovne:
 \begin{enumerate}
-	\item Klient poÃ¶le serveru SYN paket (v pakete je nastavenË prÃŒznak SYN) spolu s nÂ·hodnËm \emph{sequence number} (X).
-	\item Server tento paket prijme, zaznamenÂ· si sequence number (X) a poÃ¶le spâ€°Ã¹ paket SYN-ACK. Tento paket obsahuje pole Acknowledgement, ktorÃˆ oznaÃ‹uje Ã”alÃ¶ie Ã‹ÃŒslo (sequence number), ktorÃˆ tento host oÃ‹akÂ·va (X+1). Tento host rovno vytvorÃŒ spâ€°tnË™ session s vlastnËm sekvenÃ‹nËm Ã‹ÃŒslom (Y).
-	\item Klient odpovie so sekvenÃ‹nËm Ã‹ÃŒslom (X+1) a jednoduchËm Acknowledgement Ã‹ÃŒslom (Y+1) -- Ã‹o je sekvenÃ‹nÃˆ Ã‹ÃŒslo servera+1.
+	\item Klient pošle serveru SYN paket (v pakete je nastavenı príznak SYN) spolu s náhodnım \emph{sequence number} (X).
+	\item Server tento paket prijme, zaznamená si sequence number (X) a pošle spä paket SYN-ACK. Tento paket obsahuje pole Acknowledgement, ktoré oznaèuje ïalšie èíslo (sequence number), ktoré tento host oèakáva (X+1). Tento host rovno vytvorí spätnú session s vlastnım sekvenènım èíslom (Y).
+	\item Klient odpovie so sekvenènım èíslom (X+1) a jednoduchım Acknowledgement èíslom (Y+1) -- èo je sekvenèné èíslo servera+1.
 \end{enumerate}
-Pak uÃ» spojenÃŒ povaÃ»ovÂ·no za navÂ·zanÃˆ. RuÃ¶enie spojenia funguje podobne, posÃŒlajÃŒ se pakety FIN (finish), FIN+ACK a ACK. Pokud vÃŒce neÃ» nÃjakË urÃ‹itË poÃ‹et pokusË˜ o odeslÂ·nÃŒ (po spoÃ‹ÃŒtanËch time-outech) jednoho z 3-way handshake paketË˜ selÃ»e (druhÂ· strana neodeÃ¶le to, co mÃlo nÂ·sledovat), spojenÃŒ se povaÃ»uje za pÂ¯eruÃ¶enÃˆ (i u navazovÂ·nÃŒ, i u ruÃ¶enÃŒ).
+Pak u spojení povaováno za navázané. Rušenie spojenia funguje podobne, posílají se pakety FIN (finish), FIN+ACK a ACK. Pokud více ne nìjakı urèitı poèet pokusù o odeslání (po spoèítanıch time-outech) jednoho z 3-way handshake paketù sele (druhá strana neodešle to, co mìlo následovat), spojení se povauje za pøerušené (i u navazování, i u rušení).
 
 \subsubsection*{NAT}
 
-TODO: pÂ¯eloÃ»it ty copy \& paste z Wiki
+TODO: pøeloit ty copy \& paste z Wiki
 
-Network address translation (zkrÂ·cenÃ NAT, Ã‹esky pÂ¯eklad sÃŒÃ¹ovËch adres) je funkce sÃŒÃ¹ovÃˆho routeru pro zmÃnu IP adres packetË˜ prochÂ·zejÃŒcÃŒch zaÂ¯ÃŒzenÃŒm, kdy se zdrojovÂ· nebo cÃŒlovÂ· IP adresa pÂ¯evÂ·dÃŒ mezi rË˜znËmi rozsahy. NejbÃÃ»nÃjÃ¶ÃŒ formou je tzv. maÃ¶karÂ·da (maskovÂ·nÃŒ), kdy router IP adresy z nÃjakÃˆho rozsahu mÃnÃŒ na svoji IP adresu a naopak -- tÃŒm umoÃ»Ãšuje, aby poÃ‹ÃŒtaÃ‹e ve vnitÂ¯nÃŒ sÃŒti (LAN) vystupovaly v Internetu pod jedinou IP adresou. Router si drÃ»ÃŒ po celou dobu spojenÃŒ v pamÃti tabulku pÂ¯ekladu adres.
+Network address translation (zkrácenì NAT, èesky pøeklad síovıch adres) je funkce síového routeru pro zmìnu IP adres packetù procházejících zaøízením, kdy se zdrojová nebo cílová IP adresa pøevádí mezi rùznımi rozsahy. Nejbìnìjší formou je tzv. maškaráda (maskování), kdy router IP adresy z nìjakého rozsahu mìní na svoji IP adresu a naopak -- tím umoòuje, aby poèítaèe ve vnitøní síti (LAN) vystupovaly v Internetu pod jedinou IP adresou. Router si drí po celou dobu spojení v pamìti tabulku pøekladu adres.
 
-PÂ¯eklad sÃŒÃ¹ovËch adres je funkce, kterÂ· umoÃ»Ãšuje pÂ¯eklÂ·dÂ·nÃŒ adres. CoÃ» znamenÂ·, Ã»e adresy z lokÂ·lnÃŒ sÃŒtÃ pÂ¯eloÃ»ÃŒ na jedineÃ‹nou adresu, kterÂ· slouÃ»ÃŒ pro vstup do jinÃˆ sÃŒtÃ (napÂ¯. Internetu), adresu pÂ¯eklÂ·danou si uloÃ»ÃŒ do tabulky pod nÂ·hodnËm portem, pÂ¯i odpovÃdi si v tabulce vyhledÂ· port a poÃ¶le pakety na IP adresu pÂ¯iÂ¯azenou k danÃˆmu portu. NAT je vlastnÃ jednoduchËm proxy serverem (na sieÃ¹ovej vrstve).
+Pøeklad síovıch adres je funkce, která umoòuje pøekládání adres. Co znamená, e adresy z lokální sítì pøeloí na jedineènou adresu, která slouí pro vstup do jiné sítì (napø. Internetu), adresu pøekládanou si uloí do tabulky pod náhodnım portem, pøi odpovìdi si v tabulce vyhledá port a pošle pakety na IP adresu pøiøazenou k danému portu. NAT je vlastnì jednoduchım proxy serverem (na sieovej vrstve).
 
 \medskip
 \begin{obecne}{Komunikace}
-Klient odeÃ¶le poÃ»adavek na komunikace, smÃrovaÃ‹ se podÃŒvÂ· do tabulky a zjistÃŒ, zdali se jednÂ· o adresu lokÂ·lnÃŒ, nebo adresu venkovnÃŒ. V pÂ¯ÃŒpadÃ venkovnÃŒ adresy si do tabulky uloÃ»ÃŒ Ã‹ÃŒslo nÂ·hodnÃˆho portu, pod kterËm bude vysÃŒlat a k nÃmu si pÂ¯iÂ¯adÃŒ IP adresu. BÃhem pÂ¯eposÃŒlÂ·nÃŒ \uv{ven} a zmÃny adresy v paketu musÃŒ NAT takÃˆ pÂ¯epoÃ‹ÃŒtat CRC checksum TCP i IP (aby pakety nebyly zahazovÂ·ny kvË˜li Ã¶patnÃˆmu CRC, protoÃ»e zmÃnÃnÂ· adresa je jejich souÃ‹Â·stÃŒ).
+Klient odešle poadavek na komunikace, smìrovaè se podívá do tabulky a zjistí, zdali se jedná o adresu lokální, nebo adresu venkovní. V pøípadì venkovní adresy si do tabulky uloí èíslo náhodného portu, pod kterım bude vysílat a k nìmu si pøiøadí IP adresu. Bìhem pøeposílání \uv{ven} a zmìny adresy v paketu musí NAT také pøepoèítat CRC checksum TCP i IP (aby pakety nebyly zahazovány kvùli špatnému CRC, protoe zmìnìná adresa je jejich souèástí).
 
-VËhodami NAT sË™ umoÃ»nenie pripojenie viacerËch poÃ‹ÃŒtaÃ‹ov do internetu cez jednu zdieÃ¦anË™ verejnË™ IP adresu, a zvËÃ¶enie bezpeÃ‹nosti poÃ‹ÃŒtaÃ‹ov za NATom (aj keÃ” je to security through obscurity a nie je dobrÃˆ postaviÃ¹ bezpeÃ‹nosÃ¹ iba na NATe). NevËhodami potom sË™ nefungujË™ce protokoly (napr. aktÃŒvne FTP) -- Ã‹o je zrejmÃˆ z fungovania NATu.
+Vıhodami NAT sú umonenie pripojenie viacerıch poèítaèov do internetu cez jednu zdie¾anú verejnú IP adresu, a zvıšenie bezpeènosti poèítaèov za NATom (aj keï je to security through obscurity a nie je dobré postavi bezpeènos iba na NATe). Nevıhodami potom sú nefungujúce protokoly (napr. aktívne FTP) -- èo je zrejmé z fungovania NATu.
 \end{obecne}
 
 \begin{obecne}{NAT Traversal}
@@ -214,73 +214,73 @@ This problem is typically faced by developers of client-to-client networking app
 Many techniques exist, but no technique works in every situation since NAT behavior is not standardized. Many techniques require a public server on a well-known globally-reachable IP address. Some methods use the server only when establishing the connection (such as STUN), while others are based on relaying all the data through it (such as TURN), which adds bandwidth costs and increases latency, detrimental to conversational VoIP applications.
 \end{obecne}
 
-\begin{obecne}{Druhy uspoÂ¯Â·dÂ·nÃŒ NATu}
+\begin{obecne}{Druhy uspoøádání NATu}
 \begin{pitemize}
 \item \emph{Static NAT}: A type of NAT in which a private IP address is mapped to a public IP address, where the public address is always the same IP address (i.e., it has a static address). This allows an internal host, such as a Web server, to have an unregistered (private) IP address and still be reachable over the Internet.
 
 \item \emph{Dynamic NAT}--- A type of NAT in which a private IP address is mapped to a public IP address drawing from a pool of registered (public) IP addresses. Typically, the NAT router in a network will keep a table of registered IP addresses, and when a private IP address requests access to the Internet, the router chooses an IP address from the table that is not at the time being used by another private IP address. Dynamic NAT helps to secure a network as it masks the internal configuration of a private network and makes it difficult for someone outside the network to monitor individual usage patterns. Another advantage of dynamic NAT is that it allows a private network to use private IP addresses that are invalid on the Internet but useful as internal addresses.
 
-\item \emph{PAT} --- PAT (NAT overloading) je dalÃ¶ÃŒ variantou NATu. U tÃˆto varianty NATu se vÃŒce inside local adres mapuje na jednu inside global adresu na rË˜znËch portech. Tedy mÂ·me jednu veÂ¯ejnou adresu a vnitÂ¯nÃŒ sÃŒÃ¹ oadresovanou inside local adresami. 
-PÂ¯ekladovÂ· tabulka je rozÃ¶ÃŒÂ¯ena o dvÃ poloÃ»ky: inside local port -- port, ze kterÃˆho byl paket odeslÂ·n a inside global port -- Ã‹ÃŒslo portu, na kterË je paket odeslanË ze zdrojovÃˆho portu poÃ‹ÃŒtaÃ‹e mapovÂ·n. VËhodou je, Ã»e se tak pÂ¯ipojuje vÃŒce poÃ‹ÃŒtaÃ‹Ë˜ pÂ¯es jednu IP adresu.
+\item \emph{PAT} --- PAT (NAT overloading) je další variantou NATu. U této varianty NATu se více inside local adres mapuje na jednu inside global adresu na rùznıch portech. Tedy máme jednu veøejnou adresu a vnitøní sí oadresovanou inside local adresami. 
+Pøekladová tabulka je rozšíøena o dvì poloky: inside local port -- port, ze kterého byl paket odeslán a inside global port -- èíslo portu, na kterı je paket odeslanı ze zdrojového portu poèítaèe mapován. Vıhodou je, e se tak pøipojuje více poèítaèù pøes jednu IP adresu.
 \end{pitemize}
 \end{obecne}
 
 
 \subsubsection*{ARP}
 
-\textbf{Address Resolution Protocol (ARP)} se v poÃ‹ÃŒtaÃ‹ovËch sÃŒtÃŒch s IP protokolem pouÃ»ÃŒvÂ· k zÃŒskÂ·nÃŒ ethernetovÃˆ (MAC) adresy sousednÃŒho stroje z jeho IP adresy. PouÃ»ÃŒvÂ· se v situaci, kdy je tÂ¯eba odeslat IP datagram na adresu leÃ»ÃŒcÃŒ ve stejnÃˆ podsÃŒti jako odesÃŒlatel. Data se tedy majÃŒ poslat pÂ¯ÃŒmo adresÂ·tovi, u nÃhoÃ» vÃ¶ak odesÃŒlatel znÂ· pouze IP adresu. Pro odeslÂ·nÃŒ prostÂ¯ednictvÃŒm napÂ¯. Ethernetu ale potÂ¯ebuje znÂ·t cÃŒlovou ethernetovou adresu.
+\textbf{Address Resolution Protocol (ARP)} se v poèítaèovıch sítích s IP protokolem pouívá k získání ethernetové (MAC) adresy sousedního stroje z jeho IP adresy. Pouívá se v situaci, kdy je tøeba odeslat IP datagram na adresu leící ve stejné podsíti jako odesílatel. Data se tedy mají poslat pøímo adresátovi, u nìho však odesílatel zná pouze IP adresu. Pro odeslání prostøednictvím napø. Ethernetu ale potøebuje znát cílovou ethernetovou adresu.
 
-Proto vysÃŒlajÃŒcÃŒ odeÃ¶le ARP dotaz (ARP request) obsahujÃŒcÃŒ hledanou IP adresu a Ë™daje o sobÃ (vlastnÃŒ IP adresu a MAC adresu). Tento dotaz se posÃŒlÂ· linkovËm broadcastem Ã± na MAC adresu identifikujÃŒcÃŒ vÃ¶echny Ë™Ã‹astnÃŒky danÃˆ lokÂ·lnÃŒ sÃŒtÃ (v pÂ¯ÃŒpadÃ Ethernetu na ff:ff:ff:ff:ff:ff). ARP dotaz nepÂ¯ekroÃ‹ÃŒ hranice danÃˆ podsÃŒtÃ, ale vÃ¶echna k nÃŒ pÂ¯ipojenÂ· zaÂ¯ÃŒzenÃŒ dotaz obdrÃ»ÃŒ a jako optimalizaÃ‹nÃŒ krok si zapÃŒÃ¶ÃŒ Ë™daje o jeho odesÃŒlateli (IP adresu a odpovÃŒdajÃŒcÃŒ MAC adresu) do svÃˆ ARP cache. VlastnÃŒk hledanÃˆ IP adresy pak odeÃ¶le tazateli ARP odpovÃÃ” (ARP reply) obsahujÃŒcÃŒ vlastnÃŒ IP adresu a MAC adresu. Tu si tazatel zapÃŒÃ¶e do ARP cache a mË˜Ã»e odeslat datagram.
+Proto vysílající odešle ARP dotaz (ARP request) obsahující hledanou IP adresu a údaje o sobì (vlastní IP adresu a MAC adresu). Tento dotaz se posílá linkovım broadcastem – na MAC adresu identifikující všechny úèastníky dané lokální sítì (v pøípadì Ethernetu na ff:ff:ff:ff:ff:ff). ARP dotaz nepøekroèí hranice dané podsítì, ale všechna k ní pøipojená zaøízení dotaz obdrí a jako optimalizaèní krok si zapíší údaje o jeho odesílateli (IP adresu a odpovídající MAC adresu) do své ARP cache. Vlastník hledané IP adresy pak odešle tazateli ARP odpovìï (ARP reply) obsahující vlastní IP adresu a MAC adresu. Tu si tazatel zapíše do ARP cache a mùe odeslat datagram.
 
-Informace o MAC adresÂ·ch odpovÃŒdajÃŒcÃŒch jednotlivËm IP adresÂ·m se uklÂ·dajÃŒ do ARP cache, kde jsou uloÃ»eny do vyprÃ¶enÃŒ svÃˆ platnosti. NenÃŒ tedy tÂ¯eba hledat MAC adresu pÂ¯ed odeslÂ·nÃŒm kaÃ»dÃˆho datagramu Ã± jednou zÃŒskanÂ· informace se vyuÃ»ÃŒvÂ· opakovanÃ. V Â¯adÃ operaÃ‹nÃŒch systÃˆmË˜ (Linux, Windows XP) lze obsah ARP cache zobrazit a ovlivÃšovat pÂ¯ÃŒkazem arp.
+Informace o MAC adresách odpovídajících jednotlivım IP adresám se ukládají do ARP cache, kde jsou uloeny do vypršení své platnosti. Není tedy tøeba hledat MAC adresu pøed odesláním kadého datagramu – jednou získaná informace se vyuívá opakovanì. V øadì operaèních systémù (Linux, Windows XP) lze obsah ARP cache zobrazit a ovlivòovat pøíkazem arp.
 
-Alternativou pro poÃ‹ÃŒtaÃ‹ bez ARP protokolu je pouÃ»ÃŒvat tabulku pÂ¯iÂ¯azenÃŒ MAC adres IP adresÂ·m definovanou jinËm zpË˜sobem, napÂ¯ÃŒklad pevnÃ konfigurovanou. Tento pÂ¯ÃŒstup se pouÃ»ÃŒvÂ· pÂ¯edevÃ¶ÃŒm v prostÂ¯edÃŒ se zvËÃ¶enËmi nÂ·roky na bezpeÃ‹nost, protoÃ»e v ARP se dÂ· podvÂ·dÃt Ã± mÃŒsto skuteÃ‹nÃˆho vlastnÃŒka hledanÃˆ IP adresy mË˜Ã»e odpovÃdÃt nÃkdo jinË a stÂ·hnout tak k sobÃ jeho data.
+Alternativou pro poèítaè bez ARP protokolu je pouívat tabulku pøiøazení MAC adres IP adresám definovanou jinım zpùsobem, napøíklad pevnì konfigurovanou. Tento pøístup se pouívá pøedevším v prostøedí se zvıšenımi nároky na bezpeènost, protoe v ARP se dá podvádìt – místo skuteèného vlastníka hledané IP adresy mùe odpovìdìt nìkdo jinı a stáhnout tak k sobì jeho data.
 
-ARP je definovÂ·no v RFC 826. PouÃ»ÃŒvÂ· se pouze pro IPv4. NovÃjÃ¶ÃŒ verze IP protokolu (IPv6) pouÃ»ÃŒvÂ· podobnË mechanismus nazvanË Neighbor Discovery Protocol (NDP, \uv{objevovÂ·nÃŒ sousedË˜}).
+ARP je definováno v RFC 826. Pouívá se pouze pro IPv4. Novìjší verze IP protokolu (IPv6) pouívá podobnı mechanismus nazvanı Neighbor Discovery Protocol (NDP, \uv{objevování sousedù}).
 
-AÃ‹koliv se ARP v praxi pouÃ»ÃŒvÂ· tÃˆmÃÂ¯ vËhradnÃ pro pÂ¯eklad IP adres na MAC adresy, nebyl pË˜vodnÃ vytvoÂ¯en pouze pro IP sÃŒtÃ. ARP se mË˜Ã»e pouÃ»ÃŒt pro pÂ¯eklad MAC adres mnoha rË˜znËch protokolË˜ na sÃŒÃ¹ovÃˆ vrstvÃ. ARP byl takÃˆ uzpË˜soben tak, aby vyhodnocoval jinÃˆ typy adres fyzickÃˆ vrstvy: napÂ¯ÃŒklad ATMARP se pouÃ»ÃŒvÂ· k vyhodnocenÃŒ ATM NSAP adres v protokolu Classical IP over ATM.
+Aèkoliv se ARP v praxi pouívá témìø vıhradnì pro pøeklad IP adres na MAC adresy, nebyl pùvodnì vytvoøen pouze pro IP sítì. ARP se mùe pouít pro pøeklad MAC adres mnoha rùznıch protokolù na síové vrstvì. ARP byl také uzpùsoben tak, aby vyhodnocoval jiné typy adres fyzické vrstvy: napøíklad ATMARP se pouívá k vyhodnocení ATM NSAP adres v protokolu Classical IP over ATM.
 
 \subsubsection*{ICMP}
 
-\textbf{ICMP protokol (anglicky Internet Control Message Protocol)} je jeden z jÂ·drovËch protokolË˜ ze sady protokolË˜ internetu. PouÃ»ÃŒvajÃŒ ho operaÃ‹nÃŒ systÃˆmy poÃ‹ÃŒtaÃ‹Ë˜ v sÃŒti pro odesÃŒlÂ·nÃŒ chybovËch zprÂ·v -- napÂ¯ÃŒklad pro oznÂ·menÃŒ, Ã»e poÃ»adovanÂ· sluÃ»ba nenÃŒ dostupnÂ· nebo Ã»e potÂ¯ebnË poÃ‹ÃŒtaÃ‹ nebo router nenÃŒ dosaÃ»itelnË.
+\textbf{ICMP protokol (anglicky Internet Control Message Protocol)} je jeden z jádrovıch protokolù ze sady protokolù internetu. Pouívají ho operaèní systémy poèítaèù v síti pro odesílání chybovıch zpráv -- napøíklad pro oznámení, e poadovaná sluba není dostupná nebo e potøebnı poèítaè nebo router není dosaitelnı.
 
-ICMP se svËm Ë™Ã‹elem liÃ¶ÃŒ od TCP a UDP protokolË˜ tÃŒm, Ã»e se obvykle nepouÃ»ÃŒvÂ· sÃŒtovËmi aplikacemi pÂ¯ÃŒmo. Jedinou vËjimkou je nÂ·stroj ping, kterË posÃŒlÂ· ICMP zprÂ·vy \uv{Echo Request} (a oÃ‹ekÂ·vÂ· pÂ¯ÃŒjem zprÂ·vy \uv{Echo Response}) aby urÃ‹il, zda je cÃŒlovË poÃ‹ÃŒtaÃ‹ dosaÃ»itelnË a jak dlouho paketË˜m trvÂ·, neÃ» se dostanou k cÃŒli a zpÃt.
+ICMP se svım úèelem liší od TCP a UDP protokolù tím, e se obvykle nepouívá sítovımi aplikacemi pøímo. Jedinou vıjimkou je nástroj ping, kterı posílá ICMP zprávy \uv{Echo Request} (a oèekává pøíjem zprávy \uv{Echo Response}) aby urèil, zda je cílovı poèítaè dosaitelnı a jak dlouho paketùm trvá, ne se dostanou k cíli a zpìt.
 
-ICMP protokol je souÃ‹Â·st sady protokolË˜ internetu definovanÂ· v RFC 792. ICMP zprÂ·vy se typicky generujÃŒ pÂ¯i chybÂ·ch v IP datagramech (specifikovÂ·no v RFC 1122) nebo pro diagnostickÃˆ nebo routovacÃŒ Ë™Ã‹ely. Verze ICMP pro IPv4 je znÂ·mÂ· jako ICMPv4. IPv6 pouÃ»ÃŒvÂ· obdobnË protokol: ICMPv6.
+ICMP protokol je souèást sady protokolù internetu definovaná v RFC 792. ICMP zprávy se typicky generují pøi chybách v IP datagramech (specifikováno v RFC 1122) nebo pro diagnostické nebo routovací úèely. Verze ICMP pro IPv4 je známá jako ICMPv4. IPv6 pouívá obdobnı protokol: ICMPv6.
 
-ICMP zprÂ·vy se konstruujÃŒ nad IP vrstvou; obvykle z IP datagramu, kterË ICMP reakci vyvolal. IP vrstva patÂ¯iÃ‹nou ICMP zprÂ·vu zapouzdÂ¯ÃŒ novou IP hlaviÃ‹kou (aby se ICMP zprÂ·va dostala zpÃt k pË˜vodnÃŒmu odesÃŒlateli) a obvyklËm zpË˜sobem vzniklË datagram odeÃ¶le. NapÂ¯ÃŒklad kaÃ»dË stroj (jako tÂ¯eba mezilehlÃˆ routery), kterË forwarduje IP datagram, musÃŒ v IP hlaviÃ‹ce dekrementovat polÃŒÃ‹ko TTL (\uv{time to live}, \uv{zbËvajÃŒcÃŒ doba Ã»ivota}) o jedniÃ‹ku. JestliÃ»e TTL klesne na 0 (a datagram nenÃŒ urÃ‹en stroji provÂ·dÃjÃŒcÃŒmu dekrementaci), router pÂ¯ijatË paket zahodÃŒ a pË˜vodnÃŒmu odesÃŒlateli datagramu poÃ¶le ICMP zprÂ·vu \uv{Time to live exceeded in transit} (\uv{bÃhem pÂ¯enosu vyprÃ¶ela doba Ã»ivota}).
+ICMP zprávy se konstruují nad IP vrstvou; obvykle z IP datagramu, kterı ICMP reakci vyvolal. IP vrstva patøiènou ICMP zprávu zapouzdøí novou IP hlavièkou (aby se ICMP zpráva dostala zpìt k pùvodnímu odesílateli) a obvyklım zpùsobem vzniklı datagram odešle. Napøíklad kadı stroj (jako tøeba mezilehlé routery), kterı forwarduje IP datagram, musí v IP hlavièce dekrementovat políèko TTL (\uv{time to live}, \uv{zbıvající doba ivota}) o jednièku. Jestlie TTL klesne na 0 (a datagram není urèen stroji provádìjícímu dekrementaci), router pøijatı paket zahodí a pùvodnímu odesílateli datagramu pošle ICMP zprávu \uv{Time to live exceeded in transit} (\uv{bìhem pøenosu vypršela doba ivota}).
 
-KaÃ»dÂ· ICMP zprÂ·va je zapouzdÂ¯enÂ· pÂ¯ÃŒmo v jedinÃˆm IP datagramu, a tak (jako u UDP) ICMP nezaruÃ‹uje doruÃ‹enÃŒ. AÃ‹koli ICMP zprÂ·vy jsou obsaÃ»enÃˆ ve standardnÃŒch IP datagramech, ICMP zprÂ·vy se zpracovÂ·vajÃŒ odliÃ¶nÃ od normÂ·lnÃŒho zpracovÂ·nÃŒ prokolË˜ nad IP. V mnoha pÂ¯ÃŒpadech je nutnÃˆ prozkoumat obsah ICMP zprÂ·vy a doruÃ‹it patÂ¯iÃ‹nou chybovou zprÂ·vu aplikaci, kterÂ· vyslala pË˜vodnÃŒ IP paket, kterË zpË˜sobil odeslÂ·nÃŒ ICMP zprÂ·vy k pË˜vodci.
+Kadá ICMP zpráva je zapouzdøená pøímo v jediném IP datagramu, a tak (jako u UDP) ICMP nezaruèuje doruèení. Aèkoli ICMP zprávy jsou obsaené ve standardních IP datagramech, ICMP zprávy se zpracovávají odlišnì od normálního zpracování prokolù nad IP. V mnoha pøípadech je nutné prozkoumat obsah ICMP zprávy a doruèit patøiènou chybovou zprávu aplikaci, která vyslala pùvodní IP paket, kterı zpùsobil odeslání ICMP zprávy k pùvodci.
 
-Mnoho bÃÃ»nÃ pouÃ»ÃŒvanËch sÃŒÃ¹ovËch diagnostickËch utilit je zaloÃ»eno na ICMP zprÂ·vÂ·ch. PÂ¯ÃŒkaz traceroute je implementovÂ·n odesÃŒlÂ·nÃŒm UDP datagramË˜ se speciÂ·lnÃ nastavenou Ã»ivotnostÃŒ v TTL polÃŒÃ‹ku IP hlaviÃ‹ky a oÃ‹ekÂ·vÂ·nÃŒm ICMP odezvy \uv{Time to live exceeded in transit} nebo \uv{Destination unreachable}. PÂ¯ÃŒbuznÂ· utilita ping je implementovÂ·na pouÃ»itÃŒm ICMP zprÂ·v \uv{Echo} a \uv{Echo reply}.
+Mnoho bìnì pouívanıch síovıch diagnostickıch utilit je zaloeno na ICMP zprávách. Pøíkaz traceroute je implementován odesíláním UDP datagramù se speciálnì nastavenou ivotností v TTL políèku IP hlavièky a oèekáváním ICMP odezvy \uv{Time to live exceeded in transit} nebo \uv{Destination unreachable}. Pøíbuzná utilita ping je implementována pouitím ICMP zpráv \uv{Echo} a \uv{Echo reply}.
 
-\textbf{NejpouÃ»ÃŒvanÃjÃ¶ÃŒ ICMP datagramy}:
+\textbf{Nejpouívanìjší ICMP datagramy}:
 
 \begin{pitemize}
-    \item \emph{Echo}: poÃ»adavek na odpovÃÃ”, kaÃ»dË prvek v sÃŒti pracujÃŒcÃŒ na IP vrstvÃ by na tuto vËzvu mÃl reagovat. Â»asto to z rË˜znËch dË˜vodË˜ nenÃŒ dodrÃ»ovÂ·no.
-    \item \emph{Echo Reply}: odpovÃÃ” na poÃ»adavek
-    \item \emph{Destination Unreachable}: informace o nedostupnosti cÃŒle, obsahuje dalÃ¶ÃŒ upÂ¯esÃšujÃŒcÃŒ informaci
+    \item \emph{Echo}: poadavek na odpovìï, kadı prvek v síti pracující na IP vrstvì by na tuto vızvu mìl reagovat. Èasto to z rùznıch dùvodù není dodrováno.
+    \item \emph{Echo Reply}: odpovìï na poadavek
+    \item \emph{Destination Unreachable}: informace o nedostupnosti cíle, obsahuje další upøesòující informaci
 		\begin{pitemize}
-			\item Net Unreachable: nedostupnÂ· cÃŒlovÂ· sÃŒÃ¹, reakce smÃrovaÃ‹e na poÃ»adavek komunikovat se sÃŒtÃŒ, do kterÃˆ neznÂ· cestu
-			\item Host Unreachable: nedostupnË cÃŒlovË stroj
-			\item Protocol Unreachable: informace o nemoÃ»nosti pouÃ»ÃŒt vybranË protokol
-			\item Port Unreachable: informace o nemoÃ»nosti pÂ¯ipojit se na vybranË port
+			\item Net Unreachable: nedostupná cílová sí, reakce smìrovaèe na poadavek komunikovat se sítí, do které nezná cestu
+			\item Host Unreachable: nedostupnı cílovı stroj
+			\item Protocol Unreachable: informace o nemonosti pouít vybranı protokol
+			\item Port Unreachable: informace o nemonosti pøipojit se na vybranı port
 		\end{pitemize}
-    \item \emph{Redirect}: pÂ¯esmÃrovÂ·nÃŒ, pouÃ»ÃŒvÂ· se pÂ¯edevÃ¶ÃŒm pokud ze sÃŒtÃ vede k cÃŒli lepÃ¶ÃŒ cesta neÃ» pÂ¯es defaultnÃŒ brÂ·nu. Stanice vÃtÃ¶inou nepouÃ»ÃŒvajÃŒ smÃrovacÃŒ protokoly a proto jsou informovÂ·ny touto cestou. Funguje tak, Ã»e stanice poÃ¶le datagram svÃˆ, vÃtÃ¶inou defaultnÃŒ, brÂ·nÃ, ta jej pÂ¯epoÃ¶le sprÂ·vnËm smÃrem a zÂ·roveÃš informuje stanici o lepÃ¶ÃŒ cestÃ.
+    \item \emph{Redirect}: pøesmìrování, pouívá se pøedevším pokud ze sítì vede k cíli lepší cesta ne pøes defaultní bránu. Stanice vìtšinou nepouívají smìrovací protokoly a proto jsou informovány touto cestou. Funguje tak, e stanice pošle datagram své, vìtšinou defaultní, bránì, ta jej pøepošle správnım smìrem a zároveò informuje stanici o lepší cestì.
 		\begin{pitemize}
-			\item Redirect Datagram for the Network: informuje o pÂ¯esmÃrovÂ·nÃŒ datagramË˜ do celÃˆ sÃŒtÃ
-			\item Redirect Datagram for the Host: informuje o pÂ¯esmÃrovÂ·nÃŒ datagramË˜ pro jedinË stroj
+			\item Redirect Datagram for the Network: informuje o pøesmìrování datagramù do celé sítì
+			\item Redirect Datagram for the Host: informuje o pøesmìrování datagramù pro jedinı stroj
 		\end{pitemize}
-    \item \emph{Time Exceeded}: vyprÃ¶el Ã‹asovË limit
+    \item \emph{Time Exceeded}: vypršel èasovı limit
 		\begin{pitemize}
-			\item Time to Live exceeded in Transit: bÃhem pÂ¯enosu doÃ¶lo ke snÃŒÃ»enÃŒ TTL na 0 aniÃ» byl datagram doruÃ‹en
-			\item Fragment Reassembly Time Exceeded: nepodaÂ¯ilo se sestavit jednotlivÃˆ fragmenty v Ã‹asovÃˆm limitu(napÂ¯ pokud dojde ke ztrÂ·tÃ Ã‹Â·sti datagramË˜)
+			\item Time to Live exceeded in Transit: bìhem pøenosu došlo ke sníení TTL na 0 ani byl datagram doruèen
+			\item Fragment Reassembly Time Exceeded: nepodaøilo se sestavit jednotlivé fragmenty v èasovém limitu(napø pokud dojde ke ztrátì èásti datagramù)
 		\end{pitemize}
 \end{pitemize}
 
-OstatnÃŒ datagramy jsou pouÃ»ÃŒvÂ·ny spÃŒÃ¶e vzÂ·cnÃ, nÃkdy je pouÃ»ÃŒvÂ·nÃŒ ICMP znemoÃ»nÃno zcela Ã¶patnËm nastavenÃŒm firewallu.
+Ostatní datagramy jsou pouívány spíše vzácnì, nìkdy je pouívání ICMP znemonìno zcela špatnım nastavením firewallu.
 
 \subsubsection*{UDP, TCP}
-UDP -- nespoÃ¦ahlivË nespojovanË prenos datagramov... pridÂ·va len porty\\
-TCP -- porty+spoÃ¦ahlivË spojovanË prenos streamov... \\
-...Ã”alÃ¶ie info viÃ” kapitolu o BSD Sockets :-) \\
+UDP -- nespo¾ahlivı nespojovanı prenos datagramov... pridáva len porty\\
+TCP -- porty+spo¾ahlivı spojovanı prenos streamov... \\
+...ïalšie info viï kapitolu o BSD Sockets :-) \\
