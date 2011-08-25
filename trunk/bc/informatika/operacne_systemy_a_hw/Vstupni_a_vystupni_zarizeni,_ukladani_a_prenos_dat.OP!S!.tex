@@ -40,10 +40,22 @@ Transakce na sbìrnici zaèíná požadavkem (vyslání pøíkazu a adresy cíle), na kter
   \label{fig:bus_centralizovane_pridelovani}
 \end{figure}
 Informace o stavu zaøízení mùže CPU získávat:
-\begin{penumerate}
+\begin{pitemize}
     \item \textbf{polling}~-- aktivní èekání na zmìnu zaøízení (program periodicky kontroluje stav), pro pomalá zaøízení vzniká znaèná režie
-    \item \textbf{interrupt-driven I/O}~-- asynchronní pøerušení od zaøízení, které samo signalizuje zmìnu stavu, na což reaguje obslužná rutina. CPU ovšem není na pøerušení pøipraven, tak musí uložit stav programu $\rightarrow$ stojí to èas. CPU musí podporovat tuto signalizaci pøerušení, identifikovat zdroj pøerušení, vybrat správnou obslužnou rutinu. Systém musí zajistit doruèení pøerušení k CPU a dále øadiè jejich podle priority urèí jejich poøadí (mùže jich být více než má CPU vstupù).
+    \item \textbf{interrupt-driven I/O}~-- asynchronní pøerušení od zaøízení, které samo signalizuje zmìnu stavu, na což reaguje obslužná rutina. CPU ovšem není na pøerušení pøipraven, tak musí uložit stav programu $\rightarrow$ stojí to èas. CPU musí podporovat tuto signalizaci pøerušení, identifikovat zdroj pøerušení, vybrat správnou obslužnou rutinu. Systém musí zajistit doruèení pøerušení k CPU a dále øadiè jejich podle priority urèí jejich poøadí (mùže jich být více než má CPU vstupù). Prùbìh:
+    \begin{penumerate}
+    \item     Vnìjší zaøízení vyvolá požadavek o pøerušení
+    \item			I/O rozhraní vyšle signál IRQ na øadiè pøerušení (na port IRQ 2)
+    \item     Øadiè pøerušení vygeneruje signál INTR – „nìkdo“ žádá o pøerušení a vyšle ho k procesoru.
+    \item     Procesor se na základì maskování rozhodne obsloužit pøerušení a signálem INTA se zeptá, jaké zaøízení žádá o pøerušení.
+    \item     Øadiè pøerušení identifikuje zaøízení, které žádá o pøerušení a odešle èíslo typu pøerušení k procesoru
+    \item     Procesor uloží stavové informace o právì zpracovávaném programu do zásobníku.
+    \item     Podle èísla typu pøíchozího pøerušení nalezne ve vektoru pøerušení adresu pøíslušného obslužného podprogramu.
+    \item     Vyhledá obslužný podprogram obsluhy pøerušení v pamìti a vykoná ho.
+    \item     Po provedení obslužného programu opìt obnoví uložené stavové informace ze zásobníku a pøerušený program pokraèuje dál.
 \end{penumerate}
+    
+\end{pitemize}
 
 Pøenos dat mezi zaøízením a CPU/pamìtí:
 \begin{penumerate}
