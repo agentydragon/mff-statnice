@@ -1,8 +1,8 @@
 \subsection{Tøídy složitosti P a NP, pøevoditelnost, NP-úplnost}
 
-TODO: doplnit, tohle asi nestaci na pohodovou zkousku (aspon podle toho co jsem vnimal, jsa svedek zkouseni u Dr. Yaghoba) -- chce to napr. nejaky priklad prevedeni jako delal Kucera, mozna jeste neco
+%TODO: doplnit, tohle asi nestaci na pohodovou zkousku (aspon podle toho co jsem vnimal, jsa svedek zkouseni u Dr. Yaghoba) -- chce to napr. nejaky priklad prevedeni jako delal Kucera, mozna jeste neco
 
-*\subsubsection{Pøevoditelnost}
+\subsubsection*{Pøevoditelnost}
 
 \begin{e}{Definice}{0}{0}
   \begin{pitemize}
@@ -65,22 +65,25 @@ Nejdøíve si udìlám \uv{konstrukt}, co mi pro každou kombinaci tøí barev \uv{vrát
 
 Když do výše uvedeného konstruktu jakoby \uv{vložím} do horní øádky barvy, odpovídající tøí pravdivostním hodnotám, nemùžu spodní vrchol obarvit jinak, než jako logický or tøí barev. Tyto konstrukty mi budou sloužit pro reprezentaci $(a \vee b \vee c)$.
 
-Udìlám si teï jeden støední bod ($C$ jako centrum -- viz další obrázek), k~nìmu pøidám nejdøív dva body $T$ a $F$ a potom pro každou promìnnou pøidám dva body, reprezentující $x$ a $\neg x$ a spojím je dohromady a s~$C$. Než zaènu pøidávat \uv{konstrukty} na vyhodnocování trojic, podívám se na vlastnosti. Musí platit:
+\obrazekvpravominipage{informatika/teoreticka_informatika/obrazky/3COL2}{Celý graf}{fig:3col2}{0.5}{0.5}{
+
+Udìlám si teï jeden støední bod ($C$ jako centrum -- viz obrázek \ref{fig:3col2}), k~nìmu pøidám nejdøív dva body $T$ a $F$ a potom pro každou promìnnou pøidám dva body, reprezentující $x$ a $\neg x$ a spojím je dohromady a s~$C$. Než zaènu pøidávat \uv{konstrukty} na vyhodnocování trojic, podívám se na vlastnosti. Musí platit:
 
 \begin{itemize}
 \item $C$, $T$ a $F$ musí mít každá jinou barvu
 \item pro všechny body musí $x$ nebo $\neg x$ $T$ barva a ta druhá $F$ barva
 \end{itemize}
 
-\includegraphics[width=0.5\textwidth]{informatika/teoreticka_informatika/obrazky/3COL2}
+%\includegraphics[width=0.5\textwidth]{informatika/teoreticka_informatika/obrazky/3COL2}
 
 BÚNO mùžu øíct, že $C$ je šedivá, $T$ bílá a $F$ èerná, èerná mi vyjadøuje nepravdu, bílá pravdu. Potom za nì \uv{navìsím} ty konstrukty -- buï na $x$, nebo na $\neg x$, podle toho, která z nich ve trojici zrovna je --  a jejich spodní vrchol pøipojím $F$ vrchol (to \uv{vynucuje}, aby vrchol byl $T$). Na obrázku je formule $(\neg x_1 \vee \neg x_2 \vee \neg x_3)$.
 
 Tento graf je obarvitelný právì tehdy, když je formule splnitelná, a je sestavitelný v~polynomiálním èase.
-
+}
 \end{e}
 \end{e}
 
+\obrazekvpravominipage{informatika/teoreticka_informatika/obrazky/3COL3}{Redukce}{fig:3col3}{0.5}{0.5}{
 \begin{e}{Vìta}{0}{0}
 3-COL $\rightarrow$ existence nezávislé množiny v grafu
 
@@ -88,17 +91,16 @@ Tento graf je obarvitelný právì tehdy, když je formule splnitelná, a je sestavit
 
 Graf zkopírujeme tøikrát pod sebe, každá kopie bude reprezentovat jednu barvu. Budeme chtít pøesnì stejnì velkou množinu, jako je bodù v~pùvodnì obarvovaném grafu. Mám-li množinu, mám pak nutnì i obarvení.
 
-Víc to snad ujasní obrázek.
-
-\includegraphics[width=0.5\textwidth]{informatika/teoreticka_informatika/obrazky/3COL2}
+Víc to snad ujasní obrázek \ref{fig:3col3}.
 
 \end{e}
 
 \end{e}
-
+}
 
 \begin{e}{Vìta}{0}{0}
 existence nezávislé množiny v grafu $\rightarrow$ 3-SAT
+
 \begin{e}{Dùkaz}{0}{0}
 %V dùkazu ještì využiji toho, že 
 
@@ -116,7 +118,7 @@ Udìlám si formuli, která bude odpovídat grafu, následovnì:
 
 Dokázali jsme, že 3-SAT, 3-COL a nezávislá množina jsou ve stejné tøídì ekvivalence, jsou na sebe navzájem pøevoditelné. Pøeskoèím dopøedu a øeknu, že jde o tøídu NP a že ve stejné tøídì je spousta dalších problémù.
 
-*\subsubsection{P, NP, NP-úplnost, NP-tìžkost}
+\subsubsection*{P, NP, NP-úplnost, NP-tìžkost}
 
 
 
@@ -150,7 +152,8 @@ Trochu poetiètìjší a naprosto neexaktní a filosofický pøíklad -- nikdo nevidíme 
 Bylo by ovšem \emph{velmi} podivné, kdyby platil opak.
 \end{e}
 
-\includegraphics[width=0.5\textwidth]{informatika/teoreticka_informatika/obrazky/PNP}
+\obrazekvpravominipage{informatika/teoreticka_informatika/obrazky/PNP}{Vztah NP množin}{fig:PNP}{0.5}{0.5}{
+%\includegraphics[width=0.5\textwidth]{informatika/teoreticka_informatika/obrazky/PNP}
 
 \begin{e}{Definice}{0}{NP-tìžký problém}
   Problém $B$ je \textbf{NP-tìžký}, pokud pro libovolný problém $A$ ze tøídy NP
@@ -162,7 +165,7 @@ Pokud se nám tedy povede nìjaký náš algoritmus redukovat na nìjaký NP-tìžký, vím
 NP-tìžký problém nemùže být P (resp. pokud by byl, potom by P=NP). Mùže a nemusí být NP (napø. halting problem není NP, ale každý NP na nìj lze redukovat).
 \end{e}
 \end{e}
-
+}
 \begin{e}{Definice}{0}{NP-úplný problém}
   Problém je \textbf{NP-úplný}, pokud patøí do tøídy NP a je NP-tìžký.
 
