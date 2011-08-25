@@ -69,21 +69,28 @@ CPU nastaví pøenos a nechá DMA pracovat, a je operace dokonèena, pošle se pøeru
 \end{e}
 
 \begin{e}{Posloupnost událostí}{0}{0}
-\begin{penumerate}
+Èísla pøed událostí odpovídají èíslùm na obrázku níe.
+\begin{pitemize}
     \item program nastaví øadiè a periferii a povolí pøenos
-    \item aktivací signálu DREQx periferie poádá øadiè DMA o pøenos slova z/do pamìti
+    \item[(1)] aktivací signálu DREQx periferie poádá øadiè DMA o pøenos slova z/do pamìti
     \item øadiè DMA zkontroluje nastavení kanálu vyhodnotí prioritu ádosti
-    \item aktivací signálu HOLD øadiè DMA poádá CPU o pøidìlení sbìrnice
-    \item pokud CPU nepotøebuje sbìrnici, odpojí se od sbìrnice a signalizuje HLDA
-      \subitem - CPU testuje HOLD na zaèátku strojového cyklu
-    \item po pøijetí HLDA øadiè pøipraví sbìrnici pro pøenos
+    \item[(2)] aktivací signálu HOLD øadiè DMA poádá CPU o pøidìlení sbìrnice
+    \item[(3)] pokud CPU nepotøebuje sbìrnici, odpojí se od sbìrnice a signalizuje HLDA
+      \subitem - CPU poøád testuje HOLD na zaèátku strojového cyklu
+    \item[(4)] po pøijetí HLDA øadiè pøipraví sbìrnici pro pøenos
     \subitem - vystaví adresu v pamìti a øídící signály pro ètení/zápis z/do pamìti/periferie
-    \item øadiè DMA aktivuje signál DACKx, kterım vyzve periferii k vystavení/pøeètení dat na/ze sbìrnice
-    \item v závislosti na reimu buï pøenos konèí, nebo pokraèuje dalším slovem dokud je DREQx aktivní
+    \item[(5)] øadiè DMA aktivuje signál DACKx, kterım vyzve periferii k vystavení/pøeètení dat na/ze sbìrnice
+    \item[(7)] v závislosti na reimu buï pøenos konèí, nebo pokraèuje dalším slovem dokud je DREQx aktivní
     \item pøi posledním slovì øadiè aktivuje signál EOP
-    \item pøi ukonèení pøenosu øadiè uvolní signál HOLD
-    \item procesor uvolní HLDA a pøipojí se ke sbìrnici
-\end{penumerate}
+    \item[(8)] pøi ukonèení pøenosu øadiè uvolní signál HOLD
+    \item[(9)] procesor uvolní HLDA a pøipojí se ke sbìrnici
+\end{pitemize}
+\begin{figure}[h]
+  \centering
+  \label{fig:dma_block_transfer}
+  \includegraphics[width=17cm]{informatika/operacne_systemy_a_hw/obrazky/dma_block_transfer.png}
+%  \caption{DMA burst mode}
+\end{figure}
 \end{e}
 
 Problémy u DMA spoèívají v odstínìní CPU od pamìti, co mùe vyvolat \textbf{pamìovou koherenci}, slušnì øeèeno pomocí DMA obejdeme cache CPU, kde mohou bıt aktuálnìjší hodnoty ne v pamìti, a tudí máme problém Houstone. Øeší se to tím, e procesor sleduje, na jaké adresy se pøistupuje a pokud tam padne nìjaká, kterou má v cache, tak to zaène øešit.
