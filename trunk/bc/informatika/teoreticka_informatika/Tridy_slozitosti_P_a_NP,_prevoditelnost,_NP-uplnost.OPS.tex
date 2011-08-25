@@ -2,13 +2,83 @@
 
 TODO: doplnit, tohle asi nestaci na pohodovou zkousku (aspon podle toho co jsem vnimal, jsa svedek zkouseni u Dr. Yaghoba) -- chce to napr. nejaky priklad prevedeni jako delal Kucera, mozna jeste neco
 
+*\subsubsection{Pøevoditelnost}
+
 \begin{e}{Definice}{0}{0}
   \begin{pitemize}
   \item \textbf{Úloha}~-- Pro dané zadání (vstup, \emph{instanci úlohy}) najít vıstup s danımi vlastnostmi.
   \item \textbf{Optimalizaèní úloha}~-- Pro dané zadání najít optimální (vìtšinou
   nejmenší nebo nejvìtší) vıstup s danımi vlastnostmi.
-  \item \textbf{Rozhodovací problém}~-- Pro dané zadání odpovìdìt ANO/NE.
+  \item \textbf{Rozhodovací problém}~-- Pro dané zadání odpovìdìt ANO/NE. 
   \end{pitemize}
+\end{e}
+
+\begin{e}{Definice}{0}{pøevody mezi rozhodovacími problémy}
+  Nech $A$, $B$ jsou dva rozhodovací problémy. Øíkáme, e $A$ je
+  \textbf{polynomiálnì redukovatelnı (pøevoditelnı)} na $B$, pokud existuje
+  zobrazení $f$ z mnoiny zadání problému $A$ do mnoiny zadání problému $B$ s
+  následujícími vlastnostmi:
+  \begin{pitemize}
+    \item Nech $X$ je zadání problému $A$ a $Y$ zadání problému $B$, takové, e
+    $f(X)=Y$. Potom je $X$ kladné zadání problému $A$ právì tehdy, kdy $Y$ je
+    kladné zadání problému $B$.
+    \item Nech $X$ je zadání problému $A$. Potom je zadání $f(X)$ problému $B$
+    (deterministicky sekvenènì) zkonstruovatelné v polynomiálním èase vzhledem k
+    velikosti $X$.
+  \end{pitemize}
+\end{e}
+
+Jiná definice: Mìjme rozhodovací algoritmus $A$, vısledek algoritmu chápejme jako funkce $A(x)$ na vstupu $x$, pak algoritmus $A$ je redukovatelnı na $B$ ($A \rightarrow B$) kdy $\forall A: B(f(x))=A(x)$ pro polynomiální $f$.
+
+Obì definice øíkají, e $B$ je \uv{aspoò tak tìkı}, jako $A$ (mùe ale bıt tìší!). Název je trochu zavádìjící -- neredukujeme na \emph{lehèí}, ale na \emph{tìší} algoritmus. Platí ale, e pokud $B$ je polynomiálnì sloitı, je i $A$.
+
+Pøevoditelnost je kvaziuspoøádání -- je reflexivní a tranzitivní. Není ale symetrickı -- na to je potøeba vytvoøit tøídy sloitosti, ty potom symetrické jsou a nad nimi je pøevoditelnost uspoøádání.
+
+\begin{e}{Definice}{0}{3-SAT}
+ 3-SAT (z anglického \uv{satisfiability}) je rozhodovací problém, kterı jako vstup dostane logickou formuli urèitého typu a rozhodne, zda je, nebo není plnitelná, tj. jestli existuje nìjaké její ohodnocení, které je pravdivé. Logická formule musí bıt následujícího typu:
+
+$$(a_1\vee b_1 \vee c_1) \wedge (a_2 \vee b_2 \vee c_2) .... \wedge (a_n \vee b_n \vee c_n),$$
+
+kde $a_n, b_n, c_n$ jsou buï $x_i$ nebo $\not x_i$ pro nìjaká $i\subset \mathbb{N}$.
+\end{e}
+
+\begin{e}{Definice}{0}{3-COL}
+3-COL, nebo také trojbarevnost grafu, je následující problém: dostanu graf a musím urèit, jestli jej lze obarvit tøemi barvami.
+\end{e}
+
+\begin{e}{Definice}{0}{Problém nezávislé mnoiny v grafu}
+Problém nezávislé mnoiny v grafu:
+Existuje v daném grafu velikosti $N$ nezávislá mnoina velikosti $K$?
+\end{e}
+
+\begin{e}{Vìta}{0}{0}
+3-SAT $\rightarrow$ 3-COL
+
+\begin{e}{Dùkaz}{0}{0}
+Pro 3-SAT si udìláme grafík, kterı bude obarvitelnı $\Leftrightarrow$ 3-SAT má øešení.
+
+Pravdu si budu v grafu reprezentovat jako bílou, nepravdu jako èernou, tøetí barva je pomocná.
+
+Nejdøíve si udìlám \uv{konstrukt}, co mi pro kadou kombinaci tøí barev \uv{vrátí} logickı or.
+
+\includegraphics[width=0.1\textwidth]{informatika/teoreticka_informatika/obrazky/3COL1}
+
+Kdy do vıše uvedeného konstruktu jakoby \uv{vloím} do horní øádky barvy, odpovídající tøí pravdivostním hodnotám, nemùu spodní vrchol obarvit jinak, ne jako logickı or tøí barev. Tyto konstrukty mi budou slouit pro reprezentaci $(a \vee b \vee c)$.
+
+Udìlám si teï jeden støední bod ($C$ jako centrum), k~nìmu pøidám nejdøív dva body $T$ a $F$ a potom pro kadou promìnnou pøidám dva body, reprezentující $x$ a $\not x$ a spojím je dohromady a s~$C$. Ne zaènu pøidávat \uv{konstrukty} na vyhodnocování trojic, podívám se na vlastnosti. Musí platit:
+
+\begin{itemize}
+\item $C$, $T$ a $F$ musí mít kadá jinou barvu
+\item pro všechny body musí bıt buï $x$ nebo $\not x$ $T$ barva a ta druhá $F$ barva
+\end{itemize}
+
+\includegraphics[width=0.8\textwidth]{informatika/teoreticka_informatika/obrazky/3COL2}
+
+BÚNO mùu øíct, e $C$ je šedivá, $T$ bílá a $F$ èerná, èerná mi vyjadøuje nepravdu, bílá pravdu. Potom za nì \uv{navìsím} ty konstrukty -- buï na $x$, nebo na $\not x$, podle toho, která z nich ve trojici zrovna je --  a jejich spodní vrchol pøipojím $F$ vrchol (to \uv{vynucuje}, aby vrchol byl $T$). Na obrázku je formule $(\not x_1 \vee \not x_2 \vee \not x_3)$.
+
+Tento graf je obarvitelnı právì tehdy, kdy je formule splnitelná, a je sestavitelnı v~polynomiálním èase.
+
+\end{e}
 \end{e}
 
 \begin{e}{Definice}{0}{tøída P}
@@ -39,21 +109,6 @@ TODO: doplnit, tohle asi nestaci na pohodovou zkousku (aspon podle toho co jsem 
     pøesnì $b$?
   \end{pitemize}
 \end{obecne}
-
-\begin{e}{Definice}{0}{pøevody mezi rozhodovacími problémy}
-  Nech $A$, $B$ jsou dva rozhodovací problémy. Øíkáme, e $A$ je
-  \textbf{polynomiálnì redukovatelnı (pøevoditelnı)} na $B$, pokud existuje
-  zobrazení $f$ z mnoiny zadání problému $A$ do mnoiny zadání problému $B$ s
-  následujícími vlastnostmi:
-  \begin{pitemize}
-    \item Nech $X$ je zadání problému $A$ a $Y$ zadání problému $B$, takové, e
-    $f(X)=Y$. Potom je $X$ kladné zadání problému $A$ právì tehdy, kdy $Y$ je
-    kladné zadání problému $B$.
-    \item Nech $X$ je zadání problému $A$. Potom je zadání $f(X)$ problému $B$
-    (deterministicky sekvenènì) zkonstruovatelné v polynomiálním èase vzhledem k
-    velikosti $X$.
-  \end{pitemize}
-\end{e}
 
 \begin{e}{Definice}{0}{NP-tìkı problém}
   Problém $B$ je \textbf{NP-tìkı}, pokud pro libovolnı problém $A$ ze tøídy NP

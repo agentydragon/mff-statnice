@@ -417,38 +417,127 @@ Pokud v situaci popsané v právì uvedené vìtì je $f'(x_0)$ nevlastní, je $(f^{-1}
 \end{e}
 
 \begin{e}{Pøíklad}{0}{0}
-Definice není úplnì prùhledná. Øeknìme, e zkoumáme funkci $f(x)=x^2$ na intervalu $(0,+\infty)$. V bodì $x_0=1$ má derivaci $f'(x_0)=2x_0 = 2$. Funkce $f^{-1}$, tedy $\sqrt{y}$ má derivaci v bodì $y_0=f(x_0)=x_0^2=1^2=1$ (to je bod, odkud zobrazujeme inverzní funkci, ale kam dopadá hlavní funkce) a platí, e $\left(\sqrt{y_0}\right)'=\frac{1}{\left(x_0^2\right)'}=\frac{1}{2}$.
+Definice není úplnì prùhledná. Øeknìme, e zkoumáme funkci $f(x)=x^2$ na intervalu $(0,+\infty)$. V bodì $x_0=1$ má derivaci $f'(x_0)=2x_0 = 2$. Funkce $f^{-1}$, tedy $\sqrt{y}$ má derivaci v bodì $y_0=f(x_0)=x_0^2=1^2=1$ (to je bod, odkud zobrazujeme inverzní funkci, ale kam dopadá hlavní funkce, a kde zjišujeme derivaci inverzní funkce) a platí, e $\left(\sqrt{y}\right)'(y_0)=\frac{1}{\left(x^2\right)'(x_0)}=\frac{1}{2}$.
 
 (nevím, jak moc jsem to ujasnil :-))
 
 \end{e}
 
 \begin{e}{Dùkaz}{0}{0}
+Polome funkci $F(x)$ $$F(x) = \frac{x-x_0}{f(x)-f(x_0)}$$ (tj. \uv{obrácená} definice limity). Tato funkce má z~definice limitu $\lim{x\rightarrow y}=\frac{1}{f'(x_0)}$. 
 
+Protoe $g(y)$ je prostá a spojitá, mùeme jí (díky Heineho vìtì a vìtì o sloenıch posloupnostech) vloit do $F(x)$ a bude platit $\lim_{y\rightarrow y_0} = \frac{1}{f'(x_0)}$ -- tj. toté, jako pøedtím (protoe $g(y)=x$), ale jde o limitu podle $y$.
+
+Také ale platí $$F(g(y)) = \frac{g(x)-g(x_0)}{f(g(x))-f(g(x_0))} = \frac{g(x)-g(x_0)}{x-x_0}$$.
+\end{e}
+
+\end{e}
+
+\begin{e}{Vìta}{0}{0}
+Je-li v~bodì $x_0$ $f'(x_0)>0$, $f(x)$ v~bodì $x_0$ roste. Pokud je v~bodì tam $<0$, tak klesá..
+
+\begin{e}{Dùkaz}{0}{0}
+
+Buï tøeba $f'(x)=\lim_{x\rightarrow x_0}\frac{f(x)-f(x_0)}{x-x_0}>0$. Musí bıt $>0$ na celém nìjakém okolí -- v~bodech vpravo od $x_0$ je $x-x_0>0$ a tak i $f(x)-f(x_0)>0$, vlevo naopak.
 \end{e}
 
 \end{e}
 
 \begin{e}{Vìta}{0}{Nutná podmínka lokálního extrému}
 Nech $M \subseteq \mathbb{R}$, $f: M \rightarrow \mathbb{R}$. Nech $f$ má v $a \in M$ lokální extrém. Pak buï neexistuje $f'(a)$, nebo $f'(a)=0$.
-\end{e}
-
-\begin{e}{Vìta}{0}{Rolleova vìta}
-Nech $f$ je spojitá na $\left<a, b\right>$ a nech existuje $f'(x)\ \forall x \in (a,b)$. Nech $f(a)=f(b)$. Potom existuje $\xi \in (a,b): f'(\xi)=0$.
-\end{e}
-
-\begin{e}{Vìta}{0}{Lagrangeova o støední hodnotì}
-Nech $f$ je spojitá na $\left<a, b\right>$ a nech existuje $f'(x)\ \forall x \in (a,b)$. Potom existuje $$\xi \in (a,b): f'(\xi)=\frac{f(b)-f(a)}{b-a}$$
-\end{e}
-
-\begin{e}{Vìta}{0}{Cauchyova o støední hodnotì}
-Nech $f$ a $g$ jsou spojité na $\left<a, b\right>$, nech existuje $f'(x)\ \forall x \in (a,b)$ a nech existuje $g'(x)$ vlastní a nenulové. Potom existuje $$\xi \in (a,b): \frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\xi)}{g'(\xi)}$$
 
 \begin{e}{Dùkaz}{0}{0}
-$g(a) \neq g(b)$, nebo jinak by podle Rolleovy vìty existovalo $\xi \in (a,b): g'(\xi)=0$. Definujeme $H(x)=(f(x)-f(a))(g(b)-g(a))-(g(x)-g(a))(f(b)-f(a))$. Potom $H(a)=H(b)=0$, $H$ je spojitá na $\left<a, b\right> \Rightarrow \exists H' na (a,b)$. Tedy podle Rolleovy vìty $\exists \xi: 0 = H'(\xi)=f'(\xi)(g(b)-g(a))-g'(\xi)(f(b)-f(a))$. Tedy $\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\xi)}{g'(\xi)}$, nebo $g'(\xi) \neq 0$ a $g(b)-g(a)\neq 0$ 
-\begin{flushright}$\square$\end{flushright}
+Pokud existuje, tak v~celém okolí $f(x)$ ani neklesá, ani nestoupá, spolu s~pøedchozí vìtou dává, e tam musí bıt 0.
 \end{e}
 \end{e}
+
+\obrazekvpravominipage{matematika/obrazky/rolle}{Ilustrace Rolleovy vìty}{fig:rolle}{0.4}{0.6}{
+\begin{e}{Vìta}{1}{Rolleova vìta}
+Nech $f$ je spojitá na $\left<a, b\right>$ a nech existuje $f'(x)\ \forall x \in (a,b)$. Nech $f(a)=f(b)$. Potom existuje $c \in (a,b): f'(c)=0$.
+
+
+\begin{e}{Poznámka}{0}{0}
+Rolleova vìta je jedna ze tøí vìt o støední hodnotì, co se obèas zkouší.
+
+\end{e}
+
+\begin{e}{Dùkaz}{0}{0}
+Pokud je funkce konstantní na celém intervalu, je všude 0 a není co øešit. Nech není konstantní a tøeba existuje bod, e v~nìm je vìtší, ne $f(a)$.
+
+\medskip
+Funkce musí nabıvat na intervalu $[a,b]$ maxima (podle jedné z~pøedchozích vìt je spojitı obraz intervalu interval). Najdeme $c$, kde nabıvá maxima; v~nìm podle pøedcházející vìty musí bıt derivace 0.
+
+\medskip
+Podobnì v pøípadì, e neexistuje bod, kterı je vìtší, ne $f(a)$, ale existuje nìjakı, co je menší, ne $f(a)$ -- jen místo maxima hledáme minimum.
+
+\end{e}
+
+\end{e}
+}
+
+\obrazekvpravominipage{matematika/obrazky/lagrange}{Ilustrace Lagrange}{fig:lagrange}{0.4}{0.6}{
+\begin{e}{Vìta}{1}{Lagrangeova o støední hodnotì}
+Nech $f$ je spojitá na $\left<a, b\right>$ a nech existuje $f'(x)\ \forall x \in (a,b)$. Potom existuje $$c \in (a,b): f'(c)=\frac{f(b)-f(a)}{b-a}$$
+
+\begin{e}{Poznámka}{0}{0}
+Na obrázku \ref{fig:lagrange} je snad trochu osvìtleno, co vìta øíká a co vzoreèek znamená. Opìt jde o to, e smìrnice je definována jako podíl svislé ku vodorovné vzdálenosti bodù $[a,f(a)]$ a $[b, f(b)]$; v bodì $c$, co je mezi nimi, je potom seèna se stejnou smìrnicí, tj. derivace funkce. 
+
+
+
+\end{e}
+
+\begin{e}{Dùkaz}{0}{0}
+Pøedpokládejme, e existuje taková konstanta $k$, e pro $g(x)=f(x)-kx$ platí $g(a)=g(b)$. Potom funkce $g(x)$ splòuje Rolleovu vìtu a platí, e existuje $c$, kde $g'(c)=0$ -- platí potom ale, e $g'(c)=f'(c)-k$, tj. $$f'(c)=g'(c)+k = 0 + k = k,$$ tj. v~$c$ je derivace $f$ právì tato konstanta.
+
+\medskip
+Pokusme se tuto konstantu $k$ najít -- musí platit, e $g(a)=g(b)$, tj. $f(a)-ka = f(b)-kb$, tj. $k(b-a)=f(b)-f(a)$, tj. $k=\frac{f(b)-f(a)}{b-a}$, co jsme chtìli.
+
+\end{e}
+
+\end{e}
+}
+
+\emph{(Tenhle dùkaz je úmyslnì víc názornı, ne bıt musí -- mohli bysme vzít tu konstantu \uv{rovnou} a bylo by. Ale takhle mi to pøijde pøehlednìjší, je jasnìjší, kde se tam ta funkce vezme, a pøitom ten dùkaz je taky korektní.)}
+
+\obrazekvpravominipage{matematika/obrazky/cauchy}{Ilustrace Cauchyho}{fig:cauchy}{0.4}{0.6}{
+\begin{e}{Vìta}{0}{Cauchyova o støední hodnotì}
+Nech $f$ a $g$ jsou spojité na $\left<a, b\right>$, nech existuje $f'(x)\ \forall x \in (a,b)$ a nech existuje $g'(x)$ vlastní a nenulové. Potom existuje $$c \in (a,b): \frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(c)}{g'(c)}$$
+
+\begin{e}{Poznámka}{0}{0}
+
+Z~vìt o støední hodnotì je tahle asi nejobecnìjší a je problém si pøesnì pøedstavit, co znamená; snail jsem se to ilustrovat na obrázku \ref{fig:cauchy}; ještì ho trochu popíšu, snad to bude trochu jasnìjší. Je nutno si pøedstavit \uv{èáru}, které dìláme smìrnice, ne jako klasickı graf funkce z~$\mathbb{R}\rightarrow\mathbb{R}$, ale jako èáru, její x-ovou souøadnici urèuje jedna funkce $g$ a y-ovou jiná funkce $f$.
+
+\medskip
+Já osobnì si to pøedstavuji tak, e jakoby tu èáru kreslím v~nìjakém èase - v~èase $a$ jsem v~bodì $[g(a), f(a)]$, v~èase èase $b$ jsem v~bodì $[g(b), f(b]$.
+
+\medskip
+Kdy teï u téhle èáry vezmu tyhle dva body a udìlám mezi nimi pøímku, má smìrnici $\frac{f(b)-f(a)}{g(b)-g(a)}$.
+
+\medskip
+Teèna je v~tomhle podivném zobrazení definována jako $\frac{f'(z)}{g'(z)}$ (díky tomu, jak vypadá pøímka, procházející dvìma body). A Cauchyho vìta øíká, e pro nìjakı bod mezi $[g(a), f(a)]$ a $[g(b), f(b)]$ je tato teèna vodorovná této pøímce (tj. zobecnìní Lagrangeho vìty - pokud bychom vzali $g(x)=x$, máme \uv{normální} grafy funkcí).
+
+
+
+\end{e}
+
+\end{e}
+}
+
+\begin{e}{Dùkaz}{0}{0}
+%$g(a) \neq g(b)$, nebo jinak by podle Rolleovy vìty existovalo $c \in (a,b): g'(c)=0$. Definujeme $H(x)=(f(x)-f(a))(g(b)-g(a))-(g(x)-g(a))(f(b)-f(a))$. Potom $H(a)=H(b)=0$, $H$ je spojitá na $\left<a, b\right> \Rightarrow \exists H' na (a,b)$. Tedy podle Rolleovy vìty $\exists c: 0 = H'(c)=f'(c)(g(b)-g(a))-g'(c)(f(b)-f(a))$. Tedy $\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(c)}{g'(c)}$, nebo $g'(c) \neq 0$ a $g(b)-g(a)\neq 0$ 
+
+Kdyby $g(a)=g(b)$, tak by podle Rolleovy vìty existovalo $c \in (a,b)$, e $g'(c)=0$, co nesmí, tedy $g(a) \neq g(b)$.
+
+\noindent\medskip Dále velmi podobné, jako u Lagrange. \emph{i s tím, e dùkaz je úmyslnì trochu \uv{pomalejší}, ne by mohl bıt, aby byl jasnìjší}
+
+\noindent\medskip Pøedpokládejme, e existuje taková konstanta $k$, e pro $H(x)=f(x)-kg(x)$ platí $H(a)=H(b)$. Potom funkce $H(x)$ splòuje Rolleovu vìtu a platí, e existuje $c$, kde $H'(c)=0$ -- platí potom ale, e $H'(c)=f'(c)-kg'(c)=0$, tj. $$f'(c)=kg'(c) \rightarrow \frac{f'(c)}{g'(c)}=k.$$
+
+%\medskip
+\noindent\medskip Pokusme se tuto konstantu $k$ najít -- musí platit, e $g(a)=g(b)$, tj. $f(a)-kg(b) = f(b)-kg(b)$, tj. $k(g(b)-g(a))=f(b)-f(a)$, tj. $k=\frac{f(b)-f(a)}{g(b)-g(a)}$, co jsme chtìli.
+
+%\begin{flushright}$\square$\end{flushright}
+\end{e}
+
 
 \begin{e}{Vìta}{0}{L'Hospitalovo pravidlo}
 %\csprimeson
@@ -554,6 +643,8 @@ Analogicky pro $- \infty$.
 \end{penumerate}
 
 \subsubsection*{Taylorùv polynom se zbytkem}
+
+Pozn. korektora: Taylorovy polynomy mi vdycky pøipadaly jako hrozná zbìsilost, ale myslím, e èlovìk ty hrozné vzoreèky docela pochopí, pokud si opravdu udìlá ty dùkazy. Pultr je ve svıch skriptech má docela hezky vysvìtlené. Nikdy z~nich nebyl nikdo zkoušen, co øíkají reporty na webu.
 
 \begin{e}{Definice}{0}{0}
 Nech $f$ je reálná funkce, $a \in \mathbb{R}$, $n \in \mathbb{N}$ a $f$ má derivace do øádu $n$. Pak funkci
