@@ -17,7 +17,7 @@ Dìlí se na \textbf{dvoubodové spoje} (vztah 1:1), jde napø. o pøímé spojení port
 \textbf{Procesor} mùe pøistupovat k I/O zaøízením dvìma zpùsoby:
 \begin{pitemize}
     \item \textbf{port-mapped I/O} -- speciální adresovı port CPU, kterı má i speciální instrukce pro práci (IN, OUT) s I/O zaøízením, která také mají vlastní adresovı prostor (buï pøímo vlastní sbìrnici, nebo extra I/O pinem), díky tomu se také øíká \uv{isolated I/O},
-    \item \textbf{memory-mapped I/O} -- pamìové mapování, kterı mapuje I/O zaøízení pøímo do fyzické pamìti, kterou tak sdílí s ostatními daty, tato èást pamìti mùe bıt vyhrazená trvale nebo i jen doèasnì. Zaøízení poslouchá na adresové sbìrnici, aby vìdìlo, kdy má pracovat (odpovídat, ...).
+    \item \textbf{memory-mapped I/O} -- pamìové mapování, kterı mapuje I/O zaøízení pøímo do adresového prostoru fyzické pamìti. Tato èást adresového prostoru mùe bıt vyhrazená trvale nebo i jen doèasnì. Zaøízení poslouchá na adresové sbìrnici, aby vìdìlo, kdy má pracovat (odpovídat, ...).
 \end{pitemize}
 
   \begin{center}
