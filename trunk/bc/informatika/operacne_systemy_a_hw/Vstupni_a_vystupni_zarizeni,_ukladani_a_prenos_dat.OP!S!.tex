@@ -111,13 +111,13 @@ CPU nastaví pøenos a nechá DMA pracovat, a je operace dokonèena, pošle se pøeru
 \end{figure}
 \end{e}
 
-Problémy u DMA spoèívají v odstínìní CPU od pamìti, co mùe vyvolat \textbf{pamìovou koherenci}, slušnì øeèeno pomocí DMA obejdeme cache CPU, kde mohou bıt aktuálnìjší hodnoty ne v pamìti, a tudí máme problém Houstone. Øeší se to tím, e procesor sleduje, na jaké adresy se pøistupuje a pokud tam padne nìjaká, kterou má v cache, tak to zaène øešit.
+Problémy u DMA spoèívají v odstínìní CPU od pamìti, co mùe vyvolat \textbf{pamìovou inkoherenci}, slušnì øeèeno pomocí DMA obejdeme cache CPU, kde mohou bıt aktuálnìjší hodnoty ne v pamìti, a tudí máme problém Houstone. Øeší se to tím, e procesor sleduje, na jaké adresy se pøistupuje a pokud tam padne nìjaká, kterou má v cache, tak to zaène øešit.
 
 \begin{figure}[h]
   \centering
   \label{fig:dma_memory_incoherency}
   \includegraphics[width=12cm]{informatika/operacne_systemy_a_hw/obrazky/pametova_koherence.png}
-  \caption{pamìová koherence}
+  \caption{pamìová inkoherence}
 \end{figure}
 
 Cíle I/O software:
