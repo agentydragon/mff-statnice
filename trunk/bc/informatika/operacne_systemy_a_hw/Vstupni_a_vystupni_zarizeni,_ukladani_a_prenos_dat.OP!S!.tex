@@ -69,6 +69,12 @@ Slouí pro pøenos dat mezi zaøízením a pamìtí nebo mezi dvìma zaøízeními. Jde o 
 
 \subsubsection*{DMA}
 CPU nastaví pøenos a nechá DMA pracovat, a je operace dokonèena, pošle se pøerušení, tedy mezitím mùe CPU pracovat jinde. DMA øadiè je obvod pro øízení pøenosù na sbìrnici mezi pamìtí a zaøízeními nebo i pouze v pamìti. U multiprocesorù se uívá i k pøenosu dat mezi jádry. Dále bìnì u pevnıch diskù, grafickıch, zvukovıch a síovıch karet. DMA øadiè obsahuje registry, do kterıch mùe CPU zapisovat nastavení pøenosu (adresa v pamìti, poèet bytù, smìr r/w, jaké zaøízení) -- tomu se øíká \textbf{burst mode}, ve kterém vystaèí jeden adresovı cyklus na celı blok dat. Dále se vyuívá pøi pøenosu dat do/z více nesouvislıch bufferù (\textbf{scatter/gather}, také vektorové I/O).
+\\ Jednou z technik, pouívanıch k pøenosu dat po sbìrnici øadièi DMA, je scatter-gather. Znamená to, e v rámci jednoho pøenosu se zpracovává víc ne nutnì souvislıch blokù dat.
+\begin{pitemize}
+    \item scatter - DMA øadiè v rámci 1 pøenosu uloí z 1 místa data na nìkolik rùznıch míst (napø hlavièky TCP/IP - jinak zbyteèné kopírování)
+    \item gather - napø. pøi stránkování pamìti - naèítání stránek, které fyzicky na disku nemusí bıt u sebe, sloení na 1 místo do pamìti.
+\end{pitemize}
+
 
 \begin{e}{Práce øadièe DMA}{0}{0}
 \begin{pitemize}
