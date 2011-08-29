@@ -24,12 +24,14 @@ Na takové množinì jsou definovány tyto operace:
 
 
 \begin{e}{Definice}{0}{0}
-\emph{Binární strom} je dynamická množina, kde každý prvek (uzel, node) má kromì klíèe a pøíp. dalších dat tøi ukazatele na \emph{levého} a \emph{pravého} syna a rodièe. Speciální uzel je \emph{koøen}, který má NULLový ukazatel na rodièe. Ten je v binárním stromì jeden. Uzly, které mají NULLové ukazatele na pravého i levého syna, se nazývají \emph{listy}.
+\emph{Binární strom} je dynamická množina, kde každý prvek (uzel, node) má kromì klíèe a pøíp. dalších dat (tøi) ukazatele na \emph{levého} a \emph{pravého} syna (a rodièe). Speciální uzel je \emph{koøen}, který má NULLový ukazatel na rodièe. Ten je v binárním stromì jeden. Uzly, které mají NULLové ukazatele na pravého i levého syna, se nazývají \emph{listy}.
 
 \emph{Podstrom} je èást stromu (vybrané prvky), která je sama stromem - napø. pokud se jako koøen urèí jeden z prvkù. \emph{Levý(pravý)} podstrom nìjakého prvku je strom, ve kterém je koøenem levý(pravý) syn tohoto prvku. \emph{Výška stromu} je délka nejdelší cesty od koøenu k listu.
 \end{e}
 
-Binární strom je \emph{vyvážený}, pokud max. 1 uzel má jednoho syna (tj. všechny vnitøní uzly kromì až na jeden mají oba syny, listy z definice nemají žádného). Výška vyváženého stromu roste logaritmicky vzhledem k poètu uzlù. Výška nevyváženého stromu mùže rùst až lineárnì vzhledem k poètu prvkù (i \uv{spojový seznam} je platný bin. strom).
+Binární strom je \emph{dokonale vyvážený}, jestliže pro každý jeho vrchol platí, že poèet prvkù v jeho levém a pravém podstromu se liší nejvýše o 1.
+\\ 
+Výška dokonale vyváženého stromu roste logaritmicky vzhledem k poètu uzlù. Výška nevyváženého stromu mùže rùst až lineárnì vzhledem k poètu prvkù (i \uv{spojový seznam} je platný bin. strom).
 
 
 \subsubsection*{Binární vyhledávací strom}
@@ -80,7 +82,7 @@ Pro vyvažování stromù pøi vkládání a odebírání uzlù se definují pomocné operace:
     \item Každá cesta od libovolného vrcholu k listùm v jeho podstromì musí obsahovat stejný poèet èerných uzlù.
 \end{penumerate}
 
-Pro èerveno-èerné stromy se definuje \emph{výška uzlu} $x$ ($\b{h}(x)$) jako poèet uzlù na nedelší možné cestì k listu v jeho podstromì. \emph{Èerná výška uzlu} ($\b{bh}(x)$) je poèet èerných uzlù na takové cestì.
+Pro èerveno-èerné stromy se definuje \emph{výška uzlu} $x$ ($\b{h}(x)$) jako poèet uzlù na nejdelší možné cestì k listu v jeho podstromì. \emph{Èerná výška uzlu} ($\b{bh}(x)$) je poèet èerných uzlù na takové cestì.
 \end{e}
 
 \begin{e}{Vìta}{0}{Vlastnosti èerveno-èerných stromù}
