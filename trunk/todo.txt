@@ -1,2 +1,2 @@
 TODO:
-+ ciselne rady (kriteria jako napr. Cauchyho, d'Alembertovo apod)
++ ciselne rady (kriteria jako napr. Cauchyho, d'Alembertovo apod) (viz reporty!!!)

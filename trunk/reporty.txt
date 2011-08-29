@@ -36,19 +36,30 @@ Vladan prisel, bezeslova si procetl papiry - fixou do papiru zaznacil Cauchyovsk
 8
 cela v TeXu
 
-9.1
-(?) lineární nezávislost, báze ...Vektorové prostory byly rychlé, sepisoval jsem si axiomy, zkoušející mì v tom pøerušil, chtìl vìdìt co je báze, co lineární obal...v podstatì jen definice. 
+9
+{0} Vektorové prostory byly rychlé, sepisoval jsem si axiomy, zkoušející mì v tom pøerušil, chtìl vìdìt co je báze, co lineární obal...v podstatì jen definice.
+{0} Vektorove prostory relativne v poho, jen zasek u dukazu proc linearni obal odpovida vsem linearnim kombinacim dane mnoziny, proste hrozny nervy a vypnutej mozek, jinak jsem napsala definici VP a jeho podprostoru, lin. kombinace, lin. (ne)zavislost, baze, dimenze, prunik a sjednoceni podprostoru, lin. obal
+{0} Vektorové prostory - definice + vybrat si jednu vìtu a dokázat ji (dokazoval jsem vìtu o výmìnì)
+{0} lineární nezávislost, báze ...Vektorové prostory byly rychlé, sepisoval jsem si axiomy, zkoušející mì v tom pøerušil, chtìl vìdìt co je báze, co lineární obal...v podstatì jen definice. 
+{Fiala, Kucera} Z dukazu u M stacilo jen dokazat lemma o vymene a rict ideu dukazu Steinitzovy vety
+otazka se tykala lin. nezavislosti, tam jsem dokazal lemma o vymene a naznacil dukaz Steinitzovy vety
+{Gregor} Definice (lineární nezávislost, lineární obal, systém generátorù, báze vektorového prostoru) jsem mìl celkem v pohodì, místo Steinitzovy vìty jsem si ovšem vspomnìl jen na pomocné lemma (slabší verzi vìty), což mi ale nakonec bylo odpuštìno (možná proto, že jsem k nìmu vyplodil uznatelný dùkaz)
+{Koubek, Surynek} Koneènì generované VP, báze - tak trochu definic, co je co, lemma + vìta o výmìnì s dùkazy. Tady se ptali, ale to bylo tím, že jsem to taky míò umìl, ale na dotazy jsem odpovìdìl a bylo po matematice.
+{0} Vektorove prostory relativne v poho, jen zasek u dukazu proc linearni obal odpovida vsem linearnim kombinacim dane mnoziny, proste hrozny nervy a vypnutej mozek, jinak jsem napsala definici VP a jeho podprostoru, lin. kombinace, lin. (ne)zavislost, baze, dimenze, prunik a sjednoceni podprostoru, lin. obal
+
 10.1
 (Matoušek): Definice, jejich zøejmé dùsledky v R a C, k èemu co slouží. Zeptal se jen co je ta èárka nad (komplexním èíslem) a následnì co je komplexnì sdružené èíslo, a chtìl rozepsat CS-nerovnost pro eukleidovský prostor. Zapomnìl jsem na jeden axiom skalárního souèinu (nezápornost <u|u>), to mi vytkl, a pøimhouøil oko i nad tím,že jsem mu zprvu tvrdil, že plyne z ostatních (spletl jsem si to s normou). Kolmost jsem stihl už jen definovat, dál jsem se nedostal. Ještì jsem Matouškovi tak trochu vnutil náznak dùkazu CS nerovnosti (když už jsem se to uèil;)), nebyl ale vyžadován. 
 10.3
 (Žemlièka) Zaèal jsem tou nerovností. Definoval jsem tìleso, VP, sk. souèin a nakonec normu. Chybìl mi jeden axiom a jiný vztah tam byl navíc, procházení a nalézání bylo docela úmorné, dùkaz C-S nerovnosti jsem mìl z poloviny, ale když prohlásili, že alfa je jen technická záležitost, bylo to lepší, než celý dùkaz špatnì. Chtìli dùsledky nerovnosti, tøeba jako trojúhelníkovou nebo srovnání prùmìrù. Ten druhý jsme spoleènými silami odvodili, už jsem byl opìt dost nervózní. 
 (Gregor) Napsal jsem definice skalarniho soucinu a normy. U normy chtel nekolik moznych "typu" normy, tj. maximalni, manhattonska atd. coz jsem moc nevedel, musel jsem patrat v pameti jeste z dob kdy to bylo na prednasce. Pak jsem napsal CS nerovnost a ideu dukazu, na detaily jsem si nevzpomel. Potom trojuhelnikovou nerovnost. Tu jsem mel s dukazem pro R, ale on chtel i pro C. Nakonec jsem to s jeho pomoci dal do kupy. 
 12.2
+
 (IOI 21. 6. 2011) 2.1 Definujte pojmy øádkový prostor, sloupcový prostor a jádro matice
 2.2 Jaké platí vztahy mezi dimenzemi tìchto prostorù a hodností matice?
 2.3 Existuje nad libovolným tìlesem matice velikosti 3x3, která má dimenzi jádra 2? (Uveïte pøíklad nebo dokažte, že neexistuje) 
 15.1
 (Dvorak) Na matiku docela rejpal, chtel vedet jak moc tomu rozumim. U simplexovky se ptal, proc tahle uprava tabulky, atd. A co je tohle v tabulce, atd. No jeste, ze jsem chodil na zaklady optimalizace, jinak bych tyhle veci nevedel. Btw: byl rad, ze jsem vedel, ze existuji i jine metody nez simplex - chacijan a karmarkar. 
+16.2 Pri dvojke stacili definicie a vety. Podstatna bola Hallova veta a este Tutteova veta, ktoru som nevedel. Pan co skusal M bol tiez fer a trpezlivy, rovnako ma nicim prehnanym netrapil. Co som skutocne nevedel som popravde priznal ako pri matematike, tak pri informatike, nastastie toho nebolo privela. 
 ----------------17 je komplet ----------------
 17.1-3 v techu
 17.4
@@ -103,6 +114,12 @@ Definiciu rozhodnutelnosti som vedel, ale nevedel som mu nic blizsie povedat a r
 NIKDY NEBYLA ZKOUSENA?
 3.3
 vsechno je v TeXu
+3.4
+{Žemlièka} Napsal jsem tam toho myslim dost, popis a slozitost operaci, prumerna vyska pr. stromu, u AVL rotace, kolik max rotaci pri jake operaci, max hloubku AVL stromu, i tu haldu, vcetne pekne reprezentace v poli (tam jsem nenapsal, ze syny najdu na pozici a2i a a2i+1, na coz se pak doplnkove ptal). Pro doplneni chtel CC stromy a splay-stromy (tam jsem zvoral, ze se vyhledavany zaznam "strci" do korene, pote, co zvedl oboci, jsem se rychle opravil "Ja jsem blbej, zarotuje az do korene"). Halda se mu nezdala, ac jsem tam napsal to vyuziti pri trideni na vnejsi pameti (predtrideni dvojitou haldou) - doufal jsem, ze ho to potesi, kdyz jsme to brali na OZD. ;) ... "Hmmm, a co jiny haldy?" Tak jsem priznal, ze nevim, ze jsem akorat slysel o Fibonaciho haldach. Chtel neco s vice-arnimi haldami a haldami, jejichz nazev jsem slysel snad poprve v zivote.
+{Kopecký} BVS a vyvažování: (AVL + RedBlack). Dotaz na optimální vyhledávací stromy: popsal jsem splay (aniž jsem tušil, že se tak jmenují), ale že na statické o.v.s. se hodí dynamické programování, jsem si "vzpomnìl" až po nápovìdì. 
+{Kopecký} Tohle jsem mel vse, az na malou chybicku u AVL, ze pri pridani staci provest max. jednu rotaci a take jsem nevededel vyhledavaci stromy, kde krom klice je ulozena i potencionalni cetnost hledani.
+{Skopal} B-stromy a analogie s RB stromy - nechtìl víc než definici a odhady složitosti FIND v nejhorším a nejlepším pøípadì 
+{Kopecký} BVS a vyvazovani - tady chtel Kopecky slyset rozdily mezi AVL a R&B, algoritmus pro optimalni binarni vyhledavaci strom, splay stromy
 3.12-13
 vsechno je v TeXu
 3.11
