@@ -237,6 +237,27 @@ je matice, která vznikne odstranìním $i$-tého øádku a $i$-tého sloupce z~Laplace
 ??? Dukaz
 \end{e}
 
+\begin{e}{Report}{0}{0} Representace grafu byla docela jednoducha, popsal jsem ty representace, hlavni rozdil byl v casove narocnosti nalezeni sousedu vrcholu, bavili jsem se o BFS, DFS, jak jednotlive representace tedy ovlivni casovou narocnost. Popsal jsem a dokazal, co jsou mocniny matice sousednosti.
+\end{e}
+\begin{e}{Report}{0}{Majerech} teorie grafu: zakl. pojmy, souvislost, stromy (jen definice), kostry (chtel obecnou definici i pro nesouvisle grafy); 
+eulerovy & hamilt. grafy, rovinne grafy a barveni - definice a informace o tom, jak jsou problemy tezke z algoritmickeho hlediska. 
+\end{e}
+\begin{e}{Report}{0}{Fiala} Zaèal jsem stromy a kostrami, prakticky to, co je v materiálech + napsal jsem dùkaz Cayleyho formule (je opravdu lehký a zabere hodnì papíru). Mìl jsem ještì dokázat nìjakou implikaci u tìch stromù. Tam jsem se trošièku zamotal, ale nakonec +- 
+\end{e}
+\begin{e}{Report}{0}{Fiala} Stromy, min. kostra - Uvedl jsem definice, ekvivalentní podmínky, že graf je stromem (bez dùkazu), Kruskalùv a Primùv algoritmus. U Kruskalova alg. jsem se zamotal pøi vysvìtlování, proè je korektní, o Primovì alg. ani složitosti obou mì nenechal mluvit (ale mìl jsem nìco na papíøe a èetl si to). 
+\end{e}
+\begin{e}{Report}{0}{Surynek}napsal jsem ekvivalentni definice stromu, par ekvivalenci dokazal, par obecnych kydu, definoval jsem kostru a vyslovil par vet pro kostry (pocet koster uplnaku, pocet koster grafu pres Laplaceovu matici), rekl jsem, jak se algoritmicky hleda kostra. Krom tech ekvivalenci u stromu jsem neumel nic dokazat (pocet koster uplnaku jsem tusil obrysy Obratlovcù, ale jinak nic moc, prý že je to "takové nìjaké podivné"), proto za 2. 
+\end{e}
+\begin{e}{Report}{0}{Mlèek} Definice, základní tvrzení. Nebylo toho moc, tak jsem pro jistotu pøipsal ještì nìco o minimální kostøe a nastínil algoritmy (Jarník, Borùvka, Kruskal). U tvrzení o poètu koster úplného grafu o (resp. poètu stromù na) n vrcholech se mì ptal na dùkaz, nevìdìl jsem ho, ale to zøejmì nevadilo (ostatní bylo snad bez výtek). Pár obecných otázek kolem. 
+\end{e}
+\begin{e}{Report}{0}{Mlèek} Na stromy jsem øekl ideu dùkazu Cayleyho formule a fakt sem se divil, když se mì po drsnostech z diferenciálních rovnic zeptal "No a víte prosímvás, co je to indukovaný podgraf??" .. takže z trivialit prváku sem dostal jednièku, celkovì jedna. 
+\end{e}
+\begin{e}{Report}{0}{IOI 10.2.2011}
+Teorie grafù: stromy
+s)Uvedte alespoò dvì definice stromu a ukažte jejich ekvivalenci.
+\\ 
+b)Popište pojem kostra grafu a uveïte algoritmus pro její naleni vèetnì analýzy potøebného èasu a pamìti
+\end{e}
 \subsection{Eulerovské a hamiltonovské grafy}
 
 \begin{e}{Definice}{0}{Eulerovský graf}
@@ -534,7 +555,7 @@ E_i =
 E_{i-1} \cup \{e_i\} & \text{neobsahuje-li graf $(V,E_{i-1} \cup \{e_i\})$ kružnici}\\
 E_{i-1} & \text{jinak}
 \end{cases}
-$$
+$$ L  }     \\ MPC \\    )}   
 \end{penumerate}
 Algoritmus se zastaví, pokud $E_i$ má $n-1$ hran. Poslední množina $E_i$ jsou hrany minimální kostry grafu $G.$
 \end{e}

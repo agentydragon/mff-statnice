@@ -1,37 +1,11 @@
 1. - je komplet v TeXu
-2.1
-(Majerech) Vytáhl jsem si funkce jedné promìnné... to neznìlo špatnì co pøišlo byl docela šok... otázka byla totiž:
-Dokažte vìtu o Darbouxouvì vlastnosti pro spojité funkce - žádné vìty nebo definice - prostì jeden dùkaz
-uff dùkaz jsem nevidìl od prváku... no vymyslel jsem nìco co vypadalo dùvìryhodnì 
-majerech se podíval konstatoval, že takhle si dùkaz nepøedstavoval... a že se to normálnì dokazuje jinak, uznal že to co jsem vyrobil má hlavu a patu nicménì použil jsem že uzavøený interval je kompaktní množina a že tam lze tedy vybrat konvergentní podposloupnost což majerech prohlásil že je dùsledek toho co mám dokazovat... a že bych asi to mìl ukázat... naštìstí z toho sešlo po této co majerech po drobném pøesvìdèování uznal že vìta byla +- dokázána 
-2.2
-(Zahradník) v podstate jen definice, Heineho veta a par pozorovani
- Zde jsem napsal definici spojitosti, tu vìtu, a pøehled vìt a vlastností nìjak se vztahujících k spojitosti. Napsal jsem znìní Darbouxovy vìty + dùkaz. To staèilo. 
-2.4
-(neznamy hodny pan) Derivace + 3 vety o stredni hodnote 
-(Surynek) Derivace: definice a základní pravidla, vìty o støední hodnotì - dokazy ... 
-(Kucera) Derivacie, vety o strednej hodnote -> napisal som definicie, par viet o derivaciach a vety o strednych hodnotach. Pan Kucera sa prisiel pozriet ako mi to ide, s tym, ze este par viet som chcel dopisal. Pozrel sa na to, povedal "Ale jo", a nic viac nepozadoval, ani dokazy (znamku nepovedal) 
-(Majerech) vety o stredni hodnote (vyzadoval dukaz bez aplikace jine vety o strednu hodnote) vety o stredni hodnote jsem sepsal a nejak odkyval dukaz
-(Matousek) Trapili me trochu na dukazu te Lagrangeovy vety, kde sem nemel jasno v predpokladech - popravde s takovym spankovym deficitem me to, ze jsem si tam hodil silnejsi, moc nevzrusovalo. Matousek se me ptal na nejaky algoritmicky aspekty - jestli bych dokazal vypocitat determinant rychlejs nez v n^3, coz sem moc nevedel, tak on pry jestli alespon nasobeni, coz sem mu rekl, ze Strassen a on na to, ze se to da aplikovat i na determinanty. 
-(Kopecky) Z matiky jsem mel vetu o stredni hodnote, tak jsem napsal Rolleovu, Lagrangeovu a Cauchyovu vetu o kterych jsem si myslel ze k tomu patri. Ale se zlou jsem se potazal. 
-(Majerech) u matiky stacily definice potrebnych veci a Majerech celkem navedl. Jen ma netradicni definice vety o str. hodnote. Chtel dukaz Darboux. vlast. + proc jde na R a ne na Q, Newton metoda - vsechno se odehravalo na magickem prikladu x<sup>2</sup> = 2 
-2.5
-(IOI 21.6.2011) Definujte Taylorùv polynom.
-Vyslovte vìtu o zbytku Taylorova polynomu.
-Vypoètìte Taylorovu øadu pro funkci sin(x). 
-(?) fuuuuuuuuuuuuuuuuuuj, dala jsem dohromady zakladni definici, jeden priklad pro exponencialu, jeden priklad zbytku (zkonenej:), pak po me chtel spocitat sin(168 stupnu) pomocí taylora (coze???), no s velkou pomoci jsem to nejak dala... 
-(Majerech) newtonova metoda (chtel pomoci ni spocitat dom(n)) pricemz Newtona jsem si skoro vubec nepamatoval a smolil a smolil...nakonec jsem delal jen matiku 
-(Matousek) tayloruv polynom, pouziti. A dodal, ze kdybych vedel i nejake tvrzeni, "tak by to bylo skvely" - taylora jsem zadefinoval, napsal i pouziti. Tvrzeni jsem vedel jen jedno jednoduche (nejaka ta limita jde k nule), ale predpoklady moc ne-e - to se mu nelibilo, takze to jeste rozebiral - nejak jsme se dostali ke zbytku a on chtel aspon lagrangeovu vetu o stredni hodnote, ze ktere se to da tak nejak vyjadrit (ja jsem v podstate rekl jen tu vetu, zbytek odrikal on) 
-(neznámý) v kazdom pripade newtona si myslim ze spocitas pre nejaky polynom vcelku jednoducho - tak isto ako taylorov polynom pre exp tiez spocitas podla definicie 
-(Majerech) Taylor+zbytek, Newtonova metoda pro funkci x^2+2 a vìty o pevném bodì. 
-Hned na zaèátku mi øekl, že ty vìty o pevném bodì co jsme brali nejsou ty, co po mnì chce a nadefinoval mi vlastní, kterou jsem mìl dokázat a navíc dokázat, že neplatí pro fukce nad Q. 
-Taylor a NM byly v pohodì, u Taylora staèila definice a NM jsem si pamatoval z numeriky, když jsem se dostal k odm ze dvou s pøesností na tøi místa, tak jsme to prohlásili za konvergentní. Pak ale zaèalo pøituhovat. Použil jsem metodu nahrazení kvality kvantitou a sesypal jsem na nìkolik A4 úplnì všechna fakta, která by se v tom dùkazu vìty o pevném bodì dala použít. Pak jsme se v tom dost dlouho pøehrabovali a nakonec mì k tomu nìjak dokormidloval a kupodivu mi to dal taktéž za 1. 
-(Zemlicka) Dalsi otazka bylo hledani korene polynomu numerickymi metodami, tedy Newtonovu metodu + dalsi algoritmy, kde po
-me chtel abych srovnal jejich vyhody, nevyhody, rychlosti, ... nicmene musim rict, ze Zemlicka je vic v pohode, nez jsem
-cekal. 
-(Klazar) Taylorove polynomu jsem napsala jen, jak vypada, Tayloruv rozvoj funkce, k cemu se to pouziva. Jeste se me pak ptal na par veci, ty uz jsem moc nevedela. A pak jeste rozepsat e na xtou a sin x.  http://forum.matfyz.info/viewtopic.php?f=418&t=3406&p=16319
-3.????
+2 - komplet v texu
+3.X
 (neznámý) kritéria konvergence èíselných øad 
+(IP 21.6.2011)
+Napiste definici konvergence rad.
+Rozhodnete a zduvodnete, zda konverguji rady: 1/n, 1/n^2, sin(n)/n
+
 3.1
 (Fiala) Posloupnost funkcí + stejnomìrná spojitost  - Napsal jsem zase to, na co jsem si vzpomnìl z materiálù (ty tøi definice na posloupnost a asi ètyøi "vìty"). Mìl jsem ještì ukázat rozdíly mezi nimi na nìjakých konkrétních funkcích... Pan Fiala mìl sice záludnìjší otázky, ale zkoušení bylo naprosto férové a vcelku mírné. 
 3.2
@@ -76,16 +50,7 @@ cela v TeXu
 15.1
 (Dvorak) Na matiku docela rejpal, chtel vedet jak moc tomu rozumim. U simplexovky se ptal, proc tahle uprava tabulky, atd. A co je tohle v tabulce, atd. No jeste, ze jsem chodil na zaklady optimalizace, jinak bych tyhle veci nevedel. Btw: byl rad, ze jsem vedel, ze existuji i jine metody nez simplex - chacijan a karmarkar. 
 ----------------17 je komplet ----------------
-17.1
-(?) Representace grafu byla docela jednoducha, popsal jsem ty representace, hlavni rozdil byl v casove narocnosti nalezeni sousedu vrcholu, bavili jsem se o BFS, DFS, jak jednotlive representace tedy ovlivni casovou narocnost. Popsal jsem a dokazal, co jsou mocniny matice sousednosti.
-(Majerech) teorie grafu: zakl. pojmy, souvislost, stromy (jen definice), kostry (chtel obecnou definici i pro nesouvisle grafy); 
-eulerovy & hamilt. grafy, rovinne grafy a barveni - definice a informace o tom, jak jsou problemy tezke z algoritmickeho hlediska. 
-17.3
-(Fiala) Zaèal jsem stromy a kostrami, prakticky to, co je v materiálech + napsal jsem dùkaz Cayleyho formule (je opravdu lehký a zabere hodnì papíru). Mìl jsem ještì dokázat nìjakou implikaci u tìch stromù. Tam jsem se trošièku zamotal, ale nakonec +- 
-(Fiala) Stromy, min. kostra - Uvedl jsem definice, ekvivalentní podmínky, že graf je stromem (bez dùkazu), Kruskalùv a Primùv algoritmus. U Kruskalova alg. jsem se zamotal pøi vysvìtlování, proè je korektní, o Primovì alg. ani složitosti obou mì nenechal mluvit (ale mìl jsem nìco na papíøe a èetl si to). 
-(Surynek): napsal jsem ekvivalentni definice stromu, par ekvivalenci dokazal, par obecnych kydu, definoval jsem kostru a vyslovil par vet pro kostry (pocet koster uplnaku, pocet koster grafu pres Laplaceovu matici), rekl jsem, jak se algoritmicky hleda kostra. Krom tech ekvivalenci u stromu jsem neumel nic dokazat (pocet koster uplnaku jsem tusil obrysy Obratlovcù, ale jinak nic moc, prý že je to "takové nìjaké podivné"), proto za 2. 
-(Mlèek) Definice, základní tvrzení. Nebylo toho moc, tak jsem pro jistotu pøipsal ještì nìco o minimální kostøe a nastínil algoritmy (Jarník, Borùvka, Kruskal). U tvrzení o poètu koster úplného grafu o (resp. poètu stromù na) n vrcholech se mì ptal na dùkaz, nevìdìl jsem ho, ale to zøejmì nevadilo (ostatní bylo snad bez výtek). Pár obecných otázek kolem. 
-(Mlèek) Na stromy jsem øekl ideu dùkazu Cayleyho formule a fakt sem se divil, když se mì po drsnostech z diferenciálních rovnic zeptal "No a víte prosímvás, co je to indukovaný podgraf??" .. takže z trivialit prváku sem dostal jednièku, celkovì jedna. 
+17.1-3 v techu
 17.4
 (Kratochvil) Def Eul. grafu + veta + dukaz. Def Ham. kruznice, jak je to tezky, postacitelna podminka (D) a dukaz, ktery neni uplne easy, ale ktery jsem z kombagry u Kratochvila umel a rozumel mu. Evidentne ho to potesilo. :) Nakonec par dotazu, jak je to tezke - NP, a to i na rovinnych grafech, ovsem navedl me k tomu, ze na urcite tride grafu (myslim ze "hranove") je otazka HK polynomialni - prevedl jsem to na testovani Eulera. 
 (Majerech) eulerùv graf + hamiltonovský (složitosti) 
@@ -106,7 +71,9 @@ Gregor stoural trochu vic nez skopal, ale v pohode.
 (Majerech) lze tøemi barvami? algoritmus na zjištìní, zdali lze ho obarvit 3 - prej nìco dvakrát pustit prohledávání do hloubky - nepochopil jsem 
 (Dvorak) Barveni grafu v pohode, ale pres to jsme se dostali az k NP-uplnosti a jijim definicim a hromadu veci kolem. Mimo jine se i ptal, jestli znam nejake odhady pro chromaticke cislo grafu atd. 
 Ale matika celkove v pohode. 
-
+(IP 21.6.2011)
+3.1 Definujte pojem barevnost grafu
+3.2 Popište jak souvisí barevnost s tìmito atributy grafu : poèet vrcholù, klikovost, nezávislost, degenerovanost, rovinnost
 
 
 
