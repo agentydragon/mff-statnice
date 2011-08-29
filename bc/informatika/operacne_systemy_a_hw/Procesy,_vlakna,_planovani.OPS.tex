@@ -8,6 +8,8 @@ Systémové volání je interface mezi OS (kernelspace) a uívatelskımi programy (us
   inštrukcií, proces je vlastnı \uv{vıkon} tıchto inštrukcií. Proces má vlastnı adresnı priestor (pamä), prostriedky, child procesy, globání promìnné, otevøené soubory, práva a napr. aj ID (Process ID).
 \end{e}
 
+\obrazekvpravo{informatika/operacne_systemy_a_hw/obrazky/procesy_stavy.png}{Pøechody mezi stavy procesu}{}{0.45}
+\begin{e}{Stavy procesu}{0}{0}
 Poèas ivota sa môe proces nachádza v rôznych stavoch:
 \begin{pitemize}
   \item \emph{beiaci}~-- jeden proces na procesor,
@@ -15,6 +17,7 @@ Poèas ivota sa môe proces nachádza v rôznych stavoch:
   \item \emph{pripravenı}~-- skonèilo blokovanie; spotreboval všetok pridelenı èas resp. vrátil riadenie systému, èaká na nové pridelenie procesora,
   \item \emph{zombie}~-- po ukonèení procesu, keï u nepracuje~-- ale ešte nebol vymazanı.
 \end{pitemize}
+\end{e}
 
 \begin{e}{Definice}{0}{Vlákno (Thread)}
   \emph{Vlákno} je monos pre program ako sa \uv{rozdeli} na dva alebo viac
@@ -23,6 +26,14 @@ Poèas ivota sa môe proces nachádza v rôznych stavoch:
   Oproti procesu sú jeho \uv{atribútmi} len \textbf{hodnota programového èítaèa, stav
   registrov CPU a zásobník}.
 \end{e}
+\begin{figure}[h]
+  \centering
+  \subfloat[Process control block]{\label{fig:pcb_process} \includegraphics[width=8cm]{informatika/operacne_systemy_a_hw/obrazky/pcb_process_control_block.png}} \hfill
+  \subfloat[Process control block s vlákny]{\label{fig:pcb_thread}\includegraphics[width=8.5cm]{informatika/operacne_systemy_a_hw/obrazky/pcb_process_control_block_vlakna.png}}
+  \caption{Process control block}
+  \label{fig:pcb}
+\end{figure}
+
 Implementace:
 \begin{pitemize}
         \item \textbf{User Level Threads}(1.diagram) - thread management dìlá aplikace (nemusí bıt podporovány OS), kadı proces ma thread table, kdy systém zablokuje proces zablokují se i všechny jeho thready
