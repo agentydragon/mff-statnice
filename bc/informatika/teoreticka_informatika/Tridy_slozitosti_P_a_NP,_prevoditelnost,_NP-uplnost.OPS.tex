@@ -28,14 +28,13 @@
   \end{pitemize}
 \end{e}
 
-Jiná definice: Mìjme rozhodovací algoritmus $A$, výsledek algoritmu chápejme jako funkce $A(x)$ na vstupu $x$, pak algoritmus $A$ je redukovatelný na $B$ ($A \rightarrow B$) když $\forall A: B(f(x))=A(x)$ pro polynomiální $f$.
+Jiná definice: Mìjme rozhodovací problém $A$, výsledek problém chápejme jako funkce $A(x)$ na vstupu $x$, pak problém $A$ je redukovatelný na $B$ ($A \rightarrow B$) když $\forall A: B(f(x))=A(x)$ pro polynomiální $f$.
 \medskip
-Obì definice øíkají, že $B$ je \uv{aspoò tak tìžký}, jako $A$ (mùže ale být tìžší!). Název je trochu zavádìjící -- neredukujeme na \emph{lehèí}, ale na \emph{tìžší} algoritmus. Platí ale, že pokud $B$ je polynomiálnì složitý, je i $A$.
+Obì definice øíkají, že $B$ je \uv{aspoò tak tìžký}, jako $A$ (mùže ale být tìžší!). Název je trochu zavádìjící -- neredukujeme na \emph{lehèí}, ale na \emph{tìžší} problém. Platí ale, že pokud $B$ je polynomiálnì složitý, je i $A$.
 
-Pøevoditelnost je kvaziuspoøádání -- je reflexivní a tranzitivní. Není ale symetrický -- na to je potøeba vytvoøit tøídy složitosti, ty potom symetrické jsou a nad nimi je pøevoditelnost uspoøádání.
 
 \begin{e}{Definice}{0}{3-SAT}
- 3-SAT (z anglického \uv{satisfiability}) je rozhodovací problém, který jako vstup dostane logickou formuli urèitého typu a rozhodne, zda je, nebo není splnitelná, tj. jestli existuje nìjaké její ohodnocení, které je pravdivé. Logická formule musí být následujícího typu:
+3-SAT (z anglického \uv{satisfiability}) je rozhodovací problém, který jako vstup dostane logickou formuli urèitého typu a rozhodne, zda je, nebo není splnitelná, tj. jestli existuje nìjaké její ohodnocení, které je pravdivé. Logická formule musí být typu CNF, tj.:
 
 $$(a_1\vee b_1 \vee c_1) \wedge (a_2 \vee b_2 \vee c_2) .... \wedge (a_n \vee b_n \vee c_n),$$
 
@@ -120,8 +119,6 @@ Dokázali jsme, že 3-SAT, 3-COL a nezávislá množina jsou ve stejné tøídì ekvivale
 
 \subsubsection*{P, NP, NP-úplnost, NP-tìžkost}
 
-
-
 \begin{e}{Definice}{0}{tøída P}
  \textbf{Tøídu složitosti P} (nìkdy též PTIME) tvoøí problémy øešitelné
  sekvenèními deterministickými algoritmy v polynomiálním èase, tj. jejich èasová
@@ -160,8 +157,6 @@ Bylo by ovšem \emph{velmi} podivné, kdyby platil opak.
   platí, že $A$ je polynomiálnì redukovatelný na $B$.
 
 \begin{e}{Poznámka}{0}{0}
-Pokud se nám tedy povede nìjaký náš algoritmus redukovat na nìjaký NP-tìžký, víme, že je NP. Zde se ukazuje trochu dle mého neintuitivnost pojmu redukce -- redukujeme vždy \uv{lehèí} na \uv{tìžší}.
-
 NP-tìžký problém nemùže být P (resp. pokud by byl, potom by P=NP). Mùže a nemusí být NP (napø. halting problem není NP, ale každý NP na nìj lze redukovat).
 \end{e}
 \end{e}
@@ -170,7 +165,7 @@ NP-tìžký problém nemùže být P (resp. pokud by byl, potom by P=NP). Mùže a nemusí
   Problém je \textbf{NP-úplný}, pokud patøí do tøídy NP a je NP-tìžký.
 
 \begin{e}{Poznámka}{0}{0}
-NP-úplné problémy jsou nejtìžší problémy v~NP. Opìt, stejnì jako u NP-tìžkých víme, že pokud na nìj cokoliv redukujeme, tak to cokoliv je $NP$.
+NP-úplné problémy jsou nejtìžší problémy v~NP.
 %NP-úplné problémy se nám \uv{líbí} -- pokud u nìèeho ukážeme, že je NP-úplný, víme, že je NP. Zároveò víme, že pokud u libovolného z~nich dokážeme, že je v~P, tak P=NP.
 \end{e}
 \end{e}
@@ -179,7 +174,6 @@ NP-úplné problémy jsou nejtìžší problémy v~NP. Opìt, stejnì jako u NP-tìžkých ví
   \begin{pitemize}
     \item Pokud je $A$ NP-tìžký a navíc je $A$ polynomiálnì redukovatelný na $B$, tak je
       $B$ taky NP-tìžký.
-\item Pokud je $A$ NP-tìžký a navíc je $B$ polynomiálnì redukovatelný na $A$, tak je $A$ NP.
     \item Pokud existuje polynomiální algoritmus pro nìjaký NP-tìžký problém, pak
       existují polynomiální algoritmy pro všechny problémy ve tøídì NP. (tedy P=NP)
   \end{pitemize}
@@ -193,15 +187,23 @@ NP-úplné problémy jsou nejtìžší problémy v~NP. Opìt, stejnì jako u NP-tìžkých ví
 \begin{obecne}{Pøíklady problémù ze tøídy NP}
   \begin{pitemize}
     \item \textbf{KLIKA}(úplný podgraf)~-- Je dán neorientovaný graf $G$ a èíslo
-    $k$. Existuje v $G$ úplný podgraf velikosti aspoò $k$? - je zároveò NP-úplný
+    $k$. Existuje v $G$ úplný podgraf velikosti aspoò $k$? -- je zároveò NP-úplný
     \item \textbf{HK}(Hamiltonovská kružnice)~-- Je dán neorientovaný graf $G$.
-    Existuje v $G$ Hamiltonovská kružnice? - je zároveò NP-úplný
+    Existuje v $G$ Hamiltonovská kružnice? (tj. kružnice, ve které je každý bod grafu právì jednou) -- je zároveò NP-úplný
     \item \textbf{BATOH}(Souèet podmnožiny)~-- Jsou dána pøirozená èísla $a_1,
     \dots, a_n,b$. Existuje podmnožina èísel $a_1,\dots,a_n$, jejíž souèet je
-    pøesnì $b$? - je zároveò NP-úplný
-	\item testování normálních forem v databázi, obarvení grafu, 3-SAT, celoèíselné lineární programování... - NP úplný
+    pøesnì $b$? -- je zároveò NP-úplný
+    \item \textbf{Obchodní cestující} (rozhodovací verze) -- Existuje v daném úplném ohodnoceném grafu hamiltonovská kružnice kratší než $x$? -- NP-úplný
+	\item testování normálních forem v databázi, obarvení grafu, 3-SAT, celoèíselné lineární programování... -- NP úplný
 	\item testování isomorfismu grafù (jsou 2 grafy izomorfní?) -- \textbf{není} NP-úplný, ale není P.
 	\item testování isomorfismu subgrafù (existuje v~grafu B subgraf isomorfní s A?) -- už je NP-úplný
+	
   \end{pitemize}
 \end{obecne}
+
+\begin{report}{Bednárek}
+
+
+\end{report}
+
 
