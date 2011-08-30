@@ -110,7 +110,7 @@ Nech funkce $f$ má v bodì $a \in \mathbb{R}^{*}$ vlastní limitu. Potom existuje
 \end{e}
 
 \begin{e}{Vìta}{0}{Aritmetika limit pro funkce}
-Nech $\lim_{x \rightarrow a} f(x)=A$, $\lim_{x \rightarrow a} g(x)=B$, $a \in R^{*}$. Potom
+Nech $\lim_{x \rightarrow a} f(x)=A$, $\lim_{x \rightarrow a} g(x)=B$, $a \in \mathbb{R}^{*}$. Potom
 \begin{penumerate}
         \item $\lim (f(x)+g(x)) = A+B$, je-li výraz na pravé stranì definován.
         \item $\lim (f(x)g(x)) = A\cdot B$, je-li výraz na pravé stranì definován.
@@ -125,7 +125,7 @@ Nech $\lim_{x \rightarrow a} f(x)=A$, $\lim_{x \rightarrow a} g(x)=B$, $a \in R
 
 \begin{e}{Vìta}{0}{Limita a uspoøádání - policajti pro funkce}
 \begin{penumerate}
-        \item Nech $\lim_{x \rightarrow a} f(x) > \lim_{x \rightarrow a} g(x)$, $a \in R^{*}$.\\Potom $\exists P(a, \delta): f(x)>g(x) \ \forall x \in P(a, \delta)$
+        \item Nech $\lim_{x \rightarrow a} f(x) > \lim_{x \rightarrow a} g(x)$, $a \in \mathbb{R}^{*}$.\\Potom $\exists P(a, \delta): f(x)>g(x) \ \forall x \in P(a, \delta)$
         \item Nech $f(x) \le g(x), \forall x \in P(a, \delta), \delta > 0$ a existují $\lim_{x \rightarrow a} f(x)$, $\lim_{x \rightarrow a} g(x)$.\\Potom $\lim_{x\to a} f(x) \le \lim_{x\to a} g(x)$.
         \item Nech $f(x) \le h(x) \le g(x), \forall x \in P(a, \delta), \delta > 0$ a $\lim_{x \rightarrow a} f(x) = \lim_{x \rightarrow a} g(x)$.\\Potom existuje $\lim h(x)$ a $\lim_{x \rightarrow a} h(x) = \lim_{x \rightarrow a} f(x) = \lim_{x \rightarrow a} g(x)$.
 \end{penumerate}
@@ -417,24 +417,17 @@ Pokud v situaci popsané v právì uvedené vìtì je $f'(x_0)$ nevlastní, je $(f^{-1}
 \end{e}
 
 \begin{e}{Pøíklad}{0}{0}
-Definice není úplnì prùhledná. Øeknìme, že zkoumáme funkci $f(x)=x^2$ na intervalu $(0,+\infty)$. V bodì $x_0=1$ má derivaci $f'(x_0)=2x_0 = 2$. Funkce $f^{-1}$, tedy $\sqrt{y}$ má derivaci v bodì $y_0=f(x_0)=x_0^2=1^2=1$ (to je bod, odkud zobrazujeme inverzní funkci, ale kam dopadá hlavní funkce, a kde zjišujeme derivaci inverzní funkce) a platí, že $\left(\sqrt{y}\right)'(y_0)=\frac{1}{\left(x^2\right)'(x_0)}=\frac{1}{2}$.
-
-(nevím, jak moc jsem to ujasnil :-))
+Definice není úplnì prùhledná. Øeknìme, že zkoumáme funkci $f(x)=x^2$ na intervalu $(0,+\infty)$. V bodì $x_0=1$ má derivaci $f'(x_0)=2x_0 = 2$. Funkce $f^{-1}$, tedy $\sqrt{y}$ má derivaci v bodì $y_0=f(x_0)=x_0^2=1^2=1$ (to je bod, odkud zobrazujeme inverzní funkci, ale kam dopadá hlavní funkce, a kde zjišujeme derivaci inverzní funkce) a platí, že $\left(\sqrt{y}\right)'(y_0)=\frac{1}{\left(x^2\right)'(x_0)}=\frac{1}{2}$. (nevím, jak moc jsem to ujasnil :-))
 
 \end{e}
 
 \begin{e}{Dùkaz}{0}{0}
-Položme funkci $F(x)$ $$F(x) = \frac{x-x_0}{f(x)-f(x_0)}$$ (tj. \uv{obrácená} definice limity). Tato funkce má z~definice limitu $\lim{x\rightarrow y}=\frac{1}{f'(x_0)}$. 
-
-Protože $g(y)$ je prostá a spojitá, mùžeme jí (díky Heineho vìtì a vìtì o složených posloupnostech) vložit do $F(x)$ a bude platit $\lim_{y\rightarrow y_0} = \frac{1}{f'(x_0)}$ -- tj. totéž, jako pøedtím (protože $g(y)=x$), ale jde o limitu podle $y$.
-
-Také ale platí $$F(g(y)) = \frac{g(x)-g(x_0)}{f(g(x))-f(g(x_0))} = \frac{g(x)-g(x_0)}{x-x_0}$$.
+Položme funkci $F(x)$ $$F(x) = \frac{x-x_0}{f(x)-f(x_0)}$$ (tj. \uv{obrácená} definice limity). Tato funkce má z~definice limitu $\lim_{x\rightarrow y}=\frac{1}{f'(x_0)}$. Protože $g(y)$ je prostá a spojitá, mùžeme jí (díky Heineho vìtì a vìtì o složených posloupnostech) vložit do $F(x)$ a bude platit $\lim_{y\rightarrow y_0} = \frac{1}{f'(x_0)}$ -- tj. totéž, jako pøedtím (protože $g(y)=x$), ale jde o limitu podle $y$. Také ale platí $$F(g(y)) = \frac{g(x)-g(x_0)}{f(g(x))-f(g(x_0))} = \frac{g(x)-g(x_0)}{x-x_0}.$$
 \end{e}
-
 \end{e}
 
 \begin{e}{Vìta}{0}{0}
-Je-li v~bodì $x_0$ $f'(x_0)>0$, $f(x)$ v~bodì $x_0$ roste. Pokud je v~bodì tam $<0$, tak klesá..
+Je-li v~bodì $x_0$ hodnota $f'(x_0)>0$, $f(x)$ v~bodì $x_0$ roste. Pokud je $f'(x_0)<0$, pak v bodì $x_0$ klesá..
 
 \begin{e}{Dùkaz}{0}{0}
 
@@ -515,11 +508,7 @@ Když teï u téhle èáry vezmu tyhle dva body a udìlám mezi nimi pøímku, má smìrnic
 
 \medskip
 Teèna je v~tomhle podivném zobrazení definována jako $\frac{f'(z)}{g'(z)}$ (díky tomu, jak vypadá pøímka, procházející dvìma body). A Cauchyho vìta øíká, že pro nìjaký bod mezi $[g(a), f(a)]$ a $[g(b), f(b)]$ je tato teèna vodorovná této pøímce (tj. zobecnìní Lagrangeho vìty - pokud bychom vzali $g(x)=x$, máme \uv{normální} grafy funkcí).
-
-
-
 \end{e}
-
 \end{e}
 }
 
@@ -528,12 +517,12 @@ Teèna je v~tomhle podivném zobrazení definována jako $\frac{f'(z)}{g'(z)}$ (díky
 
 Kdyby $g(a)=g(b)$, tak by podle Rolleovy vìty existovalo $c \in (a,b)$, že $g'(c)=0$, což nesmí, tedy $g(a) \neq g(b)$.
 
-\noindent\medskip Dále velmi podobné, jako u Lagrange. \emph{i s tím, že dùkaz je úmyslnì trochu \uv{pomalejší}, než by mohl být, aby byl jasnìjší}
+\noindent\medskip Dále velmi podobné jako u Lagrange \emph{i s tím, že dùkaz je úmyslnì trochu \uv{pomalejší}, než by mohl být, aby byl jasnìjší}.
 
-\noindent\medskip Pøedpokládejme, že existuje taková konstanta $k$, že pro $H(x)=f(x)-kg(x)$ platí $H(a)=H(b)$. Potom funkce $H(x)$ splòuje Rolleovu vìtu a platí, že existuje $c$, kde $H'(c)=0$ -- platí potom ale, že $H'(c)=f'(c)-kg'(c)=0$, tj. $$f'(c)=kg'(c) \rightarrow \frac{f'(c)}{g'(c)}=k.$$
+\noindent\medskip Pøedpokládejme, že existuje taková konstanta $k$, že pro $H(x)=f(x)-kg(x)$ platí $H(a)=H(b)$. Potom funkce $H(x)$ splòuje Rolleovu vìtu a platí, že existuje $c$, kde $H'(c)=0$ -- platí potom ale, že $H'(c)=f'(c)-kg'(c)=0$, tj. $$f'(c)=kg'(c) \Rightarrow \frac{f'(c)}{g'(c)}=k.$$
 
 %\medskip
-\noindent\medskip Pokusme se tuto konstantu $k$ najít -- musí platit, že $g(a)=g(b)$, tj. $f(a)-kg(b) = f(b)-kg(b)$, tj. $k(g(b)-g(a))=f(b)-f(a)$, tj. $k=\frac{f(b)-f(a)}{g(b)-g(a)}$, což jsme chtìli.
+\noindent\medskip Pokusme se tuto konstantu $k$ najít -- musí platit, že $H(a)=H(b)$, tj. $f(a)-kg(b) = f(b)-kg(b)$, tj. $k(g(b)-g(a))=f(b)-f(a)$, tj. $k=\frac{f(b)-f(a)}{g(b)-g(a)}$, což jsme chtìli.
 
 %\begin{flushright}$\square$\end{flushright}
 \end{e}
@@ -582,7 +571,7 @@ Nech $f$ má spojitou první derivaci na $(a,b)$. Nech $z \in (a,b)$. Nech $\fo
 \begin{pitemize}
         \item \emph{konvexní}, jestliže pro každé $x_1, x_2 \in I$ a každé $\lambda \in \left<0, 1\right>$ platí\\$f(\lambda x_1 + (1-\lambda)x_2) \le \lambda \cdot f(x_1)+(1-\lambda)\cdot f(x_2)$.
         \item \emph{konkávní}, jestliže pro každé $x_1, x_2 \in I$ a každé $\lambda \in \left<0, 1\right>$ platí\\$f(\lambda x_1 + (1-\lambda)x_2) \ge \lambda \cdot f(x_1)+(1-\lambda)\cdot f(x_2)$.
-        \item \emph{ryze konvexní}, jestliže pro každé $x_1, x_2 \in I, x_1 \neq x_2$ a každé $\lambda \in (0, 1)$ platí\\$f(\lambda x_1 + (1-\lambda)x_2) < \lambda \cdot f(x_1)+(1-\lambda)\cot f(x_2)$.
+        \item \emph{ryze konvexní}, jestliže pro každé $x_1, x_2 \in I, x_1 \neq x_2$ a každé $\lambda \in (0, 1)$ platí\\$f(\lambda x_1 + (1-\lambda)x_2) < \lambda \cdot f(x_1)+(1-\lambda)\cdot f(x_2)$.
         \item \emph{ryze konkávní}, jestliže pro každé $x_1, x_2 \in I, x_1 \neq x_2$ a každé $\lambda \in (0, 1)$ platí\\$f(\lambda x_1 + (1-\lambda)x_2) > \lambda \cdot f(x_1)+(1-\lambda)\cdot f(x_2)$.
 \end{pitemize}
 \end{e}
