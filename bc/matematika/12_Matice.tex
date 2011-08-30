@@ -275,27 +275,27 @@ nazıváme \emph{souøadnicovım vektorem} vektoru x v bázi $\mathbb{B}$ (a $n=\dim 
 
 \begin{e}{Definice}{0}{Matice lineárního zobrazení}
 Nech $\mathbb{B}=\{x_1, \dots, x_n\}$ je báze vektorového prostoru $V$, $\mathbb{B}'=\{y_1, \dots, y_m\}$ je báze vekt. prostrou $W$ a nech $f: V \rightarrow W$ je lineární zobrazení. Potom pro kadé $j=1, \dots, n$ lze $f(x_j)$ zapsat právì jedním zpùsobem ve tvaru
-$$f(x_j) = \sum_{i = 1}^{m} \alpha_{ij} y_j.$$
+$$f(x_j) = \sum_{i = 1}^{m} \alpha_{ij} y_i.$$
 
 Matice $A=(\alpha_{ij}) \in \mathbb{R}^{m \times n}$ se nazıvá maticí lineárního zobrazení $f$ vzhledem k bázím $\mathbb{B}, \mathbb{B}'$ a znaèí se
 $$[f]_{\mathbb{B}\mathbb{B}'}.$$
 \end{e}
 
 \begin{e}{Pozorování}{0}{0}
-$[f]_{\mathbb{B}\mathbb{B}'}.$ je matice sestavená ze sloupcù
+$[f]_{\mathbb{B}\mathbb{B}'}$ je matice sestavená ze sloupcù
 $$([f(x_1)]_{\mathbb{B}'}, \dots, [f(x_n)]_{\mathbb{B}'}),$$
 které jsou souøadnicovımi vektory vektorù $f(x_1), \dots, f(x_n)$ v bázi $\mathbb{B}'$.
 \end{e}
 
 \begin{e}{Vìta}{0}{0}
 Nech $\mathbb{B}$ je báze V, $\mathbb{B}'$ je báze W, a nech $f: V \rightarrow W$ je lineární zobrazení. Potom pro kadé $x \in V$ platí
-$$[f(x)]_{\mathbb{B}'} = [f]_{\mathbb{B} \mathbb{B}'}.[x]_{\mathbb{B}},$$
+$$[f(x)]_{\mathbb{B}'} = [f]_{\mathbb{B} \mathbb{B}'}\cdot[x]_{\mathbb{B}},$$
 kde napravo stojí maticovı souèin.
 \end{e}
 
 \begin{e}{Vìta}{0}{Sloené zobrazení a maticovı souèin}
 Nech $f: U \rightarrow V$, $g: V \rightarrow W$ jsou lineární zobrazení a nech $\mathbb{B}, \mathbb{B}', \mathbb{B}''$ jsou báze U, V, W. Potom platí
-$$[g \circ f]_{\mathbb{B} \mathbb{B}''}=[g]_{\mathbb{B}'\mathbb{B}''} [f]_{\mathbb{B}\mathbb{B}'}$$
+$$[g \circ f]_{\mathbb{B} \mathbb{B}''}=[g]_{\mathbb{B}'\mathbb{B}''}\cdot[f]_{\mathbb{B}\mathbb{B}'}$$
 kde napravo stojí maticovı souèin.
 \end{e}
 
@@ -306,12 +306,12 @@ $$[f^{-1}]_{\mathbb{B}' \mathbb{B}} = [f]^{-1}_{\mathbb{B} \mathbb{B}'}$$
 
 \begin{e}{Vìta}{0}{Zmìna souøadnic vektoru pøi zmìnì báze}
 Nech jsou dány dvì báze $\mathbb{B}, \mathbb{B}'$ vektorového prostoru $V$. Potom pro kadé $x \in V$ platí:
-$$[x]_{\mathbb{B}'} = [\mathrm{id}_V]_{\mathbb{B} \mathbb{B}'}.[x]_{\mathbb{B}}$$
+$$[x]_{\mathbb{B}'} = [\mathrm{id}_V]_{\mathbb{B} \mathbb{B}'}\cdot[x]_{\mathbb{B}}$$
 
 Matice $[\mathrm{id}_V]_{\mathbb{B} \mathbb{B}'}$ se nazıvá \emph{maticí pøechodu} od báze $\mathbb{B}$ k bázi $\mathbb{B}'$.
 \end{e}
 
 \begin{e}{Poznámka}{0}{0}
 Pøedchozí vzorec vyaduje znalost hodnot vektorù staré báze $\mathbb{B}$ v nové bází $\mathbb{B}'$. Typická situace ale je, e máme jen starou bázi $\mathbb{B}$ a pomocí ní vyjádøíme novou bázi $\mathbb{B}'$. V tom pøípadì mùeme pouít vzorec
-$$[x]_{\mathbb{B}'} = [\mathrm{id}_V]^{-1}_{\mathbb{B}' \mathbb{B}} [x]_{\mathbb{B}}$$
+$$[x]_{\mathbb{B}'} = [\mathrm{id}_V]^{-1}_{\mathbb{B}' \mathbb{B}}\cdot[x]_{\mathbb{B}}$$
 \end{e}
