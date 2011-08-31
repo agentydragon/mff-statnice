@@ -116,7 +116,7 @@ Pozn.: h nakonci znamená že je èíslo v hex (assembler)
 \item \textbf{NFU} (Not Frequently Used) - SW simulace LRU, SW èítaè ke každé stránce; jednou za èas projdu všechna A a pøiètu je k odpovídajícím èítaèùm; vybírám stránku s nejnižším èítaèem; nezapomíná - je možná modifikace se stárnutím èítaèe
 \end{pitemize}
 
-\subsubsection*{Segmentace}
+\subsubsection*{\sout{Segmentace} (už není v požadavcích)}
 dnes pouze Intel IA-32, dvojrozmìrný VAP
 \begin{pitemize}
 \item rozdìlení programu na segmenty (napr. podle èástí s rùznými vlastnostmi - kód, data, zásobníky\dots), rùzné délky segmentù, ktoré mùžou mìnit svoji délku za bìhu
@@ -149,6 +149,20 @@ Daný procesor používá 32-bitovou architekturu a dvouúrovòové stránkování.
 Instrukce MOV[0x12345678], EAX zapisuje obsah registru EAX na adresu 0x12345678.
 Popište, jaká operace (pøístupy do registrù a podobnì) vykonává pøi provádìní této instrukce procesor a jak pøi tom spolupracuje operaèní systém. Rozeberte všechny možné (z hlediska naplnìní stránkovacích tabulek) pøípady, nepopisujte strategie výmìny stránek.
 \end{reportN}
+\begin{e}{Øešení:}{0}{od stevese}
+pokud tomu trochu víc rozumíš, tak za tím, stejnì jako já, hledáš složitìjší otázku než ve skuteènosti je :-) Napíšu to v bodech (ve skuteènosti jsem to rozepisoval trochu víc.).
+\\
+\\- procesor se podívá na registr PC, vyzvedne další instrukci (tzv. fetch fáze)
+\\- instrukce je dekódována v øadièi (tzv. decode fáze)
+\\- øadiè podle kódu instrukce nastaví vodièe na datové cestì
+\\- vykonává se instrukce
+\\- registr PC += velikost instrukce
+\\- goto 1
+\\\\
+bìhem toho, kdykoliv se pøistupuje do pamìti, mùže vzniknout page-fault (naèítání instrukce a potom ta adresa u instr. mov). U toho jsem popsal jak stránkování funguje. Že je typicky víceúrovòové, nejvyšší úroveò v nìjakém registru nebo minimálnì nemapované pamìti. Že pøi pøístupu str. tabulku další úrovnì mùže vzniknout další page-fault, co to je TLB atd. atd. A k tý komunikaci s OS: když vznikne page-fault je vyvolané pøerušení a obsluha je pøedaná obslužné rutinnì OS. Nìkterý procesory to dìlají u page-faultu ve stránkovací tabulce (x86 myslím), nìkterý už u page-faultu v TLB (urèitì MIPS) -- takže si potom OS mùže vybírat, jak mìnit stránky v samotné TLB.
+
+Samotného mì zrovna tyhle vìci zajímají, takže jsem si pøed státnicema pøeèetl Tanenbauma: Operating Systems a Pattersona: Computers Design: Hardware to software interface. Je to urèitì overkill, ale pokud budeš mít prolistovaný tyhle dvì knihy, tak tì tam imho témìø urèitì nic nemùže pøekvapit.
+\end{e}
 
 \begin{reportN}{Yaghob} mel ruzné dotazy, jako proc je stránka veliká zrovna 4kB, jak je to se stránkováním na 64-bitových procesorech 
 \end{reportN}
