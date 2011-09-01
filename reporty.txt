@@ -120,6 +120,10 @@ vsechno je v TeXu
 {Kopecký} Tohle jsem mel vse, az na malou chybicku u AVL, ze pri pridani staci provest max. jednu rotaci a take jsem nevededel vyhledavaci stromy, kde krom klice je ulozena i potencionalni cetnost hledani.
 {Skopal} B-stromy a analogie s RB stromy - nechtìl víc než definici a odhady složitosti FIND v nejhorším a nejlepším pøípadì 
 {Kopecký} BVS a vyvazovani - tady chtel Kopecky slyset rozdily mezi AVL a R&B, algoritmus pro optimalni binarni vyhledavaci strom, splay stromy
+3.5
+{Skopal} Hashovani: Popsal jsem princip hashovani, nejaky zpusoby reseni kolizi. Pak se zeptal jak ma vypadat dobra hashovaci funkce. Rek jsem neco jako ze musi univerzum klicu rozlozit rovnomerne po tabulce, ale to mu nestacilo. Chtel neco konkretnejsiho a nakonec se spokojil s odpovedi, ze by to melo byt neco jako generator pseudonahodnych cisel. To, ze jsem nedokazal odpovedet na to jak takovy generator vypada, mu asi ani moc nevadilo. Pak se zeptal na externi hashovani, ale kdyz uvidel mou vystrasenou tvar, tak rek, ze nic, ze se to uci az na magistru. Pak jsem rek neco o perfektnim hashovani a lehce popsal Cormacka. Padlo jeste par otazek obecne o perfektnim hashovani, coz jsem zodpovedel a to mu stacilo.
+
+{Skopal} dostal mì na otázkách ohlednì hashovací fce - jaké jsou na ní kladené požadavky (nejsem si vìdom, že bychom to probírali tak podrobnì), hned se pak pøesunul k Univerzálnímu a Perfektnímu hashování - když jsem mu neøekl perfektní, tak se zvedl a øekl to staèí... a nezašli jsme ani ke kolizím, které jsem mìl vypracované (dostal jsem od nìj dílèí známku za 3).
 3.12-13
 vsechno je v TeXu
 3.11
