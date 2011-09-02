@@ -1,5 +1,9 @@
 1. - je komplet v TeXu
 2 - komplet v texu
+2.4
+{Surynek} Dostal jsem vety o strední hodnote. U tech vet jsem mel jeden dukaz, u druhého ideu a u tretího zacátek triku, který se tam použije (musel bych ješte docela premýšlet, abych to poskládal dohromady). Ale jemu to stacilo (taky zkoušel, jak tomu rozumím). Takže od pana Surynka za 1. 
+
+
 3.X
 (neznámý) kritéria konvergence èíselných øad 
 (IP 21.6.2011)
@@ -20,8 +24,11 @@ Statnicove materialy zde stacily bohate.
 3.4
 (Majerech) Fourierovy øady (ty má Majerech asi rád - ale staèí v podstatì jen definice) 
 ----------------1-3 jsou komplet ----------------
-5.1
-(Fiala) Parciální derivace a tot. diferenciál. - Uvedl jsem definice, jak to souvisí se spojitostí funkce a jak se navzájem implikují, geometrický význam a nutnou podmínku 1. øádu pro extrém. Vše bez dùkazu. Po troše dokopávání ze mì dostal, že gradient je kolmý na vrstevnici v daném bodì a když se mì ptal, jestli bych to umìl dokázat a já øekl, že ne, odpovìdìl: "No vidíte, to jste se taky v analýze uèili" 
+
+4 -komplet v texu
+
+5 -komplet v texu
+
 6.1
 (Majerech) Druhou otázkou byly metrické prostory. Zde jsem mìl volnou ruku, nadefinoval jsem tedy metrický prostor, napsal nìkolik pøíkladù metrických prostorù a pokraèoval základními tvrzeními o metrických prostorech. Zde jsem ale pokazil definici otevøených a uzavøených množin (špatné poøadí kvantifikátorù), dr. Majerech mne ale nechal nad touto definicí tak dlouho pøemýšlet, dokud jsem svou chybu sám nenašel a neopravil. Na závìr jeètì pøidal doplòující otázku v podobì definice kompatkních prostorù. Mùj výstup pak ohodnotil známkou 2, i zde se však jednalo o velmi pøíjemné zkoušení a nebýt mé vlastní chyby, tak i bez problémù.
 
@@ -52,11 +59,14 @@ otazka se tykala lin. nezavislosti, tam jsem dokazal lemma o vymene a naznacil d
 10.3
 (Žemlièka) Zaèal jsem tou nerovností. Definoval jsem tìleso, VP, sk. souèin a nakonec normu. Chybìl mi jeden axiom a jiný vztah tam byl navíc, procházení a nalézání bylo docela úmorné, dùkaz C-S nerovnosti jsem mìl z poloviny, ale když prohlásili, že alfa je jen technická záležitost, bylo to lepší, než celý dùkaz špatnì. Chtìli dùsledky nerovnosti, tøeba jako trojúhelníkovou nebo srovnání prùmìrù. Ten druhý jsme spoleènými silami odvodili, už jsem byl opìt dost nervózní. 
 (Gregor) Napsal jsem definice skalarniho soucinu a normy. U normy chtel nekolik moznych "typu" normy, tj. maximalni, manhattonska atd. coz jsem moc nevedel, musel jsem patrat v pameti jeste z dob kdy to bylo na prednasce. Pak jsem napsal CS nerovnost a ideu dukazu, na detaily jsem si nevzpomel. Potom trojuhelnikovou nerovnost. Tu jsem mel s dukazem pro R, ale on chtel i pro C. Nakonec jsem to s jeho pomoci dal do kupy. 
-12.2
 
+12
+Neznámý algebraik , Matice - Opet lehká otázka , nijak se v tom nevrtal , chtel jen klasické vety a definice a pak nejaké takové ty hodnosti , jak se zjistí inverzní matice , co je transponovaná a nejaké takové veci . Jen pak ke konci chtel nejakou matici zobrazení prevést do jiné báze , což jsem nejak vynásobil ze špatné strany , nicméne mi napovedel a byl taky hodnej .... nakonec mi dal asi dvojku , nevím .
+12.2
 (IOI 21. 6. 2011) 2.1 Definujte pojmy øádkový prostor, sloupcový prostor a jádro matice
 2.2 Jaké platí vztahy mezi dimenzemi tìchto prostorù a hodností matice?
 2.3 Existuje nad libovolným tìlesem matice velikosti 3x3, která má dimenzi jádra 2? (Uveïte pøíklad nebo dokažte, že neexistuje) 
+
 15.1
 (Dvorak) Na matiku docela rejpal, chtel vedet jak moc tomu rozumim. U simplexovky se ptal, proc tahle uprava tabulky, atd. A co je tohle v tabulce, atd. No jeste, ze jsem chodil na zaklady optimalizace, jinak bych tyhle veci nevedel. Btw: byl rad, ze jsem vedel, ze existuji i jine metody nez simplex - chacijan a karmarkar. 
 16.2 Pri dvojke stacili definicie a vety. Podstatna bola Hallova veta a este Tutteova veta, ktoru som nevedel. Pan co skusal M bol tiez fer a trpezlivy, rovnako ma nicim prehnanym netrapil. Co som skutocne nevedel som popravde priznal ako pri matematike, tak pri informatike, nastastie toho nebolo privela. 
