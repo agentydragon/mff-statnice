@@ -2,11 +2,11 @@
 
 \begin{e}{Poadavky}{0}{0}
 \begin{pitemize}
-	\item Vlastnosti v reálném i komplexním pøípadì
-	\item Norma
-	\item Cauchy-Schwarzova nerovnost
-	\item Kolmost
-	\item Ortogonální doplnìk a jeho vlastnosti
+        \item Vlastnosti v reálném i komplexním pøípadì
+        \item Norma
+        \item Cauchy-Schwarzova nerovnost
+        \item Kolmost
+        \item Ortogonální doplnìk a jeho vlastnosti
 \end{pitemize}
 \end{e}
 
@@ -14,16 +14,16 @@
 \begin{e}{Definice}{0}{0}
 Nech $V$ je vektorovı prostor nad $\mathbb{C}$. Potom zobrazení (funkce) z kartézského souèinu $V \times V \rightarrow \mathbb{C}$, které dvojici vektorù $x$ a $y$ pøiradí èíslo $\left<x,y\right>$ se nazıvá \emph{skalární souèin}, pokud splòuje následující axiomy (pro všechny $x, x', y \in V$ a $\alpha, \beta \in \mathbb{C}$):
 \begin{penumerate}
-	\item $\left<x,x\right> \ge 0, \,\, \left<x,x\right> =0 \Leftrightarrow x = 0 \hfill \textit{(positivní definitnost)}$
-	\item $\left<\alpha x+\beta x', y\right> = \alpha \left<x,y\right> + \beta \left<x',y\right> \hfill \textit{(bilinearita)}$
-		\begin{penumerate}
-			\item $\left<\alpha x,y\right> = \alpha \left<x,y\right>$
-			\item $\left<x+x',y\right> = \left<x,y\right> + \left<x',y\right>$
-		\end{penumerate}
-	\item $\left<x,y\right> = \overline{\left<y,x\right>} \hfill \textit{(symetrie - komplexnì sdruené)}$ \\
-		\begin{e}{Poznámka}{0}{0}
-			Pro $V'$ nad $\mathbb{R}$ a vektory $\forall x,y \in V'$: $\left<x,y\right>=\left<y,x\right>$
-		\end{e}
+        \item $\left<x,x\right> \ge 0, \,\, \left<x,x\right> =0 \Leftrightarrow x = 0 \hfill \textit{(positivní definitnost)}$
+        \item $\left<\alpha x+\beta x', y\right> = \alpha \left<x,y\right> + \beta \left<x',y\right> \hfill \textit{(bilinearita)}$
+                \begin{penumerate}
+                        \item $\left<\alpha x,y\right> = \alpha \left<x,y\right>$
+                        \item $\left<x+x',y\right> = \left<x,y\right> + \left<x',y\right>$
+                \end{penumerate}
+        \item $\left<x,y\right> = \overline{\left<y,x\right>} \hfill \textit{(symetrie - komplexnì sdruené)}$ \\
+                \begin{e}{Poznámka}{0}{0}
+                        Pro $V'$ nad $\mathbb{R}$ a vektory $\forall x,y \in V'$: $\left<x,y\right>=\left<y,x\right>$
+                \end{e}
 \end{penumerate}
 
 Skalární souèin znaèíme: $\left<x,y\right>$, $\left<x|y\right>$, $x.y$ \dots
@@ -31,9 +31,9 @@ Skalární souèin znaèíme: $\left<x,y\right>$, $\left<x|y\right>$, $x.y$ \dots
 
 \begin{e}{Pozorování}{0}{0}
 \begin{pitemize}
-	\item $\left<x,x\right>=\overline{\left<x,x\right>}$, tedy je nutnì reálné ($\in\mathbb{R}$) i pro skalární souèiny nad $\mathbb{C}$
-	\item $\left<x,\alpha y\right> = \overline{\left<\alpha y,x\right>} = \overline{\alpha}.\overline{\left<y,x\right>} = \overline{\alpha}.\left<x,y\right>$
-	\item Skalární souèin mùe nabıvat zápornıch hodnot
+        \item $\left<x,x\right>=\overline{\left<x,x\right>}$, tedy je nutnì reálné ($\in\mathbb{R}$) i pro skalární souèiny nad $\mathbb{C}$
+        \item $\left<x,\alpha y\right> = \overline{\left<\alpha y,x\right>} = \overline{\alpha}.\overline{\left<y,x\right>} = \overline{\alpha}.\left<x,y\right>$
+        \item Skalární souèin mùe nabıvat zápornıch hodnot
 \end{pitemize}
 \end{e}
 
@@ -43,11 +43,11 @@ Ekvivalentní definice: \emph{Skalární souèin} je pozitivnì definitní (1) bilineá
 
 \begin{e}{Pøíklady}{0}{0}
 \begin{pitemize}
-	\item \uv{Standardní} skalární souèin pro $\mathbb{C}^n, \mathbb{R}^n$: $$\left<x,y\right> = \sum_{i=1}^{n} x_i \overline{y_i}$$
-	\item Jinı souèin v $\mathbb{R}^n$ definovanı pomocí regulární matice $A$ øádu $n$
-		$$\left<x,y\right>=x^T A^T A y \;\;\;\;\;\; (\textit{pozorování: } \left<x,x\right> = x^T A^T A x = \sum_{i=1}^n (Ax)_i^2)$$
-	\item Skalární souèin ve vektorovém prostoru $C[a,b]$ (integrovatelnıch funkcí na intervalu $[a,b]$):
-		$$\left<f,g\right> = \int_a^b f(x) g(x) dx$$
+        \item \uv{Standardní} skalární souèin pro $\mathbb{C}^n, \mathbb{R}^n$: $$\left<x,y\right> = \sum_{i=1}^{n} x_i \overline{y_i}$$
+        \item Jinı souèin v $\mathbb{R}^n$ definovanı pomocí regulární matice $A$ øádu $n$
+                $$\left<x,y\right>=x^T A^T A y \;\;\;\;\;\; (\textit{pozorování: } \left<x,x\right> = x^T A^T A x = \sum_{i=1}^n (Ax)_i^2)$$
+        \item Skalární souèin ve vektorovém prostoru $C[a,b]$ (integrovatelnıch funkcí na intervalu $[a,b]$):
+                $$\left<f,g\right> = \int_a^b f(x) g(x) dx$$
 \end{pitemize}
 \end{e}
 
@@ -56,9 +56,9 @@ Ekvivalentní definice: \emph{Skalární souèin} je pozitivnì definitní (1) bilineá
 \begin{e}{Definice}{0}{Norma}
 \emph{Norma} na vektorovém prostoru V (nad $\mathbb{R}$ nebo nad $\mathbb{C}$) je zobrazení $V \rightarrow \mathbb{R}$, které pøiradí vektoru $x \in V$ èíslo $\|x\|$ a splòuje axiomy:
 \begin{penumerate}
-	\item $\forall x \in V: \|x\| \ge 0, \|x\|=0 \Leftrightarrow x = 0$
-	\item $\forall x \in V, \forall \alpha \in \mathbb{C} (\mathbb{R}): \|\alpha x\| = |\alpha|.\|x\|$
-	\item $\forall x,y \in V: \|x\| \ge 0, \|x+y\| \le \|x\| + \|y\| \hfill \textit{(trojúhelníková nerovnost)}$
+        \item $\forall x \in V: \|x\| \ge 0, \|x\|=0 \Leftrightarrow x = 0$
+        \item $\forall x \in V, \forall \alpha \in \mathbb{C} (\mathbb{R}): \|\alpha x\| = |\alpha|.\|x\|$
+        \item $\forall x,y \in V: \|x\| \ge 0, \|x+y\| \le \|x\| + \|y\| \hfill \textit{(trojúhelníková nerovnost)}$
 \end{penumerate}
 Norma $\|x\|$ má vıznam \uv{délky} vektoru $x$.
 \end{e}
@@ -70,29 +70,29 @@ Vektorovı prostor s nìjakou normou nazıváme \emph{normovanı}.
 \begin{e}{Pøíklady}{0}{0}
 \begin{pitemize}
 \item Norma urèená skalárním souèinem
-	$$\|x\| = \sqrt{\left<x,x\right>}$$
-	\begin{e}{Dùkaz}{0}{0}
-		(1), (2) plyne z axiomù skalárního souèinu, (3):
-		\begin{align*}
-			\left<x,y\right>^2 \le \left<x,x\right>\left<y,y\right> & \Rightarrow & \left<x,y\right> & \le & \sqrt{\left<x,x\right> \left<y,y\right>} \\
-			& \Leftrightarrow & \left<x,x\right>+\left<y,y\right>+2\left<x,y\right> & \le & (\sqrt{\left<x,x\right>} + \sqrt{\left<y,y\right>})^2 \\
-			& \Leftrightarrow & \left<x+y,x+y\right> & \le & (\sqrt{\left<x,x\right>} + \sqrt{\left<y,y\right>})^2 \\
-			& \Leftrightarrow & \|x+y\| & \le & \|x\| + \|y\|
-		\end{align*}
-		Kde první nerovnost je dùsledek Cauchy-Swarzovy nerovnosti...
+        $$\|x\| = \sqrt{\left<x,x\right>}$$
+        \begin{e}{Dùkaz}{0}{0}
+                (1), (2) plyne z axiomù skalárního souèinu, (3):
+                \begin{align*}
+                        \left<x,y\right>^2 \le \left<x,x\right>\left<y,y\right> & \Rightarrow & \left<x,y\right> & \le & \sqrt{\left<x,x\right> \left<y,y\right>} \\
+                        & \Leftrightarrow & \left<x,x\right>+\left<y,y\right>+2\left<x,y\right> & \le & (\sqrt{\left<x,x\right>} + \sqrt{\left<y,y\right>})^2 \\
+                        & \Leftrightarrow & \left<x+y,x+y\right> & \le & (\sqrt{\left<x,x\right>} + \sqrt{\left<y,y\right>})^2 \\
+                        & \Leftrightarrow & \|x+y\| & \le & \|x\| + \|y\|
+                \end{align*}
+                Kde první nerovnost je dùsledek Cauchy-Swarzovy nerovnosti...
 
-		Ze standardního skalárního souèinu na $\mathbb{R}^n$ dostaneme euklidovskou normu (tj. \uv{délku} vektoru podle Pythagorovy vìty) a euklidovskou vzdálenost (vzdálenost bodù $u$ a $v$ je $\|u-v\|$). Kadı vektorovı prostor se skalárním souèinem $\left<.,.\right>$ je normovanım vektorovım prostorem ($\|x\|=\sqrt{\left<x,x\right>}$), tedy i metrickım prostorem ($d(x,y)=\|x-y\|$) a tedy i topologickım prostorem.
-	\end{e}
+                Ze standardního skalárního souèinu na $\mathbb{R}^n$ dostaneme euklidovskou normu (tj. \uv{délku} vektoru podle Pythagorovy vìty) a euklidovskou vzdálenost (vzdálenost bodù $u$ a $v$ je $\|u-v\|$). Kadı vektorovı prostor se skalárním souèinem $\left<.,.\right>$ je normovanım vektorovım prostorem ($\|x\|=\sqrt{\left<x,x\right>}$), tedy i metrickım prostorem ($d(x,y)=\|x-y\|$) a tedy i topologickım prostorem.
+        \end{e}
 \item $L_1$ norma na $\mathbb{R}^n$:
-	$$\|x\| = \sum_{i=1}^{n} |x_i|$$
+        $$\|x\| = \sum_{i=1}^{n} |x_i|$$
 \item $L_2$ norma na $\mathbb{C}^n$ - Euklidovská norma:
-	$$\|x\| = \sqrt{\sum_{i=1}^{n} x_i \overline{x_i}}$$
+        $$\|x\| = \sqrt{\sum_{i=1}^{n} x_i \overline{x_i}}$$
 \item $L_p$ norma na $\mathbb{R}^n$:
-	$$\|x\| = \sqrt[p]{\sum_{i=1}^{n} |x_i|^p}$$
+        $$\|x\| = \sqrt[p]{\sum_{i=1}^{n} |x_i|^p}$$
 \item $L_{\infty}$ norma (stejnì jako $L_1$ norma neodpovídá ádnému skalárnímu souèinu):
-	$$\|x\| = \max_{i=1,\dots,n} \left( |x_i| \right)$$
+        $$\|x\| = \max_{i=1,\dots,n} \left( |x_i| \right)$$
 \item Norma v prostoru integrovatelnıch funkcí na intervalu $[a,b]$ - $C[a,b]$
-	$$\|f(x)\| = \int_a^b f^2(x) dx$$
+        $$\|f(x)\| = \int_a^b f^2(x) dx$$
 \end{pitemize}
 \end{e}
 
@@ -208,11 +208,11 @@ Tento algoritmus zajišuje pøevedení libovolné báze $(v_1,\dots,v_n)$ vektorovéh
 
 \textbf{Alternativní postup - Gram-Schmidtova normalizace}:
 \begin{penumerate}
-	\item Dány: $x_1,\dots,x_m \in V$ lineárnì nezávislé.
-	\item Pro $k=1,\dots,m$ proveï:
-		$$y_k := x_k - \sum_{j=1}^{k-1} \left<x_k,z_j\right>z_j$$
-		$$z_k := \frac{1}{\|y_k\|}y_k$$
-	\item Ukonèi: $z_1,\dots,z_m$ je ortonormální systém ve $V$ a\\$\mathcal{L}(z_1,\dots,z_m) = \mathcal{L}(x_1,\dots,x_m)$
+        \item Dány: $x_1,\dots,x_m \in V$ lineárnì nezávislé.
+        \item Pro $k=1,\dots,m$ proveï:
+                $$y_k := x_k - \sum_{j=1}^{k-1} \left<x_k,z_j\right>z_j$$
+                $$z_k := \frac{1}{\|y_k\|}y_k$$
+        \item Ukonèi: $z_1,\dots,z_m$ je ortonormální systém ve $V$ a\\$\mathcal{L}(z_1,\dots,z_m) = \mathcal{L}(x_1,\dots,x_m)$
 \end{penumerate}
 \end{e}
 
@@ -241,14 +241,14 @@ $$V^{\bot}=\left\{v \in W; \forall x \in V: \left<v,x\right> = 0 \right\}$$
 
 Nech $V$ je podprostor prostoru $W$ koneèné dimenze. Potom platí:
 \begin{penumerate}
-	\item $V^{\bot}$ je podprostor $W$
-	\item $\dim(V^{\bot})=\dim(W)-\dim(V)$
-	\item $(V^{\bot})^{\bot} = V \hfill \textit{(z rozšiøitelnosti ortogonální báze)}$ 
-	\item $V \cap V^{\bot} = \{0\}, \;\;\; V \oplus V^{\bot} = W \\ \textit{(operace} \oplus \textit{je spojení dvou podprostorù...} \mathcal{L}(V \cup V^{\bot})\textit{)}$
-	\item $U,V$ podprostory $W$. Je-li $U \subseteq V$, pak $U^{\bot} \supseteq V^{\bot}$\\
-		$(x \in V^{\bot} \Leftrightarrow x \bot y \in V \Rightarrow x \bot u \in U \Leftrightarrow x \in U^{\bot})$
-	\item $(U \cap V)^{\bot} = U^{\bot} \oplus V^{\bot}$
-	\item $(U \oplus V)^{\bot} = U^{\bot} \cap V^{\bot}$
+        \item $V^{\bot}$ je podprostor $W$
+        \item $\dim(V^{\bot})=\dim(W)-\dim(V)$
+        \item $(V^{\bot})^{\bot} = V \hfill \textit{(z rozšiøitelnosti ortogonální báze)}$ 
+        \item $V \cap V^{\bot} = \{0\}, \;\;\; V \oplus V^{\bot} = W \\ \textit{(operace} \oplus \textit{je spojení dvou podprostorù...} \mathcal{L}(V \cup V^{\bot})\textit{)}$
+        \item $U,V$ podprostory $W$. Je-li $U \subseteq V$, pak $U^{\bot} \supseteq V^{\bot}$\\
+                $(x \in V^{\bot} \Leftrightarrow x \bot y \in V \Rightarrow x \bot u \in U \Leftrightarrow x \in U^{\bot})$
+        \item $(U \cap V)^{\bot} = U^{\bot} \oplus V^{\bot}$
+        \item $(U \oplus V)^{\bot} = U^{\bot} \cap V^{\bot}$
 \end{penumerate}
 \end{e}
 
@@ -256,4 +256,36 @@ Nech $V$ je podprostor prostoru $W$ koneèné dimenze. Potom platí:
 \emph{Ortogonální projekce} vekt. prostoru $V$ na podprostor $U\subset V$ je zobrazení, které kadému vektoru $v\in V$ pøiøadí vektor $u\in U$ tak, e 
 $$\|v-u\|=\min\{\|v-w\|, w \in U\}$$
 tedy vektor $u \in U$, kterı má ze všech vektorù z $U$ nejmenší vzdálenost od $v$. Ten se pak nazıvá \emph{ortogonální projekcí} vektoru $v$.
+\end{e}
+\newpage
+
+\begin{e}{Report}{0}{Fiala} skalární souèin a kolmost, co byl kámen úrazu, protoe o tom jsem toho moc nevìdìl, nicménì, "na to, abych vás poslal domù se to douèit to není", take za 3
+\end{e}
+\begin{e}{Report}{0}{Matoušek} Skalární souèin: vlastnosti, norma, C-S nerovnost, a spol. (zadal Mlèek, pøedvádìl jsem Matouškovi): Definice, jejich zøejmé dùsledky v R a C, k èemu co slouí. Zeptal se jen co je ta èárka nad (komplexním èíslem) a následnì co je komplexnì sdruené èíslo, a chtìl rozepsat CS-nerovnost pro eukleidovskı prostor. Zapomnìl jsem na jeden axiom skalárního souèinu (nezápornost $<u|u>$), to mi vytkl, a pøimhouøil oko i nad tím,e jsem mu zprvu tvrdil, e plyne z ostatních (spletl jsem si to s normou). Kolmost jsem stihl u jen definovat, dál jsem se nedostal. Ještì jsem Matouškovi tak trochu vnutil náznak dùkazu CS nerovnosti (kdy u jsem se to uèil ;)), nebyl ale vyadován. 
+\end{e}
+\begin{e}{Report}{0}{?} Skalární souèin, Cauchyho-Schwarzova nerovnost, Trojúhelníková nerovnost - zde se po mì vyadoval dùkaz CS nerovnosti, co jsem dal, + pak jsem mìl ještì dokázat tu trojúhelníkovou nerovnost z CS nerovnosti - také se mi to povedlo. Samozøejmì jsem také napsal axiomy skalárního souèinu. za 1
+\end{e}
+\begin{e}{Report}{0}{Klazar} skalární souèin (SS, norma, C-S nerovnost, pouziti (ortogonalita)), co jsem celkem i zvládnul a tak celkove cele statnice dopadly za 2:)
+\end{e}
+\begin{e}{Report}{0}{?} skalární souèin, norma, kolmost jsme toho moc neøek a co jsem øekl, tak ještì z pùlky špatnì. Hodnocení matika za 3(s velkym mínusem)
+\end{e}
+\begin{e}{Report}{0}{Majerech} Skalární souèin. Staèili všetky definície pojmov uvedenıch v zozname + pár ïalších vlastností. U CSB-nerovnosti som zaèal robi aj dôkaz, ale nepozeral naò.
+\end{e}
+\begin{e}{Report}{0}{Klazar} Skalární prostory, Cauchyova-Schwarzova nerovnost (chtìl i jak souvisí s trojúhelníkovou nerovností normy), jinak definice a znìní staèily) 
+\end{e}
+\begin{e}{Report}{0}{Klazar} Skalarni soucin. Pak jsem zacala psat matiku, to uz bylo horsi, bo vsichni pomalu odchazeli, ja tam byla uz pekne dlouho a zaclo mne byt spatne a uz me to nebavilo. K skalarnimu soucinu jsem napsala definici, definici normy, Cauchy-Schwartzovu nerovnost + dukaz a pak par vec k ortogona a ortonormalizaci a Gramm-Schmitovu ortonormalizaci. To si jen precet a ze ok.
+\end{e}
+\begin{e}{Report}{0}{Fiala} Skalarni soucin, ortogonalita. Uplne vklidku, stacilo definovat pojmy, napsat neco kolem, pak polozil par praktictejsich otazek, doptal se na Fourriera vzhledem k ON bazi a proc se dela a hotovo. 
+\end{e}
+\begin{e}{Report}{0}{Fiala} skalarni soucin, ortogonalita. Ve druhym chtel k definici SS, ortogonality a fourierovych koeficientu slyset jeste neco jako, ze na $Z_n$ nema smysl SS zavadet, coz jsem mu nerekl a tak matika vysledna lepsi dvojka. 
+\end{e}
+\begin{e}{Report}{0}{Pangrac} Skalarny sucin & kolmost. Dokazat bolo treba len Cauchy Schwarzovu nerovnost, tu kolmost chcel len tak prehladovo. U dokazu tej CS nerovnosti som si nevedel spomenut na nejake technicke detaily, ale to myslim vobec nevadi. Celkovo sa nejde prilis do hlbky. Za jedna
+\end{e}
+\begin{e}{Report}{0}{emlièka} C-S nerovnost. Zaèal jsem tou nerovností. Definoval jsem tìleso, VP, sk. souèin a nakonec normu. Chybìl mi jeden axiom a jinı vztah tam byl navíc, procházení a nalézání bylo docela úmorné, dùkaz C-S nerovnosti jsem mìl z poloviny, ale kdy prohlásili, e alfa je jen technická záleitost, bylo to lepší, ne celı dùkaz špatnì. Chtìli dùsledky nerovnosti, tøeba jako trojúhelníkovou nebo srovnání prùmìrù. Ten druhı jsme spoleènımi silami odvodili, u jsem byl opìt dost nervózní.
+\end{e}
+\begin{e}{Report}{0}{Gregor} C-S nerovnost. Napsal jsem definice skalarniho soucinu a normy. U normy chtel nekolik moznych "typu" normy, tj. maximalni, manhattonska atd. coz jsem moc nevedel, musel jsem patrat v pameti jeste z dob kdy to bylo na prednasce. Pak jsem napsal CS nerovnost a ideu dukazu, na detaily jsem si nevzpomel. Potom trojuhelnikovou nerovnost. Tu jsem mel s dukazem pro R, ale on chtel i pro C. Nakonec jsem to s jeho pomoci dal do kupy. 
+\end{e}
+\begin{e}{Report}{0}{?} CS-nerovnost - bolo potreba definovat skalarny sucin a normu (dodatocne sa ma spytal, ci poznam nejaku normu, kt. nie je urcena skalarnym sucinom, tak som skusil tu s maximom) a potom som uviedol vetu CS-nerovnost + dokaz (spomenul som si na ten z vypracovanych otazok).
+\end{e}
+\begin{e}{Report}{0}{Fiala} Kolmost - šla lépe, napsal jsem jim definice kolmosti, ortogonálního a ortonormálního systému a vìty, e ortogonální systém vektorù je lineárnì nezávislı, a tu o fourierovıch souøadnicích. K doplòku jsem kromì definice napsal vìtu o tom, e jádro matice je ortogonální doplnìk jejího øádkového prostoru. Vše jsem pøedem dokázal (je to jednoduché, co potom Fiala taky takto komentoval, ale protoe jsem èekal fiasko s øadami, tak jsem se radìji rozepsal víc). Ještì se ptali na nìjaké vlastnosti toho doplòku, Fiala chtìl hlavnì nìco o dimenzích, tak jsem mu napsal takové to $dim(W doplnìk) + dim(W) = dim(V)$, ještì ze mì vytáhl jak z chlupaté deky, e by se to dokazovalo nìjak pøes ortogonální báze.
 \end{e}

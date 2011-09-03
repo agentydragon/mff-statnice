@@ -54,21 +54,9 @@ otazka se tykala lin. nezavislosti, tam jsem dokazal lemma o vymene a naznacil d
 {Koubek, Surynek} Koneènì generované VP, báze - tak trochu definic, co je co, lemma + vìta o výmìnì s dùkazy. Tady se ptali, ale to bylo tím, že jsem to taky míò umìl, ale na dotazy jsem odpovìdìl a bylo po matematice.
 {0} Vektorove prostory relativne v poho, jen zasek u dukazu proc linearni obal odpovida vsem linearnim kombinacim dane mnoziny, proste hrozny nervy a vypnutej mozek, jinak jsem napsala definici VP a jeho podprostoru, lin. kombinace, lin. (ne)zavislost, baze, dimenze, prunik a sjednoceni podprostoru, lin. obal
 
-10.1
-(Matoušek): Definice, jejich zøejmé dùsledky v R a C, k èemu co slouží. Zeptal se jen co je ta èárka nad (komplexním èíslem) a následnì co je komplexnì sdružené èíslo, a chtìl rozepsat CS-nerovnost pro eukleidovský prostor. Zapomnìl jsem na jeden axiom skalárního souèinu (nezápornost <u|u>), to mi vytkl, a pøimhouøil oko i nad tím,že jsem mu zprvu tvrdil, že plyne z ostatních (spletl jsem si to s normou). Kolmost jsem stihl už jen definovat, dál jsem se nedostal. Ještì jsem Matouškovi tak trochu vnutil náznak dùkazu CS nerovnosti (když už jsem se to uèil;)), nebyl ale vyžadován. 
-10.3
-(Žemlièka) Zaèal jsem tou nerovností. Definoval jsem tìleso, VP, sk. souèin a nakonec normu. Chybìl mi jeden axiom a jiný vztah tam byl navíc, procházení a nalézání bylo docela úmorné, dùkaz C-S nerovnosti jsem mìl z poloviny, ale když prohlásili, že alfa je jen technická záležitost, bylo to lepší, než celý dùkaz špatnì. Chtìli dùsledky nerovnosti, tøeba jako trojúhelníkovou nebo srovnání prùmìrù. Ten druhý jsme spoleènými silami odvodili, už jsem byl opìt dost nervózní. 
-(Gregor) Napsal jsem definice skalarniho soucinu a normy. U normy chtel nekolik moznych "typu" normy, tj. maximalni, manhattonska atd. coz jsem moc nevedel, musel jsem patrat v pameti jeste z dob kdy to bylo na prednasce. Pak jsem napsal CS nerovnost a ideu dukazu, na detaily jsem si nevzpomel. Potom trojuhelnikovou nerovnost. Tu jsem mel s dukazem pro R, ale on chtel i pro C. Nakonec jsem to s jeho pomoci dal do kupy. 
+10-15 - komplet v Texu
 
-12
-Neznámý algebraik , Matice - Opet lehká otázka , nijak se v tom nevrtal , chtel jen klasické vety a definice a pak nejaké takové ty hodnosti , jak se zjistí inverzní matice , co je transponovaná a nejaké takové veci . Jen pak ke konci chtel nejakou matici zobrazení prevést do jiné báze , což jsem nejak vynásobil ze špatné strany , nicméne mi napovedel a byl taky hodnej .... nakonec mi dal asi dvojku , nevím .
-12.2
-(IOI 21. 6. 2011) 2.1 Definujte pojmy øádkový prostor, sloupcový prostor a jádro matice
-2.2 Jaké platí vztahy mezi dimenzemi tìchto prostorù a hodností matice?
-2.3 Existuje nad libovolným tìlesem matice velikosti 3x3, která má dimenzi jádra 2? (Uveïte pøíklad nebo dokažte, že neexistuje) 
 
-15.1
-(Dvorak) Na matiku docela rejpal, chtel vedet jak moc tomu rozumim. U simplexovky se ptal, proc tahle uprava tabulky, atd. A co je tohle v tabulce, atd. No jeste, ze jsem chodil na zaklady optimalizace, jinak bych tyhle veci nevedel. Btw: byl rad, ze jsem vedel, ze existuji i jine metody nez simplex - chacijan a karmarkar. 
 16.2 Pri dvojke stacili definicie a vety. Podstatna bola Hallova veta a este Tutteova veta, ktoru som nevedel. Pan co skusal M bol tiez fer a trpezlivy, rovnako ma nicim prehnanym netrapil. Co som skutocne nevedel som popravde priznal ako pri matematike, tak pri informatike, nastastie toho nebolo privela. 
 ----------------17 je komplet ----------------
 17.1-3 v techu
