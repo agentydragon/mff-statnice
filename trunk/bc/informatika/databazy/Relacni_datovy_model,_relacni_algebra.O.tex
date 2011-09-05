@@ -17,7 +17,7 @@ definujeme atributy:
 \end{verbatim}
 pak 
 \begin{verbatim}
-   R = {(Novák, Hlavní, Harrison), (Starý, Severní, Rájec), (Coufal, Severní, Rájec), 
+   R = {(Novák, Hlavní, Hradec), (Starý, Severní, Rájec), (Coufal, Severní, Rájec), 
         (Liška, Sadová, Polná)}
 \end{verbatim}
 je relace na kartézském souèinu (tzn. jeho podmnožina) $jm\acute{e}no × ulice × m\check{e}sto$
@@ -38,10 +38,10 @@ Nezbytné operace pro zachování vyjadøovací síly jazyka:
 \begin{pitemize}
 \item \textbf{pøejmenování} - unární operace, pouze se pøejmenují atributy schématu, s daty se nic nedìje (tj. výslekem je stejná relace a stejné schéma, pouze pøíslušné atributy mají jiná jména)
 \\$<R,R(A_i\rightarrow B_i, A_j\rightarrow B_j, ... )>$
-\item \textbf{sjednocení} - schémata musí mít stejny poèet atributù a kompatibilní
+\item \textbf{sjednocení} - schémata musí mít stejný poèet atributù a kompatibilní
 domény
 \\$<R_1, R_1(A)>\cup<R_2, R_2(A)>= <R_1\cup R_2 , R_x(A)>$
-\item \textbf{rozdíl množin} - schémata musí mít stejny poèet atributù a kompatibilní
+\item \textbf{rozdíl množin} - schémata musí mít stejný poèet atributù a kompatibilní
 domény 
 \\$<R_1, R_1(A)>–<R_2, R_2(A)>= <R_1–R_2 , R_x(A)>$
 \item \textbf{kartézský souèin} - vyžaduje disjuktní schemata, pokud existují
@@ -69,12 +69,12 @@ stejná jména atributù musí se nejdøíve pøejmenovat
 \end{pitemize}
 Operace vzniklé skládáním základních operací:
 \begin{pitemize}
-\item \textbf{prùnik} - schémata musí mít stejny poèet atributù a kompatibilní
+\item \textbf{prùnik} - schémata musí mít stejný poèet atributù a kompatibilní
 domény\\ 
 $<R_1, R_1 (A)>\cap<R_2, R_2(A)>= <R_1\cap R_2 , R_x(A)>$
 \\\\
 –dá se vyjádøit také jako:
-$R_1 \cap R_2 = (R_1 \cup R_2 \setminus (R_1 \setminus R_2))\setminus (R_1 \setminus R_2)$
+$R_1 \cap R_2 = (R_1 \cup R_2 \setminus (R_1 \setminus R_2))\setminus (R_2 \setminus R_1)$
 
 \item \textbf{pøirozené spojení} (natural join) - spojení prvkù relace pøes stejné hodnoty všech atributù sdílených mezi A a B, 
 
@@ -84,7 +84,8 @@ $R_1 \cap R_2 = (R_1 \cup R_2 \setminus (R_1 \setminus R_2))\setminus (R_1 \setm
 
 $<R, R(A)> * <S, S(B)>= <\{u | u[A] \in R ~\&~ u[B] \in S\}, R_x(A\cup B)>$
 
-–lze vyjádøit pomocí kartézského souèinu, selekce a projekce 
+–lze vyjádøit pomocí kartézského souèinu, selekce a projekce -- snad takto (neovìøeno):\\
+$R * S = \left(\left(R \times S\right)\left(\varphi\right)\right)[A \cup B]$, kde $\varphi$ je podmínka na rovnost odpovídajících sloupcù $\forall x \in R(A) \cap S(B): Rx = Sx$ (pøejmenované sloupce z kartézského souèinu). Není to úplnì formálnì korektní, protože by to chtìlo pak dìlat závìreènou projekci pøes ty pøejmenované sloupce, ale myšlenka je jasná.
 
 \begin{center}
 \includegraphics[width=5cm]{informatika/databazy/obrazky/natural_join}
@@ -95,7 +96,7 @@ pøíklad pøirozeného spojení
 \item \textbf{dìlení} - definujeme si $\oplus$ jako zøetìzení øádkù\\
 $<R, R(A)> \div <S, S(B \subset A)>= <\{t | \forall s \in S: (t \oplus s)\in R\}, R_x(A - B)>$
 \\
-–lze vyjádøit pomocí kartézského souèinu a projekce:
+–lze vyjádøit pomocí projekce, rozdílu a kartézského souèinu:
 \\
 $R \div S = R[A\setminus B] \setminus ((R[A\setminus B] \times S)\setminus
 R)[A\setminus B]$
