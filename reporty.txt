@@ -1,28 +1,28 @@
 1. - je komplet v TeXu
 2 - komplet v texu
 2.4
-{Surynek} Dostal jsem vety o strední hodnote. U tech vet jsem mel jeden dukaz, u druhého ideu a u tretího zacátek triku, kterı se tam pouije (musel bych ješte docela premıšlet, abych to poskládal dohromady). Ale jemu to stacilo (taky zkoušel, jak tomu rozumím). Take od pana Surynka za 1. 
+{Surynek} Dostal jsem vety o strednÃ­ hodnote. U tech vet jsem mel jeden dukaz, u druhÃ©ho ideu a u tretÃ­ho zacÃ¡tek triku, kterÃ½ se tam pouÅ¾ije (musel bych jeÅ¡te docela premÃ½Å¡let, abych to posklÃ¡dal dohromady). Ale jemu to stacilo (taky zkouÅ¡el, jak tomu rozumÃ­m). TakÅ¾e od pana Surynka za 1. 
 
 
 3.X
-(neznámı) kritéria konvergence èíselnıch øad 
+(neznÃ¡mÃ½) kritÃ©ria konvergence ÄÃ­selnÃ½ch Å™ad 
 (IP 21.6.2011)
 Napiste definici konvergence rad.
 Rozhodnete a zduvodnete, zda konverguji rady: 1/n, 1/n^2, sin(n)/n
 
 3.1
-(Fiala) Posloupnost funkcí + stejnomìrná spojitost  - Napsal jsem zase to, na co jsem si vzpomnìl z materiálù (ty tøi definice na posloupnost a asi ètyøi "vìty"). Mìl jsem ještì ukázat rozdíly mezi nimi na nìjakıch konkrétních funkcích... Pan Fiala mìl sice záludnìjší otázky, ale zkoušení bylo naprosto férové a vcelku mírné. 
+(Fiala) Posloupnost funkcÃ­ + stejnomÄ›rnÃ¡ spojitost  - Napsal jsem zase to, na co jsem si vzpomnÄ›l z materiÃ¡lÅ¯ (ty tÅ™i definice na posloupnost a asi ÄtyÅ™i "vÄ›ty"). MÄ›l jsem jeÅ¡tÄ› ukÃ¡zat rozdÃ­ly mezi nimi na nÄ›jakÃ½ch konkrÃ©tnÃ­ch funkcÃ­ch... Pan Fiala mÄ›l sice zÃ¡ludnÄ›jÅ¡Ã­ otÃ¡zky, ale zkouÅ¡enÃ­ bylo naprosto fÃ©rovÃ© a vcelku mÃ­rnÃ©. 
 3.2
 (Klazar) Napsal jsem definici mocnine rady, stred konvergence, zdrbal zapis polomeru konvergence (zapomnel ze je 1 lomeno), vztah polomeru konvergence a konvergence mocninne rady. Napsal vlastnosti geometricke rady (taky je to mocninna rada) + ze je hodna. A horempadem jsem chtel utect k Taylorovi.
 Avsak dostal jsem otazky - co se deje kdyz |x - a| = R, pote najit radu s touto vlastnosti, ktera diverguje a ktera konverguje. (1.uspech, 2. neuspech (suma nul fakt nestacila)), p.Klazar me zaskocil ukolem spocitat nekolik polomeru konvergence ruznych rad (vedlo na ruzne limity (n-ta odmocnina z 2^n) pro n -> inf). 
-(neznámı) Po chvíli (kdy jsem nenapsal témìø nic, prostì vokno) pøipsal ještì Èíselné øady, a kdy jsem se v záchvatu nervozity stále nechytal, zaèal mi na papír kreslit nápovìdu. Kreslil tak dlouho, ne jsem øekl "No jo, ono je to vlastnì takhle"... To se opakovalo ještì jednou, sám jsem neøekl skoro nic. K mému velkému pøekvapení mi bylo sdìleno, e to staèí, sice jen na slabší trojku, ale staèí.
-(Kuèera) napsal jsem jen definici, co to je polomìr konvergence a ten vzoreèek, kterım se poèítá. To vše. Fiala s Kuèerou se pak ptali na definice tìch typù konvergence, jestli neznám nìjakou speciální mocninnou øadu (støelil jsem Taylorovu), tak jsme nìjak pøešli k aproximaci funkcí v bodì Taylorovım polynomem (uff, ádné zbytky!) a nakonec po mnì chtìli aproximovat sinus v nule kubickım polynomem, co je jen dosazení do Taylora øádu 3, ale to jsem si v dané psychické situaci neuvìdomil :-p. Nakonec jsem to napsal a byli spokojení. 
+(neznÃ¡mÃ½) Po chvÃ­li (kdy jsem nenapsal tÃ©mÄ›Å™ nic, prostÄ› vokno) pÅ™ipsal jeÅ¡tÄ› ÄŒÃ­selnÃ© Å™ady, a kdyÅ¾ jsem se v zÃ¡chvatu nervozity stÃ¡le nechytal, zaÄal mi na papÃ­r kreslit nÃ¡povÄ›du. Kreslil tak dlouho, neÅ¾ jsem Å™ekl "No jo, ono je to vlastnÄ› takhle"... To se opakovalo jeÅ¡tÄ› jednou, sÃ¡m jsem neÅ™ekl skoro nic. K mÃ©mu velkÃ©mu pÅ™ekvapenÃ­ mi bylo sdÄ›leno, Å¾e to staÄÃ­, sice jen na slabÅ¡Ã­ trojku, ale staÄÃ­.
+(KuÄera) napsal jsem jen definici, co to je polomÄ›r konvergence a ten vzoreÄek, kterÃ½m se poÄÃ­tÃ¡. ToÅ¥ vÅ¡e. Fiala s KuÄerou se pak ptali na definice tÄ›ch typÅ¯ konvergence, jestli neznÃ¡m nÄ›jakou speciÃ¡lnÃ­ mocninnou Å™adu (stÅ™elil jsem Taylorovu), tak jsme nÄ›jak pÅ™eÅ¡li k aproximaci funkcÃ­ v bodÄ› TaylorovÃ½m polynomem (uff, Å¾Ã¡dnÃ© zbytky!) a nakonec po mnÄ› chtÄ›li aproximovat sinus v nule kubickÃ½m polynomem, coÅ¾ je jen dosazenÃ­ do Taylora Å™Ã¡du 3, ale to jsem si v danÃ© psychickÃ© situaci neuvÄ›domil :-p. Nakonec jsem to napsal a byli spokojenÃ­. 
 3.3
 (Klazar) Pak konecne Taylor (museli u me tehdy stat vsichni rohati, ze nechtel tvary zbytku to by byla konecna) + napsat Tayloruv rozvoj pro sin(x), cos(x), e^(x) a ln(x). Tuto otazku jsem fakt nechtel a byl jsem hodne nervozni - naflakal jsem ve zmatku nekolik zbytecnych chyb. P.Klazar byl opravdu tolerantni, vzdy v klidu pockal nez se vyjadrim a ihned 2x opravim. V jedne chvili povedel, ze mu to staci (nevedel jsem znamku) a odesel.
 Statnicove materialy zde stacily bohate. 
 (Klazar) Taylorove rady Moc som toho nevedel, len definicie a tu jednu vetu o suvisloti mocnineeho radu a Taylorovho radu samozrejme bez sance na dokaz Tak mi dal spocitat este nejake Taylorove rozvoje v nule ( sinus, logaritmus, exponenciala ). Znamku neviem. (max 3)
 3.4
-(Majerech) Fourierovy øady (ty má Majerech asi rád - ale staèí v podstatì jen definice) 
+(Majerech) Fourierovy Å™ady (ty mÃ¡ Majerech asi rÃ¡d - ale staÄÃ­ v podstatÄ› jen definice) 
 ----------------1-3 jsou komplet ----------------
 
 4 -komplet v texu
@@ -30,7 +30,7 @@ Statnicove materialy zde stacily bohate.
 5 -komplet v texu
 
 6.1
-(Majerech) Druhou otázkou byly metrické prostory. Zde jsem mìl volnou ruku, nadefinoval jsem tedy metrickı prostor, napsal nìkolik pøíkladù metrickıch prostorù a pokraèoval základními tvrzeními o metrickıch prostorech. Zde jsem ale pokazil definici otevøenıch a uzavøenıch mnoin (špatné poøadí kvantifikátorù), dr. Majerech mne ale nechal nad touto definicí tak dlouho pøemıšlet, dokud jsem svou chybu sám nenašel a neopravil. Na závìr jeètì pøidal doplòující otázku v podobì definice kompatkních prostorù. Mùj vıstup pak ohodnotil známkou 2, i zde se však jednalo o velmi pøíjemné zkoušení a nebıt mé vlastní chyby, tak i bez problémù.
+(Majerech) Druhou otÃ¡zkou byly metrickÃ© prostory. Zde jsem mÄ›l volnou ruku, nadefinoval jsem tedy metrickÃ½ prostor, napsal nÄ›kolik pÅ™Ã­kladÅ¯ metrickÃ½ch prostorÅ¯ a pokraÄoval zÃ¡kladnÃ­mi tvrzenÃ­mi o metrickÃ½ch prostorech. Zde jsem ale pokazil definici otevÅ™enÃ½ch a uzavÅ™enÃ½ch mnoÅ¾in (Å¡patnÃ© poÅ™adÃ­ kvantifikÃ¡torÅ¯), dr. Majerech mne ale nechal nad touto definicÃ­ tak dlouho pÅ™emÃ½Å¡let, dokud jsem svou chybu sÃ¡m nenaÅ¡el a neopravil. Na zÃ¡vÄ›r jeÄtÄ› pÅ™idal doplÅˆujÃ­cÃ­ otÃ¡zku v podobÄ› definice kompatknÃ­ch prostorÅ¯. MÅ¯j vÃ½stup pak ohodnotil znÃ¡mkou 2, i zde se vÅ¡ak jednalo o velmi pÅ™Ã­jemnÃ© zkouÅ¡enÃ­ a nebÃ½t mÃ© vlastnÃ­ chyby, tak i bez problÃ©mÅ¯.
 
 (Majerech) Statnicove materialy stacily bohate.
 
@@ -44,14 +44,14 @@ Vladan prisel, bezeslova si procetl papiry - fixou do papiru zaznacil Cauchyovsk
 cela v TeXu
 
 9
-{0} Vektorové prostory byly rychlé, sepisoval jsem si axiomy, zkoušející mì v tom pøerušil, chtìl vìdìt co je báze, co lineární obal...v podstatì jen definice.
+{0} VektorovÃ© prostory byly rychlÃ©, sepisoval jsem si axiomy, zkouÅ¡ejÃ­cÃ­ mÄ› v tom pÅ™eruÅ¡il, chtÄ›l vÄ›dÄ›t co je bÃ¡ze, co lineÃ¡rnÃ­ obal...v podstatÄ› jen definice.
 {0} Vektorove prostory relativne v poho, jen zasek u dukazu proc linearni obal odpovida vsem linearnim kombinacim dane mnoziny, proste hrozny nervy a vypnutej mozek, jinak jsem napsala definici VP a jeho podprostoru, lin. kombinace, lin. (ne)zavislost, baze, dimenze, prunik a sjednoceni podprostoru, lin. obal
-{0} Vektorové prostory - definice + vybrat si jednu vìtu a dokázat ji (dokazoval jsem vìtu o vımìnì)
-{0} lineární nezávislost, báze ...Vektorové prostory byly rychlé, sepisoval jsem si axiomy, zkoušející mì v tom pøerušil, chtìl vìdìt co je báze, co lineární obal...v podstatì jen definice. 
+{0} VektorovÃ© prostory - definice + vybrat si jednu vÄ›tu a dokÃ¡zat ji (dokazoval jsem vÄ›tu o vÃ½mÄ›nÄ›)
+{0} lineÃ¡rnÃ­ nezÃ¡vislost, bÃ¡ze ...VektorovÃ© prostory byly rychlÃ©, sepisoval jsem si axiomy, zkouÅ¡ejÃ­cÃ­ mÄ› v tom pÅ™eruÅ¡il, chtÄ›l vÄ›dÄ›t co je bÃ¡ze, co lineÃ¡rnÃ­ obal...v podstatÄ› jen definice. 
 {Fiala, Kucera} Z dukazu u M stacilo jen dokazat lemma o vymene a rict ideu dukazu Steinitzovy vety
 otazka se tykala lin. nezavislosti, tam jsem dokazal lemma o vymene a naznacil dukaz Steinitzovy vety
-{Gregor} Definice (lineární nezávislost, lineární obal, systém generátorù, báze vektorového prostoru) jsem mìl celkem v pohodì, místo Steinitzovy vìty jsem si ovšem vspomnìl jen na pomocné lemma (slabší verzi vìty), co mi ale nakonec bylo odpuštìno (moná proto, e jsem k nìmu vyplodil uznatelnı dùkaz)
-{Koubek, Surynek} Koneènì generované VP, báze - tak trochu definic, co je co, lemma + vìta o vımìnì s dùkazy. Tady se ptali, ale to bylo tím, e jsem to taky míò umìl, ale na dotazy jsem odpovìdìl a bylo po matematice.
+{Gregor} Definice (lineÃ¡rnÃ­ nezÃ¡vislost, lineÃ¡rnÃ­ obal, systÃ©m generÃ¡torÅ¯, bÃ¡ze vektorovÃ©ho prostoru) jsem mÄ›l celkem v pohodÄ›, mÃ­sto Steinitzovy vÄ›ty jsem si ovÅ¡em vspomnÄ›l jen na pomocnÃ© lemma (slabÅ¡Ã­ verzi vÄ›ty), coÅ¾ mi ale nakonec bylo odpuÅ¡tÄ›no (moÅ¾nÃ¡ proto, Å¾e jsem k nÄ›mu vyplodil uznatelnÃ½ dÅ¯kaz)
+{Koubek, Surynek} KoneÄnÄ› generovanÃ© VP, bÃ¡ze - tak trochu definic, co je co, lemma + vÄ›ta o vÃ½mÄ›nÄ› s dÅ¯kazy. Tady se ptali, ale to bylo tÃ­m, Å¾e jsem to taky mÃ­Åˆ umÄ›l, ale na dotazy jsem odpovÄ›dÄ›l a bylo po matematice.
 {0} Vektorove prostory relativne v poho, jen zasek u dukazu proc linearni obal odpovida vsem linearnim kombinacim dane mnoziny, proste hrozny nervy a vypnutej mozek, jinak jsem napsala definici VP a jeho podprostoru, lin. kombinace, lin. (ne)zavislost, baze, dimenze, prunik a sjednoceni podprostoru, lin. obal
 
 10-15 - komplet v Texu
@@ -62,27 +62,27 @@ otazka se tykala lin. nezavislosti, tam jsem dokazal lemma o vymene a naznacil d
 17.1-3 v techu
 17.4
 (Kratochvil) Def Eul. grafu + veta + dukaz. Def Ham. kruznice, jak je to tezky, postacitelna podminka (D) a dukaz, ktery neni uplne easy, ale ktery jsem z kombagry u Kratochvila umel a rozumel mu. Evidentne ho to potesilo. :) Nakonec par dotazu, jak je to tezke - NP, a to i na rovinnych grafech, ovsem navedl me k tomu, ze na urcite tride grafu (myslim ze "hranove") je otazka HK polynomialni - prevedl jsem to na testovani Eulera. 
-(Majerech) eulerùv graf + hamiltonovskı (sloitosti) 
-(Dvoøák) Podrobnì vyjmenoval podotázky, naštìstí jsem prakticky všechno vìdìl, take pohoda. Kus dùkazu nutné a postaèující podmínky eulerovskosti jsem vymyslel na místì, dost jinak ne se uèí a lehce neohrabanì, ale fungovalo to. Nakonec jsem se zasekl na odhadu sloitosti nalezení E. tahu, take 1-2. 
-(Dvoøák) definice, slozitosti, alg. hledani eulera, pokus o dukaz postacujici podminky eulera 
-(?) Eulerovské a hamiltonovské grafy - definice + vybrat si jednu vìtu a dokázat ji (dokazoval jsem Chvátalùv uzávìr) 
-(Kuèera) Definice, a vety ktere to popisuji, Diracovu se mi podarilo dokazat, vpodstate jsem mu to pak cele povypravel a bylo to. Zadne dalsi otazky. 
+(Majerech) eulerÅ¯v graf + hamiltonovskÃ½ (sloÅ¾itosti) 
+(DvoÅ™Ã¡k) PodrobnÄ› vyjmenoval podotÃ¡zky, naÅ¡tÄ›stÃ­ jsem prakticky vÅ¡echno vÄ›dÄ›l, takÅ¾e pohoda. Kus dÅ¯kazu nutnÃ© a postaÄujÃ­cÃ­ podmÃ­nky eulerovskosti jsem vymyslel na mÃ­stÄ›, dost jinak neÅ¾ se uÄÃ­ a lehce neohrabanÄ›, ale fungovalo to. Nakonec jsem se zasekl na odhadu sloÅ¾itosti nalezenÃ­ E. tahu, takÅ¾e 1-2. 
+(DvoÅ™Ã¡k) definice, slozitosti, alg. hledani eulera, pokus o dukaz postacujici podminky eulera 
+(?) EulerovskÃ© a hamiltonovskÃ© grafy - definice + vybrat si jednu vÄ›tu a dokÃ¡zat ji (dokazoval jsem ChvÃ¡talÅ¯v uzÃ¡vÄ›r) 
+(KuÄera) Definice, a vety ktere to popisuji, Diracovu se mi podarilo dokazat, vpodstate jsem mu to pak cele povypravel a bylo to. Zadne dalsi otazky. 
 17.5
-(Klazar) Rovinné grafy - popsal jsem definice, Kuratowského vìtu a Eulerovu formuli, kterou jsem dokázal. Doc. Klazar se ze mì ještì pokoušel vytáhnout formální definici oblouku, ale kdy jsem nevìdìl, tak se v tom nenimral. Musím øíct, e pan Klazar byl fajn, kdy máte nìco navíc, tak to ocení, a kdy cítí e vám nìco nejde, tak se v tom nerıpá. 
-(?) definice, Kuratowského vìta, Eulerova formule, maximální poèet hran + nìjaká souvislost s barevností grafu, jsem trochu zamotal u zmìní Kuratowského vìty a u Eulerovi formule jsem pozapomnìl, e platí pouze pro souvislé grafy (co je docela logické, ale prostì mi to vypadlo), na co jsem pøišel pøi improvizovaném dùkazu. Uvedl jsem vìtu o 4 barvách, s tím e dùkaz je sloitı. Zkoušející mi docela pomáhal, trochu ho sralo, e vìtšina definic byla taková pofidérní, ale nakonec prohlásil nìco v tom smyslu, e tomu rozumím a v pohodì. 
+(Klazar) RovinnÃ© grafy - popsal jsem definice, KuratowskÃ©ho vÄ›tu a Eulerovu formuli, kterou jsem dokÃ¡zal. Doc. Klazar se ze mÄ› jeÅ¡tÄ› pokouÅ¡el vytÃ¡hnout formÃ¡lnÃ­ definici oblouku, ale kdyÅ¾ jsem nevÄ›dÄ›l, tak se v tom nenimral. MusÃ­m Å™Ã­ct, Å¾e pan Klazar byl fajn, kdyÅ¾ mÃ¡te nÄ›co navÃ­c, tak to ocenÃ­, a kdyÅ¾ cÃ­tÃ­ Å¾e vÃ¡m nÄ›co nejde, tak se v tom nerÃ½pÃ¡. 
+(?) definice, KuratowskÃ©ho vÄ›ta, Eulerova formule, maximÃ¡lnÃ­ poÄet hran + nÄ›jakÃ¡ souvislost s barevnostÃ­ grafu, jsem trochu zamotal u zmÄ›nÃ­ KuratowskÃ©ho vÄ›ty a u Eulerovi formule jsem pozapomnÄ›l, Å¾e platÃ­ pouze pro souvislÃ© grafy (coÅ¾ je docela logickÃ©, ale prostÄ› mi to vypadlo), na coÅ¾ jsem pÅ™iÅ¡el pÅ™i improvizovanÃ©m dÅ¯kazu. Uvedl jsem vÄ›tu o 4 barvÃ¡ch, s tÃ­m Å¾e dÅ¯kaz je sloÅ¾itÃ½. ZkouÅ¡ejÃ­cÃ­ mi docela pomÃ¡hal, trochu ho sralo, Å¾e vÄ›tÅ¡ina definic byla takovÃ¡ pofidÃ©rnÃ­, ale nakonec prohlÃ¡sil nÄ›co v tom smyslu, Å¾e tomu rozumÃ­m a v pohodÄ›. 
 (Dvorak) Tady to chce hlavne definice a znat vety a vlastnosti rovinnych grafu + naznak dukazu u tech jednodussich, napriklad to, jak se dokazuje 
 Euleruv vzorec. Nakonec jsme se dostali az k NP a 3-barevnosti grafu, ale to byla jen odbocka, do ktere rekli, ze zabihat nebudeme. 
-(Fiala) Fiala pøeèetl grafy (formální definice rovinnıch grafù a co k tomu patøí, vzorce o poètu hran, stìn a tak a Kuratowskı), upozornil mne na chybku, poloil doplòujícíc otázku a bylo to. 
+(Fiala) Fiala pÅ™eÄetl grafy (formÃ¡lnÃ­ definice rovinnÃ½ch grafÅ¯ a co k tomu patÅ™Ã­, vzorce o poÄtu hran, stÄ›n a tak a KuratowskÃ½), upozornil mne na chybku, poloÅ¾il doplÅˆujÃ­cÃ­c otÃ¡zku a bylo to. 
 (Gregor) Rovinne grafy, barveni: Napsal jsem nekolik definici a par vet. Jednu chtel dokazat, tak jsem dokazal tu |V| - |E| + s = 2. U barveni se mu nelibila moje verze Kuratowskeho vety, tak mi ukazal protipriklad a ja to opravil (chybelo mi tam slovo "deleni"). Potom jsem jeste zacal dokazovat vetu o peti barvach, ale uprostred me zastavil s tim, ze si neni jistej jestli to rikam dobre (ale myslim, ze jsem to rikal dobre) a zeptal se me jeste na problem barveni pomoci tri barev (NP-uplny problem). To mu stacilo a rek, ze se pujde poradit s kolegou.
 Gregor stoural trochu vic nez skopal, ale v pohode. 
 (Fiala) pohoda, akurat som sa strapnoval s Eulerovou ci Euklidovou ci akou to formulou (pocet stien, vrcholov a hran) ked som si na nu nespomenul a odvodzoval som ju. (a aj tak som tak nejake +/- 2 zabudol) 
 17.6
-(Majerech) lze tøemi barvami? algoritmus na zjištìní, zdali lze ho obarvit 3 - prej nìco dvakrát pustit prohledávání do hloubky - nepochopil jsem 
+(Majerech) lze tÅ™emi barvami? algoritmus na zjiÅ¡tÄ›nÃ­, zdali lze ho obarvit 3 - prej nÄ›co dvakrÃ¡t pustit prohledÃ¡vÃ¡nÃ­ do hloubky - nepochopil jsem 
 (Dvorak) Barveni grafu v pohode, ale pres to jsme se dostali az k NP-uplnosti a jijim definicim a hromadu veci kolem. Mimo jine se i ptal, jestli znam nejake odhady pro chromaticke cislo grafu atd. 
 Ale matika celkove v pohode. 
 (IP 21.6.2011)
 3.1 Definujte pojem barevnost grafu
-3.2 Popište jak souvisí barevnost s tìmito atributy grafu : poèet vrcholù, klikovost, nezávislost, degenerovanost, rovinnost
+3.2 PopiÅ¡te jak souvisÃ­ barevnost s tÄ›mito atributy grafu : poÄet vrcholÅ¯, klikovost, nezÃ¡vislost, degenerovanost, rovinnost
 
 
 
@@ -98,71 +98,98 @@ Ale matika celkove v pohode.
 Informatika
 1.1
 Predikatova logika - (zkousel Necasky) popis jazyka, realizace, ohodnoceni, splnitelnost, tarskeho definice pravdivosti (znamka tusim 1-) 
-(IOI 21. 6. 2011) Zformulujte vìtu o existenci modelu a dokate pomocí ní tvrzení: je-li T nìjaká L-teorie a \phi je L-sentence, tak T \models \phi \Rightarrow T \vdash \phi.
+(IOI 21. 6. 2011) Zformulujte vÄ›tu o existenci modelu a dokaÅ¾te pomocÃ­ nÃ­ tvrzenÃ­: je-li T nÄ›jakÃ¡ L-teorie a \phi je L-sentence, tak T \models \phi \Rightarrow T \vdash \phi.
 1.2
 Bednarek: Pravdivost, Dokazatelnost, Splnitelnost, Rozhodnutelnost
 Tady se da popsat hooodne papiru definicemi - napriklad definice pravdivosti je v PL o neco komplikovanejsi.
 To jsem taky ucinil a po projiti 5 listu A4 (pisu velkym pismem) mi bylo satisfakci Bednarkovo: "no myslim ze to bylo celkem vycerpavajici" 
-(Kofron) Rozhodnutelnost, splnitelnost, pravdivost, dokazatelnost - to mì nepotìšilo, ale zplodil jsem co je vıroková logika, ohodnocení, vysvìtlil ty pojmy v otázce, ukázal cnf, dnf jak na nì upravit... zkoušející byl nedoèkavı, tak jsem nakonec nenapsal nic o PL, s tím, e to kdytak dopíšu pak (co nechtìl).
-Ptal se docela dost, hlavnì otázky které jsem neèekal, tak pro další generace tu máme vıbìr:
-Sloitost zjišování splnitelnosti pro cnf (3-sat je NP, ale chtìl vìdìt co tøeba 2-sat - to je polynomiální, chtìl vìdìt jak by se to naprogramovalo), stejnì ho zajímala sloitost u zjištìní tautologie... nakonec z toho byl docela pøíjemnı pokec. 
-(Skopal) Pro skopala na tuhle otázku si pøipravte nìjakı pìknı pøíklad nedokazatelné formule nebo nerozhodnutelného problému. 
+(Kofron) Rozhodnutelnost, splnitelnost, pravdivost, dokazatelnost - to mÄ› nepotÄ›Å¡ilo, ale zplodil jsem co je vÃ½rokovÃ¡ logika, ohodnocenÃ­, vysvÄ›tlil ty pojmy v otÃ¡zce, ukÃ¡zal cnf, dnf jak na nÄ› upravit... zkouÅ¡ejÃ­cÃ­ byl nedoÄkavÃ½, tak jsem nakonec nenapsal nic o PL, s tÃ­m, Å¾e to kdyÅ¾tak dopÃ­Å¡u pak (coÅ¾ nechtÄ›l).
+Ptal se docela dost, hlavnÄ› otÃ¡zky kterÃ© jsem neÄekal, tak pro dalÅ¡Ã­ generace tu mÃ¡me vÃ½bÄ›r:
+SloÅ¾itost zjiÅ¡Å¥ovÃ¡nÃ­ splnitelnosti pro cnf (3-sat je NP, ale chtÄ›l vÄ›dÄ›t co tÅ™eba 2-sat - to je polynomiÃ¡lnÃ­, chtÄ›l vÄ›dÄ›t jak by se to naprogramovalo), stejnÄ› ho zajÃ­mala sloÅ¾itost u zjiÅ¡tÄ›nÃ­ tautologie... nakonec z toho byl docela pÅ™Ã­jemnÃ½ pokec. 
+(Skopal) Pro skopala na tuhle otÃ¡zku si pÅ™ipravte nÄ›jakÃ½ pÄ›knÃ½ pÅ™Ã­klad nedokazatelnÃ© formule nebo nerozhodnutelnÃ©ho problÃ©mu. 
 Definiciu rozhodnutelnosti som vedel, ale nevedel som mu nic blizsie povedat a rekurzivne spocetnych mnozinach, vyzeral byt trosku nahnevany (lebo prave o tom chcel pocut a bol velmi prekvapeny ako je mozne, ze sme to nebrali) ale podarilo sa mi spravne argumentovat a vysvetlit, ze to je az Slozitost I a nie bc predmety, takze nakoniec v poho. (Ale mal som strach ako male decko.) 
 1.3
 NIKDY NEBYLA ZKOUSENA?
-3.3
-vsechno je v TeXu
+3.1
+{Skopal} Casova zlozitost
+3.2 v TeXu
+3.3 vsechno je v TeXu
 3.4
-{emlièka} Napsal jsem tam toho myslim dost, popis a slozitost operaci, prumerna vyska pr. stromu, u AVL rotace, kolik max rotaci pri jake operaci, max hloubku AVL stromu, i tu haldu, vcetne pekne reprezentace v poli (tam jsem nenapsal, ze syny najdu na pozici a2i a a2i+1, na coz se pak doplnkove ptal). Pro doplneni chtel CC stromy a splay-stromy (tam jsem zvoral, ze se vyhledavany zaznam "strci" do korene, pote, co zvedl oboci, jsem se rychle opravil "Ja jsem blbej, zarotuje az do korene"). Halda se mu nezdala, ac jsem tam napsal to vyuziti pri trideni na vnejsi pameti (predtrideni dvojitou haldou) - doufal jsem, ze ho to potesi, kdyz jsme to brali na OZD. ;) ... "Hmmm, a co jiny haldy?" Tak jsem priznal, ze nevim, ze jsem akorat slysel o Fibonaciho haldach. Chtel neco s vice-arnimi haldami a haldami, jejichz nazev jsem slysel snad poprve v zivote.
-{Kopeckı} BVS a vyvaování: (AVL + RedBlack). Dotaz na optimální vyhledávací stromy: popsal jsem splay (ani jsem tušil, e se tak jmenují), ale e na statické o.v.s. se hodí dynamické programování, jsem si "vzpomnìl" a po nápovìdì. 
-{Kopeckı} Tohle jsem mel vse, az na malou chybicku u AVL, ze pri pridani staci provest max. jednu rotaci a take jsem nevededel vyhledavaci stromy, kde krom klice je ulozena i potencionalni cetnost hledani.
-{Skopal} B-stromy a analogie s RB stromy - nechtìl víc ne definici a odhady sloitosti FIND v nejhorším a nejlepším pøípadì 
-{Kopeckı} BVS a vyvazovani - tady chtel Kopecky slyset rozdily mezi AVL a R&B, algoritmus pro optimalni binarni vyhledavaci strom, splay stromy
+{Å½emliÄka} Napsal jsem tam toho myslim dost, popis a slozitost operaci, prumerna vyska pr. stromu, u AVL rotace, kolik max rotaci pri jake operaci, max hloubku AVL stromu, i tu haldu, vcetne pekne reprezentace v poli (tam jsem nenapsal, ze syny najdu na pozici a2i a a2i+1, na coz se pak doplnkove ptal). Pro doplneni chtel CC stromy a splay-stromy (tam jsem zvoral, ze se vyhledavany zaznam "strci" do korene, pote, co zvedl oboci, jsem se rychle opravil "Ja jsem blbej, zarotuje az do korene"). Halda se mu nezdala, ac jsem tam napsal to vyuziti pri trideni na vnejsi pameti (predtrideni dvojitou haldou) - doufal jsem, ze ho to potesi, kdyz jsme to brali na OZD. ;) ... "Hmmm, a co jiny haldy?" Tak jsem priznal, ze nevim, ze jsem akorat slysel o Fibonaciho haldach. Chtel neco s vice-arnimi haldami a haldami, jejichz nazev jsem slysel snad poprve v zivote.
+{KopeckÃ½} BVS a vyvaÅ¾ovÃ¡nÃ­: (AVL + RedBlack). Dotaz na optimÃ¡lnÃ­ vyhledÃ¡vacÃ­ stromy: popsal jsem splay (aniÅ¾ jsem tuÅ¡il, Å¾e se tak jmenujÃ­), ale Å¾e na statickÃ© o.v.s. se hodÃ­ dynamickÃ© programovÃ¡nÃ­, jsem si "vzpomnÄ›l" aÅ¾ po nÃ¡povÄ›dÄ›. 
+{KopeckÃ½} Tohle jsem mel vse, az na malou chybicku u AVL, ze pri pridani staci provest max. jednu rotaci a take jsem nevededel vyhledavaci stromy, kde krom klice je ulozena i potencionalni cetnost hledani.
+{Skopal} B-stromy a analogie s RB stromy - nechtÄ›l vÃ­c neÅ¾ definici a odhady sloÅ¾itosti FIND v nejhorÅ¡Ã­m a nejlepÅ¡Ã­m pÅ™Ã­padÄ› 
+{KopeckÃ½} BVS a vyvazovani - tady chtel Kopecky slyset rozdily mezi AVL a R&B, algoritmus pro optimalni binarni vyhledavaci strom, splay stromy
 3.5
 {Skopal} Hashovani: Popsal jsem princip hashovani, nejaky zpusoby reseni kolizi. Pak se zeptal jak ma vypadat dobra hashovaci funkce. Rek jsem neco jako ze musi univerzum klicu rozlozit rovnomerne po tabulce, ale to mu nestacilo. Chtel neco konkretnejsiho a nakonec se spokojil s odpovedi, ze by to melo byt neco jako generator pseudonahodnych cisel. To, ze jsem nedokazal odpovedet na to jak takovy generator vypada, mu asi ani moc nevadilo. Pak se zeptal na externi hashovani, ale kdyz uvidel mou vystrasenou tvar, tak rek, ze nic, ze se to uci az na magistru. Pak jsem rek neco o perfektnim hashovani a lehce popsal Cormacka. Padlo jeste par otazek obecne o perfektnim hashovani, coz jsem zodpovedel a to mu stacilo.
 
-{Skopal} dostal mì na otázkách ohlednì hashovací fce - jaké jsou na ní kladené poadavky (nejsem si vìdom, e bychom to probírali tak podrobnì), hned se pak pøesunul k Univerzálnímu a Perfektnímu hashování - kdy jsem mu neøekl perfektní, tak se zvedl a øekl to staèí... a nezašli jsme ani ke kolizím, které jsem mìl vypracované (dostal jsem od nìj dílèí známku za 3).
+{Skopal} dostal mÄ› na otÃ¡zkÃ¡ch ohlednÄ› hashovacÃ­ fce - jakÃ© jsou na nÃ­ kladenÃ© poÅ¾adavky (nejsem si vÄ›dom, Å¾e bychom to probÃ­rali tak podrobnÄ›), hned se pak pÅ™esunul k UniverzÃ¡lnÃ­mu a PerfektnÃ­mu hashovÃ¡nÃ­ - kdyÅ¾ jsem mu neÅ™ekl perfektnÃ­, tak se zvedl a Å™ekl to staÄÃ­... a nezaÅ¡li jsme ani ke kolizÃ­m, kterÃ© jsem mÄ›l vypracovanÃ© (dostal jsem od nÄ›j dÃ­lÄÃ­ znÃ¡mku za 3).
+
+3.6 trideni
+{Skopal} TÅ™Ã­dÃ­cÃ­ algoritmy (dÃ­ky dÃ­ky! takhle dobrou otÃ¡zku jsem si ani snad nepÅ™edstavoval)
+{Skopal} Tak to jsem si myslel, Å¾e si ze mÄ› dÄ›lÃ¡ srandu, takovou jednodcuhou vÄ›c, kde bude hÃ¡Äek...nebyl asi skoro nikde. AkorÃ¡t na mÄ› celÃ¡ komise koukala, tak jsem necÃ­til uplnÄ› koÅ¡er, kdyÅ¾ je kolem mÄ› asi 6 lidÃ­ a koukÃ¡ na mÄ›, co Å™Ã­kÃ¡. (znÃ¡mku nevÃ­m)
+{HnÄ›tynka} tÅ™Ã­dÃ­cÃ­ algoritmy, takÅ¾e levou zadnÃ­ za 1
+{Hippies} a jÃ¡ to chÃ¡pu takto:
+
+porovnÃ¡vacÃ­ alg. - heap, quick, bubble, insert, ...
+
+pÅ™ihrÃ¡dkovÃ© tÅ™Ã­dÄ›nÃ­ - bucket, counting, redix sort (http://hippies.matfyz.info/poznamky/predmet_ads1/gallery.php?ID=2)
+
+tÅ™Ã­dÃ­cÃ­ sÃ­tÄ› - napÅ™. to bitonickÃ© (http://hippies.matfyz.info/poznamky/predmet_ads2/gallery.php?ID=23)
+
+sekvenÄnÃ­ tÅ™Ã­dÄ›nÃ­ - tudÃ­Å¾ pÅ™edpoklÃ¡dÃ¡m je nÄ›co jinÃ©ho, dle mÃ©ho nÃ¡zoru to znamenÃ¡, Å¾e tÅ™Ã­dÃ­ data sekvenÄnÄ›, tj. jak mu pÅ™ijdou do ruky, tedy napÅ™. merge sort
+3.7
+{KopeckÃ½} Grafove algoritmy - testovani souvislosti, topologicke trideni a pak hledani nejkratsi cesty (Dijkstra, Bellman-Ford a Floyd-Warshall)
+{?} Grafove algoritmy - prehladavanie do sirky, hlbky, kostra, cesta
+{MlÃ½nkovÃ¡} GrafovÃ© algoritmy: obecnÄ› zÃ¡klady, pak speciÃ¡lnÄ› souvislost, nejkratÅ¡Ã­ cesta (MlÃ½nkovÃ¡): ObecnÃ© vÄ›ci a vÃ½Äet algoritmÅ¯ mi zabrali na papÃ­Å™e dost mÃ­sta, tak jsem ukÃ¡zal, co mÃ¡m. Kupodivu byl zÃ¡jem o pÅ™esnÃ© definice (tah, sled, cesta, souvislost v or./neor. grafu, nejkratÅ¡Ã­ cesta, zÃ¡p. cyklus, k-souvislost). Algoritmus na k-souvislost jsem nevÄ›dÄ›l (vÃ­te nÄ›kdo?), zÅ™ejmÄ› nevadilo. Mohl jsem si vybrat, kterÃ½ z algoritmÅ¯ na cesty popÃ­Å¡u podrobnÄ›ji. Vybral jsem si "nÃ¡sobenÃ­" matic, vysvÄ›tlil jsem, proÄ funguje sprÃ¡vnÄ›, co se stane pro zÃ¡p. cyklus, Äasovou sloÅ¾itost (pro chytrÃ© nÃ¡sobenÃ­ dÃ­ky asociativitÄ›).
+{Kofron} grafovÃ© algoritmy - kostra, tok, hÄºbka, Å¡Ã­rka, topologickÃ© triedenie, definÃ­cia problÃ©mu, Äo je rieÅ¡enÃ­m, kedy existuje, algoritmy, ktorÃ© to rieÅ¡ia s popisom implementÃ¡cie vrÃ¡tane Äasovej zloÅ¾itosti, porovnanie hÄºbky a Å¡Ã­rky...
+{ÄŒepek} GrafovÃ© algoritmy - tok v sÃ­ti, topologickÃ© tÅ™Ã­dÄ›nÃ­, vzdÃ¡lenosti, kostry
+{Yaghob} grafove algoritmy (akorat jsem nevedel k cemu ze to slouzi minimalni kostry, hlavne ze vim jakou maj slozitost :oops: ) 
+3.9
+{BednÃ¡rek} Algoritmy vyhledÃ¡vÃ¡nÃ­ v textu U tÄ›ch algoritmÅ¯ se mÄ› jeÅ¡tÄ› dodateÄnÄ› zeptal jak bych Å™eÅ¡il vyhledÃ¡vÃ¡nÃ­ regulÃ¡rnÃ­ho vÃ½razu, naÅ¡testÃ­ uÅ¾ pÅ™edtÃ­m se ptal na determinismus automatu u aho-corrasica tak bylo lehkÃ© si odvodit, Å¾e to bude nedeterministickÃ½ automat, jeÅ¡tÄ› se ptal jak bude dlouhÃ½ u regulÃ¡rnÃ­ho vÃ½razu dÃ©lky p, tak to jsem odvodil, Å¾e staÄÃ­ p stavÅ¯, jeÅ¡tÄ› ho zajÃ­malo jeho determinizace -> stavy jsou mnoÅ¾iny stavÅ¯ pÅ¯vodnÃ­ho automatu, stavÅ¯ max 2 na p-tou.
+I celkovÄ› ÃºplnÄ› v pohodÄ›. 
+3.11
+(Skopal) RSA, DES (tady chtÄ›l Skopal konkrÃ©tnÃ­ vzoreÄky, jak funguje symetrickÃ¡ Å¡ifra nebo Å¡ifrovÃ¡nÃ­ s vÄ›Å™ejnÃ½m klÃ­Äem ho nezÃ¡jÃ­malo)
 3.12-13
 vsechno je v TeXu
-3.11
-(Skopal) RSA, DES (tady chtìl Skopal konkrétní vzoreèky, jak funguje symetrická šifra nebo šifrování s vìøejnım klíèem ho nezájímalo) 
+ 
 ----------------4 je komplet ----------------
 4.2 Konceptualni model
-(Skopal): Ještì jednou mi tu øeknete "primární klíè" a rovnou vás tady vyhodím (a pak o chvíli pozdìji) V IVOTÌ... U NEØEKNETE... PRIMÁRNÍ KLÍÈ!!  jinak je to obecny cerveny prapor na nej.. proste tam jsou klíèe, primární klíè je zajimavy "jen" tim, ze je podle nej setrideny ten soubor 
+(Skopal): JeÅ¡tÄ› jednou mi tu Å™eknete "primÃ¡rnÃ­ klÃ­Ä" a rovnou vÃ¡s tady vyhodÃ­m (a pak o chvÃ­li pozdÄ›ji) V Å½IVOTÄš... UÅ½ NEÅ˜EKNETE... PRIMÃRNÃ KLÃÄŒ!!  jinak je to obecny cerveny prapor na nej.. proste tam jsou klÃ­Äe, primÃ¡rnÃ­ klÃ­Ä je zajimavy "jen" tim, ze je podle nej setrideny ten soubor 
 4.3 Rel.alg
 vsechno je v TeXu
 4.4
 (Mlynkova) Tady jsem se tesil, ze je to pekna otazka, ale bylo mi ukazano, ze toho moc neumim. Celkem jsem vyjmenoval a popsal NF + algoritmy na dosazeni(dekompozice a synteza). Horsi uz to bylo s predvedenim na prikladu, tak nakonec za 3. 
 (Mlynkova) Tohle neni uplne moje parketa, takze jsem se snazil rict to co jsem vedel s jistotou. Zaklad byl asi v poradku, jenom jsem nevedel zadnej algoritmus pro prevod schematu do nejake te normalni formy. Odhad 2-3
-(Bednarek) U tìch normálních forem chtìl jenom pøíklady a vıhody nevıhody, take pohodièka. 
+(Bednarek) U tÄ›ch normÃ¡lnÃ­ch forem chtÄ›l jenom pÅ™Ã­klady a vÃ½hody nevÃ½hody, takÅ¾e pohodiÄka. 
 4.5 SQL 
 (Rychta) tak jsem rekla ze SQL je norma, priklady jeji implementace, co zahrnuje (popis schemat databaze, dotazovaci jazyk, transakce, intergitni omezeni ...), zakladni popis SELECT a dalsich basic dotazu, dal se me ptali na to nad jakou DB SQL pracuje (->relacni), zda se pouziva SQL i u jinych typu, jako je XML (ne), co je to SQL dotaz (je to prikaz, neni to program, musi byt necim interpretovan), co to je transakce (mnozina operaci co se tvari atomicky) atd... jo a co neni v textu a chteli: prikazy pro prirazovani prav uzivatelum (GRANT), prikazy pro transakce (COMMIT/ROLLBACK) 
-(Yaghob) 3 A4, +- popis pøíkazù, 2-3 doplòující otázky typu, co je trigger?
+(Yaghob) 3 A4, +- popis pÅ™Ã­kazÅ¯, 2-3 doplÅˆujÃ­cÃ­ otÃ¡zky typu, co je trigger?
 4.6 Transakce
-(Zavoral) Popsal jsem ACID s mírnım nedorozumìním u konzistence (je dùleité øici, e DB v konz. stavu splòuje všechny integritní omezení), kdy obecnì má smysl pouívat transakce (víceuivatelské DB sys.), napsal jsem pár slov k rozvrhování a pøíklad C2PL. Celkovì v pohodì, sem tam drobné záseky, ale Dr. Zavoral spíš poradil, resp. smìroval k tomu, abych øekl, co chtìl slyšet. 
-(Bednarek) Vyplodil jsem poadavky na transakce, zamotal se ve vysvìtlování konfliktù a konfliktové uspoøádatelnosti, vìdìl jsem zamykací protokoly, optimistické protokoly a èasová razítka i nìco málo o implementaci transakcí. 
+(Zavoral) Popsal jsem ACID s mÃ­rnÃ½m nedorozumÄ›nÃ­m u konzistence (je dÅ¯leÅ¾itÃ© Å™ici, Å¾e DB v konz. stavu splÅˆuje vÅ¡echny integritnÃ­ omezenÃ­), kdy obecnÄ› mÃ¡ smysl pouÅ¾Ã­vat transakce (vÃ­ceuÅ¾ivatelskÃ© DB sys.), napsal jsem pÃ¡r slov k rozvrhovÃ¡nÃ­ a pÅ™Ã­klad C2PL. CelkovÄ› v pohodÄ›, sem tam drobnÃ© zÃ¡seky, ale Dr. Zavoral spÃ­Å¡ poradil, resp. smÄ›roval k tomu, abych Å™ekl, co chtÄ›l slyÅ¡et. 
+(Bednarek) Vyplodil jsem poÅ¾adavky na transakce, zamotal se ve vysvÄ›tlovÃ¡nÃ­ konfliktÅ¯ a konfliktovÃ© uspoÅ™Ã¡datelnosti, vÄ›dÄ›l jsem zamykacÃ­ protokoly, optimistickÃ© protokoly a ÄasovÃ¡ razÃ­tka i nÄ›co mÃ¡lo o implementaci transakcÃ­. 
 (?) Transakce jsem moc neumel, popsal jsem ACID, usporadatelnost, konfliktni dvojce (WW, WR, RW), neznal jsem precedencni graf. 
 (Skopal) Co me docela prekvapilo byla Skopalova otazka na to, jestli se v realnem provozu nejak berou v potaz rozvrhy transakci a graf konfliktu. Odpoved je ne, protoze s tim zpetne uz nejde nic udelat a misto toho se pouzivaji prave uzamykaci protokoly, ktere vynuty urcite vlastnosti rozvrhu dopredu. 
 (Galambos) transakce a jejich vlastnosti -- napsal jsem mu tam ACID + nejake dalsi obecna veci okolo ala co je to rozvrh a pod.; pak se me ptal na protokol casovych razitek, coz jsem nevedel a nedokazal vymyslet. 
 4.8 XML, XML Schema
-(Mlınková) jsem dostal XSLT a o tom jazyku jsem slysel tak maximalne na co se to pouziva, ... to ji 
+(MlÃ½nkovÃ¡) jsem dostal XSLT a o tom jazyku jsem slysel tak maximalne na co se to pouziva, ... to ji 
 bohuzel nestacilo 
 (Bednarek) XML, XSLT a trochu HTML protokoly- jsme se o nich zacli bavit (vedel jsem toho o nich asi jako vetsina z vas) a nakonec se konverzace prenesla na site obecneji (nastesti), takze to bylo v pohode.. 
-(?) Nestaèí vìdìt co to je, co je k tomu pøidruené a povrchní pøedstavu o tom jak to funguje, èi k èemu se to pouívá. Je dobré znát alespoò základní syntaxi, pøedstavu o tom jak funguje XSLT procesor, atd.  
+(?) NestaÄÃ­ vÄ›dÄ›t co to je, co je k tomu pÅ™idruÅ¾enÃ© a povrchnÃ­ pÅ™edstavu o tom jak to funguje, Äi k Äemu se to pouÅ¾Ã­vÃ¡. Je dobrÃ© znÃ¡t alespoÅˆ zÃ¡kladnÃ­ syntaxi, pÅ™edstavu o tom jak funguje XSLT procesor, atd.  
 4.9 B-Stromy
 {IP 21.6.2011} Popiste B-stromy. Porovnejte rychlost B-stromu s binarnim vyhledavacim stromem, ktere jsou ulozeny v sekundarni pameti.
-{?} B-stromy - napsal jsem všechno, co jsem o nich vìdìl, insert, delete, B+, B* stromy, vıhody a nevıhody, pouití atd.
-{?} B-stromy - definice, find, insert, delete, pak jsem ještì øešil nìjaké nepøíliš záludné otázky (sloitost insertu v nejhorším pøípadì, jak se pouíva B+ strom v databázích, kolik místa zabíra jeden uzel B-stromu).
+{?} B-stromy - napsal jsem vÅ¡echno, co jsem o nich vÄ›dÄ›l, insert, delete, B+, B* stromy, vÃ½hody a nevÃ½hody, pouÅ¾itÃ­ atd.
+{?} B-stromy - definice, find, insert, delete, pak jsem jeÅ¡tÄ› Å™eÅ¡il nÄ›jakÃ© nepÅ™Ã­liÅ¡ zÃ¡ludnÃ© otÃ¡zky (sloÅ¾itost insertu v nejhorÅ¡Ã­m pÅ™Ã­padÄ›, jak se pouÅ¾Ã­va B+ strom v databÃ¡zÃ­ch, kolik mÃ­sta zabÃ­ra jeden uzel B-stromu).
 {Bednarek} B-stromy (+vyuzitie v databazach (B*) a praca na "disku")... podobne, par viet sme prehodili o pocte pristupov/mnozstve nacitanych dat v porovnani s binarnymi stromami...
-{Skopal} B-stromy a analogie s RB stromy - nechtìl víc ne definici a odhady sloitosti FIND v nejhorším a nejlepším pøípadì
-{Bednárek} Organizace dat na vnìjší pamìti, B-stromy a jejich varianty. Popísal som rozdiel vnútorná/vonkajšia, sekvenènı/blokovı prístup, mergesort u sekvenèného a B-stromy u blokového (databáza)+varianty. 
+{Skopal} B-stromy a analogie s RB stromy - nechtÄ›l vÃ­c neÅ¾ definici a odhady sloÅ¾itosti FIND v nejhorÅ¡Ã­m a nejlepÅ¡Ã­m pÅ™Ã­padÄ›
+{BednÃ¡rek} Organizace dat na vnÄ›jÅ¡Ã­ pamÄ›ti, B-stromy a jejich varianty. PopÃ­sal som rozdiel vnÃºtornÃ¡/vonkajÅ¡ia, sekvenÄnÃ½/blokovÃ½ prÃ­stup, mergesort u sekvenÄnÃ©ho a B-stromy u blokovÃ©ho (databÃ¡za)+varianty. 
 5.3
 vsechno v TeXu
 5.9
 vsechno v TeXu
 
 6.3 Neproc.
-{Bureš} Neprocedurální programování. chtìl základní vìci, dobrı zkoušející.
-{Tùma} Testuje zda to clovek ma naucene jen jako basnicku anebo to umi skutecne pouzit a zapsat. U neproceduralniho programovani (u kolegy za mnou) chtel ukazku zda umi na pozadani vyrobit nekolik konstruktu.
+{BureÅ¡} NeprocedurÃ¡lnÃ­ programovÃ¡nÃ­. chtÄ›l zÃ¡kladnÃ­ vÄ›ci, dobrÃ½ zkouÅ¡ejÃ­cÃ­.
+{TÅ¯ma} Testuje zda to clovek ma naucene jen jako basnicku anebo to umi skutecne pouzit a zapsat. U neproceduralniho programovani (u kolegy za mnou) chtel ukazku zda umi na pozadani vyrobit nekolik konstruktu.
 {Bures} Neproceduralni a logicke programovani - Povidani o prologu, a chtel i presne jak probiha unifikace a backtracking. Nakonec jsem si nabeh na nuz a rekl ze existuje operator rezu(jinak by se na nej skoro urcite nezeptal), a ze se pomoci nej da udelat negace. S tou negaci jsem pak zapasil 10 min jen abych se prastil do hlavy a rekl trivialni, nervozita udela sve. Pak se vyptaval na funkcionalni programovani, rozdily oproti proceduralnimu(chtel hlavne vedet ze se daji funkce pouzit i jako paramatry funkci). V Prologu a necem funkcionalnim napsat kus neceho, syntax ho ale nezajimala, stacilo neco co by po trivialnim opraveni slo pustit v Prologu nebo Haskellu(nebo necem podobnem). Celkem bez vetsich obtizi 1
-{?} Neprocedurální programování - zkoušející prolétl popsané papíry a øekl, e mu to staèí. Ptal se jenom na to, co se mi na neprocedurálním programování nejvíc líbí. 
+{?} NeprocedurÃ¡lnÃ­ programovÃ¡nÃ­ - zkouÅ¡ejÃ­cÃ­ prolÃ©tl popsanÃ© papÃ­ry a Å™ekl, Å¾e mu to staÄÃ­. Ptal se jenom na to, co se mi na neprocedurÃ¡lnÃ­m programovÃ¡nÃ­ nejvÃ­c lÃ­bÃ­. 
