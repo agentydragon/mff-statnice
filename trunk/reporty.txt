@@ -148,8 +148,21 @@ vsechno je v TeXu
 (Mlýnková) jsem dostal XSLT a o tom jazyku jsem slysel tak maximalne na co se to pouziva, ... to ji 
 bohuzel nestacilo 
 (Bednarek) XML, XSLT a trochu HTML protokoly- jsme se o nich zacli bavit (vedel jsem toho o nich asi jako vetsina z vas) a nakonec se konverzace prenesla na site obecneji (nastesti), takze to bylo v pohode.. 
-(?) Nestaèí vìdìt co to je, co je k tomu pøidružené a povrchní pøedstavu o tom jak to funguje, èi k èemu se to používá. Je dobré znát alespoò základní syntaxi, pøedstavu o tom jak funguje XSLT procesor, atd. 
+(?) Nestaèí vìdìt co to je, co je k tomu pøidružené a povrchní pøedstavu o tom jak to funguje, èi k èemu se to používá. Je dobré znát alespoò základní syntaxi, pøedstavu o tom jak funguje XSLT procesor, atd.  
+4.9 B-Stromy
+{IP 21.6.2011} Popiste B-stromy. Porovnejte rychlost B-stromu s binarnim vyhledavacim stromem, ktere jsou ulozeny v sekundarni pameti.
+{?} B-stromy - napsal jsem všechno, co jsem o nich vìdìl, insert, delete, B+, B* stromy, výhody a nevýhody, použití atd.
+{?} B-stromy - definice, find, insert, delete, pak jsem ještì øešil nìjaké nepøíliš záludné otázky (složitost insertu v nejhorším pøípadì, jak se používa B+ strom v databázích, kolik místa zabíra jeden uzel B-stromu).
+{Bednarek} B-stromy (+vyuzitie v databazach (B*) a praca na "disku")... podobne, par viet sme prehodili o pocte pristupov/mnozstve nacitanych dat v porovnani s binarnymi stromami...
+{Skopal} B-stromy a analogie s RB stromy - nechtìl víc než definici a odhady složitosti FIND v nejhorším a nejlepším pøípadì
+{Bednárek} Organizace dat na vnìjší pamìti, B-stromy a jejich varianty. Popísal som rozdiel vnútorná/vonkajšia, sekvenèný/blokový prístup, mergesort u sekvenèného a B-stromy u blokového (databáza)+varianty. 
 5.3
 vsechno v TeXu
 5.9
 vsechno v TeXu
+
+6.3 Neproc.
+{Bureš} Neprocedurální programování. chtìl základní vìci, dobrý zkoušející.
+{Tùma} Testuje zda to clovek ma naucene jen jako basnicku anebo to umi skutecne pouzit a zapsat. U neproceduralniho programovani (u kolegy za mnou) chtel ukazku zda umi na pozadani vyrobit nekolik konstruktu.
+{Bures} Neproceduralni a logicke programovani - Povidani o prologu, a chtel i presne jak probiha unifikace a backtracking. Nakonec jsem si nabeh na nuz a rekl ze existuje operator rezu(jinak by se na nej skoro urcite nezeptal), a ze se pomoci nej da udelat negace. S tou negaci jsem pak zapasil 10 min jen abych se prastil do hlavy a rekl trivialni, nervozita udela sve. Pak se vyptaval na funkcionalni programovani, rozdily oproti proceduralnimu(chtel hlavne vedet ze se daji funkce pouzit i jako paramatry funkci). V Prologu a necem funkcionalnim napsat kus neceho, syntax ho ale nezajimala, stacilo neco co by po trivialnim opraveni slo pustit v Prologu nebo Haskellu(nebo necem podobnem). Celkem bez vetsich obtizi 1
+{?} Neprocedurální programování - zkoušející prolétl popsané papíry a øekl, že mu to staèí. Ptal se jenom na to, co se mi na neprocedurálním programování nejvíc líbí. 
