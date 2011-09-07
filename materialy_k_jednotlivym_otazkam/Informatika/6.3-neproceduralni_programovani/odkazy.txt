@@ -1,0 +1,11 @@
+unifikace
+http://boklm.eu/prolog/page_3.html
+
+backtracking
+http://www.doc.gold.ac.uk/~mas02gw/prolog_tutorial/prologpages/search.html
+
+rez a fail a negace
+http://boklm.eu/prolog/page_5.html
+
+rekurze
+http://boklm.eu/prolog/page_6.html
