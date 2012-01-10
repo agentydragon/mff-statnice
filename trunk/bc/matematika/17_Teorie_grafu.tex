@@ -219,7 +219,31 @@ $\forall n\geq 2$ se poèet koster $K_n$ rovná $n^{n-2}.$
 
 \medskip
 \begin{e}{Dùkaz}{0}{0}
-Jedna implikace je triviální, druhá (máme $D$ skóre grafu -- a tedy k nìmu nìjaký graf $G$ a dokazujeme, že $D'$ je taky skóre grafu $G'$) není o moc tìžší -- \uv{pøepojíme} hrany tak, aby z vrcholu $v_n$ šly právì do $v_{n-d_n},\dots v_{n-1}$ a $v_n$ odebereme.
+Poèítáme dvìmy zpùsoby POVYKOSy\footnote{POstup VÝroby KOøenového Stromu}:
+\\
+$\bullet$ POVYKOS je definován jako $(T,r,c)$, kde $T$ je strom na $n$ vrcholech, $r$
+jeho koøen a c je oèíslování hran $c:E(T)\rightarrow \{1,...,n-1\}$ (zaèínáme
+prázdnou množinou a postupnì pøidáváme hrany podle jejich oèíslování).
+\\
+\textbf{První zpùsob:}
+\\
+Pro každý strom $T$ mùžeme koøen $r$ zvolit $n$ zpùsoby a oèíslování hran $(n-1)!$ zpùsoby, proto je poèet povýkosù: $$n(n-1)!(poèet\ koster\ K_n)$$
+\textbf{Druhý zpùsob:}
+\\Koøenový strom budeme uvažovat jako orientovaný\footnote{orientovaný smìrem
+ke koøeni}.
+\\Zaèneme s prázdným grafem a postupnì pøidáváme šipky v $n-1$ krocích.
+\\\uline{1. šipka}: $n$ možností kam povede a $n-1$ možností
+kde zaène\footnote{nesmí vést "do sebe"} tedy $n(n-1)$ možností (její orientací urèíme zároveò i koøen)
+\begin{pitemize}
+\item nová šipka nesmí vytvoøit kružnici a tak spojujeme vždy dvì rùzné komponenty
+\item na konci musí z každého vrcholu vycházet nìjaká šipka, proto musí každá
+nová šipka vyházet z vrcholu odkud zatím nic nevede
+\end{pitemize}
+\uline{k. šipka}: $n$ možností kam povede a $n-k-1$ možností (máme $n-k$ komponent
+a v každì je !1 vrchol bez vycházenící hrany) kde zaène tedy $n(n-k-1)$ možností
+\\celkovì je možností: $\prod^{n-2}_{k=0}n(n-k-1)=$\prod^{n-1}_{k=1}n(n-k)=n^{n-1}\prod^{n-1}_{k=1}(n-k)=n^{n-1}(n-1)$
+\\\textbf{Porovnání výsledkù:} $n(n-1)!(poèet\ koster\ K_n) = n^{n-1}(n-1)
+\Rightarrow (poèet\ koster\ K_n) = n^{n-2}$
 \end{e}
 \end{e}
 
