@@ -47,13 +47,13 @@ Implementace:
 \end{pitemize}
 \emph{Multithreading} - schopnost systému efektivnì pouívat více threadù, modely:
 \begin{pitemize}
-        \item \textbf{many-to-one} - mnoho user-level threadù je namapováno na jeden kernel thread, pouívá se na systémech nepodporujících kernel thready (napø. Linux - pthreads)
-        \item \textbf{one-to-one} - kadı user-level thread je namapován na jeden kernel thread (napø. win2000, Linux - NGPT)
+        \item \textbf{many-to-one (User Level Threads)} - mnoho user-level threadù je namapováno na jednu kernel entitu, pouívá se na systémech nepodporujících kernel thready (napø. Linux - GNU Portable Threads)
+        \item \textbf{one-to-one (Kernel Threads)} - kadı user-level thread je namapován na jeden kernel thread (napø. win2000, Linux - NGPT)
 \end{pitemize}
 
 \subsubsection*{Plánovanie}
 
-Pride¾ovanie procesorového èasu jednotlivım procesom má na starosti \emph{plánovaè}. Plánovanie pritom môe by preemptívne (plnì v reii OS) alebo nepreemptívne (vyaduje spolupráci s programem, kooperatívne~-- alla Win16).
+Pride¾ovanie procesorového èasu jednotlivım procesom má na starosti \emph{plánovaè}. Plánovanie pritom môe by preemptívne (vìtšinou pomocí pøerušení, bez spolupráce s programem, plnì v reii OS) alebo nepreemptívne (vyaduje spolupráci s programem, kooperatívne~-- alla Win16).
 
 \begin{obecne}{Ciele plánovania (niektoré z nich sú oèividne protichodné):}
 \begin{pitemize}
@@ -91,6 +91,6 @@ Pride¾ovanie procesorového èasu jednotlivım procesom má na starosti \emph{plánov
 
 \begin{reportN}{Zavoral}
 zhruba to co je vo vypiskach, diskusia dalej pokracovala o rozdieloch medzi vlaknami a procesmi - napr ako su implementovane vlakna v OS ktory ich nepodporuje (snazil som sa to nejak ukazat na JVM, ale podrobnosti som velmi nevedel, takze to bolo dost napovedy pana Zavorala a par slov odo mna :? ).
-
+\\\\
 nìkdo jiny: som letel na Vlaknach (nevedel som ze su reprezentovane hodnotou registrov, prog. citaca a zasobnikom)
 \end{reportN}
