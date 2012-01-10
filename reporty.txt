@@ -1,4 +1,4 @@
-1. - je komplet v TeXu
+﻿1. - je komplet v TeXu
 2 - komplet v texu
 2.4
 {Surynek} Dostal jsem vety o strední hodnote. U tech vet jsem mel jeden dukaz, u druhého ideu a u tretího zacátek triku, který se tam použije (musel bych ješte docela premýšlet, abych to poskládal dohromady). Ale jemu to stacilo (taky zkoušel, jak tomu rozumím). Takže od pana Surynka za 1. 
@@ -60,29 +60,7 @@ otazka se tykala lin. nezavislosti, tam jsem dokazal lemma o vymene a naznacil d
 16.2 Pri dvojke stacili definicie a vety. Podstatna bola Hallova veta a este Tutteova veta, ktoru som nevedel. Pan co skusal M bol tiez fer a trpezlivy, rovnako ma nicim prehnanym netrapil. Co som skutocne nevedel som popravde priznal ako pri matematike, tak pri informatike, nastastie toho nebolo privela. 
 ----------------17 je komplet ----------------
 17.1-3 v techu
-17.4
-(Kratochvil) Def Eul. grafu + veta + dukaz. Def Ham. kruznice, jak je to tezky, postacitelna podminka (D) a dukaz, ktery neni uplne easy, ale ktery jsem z kombagry u Kratochvila umel a rozumel mu. Evidentne ho to potesilo. :) Nakonec par dotazu, jak je to tezke - NP, a to i na rovinnych grafech, ovsem navedl me k tomu, ze na urcite tride grafu (myslim ze "hranove") je otazka HK polynomialni - prevedl jsem to na testovani Eulera. 
-(Majerech) eulerův graf + hamiltonovský (složitosti) 
-(Dvořák) Podrobně vyjmenoval podotázky, naštěstí jsem prakticky všechno věděl, takže pohoda. Kus důkazu nutné a postačující podmínky eulerovskosti jsem vymyslel na místě, dost jinak než se učí a lehce neohrabaně, ale fungovalo to. Nakonec jsem se zasekl na odhadu složitosti nalezení E. tahu, takže 1-2. 
-(Dvořák) definice, slozitosti, alg. hledani eulera, pokus o dukaz postacujici podminky eulera 
-(?) Eulerovské a hamiltonovské grafy - definice + vybrat si jednu větu a dokázat ji (dokazoval jsem Chvátalův uzávěr) 
-(Kučera) Definice, a vety ktere to popisuji, Diracovu se mi podarilo dokazat, vpodstate jsem mu to pak cele povypravel a bylo to. Zadne dalsi otazky. 
-17.5
-(Klazar) Rovinné grafy - popsal jsem definice, Kuratowského větu a Eulerovu formuli, kterou jsem dokázal. Doc. Klazar se ze mě ještě pokoušel vytáhnout formální definici oblouku, ale když jsem nevěděl, tak se v tom nenimral. Musím říct, že pan Klazar byl fajn, když máte něco navíc, tak to ocení, a když cítí že vám něco nejde, tak se v tom nerýpá. 
-(?) definice, Kuratowského věta, Eulerova formule, maximální počet hran + nějaká souvislost s barevností grafu, jsem trochu zamotal u změní Kuratowského věty a u Eulerovi formule jsem pozapomněl, že platí pouze pro souvislé grafy (což je docela logické, ale prostě mi to vypadlo), na což jsem přišel při improvizovaném důkazu. Uvedl jsem větu o 4 barvách, s tím že důkaz je složitý. Zkoušející mi docela pomáhal, trochu ho sralo, že většina definic byla taková pofidérní, ale nakonec prohlásil něco v tom smyslu, že tomu rozumím a v pohodě. 
-(Dvorak) Tady to chce hlavne definice a znat vety a vlastnosti rovinnych grafu + naznak dukazu u tech jednodussich, napriklad to, jak se dokazuje 
-Euleruv vzorec. Nakonec jsme se dostali az k NP a 3-barevnosti grafu, ale to byla jen odbocka, do ktere rekli, ze zabihat nebudeme. 
-(Fiala) Fiala přečetl grafy (formální definice rovinných grafů a co k tomu patří, vzorce o počtu hran, stěn a tak a Kuratowský), upozornil mne na chybku, položil doplňujícíc otázku a bylo to. 
-(Gregor) Rovinne grafy, barveni: Napsal jsem nekolik definici a par vet. Jednu chtel dokazat, tak jsem dokazal tu |V| - |E| + s = 2. U barveni se mu nelibila moje verze Kuratowskeho vety, tak mi ukazal protipriklad a ja to opravil (chybelo mi tam slovo "deleni"). Potom jsem jeste zacal dokazovat vetu o peti barvach, ale uprostred me zastavil s tim, ze si neni jistej jestli to rikam dobre (ale myslim, ze jsem to rikal dobre) a zeptal se me jeste na problem barveni pomoci tri barev (NP-uplny problem). To mu stacilo a rek, ze se pujde poradit s kolegou.
-Gregor stoural trochu vic nez skopal, ale v pohode. 
-(Fiala) pohoda, akurat som sa strapnoval s Eulerovou ci Euklidovou ci akou to formulou (pocet stien, vrcholov a hran) ked som si na nu nespomenul a odvodzoval som ju. (a aj tak som tak nejake +/- 2 zabudol) 
-17.6
-(Majerech) lze třemi barvami? algoritmus na zjištění, zdali lze ho obarvit 3 - prej něco dvakrát pustit prohledávání do hloubky - nepochopil jsem 
-(Dvorak) Barveni grafu v pohode, ale pres to jsme se dostali az k NP-uplnosti a jijim definicim a hromadu veci kolem. Mimo jine se i ptal, jestli znam nejake odhady pro chromaticke cislo grafu atd. 
-Ale matika celkove v pohode. 
-(IP 21.6.2011)
-3.1 Definujte pojem barevnost grafu
-3.2 Popište jak souvisí barevnost s těmito atributy grafu : počet vrcholů, klikovost, nezávislost, degenerovanost, rovinnost
+17.4-6 v techu
 
 
 
