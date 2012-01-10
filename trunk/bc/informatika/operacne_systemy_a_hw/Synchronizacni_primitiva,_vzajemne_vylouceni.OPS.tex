@@ -3,7 +3,12 @@
 \subsubsection*{Pojmy}
 
 \begin{description}
-  \item[Èasové závislé chyby (Race Conditions)] Situace kde 2 nebo více procesù pøistupuje ke stejnému sdílenému prostøedku, a finální vısledek záleí na kdo probìhne kdy se jmenuje \emph{race conditions}
+  \item[Lock-Free Action] - akce na sdíleném prostøedku nevyadující zámky (napøíklad pøidání
+  do fronty)
+  \item[Deadlock] - situace kdy dva nebo více procesù èeká na dokonèení akce
+vzájemnì, take se navzájem na sebe èekají donekoneèna (viz problém filosofù
+níe)
+  \item[Èasové závislé chyby (Race Conditions)] Situace kde 2 nebo více procesù pøistupuje ke stejnému sdílenému prostøedku, a finální vısledek záleí na kdo probìhne kdy
 
   Pøíklad na tiskové frontì:
   \begin{center}
@@ -15,7 +20,7 @@
     \includegraphics[width=9cm]{informatika/operacne_systemy_a_hw/obrazky/critical-region.png}
   \end{center}  
   
-        \item[Vzájemné vylouèení (Mutual Exclusion)] kritickou operaci provádí nejvıše jeden proces. Podmínky vzájemného vylouèení:
+        \item[Vzájemné vylouèení (Mutual Exclusion)] kritickou operaci provádí nejvıše jeden proces. Podmínky pro správné fungování vzájemného vylouèení:
 \begin{penumerate}
         \item ádné dva procesy nemohou bıt najednou ve stejné kritické sekci
         \item Nemohou bıt uèinìny ádné pøedpoklady o rychlosti procesu (ádné odhady rychlosti nebo priorit procesu, musí fungovat se všemi procesy)
@@ -30,8 +35,8 @@ Metody dosáhnutí vzájemného vylouèení: aktivní èekání (busy waiting) a pasivní è
 
 Navrhovaná øešení: 
 \begin{pitemize}
-  \item \textbf{Zakázání pøerušení}] nevhodné - proces má plnou kontrolu nad poèítaèem 
-  \item \textbf{Zámky v promìnné}] nefungují - mezi pøeètìníma nastavením locku mùe bıt program pøerušen - pak by si "nevšim" lock == 1 a vesel pokraèoval, akorát jsme pøidali novou race condition. 
+  \item \textbf{Zakázání pøerušení} - nevhodné - proces má plnou kontrolu nad poèítaèem (instrukce CLI - clear interrupt flag a STI - set interrupt flag) 
+  \item \textbf{Zámky v promìnné} - nefungují - mezi pøeètìníma nastavením locku mùe bıt program pøerušen - pak by si "nevšim" lock == 1 a vesel pokraèoval, akorát jsme pøidali novou race condition. 
 \begin{verbatim}
 int lock;
 void proc(void) {
@@ -49,7 +54,7 @@ void proc(void) {
 \begin{verbatim}
 int turn = 0;
 
-void p1(void)                void p2(void)
+void p0(void)                void p1(void)
 {                            {
   for (;;) {                   for (;;) {
     while (turn != 0);           while (turn != 1);
@@ -64,26 +69,27 @@ void p1(void)                void p2(void)
     \includegraphics[width=9cm]{informatika/operacne_systemy_a_hw/obrazky/strict-alternation.png}
   \end{center}
 
-\emph{Petersonovo øešení} - zobecnìní pro N procesù:
+\emph{Petersonovo øešení} - zobecnìní Strict Alternation pro N procesù, vıhodou je jeho nezávislost na HW, nevıhodou to e musíme dopøedu znát max poèet procesù a jeho sloitost. V praxi
+se nepouívá:
 \begin{verbatim}
-#define N 2                   /* poèet procesù */
+#define N 2                   /* poèet procesù, pro víc by se musel upravit */
  
 int turn;
 int interested[N];            /* kdo má zájem */
  
-void enter_region(int proc) { /* proc: kdo vstupuje */
-int other = 1-proc;             /* èíslo opaèného procesu */
-    interested[proc] = TRUE;    /* mám zájem o vstup */
-    turn = proc;                /* nastav pøíznak */
-    while (turn == proc && interested[other] == TRUE);
+void enter_region(int process) {   /* process: kdo vstupuje */
+    int other = 1-process;         /* èíslo opaèného procesu */
+    interested[process] = TRUE;    /* mám zájem o vstup */
+    turn = other;                  /* nastav pøíznak na druhého */
+    while(turn == other && interested[other] == TRUE); /* aktivnì èeká na druhého jestli není interested */
 }
  
-void leave_region(int proc) { /* proc: kdo vystupuje */
-    interested[proc] = FALSE;   /* u odcházím */
+void leave_region(int process) {   /* process: kdo vystupuje */
+    interested[process] = FALSE;   /* u odcházím */
 }
 \end{verbatim}
  
-  \item \textbf{Instrukce Test-and-Set Lock (TSL)} - atomická operace na úrovni strojového kódu, nemùe bıt pøerušena je nutné aby ji podporoval HW (všechny souèasné procesory nìjakou mají):
+  \item \textbf{Instrukce Test-and-Set Lock (TSL)} - atomická operace naètení-a-zmìny hodnoty na úrovni strojového kódu, nemùe bıt pøerušena je nutné aby ji podporoval HW (všechny souèasné procesory nìjakou mají):
 \\
 - implementace spin-locku (druh zámku, na nìj je tøeba aktivnì èekat – èekající proces pøi èekání na spinlock spotøebovává systémové prostøedky) - poøád ale ménì prostøedkù ne pøedchozí øešení  
 \begin{verbatim}
@@ -100,7 +106,7 @@ enter_region:
 \end{verbatim}
 \end{pitemize}
 
-\subsubsection*{Pasivní èekání}
+\subsubsection*{Pasivní èekání (Blokování)}
 \emph{Vlastnosti}: proces je ve stavu blokován, vhodné pro delší doby èekání, \textbf{spotøebovává prostøedky OS}, pomalejší.
 
 Postup pouívající Sleep/Wakeup (implementovány OS, atomické operace - sleep uspí volající proces, wakeup probudí udanı proces) nefunguje (viz Problém producent/konzument).
@@ -110,33 +116,52 @@ Postup pouívající Sleep/Wakeup (implementovány OS, atomické operace - sleep usp
 Atomické operace (nesmí bıt pøerušeny):
 
 \begin{description}
-\item[down(semaphore* s)] -- zabere semafor (\verb=s--;=) pokud je volnı (\verb=s>0=), jinak èeká na uvolnìní
-
-\item[up(semaphore* s)] -- uvolní semafor (\verb=s++;=), vzbudí èekající proces (pokud existuje)
+\item[down(semaphore* s)] -- pokud je volnı (\verb=s>0=) tak zabere semafor (\verb=s--;=) , jinak se uspí a a ve frontì èeká na uvolnìní
+(nìkdy se také nazıvá \textbf{wait} nebo pùvodnì \textbf{P})
+\item[up(semaphore* s)] -- uvolní semafor (\verb=s++;=), vzbudí èekající proces (pokud existuje) (nìkdy se také nazıvá  \textbf{signal} nebo pùvodnì  \textbf{V})
 \end{description}
 -nutná podpora OS (vìtšinou v kernelu)
  
 
-\item \textbf{Mutex}
-Špeciálny (binárny) typ semaforu, kde sú povolené len hodnoty 0 a 1 (v Up sa miesto $s:=s+1$ volá $s:=1$) sa nazıva \emph{mutex} a pouíva sa na riadenie prístupu k jednej premennej. Vìtšinou pomocí TSL.
+\item \textbf{Mutex} - speciální (binární) typ semaforu, kde jsou povolené jen hodnoty 0 a 1 (\textbf{v up sa misto $s++;$ volá \verb=s=1;} ) se nazıva \emph{mutex}. Bez podpory OS se implementuje vìtšinou pomocí TSL:
+\begin{verbatim}
+mutex_lock: TSL R, mutex       ; get and set mutex
+            CMP R, #0          ; was it unlocked?
+            JZ ok              ; if yes: jump to ok
+            CALL thread_yield  ; if no: sleep
+            JMP mutex_lock     ; try again acquiring mutex
+            ok: RET
+            
+mutex_unlock: MOV mutex, #0    ; unlock mutex
+              RET
+\end{verbatim}
+\item \textbf{Monitory} - implementovány pøekladaèem - konstrukt programovacího jazyka\footnote{napø. synchronized metody v Javì}, lze si pøedstavit jako tøídu C++ (všechny promìnné privátní, funkce mohou bıt i veøejné). Mutual Exclusion (vzájemné vylouèení) v jedné instanci (zajištìno synchronizací na vstupu a vıstupu do/z veøejnıch funkcí, synchronizace implementována synchronizacnim primitivem OS - semafor/mutex).
 
-\item \textbf{Monitory}
-\par Implementovány pøekladaèem, lze si pøedstavit jako tøídu C++ (všechny promìnné privátní, funkce mohou bıt i veøejné), vzájemné vylouèení v jedné instanci (zajištìno synchronizací na vstupu a vıstupu do/z veøejnıch funkcí, synchronizace implementována blokovacím primitivem OS). ???TODO
+• Operace wait – atomicky odemknout zámek a usnout (uprostøed monitoru).
+
+• Operace signal – probudí vlákno èekající na monitor (uspané operací wait). Toto
+vlákno pøed vykonáváním kódu monitoru musí zámek monitoru opìt zamknout.
+\begin{figure}[h]
+  \centering
+   \includegraphics[width=12cm]{informatika/operacne_systemy_a_hw/obrazky/producer-consumer-monitor.png}
+   \caption{Problém producent konzument pomocí monitorù}
+  \label{fig:pcm}
+\end{figure}
 
 \item \textbf{Zprávy}
-\par Operace SEND a RECEIVE, zablokování odesílatele/pøíjemce, adresace proces/mailbox, rendez-vous...
+\par Operace SEND a RECEIVE, zablokování odesílatele/pøíjemce, adresace proces/mailbox, rendez-vous... vhodné pro distribuované OS
 
 \item \textbf{RWL - read-write lock}, \textbf{bariéry}...
+\\\\
+\textbf{Ekvivalence primitiv} - pomocí jednoho blokovacího primitiva lze implementovat jiné blokovací primitivum.
+\\
 
-Ekvivalence primitiv - pomocí jednoho blokovacího primitiva lze implementovat jiné blokovací primitivum.
-
-Rozdíly mezi platformami: Windows - jednotné funkce pro pasivní èekání, èekání na více primitiv, timeouty. Unix - OS implementuje semafor, knihovna pthread.
+\textbf{Rozdíly mezi platformami}: Windows - jednotné funkce pro pasivní èekání, èekání na více primitiv, timeouty. Unix - OS implementuje semafor, knihovna pthread.
 \end{pitemize}
 \subsubsection*{Klasické synchronizaèní problémy}
 \begin{pitemize}
-\item \textbf{Problém producent/konzument}
-\par Producent vyrába predmety, konzument ich spotrebúva. Medzi nimi je buffer pevnej ve¾kosti (N). Konzument nemá èo spotrebúva ak je buffer prázdny; producent prestane vyrába, ak je buffer plnı. 
-
+\item \textbf{Problém producent/konzument} - producent vyrába predmety, konzument ich spotrebúva. Medzi nimi je buffer pevnej ve¾kosti (N). Konzument nemá èo spotrebúva ak je buffer prázdny; producent prestane vyrába, ak je buffer plnı. 
+\newpage
 \begin{verbatim}
 int N = 100;
 int count = 0;
@@ -145,7 +170,7 @@ void producer(void) {
     while(TRUE) {
         produce_item(&item);
         if(count==N) sleep ();
-        enter_item(item);
+        insert_item(item);
         count++;
         if(count == 1) wake(consumer);
     }
@@ -162,7 +187,6 @@ void consumer(void) {
     }
 }
 \end{verbatim}
-
 \begin{penumerate}
         \item Buffer je prázdny, a konzument práve preèítal count, aby zistil, èi je rovnı nule
         \item Preplánovanie na producenta ("pozice A")
@@ -170,14 +194,13 @@ void consumer(void) {
         \item Producent zistí, èi je count rovnı jednej. Zistí e áno, èo znamená e konzument bol predtım zablokovanı (pretoe muselo by 0), a zavolá wakeup
         \item Teraz môe dôjs k zablokovaniu: konzument pokraèuje na "pozici
 A" a uspí se, pretoe si myslí, e nemá èo zobra; producent bude chví¾u produkova a dôjde "preplneniu" $\Rightarrow$ uspí sa; spí producent aj konzument :o) 
-\\\\
-Øešení pomocí semaforu:\\
+\\
+\par \textbf{Øešení pomocí semaforu:}
 \begin{verbatim}
-#define N 10
 typedef int semaphore;     //a semaphore is an integer
-semaphore empty = N;       //counting empty slots
+semaphore empty = 10;       //counting empty slots
 semaphore full = 0;        //counting full slots
-semaphore mutex = 1;       //mutual exclusion on buffer access
+semaphore mutex = 1;       //mutex pro pøístup k bufferu
 
 void producer() {
   while (TRUE) {
@@ -201,36 +224,79 @@ void consumer() {
   }
 }
 \end{verbatim}
-
+\begin{figure}[h]
+  \centering
+   \includegraphics[width=17cm]{informatika/operacne_systemy_a_hw/obrazky/producer-consumer-semaphore.png}
+  \caption{Øešení producent konzument pomocí semaforù}
+  \label{fig:pcs}
+\end{figure}
 \end{penumerate}
+\newpage
 \item \textbf{Problém obìdvajících filosofù}
 \par Pìt filosofù sedí okolo kulatého stolu. Kadı filosof má pøed sebou talíø špaget a jednu vidlièku. Špagety jsou bohuel slizké a je tøeba je jíst dvìma vidlièkami. ivot filosofa sestává z období jídla a období pøemıšlení. Kdy dostane hlad, pokusí se vzít dvì vidlièky, kdy se mu to podaøí, nají se a vidlièky odloí.
 
 \item \textbf{Problém ospalého holièe}
 \par Holiè má ve své oficínì køeslo na holení zákazníka a pevnı poèet sedaèek pro èekající zákazníky. Pokud v oficínì nikdo není, holiè se posadí a spí. Pokud pøijde první zákazník a holiè spí, probudí se a posadí si zákazníka do køesla. Pokud pøijde zákazník a holiè u støihá a je volné místo v èekárnì, posadí se, jinak odejde.
 \end{pitemize}
-
-
 \begin{reportN}{Bulej}
 \begin{penumerate}
         \item priklad Producent-konzument pomoci semaforu
 
-        \item stacilo napsat aktivni vs. pasivni, kriticka sekce, spinlock, semafor (obecne monitor) a pak nasledovalo par otazek, zda je mozne naprogramovat synch. primitivum bez podpory HW
+        \item stacilo napsat aktivni vs. pasivni, kriticka sekce, spinlock, semafor (obecne monitor) a pak nasledovalo par otazek, zda je mozne naprogramovat synch. primitivum bez podpory HW - podle me lze, od toho je Petersonovo øešení
 \end{penumerate}
 \end{reportN}
 
 \begin{reportN}{Bulej}
 Myslím, e jsem je pochopil, a kdy mi to pan Skopal vysvìtlil. To, co je v materiálech opravdu nestaèí. TSL je dobrı v tom, e má pravì operaci Test and Set Lock jako atomickou. Pak jsem se pokoušel udìlat semafor pro problém producent a konzument a dìlal jsem ho uplnì špatnì
 \end{reportN}
-
-\begin{reportN}{Hnìtınka}
-na jednièku musíte umìt praktické uití (napø. z více mutexù postavit semafor)
-\end{reportN}
-
 \begin{reportN}{Bednárek}
-Na tuhle jsem byl pøipravenı ze zadanıch otázek asi nejhùø, kupodivu jsem toho k ní ale nakonec na papír vyplodil pomìrnì dost a dostal k tématu jen málo doplòujících otázek (nìjaké drobné praktické a jak implementovat mutex bez podpory OS, tj. pomocí test-and-set instrukce), pak se plynule a nepozorovanì pøešlo na zablokování a zotavení z nìj. Nìco jsem vìdìl, vzpomnìl jsem si na 3 ze 4 Coffmanovıch podmínkek a jejich ošetøení, ètvrtou jsem pak vymyslel s Bednárkovou vydatnou pomocí. ádné otázky na "klasické synchronizaèní problémy" nebo Petersonovo øešení, tj. vìci, o kterıch jsem se sám radši nezmínil.
+Na tuhle jsem byl pøipravenı ze zadanıch otázek asi nejhùø, kupodivu jsem toho k ní ale nakonec na papír vyplodil pomìrnì dost a dostal k tématu jen málo doplòujících otázek (nìjaké drobné praktické a jak \textbf{implementovat mutex bez podpory OS, tj. pomocí test-and-set instrukce}), pak se plynule a nepozorovanì pøešlo na zablokování a zotavení z nìj. Nìco jsem vìdìl, vzpomnìl jsem si na 3 ze 4 Coffmanovıch podmínkek a jejich ošetøení, ètvrtou jsem pak vymyslel s Bednárkovou vydatnou pomocí. ádné otázky na "klasické synchronizaèní problémy" nebo Petersonovo øešení, tj. vìci, o kterıch jsem se sám radši nezmínil.
 
 na konci sa opytal, ze aky problem okrem vyhladovania moze nastat... deadlock
 
 Sleep/wakeup, semafory, monitory, správy, polling - u kadého ako funguje a èi to robí aplikácia/OS/HW. Potom sme sa pobavili o monosti implementova jedno druhım. 
 \end{reportN}
+\begin{reportN}{IP 9. 9. 2011}
+Definujte rozhrani semaforu a jeho semantiku. Implementujte problém producent a konzument.
+\\Postøeh k producentovi/konzumentovi byl, e vìtšina lidí zapomnìla zamykat pøístup k frontì mutexem.
+\end{reportN}
+\begin{reportN}{Hnìtınka}
+na jednièku musíte umìt praktické uití (napø. z více mutexù postavit semafor)
+\end{reportN}
+\begin{e}{Øešení:}{0}{Implementation of General Semaphores Using Binary Semaphores
+(Solution \#3),
+Anthony Howe,
+June 18, 2001}
+v pascalu pomocí 3 mutexù a counteru,  mutex barrier zabrani, aby do procedury Wait lezlo vic vlaken najednou:
+\begin{verbatim}
+var
+    mutex=1: binary-semaphore;
+    delay=0: binary-semaphore;
+    barrier=1: binary-semaphore;
+    C={initvalue}: integer;
+
+Procedure Wait()
+    begin
+    wait(barrier);
+    wait(mutex);
+    C:=C-1;
+    if C < 0 then begin
+        signal(mutex);
+        wait(delay);
+        end
+    else
+        signal(mutex);
+        signal(barrier);
+    end
+
+Procedure Signal()
+    begin
+    wait(mutex);
+    C:=C+1;
+    if C = 1 then
+        signal(delay)
+    signal(mutex)
+    end
+\end{verbatim}
+\end{e}
+

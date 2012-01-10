@@ -164,5 +164,21 @@ bìhem toho, kdykoliv se pøistupuje do pamìti, mùže vzniknout page-fault (naèítán
 Samotného mì zrovna tyhle vìci zajímají, takže jsem si pøed státnicema pøeèetl Tanenbauma: Operating Systems a Pattersona: Computers Design: Hardware to software interface. Je to urèitì overkill, ale pokud budeš mít prolistovaný tyhle dvì knihy, tak tì tam imho témìø urèitì nic nemùže pøekvapit.
 \end{e}
 
+\begin{reportN}{IP 9. 9. 2011}
+Byl zadán podobný zdroják :
+\begin{verbatim}
+    void main()
+    {
+    void * P = malloc (1024);
+    void * N = malloc (256);
+    }
+\end{verbatim}    
+Pak byly zadány hodnoty (decimální) ukazatelù P a N. Dotaz byl jestli by se Mezi P a N vešel ještì jeden malloc o nìjaké velikosti.
+NSD(P,N) = 16 ... popište èím by to mohlo být a proè.
+
+Pak bylo ještì nìco s urèováním velikosti stránky z adresy 0xFF10, která zùstala na addr sbìrnici po dotazu na ukazatel na první byte prvního bloku. ? Výsledek ale souvisel s hodnotami toho P a N podle toho co Bednárek øíkal na ústní, takže to sem asi bude muset dát nìkdo kdo si to pamatuje lépe.
+
+Urèitì teda radím nepanikaøit jak už tu zaznìlo, když nìco víte hned to tam napsat (tøeba u toho stránkování jsem alespoò zhruba popsal princip stránkování a myslím že to mì zachránilo, protože jinak jsem to mìl tak všelijak.)
+\end{reportN}
 \begin{reportN}{Yaghob} mel ruzné dotazy, jako proc je stránka veliká zrovna 4kB, jak je to se stránkováním na 64-bitových procesorech 
 \end{reportN}

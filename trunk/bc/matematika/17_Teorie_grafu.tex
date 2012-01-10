@@ -210,7 +210,7 @@ Pole s prvky o dvou slokách, zaznamenávají se do nìj hrany ve formì obou jejich
 \textbf{Strom} je souvislı graf neobsahující krunici. \textbf{List} (koncovı vrchol) je vrchol stupnì 1.
 \end{e}
 
-\begin{e}{Vìta}{0}{0}
+\begin{e}{Vìta}{1}{0}
 Poèet stromù na $n$-vrcholové mnoinì je $n^{n-2}.$
 \end{e}
 
@@ -258,7 +258,68 @@ s)Uvedte alespoò dvì definice stromu a ukate jejich ekvivalenci.
 \\ 
 b)Popište pojem kostra grafu a uveïte algoritmus pro její naleni vèetnì analızy potøebného èasu a pamìti
 \end{e}
-\subsection{Eulerovské a hamiltonovské grafy}
+
+\newpage
+16.2 
+\begin{e}{Report}{0}{?}
+Pri dvojke stacili definicie a vety. Podstatna bola Hallova veta a este Tutteova veta, ktoru som nevedel. Pan co skusal M bol tiez fer a trpezlivy, rovnako ma nicim prehnanym netrapil. Co som skutocne nevedel som popravde priznal ako pri matematike, tak pri informatike, nastastie toho nebolo privela. 
+\end{e}
+17.3
+\begin{e}{Report}{0}{IOI 8.9.2011}
+- definujte strom
+\\- definujte korenovy strom
+\\- kolik je korenovych stromu na 9 vrcholech?
+\\- kolik je korenovych stromu na n vrcholech?
+\\\\
+Jak jsem pochopil ze suskani za mnou, tak jsem nebyl jediny, kdo pojem "korenovy strom" slysel poprve v zivote :D Nicmene dalo se spravne tipnout ze je to strom kde jeden vrchol oznacime za koren. (a nastesti jsem si tipnul zrovna tohle, vahal jsem, strilel jsem od boku :) ) Na n vrcholech jich je $n^{(n-2)}$, viz pocet koster uplneho grafu.
+\end{e}
+
+17.4
+\begin{e}{Report}{0}{Kratochvil} Def Eul. grafu + veta + dukaz. Def Ham. kruznice, jak je to tezky, postacitelna podminka (D) a dukaz, ktery neni uplne easy, ale ktery jsem z kombagry u Kratochvila umel a rozumel mu. Evidentne ho to potesilo. :) Nakonec par dotazu, jak je to tezke - NP, a to i na rovinnych grafech, ovsem navedl me k tomu, ze na urcite tride grafu (myslim ze "hranove") je otazka HK polynomialni - prevedl jsem to na testovani Eulera. 
+\end{e}
+\begin{e}{Report}{0}{Majerech} eulerùv graf + hamiltonovskı (sloitosti) 
+\end{e}
+\begin{e}{Report}{0}{Dvoøák} Podrobnì vyjmenoval podotázky, naštìstí jsem prakticky všechno vìdìl, take pohoda. Kus dùkazu nutné a postaèující podmínky eulerovskosti jsem vymyslel na místì, dost jinak ne se uèí a lehce neohrabanì, ale fungovalo to. Nakonec jsem se zasekl na odhadu sloitosti nalezení E. tahu, take 1-2. 
+\end{e}
+\begin{e}{Report}{0}{Dvoøák} definice, slozitosti, alg. hledani eulera, pokus o dukaz postacujici podminky eulera 
+\end{e}
+\begin{e}{Report}{0}{?} Eulerovské a hamiltonovské grafy - definice + vybrat si jednu vìtu a dokázat ji (dokazoval jsem Chvátalùv uzávìr) 
+(Kuèera) Definice, a vety ktere to popisuji, Diracovu se mi podarilo dokazat, vpodstate jsem mu to pak cele povypravel a bylo to. Zadne dalsi otazky. 
+\end{e}
+17.5
+\begin{e}{Report}{0}{Klazar} Rovinné grafy - popsal jsem definice, Kuratowského vìtu a Eulerovu formuli, kterou jsem dokázal. Doc. Klazar se ze mì ještì pokoušel vytáhnout formální definici oblouku, ale kdy jsem nevìdìl, tak se v tom nenimral. Musím øíct, e pan Klazar byl fajn, kdy máte nìco navíc, tak to ocení, a kdy cítí e vám nìco nejde, tak se v tom nerıpá. 
+\end{e}
+\begin{e}{Report}{0}{?} definice, Kuratowského vìta, Eulerova formule, maximální poèet hran + nìjaká souvislost s barevností grafu, jsem trochu zamotal u zmìní Kuratowského vìty a u Eulerovi formule jsem pozapomnìl, e platí pouze pro souvislé grafy (co je docela logické, ale prostì mi to vypadlo), na co jsem pøišel pøi improvizovaném dùkazu. Uvedl jsem vìtu o 4 barvách, s tím e dùkaz je sloitı. Zkoušející mi docela pomáhal, trochu ho sralo, e vìtšina definic byla taková pofidérní, ale nakonec prohlásil nìco v tom smyslu, e tomu rozumím a v pohodì. 
+\end{e}
+\begin{e}{Report}{0}{Dvorak} Tady to chce hlavne definice a znat vety a vlastnosti rovinnych grafu + naznak dukazu u tech jednodussich, napriklad to, jak se dokazuje 
+Euleruv vzorec. Nakonec jsme se dostali az k NP a 3-barevnosti grafu, ale to byla jen odbocka, do ktere rekli, ze zabihat nebudeme. 
+\end{e}
+\begin{e}{Report}{0}{Fiala} Fiala pøeèetl grafy (formální definice rovinnıch grafù a co k tomu patøí, vzorce o poètu hran, stìn a tak a Kuratowskı), upozornil mne na chybku, poloil doplòujícíc otázku a bylo to. 
+\end{e}
+\begin{e}{Report}{0}{Gregor} Rovinne grafy, barveni: Napsal jsem nekolik definici a par vet. Jednu chtel dokazat, tak jsem dokazal tu |V| - |E| + s = 2. U barveni se mu nelibila moje verze Kuratowskeho vety, tak mi ukazal protipriklad a ja to opravil (chybelo mi tam slovo "deleni"). Potom jsem jeste zacal dokazovat vetu o peti barvach, ale uprostred me zastavil s tim, ze si neni jistej jestli to rikam dobre (ale myslim, ze jsem to rikal dobre) a zeptal se me jeste na problem barveni pomoci tri barev (NP-uplny problem). To mu stacilo a rek, ze se pujde poradit s kolegou.
+Gregor stoural trochu vic nez skopal, ale v pohode. 
+\end{e}
+\begin{e}{Report}{0}{Fiala} pohoda, akurat som sa strapnoval s Eulerovou ci Euklidovou ci akou to formulou (pocet stien, vrcholov a hran) ked som si na nu nespomenul a odvodzoval som ju. (a aj tak som tak nejake +/- 2 zabudol) 
+\end{e}
+\begin{e}{Report}{0}{IOI 8.9.2011} Napiste Eulerov vztah pre rovinne grafy. Mame kompletne triangulovany graf, spocitajte pomocou Eulerovho vztahu pocet hran v tomto grafe 
+\end{e}
+17.6
+\begin{e}{Report}{0}{Majerech} lze tøemi barvami? algoritmus na zjištìní, zdali lze ho obarvit 3 - prej nìco dvakrát pustit prohledávání do hloubky - nepochopil jsem 
+\end{e}
+\begin{e}{Report}{0}{Dvorak} Barveni grafu v pohode, ale pres to jsme se dostali az k NP-uplnosti a jijim definicim a hromadu veci kolem. Mimo jine se i ptal, jestli znam nejake odhady pro chromaticke cislo grafu atd. 
+Ale matika celkove v pohode. 
+\end{e}
+\begin{e}{Report}{0}{IOI 21.6.2011}
+Definujte pojem barevnost grafu
+\\Popište jak souvisí barevnost s tìmito atributy grafu : poèet vrcholù, klikovost, nezávislost, degenerovanost, rovinnost
+\\\\
+- taka typicka maresovka tie vlastnosti si vygoogleujte ak nepoznate su to
+rozne vlastnosti grafu a naznacit tu suvislost napr. s poctom vrcholov je
+suvislost taka ze na obarvenie grafu je potrebne maximalne tolko barev ako
+je pocet vrcholov 
+\end{e}
+\newpage
+\subsection{Eulerovské \sout{a hamiltonovské} grafy}
 
 \begin{e}{Definice}{0}{Eulerovskı graf}
 Graf $G=(V,E)$ se nazıvá \textbf{eulerovskı}, jestlie existuje takové poøadí všech hran $e_1,\dots,e_n,$ e $e_i \cap e_{i+1} \not = 0 \land e_1 \cap e_n \not = 0,$ tedy kadé dvì po sobì jdoucí hrany mají spoleènı vrchol a rovnì první a poslední hrana se protínají, ádná hrana se neopakuje. Jinımi slovy: graf je eulerovskı, pokud v nìm existuje uzavøenı sled $(v_0,e_1,v_1,\dots,e_{m-1},v_{m-1},e_m,v_0),$ v nìm se kadá hrana vyskytuje právì jednou. Takovı tah nazıváme \textbf{uzavøenım eulerovskım tahem.}
@@ -355,7 +416,6 @@ Kadı 2-souvislı graf je 2-hamiltonovskı.
 \end{e}
 \end{e}
 
-
 \subsection{Rovinné grafy}
 
 \begin{e}{Definice}{0}{Oblouk}
@@ -386,7 +446,7 @@ Kadá topologická krunice $k$ rozdìluje rovinu na právì dvì souvislé èásti (\uv
 Graf $G$ je rovinnı, právì kdy ádnı jeho podgraf není isomorfní dìlení grafu $K_{3,3}$ ani $K_5.$
 \end{e}
 
-\begin{e}{Vìta}{0}{Eulerùv vzorec}
+\begin{e}{Vìta}{1}{Eulerùv vzorec}
 Nech $G=(V,E)$ je souvislı rovinnı graf, a nech $s$ je poèet stìn nìjakého rovinného nakreslení $G.$ Potom platí $|V|-|E|+s = 2.$
 
 \medskip
@@ -417,6 +477,9 @@ Druhı pøípad má jednu zvláštnost -- takovı graf mùe bıt hvìzda. Pro tu je ale t
 
 \begin{e}{Dùsledek}{0}{0}
 Rovinnı graf má alespoò jeden vrchol stupnì nejvıše 5.
+\end{e}
+
+\begin{e}{Report}{0}{IOI 8.9.2011} Napiste Eulerov vztah pre rovinne grafy. Mame kompletne triangulovany graf, spocitajte pomocou Eulerovho vztahu pocet hran v tomto grafe 
 \end{e}
 
 \subsection{Barvení grafu}
@@ -497,6 +560,15 @@ NP-úplné problémy: je dán neorientovanı graf $G$ a èíslo $k.$
 \end{penumerate}
 \end{e}
 
+\begin{e}{Report}{0}{IOI 21.6.2011}
+Definujte pojem barevnost grafu
+\\Popište jak souvisí barevnost s tìmito atributy grafu : poèet vrcholù, klikovost, nezávislost, degenerovanost, rovinnost
+\\\\
+- taka typicka maresovka tie vlastnosti si vygoogleujte ak nepoznate su to
+rozne vlastnosti grafu a naznacit tu suvislost napr. s poctom vrcholov je
+suvislost taka ze na obarvenie grafu je potrebne maximalne tolko barev ako
+je pocet vrcholov 
+\end{e}
 
 \subsection{Základní grafové algoritmy}
 

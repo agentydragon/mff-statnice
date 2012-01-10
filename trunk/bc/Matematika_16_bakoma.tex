@@ -1,0 +1,191 @@
+%&latex
+\documentclass[a4paper]{article}
+
+\frenchspacing
+
+\usepackage[cp1250]{inputenc}
+\usepackage[czech]{babel}
+
+\usepackage{a4wide}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[mathcal]{eucal}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{color}
+\usepackage{wrapfig}
+\usepackage{capt-of}
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{subfig}
+\usepackage[normalem]{ulem}
+
+
+% sirka a vyska textu nastavena jako papir, vsechny okraje vynulovany a pridano 20pt na kazdou stranu
+% horizontalni rozmery
+\setlength{\textwidth}{\paperwidth}
+\addtolength{\textwidth}{-40pt}
+\addtolength{\hoffset}{-1in}
+\addtolength{\hoffset}{20pt}
+\setlength{\oddsidemargin}{0in}
+\setlength{\marginparsep}{0in}
+% vertikalni rozmery
+\setlength{\textheight}{\paperheight}
+\addtolength{\textheight}{-60pt}
+\addtolength{\voffset}{-1in}
+\addtolength{\voffset}{20pt}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+
+
+%Obrazek na miste
+%pouziti
+%%\obrazeknahore{adresa}{popisek}{label}
+\long\def\obrazeknahore#1#2#3 {
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.8\textwidth]{#1}
+    
+    \caption{#2}
+    \label{#3}
+    
+\end{figure}
+
+}
+
+
+%==========================================
+%PEKELNA MAKRA NA ZAROVNANI OBRAZKU DOPRAVA
+
+\makeatletter
+
+
+%tohle je makro, ktere mi dovoluje obtekani i u kratkych environmentu
+%ABSOLUTNE nechapu, jak to funguje, ale funguje to
+%viz http://tex.stackexchange.com/questions/26078/ 
+\def\odrovnej{\@@par
+\ifnum\@@parshape=\z@ \let\WF@pspars\@empty \fi % reset `parshape'
+\global\advance\c@WF@wrappedlines-\prevgraf \prevgraf\z@
+\ifnum\c@WF@wrappedlines<\tw@ \WF@finale \fi}
+
+\makeatother
+
+
+
+%---
+%makro, co da obrazek doprava a ostatni text ho obteka
+%(bez toho predchazejiciho makra to ale poradne nebeha)
+%pouziti:
+%\obrazekvpravo{adresa}{popisek}{label}{procento sirky}
+\long\def\obrazekvpravo#1#2#3#4{
+
+\setlength\intextsep{-20pt}
+
+    \begin{wrapfigure}{r}{#4\textwidth}
+      \begin{center}
+          \vspace{-10pt}
+          
+        \includegraphics[width=#4\textwidth]{#1}
+        \vspace{-10pt}
+        
+      \end{center}
+      
+      \caption{#2}
+      \label{#3}
+      
+      
+    \end{wrapfigure}
+
+\setlength\intextsep{0pt}
+
+    
+}
+
+
+
+
+%---
+%makro pro pripady, kdy wrapfigure neco mrsi
+%je to docela pekelne
+%je nutne mu dat jak text vpravo, tak text vlevo
+%a nevim, jestli bude 100% fungovat, ale doufam, ze jo
+
+%pouziti:
+%\obrazekvpravominipage{adresa}{popisek}{label}{procento sirky}{1 - procento sirky}{text vlevo}
+\long\def\obrazekvpravominipage#1#2#3#4#5#6{
+
+\noindent\begin{minipage}{#5\linewidth}
+\vspace{0pt}
+#6
+\end{minipage}
+\hspace{0.5cm}
+\noindent\begin{minipage}{#4\linewidth}
+\vspace{0pt}
+\centering
+\includegraphics[width=0.9\textwidth]{#1}
+\captionof{figure}{#2}
+\label{#3}
+\end{minipage}
+
+}
+
+%KONEC PEKELNYCH MAKER
+%=====================
+
+\def\lebka{\includegraphics[width=3mm]{../common/lebka}}
+
+% makra pro poznamku u vyrokove a predikatove logiky
+\def\vl{ -- ve výrokové logice}
+\def\pl{ -- v predikátové logice}
+
+
+%Vacsina prostredi je dvojjazicne. V pripade, ze znenie napr pozorovania je pisane po slovensky, malo by byt po slovensky aj oznacenie.
+
+\def\ifis#1#2{\ifthenelse{\equal{#1}{0}}{}{#2}}
+
+%\newenvironment{e}[3]{\pagebreak[2]\noindent\textbf{\ifis{#2}{$\bigstar$}#1}\ifis{#3}{\emph{~(#3)}}\par\noindent\leftskip 10pt }{\odrovnej\par\bigskip}
+\newenvironment{e}[3]{\pagebreak[2]\noindent\textbf{\ifis{#2}{\lebka~}#1}\ifis{#3}{\emph{~(#3)}}\ifis{#2}{~\lebka}\par\noindent\leftskip 10pt }{\odrovnej\par\bigskip}
+
+
+%obecne prostredie, ktore ma vyuzitie pri specialnych odstavcoch ako (uloha, algoritmus...) aby nevzniklo dalsich x prostredi
+\newenvironment{obecne}[1]{\pagebreak[2]\noindent\textbf{#1}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
+
+\newenvironment{report}{\pagebreak[2]\noindent\textbf{Report}\em\par\noindent\leftskip 10pt}{\par\bigskip}
+
+%\newenvironment{reportN}[1]{\pagebreak[2]\noindent\textbf{Report~}\emph{(#1)}\emph\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
+\newenvironment{reportN}[1]{\pagebreak[2]\noindent\textbf{Report~}\emph{(#1)}\em\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
+
+\newenvironment{penumerate}{
+\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+  %\setlength{\topsep}{200pt}
+  \setlength{\partopsep}{200pt}
+}{\end{enumerate}}
+
+\def\pismenka{\numberedlistdepth=2} %pouzit, ked clovek chce opismenkovany zoznam...
+
+\newenvironment{pitemize}{
+\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+\definecolor{gris}{gray}{0.95}
+\newcommand{\ramcek}[2]{\begin{center}\fcolorbox{white}{gris}{\parbox{#1}{#2}}\end{center}\par}
+
+
+\title{\LARGE Uèební texty k státní bakaláøské zkoušce \\ Matematika \\ Diskrétní matematika}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\setcounter{section}{15}
+\input{matematika/16_Diskretni_matematika.tex}
+
+\end{document}

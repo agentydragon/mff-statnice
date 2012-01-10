@@ -32,11 +32,11 @@ Náleží-li $(x,y)$ relaci $R$, tedy $(x,y) \in R$, øíkáme, že $x$ a $y$ jsou v re
 \begin{e}{Definice}{0}{druhy relací}
 Relace $X$ mùže být:
 \begin{pitemize}
-	\item \emph{reflexivní}, jestliže pro každné $x \in X$ platí $xRx$
-	\item \emph{ireflexivní}, jestliže platí $xRy\ \Rightarrow\ x\neq y$
-	\item \emph{symetrická}, jestliže $xRy \Rightarrow yRx$
-	\item \emph{tranzitivní}, jestliže $xRy \wedge yRz \Rightarrow xRz$
-	\item \emph{antisymetrická}, jestliže $xRy \wedge yRx \Rightarrow x=y$
+        \item \emph{reflexivní}, jestliže pro každné $x \in X$ platí $xRx$
+        \item \emph{ireflexivní}, jestliže platí $xRy\ \Rightarrow\ x\neq y$
+        \item \emph{symetrická}, jestliže $xRy \Rightarrow yRx$
+        \item \emph{tranzitivní}, jestliže $xRy \wedge yRz \Rightarrow xRz$
+        \item \emph{antisymetrická}, jestliže $xRy \wedge yRx \Rightarrow x=y$
 \end{pitemize}
 \end{e}
 
@@ -172,16 +172,19 @@ Nìkteré vrcholy se v lese vùbec neobjeví -- nazveme je \uv{kompost}. Ty jsou už 
     \item Pokud existuje hrana mezi sudými hladinami rùzných stromù, máme \uv{volnou støídavou cestu} (tj. cestu liché délky mezi 2 volnými vrcholy, na které se støídají nepárovací a párovací hrany), na níž mùžeme zalternovat hrany párování a to tak zvìtšit o 1 a skonèit.
     \item Pokud existuje hrana mezi sudými hladinami téhož stromu, máme \uv{kvìt} (tj. kružnici liché délky, na které se støídají párovací a nepárovací hrany). Kvìt mùžeme zkontrahovat a algoritmus rekurzivnì pustit na takto získaný graf. Pokud dostaneme
     \begin{penumerate}
-	\item staré párování beze zmìny, vrátíme $M'=M$
-	\item jiné (vìtší) párování $\hat M$, prohodíme párování na cestì v $\hat M$ od vrcholu kvìtu v nejvyšší hladinì (kam jsme kvìt zkontrahovali) k volnému vrcholu a pøidáme kvìt zpátky (a párování sedí a je vìtší než $M$)
+        \item staré párování beze zmìny, vrátíme $M'=M$
+        \item jiné (vìtší) párování $\hat M$, prohodíme párování na cestì v $\hat M$ od vrcholu kvìtu v nejvyšší hladinì (kam jsme kvìt zkontrahovali) k volnému vrcholu a pøidáme kvìt zpátky (a párování sedí a je vìtší než $M$)
     \end{penumerate}
     \item Není-li žádná hrana mezi sudými hladinami, vydej $M'=M$.
 \end{penumerate}
 \par\medskip\noindent
 Hlavní algoritmus jen opakuje výše popsaný krok, dokud vrací vìtší párování než bylo pøedchozí. Celková složitost jednoho kroku je $O((m+n)n)$ a pro celý algoritmus $O((m+n)n^2)$.
 \end{e}
+\begin{e}{Report}{0}{?}
+Pri dvojke stacili definicie a vety. Podstatna bola Hallova veta a este Tutteova veta, ktoru som nevedel. Pan co skusal M bol tiez fer a trpezlivy, rovnako ma nicim prehnanym netrapil. Co som skutocne nevedel som popravde priznal ako pri matematike, tak pri informatike, nastastie toho nebolo privela. 
+\end{e}
 
-
+\newpage
 \subsection{Kombinatorické poèítání}
 
 \begin{e}{Vìta}{0}{0}
@@ -292,9 +295,9 @@ $\square$
 \begin{e}{Definice}{0}{Projektivní rovina}
 \emph{Koneèná projektivní rovina} je množinový systém $(B,P)$, kde $B$ je koneèná množina a $P$ je systém podmnožin množiny $B$, splòující:
 \begin{penumerate}
-	\item $\forall p \neq p' \in P: |p \cap p'| = 1$
-	\item $\forall x \neq y \in B~\exists p \in P: x,y \in p$
-	\item $\exists \textit{ 4 body } a,b,c,d \in B: \forall p \in P: |\{a,b,c,d\} \cap p| \leq 2$
+        \item $\forall p \neq p' \in P: |p \cap p'| = 1$
+        \item $\forall x \neq y \in B~\exists p \in P: x,y \in p$
+        \item $\exists \textit{ 4 body } a,b,c,d \in B: \forall p \in P: |\{a,b,c,d\} \cap p| \leq 2$
 \end{penumerate}
 
 Projektivní rovinu si lze pøedstavit jako množinu bodù $B$ a množinu \emph{pøímek} $P$ (jak se ostatnì prvky tìchto množin nazývají). Pak si lze podmínky pøedstavit takto:
