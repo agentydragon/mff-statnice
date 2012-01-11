@@ -232,16 +232,16 @@ Pro každý strom $T$ mùžeme koøen $r$ zvolit $n$ zpùsoby a oèíslování hran $(n-1)
 \\Koøenový strom budeme uvažovat jako orientovaný\footnote{orientovaný smìrem
 ke koøeni}.
 \\Zaèneme s prázdným grafem a postupnì pøidáváme šipky v $n-1$ krocích.
-\\\uline{1. šipka}: $n$ možností kam povede a $n-1$ možností
-kde zaène\footnote{nesmí vést "do sebe"} tedy $n(n-1)$ možností (její orientací urèíme zároveò i koøen)
+\\\uline{1. šipka}: $n$ možností kam povede a ze zbývajících $n-1$ možností
+kde zaène,  tedy $n(n-1)$ možností (její orientací urèíme zároveò i koøen)
 \begin{pitemize}
 \item nová šipka nesmí vytvoøit kružnici a tak spojujeme vždy dvì rùzné komponenty
 \item na konci musí z každého vrcholu vycházet nìjaká šipka, proto musí každá
 nová šipka vyházet z vrcholu odkud zatím nic nevede
 \end{pitemize}
-\uline{k. šipka}: $n$ možností kam povede a $n-k-1$ možností (máme $n-k$ komponent
-a v každì je !1 vrchol bez vycházenící hrany) kde zaène tedy $n(n-k-1)$ možností
-\\celkovì je možností: $\prod^{n-2}_{k=0}n(n-k-1)=$\prod^{n-1}_{k=1}n(n-k)=n^{n-1}\prod^{n-1}_{k=1}(n-k)=n^{n-1}(n-1)$
+\uline{k. šipka}: $n$ možností kam povede a ze zbývajících $n-k-1$ možností (máme $n-k$ komponent
+a v každì je !1 vrchol bez vycházenící hrany) kde zaène, tedy $n(n-k-1)$ možností
+\\celkovì je možností: $n(n-1)\cdot n(n-2)\cdot...\cdot n1=\prod^{n-2}_{k=0}n(n-k-1)=$\prod^{n-1}_{k=1}n(n-k)=n^{n-1}\prod^{n-1}_{k=1}(n-k)=n^{n-1}(n-1)$
 \\\textbf{Porovnání výsledkù:} $n(n-1)!(poèet\ koster\ K_n) = n^{n-1}(n-1)
 \Rightarrow (poèet\ koster\ K_n) = n^{n-2}$
 \end{e}
