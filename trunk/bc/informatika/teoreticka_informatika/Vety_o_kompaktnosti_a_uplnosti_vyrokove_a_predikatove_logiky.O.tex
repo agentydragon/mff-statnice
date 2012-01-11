@@ -58,8 +58,8 @@ Nech $A, B$ jsou formule teorie $T$. Platí následující tvrzení.
     \item Plyne z principu maximality (ekvivalentního s axiomem vıbìru), aplikujeme-li jej na mnoinu všech bezespornıch teorií $S$ s $S \supseteq T$, na ní uvaujeme uspoøádání inkluzí. Kadı øetìzec $R$ v popsaném uspoøádání má majorantu, kterou je jeho sjednocení $\bigcup R$, nebo to je teorie rozšiøující $T$, která je bezesporná, protoe spor v ní je sporem v nìjaké teorii z $R$.
     \item
     \begin{pitemize}
-	    \item[$\Leftarrow$]Má-li $T$ model $e$ a $T \vdash A$, tak $e(A) = 1$, tedy $e(\neg A) = 0$, tedy $T \not \vdash \neg A$ a $T$ je bezesporná.
-	    \item[$\Rightarrow$]Nech je $T$ bezesporná. Dle 3) existuje maximální bezesporná teorie $T' \supseteq T$ a dle 2c) existuje model teorie $T'$, co je i model $T$.
+            \item[$\Leftarrow$]Má-li $T$ model $e$ a $T \vdash A$, tak $e(A) = 1$, tedy $e(\neg A) = 0$, tedy $T \not \vdash \neg A$ a $T$ je bezesporná.
+            \item[$\Rightarrow$]Nech je $T$ bezesporná. Dle 3) existuje maximální bezesporná teorie $T' \supseteq T$ a dle 2c) existuje model teorie $T'$, co je i model $T$.
     \end{pitemize}
     \item Plyne z 4) z toho, e teorie je bezesporná, právì kdy je bezesporná kadá její koneèná podteorie.
     \item $\Rightarrow$ je vìta o korektnosti, v opaèném smìru pøedpokládáme $T \models A$. Pak je $T, \neg A$ sporná dle tvrzení o existenci modelu 4), tedy $T \vdash A$ dle dùkazu sporem 1b).
@@ -91,4 +91,6 @@ Vznikne-li formule $A'$ z $A$ nahrazením nìkterého vıskytu podformule $B$ formul
 
 \begin{e}{Report}{0}{IOI 21. 6. 2011}
 Zformulujte vìtu o existenci modelu a dokate pomocí ní tvrzení: je-li $T$ nìjaká $L$-teorie a $\phi$ je $L$-sentence, tak $T \models \phi \Rightarrow T \vdash \phi$.
+\\\\
+Poadovaná vìta bude nejspíš "Kadá bezesporná teorie má model (i nìjakı velikosti nejvıše $|L(T)|$)". A dùkaz toho tvrzení u pak plyne snadno: $T\not\vdash\phi \Leftrightarrow T,\lnot\phi$ je bezesporná a tedy má model $\Leftrightarrow T\not\models\phi$. Jen kdyby tam nebyla sentence ale formule s volnımi promìnnımi, tak se ještì musí uzavøít pomocí kvantifikátorù.
 \end{e}
