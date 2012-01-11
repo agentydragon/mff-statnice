@@ -1,3 +1,4 @@
+%&latex
 \section{Teorie grafù}
 
 \begin{e}{Požadavky}{0}{0}
@@ -33,7 +34,8 @@ Orientovanému grafu $G=(V,E)$ pøiøadíme neorientovaný graf $\mathrm{sym}(G) = (V
 \end{e}
 
 \begin{e}{Definice}{0}{Sled, tah}
-Pro graf $G=(V,E)$ definujeme \textbf{sled} jako posloupnost $(v_0,e_1,v_1,\dots,e_n,v_n),$ kde $e_i=\{v_{i-1},v_i\} \in E$ pro $i=1,\dots,n.$ \textbf{Tah} je sled, ve kterém se žádná hrana neopakuje.
+Pro graf $G=(V,E)$ definujeme \textbf{sled} jako posloupnost $(v_0,e_1,v_1,\dots,e_n,v_n),$ kde $e_i=\{v_{i-1},v_i\} \in E$ pro $i=1,\dots,n.$ \textbf{Tah} je sled, ve kterém se žádná hrana neopakuje. \textbf{Cesta} je sled, ve kterém se žádná hrana ani vrchol neopakuje.
+
 \end{e}
 
 \begin{e}{Definice}{0}{Isomorfismus grafù}
@@ -121,14 +123,20 @@ d_i & \text{pro $i < n-d_n$}\\
 d_i-1 & \text{pro $i \geq n-d_n$}
 \end{cases}
 $$
-Potom $D$ je skóre grafu, právì když je $D'$ skóre grafu. \textit{(Jakoby odebereme poslední vrchol ($V_n$) a myslíme si, že byl propojen s pøedchozími $d_n$ vrcholy.)}
+Potom $D$ je skóre grafu, právì když je $D'$ skóre grafu.\footnote{Odebereme poslední vrchol ($v_n$) a myslíme si, že byl propojen s pøedchozími $d_n$ vrcholy a podle toho zmenšíme jejich stupnì o 1.}
 
 \medskip
 \begin{e}{Dùkaz}{0}{0}
-Jedna implikace je triviální, druhá (máme $D$ skóre grafu -- a tedy k nìmu nìjaký graf $G$ a dokazujeme, že $D'$ je taky skóre grafu $G'$) není o moc tìžší -- \uv{pøepojíme} hrany tak, aby z vrcholu $v_n$ šly právì do $v_{n-d_n},\dots v_{n-1}$ a $v_n$ odebereme.
+$\Rightarrow:$ máme D' skóre grafu G', k posledním $d_n$ vrcholùm pøipojíme
+vrchol $v_n$ a pak zøejmì D je skóre grafu G\\
+$\Leftarrow:$ máme $D$ skóre grafu $G$ a dokazujeme, že $D'$ je taky skóre grafu $G'$ -- \uv{pøepojíme} hrany tak, aby z vrcholu $v_n$ šly právì do $v_{n-d_n},\dots v_{n-1}$  (tedy pokud je to nutné a BACHA musíme je pøepojit postupnì tak aby se
+nezmenilo\footnote{obrázkovì je to tøeba zde: \url{http://mff.lokiware.info/DiskretniMatematika/files?get=dm_2_grafy.pdf}} skore D) a  nakonec odebereme $v_n$.
 \end{e}
 \end{e}
-
+\begin{e}{Pøíklad}{0}{Je posloupnost (1,1,1,2,2,3,4,5,5) skóre?}
+Používáme opakovanì vìtu o skóre dokud nám nevyjde posloupnost které je urèitì skóre.
+Zde: (0,0,0,0,0).
+\end{e}
 
 \begin{e}{Definice}{0}{Metrika grafu}
 Pro souvislý graf $G$ definujeme \textbf{metriku} jako funkci $d_G: V \times V \rightarrow \textbf{R},$ kde èíslo $d_G(v,v')$ pøedstavuje délku nejkratší cesty z $v$ do $v'.$ Funkce $d_G$ má následující vlastnosti (tj. splòuje axiomy metriky, jak ji známe z metrických prostorù):
@@ -241,7 +249,9 @@ nová šipka vyházet z vrcholu odkud zatím nic nevede
 \end{pitemize}
 \uline{k. šipka}: $n$ možností kam povede a ze zbývajících $n-k-1$ možností (máme $n-k$ komponent
 a v každì je !1 vrchol bez vycházenící hrany) kde zaène, tedy $n(n-k-1)$ možností
-\\celkovì je možností: $n(n-1)\cdot n(n-2)\cdot...\cdot n1=\prod^{n-2}_{k=0}n(n-k-1)=$\prod^{n-1}_{k=1}n(n-k)=n^{n-1}\prod^{n-1}_{k=1}(n-k)=n^{n-1}(n-1)$
+\\
+\\
+celkovì je možností: $n(n-1)\cdot n(n-2)\cdot...\cdot n1=\prod^{n-2}_{k=0}n(n-k-1)=$\prod^{n-1}_{k=1}n(n-k)=n^{n-1}\prod^{n-1}_{k=1}(n-k)=n^{n-1}(n-1)$
 \\\textbf{Porovnání výsledkù:} $n(n-1)!(poèet\ koster\ K_n) = n^{n-1}(n-1)
 \Rightarrow (poèet\ koster\ K_n) = n^{n-2}$
 \end{e}
@@ -255,18 +265,37 @@ Poèet stromù na $n$-vrcholové množinì je $n^{n-2}.$
 Pro graf $G=(V,E)$ jsou následující podmínky ekvivalentní\footnote{umìt aspoò
 dva vèetnì dùkazù, jsou lehký a ptají se na nì}:
 \begin{penumerate}
-\item $G$ je strom.
-\item Pro každé dva vrcholy $x,y \in V$ existuje právì jedna cesta z $x$ do $y.$ \textit{(jednoznaènost cesty)}
-\item Graf $G$ je souvislý a vynecháním libovolné hrany vznikne nesouvislý graf. \textit{(minimální souvislost)}
-\item Graf $G$ neobsahuje kružnici a každý graf vzniklý z $G$ pøidáním hrany již kružnici obsahuje. \textit{(maximální graf bez kružnic)}
-\item $G$ je souvislý a $|V|=|E|+1.$
+\item \textit{(definice)} $G$ je strom (souvislý, bez kružnice).
+\item \textit{(jednoznaènost cesty)}  $\forall x,y \in V$ existuje právì jedna cesta z $x$ do $y.$ 
+\item \textit{(minimální souvislost)} Graf $G$ je souvislý a vynecháním libovolné hrany vznikne nesouvislý graf. 
+\item \textit{(maximální graf bez kružnic)} Graf $G$ neobsahuje kružnici a každý graf vzniklý z $G$ pøidáním hrany již kružnici obsahuje. 
+\item \textit{(Eulerùv vzorec)} $G$ je souvislý a $|V|=|E|+1.$
 \item $G$ je acyklický a $|V|=|E|+1.$
 \end{penumerate}
+\begin{e}{Dùkaz}{0}{0}
+$1.\Rightarrow2.:$ $G$ je souvislý $\Rightarrow \exists$ cesta z $x$ do $y$\\
+$G$ bez kružnic $\Rightarrow \nexists$ 2 cesty z $x$ do $y$\\
+Pøedpokládejme že pro spor že existují 2 rùzné cesty z $x$ do $y$. Tím nám ale
+jistì vytvoøí kružnici což je SPOR.\\
+$2.\Rightarrow3.:$ Pro spor, nech $\exists e\in E$ taková, že $e=\{x,y\}$
+a $G\setminus
+e$ je stále souvislý. Pak ale existují dvì cesty z $x$ do $y$ což je SPOR.\\
+$3.\Rightarrow4.:$ $G + e=\{x,y\}$ má kružnici: $G$ je souvislý, tedy $\exists$
+cesta z $x$ do $y$ v $G$ a pøímá hrana $\{x,y\}$ dotvoøí kružnici\\
+$4.\Rightarrow1.:$  Ovìøíme zda G je souvislý: jsou-li $x,y\in V(G)$ tak
+buï:
+\begin{pitemize}
+\item $\{x,y\}\in E$
+\item nebo $\{x,y\}\notin E$: a pak $G+\{x,y\}$ má kružnici, a z té po odebrání
+hrany $\{x,y\}$ vznikne cesta z $x$ do $y$
+\end{pitemize}
+TODO... cvièení :)
+\end{e}
 \end{e}
 
 
 \begin{e}{Vìta}{0}{Poèet koster}
-Poèet koster grafu $G$ je $\det(L'_G),$ kde $L'_{G}$
+Poèet koster grafu $G$ je $\det(L^{(i)}_G),$ kde $L^{(i)}_{G}$
 je matice, která vznikne odstranìním $i$-tého øádku a $i$-tého sloupce z~Laplaceovy matice charakterizující graf.
 
 ??? Dukaz
@@ -288,8 +317,7 @@ eulerovy \& hamilt. grafy, rovinne grafy a barveni - definice a informace o tom,
 \begin{e}{Report}{0}{Mlèek} Na stromy jsem øekl ideu dùkazu Cayleyho formule a fakt sem se divil, když se mì po drsnostech z diferenciálních rovnic zeptal "No a víte prosímvás, co je to indukovaný podgraf??" .. takže z trivialit prváku sem dostal jednièku, celkovì jedna. 
 \end{e}
 \begin{e}{Report}{0}{IOI 10.2.2011}
-Teorie grafù: stromy
-s)Uvedte alespoò dvì definice stromu a ukažte jejich ekvivalenci.
+a)Uvedte alespoò dvì definice stromu a ukažte jejich ekvivalenci.
 \\ 
 b)Popište pojem kostra grafu a uveïte algoritmus pro její naleni vèetnì analýzy potøebného èasu a pamìti
 \end{e}
@@ -299,7 +327,8 @@ b)Popište pojem kostra grafu a uveïte algoritmus pro její naleni vèetnì analýzy 
 \\- kolik je korenovych stromu na 9 vrcholech?
 \\- kolik je korenovych stromu na n vrcholech?
 \\\\
-Jak jsem pochopil ze suskani za mnou, tak jsem nebyl jediny, kdo pojem "korenovy strom" slysel poprve v zivote :D Nicmene dalo se spravne tipnout ze je to strom kde jeden vrchol oznacime za koren. (a nastesti jsem si tipnul zrovna tohle, vahal jsem, strilel jsem od boku :) ) Na n vrcholech jich je $n^{(n-2)}$, viz pocet koster uplneho grafu.
+Jak jsem pochopil ze suskani za mnou, tak jsem nebyl jediny, kdo pojem "korenovy strom" slysel poprve v zivote :D Nicmene dalo se spravne tipnout ze je to strom kde jeden vrchol oznacime za koren. (a nastesti jsem si tipnul zrovna tohle, vahal jsem, strilel jsem od boku :) ) Na n vrcholech jich je $n^{(n-2)}$
+krát $n$ (pocet koster uplneho grafu krát kolika zpùsoby mùžeme vybrat koøen).
 \end{e}
 
 
@@ -448,11 +477,11 @@ Uzavøená køivka v rovinì neprotínající sebe sama; formálnì se definuje jako oblo
 Každá topologická kružnice $k$ rozdìluje rovinu na právì dvì souvislé èásti (\uv{vnitøek} a \uv{vnìjšek}), pøièemž $k$ je jejich spoleènou hranicí.
 \end{e}
 
-\begin{e}{Vìta}{0}{Kuratowského}
+\begin{e}{Vìta}{1}{Kuratowského}
 Graf $G$ je rovinný, právì když žádný jeho podgraf není isomorfní dìlení grafu $K_{3,3}$ ani $K_5.$
 \end{e}
 
-\begin{e}{Vìta}{1}{Eulerùv vzorec}
+\begin{e}{Vìta}{1}{Eulerùv vzorec pro rovinné grafy}
 Nech $G=(V,E)$ je souvislý rovinný graf, a nech $s$ je poèet stìn nìjakého rovinného nakreslení $G.$ Potom platí $|V|-|E|+s = 2.$
 
 \medskip
@@ -470,11 +499,11 @@ Vzorec tedy v obou pøípadech platí.
 Dvousouvislý rovinný graf má hranice libovolné stìny libovolného nakreslení jako kružnice.
 \end{e}
 
-\begin{e}{Vìta}{0}{Maximální poèet hran rovinného grafu}
+\begin{e}{Vìta}{1}{Maximální poèet hran rovinného grafu}
 Nech $G$ je rovinný graf s alespoò 3 vrcholy. Potom $|E|\leq 3|V|-6.$ Rovnost nastává pro každý maximální rovinný graf, t.j. rovinný graf, ke kterému nelze již pøidat žádnou hranu (pøi zachování množiny vrcholù) tak, aby zùstal rovinný. Pokud graf $G$ navíc neobsahuje trojúhelník (t.j. $K_3$ jako podgraf) a má-li alespoò 3 vrcholy, potom $|E|\leq 2|V|-4.$
 
 \medskip
-\begin{e}{Dùkaz}{0}{0}
+\begin{e}{Dùkaz\footnote{není asi nutné umìt}}{0}{0}
 Obì tvrzení mùžeme dokázat pro maximální rovinný graf. V prvním pøípadì je urèitì dvousouvislý, protože jinak mùžu ještì nìjaké dva body spojit. Navíc každá stìna musí být trojúhelník (je-li ètverec nebo nìco vìtšího, také jdou ještì nìjaké dva body spojit). Tím dostanu, že $3s=2|E|$ a zbytek vyjde z Eulerova vzorce.
 
 Druhý pøípad má jednu zvláštnost -- takový graf mùže být hvìzda. Pro tu je ale tvrzení splnìno. Pokud není hvìzda, už musí být dvousouvislý a všechny stìny musí být ètverce, takže dostanu $4s=2|E|$ a z Eulerova vzorce i celý výsledek.
@@ -493,7 +522,7 @@ Euleruv vzorec. Nakonec jsme se dostali az k NP a 3-barevnosti grafu, ale to byl
 \end{e}
 \begin{e}{Report}{0}{Fiala} Fiala pøeèetl grafy (formální definice rovinných grafù a co k tomu patøí, vzorce o poètu hran, stìn a tak a Kuratowský), upozornil mne na chybku, položil doplòujícíc otázku a bylo to. 
 \end{e}
-\begin{e}{Report}{0}{Gregor} Rovinne grafy, barveni: Napsal jsem nekolik definici a par vet. Jednu chtel dokazat, tak jsem dokazal tu |V| - |E| + s = 2. U barveni se mu nelibila moje verze Kuratowskeho vety, tak mi ukazal protipriklad a ja to opravil (chybelo mi tam slovo "deleni"). Potom jsem jeste zacal dokazovat vetu o peti barvach, ale uprostred me zastavil s tim, ze si neni jistej jestli to rikam dobre (ale myslim, ze jsem to rikal dobre) a zeptal se me jeste na problem barveni pomoci tri barev (NP-uplny problem). To mu stacilo a rek, ze se pujde poradit s kolegou.
+\begin{e}{Report}{0}{Gregor} Rovinne grafy, barveni: Napsal jsem nekolik definici a par vet. Jednu chtel dokazat, tak jsem dokazal tu $|V| - |E| + s = 2$. U barveni se mu nelibila moje verze Kuratowskeho vety, tak mi ukazal protipriklad a ja to opravil (chybelo mi tam slovo "deleni"). Potom jsem jeste zacal dokazovat vetu o peti barvach, ale uprostred me zastavil s tim, ze si neni jistej jestli to rikam dobre (ale myslim, ze jsem to rikal dobre) a zeptal se me jeste na problem barveni pomoci tri barev (NP-uplny problem). To mu stacilo a rek, ze se pujde poradit s kolegou.
 Gregor stoural trochu vic nez skopal, ale v pohode. 
 \end{e}
 \begin{e}{Report}{0}{Fiala} pohoda, akurat som sa strapnoval s Eulerovou ci Euklidovou ci akou to formulou (pocet stien, vrcholov a hran) ked som si na nu nespomenul a odvodzoval som ju. (a aj tak som tak nejake +/- 2 zabudol) 
@@ -519,7 +548,7 @@ Nech $G$ je topologický rovinný graf. Oznaème $S$ množinu stìn $G.$ Jako \textb
 Uvažme politickou mapu, na níž jsou vyznaèeny hranice státù. Pøedpokládejme, že každý stát tvoøí souvislou oblast ohranièenou nìjakou topologickou kružnicí. Dvì oblasti pokládáme za sousední, jesliže mají spoleèný aspoò kousek hranice. Každý stát na takové mapì chceme vybarvit nìjakou barvou tak, že sousední státy nikdy nebudou mít stejnou barvu. Jaký minimální poèet barev je potøeba?
 \end{obecne}
 
-\begin{e}{Definice}{0}{Barevnost grafu}
+\begin{e}{Definice}{1}{Barevnost grafu}
 Buï $G=(V,E)$ graf, $k$ pøirozené èíslo. Zobrazení $b: V \rightarrow \{1,\dots,k\}$ nazveme \textbf{obarvením grafu} $G$ pomocí $k$ barev, pokud pro každou hranu $\{x,y\}\in E$ platí $b(x) \not = b(y).$ \textbf{Barevnost (chromatické èíslo) grafu} $G,$ oznaèovaná $\chi(G),$ je minimální poèet barev potøebný k obarvení $G.$
 \end{e}
 
@@ -531,7 +560,7 @@ Duální graf rovinného grafu je rovinný graf.
 Máme-li mapu, kterou chápeme jako nakreslení nìjakého grafu $G,$ potom otázka obarvitelnosti mapy pomocí $k$ barev je ekvivalentní s obarvitelností duálního grafu $G^*$ pomocí $k$ barev. Na druhé stranì platí, že každý rovinný graf se vyskytne jako podgraf duálního grafu nìjakého vhodného grafu. Takto lze pøevést problém barvení map na problémy barevnosti rovinných grafù.
 \end{obecne}
 
-\begin{e}{Vìta}{0}{Vìta o pìti barvách}
+\begin{e}{Vìta}{1}{Vìta o pìti barvách}
 Pro každý rovinný graf $G$ platí $\chi(G)\leq 5.$
 
 \medskip
@@ -592,6 +621,26 @@ Definujte pojem barevnost grafu
 rozne vlastnosti grafu a naznacit tu suvislost napr. s poctom vrcholov je
 suvislost taka ze na obarvenie grafu je potrebne maximalne tolko barev ako
 je pocet vrcholov 
+\end{e}
+
+\begin{e}{Definice}{0}{Nezávislost grafu} Nezávislost grafu G je velikost nejvìtší nezávisle
+podmnožiny množiny uzlù grafu. Oznaèujeme ji $\alpha(G)$.
+\end{e}
+
+\begin{e}{Definice}{0}{Degenerovanost grafu} deg(G) je minimální èíslo takové, že každý podgraf bude mít vrchol stupnì nejvýše deg(G).
+\end{e}
+
+\begin{e}{Odhady chromatického èísla}{0}{0}
+\textbf{poèet vrcholù} $\chi(G) \le |V|$ (rovnost nastává pro úplný graf)
+\\    
+\textbf{klikovost} pokud graf obsahuje kliku velikosti k, pak $k \le \chi(G)$
+\\
+\textbf{nezávislost} $\chi(G) \le$${|V|} \over{\alpha(G)}$
+\\
+\textbf{degenerovanost} $\chi(G) \le deg(G)+1}$
+\\
+\textbf{rovinnost} $\chi (G)\le 4$ pro libovolný rovinný graf (problém 4
+barev) 
 \end{e}
 
 \newpage

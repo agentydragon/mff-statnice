@@ -1,21 +1,37 @@
-﻿1. - je komplet v TeXu
+﻿1. je komplet v TeXu
+{IP 9.9.2011}
+Definujte pojmy suprema a maxima.
+Popište, jaký je mezi nimi rozdíl.
+Je pravda, že každá podmnožina R má supremum?
+Napište příklad podmnožiny racionálních čísel, která v racionálních číslech nemá supremum.
+
 2 - komplet v texu
 2.4
 {Surynek} Dostal jsem vety o strední hodnote. U tech vet jsem mel jeden dukaz, u druhého ideu a u tretího zacátek triku, který se tam použije (musel bych ješte docela premýšlet, abych to poskládal dohromady). Ale jemu to stacilo (taky zkoušel, jak tomu rozumím). Takže od pana Surynka za 1. 
+2.5
+{IOI 8.9.2011}
+- definujte Tayloruv polynom
+- navrhnete postup na priblizny vypocet sin(5) pomoci TP
+
+Pohoda, rozvoj v nule, dosadit 5 a je to. Na ustni Cepek trochu vrtal do tvaru zbytku a prisel se na to ze ho neumim, ale presel to bez karani jen slovy "podle me to neni ono" a slo se dal.
 
 
 3.X
 (neznámý) kritéria konvergence číselných řad 
+(Kučera) Po chvíli (kdy jsem nenapsal téměř nic, prostě vokno) připsal ještě Číselné řady, a když jsem se v záchvatu nervozity stále nechytal, začal mi na papír kreslit nápovědu. Kreslil tak dlouho, než jsem řekl "No jo, ono je to vlastně takhle"... To se opakovalo ještě jednou, sám jsem neřekl skoro nic. K mému velkému překvapení mi bylo sděleno, že to stačí, sice jen na slabší trojku, ale stačí.
 (IP 21.6.2011)
 Napiste definici konvergence rad.
 Rozhodnete a zduvodnete, zda konverguji rady: 1/n, 1/n^2, sin(n)/n
+
+{IOI 8.9.2011}
+definujte konvergenciu rady. Zistite, pre ake 'k' konverguje rada \sum 1/(n^{(1+1/k)})
 
 3.1
 (Fiala) Posloupnost funkcí + stejnoměrná spojitost  - Napsal jsem zase to, na co jsem si vzpomněl z materiálů (ty tři definice na posloupnost a asi čtyři "věty"). Měl jsem ještě ukázat rozdíly mezi nimi na nějakých konkrétních funkcích... Pan Fiala měl sice záludnější otázky, ale zkoušení bylo naprosto férové a vcelku mírné. 
 3.2
 (Klazar) Napsal jsem definici mocnine rady, stred konvergence, zdrbal zapis polomeru konvergence (zapomnel ze je 1 lomeno), vztah polomeru konvergence a konvergence mocninne rady. Napsal vlastnosti geometricke rady (taky je to mocninna rada) + ze je hodna. A horempadem jsem chtel utect k Taylorovi.
 Avsak dostal jsem otazky - co se deje kdyz |x - a| = R, pote najit radu s touto vlastnosti, ktera diverguje a ktera konverguje. (1.uspech, 2. neuspech (suma nul fakt nestacila)), p.Klazar me zaskocil ukolem spocitat nekolik polomeru konvergence ruznych rad (vedlo na ruzne limity (n-ta odmocnina z 2^n) pro n -> inf). 
-(Kučera) Po chvíli (kdy jsem nenapsal téměř nic, prostě vokno) připsal ještě Číselné řady, a když jsem se v záchvatu nervozity stále nechytal, začal mi na papír kreslit nápovědu. Kreslil tak dlouho, než jsem řekl "No jo, ono je to vlastně takhle"... To se opakovalo ještě jednou, sám jsem neřekl skoro nic. K mému velkému překvapení mi bylo sděleno, že to stačí, sice jen na slabší trojku, ale stačí.
+
 (Kučera) napsal jsem jen definici, co to je poloměr konvergence a ten vzoreček, kterým se počítá. Toť vše. Fiala s Kučerou se pak ptali na definice těch typů konvergence, jestli neznám nějakou speciální mocninnou řadu (střelil jsem Taylorovu), tak jsme nějak přešli k aproximaci funkcí v bodě Taylorovým polynomem (uff, žádné zbytky!) a nakonec po mně chtěli aproximovat sinus v nule kubickým polynomem, což je jen dosazení do Taylora řádu 3, ale to jsem si v dané psychické situaci neuvědomil :-p. Nakonec jsem to napsal a byli spokojení. 
 3.3
 (Klazar) Pak konecne Taylor (museli u me tehdy stat vsichni rohati, ze nechtel tvary zbytku to by byla konecna) + napsat Tayloruv rozvoj pro sin(x), cos(x), e^(x) a ln(x). Tuto otazku jsem fakt nechtel a byl jsem hodne nervozni - naflakal jsem ve zmatku nekolik zbytecnych chyb. P.Klazar byl opravdu tolerantni, vzdy v klidu pockal nez se vyjadrim a ihned 2x opravim. V jedne chvili povedel, ze mu to staci (nevedel jsem znamku) a odesel.
@@ -25,42 +41,37 @@ Statnicove materialy zde stacily bohate.
 (Majerech) Fourierovy řady (ty má Majerech asi rád - ale stačí v podstatě jen definice) 
 ----------------1-3 jsou komplet ----------------
 
-4 -komplet v texu
+4
+4.3
+{IP 8.9.2011}
+Mějme body [0,0,0], [1,0,0], [0,2,0], [0,0,3]. Vícerozměrným integrálem spočtěte objem jejich konvexního obalu.
 
 5 -komplet v texu
 
-6.1
-(Majerech) Druhou otázkou byly metrické prostory. Zde jsem měl volnou ruku, nadefinoval jsem tedy metrický prostor, napsal několik příkladů metrických prostorů a pokračoval základními tvrzeními o metrických prostorech. Zde jsem ale pokazil definici otevřených a uzavřených množin (špatné pořadí kvantifikátorů), dr. Majerech mne ale nechal nad touto definicí tak dlouho přemýšlet, dokud jsem svou chybu sám nenašel a neopravil. Na závěr ječtě přidal doplňující otázku v podobě definice kompatkních prostorů. Můj výstup pak ohodnotil známkou 2, i zde se však jednalo o velmi příjemné zkoušení a nebýt mé vlastní chyby, tak i bez problémů.
+6 -komplet v texu
 
-(Majerech) Statnicove materialy stacily bohate.
+8.1
+{IOI 21.6.2011}
+Konecna telesa
+definoval jsem pres mnozina, bin. op., grupoid, monoid..., okruh, teleso a
+pak jsem vypsal axiomy jeste zvlast jak to bylo v lin. alg.
+Chteli po mne souvislost prvocisel s poctem prvku v telese. Priklady. 
+{IP 9.9.2011}
+Definujte pojem grupa a homomorfismus.
+Definujte permutační grupu.
+Potom tam byly obrázky dvou stavů hry ekvivalentní Loydově patnáctce (http://cs.wikipedia.org/wiki/Patn%C3%A1ctka). Za úkol bylo rozhodnout, jestli lze nějakou posloupností tahů dospět z jednoho stavu do druhého a zdůvodnit. 
+8.3
+{IP 9.9.2011}
+Definujte pojem grupa, homomorfismus a isomorfismus grup.
+Mějme zbytkovou grupu Z_8 a Z_2 X Z_4 . Ukažte zda jsou grupy isomorfní a proč.
+Existuje mezi libovolnými dvěma grupami vždy homomorfismus? Proč? Uveďte (proti)příklad.
 
-p. Majerech tradicne vybiral otazky modulenim cisla stranky z diplomky, kterou dal studentovi beze slova k otevreni. (Vladane chce to aspon rict, ze at ji student otevre a NELISTUJE. Takto nebylo zrejme zda student drzi v ruce zajimavost k nahlednuti (nez na nej prijde rada se zkousenim) nebo voli potencialni vrazednou zbran).
-Napsal jsem definici, asi 5 metrik, okoli bodu, otevrenou/uzavrenou mnozinu, homeomorfismus, kontrahujici zobrazeni, Banach-Pickardova veta o pevnem bode, Cauchyovska posloupnost, kovergentni posloupnost, uplny a kompaktni prostor, nekolik vlastnosti spojitosti + definici. 
+9-15 - komplet v Texu
 
-Vladan prisel, bezeslova si procetl papiry - fixou do papiru zaznacil Cauchyovskost,konvergenci a uplnost a rekl, at se na to jeste podivam. Podival jsem se, zastydel, opravil (mezi podivanim a zastydenim ubehlo 15minut). Pouze slovy jsem povedel to, co bylo na mat. strukturach o topologii jakozto rozsireni metrickych prostoru (na tohle jsem nebyl tazan). A hotovo (znamku jsem se nedozvedel).
-
-
-8
-cela v TeXu
-
-9
-{0} Vektorové prostory byly rychlé, sepisoval jsem si axiomy, zkoušející mě v tom přerušil, chtěl vědět co je báze, co lineární obal...v podstatě jen definice.
-{0} Vektorove prostory relativne v poho, jen zasek u dukazu proc linearni obal odpovida vsem linearnim kombinacim dane mnoziny, proste hrozny nervy a vypnutej mozek, jinak jsem napsala definici VP a jeho podprostoru, lin. kombinace, lin. (ne)zavislost, baze, dimenze, prunik a sjednoceni podprostoru, lin. obal
-{0} Vektorové prostory - definice + vybrat si jednu větu a dokázat ji (dokazoval jsem větu o výměně)
-{0} lineární nezávislost, báze ...Vektorové prostory byly rychlé, sepisoval jsem si axiomy, zkoušející mě v tom přerušil, chtěl vědět co je báze, co lineární obal...v podstatě jen definice. 
-{Fiala, Kucera} Z dukazu u M stacilo jen dokazat lemma o vymene a rict ideu dukazu Steinitzovy vety
-otazka se tykala lin. nezavislosti, tam jsem dokazal lemma o vymene a naznacil dukaz Steinitzovy vety
-{Gregor} Definice (lineární nezávislost, lineární obal, systém generátorů, báze vektorového prostoru) jsem měl celkem v pohodě, místo Steinitzovy věty jsem si ovšem vspomněl jen na pomocné lemma (slabší verzi věty), což mi ale nakonec bylo odpuštěno (možná proto, že jsem k němu vyplodil uznatelný důkaz)
-{Koubek, Surynek} Konečně generované VP, báze - tak trochu definic, co je co, lemma + věta o výměně s důkazy. Tady se ptali, ale to bylo tím, že jsem to taky míň uměl, ale na dotazy jsem odpověděl a bylo po matematice.
-{0} Vektorove prostory relativne v poho, jen zasek u dukazu proc linearni obal odpovida vsem linearnim kombinacim dane mnoziny, proste hrozny nervy a vypnutej mozek, jinak jsem napsala definici VP a jeho podprostoru, lin. kombinace, lin. (ne)zavislost, baze, dimenze, prunik a sjednoceni podprostoru, lin. obal
-
-10-15 - komplet v Texu
-
-
-16.2 Pri dvojke stacili definicie a vety. Podstatna bola Hallova veta a este Tutteova veta, ktoru som nevedel. Pan co skusal M bol tiez fer a trpezlivy, rovnako ma nicim prehnanym netrapil. Co som skutocne nevedel som popravde priznal ako pri matematike, tak pri informatike, nastastie toho nebolo privela. 
+16 v techu 
 ----------------17 je komplet ----------------
-17.1-3 v techu
-17.4-6 v techu
+17 v techu
+
 
 
 
@@ -74,23 +85,28 @@ otazka se tykala lin. nezavislosti, tam jsem dokazal lemma o vymene a naznacil d
 
 
 Informatika
-1.1
-Predikatova logika - (zkousel Necasky) popis jazyka, realizace, ohodnoceni, splnitelnost, tarskeho definice pravdivosti (znamka tusim 1-) 
-(IOI 21. 6. 2011) Zformulujte větu o existenci modelu a dokažte pomocí ní tvrzení: je-li T nějaká L-teorie a \phi je L-sentence, tak T \models \phi \Rightarrow T \vdash \phi.
-1.2
-Bednarek: Pravdivost, Dokazatelnost, Splnitelnost, Rozhodnutelnost
-Tady se da popsat hooodne papiru definicemi - napriklad definice pravdivosti je v PL o neco komplikovanejsi.
-To jsem taky ucinil a po projiti 5 listu A4 (pisu velkym pismem) mi bylo satisfakci Bednarkovo: "no myslim ze to bylo celkem vycerpavajici" 
-(Kofron) Rozhodnutelnost, splnitelnost, pravdivost, dokazatelnost - to mě nepotěšilo, ale zplodil jsem co je výroková logika, ohodnocení, vysvětlil ty pojmy v otázce, ukázal cnf, dnf jak na ně upravit... zkoušející byl nedočkavý, tak jsem nakonec nenapsal nic o PL, s tím, že to kdyžtak dopíšu pak (což nechtěl).
-Ptal se docela dost, hlavně otázky které jsem nečekal, tak pro další generace tu máme výběr:
-Složitost zjišťování splnitelnosti pro cnf (3-sat je NP, ale chtěl vědět co třeba 2-sat - to je polynomiální, chtěl vědět jak by se to naprogramovalo), stejně ho zajímala složitost u zjištění tautologie... nakonec z toho byl docela příjemný pokec. 
-(Skopal) Pro skopala na tuhle otázku si připravte nějaký pěkný příklad nedokazatelné formule nebo nerozhodnutelného problému. 
-Definiciu rozhodnutelnosti som vedel, ale nevedel som mu nic blizsie povedat a rekurzivne spocetnych mnozinach, vyzeral byt trosku nahnevany (lebo prave o tom chcel pocut a bol velmi prekvapeny ako je mozne, ze sme to nebrali) ale podarilo sa mi spravne argumentovat a vysvetlit, ze to je az Slozitost I a nie bc predmety, takze nakoniec v poho. (Ale mal som strach ako male decko.) 
+
+1 - v techu
+
 1.3
 NIKDY NEBYLA ZKOUSENA?
+
+2
+{IOI 8.9.2011}
+definujte jazyky v chomskeho hierarchii a im prislusne automaty a gramatiku. Dbajte a determinzmus a netederminizmus automatov
+
+{IP 9.9.2011}
+Definujte třídy jazyků podle Chomského hierarchie a popište jejich gramatiky.
+Definujte inkluze mezi třídami.
+
 3.1
 {Skopal} Casova zlozitost
-3.2 v TeXu
+3.2
+{IP 9.9.2011}
+Definujte třídy složitosti P a NP.
+Definujte NP-těžký problém a NP-úplnost.
+Jaké metody se v praxi používají k řešení NP-těžkých prolémů?
+Uveďte tři příklady NP-úplných problémů.
 3.3 vsechno je v TeXu
 3.4
 {Žemlička} Napsal jsem tam toho myslim dost, popis a slozitost operaci, prumerna vyska pr. stromu, u AVL rotace, kolik max rotaci pri jake operaci, max hloubku AVL stromu, i tu haldu, vcetne pekne reprezentace v poli (tam jsem nenapsal, ze syny najdu na pozici a2i a a2i+1, na coz se pak doplnkove ptal). Pro doplneni chtel CC stromy a splay-stromy (tam jsem zvoral, ze se vyhledavany zaznam "strci" do korene, pote, co zvedl oboci, jsem se rychle opravil "Ja jsem blbej, zarotuje az do korene"). Halda se mu nezdala, ac jsem tam napsal to vyuziti pri trideni na vnejsi pameti (predtrideni dvojitou haldou) - doufal jsem, ze ho to potesi, kdyz jsme to brali na OZD. ;) ... "Hmmm, a co jiny haldy?" Tak jsem priznal, ze nevim, ze jsem akorat slysel o Fibonaciho haldach. Chtel neco s vice-arnimi haldami a haldami, jejichz nazev jsem slysel snad poprve v zivote.
@@ -102,6 +118,9 @@ NIKDY NEBYLA ZKOUSENA?
 {Skopal} Hashovani: Popsal jsem princip hashovani, nejaky zpusoby reseni kolizi. Pak se zeptal jak ma vypadat dobra hashovaci funkce. Rek jsem neco jako ze musi univerzum klicu rozlozit rovnomerne po tabulce, ale to mu nestacilo. Chtel neco konkretnejsiho a nakonec se spokojil s odpovedi, ze by to melo byt neco jako generator pseudonahodnych cisel. To, ze jsem nedokazal odpovedet na to jak takovy generator vypada, mu asi ani moc nevadilo. Pak se zeptal na externi hashovani, ale kdyz uvidel mou vystrasenou tvar, tak rek, ze nic, ze se to uci az na magistru. Pak jsem rek neco o perfektnim hashovani a lehce popsal Cormacka. Padlo jeste par otazek obecne o perfektnim hashovani, coz jsem zodpovedel a to mu stacilo.
 
 {Skopal} dostal mě na otázkách ohledně hashovací fce - jaké jsou na ní kladené požadavky (nejsem si vědom, že bychom to probírali tak podrobně), hned se pak přesunul k Univerzálnímu a Perfektnímu hashování - když jsem mu neřekl perfektní, tak se zvedl a řekl to stačí... a nezašli jsme ani ke kolizím, které jsem měl vypracované (dostal jsem od něj dílčí známku za 3).
+
+{IOI 8.9.2011}
+definujte co je to hasovanie, perfektne hasovanie, univerzalne hasovanie a ( tramtadaa ) Litwickovo hasovanie
 
 3.6 trideni
 {Skopal} Třídící algoritmy (díky díky! takhle dobrou otázku jsem si ani snad nepředstavoval)
@@ -116,6 +135,11 @@ přihrádkové třídění - bucket, counting, redix sort (http://hippies.matfyz
 třídící sítě - např. to bitonické (http://hippies.matfyz.info/poznamky/predmet_ads2/gallery.php?ID=23)
 
 sekvenční třídění - tudíž předpokládám je něco jiného, dle mého názoru to znamená, že třídí data sekvenčně, tj. jak mu přijdou do ruky, tedy např. merge sort
+{IOI 8.9.2011}
+- popiste algoritmus insersort, proc je vhodne pouzivat ho na predtridene pole?
+- popiste algoritmus quicksort, jak zavisi jeho slozitost na vyberu pivota?
+
+Tak insertsort jsem se pokousel vycucat z prstu coz mi vubec neslo, takze jsem po 20 ztracenych minutach rezignoval a cesky ho okecal ze se tam vkladaji prvky do pole a ty vetsi se posouvaji doprava (doted nevim jak to je), ale komise byla moc hodna a presla to jako ze to mam spravne. Na ustni se zajmali i o pametovou slozitost, kterou jsem na papire vubec neresil, ale to jsem uhadl ze oba algoritmy se daji resit v jednom poli, takze n.
 3.7
 {Kopecký} Grafove algoritmy - testovani souvislosti, topologicke trideni a pak hledani nejkratsi cesty (Dijkstra, Bellman-Ford a Floyd-Warshall)
 {?} Grafove algoritmy - prehladavanie do sirky, hlbky, kostra, cesta
@@ -140,6 +164,16 @@ vsechno je v TeXu
 (Mlynkova) Tady jsem se tesil, ze je to pekna otazka, ale bylo mi ukazano, ze toho moc neumim. Celkem jsem vyjmenoval a popsal NF + algoritmy na dosazeni(dekompozice a synteza). Horsi uz to bylo s predvedenim na prikladu, tak nakonec za 3. 
 (Mlynkova) Tohle neni uplne moje parketa, takze jsem se snazil rict to co jsem vedel s jistotou. Zaklad byl asi v poradku, jenom jsem nevedel zadnej algoritmus pro prevod schematu do nejake te normalni formy. Odhad 2-3
 (Bednarek) U těch normálních forem chtěl jenom příklady a výhody nevýhody, takže pohodička. 
+{IOI 8.9.2011}
+definujte naco sluzia normalne formy u databazii, napiste ake anomalie a kedy mozu vznikat na konkretnych prikladoch 
+
+{IP 8.9.2011}
+Převod schématu do 3NF, nebyly explicitně zadány funkční závislosti, mělo se to vykoukat.
+Schéma bylo zhruba
+UCITEL = (e-mail, jmeno, katedra)
+PREDMET = ( kod, nazev, obsah )
+CVICENI = ( ucebna, adresa_ucebny, kod_predmetu, nazev_predmetu, jmeno_ucitele, e-mail_ucitele )
+
 4.5 SQL 
 (Rychta) tak jsem rekla ze SQL je norma, priklady jeji implementace, co zahrnuje (popis schemat databaze, dotazovaci jazyk, transakce, intergitni omezeni ...), zakladni popis SELECT a dalsich basic dotazu, dal se me ptali na to nad jakou DB SQL pracuje (->relacni), zda se pouziva SQL i u jinych typu, jako je XML (ne), co je to SQL dotaz (je to prikaz, neni to program, musi byt necim interpretovan), co to je transakce (mnozina operaci co se tvari atomicky) atd... jo a co neni v textu a chteli: prikazy pro prirazovani prav uzivatelum (GRANT), prikazy pro transakce (COMMIT/ROLLBACK) 
 (Yaghob) 3 A4, +- popis příkazů, 2-3 doplňující otázky typu, co je trigger?
@@ -149,6 +183,13 @@ vsechno je v TeXu
 (?) Transakce jsem moc neumel, popsal jsem ACID, usporadatelnost, konfliktni dvojce (WW, WR, RW), neznal jsem precedencni graf. 
 (Skopal) Co me docela prekvapilo byla Skopalova otazka na to, jestli se v realnem provozu nejak berou v potaz rozvrhy transakci a graf konfliktu. Odpoved je ne, protoze s tim zpetne uz nejde nic udelat a misto toho se pouzivaji prave uzamykaci protokoly, ktere vynuty urcite vlastnosti rozvrhu dopredu. 
 (Galambos) transakce a jejich vlastnosti -- napsal jsem mu tam ACID + nejake dalsi obecna veci okolo ala co je to rozvrh a pod.; pak se me ptal na protokol casovych razitek, coz jsem nevedel a nedokazal vymyslet. 
+{IOI 8.9.2011}
+- co je to transakce, co jsou vlastnosti ACID?
+- popiste dvoufazovy zamykaci protokol
+- necht T1,T2 jsou transakce: T1: read(x), write(y=x+1) T2: read(y), write(x=t+1). Popiste jejich beh pri dvoufazovem zamykacim protokolu
+
+U zamykaciho protokolu stacilo napsat ze spociva ve fazi pridelovani zamku a vraceni zamku, ze transakce ktera jednou vrati zamek uz zadny nedostane.
+Vic jsem nevedel, ale pan Hnetnyka me dokopal ke spravne odpovedi, ze se ty transakce serializuji za sebe, aby nevznikl deadlock. (na papir jsem nakreslil krasny deadlock :) )
 4.8 XML, XML Schema
 (Mlýnková) jsem dostal XSLT a o tom jazyku jsem slysel tak maximalne na co se to pouziva, ... to ji 
 bohuzel nestacilo 
@@ -161,10 +202,64 @@ bohuzel nestacilo
 {Bednarek} B-stromy (+vyuzitie v databazach (B*) a praca na "disku")... podobne, par viet sme prehodili o pocte pristupov/mnozstve nacitanych dat v porovnani s binarnymi stromami...
 {Skopal} B-stromy a analogie s RB stromy - nechtěl víc než definici a odhady složitosti FIND v nejhorším a nejlepším případě
 {Bednárek} Organizace dat na vnější paměti, B-stromy a jejich varianty. Popísal som rozdiel vnútorná/vonkajšia, sekvenčný/blokový prístup, mergesort u sekvenčného a B-stromy u blokového (databáza)+varianty. 
+{IP 9.9.2011}
+Definujte B-strom.
+Určete časovou složitost operací vyhledání, vkládání a mazání z B-stromu.
+Popište, proč je výhodné používat B-stromy při ukládání na externí paměť. 
 5.3
 vsechno v TeXu
+5.6
+{IP 8.9.2011}
+int* ptr = null;
+
+void Producent()
+{
+int data = SomeCoplexOperation();
+ptr = &data;
+}
+
+void Consumer()
+{
+while(ptr == null) { }
+printf("%i\n",&ptr);
+}
+
+
+Definujte rozhrani semaforu a jeho semantiku.
+Dale predpokladejme, ze cteni a prirazeni do promene ptr jsou atomicke, potom stale tento kod obsahuje race condition.
+Urcete kde k ni dochazi, a opravte ji pomoci semaforu (ci jinak). Fce Consumer a Producer jsou spusteny prave jednou
+kazda z jineho vlakna.
+
+viz: http://forum.matfyz.info/viewtopic.php?f=418&t=7873&p=33010#p33001
+
 5.9
-vsechno v TeXu
+{IOI 21.6.2011}
+Virtualni pamet
+page, page fault, TLB, implementace v OS/HW, jak presne funguje TLB na
+konkretnim pripadu. 
+
+{IP 8.9.2011}
+tady si to nepamatuju úplně přesně, někdo mě kdyžtak opravte.
+Byl zadán podobný zdroják :
+
+    void main()
+    {
+    void * P = malloc (1024);
+    void * N = malloc (256);
+    }
+
+
+Pak byly zadány hodnoty (decimální) ukazatelů P a N. Dotaz byl jestli by se Mezi P a N vešel ještě jeden malloc o nějaké velikosti.
+NSD(P,N) = 16 ... popište čím by to mohlo být a proč.
+
+Pak bylo ještě něco s určováním velikosti stránky z adresy 0xFF10, která zůstala na addr sběrnici po dotazu na ukazatel na první byte prvního bloku. ? Výsledek ale souvisel s hodnotami toho P a N podle toho co Bednárek říkal na ústní, takže to sem asi bude muset dát někdo kdo si to pamatuje lépe.
+
+5.13
+{IOI 21.6.2011}
+TCP/IP - prevazne IP cast, kratce o TCP - routovani, fragmentace, ...
+Nakreslili mi tam diagram a mel jsem ukazat, jak to funguje na nejake siti.
+Resila se i implementace NATu. Tam jsem jim napsal i rozchozeni NAT
+maskarady v iptables a tomu se zasmali (neni to potreba) :) 
 
 6.3 Neproc.
 {Bureš} Neprocedurální programování. chtěl základní věci, dobrý zkoušející.

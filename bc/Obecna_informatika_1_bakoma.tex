@@ -15,7 +15,9 @@
 \usepackage{wrapfig}
 \usepackage{capt-of}
 \usepackage{float}
-
+\usepackage{ifthen}
+\usepackage{subfig}
+\usepackage[normalem]{ulem}
 
 
 % sirka a vyska textu nastavena jako papir, vsechny okraje vynulovany a pridano 20pt na kazdou stranu
@@ -131,45 +133,21 @@
 %KONEC PEKELNYCH MAKER
 %=====================
 
+\def\lebka{\includegraphics[width=3mm]{../common/lebka}}
+
+% makra pro poznamku u vyrokove a predikatove logiky
+\def\vl{ -- ve výrokové logice}
+\def\pl{ -- v predikátové logice}
+
 
 %Vacsina prostredi je dvojjazicne. V pripade, ze znenie napr pozorovania je pisane po slovensky, malo by byt po slovensky aj oznacenie.
 
-\newenvironment{pozadavky}{\pagebreak[2]\noindent\textbf{Požadavky}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-\newenvironment{poziadavky}{\pagebreak[2]\noindent\textbf{Požiadavky}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
+\def\ifis#1#2{\ifthenelse{\equal{#1}{0}}{}{#2}}
 
-\newenvironment{definice}{\pagebreak[2]\noindent\textbf{Definice}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-\newenvironment{definiceN}[1]{\pagebreak[2]\noindent\textbf{Definice~}\emph{(#1)}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-\newenvironment{definicia}{\pagebreak[2]\noindent\textbf{Definícia}\par \noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-\newenvironment{definiciaN}[1]{\pagebreak[2]\noindent\textbf{Definícia~}\emph{(#1)}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-
-\newenvironment{pozorovani}{\pagebreak[2]\noindent\textbf{Pozorování}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-\newenvironment{pozorovanie}{\pagebreak[2]\noindent\textbf{Pozorovanie}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-\newenvironment{poznamka}{\pagebreak[2]\noindent\textbf{Poznámka}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-\newenvironment{poznamkaN}[1]{\pagebreak[2]\noindent\textbf{Poznámka~}\emph{(#1)}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-\newenvironment{lemma}{\pagebreak[2]\noindent\textbf{Lemma}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-\newenvironment{lemmaN}[1]{\pagebreak[2]\noindent\textbf{Lemma~}\emph{(#1)}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-\newenvironment{veta}{\pagebreak[2]\noindent\textbf{Vìta}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-\newenvironment{vetaN}[1]{\pagebreak[2]\noindent\textbf{Vìta~}\emph{(#1)}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-\newenvironment{vetaSK}{\pagebreak[2]\noindent\textbf{Veta}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-\newenvironment{vetaSKN}[1]{\pagebreak[2]\noindent\textbf{Veta~}\emph{(#1)}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-
-\newenvironment{dusledek}{\pagebreak[2]\noindent\textbf{Dùsledek}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-\newenvironment{dosledok}{\pagebreak[2]\noindent\textbf{Dôsledok}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-
-\newenvironment{dokaz}{\pagebreak[2]\noindent\leftskip 10pt\textbf{Dôkaz}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-\newenvironment{dukaz}{\pagebreak[2]\noindent\leftskip 10pt\textbf{Dùkaz}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-
-\newenvironment{ideadukazu}{\pagebreak[2]\noindent\leftskip 10pt\textbf{Idea dùkazu}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
+%\newenvironment{e}[3]{\pagebreak[2]\noindent\textbf{\ifis{#2}{$\bigstar$}#1}\ifis{#3}{\emph{~(#3)}}\par\noindent\leftskip 10pt }{\odrovnej\par\bigskip}
+\newenvironment{e}[3]{\pagebreak[2]\noindent\textbf{\ifis{#2}{\lebka~}#1}\ifis{#3}{\emph{~(#3)}}\ifis{#2}{~\lebka}\par\noindent\leftskip 10pt }{\odrovnej\par\bigskip}
 
 
-\newenvironment{priklad}{\pagebreak[2]\noindent\textbf{Pøíklad}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-\newenvironment{prikladN}[1]{\pagebreak[2]\noindent\textbf{Pøíklad~}\emph{(#1)}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-
-\newenvironment{prikladSK}{\pagebreak[2]\noindent\textbf{Príklad}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-\newenvironment{priklady}{\pagebreak[2]\noindent\textbf{Pøíklady}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-\newenvironment{prikladySK}{\pagebreak[2]\noindent\textbf{Príklady}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
-
-\newenvironment{algoritmusN}[1]{\pagebreak[2]\noindent\textbf{Algoritmus~}\emph{(#1)}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
 %obecne prostredie, ktore ma vyuzitie pri specialnych odstavcoch ako (uloha, algoritmus...) aby nevzniklo dalsich x prostredi
 \newenvironment{obecne}[1]{\pagebreak[2]\noindent\textbf{#1}\par\noindent\leftskip 10pt}{\odrovnej\par\bigskip}
 
@@ -196,11 +174,11 @@
   \setlength{\parsep}{0pt}
 }{\end{itemize}}
 
-%\definecolor{gris}{gray}{0.95}
+\definecolor{gris}{gray}{0.95}
 \newcommand{\ramcek}[2]{\begin{center}\fcolorbox{white}{gris}{\parbox{#1}{#2}}\end{center}\par}
 
 
-%\clearpage \input{../common/format.tex} \clearpage
+
 \title{\LARGE Ucební texty k státní bakalárské zkoušce \\ Obecná informatika \\ Logika}
 \begin{document}
 
@@ -212,13 +190,17 @@
 \begin{pitemize}
 \item Jazyk, formule, sémantika, tautologie.
 \item Rozhodnutelnost, splnitelnost, pravdivost, dokazatelnost.
-\item Vety o kompaktnosti a úplnosti výrokové a predikátové logiky.
+\item Vìty o kompaktnosti a úplnosti výrokové a predikátové logiky.
 \item Normální tvary výrokových formulí, prenexní tvary formulí predikátové logiky.
 \end{pitemize}
 \end{e}
 \input{informatika/teoreticka_informatika/Logika_-_jazyk,_formule,_semantika,_tautologie.O!PS.tex}
+\newpage
+
 \input{informatika/teoreticka_informatika/Rozhodnutelnost,_splnitelnost,_pravdivost,_dokazatelnost.OPS.tex}
+\newpage
 \input{informatika/teoreticka_informatika/Vety_o_kompaktnosti_a_uplnosti_vyrokove_a_predikatove_logiky.O.tex}
+\newpage
 \input{informatika/teoreticka_informatika/Normalni_tvary_vyrokovych_formuli,_prenexni_tvary_formuli_predikatove_logiky.OPS.tex}
 
 \end{document}
