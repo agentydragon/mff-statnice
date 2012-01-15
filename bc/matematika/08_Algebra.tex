@@ -189,11 +189,10 @@ pozn. - to, e v obrázku je $H$ jednou z~tøíd ekvivalence není náhoda -- $H$ JE 
 \begin{e}{ Definice}{0}{0}
 $H,K$ jsou podgrupy $G(\cdot,^{-1},1),\ g\in G:\ \emph{HK}= \{h.k |\
 h\in H\,k\in K\}, \ \emph{gH}= \{g\}H,\ \emph{Hg}= H\{g\}$ 
-
-(tato definice byla pouita v minulém dùkazu :-))
+\footnote{tato definice byla pouita v minulém dùkazu :-)}
 
 \begin{center}
-\includegraphics[scale=0.5]{matematika/obrazky/nasobeni_mnozin}
+\includegraphics[scale=0.4]{matematika/obrazky/nasobeni_mnozin}
 \end{center}
 \end{e}
 
@@ -287,9 +286,6 @@ Pozn. -- v~obrázku je chyba, kadı ideál \emph{musí} obsahovat nulu, ideály na o
 \begin{reportN}{Kral} zda lze z definice neutrálního prvku, kterı je nadefinovanı e*x=x vyvodit i x*e=x, kdy je * jen asociativní (podle me nelze, te definici
 se rika levy neutralni prvek)
 \end{reportN}
-\begin{reportN}{IP 21.6.2011} Vypsat všechny podgrupy grupy $S_3$ (grupa permutací na 3 prvcích) a jejich index.
-Definovat index podgrupy a vyslovit vitu o vztahu velikosti grupy, její podgrupy a indexu (to mìla bıt Lagrangeova vita). 
-\end{reportN}
 \begin{reportN}{emlièka KSI} Grupa, okruh, teleso. Definice, priklady
 nakreslil jsem na papir toto:(obrazek dedicnosti) 
 a podebatovali jsme 
@@ -299,6 +295,18 @@ a podebatovali jsme
 \begin{reportN}{Matousek} grupy, hodne prikladu + normalni podgrupy a priklady (normalnich a nenormalnich) definici grupy jsem tak nejak popsal pres algebru a monoid (u monoidu jsem zapomel na asociativitu, na to se me pak zeptal), priklady grup jsem nejake vedel, normalnich podgrup ani moc ne, ale trosku mi pomohl a nejak jsme to dali dohromady  
 \end{reportN}
 
+\begin{reportN}{IOI 21.6.2011}
+Konecna telesa
+\\definoval jsem pres mnozina, bin. op., grupoid, monoid..., okruh, teleso a
+\\pak jsem vypsal axiomy jeste zvlast jak to bylo v lin. alg.
+\\Chteli po mne souvislost prvocisel s poctem prvku v telese. Priklady. 
+\end{reportN}
+
+\begin{reportN}{IP 21.6.2011} Vypsat všechny podgrupy grupy $S_3$ (grupa permutací na 3 prvcích) a jejich index.
+Definovat index podgrupy a vyslovit vìtu o vztahu velikosti grupy, její podgrupy a indexu (to mìla bıt Lagrangeova vìta). 
+\end{reportN}
+
+\newpage
 \subsection{Homomorfismy grup}
 
 \subsubsection*{Obecná tvrzení o homomorfismech algeber (platí i pro grupy)}
@@ -357,8 +365,32 @@ Kongruence $\rho$ na A, pak stejnım zpùsobem def. na A/$\rho$ strukturu algebry.
 
 \subsubsection*{Homomorfismy grup}
 
-\begin{e}{Vìta}{0}{O homomorfismu grup}
-Je-li zobrazení $f:G\to H$, kde $G,H$ jsou grupy, sluèitelné s bin. operací, pak je homomorfismus. (Dùkaz: nejdøív dokázat sluèitelnost s \uv{$e$} a pak \uv{$^{-1}$}, oboje pøímo z definice grupy.)
+\begin{e}{Vìta}{1}{O homomorfismu grup}
+Definujme grupy $G = ( *,^{-1_G}, 1_G )$ a $H = ( \circ,^{-1_H}, 1_H )$, je-li zobrazení $f:G\to H$ sluèitelné s jejich bin. operacemi, pak je \textit{homomorfismus}.  Bijektivní homomorfismus budeme nazıvat \textit{izomorfismus}.
+
+\midskip
+\begin{e}{Dùkaz}{0}{0} Dokáeme e $f(1_{G})$ je identita pro $\circ$:
+\\
+Protoe $f(1_{G})=f(1_{G}* 1_{G})=f(1_{G})\circ f(1_{G})$,
+ platí\footnote{roznásobili jsme $(f(1_{G}))^{-1}$} $1_{H}=f(1_{G})\circ(f(1_{G}))^{-1}=f(1_{G})\circ f(1_{G})\circ (f(1_{G}))^{-1}=f(1_{G})$.
+\\
+Dále pro $g\in G$ dokáeme e: pokud $g^{-1}$ je inverze $g$ pro $*$ tak
+$f(g^{-1})$ je inverze $f(g)$ pro $\circ$. 
+\\
+$f(g)\circ f(g^{-1_{}})=f(g* g^{-1})=f(1_{G})=1_{H} =f(g^{-1}* g)=f(g^{-1}) \circ f(g)$ z èeho plyne $f(g^{-1})=(f(g))^{-1}$.
+\end{e}
+\end{e}
+
+\begin{e}{Vìta}{0}{O existenci homomorfismu grup}
+Jou dány dvì grupy $G = ( *,^{-1_G}, 1_G )$ a $H = (  \circ,^{-1_H}, 1_H )$.
+Pak existuje homomorfismus $f:G\to H$ definovanı
+$f(x) = 1_H$ pro kadé $x \in G$.
+Tento homomorfismus se té nazıvá \textit{triviální homomorfismus}.
+
+\midskip
+\begin{e}{Dùkaz}{0}{0} Je $f$ sluèitelné s bin.operacemi $G$ a $H$? Ano je:
+nech $g_1, g_2\in G$ pak jistì $f(g_1 * g_2) = 1_H = 1_H\circ 1_H = f(g_1)\circ f(g_2)$.
+\end{e}
 \end{e}
 
 \begin{e}{Definice}{0}{mocnina prvku}
@@ -382,6 +414,42 @@ Nech grupa $(G,\cdot,^{-1},1)$ je cyklická. Potom platí:
     \item Je-li $G$ nekoneèná, pak $G\simeq(\Whole,+,-,0)$ (je isomorfní s celımi èísly).
     \item Je-li $n = |G|$ koneèné, pak $(G,\cdot,^{-1},1)\simeq(\Whole_n,+,-,0)$ (je isomorfní s grupou zbytkovıch tøíd odpovídající velikosti).
 \end{penumerate}
+\end{e}
+
+\begin{e}{Report}{0}{IOI 9.9.2011}
+Definujte pojem grupa, homomorfismus a isomorfismus grup.
+\\Existuje mezi libovolnımi dvìma grupami vdy homomorfismus? Proè? Uveïte (proti)pøíklad.
+\\Mìjme zbytkovou grupu $Z_8$ a $Z_2 \times Z_4$ . Ukate zda jsou grupy isomorfní a proè.
+
+\medskip
+\begin{e}{Øešení}{0}{0}
+Grupy nejsou izomorfní. Všechny prvky $Z_2 \times Z_4$ mají øád nejvıše 4
+nebo $4 \times (x,y)=(4 \times x,4 \times y)=(0,0)$, zatímco øád prvku $[1]$
+v $Z_8$
+je 8.
+Mno a z toho izomorfismus prostì udìlat nejde :).\end{e}
+\end{e}
+
+\begin{e}{Report}{0}{IP 9.9.2011}
+Definujte pojem grupa a homomorfismus.
+\\Definujte permutaèní grupu.
+\\Potom tam byly obrázky dvou stavù hry ekvivalentní Loydovì patnáctce \url{http://cs.wikipedia.org/wiki/Patn%C3%A1ctka}. Za úkol bylo rozhodnout, jestli lze nìjakou posloupností tahù dospìt z jednoho stavu do druhého a zdùvodnit. 
+
+\medskip
+\begin{e}{Øešení}{0}{0}
+celkem jednoduse: cilem je permutace se sudım znamenkem $f_1 = (1)(2)(3) ... (14)(15)(16)$
+(parita se rovna parite poctu sudych cyklu tedy 16) dostat se k ni muzem sudım poctem tahu (v kadém tahu se parita mìní ze sudé na lichou), takze pocatecni permutace musi bejt
+take se sudım znaminkem, coz treba $f_2 = (1)(2)(3) ... (13)(14\ 15)(16)$
+neni
+\\
+\url{http://www.kolej.mff.cuni.cz/~lmotm275/skripta/sbirka/html-old/node18.html}
+\\
+\url{http://kam.mff.cuni.cz/~sbirka/show_exercise.php?c=41&e=196}
+\\
+\url{http://web.archive.org/web/20090307180941/http://www.holotronix.com/samlloyd15b.html}
+\\
+\url{http://www.cut-the-knot.org/Curriculum/Combinatorics/Fifteen.shtml}
+\end{e}
 \end{e}
 
 \newpage
