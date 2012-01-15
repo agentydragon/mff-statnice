@@ -2,3 +2,4 @@
  5.priklad podle me neni dobre - spravne viz posledni slide 10. Bartakovy prednasky 
 
 http://www.cs.virginia.edu/~evans/cs302/classes/
+http://www.scribd.com/doc/23706810/Chapter-09-Language-Properties
