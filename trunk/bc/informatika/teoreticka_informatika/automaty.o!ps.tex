@@ -112,11 +112,12 @@ Tøída bezkontextových jazykù je uzavøená na sjednocení, zrcadlení, øetìzení, ite
 \end{e}
 
 \begin{e}{Definice}{0}{Turingùv stroj}
-\emph{Turingùv stroj} je pìtice $T=(Q,X,\delta,q_0,F)$, kde $X$ je abeceda, obsahující symbol $\varepsilon$ pro prázdné políèko, pøechodová funkce $\delta:(Q\setminus F)\times X\to Q\times X\times\{-1,0,1\}$ popisuje zmìnu stavu, zápis na pásku a posun hlavy. Výpoèet konèí, není-li definována žádná instrukce (spec. platí pro $q\in F$). \emph{Konfigurace} Turingova stroje jsou údaje, popisující stav výpoètu -- nejmenší souvislá èást pásky, obsahující všechny neprázdné buòky a ètenou buòku, vnitøní stav a poloha hlavy. \emph{Krok výpoètu} je $uqv \vdash wpz$ pro $u$ èást slova vlevo od akt. pozice na pásce, $v$ od èteného písmena dál a $q$ stav stroje. \emph{Výpoèet} je posloupnost krokù, slovo $w$ je pøijímáno, pokud $q_{0}w \vdash^{\ast} upv$, $p\in F$. Jazyky (množiny slov bez $\varepsilon$) pøijímané Turingovými stroji jsou \emph{rekurzivnì spoèetné}.
+\emph{Turingùv stroj} je pìtice $T=(Q,X,\delta,q_0,F)$, kde $X$ je abeceda, obsahující symbol $\varepsilon$ pro prázdné políèko, pøechodová funkce $\delta:(Q\setminus F)\times X\to Q\times X\times\{-1,0,1\}$ popisuje zmìnu stavu, zápis na pásku a posun hlavy. Výpoèet konèí, není-li definována žádná instrukce (spec. platí pro $q\in F$). \emph{Konfigurace} Turingova stroje jsou údaje, popisující stav výpoètu -- nejmenší souvislá èást pásky, obsahující všechny neprázdné buòky a ètenou buòku, vnitøní stav a poloha hlavy. \emph{Krok výpoètu} je $uqv \vdash wpz$ pro $u$ èást slova vlevo od akt. pozice na pásce, $v$ od èteného písmena dál a $q$ stav stroje. \emph{Výpoèet} je posloupnost krokù, slovo $w$ je pøijímáno, pokud $q_{0}w \vdash^{\ast} upv$, $p\in F$.
 \end{e}
 
-\begin{e}{Vìta}{0}{0}
-Každý jazyk typu 0 (s gramatikou s obecnými pravidly) je rekurzivnì spoèetný.
+\begin{e}{Definice}{0}{Rekurzivní a Rekurzivnì spoèetné jazyky}
+Jazyk L nazveme \textit{rekurzivnì spoèetným}, pokud je pøijímán nìjakým Turingovým strojem T (L=L(T)). Øíkáme, že TS T \textit{rozhoduje} jazyk L, pokud L=L(T) a pro každé slovo w je výpoèet stroje nad w koneèný (nezacyklí
+se). Jazyky rozhodnutelné TS nazýváme \textit{rekurzivní jazyky}.
 \end{e}
 
 \subsubsection*{Chomského hierarchie}

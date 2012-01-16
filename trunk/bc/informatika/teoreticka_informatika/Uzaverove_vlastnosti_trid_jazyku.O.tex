@@ -1,37 +1,43 @@
 %&latex
-\subsubsection{Uzávìrové vlastnosti tøíd jazykù\footnote{tohle asi nikdy nebude samostatna otazka}}
-TODO: nejaka zduvodneni chybí
+\subsection{Uzávìrové vlastnosti tøíd jazykù}
 
-\begin{obecne}{Shrnutí}
+\begin{obecne}{Shrnutí\footnote{Zdroj: \url{http://en.wikipedia.org/wiki/Formal_language#Operations_on_languages}}}
 \begin{center}
+
+\def\ano{\textcolor{green}{\ding{52}}}
+\def\ne{\textcolor{red}{\ding{54}}}
+
 \begin{tabular}{| p{2.4cm} | 1 | 1 | 1 | 1 | 1 | 1 | }
 \hline          
-    & RJ & BKJ & DBKJ & KJ & RJ & RSJ \\          
+    & ~RJ~ & DBKJ & ~BKJ & ~KJ~ & ~RekJ~ & ~RSJ \\          
 \hline                         
-  Sjednocení & 1 & 1 & 0 & 1 & 1 & 1  \\
+Sjednocení & \ano & \ne & \ano & \ano & \ano & \ano  \\
 \hline            
-  Prùnik & 1 & 0 & 0 & 1 & 1 & 1  \\
+  Prùnik & \ano & \ne & \ne & \ano & \ano & \ano  \\
 \hline            
-  Prùnik s RJ & 1 & 1 & 1 & ? & ? & ?  \\
+  Prùnik s RJ & \ano & \ano & \ano & \ano & \ano & \ano  \\
 \hline 
-  Doplnìk & 1 & 0 & 1 & 1 & 1 & 0  \\
+  Doplnìk ($-L$) & \ano & \ano & \ne & \ano & \ano & \ne  \\
 \hline 
-  Substituce / homomorfismus & 1 & 1 & 0 & 0 & 1 & ?  \\
+  Homomorfismus / Substituce & \ano & \ne & \ano & \ne & \ne & \ano  \\
 \hline 
-  Inverzní\ \ \ \ \ \ \ \ \ homomorfismus & 1 & 1 & 1 & ? & ? & ?  \\
+  Inverzní homo. & \ano & \ano & \ano & \ano & \ano & \ano \\
 \hline
 \hline  
-  Zrcadení $L^R$ & 1 & 1 & ? & 1 & 1 & 1  \\
+  Zrcadení ($L^R$) & \ano & \ne & \ano & \ano & \ano & \ano  \\
 \hline  
-  Zøetìzení & 1 & 1 & ? & 1 & 1 & 1  \\
+  Zøetìzení & \ano & \ne & \ano & \ano & \ano & \ano  \\
 \hline             
-  Iterace $L^*$ & 1 & 1 & ? & 1 & 1 & 1  \\
+  Iterace ($L^*$) & \ano & \ne & \ano & \ano & \ano & \ano  \\
 \hline             
-  Rozdíl  & 1 & 0 & 0 & 1 & 1 & 1  \\
+  Rozdíl  & \ano & \ne & \ne & \ano & \ano & \ano  \\
 \hline  
 \end{tabular}
 \end{center}
-Rozdíl lze vyjádøit pomocí prùniku a doplòku take z nich vyplıvá
+Rozdíl lze vyjádøit pomocí prùniku a doplòku take z nich vyplıvá.\\
+Pozor KJ nejsou uzavøené na substituci tak jak ji definuje Barták\footnote{viz napø.:
+\url{http://planetmath.org/encyclopedia/RegularSubstitution.html} v tabulce
+ve en-wikipedii se mluví asi o $\lambda$-free substituci}.\\
 \end{obecne}
 
 \begin{e}{Poznámka}{0}{(D)BKJ nejsou uzavøené na prùnik}
@@ -217,10 +223,54 @@ odhalíme pomocí èítaèe\\
 staèí si pamatovat, zda prošel koncovım stavem
 \end{e}
 
+\subsubsection*{Rekurzivní a rekurzivnì spoèetné jazyky}
+
 \begin{e}{Vìta}{0}{Postova}
 $L$ je rekurzivní $\Leftrightarrow$ $-L$ a $L$ jsou rekurzivnì spoèetné
 \end{e}
 
-\begin{e}{Poznámka}{0}{Doplnìk RSJ nemusí vdy bıt RSJ}
-Komplementem èistì RSJ (tedy jazyka, kterı je RSJ, ale není rekurzivní) je vdy jazyk, kterı není rekurzivnì spoèetnı. Vezmìme pro pøíklad jazyk HALT, kterı je èistì RSJ, ale jeho komplement (NotHALT) není RSJ. To vyplıvá z definice NotHALT: HALT obsahuje dvojice TS:slovo takové, e TS pro dané slovo zastaví. NotHALT tedy obsahuje dvojice TS:slovo takové, kdy danı TS nezastaví pro slovo, e se zacyklí. Protoe nejsme schopni identifikovat cyklus, nejsme schopni sestavit TS, kterı by jazyk NotHALT pøijímal. Obecnì: pokud máme jazyk L, kterı je èistì RSJ, pak jeho komplement L' musí obsahovat takové slovo, pro nì se TS M' zacyklí a tudí tento TS M' nemùe pøijímat jazyk L'.
+\begin{e}{Poznámka\footnote{Zdroj: \url{http://youbo2010.blogspot.com/2011/04/why-recursive-languages-are-not-closed.html}}}{0}{RSJ
+jsou a RekJ nejsou uzavøené na homomorfismus}
+First let's consider a much simpler problem, inverse homomorphism, in which w is in L' if and only h(w) is in L. We can just apply h to w and let the TM accepting L run with input h(w). So L' is recursively enumerable(resp. recursive) if L is recursively enumerable(resp. recursive).
+\\\\
+Now we'll attack homomorphism, in which $x\in L' \Leftrightarrow \exists
+w\in L : h(w)=x$.
+\\\\
+For recursively enumerable languages, the slide say that we can design an NTM M to take as input $x$, guess an $w$ such that $h(w)=x$ and simulate $M_1$ on $w$ (suppose $L=L(M_1)$). I will give a detailed sketch on how $M$ behaves. It
+
+0) sets $l$ to 1
+
+1) guesses one $w$ of length $l$
+
+2) if there is such an $w$ invokes $M_1$ otherwise goes to 4)
+
+3) if $M_1$ accepts so would M otherwise goes to 4)
+
+4) increases $l$ by 1 and goes back to 1)
+\\\\
+So if $L$ is recursively enumerable, so is $L'$.
+And of course we can use a DTM that generates each $w$ in a systematic way.
+\\\\
+Now what about recursive languages? Even though $L$ is recursive, the above process may not halt since there may be infinitely many $w$'s such that $h(w)=x$ but none of these $w$'s is in $L$. A automat $M$ se prostì zacyklí.
+\\\\
+To show recursive languages not closed under homomorphism, consider
+the language $L=\{<M,w, a^i> |$ TM M accepts w in i steps$\}$, which is recursive.
+However, if a homomorphism h maps a to $\lambda$ while keeping the remaining symbols intact, $h(L)=\{<M,w> |$ TM M accepts w$\}$ which is not recursive.\footnote{http://www.cs.uiuc.edu/class/fa10/cs373/lectures/lect18.pdf}
 \end{e}
+
+\begin{e}{Poznámka}{0}{Doplnìk RekJ musí vdy bıt RekJ}
+Nech jazyk L je rekurzivní. Pak jistì existuje TS M, kterı tento jazyk rozhoduje. Tento TS M pracuje tak, e všechna slova w z L pøijme a všechna slova z -L (= doplnìk jazyka L) odmítne. Novı TS M', kterı bude rozhodovat jazyk -L sestrojíme takto:
+
+    $\bullet$ Simuluj èinnost TS M pro vstup w.
+
+    $\bullet$ Pokud TS M slovo pøijme, odmítni. Pokud TS M slovo odmítne, pøijmi.
+\\
+Novı TS M' bude jednoduše vracet pøesnì opaèné vısledky, ne pùvodní TS M. Tento TS M' rozhoduje jazyk -L.
+\end{e}
+
+\begin{e}{Poznámka}{0}{Doplnìk RSJ nemusí vdy bıt RSJ}
+Komplementem èistì RSJ (tedy jazyka, kterı je RSJ, ale není rekurzivní) je vdy jazyk, kterı není rekurzivnì spoèetnı. Vezmìme pro pøíklad jazyk HALT, kterı je èistì RSJ, ale jeho komplement (NotHALT) není RSJ. To vyplıvá z definice NotHALT: HALT obsahuje dvojice TS:slovo takové, e TS pro dané slovo zastaví. NotHALT tedy obsahuje dvojice TS:slovo takové, kdy danı TS nezastaví pro slovo, e se zacyklí. Protoe nejsme schopni identifikovat cyklus, nejsme schopni sestavit TS, kterı by jazyk NotHALT pøijímal. Obecnì: pokud máme jazyk L, kterı je èistì RSJ, pak jeho komplement -L musí obsahovat takové slovo, pro nì se TS M' zacyklí a tudí tento TS M' nemùe pøijímat jazyk -L.
+\end{e}
+
+TODO: nejaka zduvodneni chybí
+
