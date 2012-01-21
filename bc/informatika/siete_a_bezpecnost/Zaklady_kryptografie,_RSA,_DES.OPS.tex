@@ -1,4 +1,4 @@
-\subsection{Základy kryptografie, RSA, DES}
+\subsection{Základy kryptografie, RSA\sout{, DES}}
 
 (nejsou zde uvedeny pøíklady symetrických šifer, pro zájemce veselý komiks o AES -- \url{http://www.moserware.com/2009/09/stick-figure-guide-to-advanced.html} :))
 
@@ -19,7 +19,7 @@ Používají se pro generování klíèù pro šifry (napø RSA) a v proudových šifrách.
   \item\textbf{SW} jsou založeny na pozorování jevù v poèítaèi z hlediska programu náhodných, èasto z uživatelského vstupu (napø. PuTTYgen používá pro generování RSA klíèe pøejízdìní myší). 
   \item\textbf{Pseudonáhodné} jsou deterministické programy generující posloupnost èísel pokud možno nerozlišitelnou od náhodné.
         \begin{pitemize}
-                \item pø. kongruenèní generátor: $X_{n+1} = ( a X_n + c ) mod m$ 
+                \item pø. kongruenèní generátor: $X_{n+1} = ( a X_n + c ) \mod m$ 
                 \item používají se v proudových šifrách
         \end{pitemize}  
 \end{pitemize} 
@@ -121,3 +121,30 @@ Alice a Bob se verejne dohodnou na hranici $N$ a chtejí si vymenovat tajné zpráv
 \item Slabostí je hypotetická možnost vytvorit elektronický podpis zprávy bez znalosti dešifrovacího klíce na základe zachycení vhodných predchozích zašifrovaných zpráv.
 \item napøíklad SSH protokol používá RSA klíèe
 \end{pitemize}
+
+\begin{e}{Report}{0}{Skopal} RSA, DES (tady chtìl Skopal konkrétní vzoreèky, jak funguje symetrická šifra nebo šifrování s vìøejným klíèem ho nezájímalo)
+\end{e}
+
+\begin{e}{Report}{0}{Yaghob}
+Vedom si nebezpecnosti situace nabidl jsem p. Yaghobovi "sestaveni nakupniho kosiku". Povedel jsem, ze by se k tematu dala povedet hromada veci, tak jestli bychom se mohli domluvit na podmnozine ktera jej zajima, at zbytecne neplnim papir. Souhlasil nacez jsem mu nabidl hromadu vice ci mene souvisejicich veci, pridal par hodne vlastnich.
+\\\\Nechtel: S-Box, RSA,DES ani zadnou konkretni sifru, konkretni metody utoku, obranu proti utokum, pravidla pro volbu dobreho hesla, steganografii, proudove sifry,historii...
+\\\\Chtel:
+
+    Formalne popsat kryptograficky system - bacha! tady bylo videt, ze jde o klicovy pojem, kdyz ho clovek neformuluje - tak (nejspis) konci.
+
+    Nahodne generatory + vlastnosti, ktere od nich chceme + zhruba algoritmicky princip (an = (an-1*b+c) mod d)) + kde se pouziji (generovani klicu)
+    
+    Hashovaci funkce + vlastnosti, ktere od nich chceme, kde se pouziji (crc, neukladat hesla v plaintextu, ...)
+    
+    Model utocnika podle Doleva a Yao (pozor! v materialech napsano: neumi uhodnout nah.cislo z dost velke mnoziny, spravne je obecnejsi: Neumi rozume resit NP-uplne problemy (ani slozitejsi (: )).
+    
+    Cile utoku
+    
+    Ukazku pouziti nejakeho sifrovaciho protokolu (zvolil jsem kombinace symetricka sifra sifrovani, asymetricka predani klicu k symetricke).
+    
+    Vymenu klicu a-la Diffie Hellman
+    
+    Pokud jsem neco nevedel, dostal jsem cas na premysleni, pripadne jemne natuknuti. Veci chtel hodne formalne.
+    
+    Nemit Ochranu informace I a II + vlastni zajem o oblast, tak certain doom!
+\end{e}

@@ -5,6 +5,9 @@ Popište, jaký je mezi nimi rozdíl.
 Je pravda, že každá podmnožina R má supremum?
 Napište příklad podmnožiny racionálních čísel, která v racionálních číslech nemá supremum.
 
+1.7 - řady
+v texu
+
 2 - komplet v texu
 2.4
 {Surynek} Dostal jsem vety o strední hodnote. U tech vet jsem mel jeden dukaz, u druhého ideu a u tretího zacátek triku, který se tam použije (musel bych ješte docela premýšlet, abych to poskládal dohromady). Ale jemu to stacilo (taky zkoušel, jak tomu rozumím). Takže od pana Surynka za 1. 
@@ -16,15 +19,7 @@ Napište příklad podmnožiny racionálních čísel, která v racionálních �
 Pohoda, rozvoj v nule, dosadit 5 a je to. Na ustni Cepek trochu vrtal do tvaru zbytku a prisel se na to ze ho neumim, ale presel to bez karani jen slovy "podle me to neni ono" a slo se dal.
 
 
-3.X
-(neznámý) kritéria konvergence číselných řad 
-(Kučera) Po chvíli (kdy jsem nenapsal téměř nic, prostě vokno) připsal ještě Číselné řady, a když jsem se v záchvatu nervozity stále nechytal, začal mi na papír kreslit nápovědu. Kreslil tak dlouho, než jsem řekl "No jo, ono je to vlastně takhle"... To se opakovalo ještě jednou, sám jsem neřekl skoro nic. K mému velkému překvapení mi bylo sděleno, že to stačí, sice jen na slabší trojku, ale stačí.
-(IP 21.6.2011)
-Napiste definici konvergence rad.
-Rozhodnete a zduvodnete, zda konverguji rady: 1/n, 1/n^2, sin(n)/n
 
-{IOI 8.9.2011}
-definujte konvergenciu rady. Zistite, pre ake 'k' konverguje rada \sum 1/(n^{(1+1/k)})
 
 3.1
 (Fiala) Posloupnost funkcí + stejnoměrná spojitost  - Napsal jsem zase to, na co jsem si vzpomněl z materiálů (ty tři definice na posloupnost a asi čtyři "věty"). Měl jsem ještě ukázat rozdíly mezi nimi na nějakých konkrétních funkcích... Pan Fiala měl sice záludnější otázky, ale zkoušení bylo naprosto férové a vcelku mírné. 
@@ -50,21 +45,8 @@ Mějme body [0,0,0], [1,0,0], [0,2,0], [0,0,3]. Vícerozměrným integrálem spo
 
 6 -komplet v texu
 
-8.1
-{IOI 21.6.2011}
-Konecna telesa
-definoval jsem pres mnozina, bin. op., grupoid, monoid..., okruh, teleso a
-pak jsem vypsal axiomy jeste zvlast jak to bylo v lin. alg.
-Chteli po mne souvislost prvocisel s poctem prvku v telese. Priklady. 
-{IP 9.9.2011}
-Definujte pojem grupa a homomorfismus.
-Definujte permutační grupu.
-Potom tam byly obrázky dvou stavů hry ekvivalentní Loydově patnáctce (http://cs.wikipedia.org/wiki/Patn%C3%A1ctka). Za úkol bylo rozhodnout, jestli lze nějakou posloupností tahů dospět z jednoho stavu do druhého a zdůvodnit. 
-8.3
-{IP 9.9.2011}
-Definujte pojem grupa, homomorfismus a isomorfismus grup.
-Mějme zbytkovou grupu Z_8 a Z_2 X Z_4 . Ukažte zda jsou grupy isomorfní a proč.
-Existuje mezi libovolnými dvěma grupami vždy homomorfismus? Proč? Uveďte (proti)příklad.
+8 -komplet v texu
+
 
 9-15 - komplet v Texu
 
@@ -92,68 +74,19 @@ Informatika
 NIKDY NEBYLA ZKOUSENA?
 
 2
-{IOI 8.9.2011}
-definujte jazyky v chomskeho hierarchii a im prislusne automaty a gramatiku. Dbajte a determinzmus a netederminizmus automatov
 
-{IP 9.9.2011}
-Definujte třídy jazyků podle Chomského hierarchie a popište jejich gramatiky.
-Definujte inkluze mezi třídami.
 
-3.1
-{Skopal} Casova zlozitost
-3.2
-{IP 9.9.2011}
-Definujte třídy složitosti P a NP.
-Definujte NP-těžký problém a NP-úplnost.
-Jaké metody se v praxi používají k řešení NP-těžkých prolémů?
-Uveďte tři příklady NP-úplných problémů.
-3.3 vsechno je v TeXu
-3.4
-{Žemlička} Napsal jsem tam toho myslim dost, popis a slozitost operaci, prumerna vyska pr. stromu, u AVL rotace, kolik max rotaci pri jake operaci, max hloubku AVL stromu, i tu haldu, vcetne pekne reprezentace v poli (tam jsem nenapsal, ze syny najdu na pozici a2i a a2i+1, na coz se pak doplnkove ptal). Pro doplneni chtel CC stromy a splay-stromy (tam jsem zvoral, ze se vyhledavany zaznam "strci" do korene, pote, co zvedl oboci, jsem se rychle opravil "Ja jsem blbej, zarotuje az do korene"). Halda se mu nezdala, ac jsem tam napsal to vyuziti pri trideni na vnejsi pameti (predtrideni dvojitou haldou) - doufal jsem, ze ho to potesi, kdyz jsme to brali na OZD. ;) ... "Hmmm, a co jiny haldy?" Tak jsem priznal, ze nevim, ze jsem akorat slysel o Fibonaciho haldach. Chtel neco s vice-arnimi haldami a haldami, jejichz nazev jsem slysel snad poprve v zivote.
-{Kopecký} BVS a vyvažování: (AVL + RedBlack). Dotaz na optimální vyhledávací stromy: popsal jsem splay (aniž jsem tušil, že se tak jmenují), ale že na statické o.v.s. se hodí dynamické programování, jsem si "vzpomněl" až po nápovědě. 
-{Kopecký} Tohle jsem mel vse, az na malou chybicku u AVL, ze pri pridani staci provest max. jednu rotaci a take jsem nevededel vyhledavaci stromy, kde krom klice je ulozena i potencionalni cetnost hledani.
-{Skopal} B-stromy a analogie s RB stromy - nechtěl víc než definici a odhady složitosti FIND v nejhorším a nejlepším případě 
-{Kopecký} BVS a vyvazovani - tady chtel Kopecky slyset rozdily mezi AVL a R&B, algoritmus pro optimalni binarni vyhledavaci strom, splay stromy
-3.5
-{Skopal} Hashovani: Popsal jsem princip hashovani, nejaky zpusoby reseni kolizi. Pak se zeptal jak ma vypadat dobra hashovaci funkce. Rek jsem neco jako ze musi univerzum klicu rozlozit rovnomerne po tabulce, ale to mu nestacilo. Chtel neco konkretnejsiho a nakonec se spokojil s odpovedi, ze by to melo byt neco jako generator pseudonahodnych cisel. To, ze jsem nedokazal odpovedet na to jak takovy generator vypada, mu asi ani moc nevadilo. Pak se zeptal na externi hashovani, ale kdyz uvidel mou vystrasenou tvar, tak rek, ze nic, ze se to uci az na magistru. Pak jsem rek neco o perfektnim hashovani a lehce popsal Cormacka. Padlo jeste par otazek obecne o perfektnim hashovani, coz jsem zodpovedel a to mu stacilo.
+3.1-4 vsechno je v TeXu
 
-{Skopal} dostal mě na otázkách ohledně hashovací fce - jaké jsou na ní kladené požadavky (nejsem si vědom, že bychom to probírali tak podrobně), hned se pak přesunul k Univerzálnímu a Perfektnímu hashování - když jsem mu neřekl perfektní, tak se zvedl a řekl to stačí... a nezašli jsme ani ke kolizím, které jsem měl vypracované (dostal jsem od něj dílčí známku za 3).
+3.5-6 TEX
 
-{IOI 8.9.2011}
-definujte co je to hasovanie, perfektne hasovanie, univerzalne hasovanie a ( tramtadaa ) Litwickovo hasovanie
+3.7 tex
 
-3.6 trideni
-{Skopal} Třídící algoritmy (díky díky! takhle dobrou otázku jsem si ani snad nepředstavoval)
-{Skopal} Tak to jsem si myslel, že si ze mě dělá srandu, takovou jednodcuhou věc, kde bude háček...nebyl asi skoro nikde. Akorát na mě celá komise koukala, tak jsem necítil uplně košer, když je kolem mě asi 6 lidí a kouká na mě, co říká. (známku nevím)
-{Hnětynka} třídící algoritmy, takže levou zadní za 1
-{Hippies} a já to chápu takto:
+3.9 tex
 
-porovnávací alg. - heap, quick, bubble, insert, ...
+3.11 tex
 
-přihrádkové třídění - bucket, counting, redix sort (http://hippies.matfyz.info/poznamky/predmet_ads1/gallery.php?ID=2)
-
-třídící sítě - např. to bitonické (http://hippies.matfyz.info/poznamky/predmet_ads2/gallery.php?ID=23)
-
-sekvenční třídění - tudíž předpokládám je něco jiného, dle mého názoru to znamená, že třídí data sekvenčně, tj. jak mu přijdou do ruky, tedy např. merge sort
-{IOI 8.9.2011}
-- popiste algoritmus insersort, proc je vhodne pouzivat ho na predtridene pole?
-- popiste algoritmus quicksort, jak zavisi jeho slozitost na vyberu pivota?
-
-Tak insertsort jsem se pokousel vycucat z prstu coz mi vubec neslo, takze jsem po 20 ztracenych minutach rezignoval a cesky ho okecal ze se tam vkladaji prvky do pole a ty vetsi se posouvaji doprava (doted nevim jak to je), ale komise byla moc hodna a presla to jako ze to mam spravne. Na ustni se zajmali i o pametovou slozitost, kterou jsem na papire vubec neresil, ale to jsem uhadl ze oba algoritmy se daji resit v jednom poli, takze n.
-3.7
-{Kopecký} Grafove algoritmy - testovani souvislosti, topologicke trideni a pak hledani nejkratsi cesty (Dijkstra, Bellman-Ford a Floyd-Warshall)
-{?} Grafove algoritmy - prehladavanie do sirky, hlbky, kostra, cesta
-{Mlýnková} Grafové algoritmy: obecně základy, pak speciálně souvislost, nejkratší cesta (Mlýnková): Obecné věci a výčet algoritmů mi zabrali na papíře dost místa, tak jsem ukázal, co mám. Kupodivu byl zájem o přesné definice (tah, sled, cesta, souvislost v or./neor. grafu, nejkratší cesta, záp. cyklus, k-souvislost). Algoritmus na k-souvislost jsem nevěděl (víte někdo?), zřejmě nevadilo. Mohl jsem si vybrat, který z algoritmů na cesty popíšu podrobněji. Vybral jsem si "násobení" matic, vysvětlil jsem, proč funguje správně, co se stane pro záp. cyklus, časovou složitost (pro chytré násobení díky asociativitě).
-{Kofron} grafové algoritmy - kostra, tok, hĺbka, šírka, topologické triedenie, definícia problému, čo je riešením, kedy existuje, algoritmy, ktoré to riešia s popisom implementácie vrátane časovej zložitosti, porovnanie hĺbky a šírky...
-{Čepek} Grafové algoritmy - tok v síti, topologické třídění, vzdálenosti, kostry
-{Yaghob} grafove algoritmy (akorat jsem nevedel k cemu ze to slouzi minimalni kostry, hlavne ze vim jakou maj slozitost :oops: ) 
-3.9
-{Bednárek} Algoritmy vyhledávání v textu U těch algoritmů se mě ještě dodatečně zeptal jak bych řešil vyhledávání regulárního výrazu, naštestí už předtím se ptal na determinismus automatu u aho-corrasica tak bylo lehké si odvodit, že to bude nedeterministický automat, ještě se ptal jak bude dlouhý u regulárního výrazu délky p, tak to jsem odvodil, že stačí p stavů, ještě ho zajímalo jeho determinizace -> stavy jsou množiny stavů původního automatu, stavů max 2 na p-tou.
-I celkově úplně v pohodě. 
-3.11
-(Skopal) RSA, DES (tady chtěl Skopal konkrétní vzorečky, jak funguje symetrická šifra nebo šifrování s věřejným klíčem ho nezájímalo)
-3.12-13
-vsechno je v TeXu
+3.12-13 vsechno je v TeXu
  
 ----------------4 je komplet ----------------
 4.2 Konceptualni model

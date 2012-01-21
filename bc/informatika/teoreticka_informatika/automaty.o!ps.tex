@@ -1,3 +1,4 @@
+%&latex
 \def\implies{\Rightarrow}
 \def\Nat{\mathbb{N}}
 \def\Real{\mathbb{R}}
@@ -7,31 +8,152 @@
 
 
 \subsection{Automaty -- Chomského hierarchie, tøídy automatù a gramatik, determinismus a nedeterminismus.}
-\begin{pitemize}
-\item Popište jednotlivé tøídy jazykù a jejich vztahy; definujte tøídy pomocí odpovídajících gramatik. Napište priklady gramatik pro jednotlivé tøídy.
 
-\item Popište automaty, ktere tyto tridv jazyku rozpoznávají i  s ohledem na jejich (ne)deterministicnost.
-\end{pitemize}
 
-\subsubsection*{Tøídy automatù a gramatik}
+\subsubsection*{Chomského hierarchie}
+\begin{e}{Definice\footnote{Z originálu: \url{http://en.wikipedia.org/wiki/Template:Formal_languages_and_grammars}}}{1}{Chomského hierarchie}
+\emph{Chomského hierarchie} je rozdìlení gramatik do 4 tøíd podle omezení na pravidla:
+\\\\
+\newcommand{\tn}{\tabularnewline}
+\begin{tabular}{
+| >{\footnotesize\raggedright}m{1.55cm} 
+| >{\footnotesize\raggedright}m{3.4cm}
+| >{\footnotesize\raggedright}m{2.9cm} 
+| >{\footnotesize\raggedright}m{2.9cm} 
+| >{\footnotesize\raggedright}m{6.5cm} 
+| }
+\hline 
+\textbf{Zaøazení do Ch.h.}
+& \textbf{Gramatiky}
+& \textbf{Jazyky}
+& \textbf{Automaty}
+& \textbf{Pravidla}
+\tn
+\hline 
+Typu 0
+& Gramatiky typu 0
+& Rekurzivnì spoèetné jazyky
+& Turingùv stroj
+& Pravidla v obecné formì (tj. $u \rightarrow v$, kde $u,v \in (V_N \cup V_T )^*$ a $u$ obsahuje alespoò 1 neternimální symbol)
+\tn
+\hline 
+není
+& (není spoleèný název)
+& Rekurzivní jazyky
+& Vždy zastavující TS
+& 
+\tn
+\hline 
+Typu 1
+& Kontextové gramatiky
+& Kontextové jazyky
+& Lineárnì omezené automaty
+& Pouze pravidla ve tvaru $\alpha X\beta  \rightarrow \alpha w\beta , X \in V_N;$ $\alpha ,\beta  \in (V_N \cup V_T )^*; w \in (V_N \cup V_T )^+$
+
+Jedinou výjimkou je pravidlo $S \rightarrow \lambda$, potom se ale $S$ nevyskytuje na pravé stranì žádného pravidla.
+\tn
+\hline 
+Typu 2
+& Bezkontextové gramatiky
+& Bezkontextové jazyky
+& (Nedeterministický) Zásobníkový automat
+& Pouze pravidla ve tvaru $X \rightarrow w, X \in V_N ; w \in (V_N \cup V_T )^*$
+\tn
+\hline 
+není
+& Deterministické bezkontextové gramatiky
+& Deterministické bezkontextové jazyky
+& Deterministický zásobníkový automat
+& 
+\tn
+\hline 
+Typu 3
+& Regulární gramatiky
+& Regulární (pravé lineární) jazyky
+& Koneèný automat
+& Pouze pravidla ve tvaru $X \rightarrow wY,~ X \rightarrow w;~ X,Y \in V_N ;~ w \in V_T ^*$ 
+\tn 
+\hline 
+\end{tabulary}
+\\\\
+\noindent\begin{minipage}[t]{0.8\linewidth}
+\vspace{0pt}
+Každá kategorie jazykù nebo gramatik je podmnožinou jazykù nebo gramatik kategorie pøímo nad ní,\\ 
+a jakýkoli automat v každé kategorii  má ekvivaletní automat v kategorii pøímo nad ním a je slabší než ten výše.
+\\
+"není" znamená že nepatøí do Chomskeho hierarchie.
+\end{minipage}
+\noindent\begin{minipage}[t]{0.2\linewidth}
+\vspace{0pt}
+\centering
+\includegraphics[width=0.9\textwidth]{informatika/teoreticka_informatika/obrazky/chomski_inkluze.png}
+\end{minipage}
+\end{e}
+
+\begin{figure}[!ht]
+  \begin{center}
+    \includegraphics[width=8cm]{informatika/teoreticka_informatika/obrazky/inkluze_jazyku.png}
+    \includegraphics[width=8cm]{informatika/teoreticka_informatika/obrazky/languages-map.png}    
+  \end{center}
+\end{figure}
+
+\begin{e}{Poznámka}{0}{0}
+S $\c{L}1 \supset \c{L}2$ nastává problém, protože bezkontextové gramatiky umožòují pravidla tvaru $X\to\lambda$. Øešením je pøevod na \emph{nevypouštìjící bezkontextové gramatiky} - takové bezkontextové gramatiky, které nemají pravidla typu $X\to\lambda$.
+\end{e}
+
+\subsubsection*{Regulární jazyky}
 
 \begin{e}{Definice}{0}{Koneèný automat}
-\emph{Koneèný automat} je pìtice $A = (Q,X,\delta,q_0,F)$, kde $Q$ je stavový prostor (množina všech možných stavù), $X$ je \emph{abeceda} (množina symbolù), $\delta$ je pøechodová funkce $\delta: Q\times X\to Q$, $q_0\in Q$ je poè. stav a $F\subseteq Q$ množina koncových stavù.
+\emph{Koneèný automat} je pìtice $A = (Q,X,\delta,q_0,F)$, kde $Q$ je stavový prostor (koneèná neprázdná množina stavù), $X$ je vstupní \emph{abeceda} (koneèná neprázdná množina symbolù), $\delta$ je pøechodová funkce $\delta: Q\times X\to Q$, $q_0\in Q$ je poè. stav a $F\subseteq Q$ množina koncových
+(pøijímacích) stavù.
 \end{e}
 
 \begin{e}{Definice}{0}{0}
-\emph{Slovo} $w$ je posloupnost symbolù v abecedì $X$. \emph{Jazyk} $L$ je množina slov, tedy $L\subseteq X^{\ast}$, kde $X^{\ast}$ je množina všech posloupností symbolù abecedy $X$. $\mathbf{\lambda}$ je prázdná posloupnost symbolù. \emph{Rozšíøená pøechodová funkce} je $\delta^{\ast}:Q\times X^{\ast} \to Q$ - tranzitivní uzávìr $\delta$. Jazyk rozpoznávaný koneèným automatem -- \emph{regularní jazyk} je $L(A) = \{ w | w\in X^{\ast}, \delta^{\ast}(q_0,w)\in F \}$. \emph{Pravá kongruence} je taková relace ekvivalence na $X^{\ast}$, že $\forall u,v,w\in X^{\ast}: u \sim v \implies uw \sim vw$.\footnote{Pokud dvì rùzná slova $u,v$ pøevedou automat do stejného stavu (=jsou navzájem ekvivalentní ($u \sim v$)), pak musí patøit do stejné tøídy rozkladu. Pokud k tìmto dvìma slovùm pøidáme stejné slovo zprava, pak tato zøetìzená slova budou opìt patøit do stejné tøídy rozkladu (=musí být navzájem ekvivalentní ($uw \sim vw$)). A toto je právì ta vlastnost definující pravou kongruenci.} Je \emph{koneèného indexu}, jestliže $X^{\ast}/\sim$ (rozklad na tøídy ekvivalence) má koneèný poèet tøíd. \begin{footnotesize}\end{footnotesize} 
+\emph{Slovo} $w$ je posloupnost symbolù v abecedì\footnote{nìkdy se také
+znaèí:
+$\sum$} $X$. \emph{Jazyk} $L$ je množina slov, tedy $L\subseteq X^{\ast}$, kde $X^{\ast}$ je množina všech posloupností symbolù abecedy $X$. $\mathbf{\lambda}$ je prázdné slovo\footnote{nìkdy
+se také znaèí: $\epsilon$ nebo $e$}. \emph{Rozšíøená pøechodová funkce} je $\delta^{\ast}:Q\times X^{\ast} \to Q$ - tranzitivní uzávìr $\delta$. Jazyk rozpoznávaný koneèným automatem -- \emph{regularní jazyk} je $L(A) = \{ w | w\in X^{\ast}, \delta^{\ast}(q_0,w)\in F \}$. 
 \end{e}
 
-\begin{e}{Vìta}{1}{Nerodova}
-Jazyk $L$ nad koneènou abecedou $X$ je rozpoznatelný kon. automatem $\Leftrightarrow$ existuje pravá kongruence koneèného indexu $\sim$ na $X^{\ast}$ tak, že $L$ je sjednocením jistých tøíd rozkladu $X^{\ast}/\sim$.\footnote{Dùležité tedy je, že pokud je jazyk regulární, pak pro nìj musí existovat pravá kongruence, která (což je nejdùležitìjší) rozkládá všechna slova jazyka do koneènì mnoha tøíd.}
+\begin{e}{Definice}{0}{Ekvivalence, kongruence,...}
+\emph{Pravá kongruence}\footnote{Pokud dvì rùzná slova $u,v$ pøevedou automat do stejného stavu (=jsou navzájem ekvivalentní ($u \sim v$)), pak musí patøit do stejné tøídy rozkladu. Pokud k tìmto dvìma slovùm pøidáme stejné slovo zprava, pak tato zøetìzená slova budou opìt patøit do stejné tøídy rozkladu (=musí být navzájem ekvivalentní ($uw \sim vw$)). A toto je právì ta vlastnost definující pravou kongruenci.} je taková relace ekvivalence na $X^{\ast}$, že $\forall u,v,w\in X^{\ast}: u \sim v \implies uw \sim vw$. Je \emph{koneèného indexu}, jestliže $X^{\ast}/\sim$ (rozklad na tøídy ekvivalence) má koneèný poèet tøíd.
 \end{e}
-\begin{e}{Vìta}{1}{Pumping (iteraèní) lemma}
-Pro jazyk rozpoznatelný kon. automatem (tzn. regulární) $L$ existuje $n\in \Nat$ tak, že libovolné slovo $z\in L,|z|\geq n$ lze psát jako $uvw$, kde $|uv|\leq n$, $|v|\geq 1$ a $\forall i\geq 0: uv^{i}w\in L$.\footnote{Platí i pro koneèné jazyky: když je jazyk koneèný, tak si za $n$ staèí vzít délku nejdelšího slova a pak to pro všechny slova delší než n (tj. žádná) platí taky. }
+
+\def\addfootnotemark{\addtocounter{footnote}{1}\footnotemark[\value{footnote}]}
+\def\addfootnotetext#1{\footnotetext[\value{footnote}]{#1}}
+
+\noindent\begin{minipage}[t]{0.8\linewidth}
+\begin{e}{Vìta\addfootnotemark}{1}{Nerodova}
+\vspace{0pt}
+Jazyk $L$ nad koneènou abecedou $X$ je rozpoznatelný kon. automatem $\Leftrightarrow$ existuje pravá kongruence koneèného indexu $\sim$ na $X^{\ast}$ tak, že $L$ je sjednocením jistých tøíd rozkladu $X^{\ast}/\sim$.
 \end{e}
+\end{minipage}
+\noindent\begin{minipage}[t]{0.2\linewidth}
+\vspace{0pt}
+\centering
+\includegraphics[width=0.9\textwidth]{informatika/teoreticka_informatika/obrazky/nerod.png}
+\end{minipage}
+\addfootnotetext{Dùležité tedy je, že pokud je jazyk regulární, pak pro nìj musí existovat pravá kongruence, která (což je nejdùležitìjší) rozkládá všechna slova jazyka do koneènì mnoha tøíd.}
+
+
+\noindent\begin{minipage}[t]{0.8\linewidth}
+\begin{e}{Vìta\addfootnotemark}{1}{Pumping (iteraèní) lemma}
+Pro jazyk rozpoznatelný kon. automatem (tzn. regulární) $L$ existuje $n\in \Nat$ tak, že libovolné slovo $z\in L,|z|\geq n$ lze psát jako $uvw$, kde $|uv|\leq n$, $|v|\geq 1$ a $\forall i\geq 0: uv^{i}w\in L$.
+\\\\
+\footnotesize Pokud tento automat pøijímá slova, která jsou delší, než je poèet stavù automatu, pak musí nìjaký stav v automatu navštívit minimálnì dvakrát. To znamená, že èást pøijímaného slova musí projít cyklem. 
+\end{e}
+\end{minipage}
+\noindent\begin{minipage}[t]{0.15\linewidth}
+\vspace{10pt}
+\centering
+\includegraphics[width=0.9\textwidth]{informatika/teoreticka_informatika/obrazky/pumping.png}
+\end{minipage}
+
+\addfootnotetext{Platí i pro koneèné jazyky: když je jazyk koneèný, tak si za $n$ staèí vzít délku nejdelšího slova a pak to pro všechny slova delší než n (tj. žádná) platí taky. }
 
 \begin{e}{Definice}{0}{0}
-Dva automaty jsou \emph{ekvivalentní}, jestliže pøijímají stejný jazyk. \emph{Homomorfismus (isomorfismus)} automatù je zobrazení, zachovávající poè. stav, pøech. funkci i konc. stavy (+ prosté a na). Pokud existuje homomorfismus automatù $A\to B$, pak jsou tyto dva ekvivalentní (jen 1 implikace!). \emph{Dosažitelný stav} $q$ - $\exists w \in X^{\ast}: \delta^{\ast}(q_0,w) = q$. Relace ekvivalence je \emph{automatovou kongruencí}, pokud zachovává konc. stavy a pøech. funkci. Ke každému automatu existuje \emph{redukt} - ekvivaletní automat bez nedosažitelných a navzájem ekvivalentních stavù. Ten je urèen jednoznaènì pro daný jazyk (až na isomorfismus), proto lze zavést normovaný tvar.
+Dva automaty jsou \emph{ekvivalentní}, jestliže pøijímají stejný jazyk. \emph{Homomorfismus (isomorfismus)} automatù je zobrazení, zachovávající poè. stav $h(q_1)=q_2$,  pøech. funkci $h(\delta_1(q,x))=\delta_2(h(q),x)$ i konc. stavy $q\in
+F_1\Leftrightarrow h(q)\in F_2$ (+ izomorfismus je prostý a na). Pokud existuje homomorfismus automatù $A\to B$, pak jsou tyto dva \textit{ekvivalentní} (jen implikace!). \emph{Dosažitelný stav} $q$ - $\exists w \in X^{\ast}: \delta^{\ast}(q_0,w) = q$. Relace ekvivalence je \emph{automatovou kongruencí}, pokud zachovává konc. stavy a pøech. funkci. Ke každému automatu existuje \emph{redukt} - ekvivaletní automat bez nedosažitelných a navzájem ekvivalentních stavù. Ten je urèen jednoznaènì pro daný jazyk (až na isomorfismus), proto lze zavést normovaný tvar.
 \end{e}
 
 \begin{e}{Poznámka}{0}{Operace s jazyky}
@@ -59,15 +181,14 @@ Jazyky pøijímané dvoucestnými automaty jsou regulární - každý dvoucestný automat
 \end{e}
 
 
-\begin{e}{Definice}{0}{Zásobníkové automaty}
-\emph{Zásobníkový automat} je sedmice $M=(Q,X,Y,\delta,q_0,Z_0,F)$, kde proti koneèným automatùm je $Y$ abeceda pro symboly na zásobníku, $Z_0$ poèáteèní symbol na zásobníku a funkce instrukcí $\delta:Q\times(X\cup\{\lambda\})\times Y\ \to\ \c{P}(Q\times Y^{\ast})$. Je z principu nedeterministický; vždy se nahrazuje vrchol zásobníku, neète ale pokaždé vstupní symboly. Instrukci $(p,a,Z)\to(q,w)$ lze vykonat, pokud je automat ve stavu $p$, na zásobníku je $Z$ a na vstupu $a$. Vykonání instrukce znamená zmìnu stavu, pokud $a\neq\lambda$, tak i posun ètecí hlavy a odebrání $Z$ ze zásobníku, kam se vloží $w$ (prvním písmenem nahoru). Výpoèet konèí buï pøeètením slova, nebo v pøípadì, že pro danou situaci není definována instrukce
-(\emph{Situace} zás. automatu je trojice $(p,u,v)$, kde $p\in Q$, $u$ je nepøeètený zbytek slova a $v$ celý zásobník ).
-
-Pøijímat slovo je možné buï koncovým stavem (slovo je pøeèteno a automat v konc. stavu), nebo zásobníkem (slovo je pøeèteno a zásobník prázdný -- konc. stavy jsou v takovém pøípadì nezajímavé - $F=\emptyset$).
+\begin{e}{Definice}{0}{Nedeterministický koneèný automat}
+\emph{Nedeterministický koneèný automat} je pìtice $(Q,X,\delta,S,F)$, kde $Q$ je mn. stavù, $X$ abeceda, $F$ mn. konc. stavù, $S$ množina poèáteèních stavù a $\delta:Q\times X\to \c{P}(Q)$ je pøechodová funkce\footnote{ano,
+\c{P}(Q)
+je potenèní množina$}. Slovo $w$ je takovým automatem pøijímáno, pokud existuje posloupnost stavù $\{q_i\}_{i=1}^n$ tak, že $q_1\in S$, $q_{i+1}\in\delta(q_i,x_i)$, $q_{n+1}\in F$.
 \end{e}
 
-\begin{e}{Poznámka}{0}{0}
-Pro zás. automat pøijímající konc. stavem vždy existuje ekvivalentní automat ($L(A_1)=L(A_2)$) pøijímající zásobníkem a naopak.
+\begin{e}{Poznámka}{1}{0}
+Pro každý nedeterministický koneèný automat $A$ lze sestrojit deterministický kon. automat $B$ tak, že jimi pøijímané jazyky jsou ekvivalentní (mùže to znamenat exponenciální nárùst poètu stavù).
 \end{e}
 
 \begin{e}{Definice}{0}{Pøepisovací systém}
@@ -76,21 +197,64 @@ Pro zás. automat pøijímající konc. stavem vždy existuje ekvivalentní automat ($L
 
 \begin{e}{Definice}{0}{Formální (generativní) gramatika}
 \emph{Formální gramatika} je ètveøice $G=(V_N,V_T,S,P)$, kde $V_N$ je množina neterminálních symbolù (ostatní znaky napø. $S$), $V_T$ množina terminálních symbolù
-("znaky z abecedy"), $S$ startovací symbol ($S\in V_N$) a $P$ množina pravidel. \emph{Jazyk generovaný gramatikou} je $L(G)=\{w | w\in V_T^{\ast}, S\Rightarrow^{\ast}w\}$.
+("znaky z abecedy"), $S$ startovací symbol ($S\in V_N$) a $P$ množina pravidel
+(produkcí $u\rightarrow v$ $u,v\in(V_N\cup V_T)^*$). \emph{Jazyk generovaný gramatikou} je $L(G)=\{w | w\in V_T^{\ast}, S\Rightarrow^{\ast}w\}$.
 \end{e}
+
+\begin{e}{Poznámka}{0}{Lineární gramatiky}
+Pro každou \textit{regulání (pravou lineární) gramatiku} s pravidly typu $X\to Yw,X\to w$, kde $X,Y\in V_N, w\in V_T^{\ast}$  lze sestrojit koneèný automat, který pøijímá právì jazyk jí generovaný, stejnì tak pro každý koneèný automat lze sestrojit regulární gramatiku. \textit{Levé lineární gramatiky} s pravidly typu $X\to wY,X\to w$ také generují regulární jazyky, díky uzavøenosti na reverzi. \emph{Lineární gramatiky}, s pravidly typu $X\to uYv,X\to w$, kde $X,Y\in V_N, u,v,w\in V_T^{\ast}$, generují \emph{lineární jazyky} - silnìjší než regulární jazyky.
+\end{e}
+
+\subsubsection*{Bezkontextové jazyky}
+
+\noindent\begin{minipage}[t]{0.87\linewidth}
+\begin{e}{Definice}{0}{(Nedeterministický) Zásobníkový automat}
+\emph{Zásobníkový automat} je sedmice $M=(Q,X,Y,\delta,q_0,Z_0,F)$, kde proti koneèným automatùm je $Y$ abeceda pro symboly na zásobníku, $Z_0$ poèáteèní symbol na zásobníku a funkce instrukcí $\delta:Q\times(X\cup\{\lambda\})\times Y\ \to\ \c{P}(Q\times Y^{\ast})$. Je z principu nedeterministický; vždy se nahrazuje vrchol zásobníku, neète ale pokaždé vstupní symboly. Instrukci $(p,a,Z)\to(q,w)$ lze vykonat, pokud je automat ve stavu $p$, na zásobníku je $Z$ a na vstupu $a$. Vykonání instrukce znamená zmìnu stavu, pokud $a\neq\lambda$, tak i posun ètecí hlavy a odebrání $Z$ ze zásobníku, kam se vloží $w$ (prvním písmenem nahoru). Výpoèet konèí buï pøeètením slova, nebo v pøípadì, že pro danou situaci není definována instrukce
+(\emph{Situace} zás. automatu je trojice $(p,u,v)$, kde $p\in Q$, $u$ je nepøeètený zbytek slova a $v$ celý zásobník ).
+\\
+Pøijímat slovo je možné buï \textit{\textit{koncovým stavem}} (slovo je pøeèteno a automat v konc. stavu), nebo \textit{prázdným zásobníkem} (slovo je pøeèteno a zásobník prázdný -- konc. stavy jsou v takovém pøípadì nezajímavé - $F=\emptyset$).
+\end{e}
+\end{minipage}
+\noindent\begin{minipage}[t]{0.13\linewidth}
+\vspace{0pt}
+\centering
+\includegraphics[width=0.9\textwidth]{informatika/teoreticka_informatika/obrazky/ZA.png}
+\end{minipage}
+
+\begin{e}{Poznámka}{0}{0}
+Pro zás. automat pøijímající konc. stavem vždy existuje ekvivalentní automat ($L(A_1)=L(A_2)$) pøijímající zásobníkem a naopak.
+\end{e}
+
 \begin{e}{Vìta}{0}{0}
 Každý bezkontextový jazyk je rozpoznáván zásobníkovým automatem, pøijímajícím prázdným zásobníkem. Stejnì pro každý zásobníkový automat existuje bezkontextová gramatika, která generuje jazyk jím pøijímaný.
 \end{e}
 
+\begin{e}{Definice}{0}{Deterministický zásobníkový automat}
+\emph{Deterministický zásobníkový automat} je $M=(Q,X,Y,\delta,q_0,Z_0,F)$ takové, že $\forall p\in Q, \forall a\in (X\cup\{\lambda\}), \forall Z\in Y$ platí $|\delta(p,a,Z)|\leq 1 ~\footnote{definuje ze v kazdem kroku si nemuzeme vybirat}$ a navíc pokud pro nìjaké $p, Z$ je $\delta(p,\lambda,Z)\neq\emptyset$, pak $\forall a\in X$ je $\delta(p,a,Z)=\emptyset $.\footnote{definuje ukonèení vypoctu} 
+\end{e}
+
+\begin{e}{Poznámka}{0}{0}
+Deterministický zásobníkový automat je \uv{slabší} než nedeterministický, rozpoznává \emph{deterministické bezkontextové jazyky} koncovým stavem a \emph{bezprefixové bezkontextové jazyky} prázdným zásobníkem (takové jazyky, kde $u\in L(M)\implies \forall w\in X^{+}:$ $uw\notin L(M)$) - když se poprvé zásobník automatu vyprázdní, výpoèet urèitì konèí. 
+
+Bezprefixové bezkontextové jazyky jsou vždy deterministické, opaènì to neplatí. Deterministický bezkontextový jazyk lze na bezprefixový pøevést zøetìzením s dalším symbolem, který není v pùvodní abecedì. 
+
+Regulární jazyky a bezprefixové bezkontextové jazyky jsou neporovnatelné množiny.
+\end{e}
+
 \begin{e}{Poznámka}{0}{Vlastnosti bezkontextových gramatik}
 Bezkontextová gramatika je \emph{redukovaná}, pokud $\forall X\in V_N$ existuje terminální slovo $w\in V_T^{\ast}$ tak, že $X\Rightarrow^{\ast} w$ a navíc $\forall X\in V_N, X\neq S$ existují slova $u,v$ tak, že $S\Rightarrow^{\ast}uXv$. Ke každé bezkontextové gramatice lze sestrojit ekvivalentní redukovanou.
-
+\\\\
 Pro každé terminální slovo v bezkontextové gramatice existují derivace, které se liší jen poøadím použití pravidel (a prohozením nìkterých pravidel dostanu stejné terminální slovo), proto lze zavést \emph{levé (pravé) derivace} - tj. \emph{kanonické} derivace. Pokud $X\Rightarrow^{\ast}w$, pak existuje i levá (pravá) derivace. Znázornìní prùbìhu derivací je možné urèit \emph{derivaèním stromem} -- urèuje jednoznaènì pravou/levou derivaci.
-
+\\\\
 Bezkontextová gramatika je \emph{víceznaèná} (nejednoznaèná), pokud v ní existuje slovo, které má dvì rùzné levé derivace; jinak je \emph{jednoznaèná}. Jazyk je jednoznaèný, pokud k nìmu existuje generující jednoznaèná gramatika. Pokud je každá gramatika nìjakého jazyka nejednoznaèná, je tento \emph{podstatnì nejednoznaèný}. 
 \end{e}
 
-
+\begin{e}{Vìta}{1}{Pumping lemma (lemma o vkládání) pro bezkontexové jazyky}
+Nech $L$ je bezkontextový jazyk. Potom existují pøirozená èísla $p$, $q$ taková, že každé slovo $z\in L$, $|z|>p$ lze psát ve tvaru $z =uvwxy$ a platí:
+\\1) $|vwx|\leq q$ (pumpovací èást není moc dlouhá)
+\\2) buï $v\neq\lambda$ nebo $x\neq\lambda$ (lze psát $vx\neq\lambda$ )
+\\3) $\forall i\geq0$ $uv^iwx^iy\in L$
+\end{e}
 \begin{e}{Definice}{0}{Greibachové normální forma}
 Gramatika je v \emph{Greibachové normální formì}, jsou-li všechna její pravidla ve tvaru $A\to au$, kde $a\in V_T$ a $u\in V_N^{\ast}$. Ke každému bezkontextovému jazyku existuje gramatika v G. normální formì tak, že $L(G)=L\setminus\{\lambda\}$. Každou bezkontextovou gramatiku lze pøevést do G. normální formy.
 \end{e}
@@ -111,69 +275,45 @@ Tøída bezkontextových jazykù je uzavøená na sjednocení, zrcadlení, øetìzení, ite
 \emph{Dyckùv jazyk} je definován nad abecedou ${a_1,a'_1,...a_n,a'_n}$ gramatikou $$S\to \lambda | SS | a_{1}Sa'_1 | ... | a_{n}Sa'_n$$ Je bezkontextový, popisuje správná uzávorkování a lze jím popisovat výpoèty zásobníkových automatù, tedy i bezkontextové jazyky.
 \end{e}
 
-\begin{e}{Definice}{0}{Turingùv stroj}
-\emph{Turingùv stroj} je pìtice $T=(Q,X,\delta,q_0,F)$, kde $X$ je abeceda, obsahující symbol $\varepsilon$ pro prázdné políèko, pøechodová funkce $\delta:(Q\setminus F)\times X\to Q\times X\times\{-1,0,1\}$ popisuje zmìnu stavu, zápis na pásku a posun hlavy. Výpoèet konèí, není-li definována žádná instrukce (spec. platí pro $q\in F$). \emph{Konfigurace} Turingova stroje jsou údaje, popisující stav výpoètu -- nejmenší souvislá èást pásky, obsahující všechny neprázdné buòky a ètenou buòku, vnitøní stav a poloha hlavy. \emph{Krok výpoètu} je $uqv \vdash wpz$ pro $u$ èást slova vlevo od akt. pozice na pásce, $v$ od èteného písmena dál a $q$ stav stroje. \emph{Výpoèet} je posloupnost krokù, slovo $w$ je pøijímáno, pokud $q_{0}w \vdash^{\ast} upv$, $p\in F$.
-\end{e}
-
-\begin{e}{Definice}{0}{Rekurzivní a Rekurzivnì spoèetné jazyky}
-Jazyk L nazveme \textit{rekurzivnì spoèetným}, pokud je pøijímán nìjakým Turingovým strojem T (L=L(T)). Øíkáme, že TS T \textit{rozhoduje} jazyk L, pokud L=L(T) a pro každé slovo w je výpoèet stroje nad w koneèný (nezacyklí
-se). Jazyky rozhodnutelné TS nazýváme \textit{rekurzivní jazyky}.
-\end{e}
-
-\subsubsection*{Chomského hierarchie}
-\begin{e}{Definice}{0}{Chomského hierarchie}
-\emph{Chomského hierarchie} je rozdìlení gramatik do 4 tøíd podle omezení na pravidla:
-\begin{figure}[!ht]
-  \begin{center}
-    \includegraphics[width=18cm]{informatika/teoreticka_informatika/obrazky/chomski.png}
-    \includegraphics[width=6cm]{informatika/teoreticka_informatika/obrazky/inkluze_jazyku.png}
-  \end{center}
-\end{figure}
-\end{e}
-
-\begin{e}{Poznámka}{0}{0}
-S $\c{L}1 \supset \c{L}2$ nastává problém, protože bezkontextové gramatiky umožòují pravidla tvaru $X\to\lambda$. Øešením je pøevod na \emph{nevypouštìjící bezkontextové gramatiky} - takové bezkontextové gramatiky, které nemají pravidla typu $X\to\lambda$.
-\end{e}
+\begin{e}{Definice}{0}{Separovaná a nevypouštìjící (monotóní) gramatika}
+\emph{Separovaná gramatika} je gramatika (obecnì libovolné tøídy), obsahující pouze pravidla tvaru $\alpha\to\beta$, kde buï $\alpha,\beta\in V_N^+$, nebo $\alpha\in V_N$ a $\beta\in V_T\cup\{\lambda\}$. Ke každé
+gramatice lze setrojit ekvivalentní separovanou.
+\\\\
+\emph{Nevypouštìjící (monotónní) gramatika} (také se neomezuje na konkrétní tøídu) je taková, že pro každé pravidlo $u\to v$ platí $|u|\leq|v|$.
+Ke každé
+monotóní gramatice lze nalézt ekvivalentní kontextovou.\end{e}
 
 \begin{e}{Vìta}{0}{o nevypouštìjících bezkontextových gramatikách}
 Ke každé bezkontextové $G$ existuje nevypouštìjící bezkontextová $G_0$ tak, že $$L(G_0)=L(G)\setminus\{\lambda\}$$ Je-li $\lambda\in L(G)$, pak $\exists G_1$, t.ž. $L(G_1)=L(G)$ a jediné pravidlo v $G_1$ s $\lambda$ na pravé stranì je $S\to\lambda$ a $S$ není v $G_1$ na pravé stranì žádného pravidla.
 \end{e}
+\subsubsection*{Kontextové jazyky}
 
-\begin{e}{Poznámka}{0}{Lineární gramatiky}
-Pro každou gramatiku typu G3 lze sestrojit koneèný automat, který pøijímá právì jazyk jí generovaný, stejnì tak pro každý koneèný automat lze sestrojit gramatiku G3. Levé lineární gramatiky také generují regulární jazyky, díky uzavøenosti na reverzi. \emph{Lineární gramatiky}, s pravidly typu $X\to uYv,X\to w$, kde $X,Y\in V_N, u,v,w\in V_T^{\ast}$, generují \emph{lineární jazyky} - silnìjší než regulární jazyky.
-\end{e}
-
-\begin{e}{Definice}{0}{Separovaná a nevypouštìjící gramatika}
-\emph{Separovaná gramatika} je gramatika (obecnì libovolné tøídy), obsahující pouze pravidla tvaru $\alpha\to\beta$, kde buï $\alpha,\beta\in V_N^+$, nebo $\alpha\in V_N$ a $\beta\in V_T\cup\{\lambda\}$. \emph{Nevypouštìjící (monotónní) gramatika} (také se neomezuje na konkrétní tøídu) je taková, že pro každé pravidlo $u\to v$ platí $|u|\leq|v|$.
+\begin{e}{Definice}{0}{Lineárnì omezený automat}
+\emph{Lineárnì omezený automat} je nedeterministický Turingùv stroj s omezenou páskou (napø. symboly $l$ a $r$, které nelze pøepsat ani se dostat mimo jejich rozmezí). Slovo je pøijímáno, pokud $q_{0}lwr \vdash^{\ast} upv$, kde $p\in F$. Prostor výpoètu je omezen délkou vstupního slova. Lineárnì omezené automaty pøijímají právì kontextové jazyky.
 \end{e}
 
 \begin{e}{Poznámka}{0}{Kontextové gramatiky}
 Ke každé kontextové gramatice lze sestrojit ekvivalentní separovanou. Ke každé monotónní gramatice lze nalézt ekvivalentní kontextovou.
 \end{e}
 
+\subsubsection*{Rekurzivní a Rekurzivnì spoèetné jazyky}
 
-\subsubsection*{Determinismus a nedeterminismus}
+\noindent\begin{minipage}[t]{0.87\linewidth}
+\begin{e}{Definice}{0}{(Deterministický) Turingùv stroj}
+\emph{Turingùv stroj} je pìtice $T=(Q,X,\delta,q_0,F)$, kde $X$ je abeceda, obsahující symbol $\varepsilon$ pro prázdné políèko, pøechodová funkce $\delta:(Q\setminus F)\times X\to Q\times X\times\{-1,0,1\}$ popisuje zmìnu stavu, zápis na pásku a posun hlavy. Výpoèet konèí, není-li definována žádná instrukce (spec. platí pro $q\in F$). \emph{Konfigurace} Turingova stroje jsou údaje, popisující stav výpoètu -- nejmenší souvislá èást pásky, obsahující všechny neprázdné buòky a ètenou buòku, vnitøní stav a poloha hlavy. \emph{Krok výpoètu} je $uqv \vdash wpz$ pro $u$ èást slova vlevo od akt. pozice na pásce, $v$ od èteného písmena dál a $q$ stav stroje. \emph{Výpoèet} je posloupnost krokù, slovo $w$ je pøijímáno, pokud $q_{0}w \vdash^{\ast} upv$, $p\in F$.
+\end{e}
+\end{minipage}
+\noindent\begin{minipage}[t]{0.13\linewidth}
+\vspace{0pt}
+\centering
+\includegraphics[width=0.9\textwidth]{informatika/teoreticka_informatika/obrazky/TS.png}
+\end{minipage}
 
-\begin{e}{Definice}{0}{Nedeterministický koneèný automat}
-\emph{Nedeterministický koneèný automat} je pìtice $(Q,X,\delta,S,F)$, kde $Q$ je mn. stavù, $X$ abeceda, $F$ mn. konc. stavù, $S$ množina poèáteèních stavù a $\delta:Q\times X\to \c{P}(Q)$ je pøechodová funkce. Slovo $w$ je takovým automatem pøijímáno, pokud existuje posloupnost stavù $\{q_i\}_{i=1}^n$ tak, že $q_1\in S$, $q_{i+1}\in\delta(q_i,x_i)$, $q_{n+1}\in F$.
+\begin{e}{Definice}{0}{Rekurzivní a Rekurzivnì spoèetné jazyky}
+Jazyk L nazveme \textit{rekurzivnì spoèetným}, pokud je pøijímán nìjakým Turingovým strojem T (L=L(T)). Øíkáme, že TS T \textit{rozhoduje} jazyk L, pokud L=L(T) a pro každé slovo w je výpoèet stroje nad w koneèný (nezacyklí
+se). Jazyky rozhodnutelné TS nazýváme \textit{rekurzivní jazyky}.
 \end{e}
 
-\begin{e}{Poznámka}{0}{0}
-Pro každý nedeterministický koneèný automat $A$ lze sestrojit deterministický kon. automat $B$ tak, že jimi pøijímané jazyky jsou ekvivalentní (mùže to znamenat exponenciální nárùst poètu stavù).
-\end{e}
-
-
-\begin{e}{Definice}{0}{Deterministický zásobníkový automat}
-\emph{Deterministický zásobníkový automat} je $M=(Q,X,Y,\delta,q_0,Z_0,F)$ takové, že $\forall p\in Q, \forall a\in (X\cup\{\lambda\}), \forall Z\in Y$ platí $|\delta(p,a,Z)|\leq 1\footnote{definuje ze v kazdem kroku si nemuzeme vybirat}$ a navíc pokud pro nìjaké $p, Z$ je $\delta(p,\lambda,Z)\neq\emptyset$, pak $\forall a\in X$ je $\delta(p,a,Z)=\emptyset\footnote{definuje ukonèení vypoctu}$. 
-\end{e}
-
-\begin{e}{Poznámka}{0}{0}
-Deterministický zásobníkový automat je \uv{slabší} než nedeterministický, rozpoznává \emph{deterministické bezkontextové jazyky} koncovým stavem a \emph{bezprefixové bezkontextové jazyky} prázdným zásobníkem (takové jazyky, kde $u\in L(M)\implies \forall w\in X^{\ast}: uw\notin L(M)$) - když se poprvé zásobník automatu vyprázdní, výpoèet urèitì konèí. 
-
-Bezprefixové bezkontextové jazyky jsou vždy deterministické, opaènì to neplatí. Deterministický bezkontextový jazyk lze na bezprefixový pøevést zøetìzením s dalším symbolem, který není v pùvodní abecedì. 
-
-Regulární jazyky a bezprefixové bezkontextové jazyky jsou neporovnatelné množiny.
-\end{e}
 
 \begin{e}{Definice}{0}{Nedeterministický Turingùv stroj}
 \emph{Nedet. Turingùv stroj} je pìtice $T=(Q,X,\delta,q_0,F)$, kde oproti deterministickým je $\delta:(Q\setminus F)\times X \to \c{P}(Q\times X\times \{-1,0,1\})$. Pøijímá slovo $w$, pokud existuje nìjaký výpoèet $q_{0}w\vdash^{\ast} upv$ tak, že $p\in F$.
@@ -183,19 +323,11 @@ Regulární jazyky a bezprefixové bezkontextové jazyky jsou neporovnatelné množiny
 Nedeterministické Turingovy stroje pøijímají právì rekurzivnì spoèetné jazyky, tj. nejsou silnìjší než deterministické. Výpoèty nedet. stroje lze totiž díky nekoneènosti pásky simulovat deterministickým (napø. prohledáváním do šíøky).
 \end{e}
 
-\begin{e}{Definice}{0}{Lineárnì omezený automat}
-\emph{Lineárnì omezený automat} je nedeterministický Turingùv stroj s omezenou páskou (napø. symboly $l$ a $r$, které nelze pøepsat ani se dostat mimo jejich rozmezí). Slovo je pøijímáno, pokud $q_{0}lwr \vdash^{\ast} upv$, kde $p\in F$. Prostor výpoètu je omezen délkou vstupního slova. Lineárnì omezené automaty pøijímají právì kontextové jazyky.
-\end{e}
-
-
 \begin{e}{Poznámka}{0}{Rozhodnutelnost}
 Turingùv stroj mùže nepøijmout slovo buï skonèením výpoètu v nekoncovém stavu, nebo pokud výpoèet nikdy neskonèí. Turingùv stroj \emph{rozhoduje jazyk} $L$, když pøijímá právì slova tohoto jazyka a pro libovolné slovo je jeho výpoèet koneèný. Takové jazyky se nazývají \emph{rekurzivní}.
 
 Problém zastavení výpoètu Turingova stroje je algoritmicky nerozhodnutelný (kvùli možnosti jeho simulace jiným Turingovým strojem). Pro bezkontextové jazyky je algoritmicky rozhodnutelné, zda dané slovo patøí do jazyka. Pro bezkontextovou gramatiku nelze algoritmicky rozhodnout, zda $L(G)=X^{\ast}$. Pro dvì kontextové gramatiky je nerozhodnutelné, zda jejich jazyky mají neprázdný prùnik.
-
 \end{e}
-
-
 
 \begin{reportN}{Hnetynka}
 
@@ -235,8 +367,13 @@ a) Popište jednotlivé tøídy jazykù a jejich vztahy definujte tøídy pomocí odpovi
 \end{e} 
 \begin{reportN}{IP 21. 6. 2011} 
 Ukažte, že následující gramatika G je víceznaèná $S \rightarrow if\, then\, S\, else\, S\, | if\, then\, S\, | \lambda$\\
-Vytvoøte gramatiku G', která nebude víceznaèná, a bude platit $L(G) = L(G')$.\\
-Existuje obecnì k libovolné bezkontextové gramatice G jednoznaèná gramatika G' taková, že $L(G) = L(G')$?
+\textbf{Øešení:} slovo „if then if then else“ má dva významy
+„if then (if then else)“ nebo „if then (if then) else“ a namalovat
+oba derivaèní stromy
+\\Vytvoøte gramatiku G', která nebude víceznaèná, a bude platit $L(G) = L(G')$.
+\\\textbf{Øešení:} $S \rightarrow if\, then\, C\, else\, S\, | if\, then\, S\, | \lambda$ a $C \rightarrow if\, then\, C\, else\, C\, | \lambda$
+\\
+Existuje obecnì k libovolné bezkontextové gramatice G jednoznaèná gramatika G' taková, že $L(G) = L(G')$? ne
 \end{reportN} 
 
 \begin{reportN}{IOI 8.9.2011}
