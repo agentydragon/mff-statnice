@@ -1,26 +1,24 @@
 \subsection{Synchronizaèní primitiva, vzájemné vylouèení}
 
-\subsubsection*{Pojmy}
-
+Obecne se jedna o synchronizaci "runnable" entit - vlaken nebo procesu
+podle toho, co je pro dany OS "runnable" entita.
 \begin{description}
-  \item[Lock-Free Action] - akce na sdíleném prostøedku nevyadující zámky (napøíklad pøidání
+  \item[Lock-Free] - akce na sdílené dat.struktuøe nevyadující zámky (napøíklad pøidání
   do fronty)
   \item[Deadlock] - situace kdy dva nebo více procesù èeká na dokonèení akce
 vzájemnì, take se navzájem na sebe èekají donekoneèna (viz problém filosofù
 níe)
-  \item[Èasové závislé chyby (Race Conditions)] Situace kde 2 nebo více procesù pøistupuje ke stejnému sdílenému prostøedku, a finální vısledek záleí na kdo probìhne kdy
-
-  Pøíklad na tiskové frontì:
+  \item[Èasové závislé chyby (Race Conditions)] Situace kde 2 nebo více procesù pøistupuje ke stejnému sdílenému prostøedku, a finální vısledek záleí na kdo probìhne kdy. Pøíklad na tiskové frontì:
   \begin{center}
     \includegraphics[width=13cm]{informatika/operacne_systemy_a_hw/obrazky/race-conditions.png}
   \end{center}
-
         \item[Kritická sekce (Critical Regions)] èást programu, která dokud není dokonèena není moné zaèít jinou (napø. pouívá sdílené prostøedky)
   \begin{center}
     \includegraphics[width=9cm]{informatika/operacne_systemy_a_hw/obrazky/critical-region.png}
   \end{center}  
-  
-        \item[Vzájemné vylouèení (Mutual Exclusion)] kritickou operaci provádí nejvıše jeden proces. Podmínky pro správné fungování vzájemného vylouèení:
+        \item[Vzájemné vylouèení (Mutual Exclusion)] mechanismus,
+ktery zarucuje, aby v jedne kriticke sekci bylo nejvyse jedno vlákno/proces v
+jeden cas. Podmínky pro správné fungování vzájemného vylouèení:
 \begin{penumerate}
         \item ádné dva procesy nemohou bıt najednou ve stejné kritické sekci
         \item Nemohou bıt uèinìny ádné pøedpoklady o rychlosti procesu (ádné odhady rychlosti nebo priorit procesu, musí fungovat se všemi procesy)
@@ -30,12 +28,13 @@ níe)
 Metody dosáhnutí vzájemného vylouèení: aktivní èekání (busy waiting) a pasivní èekání/blokování.
 \end{description}
 
-\subsubsection*{Aktivní èekání (Busy Waiting)}
+\subsubsection*{Aktivní èekání (Busy Waiting, Polling)}
 \emph{Vlastnosti}: \textbf{spotøebovává èas procesoru}, vhodnìjší pro pøedpokládané krátké doby èekání, nespotøebovává prostøedky OS, rychlejší.
 
 Navrhovaná øešení: 
 \begin{pitemize}
-  \item \textbf{Zakázání pøerušení} - nevhodné - proces má plnou kontrolu nad poèítaèem (instrukce CLI - clear interrupt flag a STI - set interrupt flag) 
+  \item \textbf{Zakázání pøerušení} - nevhodné - proces má plnou kontrolu nad poèítaèem (instrukce CLI - clear interrupt flag a STI - set interrupt flag) normální proces to nemùe udìlat, maximálnì v kernelu (na viceprocesorovem
+stroji nebude fungovat)
   \item \textbf{Zámky v promìnné} - nefungují - mezi pøeètìníma nastavením locku mùe bıt program pøerušen - pak by si "nevšim" lock == 1 a vesel pokraèoval, akorát jsme pøidali novou race condition. 
 \begin{verbatim}
 int lock;
@@ -69,7 +68,7 @@ void p0(void)                void p1(void)
     \includegraphics[width=9cm]{informatika/operacne_systemy_a_hw/obrazky/strict-alternation.png}
   \end{center}
 
-\emph{Petersonovo øešení} - zobecnìní Strict Alternation pro N procesù, vıhodou je jeho nezávislost na HW, nevıhodou to e musíme dopøedu znát max poèet procesù a jeho sloitost. V praxi
+\emph{Petersonovo øešení} - zobecnìní Strict Alternation pro N procesù, vıhodou je jeho nezávislost na HW, nevıhodou to e musíme dopøedu znát max poèet procesù a podle toho upravit algoritmus. V praxi
 se nepouívá:
 \begin{verbatim}
 #define N 2                   /* poèet procesù, pro víc by se musel upravit */
@@ -80,24 +79,28 @@ int interested[N];            /* kdo má zájem */
 void enter_region(int process) {   /* process: kdo vstupuje */
     int other = 1-process;         /* èíslo opaèného procesu */
     interested[process] = TRUE;    /* mám zájem o vstup */
-    turn = other;                  /* nastav pøíznak na druhého */
-    while(turn == other && interested[other] == TRUE); /* aktivnì èeká na druhého jestli není interested */
-}
+    turn = process;                  /* nastav pøíznak poøadí na sebe */
+    while(turn == process && interested[other] == TRUE); /* aktivnì èeká na druhého jestli není */
+}                                                        /* interested nebo mu neskoèil do cesty */
+
  
 void leave_region(int process) {   /* process: kdo vystupuje */
     interested[process] = FALSE;   /* u odcházím */
 }
 \end{verbatim}
+\footnotesize Now consider the case that both processes call enter\_region almost simultaneously.
+Both will store their process number in turn. Whichever store is done last
+is the one that counts; the first one is overwritten and lost. Suppose that process 1 stores last, so turn is 1. When both processes come to the while statement, process 0 executes it zero times and enters its critical region. Process 1 loops and does not enter its critical region until process 0 exits its critical region.\normalsize
  
   \item \textbf{Instrukce Test-and-Set Lock (TSL)} - atomická operace naètení-a-zmìny hodnoty na úrovni strojového kódu, nemùe bıt pøerušena je nutné aby ji podporoval HW (všechny souèasné procesory nìjakou mají):
 \\
-- implementace spin-locku (druh zámku, na nìj je tøeba aktivnì èekat – èekající proces pøi èekání na spinlock spotøebovává systémové prostøedky) - poøád ale ménì prostøedkù ne pøedchozí øešení  
+- implementace spin-locku (druh zámku, na nìj je tøeba aktivnì èekat – èekající proces, pøi èekání na spinlock spotøebovává CPU èas) - poøád ale ménì prostøedkù ne pøedchozí øešení  
 \begin{verbatim}
 enter_region:
-    tsl   R,lock           ; naèti zámek do registru R a    
+    TSL   R,lock           ; naèti zámek do registru R a    
                            ; nastav zámek na 1                        
-    cmp   R,#0             ; byl zámek nulovı?
-    jnz   enter_region     ; byl-li nenulovı, znova
+    CMP   R,#0             ; byl zámek nulovı?
+    JNZ   enter_region     ; byl-li nenulovı, znova
     ret                    ; návrat k volajícímu - vstup do
                            ; kritické sekce
  leave_region:
@@ -123,7 +126,7 @@ Atomické operace (nesmí bıt pøerušeny):
 -nutná podpora OS (vìtšinou v kernelu)
  
 
-\item \textbf{Mutex} - speciální (binární) typ semaforu, kde jsou povolené jen hodnoty 0 a 1 (\textbf{v up sa misto $s++;$ volá \verb=s=1;} ) se nazıva \emph{mutex}. Bez podpory OS se implementuje vìtšinou pomocí TSL:
+\item \textbf{Mutex} - speciální (binární) typ semaforu, kde jsou povolené jen hodnoty 0 a 1 (\textbf{v up sa misto $s++;$ volá \verb=s=1;} ) se nazıva \emph{mutex}. Bez podpory OS se dá cca-implementovat pomocí TSL\footnote{Tanenbaum: Modern operating systems 3e, 2008, str.131} (TSL nám ho ale mìní na aktivní èekání!):
 \begin{verbatim}
 mutex_lock: TSL R, mutex       ; get and set mutex
             CMP R, #0          ; was it unlocked?
@@ -149,7 +152,7 @@ vlákno pøed vykonáváním kódu monitoru musí zámek monitoru opìt zamknout.
 \end{figure}
 
 \item \textbf{Zprávy}
-\par Operace SEND a RECEIVE, zablokování odesílatele/pøíjemce, adresace proces/mailbox, rendez-vous... vhodné pro distribuované OS
+\par Operace SEND a RECEIVE, zablokování odesílatele/pøíjemce, adresace proces/mailbox, rendez-vous... vhodné pro distribuované OS, pouívají se napøíklad ve WinAPI
 
 \item \textbf{RWL - read-write lock}, \textbf{bariéry}...
 \\\\
@@ -195,10 +198,10 @@ void consumer(void) {
         \item Teraz môe dôjs k zablokovaniu: konzument pokraèuje na "pozici
 A" a uspí se, pretoe si myslí, e nemá èo zobra; producent bude chví¾u produkova a dôjde "preplneniu" $\Rightarrow$ uspí sa; spí producent aj konzument :o) 
 \\
-\par \textbf{Øešení pomocí semaforu:}
+\par \textbf{Øešení pomocí semaforu\footnote{napsáno v C (Tanenbaum: Modern operating systems 3e, 2008, str.130), up() a down() si udrují seznamy spících vláken/procesù podle referencí na integery co jim dáme}:}
 \begin{verbatim}
-typedef int semaphore;     //a semaphore is an integer
-semaphore empty = 10;       //counting empty slots
+typedef int semaphore;
+semaphore empty = 10;      //counting empty slots
 semaphore full = 0;        //counting full slots
 semaphore mutex = 1;       //mutex pro pøístup k bufferu
 
@@ -267,7 +270,7 @@ na jednièku musíte umìt praktické uití (napø. z více mutexù postavit semafor)
 (Solution \#3),
 Anthony Howe,
 June 18, 2001}
-v pascalu pomocí 3 mutexù a counteru,  mutex barrier zabrani, aby do procedury Wait lezlo vic vlaken najednou:
+pomocí 3 mutexù a counteru,  mutex barrier zabrani, aby do procedury Wait lezlo vic vlaken najednou:
 \begin{verbatim}
 var
     mutex=1: binary-semaphore;
@@ -300,3 +303,69 @@ Procedure Signal()
 \end{verbatim}
 \end{e}
 
+\begin{e}{Report}{0}{IP 8.9.2011}
+Definujte rozhrani semaforu a jeho semantiku.
+\\\\Dale predpokladejme, ze cteni a prirazeni do promene ptr jsou atomicke, potom stale tento kod obsahuje race condition.
+\\Urcete kde k ni dochazi, a opravte ji pomoci semaforu (ci jinak). Fce Consumer a Producer jsou spusteny prave jednou kazda z jineho vlakna.
+\begin{verbatim}
+    int* ptr = null;
+
+    void Producent() {
+        int data = SomeCoplexOperation();
+        ptr = &data;
+    }
+
+    void Consumer() {
+        while(ptr == null) { }
+        printf("%i\n",&ptr);
+    }
+\end{verbatim}
+\end{e}
+\begin{e}{Øešení:}{0}{nejjednodušší øešení: \url{http://forum.matfyz.info/viewtopic.php?f=418&t=7873&p=33010#p33001}}
+je tam ta race condition kvoli tomu, ze do ptr davame adresu lokalnej premennej ata moze byt uz odalokovana v dobe ked chce ku ptr pristupovat consumer
+\begin{verbatim}
+    int* ptr = null;
+    int semaphore = 0;
+
+    void Producent(){
+        int data = SomeCoplexOperation();
+        ptr = &data;
+        down(semaphore);
+    }
+
+    void Consumer() {
+        while(ptr == null) { }
+        printf("%i\n",&ptr);
+        up(semaphore);
+    }
+\end{verbatim}
+odalokovanie sa deje az ked skonci telo procedury a to nemoze skoncit kym si consumer neprecita hodnotu pointera, nakolko na zaciatku je semafor nastaveny na nulu a tak down(semaphore) v tele producent uspi tuto proceduru/vlakno az kym sa nezavola up(semaphore) v tele consumer po precitani ptr
+\end{e}
+
+\begin{e}{Øešení:}{0}{praktické øešení}
+umoòuje vıcenásobné spouštìní
+\begin{verbatim}
+    typedef int semaphore;
+    int buffer = 0;
+    semaphore empty = 1;
+    semaphore full = 0;
+    semaphore mutex_on_buffer = 1; 
+       
+    void Producent(){
+        int data = SomeCoplexOperation();
+        down(&empty);
+        down(&mutex_on_buffer);        
+        buffer = data;
+        up(&mutex_on_buffer);                
+        up(&full);
+    }
+
+    void Consumer() {
+        down(&full);
+        down(&mutex_on_buffer);        
+        printf("%i\n", buffer);
+        up(&mutex_on_buffer);                
+        up(&empty);
+    }
+\end{verbatim}
+\end{e}

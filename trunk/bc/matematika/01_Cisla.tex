@@ -1,3 +1,4 @@
+%&latex
 \section{Èísla}
 
 \begin{e}{Požadavky}{0}{0}
@@ -5,6 +6,7 @@
 \item Vlastnosti pøirozených, celých, racionálních, reálných a komplexních èísel
 \item Posloupnosti a limity
 \item Cauchyovské posloupnosti
+\item Èíselné øady (není výslovnì v požadavcích ale vesele se zkouší)
 \end{pitemize}
 \end{e}
 
@@ -310,6 +312,7 @@ Platí, že každý polynom má v~$\mathbb{C}$ koøen.
 Zaèátek mi dìlal trošku problém, \uv{vlastnosti N, Z, Q, R èísel}. Nebude to moc do hloubky (zavádìní R jako v Jarníkovi) ale napsat inkluzi by taky nestaèilo. 
 \end{report}
 
+\newpage
 \subsection{Posloupnosti a limity}
 \begin{e}{Definice}{0}{posloupnost}
 \emph{Posloupností reálných èísel} nazýváme jakékoli zobrazení množiny $\mathbb{N}$ do množiny $\mathbb{R}$. Posloupnost obvykle znaèíme symbolem $\{a_n\}^{\infty}_{n=1}$ nebo $\{a_n\}_{n \in \mathbb{N}}$. Pro každé konkrétní $n \in \mathbb{N}$ nazýváme reálné èíslo $a_n$ \emph{n-tým èlenem} posloupnosti $\{a_n\}$.
@@ -712,12 +715,6 @@ $$
 \end{e}
 
 K tomuhle jsem dùkaz nenašel ani nevymyslel :-(
-\\\\
-\begin{reportN}{IP 21.6.2011 ($<$2007)}
-1. Konvergence rad.\\
-Napiste definici konvergence rad.\\
-Rozhodnete a zduvodnete, zda konverguji rady: $1/n$, $1/n^2$, $sin(n)/n$
-\end{reportN}
 
 \subsection{Cauchyovské posloupnosti}
 
@@ -760,7 +757,7 @@ Nech $\lim a_{k_n} = x$. Pro $\varepsilon > 0$ zvolme $n_0$, aby pro $m,n\geq n
 \end{e}
 \end{e}
 
-
+\newpage
 \begin{e}{Vìta}{1}{Bolzano-Cauchyova}
 Posloupnost $\{a_n\}$ má vlastní limitu, právì když je cauchyovská.
 
@@ -778,9 +775,119 @@ Posloupnost $\{a_n\}$ má vlastní limitu, právì když je cauchyovská.
 \end{e}
 
 \begin{reportN}{Koubek}
-    nic lepšího na zahøátí snad ani nešlo, definice, aritmetika a další vìtièky co jsem si vzpomnìl vèetnì cauchyho + dùkazy, to staèilo. 
+Posloupnosti a limity - nic lepšího na zahøátí snad ani nešlo, definice, aritmetika a další vìtièky co jsem si vzpomnìl vèetnì cauchyho + dùkazy, to staèilo. 
 \end{reportN}
 
 \begin{reportN}{Kopecký}
      Cauchyovská posloupnost (staèila definice a jak souvisí s konvergencí posloupnosti, což mì trochu zaskoèilo) 
 \end{reportN}
+
+\newpage
+\subsection{Øady reálných èísel}
+\begin{e}{Definice}{0}{Øada}
+\textit{Nekoneèná øada} (reálných èísel) je výraz $\sum_{n=1}^\infty a_n = a_1 + a_2 + a_3 + ...$ , kde $(a_n)^n_1$ je posloupnost reálných císel. \end{e}
+
+\begin{e}{Definice}{0}{Konvergence øady}
+\textit{Èástecný souèet} øady, presneji její n-tý èásteèný soucet $s_n$, je souèet jejích prvních $n$ èlenù. Pokud existuje vlastní $\lim_{n\rightarrow
+\infty} s_n$ pak øada \textit{konverguje},
+jinak \textit{diverguje}.
+
+Pokud $\lim s_n$ neexistuje pak $a_n$ \textit{nemá souèet}. Pokud je nevlastní pak $a_n$
+\textit{osciluje}.
+\end{e}
+
+\begin{e}{Vìta}{0}{Nutná podmínka konvergence øady}
+$\sum_{n=1}^\infty a_n$ konverguje $\Rightarrow\lim a_n = 0$
+\end{e} 
+
+\begin{e}{Vìta}{0}{Cauchyho podmínka konvergence øady}
+$\sum_{n=1}^\infty a_n$ konverguje $\Leftrightarrow \forall\epsilon > 0 ~\exists
+n_0\in \mathbb{N}: m>n>n_0 \Rightarrow |a_{n+1}+a_{n+2}+...+a_m|<\epsilon$
+\end{e}
+
+\begin{e}{Pøíklad}{0}{Geometrická a harmonická øada}
+$\sum_{n=0}^\infty q^n = \frac{1}{1-q}$ a konverguje $\Leftrightarrow -1<q<1$\\
+$\sum_{n=1}^\infty \frac{1}{n^s}$ konverguje $\Leftrightarrow s>1$ (pro $s=1$
+se nazývá \textit{harmonická øada} a $\lim s_n =+\infty$) 
+\\(jinak
+divergují)
+\end{e}
+
+\begin{e}{Definice}{0}{Absolutní konvergence øady}
+$\sum_{n=1}^\infty a_n$ konverguje absolutnì $\Leftrightarrow$ $\sum_{n=1}^\infty |a_n|$ konverguje.
+
+A dále $\sum_{n=1}^\infty a_n$ konverguje absolutnì $\Rightarrow$ $\sum_{n=1}^\infty a_n$ konverguje.
+\end{e}
+
+\begin{e}{Vìta}{0}{Lineární kombinace øad}
+Nech $\sum_{n=1}^\infty a_n = a$, $\sum_{n=1}^\infty b_n = b$ pak:
+
+ $\sum_{n=1}^\infty (\alpha a_n + \beta b_n) = \alpha\sum_{n=1}^\infty  a_n + \beta \sum_{n=1}^\infty b_n = \alpha a + \beta b$
+\end{e}
+
+\begin{e}{Vìta}{0}{Leibnitzovo kriterium}
+$\sum_{n=1}^\infty (-1)^{n+1}a_n$ konverguje $\Leftrightarrow$ $a_n\geq a_{n+1}\geq0$
+a $\lim a_n=0$
+\end{e}
+
+\begin{e}{Vìta}{0}{Abel-Dirichletovo kriterium}
+Nech $b_n$ monotóní a omezená pak:
+
+$\sum a_n b_n$ konverguje $\Leftarrow$ $\sum b_n$ konverguje (\textit{Abel})
+
+$\sum a_n b_n$ konverguje $\Leftarrow$ $\lim b_n =0$ a $\sum a_n$ má omezenou
+posloupnost èásteèných souètù (\textit{Dirichlet})
+\end{e}
+
+\subsubsection*{Kriteria pro øady s nezápornými èleny}
+
+\begin{e}{Vìta}{0}{Srovnávací kriterium (majoranty a minoranty)}
+$\exists n_0\in \mathbb{N}~ \forall n>n_0:  0\leq a_n\leq b_n$ pak: 
+
+$\sum b_n$ konverguje $\Rightarrow$ $\sum a_n$ konverguje (èi naopak diverguje-li $\sum a_n$
+tak i $\sum b_n$)
+\end{e}
+
+\begin{e}{Vìta}{0}{Limitní srovnávací kriterium}
+$\forall n\in \mathbb{N}: a_n, b_n \geq 0$ a $\lim \frac{a_n}{b_n}=L\in
+R^*$ pak:\begin{align*}
+0<L<\infty &:  \sum a_n ~konverguje \Leftrightarrow \sum b_n ~konverguje\\
+L=0 &: \sum a_n ~konverguje \Leftarrow \sum b_n ~konverguje\\
+L=\infty &:  \sum a_n ~konverguje \Rightarrow \sum b_n ~konverguje
+\end{align*}
+\end{e}
+
+\noindent\begin{minipage}{0.5\linewidth}
+\begin{e}{Vìta}{0}{Cauchyovo odmocninné kriterium}
+$\forall n\in \mathbb{N}: a_n \geq 0$ pak:
+
+$\lim \sqrt[n]{a_n}<1 \Rightarrow \sum a_n$ konverguje
+
+$\lim \sqrt[n]{a_n}>1 \Rightarrow \sum a_n$ diverguje
+\end{e}
+\end{minipage}
+\noindent\begin{minipage}{0.5\linewidth}
+\begin{e}{Vìta}{0}{d'Alambertovo podílové kriterium}
+$\forall n\in \mathbb{N}: a_n \geq 0$ pak:
+
+$\lim \frac{a_{n+1}}{a_n}<1 \Rightarrow \sum a_n$ konverguje
+
+$\lim \frac{a_{n+1}}{a_n}>1 \Rightarrow \sum a_n$ diverguje
+\end{e}
+\end{minipage}
+
+\begin{e}{Report}{0}{neznámý} kritéria konvergence èíselných øad 
+\end{e}
+\begin{e}{Report}{0}{Kuèera} Po chvíli (kdy jsem nenapsal témìø nic, prostì vokno) pøipsal ještì Èíselné øady, a když jsem se v záchvatu nervozity stále nechytal, zaèal mi na papír kreslit nápovìdu. Kreslil tak dlouho, než jsem øekl "No jo, ono je to vlastnì takhle"... To se opakovalo ještì jednou, sám jsem neøekl skoro nic. K mému velkému pøekvapení mi bylo sdìleno, že to staèí, sice jen na slabší trojku, ale staèí.
+\end{e}
+\begin{e}{Report}{0}{IP 21.6.2011}
+Napiste definici konvergence rad.
+Rozhodnete a zduvodnete, zda konverguji rady: $\frac{1}{n}, \frac{1}{n^2}, \frac{sin(n)}{n}$
+\\\textbf{Øešení:} $\frac{1}{n}$ diverguje, $\frac{1}{n^2}$ konverguje, $\frac{sin(n)}{n}$
+konverguje (Použijeme Dirichleta: $lim\frac{1}{n} = 0$ a  $sin(n)$ ma omezene
+castecne soucty)
+\end{e}
+\begin{e}{Report}{0}{IOI 8.9.2011}
+definujte konvergenciu rady. Zistite, pre ake $k$ konverguje rada $\sum \frac{1}{n^{1+\frac{1}{k}}}$
+\\\textbf{Øešení:} $1+\frac{1}{k} > 1 \Rightarrow \frac{1}{k} > 0$ pro $k > 0$ konverguje
+\end{e}

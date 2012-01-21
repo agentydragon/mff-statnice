@@ -23,11 +23,11 @@ Najhoršia zložitos je $\Omega(mn)$. Pri vyh¾adávaní viacerých reazcov len spoè
 
 Dokáže vyh¾adáva viacero reazcov naraz - používa na to trie-like štruktúru (koneèný automat), ktorý obsahuje nasledujúce \uv{prvky}:
 \begin{penumerate}
-	\item koneèná množina $Q$ - stavy
-	\item koneèná abeceda $A$
-	\item transition funkcia $g$: $Q \times A \rightarrow Q + \{fail\}$
-	\item failure funkcia $h$: $Q \rightarrow Q + \{fail\}$. $h(q)=q'$ práve vtedy keï spomedzi všetkých stavov Q dáva $q'$ najdlhší suffix z $path(q)$.
-	\item koneèná množina $F$ - koncové stavy
+        \item koneèná množina $Q$ - stavy
+        \item koneèná abeceda $A$
+        \item transition funkcia $g$: $Q \times A \rightarrow Q + \{fail\}$
+        \item failure funkcia $h$: $Q \rightarrow Q + \{fail\}$. $h(q)=q'$ práve vtedy keï spomedzi všetkých stavov Q dáva $q'$ najdlhší suffix z $path(q)$.
+        \item koneèná množina $F$ - koncové stavy
 \end{penumerate}
 
 Príklad \uv{hotového} automatu pre slová P=\{ab, ba, babb, bb\}:
@@ -104,3 +104,7 @@ algorithm kmp_table:
 
 
 Zložitos tohoto algoritmu je $O(n)$ (n je dåžka W) - cyklus skonèí najviac po $2n$ iteráciách.
+\\\\
+\begin{e}{Report}{0}{Bednárek} Algoritmy vyhledávání v textu U tìch algoritmù se mì ještì dodateènì zeptal jak bych øešil vyhledávání regulárního výrazu, naštestí už pøedtím se ptal na determinismus automatu u aho-corrasica tak bylo lehké si odvodit, že to bude nedeterministický automat, ještì se ptal jak bude dlouhý u regulárního výrazu délky p, tak to jsem odvodil, že staèí p stavù, ještì ho zajímalo jeho determinizace $->$ stavy jsou množiny stavù pùvodního automatu, stavù max 2 na p-tou.
+I celkovì úplnì v pohodì. 
+\end{e}

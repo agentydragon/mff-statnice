@@ -1,3 +1,2 @@
 TODO:
-+ ciselne rady (kriteria jako napr. Cauchyho, d'Alembertovo apod) (viz reporty!!!)
 + externi hasovani (Fagin, Cormack, Litwin, Larson)

@@ -1,7 +1,5 @@
 %&latex
-\subsection{Uzávìrové vlastnosti tøíd jazykù}
-
-\begin{obecne}{Shrnutí\footnote{Zdroj: \url{http://en.wikipedia.org/wiki/Formal_language#Operations_on_languages}}}
+\subsection{Uzávìrové vlastnosti tøíd jazykù\footnote{Zdroj tabulky: \url{http://en.wikipedia.org/wiki/Formal_language#Operations_on_languages}}}
 \begin{center}
 
 \def\ano{\textcolor{green}{\ding{52}}}
@@ -37,8 +35,9 @@ Sjednocení & \ano & \ne & \ano & \ano & \ano & \ano  \\
 Rozdíl lze vyjádøit pomocí prùniku a doplòku takže z nich vyplývá.\\
 Pozor KJ nejsou uzavøené na substituci tak jak ji definuje Barták\footnote{viz napø.:
 \url{http://planetmath.org/encyclopedia/RegularSubstitution.html} v tabulce
-ve en-wikipedii se mluví asi o $\lambda$-free substituci}.\\
-\end{obecne}
+ve en-wikipedii se mluví asi o $\lambda$-free substituci}.
+
+\subsubsection*{Bezkontextové jazyky}
 
 \begin{e}{Poznámka}{0}{(D)BKJ nejsou uzavøené na prùnik}
 staèí najít dva BKJ, jejichž prùnik není BKJ:\\
@@ -70,19 +69,21 @@ zøejmì $L(M) = L(A_1)\cap L(M_2)$ (paralelní bìh automatù)
 
 \begin{e}{Poznámka}{0}{BKJ jsou uzavøené na sjednocení}
 použijeme gramatiky (pro ZA nedeterministický rozeskok na startu)\\
-$L_1=L(G_1) G_1 = (VN1,VT1,S1,P1)$\\
-$L_2=L(G_2) G_2 = (VN2,VT2,S2,P2)$\\
-mùžeme pøedpokládat, že VN1 ? VN2 = Ø (jinak pøejmenuj)
+$L_1=L(G_1)$ $G_1 = (V_{N1},V_{T1},S_1,P_1)$\\
+$L_2=L(G_2)$ $G_2 = (V_{N2},V_{T2},S_2,P_2)$\\
+mùžeme pøedpokládat, $že V_{N1} \cap V_{N2} = \varnothing$ (jinak pøejmenuj)\\
 udìláme gramatiku:
-G = (VN1 ? VN2 ? {S}, VT1 ? VT2,S, P1 ? P2 ? {S › S1 | S2})
-zøejmì L(G) = L(G1) ? L(G2)
+
+$G = (V_{N1} \cup V_{N2} \cup \{S\}, V_{T1} \cup V_{T2}, S, P_1 \cup P_2 \cup \{S \rightarrow S_1 | S_2\})$\\
+zøejmì $L(G) = L(G_1) \cup L(G_2)$
+
 „poèítá“ jedna nebo druhá gramatika
 \end{e}
 
 \begin{e}{Poznámka}{0}{BKJ nejsou uzavøené na doplnìk}
-sporem podle de Morganových pravidel
-L1 ? L2 = -(-L1 ? -L2)
-bezkontextové jazyky nejsou uzavøené na prùnik - SPOR
+sporem podle de Morganových pravidel\\
+$L_1 \cap L_2 = -(-L_1 \cup -L_2)$\\
+bezkontextové jazyky nejsou uzavøené na prùnik - SPOR\\
 v ZA nestaèí prohodit koncové a nekoncové stavy!
 \end{e}
 
@@ -110,7 +111,7 @@ $h(L) = \{h(w) | w\in L\}$
 h^{-1}(L) = \{ w | h(w)\in L\}
 \end{e}
 
-\begin{e}{Poznámka}{0}{Bezkontextové jazyky jsou uzavøeny na substituci}
+\begin{e}{Poznámka}{0}{BKJ jsou uzavøeny na substituci}
 intuitivnì: listy v derivaèním stromu generují další stromy
 \\
 formálnì:
@@ -221,6 +222,27 @@ odhalíme pomocí èítaèe\\
 • po pøeètení slova prochází koncové a nekoncové stavy
 
 staèí si pamatovat, zda prošel koncovým stavem
+\end{e}
+
+\subsubsection*{Kontextové jazyky}
+
+\begin{e}{Poznámka\footnote{J.Hopcroft,J.Ullmann: FORMAL LANGUAGES AND THEIR RELATION TO AUTOMATA, str.127}}{0}{KJ nejsou uzavøené na substituci a homomorfismus}
+Proof Let $G_1 = (V_N, V_T, P_1, S)$ be a type 0 grammar such that $L(G_1)$ is
+not a context-sensitive language. We assume without loss of
+generality that the productions are of the form $\alpha\rightarrow\beta$ or $A\rightarrow a$, where $\alpha\in V^+_N$, $\beta \in V^*_N$, $A \in V_N$, and $a \in V_T$. Let $c$ be a new symbol.
+\\Consider the grammar $G_2 = (V_N, V_T\cup \{C\}, P_2, S)$ where $P_2$ contains:
+\\1. $\alpha\rightarrow\beta$ if $\alpha\rightarrow\beta$ is in $P_2$ and $|\alpha|\leq|\beta|$.
+\\2. $\alpha\rightarrow\beta cc...c$ where $|\alpha|=|\beta cc...c|$ if $\alpha\rightarrow\beta$ is in $P_2$ and $|\alpha|<|\beta|$.
+\\3. $cA\rightarrow Ac$ $\forall A \in V_N$.
+\\The grammar $G_2$ is context sensitive, since we have forced the right-hand
+side of every Production to be at least as long as the left-hand side. The
+productions $cA\rightarrow Ac$ were added to move the $c$'s to the right end of
+the words so that derivations in $G_2$ can proceed as in $G_1$. Now consider the
+substitution
+\\$\sigma(a) = \{a\}$ for $a \in V_T$ and $\sigma(c) = \{\lambda\}$.
+\\Then $\sigma(L(G_2)) = L(G_1)$ (a type 0 grammar) and hence substitution does not preserve the class
+of Context-sensitive languages.
+\\\\ \LARGE\sun\normalsize~ The substitution used in the proof is a homomorphism.
 \end{e}
 
 \subsubsection*{Rekurzivní a rekurzivnì spoèetné jazyky}
