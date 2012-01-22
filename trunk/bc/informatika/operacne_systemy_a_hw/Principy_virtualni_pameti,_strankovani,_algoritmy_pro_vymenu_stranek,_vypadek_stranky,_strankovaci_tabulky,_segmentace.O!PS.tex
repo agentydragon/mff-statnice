@@ -76,10 +76,10 @@ pro všechny procesy, pro vyhledávání se používá hashovací tabulka\par \begin{cen
 \item \emph{velikost stránek} \begin{pitemize} \item velké stránky $\rightarrow$ fragmentace
 \item malé stránky $\rightarrow$ mnoho registrù, zvyšuje cenu výpoètù a zpomaluje
 chod
-\item optimum 1-4kB\footnote{4kB se používají kvuli jednoduchému pøevodu
+\item optimum 1-4kB -- 4kB se používají kvuli jednoduchému pøevodu
 na fyzickou adresu pomocí substituce (DRAM mely temer vzdy na cipu N øádku
-x 4096 sloupcu), 64bit procesory umožòují pagesize až 1GB - doporucuju precist
-\url{http://www.gamedeception.net/threads/212-The-Importance-of-the-4KB-Page-Boundary}}
+x 4096 sloupcu \footnote{doporucuju precist
+\url{http://www.gamedeception.net/threads/212-The-Importance-of-the-4KB-Page-Boundary}}) a protoze pro 32 bitovej adresovej prostor, zbyvalo 20 bitu adresy pro preklad, coz je na dvou urovnovy strankovaci tabulky - kazda na 10 bitu, 64bit procesory umožòují pagesize až 1GB 
 \end{pitemize}
     \item \emph{odstranìní položky z TLB pøi rušení mapování} --- nestaèí zmìnit tabulky, musí se vyhodit i z TLB (kde to mùže, ale nemusí být). problém - u multiprocesorù má každá CPU vlastní TLB, tabulky jsou sdílené $\rightarrow$ CPU pøi rušení mapování musí poslat interrupt s rozkazem ke smazání všem (i sobì), poèkat na potvrzení akce od všech.
 \end{pitemize}
@@ -116,7 +116,7 @@ Pozn.: h nakonci znamená že je èíslo v hex (assembler)
 \item \textbf{NFU} (Not Frequently Used) - SW simulace LRU, SW èítaè ke každé stránce; jednou za èas projdu všechna A a pøiètu je k odpovídajícím èítaèùm; vybírám stránku s nejnižším èítaèem; nezapomíná - je možná modifikace se stárnutím èítaèe
 \end{pitemize}
 
-\subsubsection*{Segmentace (už není v požadavcích!!!)}
+\subsubsection*{\sout{Segmentace} (už není v požadavcích)}
 dnes pouze Intel IA-32, dvojrozmìrný VAP
 \begin{pitemize}
 \item rozdìlení programu na segmenty (napr. podle èástí s rùznými vlastnostmi - kód, data, zásobníky\dots), rùzné délky segmentù, ktoré mùžou mìnit svoji délku za bìhu
@@ -164,6 +164,11 @@ bìhem toho, kdykoliv se pøistupuje do pamìti, mùže vzniknout page-fault (naèítán
 Samotného mì zrovna tyhle vìci zajímají, takže jsem si pøed státnicema pøeèetl Tanenbauma: Operating Systems a Pattersona: Computers Design: Hardware to software interface. Je to urèitì overkill, ale pokud budeš mít prolistovaný tyhle dvì knihy, tak tì tam imho témìø urèitì nic nemùže pøekvapit.
 \end{e}
 
+\begin{e}{Report}{0}{IOI 21.6.2011}
+Virtualni pamet
+\\page, page fault, TLB, implementace v OS/HW, jak presne funguje TLB na
+konkretnim pripadu. 
+\end{e}
 \begin{reportN}{IP 9. 9. 2011}
 Byl zadán podobný zdroják :
 \begin{verbatim}
@@ -173,12 +178,22 @@ Byl zadán podobný zdroják :
     void * N = malloc (256);
     }
 \end{verbatim}    
-Pak byly zadány hodnoty (decimální) ukazatelù P a N. Dotaz byl jestli by se Mezi P a N vešel ještì jeden malloc o nìjaké velikosti.
-NSD(P,N) = 16 ... popište èím by to mohlo být a proè.
-
-Pak bylo ještì nìco s urèováním velikosti stránky z adresy 0xFF10, která zùstala na addr sbìrnici po dotazu na ukazatel na první byte prvního bloku. ? Výsledek ale souvisel s hodnotami toho P a N podle toho co Bednárek øíkal na ústní, takže to sem asi bude muset dát nìkdo kdo si to pamatuje lépe.
-
+a) Pak byly zadány hodnoty (decimální) ukazatelù P a N. Dotaz byl jestli by se Mezi P a N vešel ještì jeden malloc o nìjaké velikosti.
+\\
+b) NSD(P,N) = 16 ... popište èím by to mohlo být a proè.
+\\
+c) Pak bylo ještì nìco s urèováním velikosti stránky z adresy 0xFF10, která zùstala na addr sbìrnici po dotazu na ukazatel na první byte prvního bloku. ? Výsledek ale souvisel s hodnotami toho P a N podle toho co Bednárek øíkal na ústní, takže to sem asi bude muset dát nìkdo kdo si to pamatuje lépe.
+\\\\
 Urèitì teda radím nepanikaøit jak už tu zaznìlo, když nìco víte hned to tam napsat (tøeba u toho stránkování jsem alespoò zhruba popsal princip stránkování a myslím že to mì zachránilo, protože jinak jsem to mìl tak všelijak.)
 \end{reportN}
+
+\begin{e}{Øešení:}{0}{0}
+a) rozborem pøípadù
+\\
+b) protože 4B je stránka nebo je to náhoda
+\\
+c) 
+\end{e}
+
 \begin{reportN}{Yaghob} mel ruzné dotazy, jako proc je stránka veliká zrovna 4kB, jak je to se stránkováním na 64-bitových procesorech 
 \end{reportN}

@@ -5,7 +5,9 @@ Systémové volání je interface mezi OS (kernelspace) a uívatelskımi programy (us
 
 \begin{e}{Definice}{0}{Proces}
   \emph{Proces} je inštancia vykonávaného programu. Kım program je len súbor
-  inštrukcií, proces je vlastnı \uv{vıkon} tıchto inštrukcií. Proces má vlastnı adresnı priestor (pamä), prostriedky, child procesy, globání promìnné, otevøené soubory, práva a napr. aj ID (Process ID).
+  inštrukcií, proces je vlastnı \uv{vıkon} tıchto inštrukcií. Proces má vlastní
+\textbf{pid (Process ID), práva (uivatele), adresní prostor (pamì), vlákna a otevøené soubory}.
+
 \end{e}
 
 \obrazekvpravo{informatika/operacne_systemy_a_hw/obrazky/procesy_stavy.png}{Pøechody mezi stavy procesu}{}{0.45}
@@ -19,22 +21,42 @@ Poèas ivota sa môe proces nachádza v rôznych stavoch:
 \end{pitemize}
 \end{e}
 
+
+\subsubsection*{Organizace pamìti procesu}
+
+Pamì procesu (spuštìného programu) lze rozdìlit do nìkolika èástí:
+\begin{pitemize}
+\item \emph{kód programu (text segment)} \\
+vytvoøen pøi pøekladu, souèást spustitelného souboru, nemìnnı a má pevnou délku; obvykle bıvá chránìn proti zápisu
+\item \emph{statická data (data segment)} \\
+data programu, jejich velikost je známa ji pøi pøekladu a jejich pozice se bìhem programu nemìní (je pøipraven kompilátorem a jeho formát je takté zadrátovanı ve spustitelném souboru, u inicializovanıch statickıch dat je tam celı uloenı); v jazyce C jde o globální promìnné a lokální data deklarovaná jako \texttt{static}, konstanty
+\item \emph{halda (heap segment)} \\
+vytváøen startovacím modulem (C Runtime library), ukládají se sem dynamicky vznikající objekty (\texttt{malloc, new}) -- neinicializovaná data, i seznam volného místa. \\Halda zjemnuje to, co ti dovoluje spravce virtualni pameti. Ten ti dovoluje taky alokovat pamet a jinak s ni pracovat, ale protoze umi pracovat jen s celymi strankami (treba 4 KB velke), tak proste nekolikabajtove bloky od nej dostat primo nemuzes. A halda prave ty cele alokovane stranky rozdeluje do mensich bloku (postupne z nich ukrajuje, jak volas \texttt{malloc()})... pokud ji volna pamet dojde, alokuje si dalsi stranky... a tak dale.
+\item \emph{volná pamì} \\
+postupnì jí zaplòuje z jedné strany zásobník a z druhé halda
+\item \emph{zásobník (stack segment)} \\
+informace o volání procedur (\uv{aktivaèní záznamy}) --- návratové adresy, parametry a návratové hodnoty (nejsou-li pøedávány v registrech), nìkteré jazyky (Pascal, C) pouívají i pro úschovu lokálních dat. Typicky roste zásobník proti haldì (od \uv{konce} pamìti k niším adresám).
+\end{pitemize}
+
+
 \begin{e}{Definice}{0}{Vlákno (Thread)}
   \emph{Vlákno} je monos pre program ako sa \uv{rozdeli} na dva alebo viac
   zároveò (resp. pseudo-zároveò) vykonávanıch úloh. Oproti procesu mu nie je
   pridelená vlastná pamä~-- je to len miesto vykonávania inštrukcií v programe.
-  Oproti procesu sú jeho \uv{atribútmi} len \textbf{hodnota programového èítaèa, stav
-  registrov CPU a zásobník}.
+  Oproti procesu sú jeho \uv{atribútmi} len: \textbf{stav(+priorita), zásobník, registrov CPU (i hodnotou PC\footnote{kdy se vlákno pøeruší tak se uloí
+i to kam v nìm PC ukazoval - aby pak mohlo pokraèovat kde zkonèilo})}.
 \end{e}
 \begin{figure}[h]
   \centering
   \subfloat[Process control block]{\label{fig:pcb_process} \includegraphics[width=8cm]{informatika/operacne_systemy_a_hw/obrazky/pcb_process_control_block.png}} \hfill
   \subfloat[Process control block s vlákny]{\label{fig:pcb_thread}\includegraphics[width=8.5cm]{informatika/operacne_systemy_a_hw/obrazky/pcb_process_control_block_vlakna.png}}
-  \caption{Process control block}
+  \caption{Process Control Block - execution context \footnotesize(všimnìte si
+  oddìleného kernel a user módu)}
   \label{fig:pcb}
 \end{figure}
 
-Implementace:
+\newpage
+\textbf{Implementace:}
 \begin{pitemize}
         \item \textbf{User Level Threads}(1.diagram) - thread management dìlá aplikace (nemusí bıt podporovány OS), kadı proces ma thread table, kdy systém zablokuje proces zablokují se i všechny jeho thready
         \item \textbf{Kernel Threads}(2.diagram) - thread management dìlá OS (musí podporovat), thread table je globální, systém blokuje pouze jednotlivé thready
@@ -53,8 +75,15 @@ Implementace:
 
 \subsubsection*{Plánovanie}
 
-Pride¾ovanie procesorového èasu jednotlivım procesom má na starosti \emph{plánovaè}. Plánovanie pritom môe by preemptívne (vìtšinou pomocí pøerušení, bez spolupráce s programem, plnì v reii OS) alebo nepreemptívne (vyaduje spolupráci s programem, kooperatívne~-- alla Win16).
-
+Pøi plánování procesoru se v operaèním systému \textit{plánovaè} (anglicky scheduler) rozhoduje, kterému procesu bude pøidìlen procesor, a tedy kterı proces v následujícím èasovém úseku bude procesor poèítaèe vyuívat pro svùj bìh. K plánování procesoru dochází v následujících situacích:
+\begin{pitemize}
+        \item pokud nìkterı bìící proces pøejde do stavu blokovanı
+        \item pokud nìkterı proces skonèí
+        \item pokud je bìící proces pøeveden do stavu pøipravenı
+        \item pokud je nìkterı proces pøeveden ze stavu blokovanı do stavu pøipravenı
+\end{pitemize}
+ Plánovanie pritom môe by \textit{preemptívní} (vìtšinou pomocí pøerušení, bez spolupráce s programem, plnì v reii OS - Windows NT, Linux) alebo \textit{nepreemptivní} (vyaduje spolupráci s programem, kooperatívne~-- Windows 3.x).
+\\\\
 \begin{obecne}{Ciele plánovania (niektoré z nich sú oèividne protichodné):}
 \begin{pitemize}
         \item Spravodlivos (kady procesor dostane adekvátnu èas èasu CPU)
@@ -84,9 +113,7 @@ Pride¾ovanie procesorového èasu jednotlivım procesom má na starosti \emph{plánov
         \item \textbf{Plánovanie s viacerımi frontami}: nieko¾ko front, procesu z $i$-tej fronty je pridelenı procesor a keï vo frontách $1, \dots, i-1$ nie je pripravenı ziadny proces. Ak proces skonèil I/O operáciou, je blokovanı a presunutı do fronty $i-1$, ak skonèil preempciou, je pripravenı a presunutı do fronty $i+1$.
 
         \item \textbf{Symmetric multiprocessing (SMP)}: druh víceprocesorovıch systémù, u kterıch jsou všechny procesory v poèítaèi rovnocenné,  fronta CPU èakajúcich na pripravené procesy (aktívne (spotrebováva energiu) vs. pasívne èakanie (špeciálne inštrukcie)), \uv{vzah}/afinita procesov k CPU
-
-        \item TODO: Plánovanie windows vs. linux???
-\end{pitemize}
+        \end{pitemize}
 \end{obecne}
 
 \begin{reportN}{Zavoral}
