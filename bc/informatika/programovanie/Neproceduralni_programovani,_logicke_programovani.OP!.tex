@@ -11,8 +11,8 @@ Tento pøístup patøí pod deklarativní programování stejnì jako funkcionální progr
 
 Alonzo Church vytvoøil formální výpoètový model nazvaný $\lambda$-kalkul. Tento model slouží jako základ pro funkcionální jazyky. Funkcionální jazyky dìlíme na:
 \begin{pitemize}
-	\item typované - Haskell
-	\item netypované - Lisp, Scheme
+        \item typované - Haskell
+        \item netypované - Lisp, Scheme
 \end{pitemize}
 
 Výpoètem funkcionálního programu je posloupnost vzájemnì ekvivalentních výrazù, které se postupnì zjednodušují. Výsledkem výpoètu je výraz v normální formì, tedy dále nezjednodušitelný. Program je chápán jako jedna funkce obsahující vstupní parametry mající jediný výstup. Tato funkce pak mùže být dále rozložitelná na podfunkce.
@@ -131,10 +131,10 @@ Nejzákladnìjším zápisem v Lispu je seznam. Zapisujeme ho jako:
 
 Tento seznam obsahuje ètyøi prvky:
 \begin{pitemize}
-	\item celé èíslo 1
-	\item celé èíslo 2
-	\item text \uv{ahoj}
-	\item reálné èíslo 13,2
+        \item celé èíslo 1
+        \item celé èíslo 2
+        \item text \uv{ahoj}
+        \item reálné èíslo 13,2
 \end{pitemize}
 
 Jde tedy o uspoøádanou ètveøici. Všimnìte si, že závorky nefungují tak jako v matematice, ale pouze oznaèují zaèátek a konec seznamu. Seznamy jsou v Lispu implementovány jako binární strom degenerovaný na jednosmìrnì vázaný seznam. Co se seznamem Lisp udìlá, záleží na okolnostech.
@@ -174,6 +174,14 @@ Pro výpoèet faktoriálu èísla 6 pøedáme tuto hodnotu jako argument funkci fact:
 (fact 6)
 \end{verbatim}
 Návratovou hodnotou funkce bude hodnota 720.
-
 \subsubsection*{Logické programování}
-TODO (není souèástí otázek pro obor Programování)
+TODO (není souèástí otázek pro obor Programování, pro IOI je)
+\\\\
+\begin{e}{Report}{0}{Bureš} Neprocedurální programování. chtìl základní vìci, dobrý zkoušející.
+\end{e}
+\begin{e}{Report}{0}{Tùma} Testuje zda to clovek ma naucene jen jako basnicku anebo to umi skutecne pouzit a zapsat. U neproceduralniho programovani (u kolegy za mnou) chtel ukazku zda umi na pozadani vyrobit nekolik konstruktu.
+\end{e}
+\begin{e}{Report}{0}{Bures} Neproceduralni a logicke programovani - Povidani o prologu, a chtel i presne jak probiha unifikace a backtracking. Nakonec jsem si nabeh na nuz a rekl ze existuje operator rezu(jinak by se na nej skoro urcite nezeptal), a ze se pomoci nej da udelat negace. S tou negaci jsem pak zapasil 10 min jen abych se prastil do hlavy a rekl trivialni, nervozita udela sve. Pak se vyptaval na funkcionalni programovani, rozdily oproti proceduralnimu(chtel hlavne vedet ze se daji funkce pouzit i jako paramatry funkci). V Prologu a necem funkcionalnim napsat kus neceho, syntax ho ale nezajimala, stacilo neco co by po trivialnim opraveni slo pustit v Prologu nebo Haskellu(nebo necem podobnem). Celkem bez vetsich obtizi 1
+\end{e}
+\begin{e}{Report}{0}{?} Neprocedurální programování - zkoušející prolétl popsané papíry a øekl, že mu to staèí. Ptal se jenom na to, co se mi na neprocedurálním programování nejvíc líbí. 
+\end{e}
