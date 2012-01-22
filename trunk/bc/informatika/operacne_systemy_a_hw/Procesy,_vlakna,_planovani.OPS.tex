@@ -22,22 +22,21 @@ Poèas ivota sa môe proces nachádza v rôznych stavoch:
 \end{e}
 
 
-\subsubsection*{Organizace pamìti procesu}
+\begin{e}{Organizace pamìti procesu}{0}{0}
 
 Pamì procesu (spuštìného programu) lze rozdìlit do nìkolika èástí:
 \begin{pitemize}
 \item \emph{kód programu (text segment)} \\
 vytvoøen pøi pøekladu, souèást spustitelného souboru, nemìnnı a má pevnou délku; obvykle bıvá chránìn proti zápisu
 \item \emph{statická data (data segment)} \\
-data programu, jejich velikost je známa ji pøi pøekladu a jejich pozice se bìhem programu nemìní (je pøipraven kompilátorem a jeho formát je takté zadrátovanı ve spustitelném souboru, u inicializovanıch statickıch dat je tam celı uloenı); v jazyce C jde o globální promìnné a lokální data deklarovaná jako \texttt{static}, konstanty
-\item \emph{halda (heap segment)} \\
-vytváøen startovacím modulem (C Runtime library), ukládají se sem dynamicky vznikající objekty (\texttt{malloc, new}) -- neinicializovaná data, i seznam volného místa. \\Halda zjemnuje to, co ti dovoluje spravce virtualni pameti. Ten ti dovoluje taky alokovat pamet a jinak s ni pracovat, ale protoze umi pracovat jen s celymi strankami (treba 4 KB velke), tak proste nekolikabajtove bloky od nej dostat primo nemuzes. A halda prave ty cele alokovane stranky rozdeluje do mensich bloku (postupne z nich ukrajuje, jak volas \texttt{malloc()})... pokud ji volna pamet dojde, alokuje si dalsi stranky... a tak dale.
+data programu, jejich velikost je známa ji pøi pøekladu a jejich pozice se bìhem programu nemìní (je pøipraven kompilátorem a jeho formát je takté zadrátovanı ve spustitelném souboru, u inicializovanıch statickıch dat je tam celı uloenı); v jazyce C jde o globální promìnné a lokální data deklarovaná jako \texttt{static} (promìnné alokované pouze jednou), konstanty
+\item \emph{halda (heap segment)} - vytváøen startovacím modulem (C Runtime library), ukládají se sem dynamicky vznikající objekty (\texttt{malloc, new}) -- neinicializovaná data, i seznam volného místa. \\Halda zjemnuje to, co ti dovoluje spravce virtualni pameti. Ten ti dovoluje taky alokovat pamet a jinak s ni pracovat, ale protoze umi pracovat jen s celymi strankami (treba 4 KB velke), tak proste nekolikabajtove bloky od nej dostat primo nemuzes. A halda prave ty cele alokovane stranky rozdeluje do mensich bloku (postupne z nich ukrajuje, jak volas \texttt{malloc()})... pokud ji volna pamet dojde, alokuje si dalsi stranky... a tak dale.
 \item \emph{volná pamì} \\
 postupnì jí zaplòuje z jedné strany zásobník a z druhé halda
 \item \emph{zásobník (stack segment)} \\
 informace o volání procedur (\uv{aktivaèní záznamy}) --- návratové adresy, parametry a návratové hodnoty (nejsou-li pøedávány v registrech), nìkteré jazyky (Pascal, C) pouívají i pro úschovu lokálních dat. Typicky roste zásobník proti haldì (od \uv{konce} pamìti k niším adresám).
 \end{pitemize}
-
+\end{e}
 
 \begin{e}{Definice}{0}{Vlákno (Thread)}
   \emph{Vlákno} je monos pre program ako sa \uv{rozdeli} na dva alebo viac
@@ -73,7 +72,7 @@ i to kam v nìm PC ukazoval - aby pak mohlo pokraèovat kde zkonèilo})}.
         \item \textbf{one-to-one (Kernel Threads)} - kadı user-level thread je namapován na jeden kernel thread (napø. win2000, Linux - NGPT)
 \end{pitemize}
 
-\subsubsection*{Plánovanie}
+\subsubsection*{Plánování}
 
 Pøi plánování procesoru se v operaèním systému \textit{plánovaè} (anglicky scheduler) rozhoduje, kterému procesu bude pøidìlen procesor, a tedy kterı proces v následujícím èasovém úseku bude procesor poèítaèe vyuívat pro svùj bìh. K plánování procesoru dochází v následujících situacích:
 \begin{pitemize}

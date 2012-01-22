@@ -174,15 +174,18 @@ Byl zadán podobný zdroják :
 \begin{verbatim}
     void main()
     {
-    void * P = malloc (1024);
-    void * N = malloc (256);
+        void * P = malloc (1024);
+        void * N = malloc (256);
     }
 \end{verbatim}    
-a) Pak byly zadány hodnoty (decimální) ukazatelù P a N. Dotaz byl jestli by se Mezi P a N vešel ještì jeden malloc o nìjaké velikosti.
+a) $P = 0x0AFFCAF0$, $N = 0x0AFFC970$. Dotaz byl jestli by se Mezi P a N vešel ještì jeden malloc o velikosti
+128B.
 \\
 b) NSD(P,N) = 16 ... popište èím by to mohlo být a proè.
 \\
-c) Pak bylo ještì nìco s urèováním velikosti stránky z adresy 0xFF10, která zùstala na addr sbìrnici po dotazu na ukazatel na první byte prvního bloku. ? Výsledek ale souvisel s hodnotami toho P a N podle toho co Bednárek øíkal na ústní, takže to sem asi bude muset dát nìkdo kdo si to pamatuje lépe.
+c) Kdyz program cetl prvni byte z toho 256-bytoveho bloku, tak se na
+adresove sbernici u pametovych modulu pracovalo s adresou 0x61C74970.
+Jak jsou velke stranky? Hodnoty P a N stejné jako v a).
 \\\\
 Urèitì teda radím nepanikaøit jak už tu zaznìlo, když nìco víte hned to tam napsat (tøeba u toho stránkování jsem alespoò zhruba popsal princip stránkování a myslím že to mì zachránilo, protože jinak jsem to mìl tak všelijak.)
 \end{reportN}
