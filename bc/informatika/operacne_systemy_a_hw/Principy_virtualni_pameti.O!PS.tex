@@ -28,7 +28,7 @@ Pøi stránkování je pamì rozdìlena na vìtší úseky stejné velikosti, které se naz
 \\\\
 Podporované všemi velkımi CPU a OS, jednorozmìrnı VAP (virtuální adresní
 prostor).\begin{pitemize}
-\item VAP rozdìlen na stránky (velikost je mocnina 2), FAP na rámce (úseky stejné délky)
+\item VAP rozdìlen na stránky (velikost je mocnina 2), FAP na rámce (stejné délky jako stránky\footnote{zdroj: \url{http://people.csail.mit.edu/rinard/osnotes/h9.html}})
 \item \textbf{pøevod stránkovací tabulkou}  - kadı proces má svojí, pøíznak existence mapování (v.stránka není v FAP $\rightarrow$ událost "vıpadek stránky" $\rightarrow$ synchronní pøerušení) umístìna v fyzické pamìti
 \par \begin{center}\includegraphics[width=5cm]{informatika/operacne_systemy_a_hw/obrazky/strankovani1_new.png}\end{center}
 \item umonuje \emph{oddìlené VAP} i \emph{sdílenou pamì} - mapování virtuální stránky 2 procesù na jednu fyzickou
@@ -118,6 +118,12 @@ Pozn.: h nakonci znamená e je èíslo v hex (v assembleru)
 \item \textbf{LRU} (Least Recently Used) - èasto pouívané stránky v posledním krátkém èasovém úšeku budou znovu pouity, èítaè pouití stránek, moné implementovat v HW
 \item \textbf{NFU} (Not Frequently Used) - SW simulace LRU, SW èítaè ke kadé stránce; jednou za èas projdu všechna A a pøiètu je k odpovídajícím èítaèùm; vybírám stránku s nejniším èítaèem; nezapomíná - je moná modifikace se stárnutím èítaèe
 \end{pitemize}
+
+\begin{e}{Vzorec pro horní odhad poètu vıpadkù stránek}{0}{0}
+http://mff.lokiware.info/ZakladyOperacnichSystemu/ZkouskaLS2008?v=1aug
+
+http://s0cketka.blogspot.com/2006/05/zaklady-zakladu-operacnich-systemu.html
+\end{e}
 
 \subsubsection*{\sout{Segmentace} (u není v poadavcích)}
 dnes pouze Intel IA-32, dvojrozmìrnı VAP
