@@ -31,7 +31,7 @@ prostor).\begin{pitemize}
 \item VAP rozdìlen na stránky (velikost je mocnina 2), FAP na rámce (stejné délky jako stránky\footnote{zdroj: \url{http://people.csail.mit.edu/rinard/osnotes/h9.html}})
 \item \textbf{pøevod stránkovací tabulkou}  - kadı proces má svojí, pøíznak existence mapování (v.stránka není v FAP $\rightarrow$ událost "vıpadek stránky" $\rightarrow$ synchronní pøerušení) umístìna v fyzické pamìti
 \par \begin{center}\includegraphics[width=5cm]{informatika/operacne_systemy_a_hw/obrazky/strankovani1_new.png}\end{center}
-\item umonuje \emph{oddìlené VAP} i \emph{sdílenou pamì} - mapování virtuální stránky 2 procesù na jednu fyzickou
+\item umonuje \emph{oddìlené VAP} i \emph{sdílenou pamì} - mapování virtuální stránky 2 procesù na jednu fyzickou (copy-on-write)
 \item OS mìní tabulky stránek zmìnou PTBR (Page Table Base Register) - PTBR obsahuje
 bázovou adresu tabulky stránek procesu
 \item Pøíklad: 32bitová poloka stránkovací tabulky Intel IA32 (= x86) $\rightarrow$ její struktura je závislá na architektuøe CPU
@@ -41,7 +41,7 @@ je u moc velká =\textgreater pomalá)
 \par \begin{center} \includegraphics[width=6cm]{informatika/operacne_systemy_a_hw/obrazky/strankovani2_new.png} \end{center}
 \item \textbf{TLB (Translation Lookaside Buffer)} - asociativní pamì slouící na rychlé  mapování virtuální stránky na fyzickou, vyhledává se v ní paralelnì, typicky ma 128-256 poloek, vyuívá princip prostorové lokality programù (vìtšina programù provádí velkı poèet pøístupù k malému
 poètu stránek)
-umístìva vìtšinou v L1 nebo L2 cache na procesoru
+umístìna vìtšinou  na procesoru, mùe obsahovat dirty bit (urèuje jestli bylo na stránku zapisováno)
 \par 
 \includegraphics[width=6cm]{informatika/operacne_systemy_a_hw/obrazky/strankovani-tlb-schema.png}
 %\caption{~~~}
@@ -62,7 +62,7 @@ pro všechny procesy, pro vyhledávání se pouívá hashovací tabulka\par \begin{cen
 \item kontrola platnosti adresy a práv
 \item nalezení vhodného rámce
 \item zrušit mapování na nalezenı rámec
-\item pokud je vyhazovanı rámec vyhazován, spustit ukládání na disk
+(obì)\item pokud je vyhazovanı rámec vyhazován, spustit ukládání na disk
 \item naèíst z disku poadovanou stránku do rámce
 \item zavést mapování
 \item obnovit kontext
@@ -72,7 +72,7 @@ pro všechny procesy, pro vyhledávání se pouívá hashovací tabulka\par \begin{cen
 \begin{obecne}{Pøi implementaci stránkování je nutno brat v úvahu:}
 \begin{pitemize}
     \item \emph{znovuspuštìní instrukce} --- je potøeba aby procesor po vıpadku zkusil pøístup do pamìti znova. dnes umí všechny CPU, napø. 68xxx - problémy (pøerušení v pùlce instrukce)
-    \item \emph{sdílení stránek} --- jednomu rámci odp. víc stránek $\rightarrow$ pokud s ním nìco dìlám, tıká se to všech stránek! musím vše ost. odmapovat. musím si pamatovat mapování pro kadı rámec - obrácené tabulky.
+    \item \emph{sdílení stránek} --- jednomu rámci odp. víc stránek $\rightarrow$ pokud s ním nìco dìlám, tıká se to všech stránek! musím vše ost. odmapovat. musím si pamatovat mapování pro kadı rámec - obrácené tabulky (nebo copy-on-write).
 \item \emph{velikost stránek} \begin{pitemize} \item velké stránky $\rightarrow$ fragmentace
 \item malé stránky $\rightarrow$ mnoho registrù, zvyšuje cenu vıpoètù a zpomaluje
 chod
@@ -119,10 +119,37 @@ Pozn.: h nakonci znamená e je èíslo v hex (v assembleru)
 \item \textbf{NFU} (Not Frequently Used) - SW simulace LRU, SW èítaè ke kadé stránce; jednou za èas projdu všechna A a pøiètu je k odpovídajícím èítaèùm; vybírám stránku s nejniším èítaèem; nezapomíná - je moná modifikace se stárnutím èítaèe
 \end{pitemize}
 
-\begin{e}{Vzorec pro horní odhad poètu vıpadkù stránek}{0}{0}
-http://mff.lokiware.info/ZakladyOperacnichSystemu/ZkouskaLS2008?v=1aug
+\begin{e}{Horní odhad poètu vıpadkù stránek}{0}{asi není nutné
+ke státnicím znát dokonale}
+\textit{Fakt:}
+Nejvyssi uroven strankovacich tabulek je vzdy v nestrankovana pameti.
+\\
+\textit{Pozorovani 1:}
+Data se presouvaji, tudiz velikost pameti, se kterou se pracuje je 2-krat velikost dat. Z jedne poloviny velikosti dat se data ctou, do druhe se zapisuji.
+\\
+\textit{Pozorovani 2:}
+Vypadek stranky muze nastat na ctyrech mistech.
 
-http://s0cketka.blogspot.com/2006/05/zaklady-zakladu-operacnich-systemu.html
+$\bullet$ Vykonavana instrukce nemusi byt v pameti.
+
+$\bullet$ Pamet, ze ktere se ctou data nemusi byt v pameti.
+
+$\bullet$ Pamet, kam se zapisuje nemusi byt v pameti.
+
+$\bullet$ Strankovaci tabulky druhe a vyssi urovne nemusi byt v pameti. 
+\\\\
+\textit{Tvrzeni:}
+Pri (K-1)-urovnovem strankovani je maximalni pocet vypadku roven poctu vypadku pri K-urovnovem strankovani bez vypadku v druhe urovni strankovani. 
+\\\\\textit{Pøíklad:} jaky je maximalni pocet vypadku? 2B instrukce, 8kB dat, 4kB stranka, 3 urovne strankovani, tabulky maji 1024 polozek.
+\\\\\footnotesize
+Zajima nas maximalni pocet stranek, tudiz pocitame worst-case. Samotna instrukce je na 2B, muze se tedy vyskytnout na rozhrani 2 stranek a zpusobit dva vypadky. Ve treti urovni strankovani na kazdou tuto stranku ukazuje pointer. Pro dve stranky muze tato informace byt opet na rozhrani dvou stranek a tudiz zpusobit dalsi 2 vypadky stranky. Pro tyto dve stranky je pak v druhe urovni totez, tudiz dalsi dva vypadky jsou mozne v druhe urovni strankovani. Pro tyto dve stranky je pak v prvni urovni totez, ale tam jsou dle Faktu udaje vzdy nestrankovane. Samotna instrukce tak zpusobi az 2+2+2=6 vypadku. Podle Tvrzeni by pri dvouurovnovem strankovani bylo na instrukci maximalne 2+2=4 vypadku a pri jednourovnovem pouze 2 vypadky.
+
+Nyni pocitame data. Podle Pozorovani 1 a 2 je zrejme, ze staci spocitat pouze vypadky pro jednu datovou cast. U druhe bude maximalni pocet vypadku stejny a staci tedy vynasobit pocet pro jedny data dvema. Takze 8kb dat lze nasklad maximalne do tri 4kb stranek. To jsou tri vypadky. Tyto tri stranky jsou ve treti urovni referencovany maximalne na rozhrani dvou stranek a tudiz zde mohou zpusobit 2 vypadky. Stejne jako u instrukce pak v druhe urovni mohou nastat take 2 vypadky. Celkem tedy na tato data pripadne az 3+2+2=7 vypadku stranek. Celkem na data tedy az 14 vypadku pri triurovnovem strankovani. Opet podle Tvrzeni je pocet vypadku pri dvou urovnich strankovani maximalne 10 a pri jedne urovni 6.
+Celkovy pocet vypadku je tedy az 20 pro tri urovne strankovani, 14 pri dvou urovnich a 8 pri jedne urovni. 
+\\\\    
+\url{http://mff.lokiware.info/ZakladyOperacnichSystemu/ZkouskaLS2008?v=1aug}
+\\
+\url{http://s0cketka.blogspot.com/2006/05/zaklady-zakladu-operacnich-systemu.html}
 \end{e}
 
 \subsubsection*{\sout{Segmentace} (u není v poadavcích)}
@@ -211,7 +238,7 @@ a) rozborem pøípadù
 \\
 b) protoe 4B je stránka nebo je to náhoda
 \\
-c) 
+c) rozborem pøípadù???
 \end{e}
 
 \begin{reportN}{Yaghob} mel ruzné dotazy, jako proc je stránka veliká zrovna 4kB, jak je to se stránkováním na 64-bitovıch procesorech 
