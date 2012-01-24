@@ -234,11 +234,32 @@ Urèitì teda radím nepanikaøit jak už tu zaznìlo, když nìco víte hned to tam naps
 \end{reportN}
 
 \begin{e}{Øešení:}{0}{0}
-a) rozborem pøípadù
+a) Nevejde. Mezi koncem $<N;N+0xff)$ a pocatkem bloku P je presne 0x80 =
+128 B volneho prostoru. Spravce haldy ale prideluje trosku vice pameti,
+nez o kolik jej zadame. Kazdy blok ma ve vetsine pripadu tzv. hlavicku,
+kde je ulozena napr. informace o jeho velikosti a o tom, ze je obsazeny
+(kdyz je volny, tak tam byvajy odkazy na predchudce ci naslednika ve
+spojovem seznamu volnych bloku). Z ladicich duvodu muze byt pritomna
+jeste paticka, aby se dalo poznat, ze se zapisuje za konec bloku.
+Jelikoz se snazime do 128 B prostoru nacpat 128 B blok bez hlavicky, tak
+se tam logicky nevejde, protoze prave na tu hlavicku neni misto.
 \\
-b) protože 4B je stránka nebo je to náhoda
+b) Podle meho nazoru se tak deje hlavne kvuli zjednoduseni implementace
+spravce haldy a zkraceni jeho datovych struktur (zejmena hlavicek).
+Spravce haldy (alespon ten ve Windows to dela) obvykle zaokrouhluji
+velikost pozadovaneho bloku na nasobek osmi ci sestnacti (zalezi take na
+architekture trosku). A pokud ty pridelene bloky (a jejich hlavicky)
+zacinaji vzdy na adrese, jenz je nasobkem osmi resp. sestnacti, znamena
+to, ze dolni 3 resp. 4 bity odkazu na tyto bloky v ramci struktur
+spravce haldy lze vyuzit k jinym ucelum, napriklad na ukladani ruznych
+priznaku. Pokud tedy mame napr. 32bitove adresy a spravce haldy
+zarovnava na 16 bajtu, staci nam 28 bitu na zakodovani jednoho pointeru.
 \\
-c) rozborem pøípadù???
+c) Podle me staci porovnavat odzadu hodnotu te fyzicke adresy a hodnotu
+pointeru N. Prvni bit, ktery se lisi, nam dava hint, kde by mohla koncit
+offsetova cast virtualni adresy. Ale je to hint, nikoli logicka
+platnost. Tady by to treba vyslo na 15 bitu, coz je u 32bitovych adres
+ponekud nezvykle. Tedy asi okecat.
 \end{e}
 
 \begin{reportN}{Yaghob} mel ruzné dotazy, jako proc je stránka veliká zrovna 4kB, jak je to se stránkováním na 64-bitových procesorech 
