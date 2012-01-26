@@ -212,7 +212,7 @@ Tento algoritmus zajišuje pøevedení libovolné báze $(v_1,\dots,v_n)$ vektorovéh
         \item Pro $k=1,\dots,m$ proveï:
                 $$y_k := x_k - \sum_{j=1}^{k-1} \left<x_k,z_j\right>z_j$$
                 $$z_k := \frac{1}{\|y_k\|}y_k$$
-        \item Ukonèi: $z_1,\dots,z_m$ je ortonormální systém ve $V$ a\\$\mathcal{L}(z_1,\dots,z_m) = \mathcal{L}(x_1,\dots,x_m)$
+        \item Ukonèi: $z_1,\dots,z_m$ je ortonormální systém ve $V$ a\\ $\mathcal{L}(z_1,\dots,z_m) = \mathcal{L}(x_1,\dots,x_m)$
 \end{penumerate}
 \end{e}
 
@@ -289,3 +289,10 @@ tedy vektor $u \in U$, kterı má ze všech vektorù z $U$ nejmenší vzdálenost od $v
 \end{e}
 \begin{e}{Report}{0}{Fiala} Kolmost - šla lépe, napsal jsem jim definice kolmosti, ortogonálního a ortonormálního systému a vìty, e ortogonální systém vektorù je lineárnì nezávislı, a tu o fourierovıch souøadnicích. K doplòku jsem kromì definice napsal vìtu o tom, e jádro matice je ortogonální doplnìk jejího øádkového prostoru. Vše jsem pøedem dokázal (je to jednoduché, co potom Fiala taky takto komentoval, ale protoe jsem èekal fiasko s øadami, tak jsem se radìji rozepsal víc). Ještì se ptali na nìjaké vlastnosti toho doplòku, Fiala chtìl hlavnì nìco o dimenzích, tak jsem mu napsal takové to $dim(W doplnek) + dim(W) = dim(V)$, ještì ze mì vytáhl jak z chlupaté deky, e by se to dokazovalo nìjak pøes ortogonální báze.
 \end{e}
+\begin{reportN}{IOI 8.9.2011} 
+- definujte skalarni soucin, rozeberte pripad realnych i komplexnich vektoru
+\\- definujte normu vektoru
+\\- dokazte, ze ||x+y|| <= ||x||+||y||
+\\\\
+I kdyz jsem se SS (trochu)ucil, tak me docela zarazil ten dukaz trojuhelnikove nerovnosti, protoze pomoci ni jsem definoval normu (mozna chteli definici normy pres skalarni soucin) Tak jsem napsal aspon CSB-nerovnost. Na usni se pak Hladik ptal jestli to umim dokazat a ze tam mam jen CSB-nerovnost, tak jsem aspon strelil od bodku, ze to je proto, ze CSB-nerovnost se v tom dukazu pouzije, coz mi odkyval a slo se dal.
+\end{reportN}
