@@ -1,3 +1,4 @@
+%&latex
 \section{Základy teorie funkcí více promìnnıch}
 
 \begin{e}{Poadavky}{0}{0}
@@ -10,45 +11,233 @@
 \end{e}
 
 \subsection{Parciální derivace a totální diferenciál}
+\def\bodx{\boldsymbol{\mathrm{x}}}
+Pøi definici derivace pro funkce více promìnnıch mùeme postupovat nìkolika zpùsoby. První monost je uvaovat hodnoty dané funkce pouze na jisté pøímce, konkrétnì na pøímkách rovnobìnıch se souøadnımi osami. Získáme tak v podstatì funkci jedné promìnné, kterou ji derivovat umíme. Nevıhodou však je, e tato derivace (nazıvaná parciální) poskytuje informaci o chování funkce pouze vùèi velice speciálním podmnoinám definièního oboru (pøímkách rovnobìnıch se souøadnımi osami).
+\\
+\obrazekvpravonocap{matematika/obrazky/Parcialni_derivace_graf_vyznam}{fig:parc_derivace}{0.35}{44}{-50}
+\begin{e}{Definice}{1}{Parciální derivace}
+Nech $f: \mathbb{R}^n \rightarrow \mathbb{R}$, $\bodx
+= [x_1, \ldots, x_n] \in \mathbb{R}^n$. Potom \textit{parciální derivací funkce $f$ podle i-té sloky v bodì \boldsymbol{x}} nazveme limitu
+$$\frac{\partial f}{\partial x_i}(\bodx) = \displaystyle\lim_{h \rightarrow 0}~\frac{f(x_1,\ldots,x_{i-1},x_i + h,x_{i+1},\ldots,x_n) - f(x_1,\ldots,x_n)}{h}$$
+pokud tato limita existuje. Parciální derivace mùe bıt vlastní i nevlastní.
+\end{e}
+\begin{e}{Poznámka}{0}{Geometrickı vıznam parciální derivace}
+Stejnì jako u funkcí jedné promìnné pøedstavuje parciální derivace funkce $f$ podle j-té promìnné v bodì $\bodx$ smìrnici teèny ve smìru osy $x_j$.
+\\\\
+Pro jednoduchost uvaujme 2D problém. Parciální derivace funkce $f : \mathbb{R}^{2}\rightarrow
+\mathbb{R}$ v bodì $[x_0; y_0]\in \mathbb{R}^{2}$, v nìm má funkce hodnotu $z_0 = f(x_0,y_0)$, odpovídají smìrnicím\footnote{pøipomeòme e smìrnice
+je definovaná jako: $m = \frac{\Delta y}{\Delta x} = \frac{\text{rise}}{\text{run}}
+=tg\alpha$ kde $\alpha$ je úhel svíranı s kladnou èástí osy $x$. } teèen ve smìru jednotlivıch souøadnicovıch os. Smìrnici teèny $t_1$ tedy získáme jako parciální derivaci podle x, tzn. $\operatorname{tg} \alpha = \frac{\partial f}{\partial x}(x_0,y_0)$, a podobnì pro smìrnici teèny $t_2$ dostaneme $\operatorname{tg} \beta = \frac{\partial f}{\partial y}(x_0,y_0)$.
+\\Parciální derivace funkce $f : \mathbb{R}^{n}\rightarrow
+\mathbb{R}$ v bodì $\bodx\in \mathbb{R}^{n}$ jsou derivace ve smìrech
+rovnobìnıch s nìkterou souøadnicovou osou. Jejich zobecnìním jsou derivace ve smìru.
+\end{e}
+\begin{e}{Vìta\footnote{Tyto vzorce fakticky jsou vzorce pro funkce jedné promenné, protoe $\partial$ se pocítá z funkce závisející jen na $x_i$,
+pøièem ostatní promìnné jsou brány jako konstanty (a derivace konstanty je nula). Podobnì pro diferenciály.}}{0}{Aritmetika parciální derivace}
+Nech $c,d\in\mathbb{R}$ a $f, g: \mathbb{R}^n \rightarrow \mathbb{R}$ mají v bodì $\bodx \in \mathbb{R}^n$  vlastní derivaci podle $x_i$. Potom:
+\begin{pitemize}
+\item $\frac{\partial (cf\pm dg)}{\partial x_i}(\bodx) =c\frac{\partial f}{\partial x_i}(\bodx) \pm d\frac{\partial g}{\partial x_i}(\bodx)$
 
-\begin{e}{Definice}{0}{Parciální derivace}
-Nech $f: \mathbb{R}^n \rightarrow \mathbb{R}$, $t \in \mathbb{R}$, $X = [x_1, \ldots, x_n], X \in \mathbb{R}^n$. Potom \textit{parciální derivací funkce $f$ podle i-té sloky v bodì X} nazveme limitu
-$$\frac{\partial f}{\partial x_i}(X) = \displaystyle\lim_{t \rightarrow 0}~\frac{f(x_1,\ldots,x_i + t,\ldots,x_n) - f(x_1,\ldots,x_n)}{t}$$
-pokud tato limita existuje a je vlastní.
+\item $\frac{\partial (fg)}{\partial x_i}(\bodx) =\frac{\partial f}{\partial x_i}(\bodx)g(\bodx) + f(\bodx)\frac{\partial g}{\partial x_i}(\bodx)$
+
+
+\item $\frac{\partial (f\div g)}{\partial x_i}(\bodx) = \frac{\frac{\partial f}{\partial x_i}(\bodx)g(\bodx) - f(\bodx)\frac{\partial g}{\partial x_i}(\bodx)}{g^2(\bodx)}$,
+pokud $g(\bodx)\neq 0$
+\end{pitemize}
 \end{e}
 
-\begin{e}{Definice}{0}{Derivace ve smìru vektoru}
-Nech $f: \mathbb{R}^n \rightarrow \mathbb{R}$, $v \in \mathbb{R}^n\setminus\{0^n\}$, $X = [x_1, \ldots, x_n], X \in \mathbb{R}^n$. Potom \textit{derivací funkce $f$ ve smìru vektoru v} nazveme limitu
-$$D_vf(X) = \displaystyle\lim_{t \rightarrow 0}~\frac{f(X + t \cdot v) - f(X)}{t}$$
-pokud tato limita existuje a je vlastní.
+\begin{e}{Definice}{1}{Derivace ve smìru vektoru}
+Nech $f: \mathbb{R}^n \rightarrow \mathbb{R}$, $v \in \mathbb{R}^n\setminus\{0^n\}$
+je nenulovı vektor, $\bodx = [x_1, \ldots, x_n] \in \mathbb{R}^n$. Potom \textit{derivací funkce $f$ ve smìru vektoru v} nazveme limitu
+$$\frac{\partial f}{\partial v}(\bodx) = \displaystyle\lim_{h \rightarrow 0}~\frac{f(\bodx + h \cdot v) - f(\bodx)}{h}$$
+pokud tato limita existuje.
 \end{e}
 
-\begin{e}{Definice}{0}{Gradient}
-Nech $f: \mathbb{R}^n \rightarrow \mathbb{R}$, $X = [x_1, \ldots, x_n], X \in \mathbb{R}^n$ a nech existují všechny parciální derivace funkce $f$ v bodì $X$ a jsou vlastní. Pak vektor $\nabla f(X) = [\frac{\partial f}{\partial x_1}(X),\ldots,\frac{\partial f}{\partial x_n}(X)]$ nazıváme \textit{gradientem funkce $f$ v bodì $X$}.
+\begin{e}{Poznámka}{0}{Geometrickı vıznam smìrové derivace}
+Pokud je derivace ve smìru kladná, funkce roste v tomto smìru, opaènì je-li derivace ve smìru záporná, funkce klesá v tomto smìru. Je-li smìrovı vektor navíc jednotkovı udává nám derivace ve smìru rychlost rùstu/klesání v daném smìru.
+\\\\
+Pøedstavte si napøíklad oblast v tøírozmìrném euklidovském prostoru, kde funkce $f$ mìøí teplotu a kterou prolétá po pøímoèaré dráze èástice.
+Smìrová derivace pak udává okamitou zmìnu teploty èástice ve chvíli,
+kdy se nachází v bodu $\bodx$ a má vektor rychlosti $v$.
 \end{e}
 
-\begin{e}{Definice}{0}{Totální diferenciál}
-Nech $f: \mathbb{R}^n \rightarrow \mathbb{R}$, $X = [x_1, \ldots, x_n], X \in \mathbb{R}^n$ a nech $v \in \mathbb{R}^n$. Existuje-li lineární zobrazení $Df(X)(v)$ takové, e platí:
-$$\displaystyle\lim_{\|h\| \rightarrow 0}~\frac{f(X + h) - f(X) - Df(X)(h)}{\|h\|} = 0$$
-\noindent potom toto zobrazení nazıváme \textit{totální diferenciál funkce $f$ v bodì $X$}.
+\obrazekvpravonocap{matematika/obrazky/gradient}{fig:parc_derivace}{0.2}{0}{0}
+\begin{e}{Definice}{1}{Gradient}
+Nech $f: \mathbb{R}^n \rightarrow \mathbb{R}$, $\bodx = [x_1, \ldots, x_n] \in \mathbb{R}^n$ a nech existují všechny parciální derivace funkce $f$ v bodì $\bodx$ a jsou vlastní. Pak vektor $$\nabla f(\bodx) = [\frac{\partial f}{\partial x_1}(\bodx),\ldots,\frac{\partial f}{\partial x_n}(\bodx)]$$ nazıváme \textit{gradientem funkce $f$ v bodì $\bodx$}.
+\end{e}
+
+\begin{e}{Poznámka}{0}{Geometrickı vıznam gradientu}
+Uvaujme modelovou úlohu ve 2D, kde funkce $f (x; y)$ popisuje reliéf krajiny
+(3D funkce).
+Gradient v bodì x lze interpretovat jako vektor kolmı na vrstevnici grafu funkce v daném bodì x. Z fyzikálního hlediska gradient funkce urèuje smìr nejvìtšího stoupání.
+\end{e}
+
+\begin{e}{Definice}{1}{Totální diferenciál}
+Nech $f: \mathbb{R}^n \rightarrow \mathbb{R}$, $\bodx = [x_1, \ldots, x_n] \in \mathbb{R}^n$ a nech $v \in \mathbb{R}^n$. Existuje-li lineární zobrazení $Df(\bodx)(v)$ takové, e platí:
+$$\displaystyle\lim_{\|v\| \rightarrow 0}~\frac{f(\bodx + h) - f(\bodx) - Df(\bodx)(v)}{\|v\|} = 0$$
+\noindent potom toto zobrazení nazıváme \textit{totální diferenciál funkce $f$ v bodì $\bodx$}.
+\end{e}
+
+\begin{e}{Poznámka}{0}{Geometrickı vıznam totálního diferenciálu}
+Totální diferenciál $Df(\bodx)(v)$ nám poskytuje lineární aproximaci obecné funkce f (\bodx) v okolí daného bodu, napø. ve 2D obecnì
+nelineární funkci f(\bodx) nahrazujeme lineární fukcí (rovinou).
 \end{e}
 
 \begin{e}{Definice}{0}{Parciální derivace druhého øádu}
-Nech $M \subseteq \mathbb{R}^n$ otevøená, a nech má funkce $f$ parciální derivaci $\frac{\partial f}{\partial x_i}$. Pak pro $a \in M$ definujeme \textit{parciální derivaci druhého øádu (podle i-té a j-té sloky)} jako $\frac{\partial^2f}{\partial x_i \partial x_j}(a) = \frac{\partial}{\partial x_j} (\frac{\partial f}{\partial x_i}(a))$.
+Nech $M \subseteq \mathbb{R}^n$ otevøená, a nech má funkce $f$ parciální derivaci $\frac{\partial f}{\partial x_i}$. Pak pro $\bodx \in M$ definujeme \textit{parciální derivaci druhého øádu (podle i-té a j-té sloky)} jako $\frac{\partial^2f}{\partial x_i \partial x_j}(\bodx) = \frac{\partial}{\partial x_j} (\frac{\partial f}{\partial x_i}(\bodx))$.
 \end{e}
 
 \begin{e}{Definice}{0}{Druhı diferenciál}
-Nech $f: \mathbb{R}^n \rightarrow \mathbb{R}$ a $a \in \mathbb{R}^n$. Øekneme, e $f$ má v bodì $a$ \textit{druhı diferenciál}, pokud kadá parciální derivace $f$ má v bodì $a$ totální diferenciál. Druhı diferenciál je bilineární zobrazení $D^2f(a): \mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}$ a má tedy následující tvar:
-$$D^2f(a)(h, k) = \sum_{i=1}^n\sum_{j=1}^n\frac{\partial^2f}{\partial x_i \partial x_j}(a)h_ik_j$$
+Nech $f: \mathbb{R}^n \rightarrow \mathbb{R}$ a $\bodx \in \mathbb{R}^n$. Øekneme, e $f$ má v bodì $\bodx$ \textit{druhı diferenciál}, pokud kadá parciální derivace $f$ má v bodì $\bodx$ totální diferenciál. Druhı diferenciál je bilineární zobrazení $D^2f(\bodx): \mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}$ a má tedy následující tvar:
+$$D^2f(\bodx)(h, k) = \sum_{i=1}^n\sum_{j=1}^n\frac{\partial^2f}{\partial x_i \partial x_j}(\bodx)h_ik_j$$
 Pouijeme-li analogii gradientu pro první diferenciál, mùeme øíct, e druhı diferenciál je reprezentován maticí:
 \begin{equation}
 \left(
-\frac{\partial^2 f}{\partial x_i \partial x_j}(a)
+\frac{\partial^2 f}{\partial x_i \partial x_j}(\bodx)
 \right)
 ^{n, n}
 _{i = 1, j = 1}
 \end{equation}
 \end{e}
+
+\begin{e}{Vìta}{1}{Diferenciál implikuje parciální/smìrové derivace a spojitost  
+\scriptsize(Klazar 2.1-3)\normalsize}
+Nech $f: \mathbb{R}^n \rightarrow \mathbb{R}$ má v bodì $\bodx \in \mathbb{R}^n$ totální diferenciál. Potom:
+\begin{pitemize}
+\item pro $\forall v \in \mathbb{R}^n\setminus\{0^n\}$ existuje $D_vf(\bodx)$ vlastní a platí $D_vf(\bodx) = Df(\bodx)(v)$.
+\item existují všechny parciální derivace a pro $\forall v \in \mathbb{R}^n: Df(\bodx)(v) = \sum_{i=0}^n\frac{\partial f}{\partial x_i}(\bodx) \cdot v_i= \left<\nabla f(\bodx), v\right>$).
+\item $f$ je spojitá v $\bodx$.
+\end{pitemize}
+\end{e}
+
+\begin{e}{Vìta}{1}{Spojité parciální derivace implikují diferenciál \scriptsize(Klazar 2.4)\normalsize}
+Nech $f: \mathbb{R}^n \rightarrow \mathbb{R}$ má v bodì $\bodx \in \mathbb{R}^n$ spojité všechny parciální derivace. Potom má $f$ v bodì $\bodx$ totální diferenciál.
+\end{e}
+
+\begin{e}{Vìta}{0}{Postaèující podmínka pro existenci druhého diferenciálu}
+Nech $M \subseteq \mathbb{R}^n$ je otevøená a $f$ má spojité parciální derivace druhého øádu na M. Potom $f$ má v kadém bodì z $M$ druhı diferenciál.
+\end{e}
+
+\begin{e}{Vìta}{0}{Aritmetika totálního diferenciálu \scriptsize(Klazar 2.7)\normalsize}
+Nech $c,d\in\mathbb{R}$ a $f, g: \mathbb{R}^n \rightarrow \mathbb{R}$ mají v bodì $\bodx \in \mathbb{R}^n$ totální diferenciál.  Potom existují totální diferenciály $ D(cf \pm dg)(\bodx)$, $D(f \cdot g)(\bodx)$. Pokud navíc $g(\bodx) \neq 0$ existuje i $D(f \div g)(\bodx)$. Navíc platí:
+\begin{pitemize}
+\item $D(cf \pm dg)(\bodx) = cDf(\bodx) \pm dDg(\bodx)$, pokud $\exists D(cf \pm dg)(\bodx)$
+\item $D(f \cdot g)(\bodx) = Df(\bodx)g(\bodx) + f(\bodx)Dg(\bodx)$.
+\item $D(f \div g)(\bodx) = \frac{Df(\bodx)g(\bodx) - f(\bodx)Dg(\bodx)}{g^2(\bodx)}$.
+\end{pitemize}
+\end{e}
+
+\begin{e}{Vìta}{0}{Diferenciál sloeného zobrazení  \scriptsize(Klazar 2.8
++ dùsledky)\normalsize}
+Mìjme funkci $f: \mathbb{R}^n \rightarrow \mathbb{R}$ a $n$ funkcí $g_j: \mathbb{R}^m \rightarrow \mathbb{R}$. Nech $a \in \mathbb{R}^m$ a $b \in \mathbb{R}^n$ a $b_j = g_j(a)$. Nech existují $Df(a)$ a $Dg_i(a), i = 1 \ldots n$. Definujeme-li zobrazení $H: \mathbb{R}^m \rightarrow \mathbb{R}$ pøedpisem $H(x) = f(g_1(x), \ldots, g_n(x))$, potom $H$ má v bodì $a$ totální diferenciál a pro $h \in \mathbb{R}^m$ platí
+$$DH(a)(h) = \sum_{i = 1}^n\left(\sum_{j = 1}^n\frac{\partial f}{\partial y_j}(b)\frac{\partial g_j}{\partial x_i}(a)\right)h_i$$
+Z èeho plyne tzv. \emph{øetízkové pravidlo}, tj.:
+$$\frac{\partial H}{\partial x_i}(a)=\sum_{j=1}^n \frac{\partial f}{\partial y_j}(b)\frac{\partial g_j}{\partial x_i}(a)$$
+\end{e}
+
+\begin{e}{Vìta}{0}{Zámìnnost parciálních derivací druhého øádu  \scriptsize(Klazar 2.9)\normalsize}
+Mìjme funkci $f: \mathbb{R}^n \rightarrow \mathbb{R}$. Nech $f$ má spojitou parciální derivaci $\frac{\partial^2f}{\partial x_i \partial x_j}(\bodx)$. Potom existuje i $\frac{\partial^2f}{\partial x_j \partial x_i}(\bodx)$ a obì tyto parciální derivace druhého øádu se rovnají.
+\end{e}
+
+\begin{e}{Dùsledek}{0}{0}
+Dùsledkem dvou právì uvedenıch vìt je fakt, e matice, která reprezentuje druhı diferenciál funkce $f$ v bodì $\bodx$ (tedy hovoøíme o situaci, kdy $f$ má v bodì $\bodx$ druhı diferenciál), je symetrická.
+\end{e}
+\begin{e}{Report}{0}{Fiala} Parciální derivace a tot. diferenciál. - Uvedl jsem definice, jak to souvisí se spojitostí funkce a jak se navzájem implikují, geometrickı vıznam a nutnou podmínku 1. øádu pro extrém. Vše bez dùkazu. Po troše dokopávání ze mì dostal, e gradient je kolmı na vrstevnici v daném bodì a kdy se mì ptal, jestli bych to umìl dokázat a já øekl, e ne, odpovìdìl: "No vidíte, to jste se taky v analıze uèili :-)" nakonec za 1-
+\end{e}
+
+\subsection{Vìty o støední hodnotì}
+
+\begin{e}{Vìta}{1}{Lagrangeova o støední hodnotì pro funkce více promìnnıch  \scriptsize(Klazar 2.5)\normalsize}
+Nech $f: \mathbb{R}^n \rightarrow \mathbb{R}$ a $a, b \in \mathbb{R}^n$. Nech $f$   má diferenciál a je spojitá v kadém vnitøním bodì úseèky $(a, b)$. Potom $\exists$ bod $\xi \in (a, b)$ takovı, e
+$$f(b) - f(a) = D f(\xi)(b - a).$$
+
+\begin{e}{Dùkaz}{0}{0}
+Plyne z Lagrangeovy vìty o støední hodnotì pro funkci $F:[0,1]\to\mathbb{R}$ definovanou pøedpisem $F(t)=f(a+t(b-a))$ a øetízkového pravidla.
+\end{e}
+\end{e}
+
+\begin{e}{Vìta}{0}{Nulovost derivace implikuje konstatnost funkce \scriptsize(Klazar 2.6)\normalsize}
+Má-li reálná funkce $m$ promennıch v kadém bodì otevøené a souvislé\footnote{Øekneme, e otevrená mnoina $D$ v $\mathbb{R}^n$ je souvislá, kdy lze kadé její dva body spojit lomenou èarou, která celá leí v $D$.} mnoiny nulovı diferenciál, je na této mnoine konstantní.
+\end{e}
+
+\begin{e}{Dùsledek}{0}{Nulovost parciální derivace implikuje konstatnost funkce \scriptsize(Klazar 2.6 Dùsledek)\normalsize}
+Má-li reálná funkce $m$ promìnnıch v kadém bodì otevøené a souvislé
+mnoiny kadou parciální derivaci nulovou, je na této mnoine konstantní.
+\end{e}
+
+\subsection{Vìta o implicitních funkcích}
+
+\begin{e}{Definice}{0}{Implicitní vs. explicitní zadání funkce}
+Nech $f: \mathbb{R}^n \rightarrow \mathbb{R}$ je funkce zadaná ve tvaru:
+$$y = f(x), x \in \mathbb{R}^n$$
+Toto zadání (kdy je dán vzorec vyjadøující hodnotu závisle promìnné $y$ na hodnotì nezávislé promìnné $x$), nazıváme \textit{explicitním zadáním funkce}.
+\\\\
+Nìkdy však mùe bıt závislost $y$ na $x$ (tj. funkce $y$ promìnné $x$) vyjádøena pouze rovnicí s nulovou pravou stranou, ve které na levé stranì vystupují jak $x$ (nezávislé promìnné) tak $y$ (závislé promìnné)
+$$F(x, y) = 0, x \in\mathbb{R}^n~ a~~ y\in\mathbb{R}$$
+Toto zadání nazıváme \textit{implicitním zadáním funkce}.
+\\\\\footnotesize Naším cílem bude tedy nalézt a popsat mnoinu
+$M_I = \{f[x, y] \in \mathbb{R}^{n+1} : F(x, y) = 0\}$
+a urèit, kdy tato mnoina $M_I$ popisuje nìjakou implicitní funkci a za jakıch
+pøedpokladù lze pøejít od implicitnì zadané funkce k explicitními popisu (tj. kdy lze jednu promìnnou vyjádøit jako funkci ostatních promìnnıch).
+\end{e}
+
+\begin{e}{Vìta}{1}{O existenci implicitní funkce (v $R^{n+1}$)  }
+Nech $F : \mathbb{R}^{n+1} \rightarrow \mathbb{R}$ je spojitá v okolí bodu $[\bodx_0, y_0]$, kde $\bodx_0 \in\mathbb{R}^{n}$ a $y_0 \in\mathbb{R}$. Dále
+pøedpokládejme, e funkce $F$ má v okolí bodu $[\bodx_0, y_0]$ spojitou parciální derivaci podle promìnné $y$ a platí
+\begin{pitemize}
+\item $\frac{\partial F}{\partial y}(\bodx_0,y_0) \neq 0$,
+\item $F(\bodx_0, y_0) = 0$.
+\end{pitemize}
+Potom rovnice $F(\bodx, y) = 0$ definuje na okolí bodu $[\bodx_0, y_0]$ implicitnì nìjakou funkcí $y = f(\bodx) = f (x_1, x_2, ...,x_n).$
+\end{e}
+
+\begin{e}{Vìta}{1}{O derivaci implicitní funkce (v $R^{n+1}$)}
+Nech platí pøedpoklady pøedchozí vìty a $F$ má spojité parciální derivace a do øádu $m$ v okolí bodu $[\bodx_0, y_0]$. Potom funkce $y = f (\bodx)$ (jednoznaènì urèená rovnicí $F(\bodx, y) = 0$) má spojité parciální derivace a do øádu $m$. Speciálnì pro $m = 1$ platí:
+$$\frac{\partial f}{\partial x_i}(\bodx) = -\frac{\frac{\partial F}{\partial x_i}(\bodx, y)}{\frac{\partial F}{\partial y}(\bodx, y)}$$
+\end{e}
+
+\begin{e}{Poznámka}{0}{0}
+Na tomto místì uvedeme malou, ale pro nás dùleitou poznámku z algebry. Mìjme bod $a \in \mathbb{R}^n$ a funkce $F_j, j=1 \ldots n$, $F_j: \mathbb{R}^n \rightarrow \mathbb{R}$, které mají všechny své parciální derivace. Potom determinant
+\begin{equation}
+JF_{j=1}^n(a)= \left|\frac{\partial (F_1, \ldots, F_n)}{\partial (x_1,\ldots,x_n)}\right| = \det
+\left(
+\frac{\partial F_i}{\partial x_j}(a)
+\right)
+_{i = 1, j = 1}^{n,n}
+\end{equation}
+nazveme Jakobiánem funkcí $F_j$ (v bodì $a$) vzhledem k promìnnım $x_1, \ldots, x_n$. Pojem Jakobián lze ekvivalentnì zavést i pomocí vektorovıch funkcí. To zde však nebudeme potøebovat.
+\end{e}
+
+\begin{e}{Vìta}{0}{O implicitních funkcích (pøípad v $R^{n + m}$) \scriptsize(Klazar 2.12)\normalsize}
+Nech $F_j: G \rightarrow \mathbb{R}, j=1 \ldots m$, kde $G \subseteq \mathbb{R}^{n+m}$ je otevøená mnoina. Uvaujme body $x_0 \in \mathbb{R}^n$, $y_0 \in \mathbb{R}^m$ takové, e $[x_0, y_0] \in G$ a $F_j([x_0, y_0]) = 0$ pro všechny $j=1 \ldots m$. Nech kadá funkce $F_j$ má spojité parciální derivace a nech navíc $JF_{j=1}^m([x_0, y_0]) \neq 0$. Potom existuje okolí $U \subseteq \mathbb{R}^n$ bodu $x_0$ a okolí $V \subseteq \mathbb{R}^m$ bodu $y_0$ takové, e pro $\forall x \in U$ existuje právì jedno $y \in V$ takové, e $F_j([x,y]) = 0, j=1 \ldots m$. Navíc, oznaèíme-li $y_j = \varphi_j(x), j=1 \ldots m$, potom $\varphi_j$ má spojité parciální derivace na $U$ a platí:
+$$\frac{\partial \varphi_i}{\partial x_j}(x) = -\frac{\left|\frac{\partial (F_1, \ldots, F_m)}{\partial (y_1,\ldots,y_{i-1},x_j,y_{i+1},\ldots,y_m)}\right|}{\left|\frac{\partial (F_1, \ldots, F_m)}{\partial (y_1,\ldots,y_m)}\right|}$$
+\end{e}
+
+\begin{e}{Vìta}{0}{O inverzních funkcích}
+Dùsledkem vìty o implicitních funkcích je následující vìta:  Nech $f : U \to \mathbb{R}^m$, kde $U \subseteq \mathbb{R}^m$ je okolí bodu $x_0$, je zobrazení se spojitımi parciálními derivacemi, které má v $x_0$ nenulovı jakobián. Potom existují okolí $U_1 \subseteq U$ a $V \subseteq \mathbb{R}^m$ bodù $x_0$ a $y_0 = f(x_0)$ taková, e $f : U_1 \to V$ je bijekce, inverzní zobrazení $f^{-1} : V \to U_1$ má spojité parciální derivace a pro kadé $x \in U_1$ v bodì $y = f(x) \in V$ máme
+$$Df^{-1}(y) = (Df(x))^{-1}$$
+Jacobiho matice zobrazení $f^{-1}$ v bodì $y$ je tedy inverzní k Jacobiho matici zobrazení $f$ v bodì $x$.
+\end{e}
+\begin{e}{Report}{0}{Zahradník} implicitni fce - o implicnich fcich sem si skoro neskrtl (jedna blba veta ve vic variantach a kdyz si clovek nevzpomene je v ... nakonec za 2
+\end{e}
+\subsection{Extrémy funkcí více promìnnıch}
+
+\begin{e}{Definice}{0}{Extrémy funkce}
+Nech $f: \mathbb{R}^n \rightarrow \mathbb{R}$, $\overline{X} \in \mathbb{R}^n$, $M \subseteq \mathbb{R}^n$. Øekneme, e bod $\overline{X}$ je bodem \textit{maxima funkce $f$ na mnoinì $M$}, pokud $\forall X \in M: f(\overline{X}) \geq f(X) $. Analogicky definujeme \textit{minimum funkce $f$ na mnoinì $M$}.
+\end{e}
+
+\begin{e}{Definice}{0}{Lokální extrémy funkce}
+Nech $f: \mathbb{R}^n \rightarrow \mathbb{R}$, $\overline{X} \in \mathbb{R}^n$, $M \subseteq \mathbb{R}^n$. Øekneme, e bod $\overline{X}$ je bodem \textit{\textbf{lokálního} maxima funkce $f$ na $M$}, pokud $\exists \delta > 0$ tak, e $\forall X \in M \cap B(\overline{X}, \delta): f(\overline{X}) \geq f(X) $. Analogicky definujeme \textit{\textbf{lokální} minimum funkce $f$ na mnoinì $M$}.
+\end{e}
+
+\begin{e}{Definice}{0}{Stacionární bod}
+Nech $M \subseteq \mathbb{R}^n$ otevøená, $f: M \rightarrow \mathbb{R}$, $\overline{X} \in M$. Øekneme, e bod $\overline{X}$ je \textit{stacionárním bodem funkce $f$}, pokud existují všechny parciální derivace funkce $f$ v bodì $\overline{X}$ a jsou nulové.
+\end{e}
+
+\begin{e}{Vìta}{0}{Nutná podmínka existence lokálního extrému}
+Pokud $a \in \mathbb{R}^n$ je bodem lokálního extrému funkce $F: \mathbb{R}^n \rightarrow \mathbb{R}$ a v $a$ existují všechny parciální derivace funkce $F$, potom jsou tyto nulové.
+\end{e}
+
 
 \begin{e}{Definice}{0}{Klasifikace bilineárních forem}
 Nech $F: \mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}$ je bilineární forma.
@@ -69,112 +258,6 @@ Pøi urèování toho, zda je bilineární forma pozitivnì definitní, negativnì defini
 Paklie nenastane ádná z vıše uvedenıch moností, Sylvestrovo kritérium nám nepomùe a je nutno o typu bilineární formy rozhodovat jinım zpùsobem (napø. pomocí vlastních èísel).
 \end{e}
 
-\begin{e}{Vìta}{0}{Tvar totálního diferenciálu}
-Nech $f: \mathbb{R}^n \rightarrow \mathbb{R}$ má v bodì $a \in \mathbb{R}^n$ totální diferenciál. Potom:
-\begin{pitemize}
-\item pro $\forall v \in \mathbb{R}^n\setminus\{0^n\}$ existuje $D_vf(a)$ vlastní a platí $D_vf(a) = Df(a)(v)$.
-\item existují všechny parciální derivace a pro $\forall v \in \mathbb{R}^n: Df(a)(v) = \sum_{i=0}^n\frac{\partial f}{\partial x_i}(a) \cdot v_i$ (neboli $Df(a)(h) = \left<\nabla f(a), h\right>$).
-\item $f$ je spojitá v $a$.
-\end{pitemize}
-\end{e}
-
-\begin{e}{Vìta}{0}{Aritmetika totálního diferenciálu}
-Nech $f, g: \mathbb{R}^n \rightarrow \mathbb{R}$ mají v bodì $a \in \mathbb{R}^n$ totální diferenciál. Nech $\alpha \in \mathbb{R}$. Potom existují totální diferenciály $D(f + g)(a)$, $D(\alpha f)(a)$, $D(f \cdot g)(a)$. Pokud navíc $g(a) \neq 0$ existuje i $D(f \div g)(a)$. Navíc platí:
-\begin{pitemize}
-\item $D(f + g)(a) = Df(a) + Dg(a)$
-\item $D(\alpha f)(a) = \alpha Df(a)$
-\item $D(f \cdot g)(a) = g(a)Df(a) + f(a)Dg(a)$.
-\item $D(f \div g)(a) = \frac{g(a)Df(a) - f(a)Dg(a)}{g^2(a)}$.
-\end{pitemize}
-\end{e}
-
-\begin{e}{Vìta}{0}{Diferenciál sloeného zobrazení}
-Mìjme funkci $f: \mathbb{R}^n \rightarrow \mathbb{R}$ a $n$ funkcí $g_j: \mathbb{R}^m \rightarrow \mathbb{R}$. Nech $a \in \mathbb{R}^m$ a $b \in \mathbb{R}^n$ a $b_j = g_j(a)$. Nech existují $Df(a)$ a $Dg_i(a), i = 1 \ldots n$. Definujeme-li zobrazení $H: \mathbb{R}^m \rightarrow \mathbb{R}$ pøedpisem $H(x) = f(g_1(x), \ldots, g_n(x))$, potom $H$ má v bodì $a$ totální diferenciál a pro $h \in \mathbb{R}^m$ platí
-$$DH(a)(h) = \sum_{i = 1}^n\left(\sum_{j = 1}^n\frac{\partial f}{\partial y_j}(b)\frac{\partial g_j}{\partial x_i}(a)\right)h_i$$
-Z èeho plyne tzv. \emph{øetízkové pravidlo}, tj.:
-$$\frac{\partial H}{\partial x_i}(a)=\sum_{j=1}^n \frac{\partial f}{\partial y_j}(b)\frac{\partial g_j}{\partial x_i}(a)$$
-\end{e}
-
-\begin{e}{Vìta}{0}{Postaèující podmínka pro existenci totálního diferenciálu}
-Nech $f: \mathbb{R}^n \rightarrow \mathbb{R}$ má v bodì $a \in \mathbb{R}^n$ spojité všechny parciální derivace. Potom má $f$ v bodì $a$ totální diferenciál.
-\end{e}
-
-\begin{e}{Vìta}{0}{Postaèující podmínka pro existenci druhého diferenciálu}
-Nech $M \subseteq \mathbb{R}^n$ je otevøená a $f$ má spojité parciální derivace druhého øádu na M. Potom $f$ má v kadém bodì z $M$ druhı diferenciál.
-\end{e}
-
-\begin{e}{Vìta}{0}{Zámìnnost parciálních derivací druhého øádu}
-Mìjme funkci $f: \mathbb{R}^n \rightarrow \mathbb{R}$. Nech $f$ má spojitou parciální derivaci $\frac{\partial^2f}{\partial x_i \partial x_j}(a)$. Potom existuje i $\frac{\partial^2f}{\partial x_j \partial x_i}(a)$ a obì tyto parciální derivace druhého øádu se rovnají.
-\end{e}
-
-\begin{e}{Dùsledek}{0}{0}
-Dùsledkem dvou právì uvedenıch vìt je fakt, e matice, která reprezentuje druhı diferenciál funkce $f$ v bodì $a$ (tedy hovoøíme o situaci, kdy $f$ má v bodì $a$ druhı diferenciál), je symetrická.
-\end{e}
-
-\subsection{Vìty o støední hodnotì}
-
-\begin{e}{Vìta}{0}{O støední hodnotì pro funkce více promìnnıch}
-Nech $f: \mathbb{R}^n \rightarrow \mathbb{R}$ a $a, b \in \mathbb{R}^n$. Nech $f$ má všechny parciální derivace spojité v kadém bodì úseèky $(a, b)$. Potom $\exists \xi \in (0, 1)$ takové, e
-$$f(b) - f(a) = \nabla f(a + \xi(b - a)) \cdot (b - a) = \sum_{i=1}^n\frac{\partial f}{\partial x_i}(a + \xi(b - a))(b_i - a_i)$$
-
-\begin{e}{Dùkaz}{0}{0}
-Plyne z Lagrangeovy vìty o støední hodnotì pro funkci $F:[0,1]\to\mathbb{R}$ definovanou pøedpisem $F(t)=f(a+t(b-a))$ a øetízkového pravidla.
-\end{e}
-\end{e}
-
-\subsection{Vìta o implicitních funkcích}
-
-\begin{e}{Vìta}{0}{O implicitní funkci (pro obecné køivky v $R^2$)}
-Nech $F([x,y]): \mathbb{R}^2 \rightarrow \mathbb{R}$ má spojité parciální derivace. Mìjme dva body $x_0, y_0 \in \mathbb{R}$ takové, e $F([x_0, y_0]) = 0$.  Nech navíc $\frac{\partial F}{\partial y}([x_0, y_0]) \neq 0$. Potom exisuje okolí $U$ bodu $x_0$ a okolí $V$ bodu $y_0$ tak, e pro $\forall x \in U$ existuje právì jedno $y \in V$ takové, e $F([x, y]) = 0$. Oznaèíme-li takto definovanou (implicitní) funkci jako $y = \varphi(x)$, potom $\varphi$ je diferencovatelná na $U$ a platí:
-$$\frac{\partial \varphi}{\partial x}(x) = -\frac{\frac{\partial F}{\partial x}([x,\varphi(x)])}{\frac{\partial F}{\partial y}([x,\varphi(x)])}$$
-\end{e}
-
-\begin{e}{Vìta}{0}{Vìta o implicitní funkci (pøípad v $R^{n + 1}$)}
-Nech $F: G \rightarrow \mathbb{R}$, kde $G \subseteq \mathbb{R}^{n+1}$ je otevøená mnoina. Uvaujme body $x_0 \in \mathbb{R}^n$, $y_0 \in \mathbb{R}$ takové, e $[x_0, y_0] \in G$ a $F([x_0, y_0]) = 0$. Nech $F$ má spojité parciální derivace a nech navíc $\frac{\partial F}{\partial y}([x_0, y_0]) \neq 0$. Potom existuje okolí $U \subseteq \mathbb{R}^n$ bodu $x_0$ a okolí $V \subseteq \mathbb{R}$ bodu $y_0$ takové, e pro $\forall x \in U$ existuje právì jedno $y \in V$ takové, e $F([x,y]) = 0$. Navíc, oznaèíme-li $y = \varphi(x)$, potom $\varphi$ má spojité parciální derivace na $U$ a platí:
-$$\frac{\partial \varphi}{\partial x_i}(x) = -\frac{\frac{\partial F}{\partial x_i}([x, \varphi(x)])}{\frac{\partial F}{\partial y}([x, \varphi(x)])}$$
-\end{e}
-
-\begin{e}{Poznámka}{0}{0}
-Na tomto místì uvedeme malou, ale pro nás dùleitou poznámku z algebry. Mìjme bod $a \in \mathbb{R}^n$ a funkce $F_j, j=1 \ldots n$, $F_j: \mathbb{R}^n \rightarrow \mathbb{R}$, které mají všechny své parciální derivace. Potom determinant
-\begin{equation}
-JF_{j=1}^n(a)= \left|\frac{\partial (F_1, \ldots, F_n)}{\partial (x_1,\ldots,x_n)}\right| = \det
-\left(
-\frac{\partial F_i}{\partial x_j}(a)
-\right)
-_{i = 1, j = 1}^{n,n}
-\end{equation}
-nazveme Jakobiánem funkcí $F_j$ (v bodì $a$) vzhledem k promìnnım $x_1, \ldots, x_n$. Pojem Jakobián lze ekvivalentnì zavést i pomocí vektorovıch funkcí. To zde však nebudeme potøebovat.
-\end{e}
-
-\begin{e}{Vìta}{0}{O implicitních funkcích (pøípad v $R^{n + m}$)}
-Nech $F_j: G \rightarrow \mathbb{R}, j=1 \ldots m$, kde $G \subseteq \mathbb{R}^{n+m}$ je otevøená mnoina. Uvaujme body $x_0 \in \mathbb{R}^n$, $y_0 \in \mathbb{R}^m$ takové, e $[x_0, y_0] \in G$ a $F_j([x_0, y_0]) = 0$ pro všechny $j=1 \ldots m$. Nech kadá funkce $F_j$ má spojité parciální derivace a nech navíc $JF_{j=1}^m([x_0, y_0]) \neq 0$. Potom existuje okolí $U \subseteq \mathbb{R}^n$ bodu $x_0$ a okolí $V \subseteq \mathbb{R}^m$ bodu $y_0$ takové, e pro $\forall x \in U$ existuje právì jedno $y \in V$ takové, e $F_j([x,y]) = 0, j=1 \ldots m$. Navíc, oznaèíme-li $y_j = \varphi_j(x), j=1 \ldots m$, potom $\varphi_j$ má spojité parciální derivace na $U$ a platí:
-$$\frac{\partial \varphi_i}{\partial x_j}(x) = -\frac{\left|\frac{\partial (F_1, \ldots, F_m)}{\partial (y_1,\ldots,y_{i-1},x_j,y_{i+1},\ldots,y_m)}\right|}{\left|\frac{\partial (F_1, \ldots, F_m)}{\partial (y_1,\ldots,y_m)}\right|}$$
-\end{e}
-
-\begin{e}{Vìta}{0}{O inverzních funkcích}
-Dùsledkem vìty o implicitních funkcích je následující vìta:  Nech $f : U \to \mathbb{R}^m$, kde $U \subseteq \mathbb{R}^m$ je okolí bodu $x_0$, je zobrazení se spojitımi parciálními derivacemi, které má v $x_0$ nenulovı jakobián. Potom existují okolí $U_1 \subseteq U$ a $V \subseteq \mathbb{R}^m$ bodù $x_0$ a $y_0 = f(x_0)$ taková, e $f : U_1 \to V$ je bijekce, inverzní zobrazení $f^{-1} : V \to U_1$ má spojité parciální derivace a pro kadé $x \in U_1$ v bodì $y = f(x) \in V$ máme
-$$Df^{-1}(y) = (Df(x))^{-1}$$
-Jacobiho matice zobrazení $f^{-1}$ v bodì $y$ je tedy inverzní k Jacobiho matici zobrazení $f$ v bodì $x$.
-\end{e}
-
-\subsection{Extrémy funkcí více promìnnıch}
-
-\begin{e}{Definice}{0}{Extrémy funkce}
-Nech $f: \mathbb{R}^n \rightarrow \mathbb{R}$, $\overline{X} \in \mathbb{R}^n$, $M \subseteq \mathbb{R}^n$. Øekneme, e bod $\overline{X}$ je bodem \textit{maxima funkce $f$ na mnoinì $M$}, pokud $\forall X \in M: f(\overline{X}) \geq f(X) $. Analogicky definujeme \textit{minimum funkce $f$ na mnoinì $M$}.
-\end{e}
-
-\begin{e}{Definice}{0}{Lokální extrémy funkce}
-Nech $f: \mathbb{R}^n \rightarrow \mathbb{R}$, $\overline{X} \in \mathbb{R}^n$, $M \subseteq \mathbb{R}^n$. Øekneme, e bod $\overline{X}$ je bodem \textit{\textbf{lokálního} maxima funkce $f$ na $M$}, pokud $\exists \delta > 0$ tak, e $\forall X \in M \cap B(\overline{X}, \delta): f(\overline{X}) \geq f(X) $. Analogicky definujeme \textit{\textbf{lokální} minimum funkce $f$ na mnoinì $M$}.
-\end{e}
-
-\begin{e}{Definice}{0}{Stacionární bod}
-Nech $M \subseteq \mathbb{R}^n$ otevøená, $f: M \rightarrow \mathbb{R}$, $\overline{X} \in M$. Øekneme, e bod $\overline{X}$ je \textit{stacionárním bodem funkce $f$}, pokud existují všechny parciální derivace funkce $f$ v bodì $\overline{X}$ a jsou nulové.
-\end{e}
-
-\begin{e}{Vìta}{0}{Nutná podmínka existence lokálního extrému}
-Pokud $a \in \mathbb{R}^n$ je bodem lokálního extrému funkce $F: \mathbb{R}^n \rightarrow \mathbb{R}$ a v $a$ existují všechny parciální derivace funkce $F$, potom jsou tyto nulové.
-\end{e}
-
 \begin{e}{Vìta}{0}{Postaèující podmínka pro existenci lokálního extrému}
 Nech $G \subseteq \mathbb{R}^n$ je otevøená mnoina a $a \in G$. Nech $F: G \rightarrow \mathbb{R}$ má spojité parciální derivace druhého øádu. Jestlie $Df(a) = 0$, potom platí:
 \begin{pitemize}
@@ -192,10 +275,6 @@ $$DF(a) + \lambda_1 Dg_1(a) + \ldots + \lambda_m Dg_m(a) = 0$$
 neboli
 $$\frac{\partial F}{\partial x_i}(a) = \sum_{k=1}^m\lambda_k\frac{\partial g_k}{\partial x_i}(a),~i=1,\ldots,n$$
 \end{e}
-\newpage
-\begin{e}{Report}{0}{Fiala} Parciální derivace a tot. diferenciál. - Uvedl jsem definice, jak to souvisí se spojitostí funkce a jak se navzájem implikují, geometrickı vıznam a nutnou podmínku 1. øádu pro extrém. Vše bez dùkazu. Po troše dokopávání ze mì dostal, e gradient je kolmı na vrstevnici v daném bodì a kdy se mì ptal, jestli bych to umìl dokázat a já øekl, e ne, odpovìdìl: "No vidíte, to jste se taky v analıze uèili :-)" nakonec za 1-
-\end{e}
-\begin{e}{Report}{0}{Zahradník} implicitni fce - o implicnich fcich sem si skoro neskrtl (jedna blba veta ve vic variantach a kdyz si clovek nevzpomene je v ... nakonec za 2
-\end{e}
 \begin{e}{Report}{0}{Fiala} pozitivne definitne matice - trochu nechapem odkial beru tuto otazku, uz ju dali viac krat... totiz PDmatice su spomenute vramci otazky Parciální derivace a totální diferenciál, vìty o støední hodnotì, extrémy funkcí více promìnnıch, vìta o implicitních funkcích. konkretne sa nimi urcuju extremy, a o moc viac som o nich nevedel :( nakonec za 2
 \end{e}
+

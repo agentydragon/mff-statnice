@@ -102,6 +102,25 @@
     
 }
 
+\long\def\obrazekvpravonocap#1#2#3{
+  \setlength\intextsep{-20pt}
+  
+      \begin{wrapfigure}{r}{#3\textwidth}
+        \begin{center}
+            \vspace{-10pt}
+            
+          \includegraphics[width=#3\textwidth]{#1}
+          \vspace{-10pt}
+          
+        \end{center}
+        
+        \label{#2}
+        
+        
+      \end{wrapfigure}
+  
+  \setlength\intextsep{0pt}
+}
 
 
 

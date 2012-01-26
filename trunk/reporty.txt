@@ -142,51 +142,9 @@ Popište, proč je výhodné používat B-stromy při ukládání na externí pa
 5.3
 vsechno v TeXu
 5.6
-{IP 8.9.2011}
-int* ptr = null;
-
-void Producent()
-{
-int data = SomeCoplexOperation();
-ptr = &data;
-}
-
-void Consumer()
-{
-while(ptr == null) { }
-printf("%i\n",&ptr);
-}
-
-
-Definujte rozhrani semaforu a jeho semantiku.
-Dale predpokladejme, ze cteni a prirazeni do promene ptr jsou atomicke, potom stale tento kod obsahuje race condition.
-Urcete kde k ni dochazi, a opravte ji pomoci semaforu (ci jinak). Fce Consumer a Producer jsou spusteny prave jednou
-kazda z jineho vlakna.
-
-viz: http://forum.matfyz.info/viewtopic.php?f=418&t=7873&p=33010#p33001
-
+v texu
 5.9
-{IOI 21.6.2011}
-Virtualni pamet
-page, page fault, TLB, implementace v OS/HW, jak presne funguje TLB na
-konkretnim pripadu. 
-
-{IP 8.9.2011}
-tady si to nepamatuju úplně přesně, někdo mě kdyžtak opravte.
-Byl zadán podobný zdroják :
-
-    void main()
-    {
-    void * P = malloc (1024);
-    void * N = malloc (256);
-    }
-
-
-Pak byly zadány hodnoty (decimální) ukazatelů P a N. Dotaz byl jestli by se Mezi P a N vešel ještě jeden malloc o nějaké velikosti.
-NSD(P,N) = 16 ... popište čím by to mohlo být a proč.
-
-Pak bylo ještě něco s určováním velikosti stránky z adresy 0xFF10, která zůstala na addr sběrnici po dotazu na ukazatel na první byte prvního bloku. ? Výsledek ale souvisel s hodnotami toho P a N podle toho co Bednárek říkal na ústní, takže to sem asi bude muset dát někdo kdo si to pamatuje lépe.
-
+v texu
 5.13
 {IOI 21.6.2011}
 TCP/IP - prevazne IP cast, kratce o TCP - routovani, fragmentace, ...
@@ -195,7 +153,4 @@ Resila se i implementace NATu. Tam jsem jim napsal i rozchozeni NAT
 maskarady v iptables a tomu se zasmali (neni to potreba) :) 
 
 6.3 Neproc.
-{Bureš} Neprocedurální programování. chtěl základní věci, dobrý zkoušející.
-{Tůma} Testuje zda to clovek ma naucene jen jako basnicku anebo to umi skutecne pouzit a zapsat. U neproceduralniho programovani (u kolegy za mnou) chtel ukazku zda umi na pozadani vyrobit nekolik konstruktu.
-{Bures} Neproceduralni a logicke programovani - Povidani o prologu, a chtel i presne jak probiha unifikace a backtracking. Nakonec jsem si nabeh na nuz a rekl ze existuje operator rezu(jinak by se na nej skoro urcite nezeptal), a ze se pomoci nej da udelat negace. S tou negaci jsem pak zapasil 10 min jen abych se prastil do hlavy a rekl trivialni, nervozita udela sve. Pak se vyptaval na funkcionalni programovani, rozdily oproti proceduralnimu(chtel hlavne vedet ze se daji funkce pouzit i jako paramatry funkci). V Prologu a necem funkcionalnim napsat kus neceho, syntax ho ale nezajimala, stacilo neco co by po trivialnim opraveni slo pustit v Prologu nebo Haskellu(nebo necem podobnem). Celkem bez vetsich obtizi 1
-{?} Neprocedurální programování - zkoušející prolétl popsané papíry a řekl, že mu to stačí. Ptal se jenom na to, co se mi na neprocedurálním programování nejvíc líbí. 
+v texu

@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-2">
+<title>Math Tutor - Functions - Theory
+- Implicit And Parametric Functions</title>
+<!-- Math Tutor webpage ver. 2.0 -->
+<!-- Concept, design, implementation and content (C) Petr Habala 2001 -->
+</head>
+<body text="#000000" vlink="#0000FF" alink="#0000FF" bgcolor="#FFFFFF" link="#0000FF">
+
+<h1>Implicitní funkce</h1>
+
+<p>
+Jsou situace, kdy nedostaneme funkci explicitně, ale pomocí rovnice, ve které
+se vyskytují jak neznámá, tak funkce. Například rovnice
+<i>x</i>&nbsp;+&nbsp;<i>y</i>&nbsp;=&nbsp;1 definuje funkci danou vzorcem
+<i>y</i>&nbsp;=&nbsp;1&nbsp;-&nbsp;<i>x</i>, tj.
+<i>f</i>(<i>x</i>)&nbsp;=&nbsp;1&nbsp;-&nbsp;<i>x</i>. Není ale pravda, že bychom vždy
+dokázali vzít rovnici s <i>x</i> a <i>y</i> a změnit ji na funkci. Abychom
+viděli, co se může stát, uvažujme několik příkladů. Podíváme se na několik
+rovnic ve tvaru <i>F</i>(<i>x</i>,<i>y</i>)&nbsp;=&nbsp;<i>c</i>. Formálně
+takováto rovnice nedává funkci (alespoň ne okamžitě a vždy), ale popisuje
+množinu určitých bodů v rovině.
+</p>
+
+<p>
+<b>Příklad 1:</b> Uvažujme rovnici &nbsp;
+<i>x</i>&nbsp;+&nbsp;<i>y</i>&nbsp;=&nbsp;1. Množina
+všech bodů v rovině, které ji splňují, je přímka:
+</p>
+
+<p align="center"><img src="txc3ba6a_soubory/pc3ba6aa.gif" width="240" height="232"></p>
+
+<p>
+Použili jsme známý fakt, že rovnice ve tvaru třeba
+<i>a</i><i>x</i>&nbsp;+&nbsp;<i>b</i><i>y</i>&nbsp;=&nbsp;<i>c</i> dávají přímky. Jak už
+jsme viděli, množina daná touto rovnicí ve skutečnosti dává křivku, kterou
+lze také interpretovat jako graf jisté funkce.
+</p>
+
+<p>
+<b>Příklad 2:</b> Uvažujme rovnici &nbsp;
+<i>y</i><sup>2</sup>&nbsp;=&nbsp;<i>x</i>. Množina
+všech bodů v rovině, které ji splňují, je následující:
+</p>
+
+<p align="center"><img src="txc3ba6a_soubory/pc3ba6ab.gif" width="170" height="133"></p>
+
+<p>
+Abychom to zjistili, použili jsme jednoduchý trik, "prohodili" jsme proměnné
+a představili jsme si, že <i>x</i> závisí na <i>y</i>; rovnice pak popisuje
+základní parabolu, stačilo ji správně nakreslit (s prohozenými osami). Zase
+dostaneme křivku, tentokráte už ji ale nemůžeme považovat za graf nějaké
+funkce. Na druhou stranu je možné ji dostat jako spojení dvou grafů. Pokud
+vyřešíme danou rovnost pro <i>y</i>, dostaneme
+<i>y</i>&nbsp;=&nbsp;<img src="txc3ba6a_soubory/piccpm.gif" width="15" height="11"><img src="txc3ba6a_soubory/piccsqrx.gif" width="20" align="middle" height="15">, což ukazuje, které dvě funkce dají celou křivku.
+</p>
+
+<p>
+<b>Příklad 3:</b> Uvažujme rovnici
+</p>
+<p align="center">
+(|<i>x</i>|&nbsp;-&nbsp;1)<sup>2</sup>&nbsp;+&nbsp;<i>y</i><sup>2</sup>&nbsp;=&nbsp;1.
+</p>
+Množina všech bodů v rovině, které ji splňují, je následující:
+<p></p>
+
+<p align="center"><img src="txc3ba6a_soubory/pc3ba6ac.gif" width="210" height="111"></p>
+
+<p>
+Abychom viděli tohle, použili jsme další trik. Pokud by <i>x</i> bylo v
+rovnici bez absolutní hodnoty, pak by rovnice popisovala kružnici s poloměrem
+1 a středem (1,0) (viz níže). Přidání absolutní hodnoty kolem <i>x</i>
+znamená, že rovnici splňuje také tvar symetrický okolo osy <i>y</i>.
+Zase nelze vyjádřit tento tvar jako graf funkce, ale měli bychom být schopni
+jej dát dohromady jako dva grafy, ony dva kopce nad osou <i>x</i> jako jeden
+a dva kopce pod jako druhý. Všimněte si, že když dáme na pravou stranu
+rovnice číslo menší než 1, pak dostaneme dva kruhy, které jsou od sebe
+vzdáleny, takže už bychom ani neměli jednu nepřerušovanou křivku.
+</p>
+
+<p>
+<b>Příklad 4:</b> Uvažujme rovnici
+</p>
+<p align="center">
+(|<i>x</i>|&nbsp;-&nbsp;1)<sup>2</sup>&nbsp;+&nbsp;<i>y</i><sup>2</sup>&nbsp;=&nbsp;0.
+</p>
+Množina všech bodů v rovině, která ji splňuje, vypadá takto:
+<p></p>
+
+<p align="center"><img src="txc3ba6a_soubory/pc3ba6ad.gif" width="145" height="64"></p>
+
+<p>
+Tento příklad ukazuje, že rovnice nemusí dávat křivku. Zde máme dva body, dá
+se snadno napsat rovnice, která by vyjádřila dokonce nekonečně mnoho bodů,
+které jsou všechny izolované.
+</p>
+
+<p>
+<b>Příklad 5:</b> Uvažujme rovnici
+</p>
+<p align="center">
+(|<i>x</i>|&nbsp;-&nbsp;1)<sup>2</sup>&nbsp;+&nbsp;<i>y</i><sup>2</sup>&nbsp;=&nbsp;-1.
+</p>
+Množina všech bodů v rovině splňujících tuto rovnici je prázdná.
+Jinými slovy, tato rovnice nedává nic.
+<p></p>
+
+<p>
+<b>Příklad 6:</b> Uvažujme rovnici &nbsp;
+sin(<i>y</i>)&nbsp;=&nbsp;<i>x</i>.
+Množina všech bodů roviny splňujících tuto rovnici vypadá takto:
+</p>
+
+<p align="center"><img src="txc3ba6a_soubory/pc3ba6ae.gif" width="115" height="346"></p>
+
+<p>
+Tento příklad je docela zajímavý. Když zkusíme vyřešit danou rovnici pro
+<i>y</i>, vidíme, že existuje nekonečně mnoho řešení, funkce tvaru &nbsp;
+<i>y</i><sub><i>k</i></sub>&nbsp;=&nbsp;arcsin(<i>x</i>)&nbsp;+&nbsp;2<img src="txc3ba6a_soubory/piccpi.gif" width="11" height="9"><i>k</i> pro všechna celá čísla
+<i>k</i> splňují tuto rovnici
+(viz <a href="http://math.feld.cvut.cz/mt/txtb/4/txc3ba4e.htm#3" target="frame3">Goniometrické
+funkce</a> v části Funkce - Teorie - Elementární funkce). Obrázek tedy
+správně naznačuje, že množina daná rovnicí se skládá z nekonečně mnoha
+křivek, z nichž každou lze interpretovat jako graf funkce.
+</p>
+
+
+<p>
+Pomocí těchto příkladů jsme chtěli ukázat, že rovnice mohou definovat velice
+podivné množiny v rovině, bylo by tedy naivní očekávat, že z nich vždycky
+dokážeme udělat funkci. Abychom do toho viděli lépe, podíváme se blíže na to,
+co je obvykle potřeba.
+</p>
+
+<p>
+<b>Problém:</b> Máme rovnici s <i>x</i> a <i>y</i>. Máme také bod
+(<i>x</i><sub>0</sub>,&nbsp;<i>y</i><sub>0</sub>) splňující tuto rovnici. Chceme
+najít okolí <i>U</i> bodu <i>x</i><sub>0</sub> a funkci
+<i>y</i>&nbsp;=&nbsp;<i>y</i>(<i>x</i>) na tomto okolí tak, aby
+<i>y</i>(<i>x</i><sub>0</sub>)&nbsp;=&nbsp;<i>y</i><sub>0</sub> (tj. aby daný
+bod ležel na grafu této funkce) a aby pro všechna <i>x</i> z <i>U</i>
+platilo, že páry (<i>x</i>,&nbsp;<i>y</i>(<i>x</i>)) splňují danou rovnici
+(tj. graf této funkce souhlasí s množinou danou rovnicí na okolí daného bodu).
+</p>
+
+<p>
+Připomeňme, že když zkoumáme funkce, potřebujeme okolí na to, abychom mohli
+hledat limity nebo derivaci, je tedy přirozené požadovat, abychom popsali
+křivku coby funkci na okolí daného bodu.
+</p>
+
+<p>
+Zpět k <b>Příkladu 2:</b> Jestliže nám někdo dá bod (4,2), pak můžeme najít
+okolí bodu <i>x</i><sub>0</sub>&nbsp;=&nbsp;4, například
+<i>U</i>&nbsp;=&nbsp;(3,4.5), a funkci, jmenovitě
+<i>y</i>(<i>x</i>)&nbsp;=&nbsp;<img src="txc3ba6a_soubory/piccsqrx.gif" width="20" align="middle" height="15">, která na <i>U</i> vlastně
+popisuje danou křivku okolo bodu (4,2).
+</p>
+
+<p align="center"><img src="txc3ba6a_soubory/pc3ba6af.gif" width="169" height="133"></p>
+
+<p>
+Jinými slovy, lokálně, na okolí daného bodu, jsme schopni vyřešit danou
+rovnici pro <i>y</i>. Podobně, pokud nám někdo dá bod (1,-1), pak můžeme
+najít okolí bodu <i>x</i><sub>0</sub>&nbsp;=&nbsp;1, například
+<i>U</i>&nbsp;=&nbsp;(0,2), a funkci, jmenovitě
+<i>y</i>(<i>x</i>)&nbsp;=&nbsp;-<img src="txc3ba6a_soubory/piccsqrx.gif" width="20" align="middle" height="15">, která na <i>U</i> vlastně
+popisuje část křivky okolo (1,-1).
+</p>
+
+<p align="center"><img src="txc3ba6a_soubory/pc3ba6ag.gif" width="170" height="133"></p>
+
+<p>
+Zase jsme tedy schopni vyjádřit lokálně křivku jako funkci, ale jinou funkci
+než předtím. To je naprosto normální. Nakonec uvažujme bod (0,0). Zde máme
+smůlu. Jakkoli malé okolí zkusíme, vždy tam budou body <i>x</i>, pro které
+máme na křivce dvě různé hodnoty, proto nelze tuto křivku vyjádřit na okolí
+(0,0) jako funkci. Toto je, bohužel, také docela normální. Například v
+Příkladě 3 dokážeme tuto křivku vyjádřit lokálně všude kromě bodů
+(-2,0), (0,0) a (2,0).
+</p>
+
+<p>
+To nám říká následující. Pokud máme křivku danou rovnicí, pak máme často
+šanci vyjádřit její části okolo daného bodu pomocí funkcí
+(zvaných <b>implicitní funkce</b>), ale někdy to není možné. Existuje způsob,
+jak rozeznat "dobré" body od "špatných"? Po pravdě řečeno, existuje, ale
+vyžaduje pokročilejší matematiku (funkce více proměnných, parciální
+derivace). Pro úplnost zde uvedeme příslušné tvrzení.
+</p>
+
+<blockquote>
+<p>
+<b>Věta</b> (o implicitní funkci).
+<br>Uvažujme rovnici <i>F</i>(<i>x</i>,&nbsp;<i>y</i>)&nbsp;=&nbsp;<i>c</i>.
+Nechť bod (<i>x</i><sub>0</sub>,&nbsp;<i>y</i><sub>0</sub>) splňuje tuto rovnici.
+Jestliže
+</p>
+<p align="center"><img src="txc3ba6a_soubory/pc3ba6ah.gif" width="122" height="42"></p>
+
+<p>
+pak existuje okolí <i>U</i> bodu <i>x</i><sub>0</sub> a funkce
+<i>y</i>&nbsp;=&nbsp;<i>y</i>(<i>x</i>) na tomto okolí taková, že
+<i>y</i>(<i>x</i><sub>0</sub>)&nbsp;=&nbsp;<i>y</i><sub>0</sub> a
+<i>F</i>(<i>x</i>,&nbsp;<i>y</i>(<i>x</i>))&nbsp;=&nbsp;<i>c</i> pro všechna
+<i>x</i> z <i>U</i>.
+</p>
+</blockquote>
+
+<p>
+<b>Příklad:</b> Uvažujme křivku danou rovnicí &nbsp;
+<i>y</i><sup>3</sup>&nbsp;+&nbsp;1&nbsp;=&nbsp;<i>x</i><i>y</i>. Definuje implicitní
+funkci na nějakém okolí bodu (2,1)?
+</p>
+
+<p>
+<b>Řešení:</b> Nejprve přepíšeme rovnici, aby vyhovovala vzorci z věty:
+</p>
+<p align="center">
+<i>x</i><i>y</i>&nbsp;-&nbsp;<i>y</i><sup>3</sup>&nbsp;=&nbsp;1.
+</p>
+<p>
+Teď najdeme příslušnou parciální derivaci.
+</p>
+<p align="center"><img src="txc3ba6a_soubory/pc3ba6ai.gif" width="301" height="45"></p>
+
+<p>
+Protože je tato derivace nenulová, podle Věty o implicitní funkci existuje
+žádaná funkce na nějakém okolí <i>x</i><sub>0</sub>&nbsp;=&nbsp;2.
+Bohužel, nedokážeme ji rozumně najít. (Pro kořeny kubického polynomu sice
+máme vzorce, ale jsou hnusné a stejně si je nikdo nepamatuje.)
+</p>
+
+<p>
+K čemu je tedy tohle všechno dobré? Za prvé, vidíme, že implicitní křivky
+jsou bohatší množina než množina možných "pěkných" grafů funkcí. Jinými
+slovy, implicitně lze popsat objekty, které by bylo obtížné popsat pomocí
+grafu funkcí (viz níže). To je výhoda implicitně definovaných křivek.
+</p><p>
+
+</p><p>
+Na druhou stranu jestliže chceme takové křivky zkoumat (například hledat
+tečny), pak bychom s nimi mnohem raději pracovali jako s funkcemi. Ta věta
+výše něco říká, možná ne mnoho, ale všimněte si, že zrovna problém tečny je
+něco, kde stačí znát funkci lokálně. Co je ještě zajímavější, existuje
+způsob, jak najít derivaci implicitní funkce, aniž bychom znali její vzorec.
+To se může hodit, viz
+<a href="http://math.feld.cvut.cz/mt/txtc/5/txc3ca5a.htm" target="frame3">Implicitní
+derivování</a> v části Derivace - Teorie - Implicitní a parametrické funkce.
+</p>
+
+<p>
+Dva příklady práce s implicitními funkcemi na úrovni, kterou teď známe, lze
+najít v
+<a href="http://math.feld.cvut.cz/mt/txtb/6/txc3bc6.htm" target="frame3">Řešených příkladech</a>.
+</p>
+
+<p>
+Poslední poznámka: Mluvili jsme o změně implicitních křivek ve funkce. Dá se
+to také udělat naopak? Odpověď je kladná a je to tak snadné, že na to
+nebudeme plýtvat dalším odstavcem. Je-li křivka dána jako graf funkce
+<i>y</i>&nbsp;=&nbsp;<i>f</i>(<i>x</i>), můžeme to vždy vyjádřit pomocí
+implicitní rovnice
+<i>y</i>&nbsp;-&nbsp;<i>f</i>(<i>x</i>)&nbsp;=&nbsp;0. Mohli bychom samozřejmě zkusit
+něco jiného, třeba 2<i>y</i>&nbsp;-&nbsp;2<i>f</i>(<i>x</i>)&nbsp;+&nbsp;2&nbsp;=&nbsp;2, můžeme
+vlastně takový graf vyjádřit nekonečně mnoha způsoby jako implicitní
+křivku. A to je všechno.
+</p>
+
+<p>
+<b>Bonus:</b> Pár slavných křivek.
+</p>
+
+<a name="cir">
+<p>
+<b>Kružnice</b> o poloměru <i>r</i> se středem (<i>a</i>,<i>b</i>) je dána
+rovnicí
+</p>
+<p align="center">
+(<i>x</i>&nbsp;-&nbsp;<i>a</i>)<sup>2</sup>&nbsp;+&nbsp;(<i>y</i>&nbsp;-&nbsp;<i>b</i>)<sup>2</sup>&nbsp;=&nbsp;<i>r</i><sup>2</sup>.
+</p>
+<p align="center"><img src="txc3ba6a_soubory/pc3ba6aj.gif" width="170" height="117"></p>
+</a>
+
+<p>
+<b>Elipsa</b> s <b>hlavní poloosou</b> <i>A</i>, <b>vedlejší poloosou</b>
+<i>B</i> a středem (<i>a</i>,<i>b</i>) je dána rovnicí
+</p>
+<p align="center"><img src="txc3ba6a_soubory/pc3ba6ak.gif" width="190" height="40"></p>
+<p align="center"><img src="txc3ba6a_soubory/pc3ba6al.gif" width="170" height="108"></p>
+
+<p>
+Je evidentní, že když vezmeme
+<i>A</i>&nbsp;=&nbsp;<i>B</i>&nbsp;=&nbsp;<i>r</i>, dostaneme kružnici.
+</p>
+
+<p>
+</p><hr>
+<p></p>
+<p>
+<a href="http://math.feld.cvut.cz/mt/txtb/6/txc3ba6b.htm" target="_self">Parametrické funkce</a>
+<br><a href="http://math.feld.cvut.cz/mt/txtb/6/txc3ba6.htm" target="_self">Zpět na Teorie - Implicitní a
+parametrické funkce</a>
+</p>
+
+
+
+
+</body></html>
