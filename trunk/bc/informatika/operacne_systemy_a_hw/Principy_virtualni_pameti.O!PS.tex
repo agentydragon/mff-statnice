@@ -1,3 +1,6 @@
+\def\addfootnotemark{\addtocounter{footnote}{1}\footnotemark[\value{footnote}]}
+\def\addfootnotetext#1{\footnotetext[\value{footnote}]{#1}}
+
 \subsection{Principy virtuální pamìti, stránkování, algoritmy pro výmìnu stránek, výpadek stránky, stránkovací tabulky\sout{, segmentace}}
 
 Kvalitní popis stránkování je také tady -- \url{http://wiki.osdev.org/Paging} (na téže stránce je i popis interruption for dummies -- \url{http://wiki.osdev.org/Interrupts})
@@ -7,12 +10,7 @@ Kvalitní popis stránkování je také tady -- \url{http://wiki.osdev.org/Paging} (n
 \obrazekvpravominipage{informatika/operacne_systemy_a_hw/obrazky/virtual-memory.png}{Virtuál\-ní
 pamì}{fig:virpamet}{0.15}{0.8}{
 
-Virtuální pamì zpùsob správy operaèní pamìti poèítaèe, který umožòuje pøedložit bìžícímu procesu adresní prostor pamìti, který je uspoøádán jinak nebo je dokonce vìtší, než je fyzicky pøipojená operaèní pamì RAM. Z tohoto dùvodu procesor rozlišuje mezi virtuálními adresami (pracují s nimi strojové instrukce, resp. bìžící proces) a fyzickými adresami pamìti (odkazují na konkrétní adresové buòky pamìti RAM). Pøevod mezi virtuální a fyzickou adresou je zajišován samotným procesorem v MMU (je nutná hardwarová podpora) nebo samostatným obvodem. 
-\\\\
-Šlo
-by to bez HW podpory? Jistì že ano VM to tak dìlají, nicménì rychlost není
-nijak osòující, proto se do novych strojù už pøidává jejich HW podpora (??
-ovìøit).
+Virtuální pamì zpùsob správy operaèní pamìti poèítaèe, který umožòuje pøedložit bìžícímu procesu adresní prostor pamìti, který je uspoøádán jinak nebo je dokonce vìtší, než je fyzicky pøipojená operaèní pamì RAM. Z tohoto dùvodu procesor rozlišuje mezi virtuálními adresami (pracují s nimi strojové instrukce, resp. bìžící proces) a fyzickými adresami pamìti (odkazují na konkrétní adresové buòky pamìti RAM). 
 \begin{pitemize}
         \item Umožòuje sdílení pamìti (operaèním systémem)
         \item Vzájemná ochrana programù (v souèasnosti je dùležitìjší ochrana dat než využití
@@ -20,38 +18,51 @@ principu lokalit), tzn. to aby jeden program nepøepisoval druhému programu jeho
 data a tak.
         \item Každý bìžící program pracuje se \textbf{svým} virtuálním adresním prostorem
 \end{pitemize}
+Pøevod mezi virtuální a fyzickou adresou je zajišován samotným procesorem v \textbf{MMU} (je nutná hardwarová podpora) nebo samostatným obvodem, OS mu vytváøí tabulky nutné pro pøeklad a øeší pøípady
+když pøeklad selže. 
+\\\\
+Šlo
+by to bez HW podpory? Jo, VM to muzou delat. V dnesni dobe uz tu je s nami docela dost let HW podpora pro virtualizaci, kde je to trosku usnadneno.\addfootnotemark
+ \\\\
 Existují dvì základní metody implementace virtuální pamìti – stránkování a segmentace.
 }
-
+\addfootnotetext{viz napøíklad:
+\url{http://blog.corensic.com/2011/12/05/virtual-machines-virtualizing-virtual-memory/}}
 \subsubsection*{Stránkování}
 Pøi stránkování je pamì rozdìlena na vìtší úseky stejné velikosti, které se nazývají stránky. Správa virtuální pamìti rozhoduje samostatnì o tom, která pamìová stránka bude zavedena do vnitøní pamìti a která bude odložena do odkládacího prostoru (swapu).
 \\\\
 Podporované všemi velkými CPU a OS, jednorozmìrný VAP (virtuální adresní
 prostor).\begin{pitemize}
 \item VAP rozdìlen na stránky (velikost je mocnina 2), FAP na rámce (stejné délky jako stránky\footnote{zdroj: \url{http://people.csail.mit.edu/rinard/osnotes/h9.html}})
-\item \textbf{pøevod stránkovací tabulkou}  - každý proces má svojí, pøíznak existence mapování (v.stránka není v FAP $\rightarrow$ událost "výpadek stránky" $\rightarrow$ synchronní pøerušení) umístìna v fyzické pamìti
+\item \textbf{pøevod stránkovací tabulkou}  - každý proces má svojí, pøíznak existence mapování (v.stránka není v FAP $\rightarrow$ událost "výpadek stránky" $\rightarrow$ pøerušení) umístìna v fyzické pamìti
 \par \begin{center}\includegraphics[width=5cm]{informatika/operacne_systemy_a_hw/obrazky/strankovani1_new.png}\end{center}
 \item umožnuje \emph{oddìlené VAP} i \emph{sdílenou pamì} - mapování virtuální stránky 2 procesù na jednu fyzickou (copy-on-write)
-\item OS mìní tabulky stránek zmìnou PTBR (Page Table Base Register) - PTBR obsahuje
+\item OS mìní tabulky stránek zmìnou CR3/PTBR (Page Table Base Register) - obsahuje
 bázovou adresu tabulky stránek procesu
 \item Pøíklad: 32bitová položka stránkovací tabulky Intel IA32 (= x86) $\rightarrow$ její struktura je závislá na architektuøe CPU
 \par \begin{center} \includegraphics[width=6cm]{informatika/operacne_systemy_a_hw/obrazky/strankovani-polozka.png} \end{center}
 \item \textbf{víceúrovòové stránkování} (napø. kvùli velikosti - jedna tabulka
 je už moc velká =\textgreater pomalá)
 \par \begin{center} \includegraphics[width=6cm]{informatika/operacne_systemy_a_hw/obrazky/strankovani2_new.png} \end{center}
-\item \textbf{TLB (Translation Lookaside Buffer)} - asociativní pamì sloužící na rychlé  mapování virtuální stránky na fyzickou, vyhledává se v ní paralelnì, typicky ma 128-256 položek, využívá princip prostorové lokality programù (vìtšina programù provádí velký poèet pøístupù k malému
+\footnotesize $\sun$ všimnìme si: najdeme v PDBR adresu zaèátku tabulky 1.úrovnì,  prvních 10bitù VA ukazuje na index v tabulce 1.úrovnì, hodnota kterou jsme v ní
+našli je adresa zaèátku tabulky 2.úrovnì, dalších 10bitù VA ukazuje na
+index v tabulce 2.úrovnì, hodnota kterou jsme našli je adresa zaèátku stránky
+ve fyzické pamìti \normalsize
+\item \textbf{TLB (Translation Lookaside Buffer)} - asociativní cache sloužící na rychlé  mapování virtuální stránky na fyzickou, vyhledává se v ní paralelnì, typicky ma 128-256 položek, využívá princip prostorové lokality programù (vìtšina programù provádí velký poèet pøístupù k malému
 poètu stránek)
-umístìna vìtšinou  na procesoru, mùže obsahovat dirty bit (urèuje jestli bylo na stránku zapisováno)
+umístìna vìtšinou  pøímo na procesoru, mùže obsahovat dirty bit (urèuje jestli bylo na stránku zapisováno)
 \par 
 \includegraphics[width=6cm]{informatika/operacne_systemy_a_hw/obrazky/strankovani-tlb-schema.png}
 %\caption{~~~}
 \includegraphics[width=5cm]{informatika/operacne_systemy_a_hw/obrazky/strankovani-tlb.png}
- 
-\par ...\textbf{0-úrovòové stránkování} - procesor hledá pouze TLB, zbytek
+\includegraphics[width=7cm]{informatika/operacne_systemy_a_hw/obrazky/tlb.png} \\\footnotesize $\sun$ všimnìme si: TLB se používá primárnì, pokud dostaneme
+TLB-miss vždy operace konèí zápisem do TLB  \normalsize
+\\\\ ...\textbf{0-úrovòové stránkování} - procesor hledá pouze TLB, zbytek
 øeší OS (oblíbené u 64-bitových CPU - UltraSPARC III)
-\item \textbf{inverzní stránkování} (napø. když FAP je menší než VAP, 64-bitové CPU - IA-64 = UtraSPARC, PowerPC)
-- inverzní stránkovací tabulka (IPT) nad rámci (nikoliv stránkami) spoleèná
-pro všechny procesy, pro vyhledávání se používá hashovací tabulka\par \begin{center} \includegraphics[width=10cm]{informatika/operacne_systemy_a_hw/obrazky/strankovani-inv_new.png} \end{center}
+\item \textbf{inverzní stránkování} (napø. když FAP je menší než VAP, 64-bitové IA-64 - Itanium, UtraSPARC, PowerPC)
+- inverzní stránkovací tabulka (IPT) nad rámci (nikoliv stránkami, poèet
+øádkù = poèet rámcù) spoleèná
+pro všechny procesy, pro zrychlení vyhledávání se používá hashovací tabulka\par \begin{center} \includegraphics[width=10cm]{informatika/operacne_systemy_a_hw/obrazky/strankovani-inv_new.png} \end{center}
 \end{pitemize}
 
 \begin{obecne}{Akce vykonávané pøi výpadku stránky:}
@@ -76,7 +87,8 @@ pro všechny procesy, pro vyhledávání se používá hashovací tabulka\par \begin{cen
 \item \emph{velikost stránek} \begin{pitemize} \item velké stránky $\rightarrow$ fragmentace
 \item malé stránky $\rightarrow$ mnoho registrù, zvyšuje cenu výpoètù a zpomaluje
 chod
-\item optimum 1-4kB, 64bit procesory umožòují pagesize až 1GB 
+\item optimum 1-4kB, 64bit procesory umožòují pagesize až 1GB a mohou mt
+až TBytové VAP
 \item 4kB se používají kvuli jednoduchému pøevodu
 na fyzickou adresu pomocí substituce (DRAM mely temer vzdy na cipu N øádku
 x 4096 sloupcu \footnote{doporucuju precist
@@ -171,15 +183,16 @@ HEX & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & A & B & C & D & E & F\\
 BINARY & 0000 & 0001 & 0010 & 0011 & 0100 & 0101 & 0110 & 0111 & 1000 &  1001 & 1010 & 1011 & 1100 & 1101 & 1110 & 1111
 \end{tabular}
 \\\\\\
-\begin{reportN}{Bednárek}
-Tøeba mì pøekvapila Bednákova otázka u jednoúrovòovýho stránkování, když se zeptal, co z toho dìlá OS a co procesor (jako co je dìláno hardwareovì a co softwareovì).
-\end{reportN}
+\begin{e}{Report}{0}{Bednárek}
+Tøeba mì pøekvapila Bednárkova otázka u jednoúrovòovýho stránkování, když se zeptal, co z toho dìlá OS a co procesor (jako co je dìláno hardwareovì a co softwareovì).
+\end{e}
 \begin{reportN}{Bulej}
-Strankovaci tabulku ma kazdy proces vlastni -> ochrana pameti, nemuze pristoupit na cizi stranky (mozna ze to v materialech ke statnicim je, ale ja to z nich nepochopil...)
+Strankovaci tabulku ma kazdy proces vlastni $->$ ochrana pameti, nemuze pristoupit na cizi stranky (mozna ze to v materialech ke statnicim je, ale ja to z nich nepochopil...)
 \end{reportN}
 \begin{reportN}{Skopal}
 Nejdriv jsem popsal k cemu to je a potom princip. Chtel popsat postup toho co se deje, kdyz se hleda nejaky pointer. Co dela HW, co OS. Pak se zeptal jestli by slo udelat strankovani bez HW podpory (coz rozumne nejde, muselo by se to resit i v prekladacich a bylo by to nefektivni). Pak se zeptal na algoritmy vyhazovani stranek. Popsal jsem FIFO a NRU a to mu stacilo. Na segmentaci nastesti nedoslo.
 Celkove velmi prijemne zkouseni. V zasade se spokojil s principy a nestoural moc do detailu.
+\\\textbf{Øešení:} bez HW podpory by to podle mì šlo, napø VM
 \end{reportN}
 \begin{reportN}{Kofron}
 klasika, preèo, kde, ako ... preèo to funguje, èo sa robí pri výpadku stránky, preèo dve inštancie jedného programu nelezú do kapusty aj keï pracujú s rovnakými virtuálnymi adresami (každý má vlastnú str. tabu¾ku), tvar adresy, prevody...
@@ -193,7 +206,7 @@ Instrukce MOV[0x12345678], EAX zapisuje obsah registru EAX na adresu 0x12345678.
 Popište, jaká operace (pøístupy do registrù a podobnì) vykonává pøi provádìní této instrukce procesor a jak pøi tom spolupracuje operaèní systém. Rozeberte všechny možné (z hlediska naplnìní stránkovacích tabulek) pøípady, nepopisujte strategie výmìny stránek.
 \end{reportN}
 \begin{e}{Øešení:}{0}{od stevese}
-pokud tomu trochu víc rozumíš, tak za tím, stejnì jako já, hledáš složitìjší otázku než ve skuteènosti je :-) Napíšu to v bodech (ve skuteènosti jsem to rozepisoval trochu víc.).
+\footnotesize pokud tomu trochu víc rozumíš, tak za tím, stejnì jako já, hledáš složitìjší otázku než ve skuteènosti je :-) Napíšu to v bodech (ve skuteènosti jsem to rozepisoval trochu víc.).
 \\
 \\- procesor se podívá na registr PC, vyzvedne další instrukci (tzv. fetch fáze)
 \\- instrukce je dekódována v øadièi (tzv. decode fáze)
@@ -234,7 +247,8 @@ Urèitì teda radím nepanikaøit jak už tu zaznìlo, když nìco víte hned to tam naps
 \end{reportN}
 
 \begin{e}{Øešení:}{0}{0}
-a) Nevejde. Mezi koncem $<N;N+0xff)$ a pocatkem bloku P je presne 0x80 =
+\footnotesize a) Nevejde. Mezi koncem $<N;N+0xff)$ a pocatkem bloku P ($\sun$ adresa N je
+pøed P) je presne 0x80 =
 128 B volneho prostoru. Spravce haldy ale prideluje trosku vice pameti,
 nez o kolik jej zadame. Kazdy blok ma ve vetsine pripadu tzv. hlavicku,
 kde je ulozena napr. informace o jeho velikosti a o tom, ze je obsazeny

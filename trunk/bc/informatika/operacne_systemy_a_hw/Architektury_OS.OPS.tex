@@ -1,7 +1,9 @@
 \subsection{Architektury OS}
 
 \begin{obecne}{Klasická struktura~-- monolitická}
-Nejstarší, u IBM 360, Unix, Windown 95-ME, všechny sluby uvnitø, provádìny ve chránìném módu, jádro pomìrnì velké, \uv{údajnì} nejrychlejší. Program zavolá slubu OS, pøes tabulku se zjistí adresa pøísl. fce, ta se zavolá a vrátí vısledek.  Nevıhoda: horší údrba -- je-li v programu chyba, mùe poškodit zbıvající èásti systému, rozšiøování za bìhu je komplikované. 
+Nejstarší, u IBM 360, Unix, Windown 95-ME, všechny sluby uvnitø, provádìny ve chránìném módu, jádro pomìrnì velké, \uv{údajnì} nejrychlejší. Uzivatelsky program pouziva funkce
+systemu pomoci mechanismu systemoveho volani. Provede instrukci
+syscall (s prislusnymi parametry v prislusnych registrech treba). \\ \textbf{Nevıhoda:} je-li v kodu OS chyba, mùe poškodit zbıvající èásti systému, rozšiøování za bìhu je komplikované. 
 \end{obecne}
 
 \begin{obecne}{Virtuální stroje}
@@ -15,7 +17,7 @@ snaha aby èást bìící v kernel módu byla co nejmenší (tøeba jen cca 10 KB), nejn
 
 Filesystém apod. jsou procesy -- aplikace jim posílají pøes jádro poadavky.
 
-vıhoda: kdy nìco spadne, nepoškodí to zbytek, moduly jdou mìnit za bìhu, komunikace jde snadno rozšíøit na komunikaci po síti. Pouívají ho: Chorus (ústøedny), QNX a Symbian OS.
+Vıhoda: kdy nìco spadne, nepoškodí to zbytek, moduly jdou mìnit za bìhu, komunikace jde snadno rozšíøit na komunikaci po síti. Pouívají ho: Chorus (ústøedny), QNX a Symbian OS.
 \end{obecne}
 
   \begin{center}
@@ -23,13 +25,14 @@ vıhoda: kdy nìco spadne, nepoškodí to zbytek, moduly jdou mìnit za bìhu, komuni
   \end{center}
 
 \begin{obecne}{Architektura WinNT}
-  Jádro je pomìrnì malé (cca 1MB), schopné (pro vyšší vrstvy jsou nìkteré schopnosti skryté - \textit{hybridní jádro}), na jeho vzniku se podíleli schopní Unixáøi. Byla zde snaha o malou velikost, pøenositelnost. Jádro je neutrální vzhledem k vyšším vrstvám, nad ním lze vybudovat rùzné systémy (Windows subsystém, POSIX, OS/2).
+  Jádro je pomìrnì malé (cca 1MB), schopné (pro vyšší vrstvy jsou nìkteré schopnosti skryté - \textit{hybridní jádro} -  nekteré ovladaèe jsou ve kernelu
+jiné ne), na jeho vzniku se podíleli schopní Unixáøi. Byla zde snaha o malou velikost, pøenositelnost. Jádro je neutrální vzhledem k vyšším vrstvám, nad ním lze vybudovat rùzné systémy (Windows subsystém, POSIX, OS/2).
 
   Rozhraní OS a uiv. programù zajišuje WinAPI, nad ním se nacházejí rùzné DLL, mezi kernelem a HW je \uv{hardware abstraction layer}, tj. kernel lze jednoduše upravit pro jiné architektury (Alpha, IA-64).
   Grafické drivery jediné mají pøímı pøístup k HW (kvùli vıkonu), èásti API (USER, GDI) jsou implementované v jádøe, pøechod mezi user a kernel reimem zajišuje ntdll.dll (a je tedy vyuíván všemi programy). Veškeré sluby a aplikace bìí v user módu nad jádrem.
 
   \begin{center}
-    \includegraphics[width=8cm]{informatika/operacne_systemy_a_hw/obrazky/arch-windows.jpg}
+    \includegraphics[width=7cm]{informatika/operacne_systemy_a_hw/obrazky/arch-windows.jpg}
   \end{center}
 \end{obecne}
 
@@ -40,7 +43,11 @@ vıhoda: kdy nìco spadne, nepoškodí to zbytek, moduly jdou mìnit za bìhu, komuni
   \end{pitemize}
 
   \begin{center}
-    \includegraphics[width=8cm]{informatika/operacne_systemy_a_hw/obrazky/arch-linux.jpg}
+    \includegraphics[width=7cm]{informatika/operacne_systemy_a_hw/obrazky/arch-linux.jpg}
   \end{center}
 \end{obecne}
 
+\begin{e}{Report}{0}{Bureš, Neèaskı}
+Architektury OS(zadával Bureš).
+Ke mi to vyšlo skoro pøesnì na 1 stránku A4, zkoušející si to pøeèetl a pak jsme nad tím ještì chvíli debatovali. K odpovìdím trošku navádìl, celkovì dost pohoda a mùu øíct, e to bylo jedno z nejpøíjemnìjších zkoušení, kterı jsem absolvoval.
+\end{e}

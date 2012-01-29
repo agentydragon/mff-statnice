@@ -234,7 +234,7 @@ kde $I_n$ je jednotková matice. Inversní matici lze sestrojit pouze pro regulárn
 \begin{e}{Vìta}{0}{Výpoèet inversní matice podle minorù}
 Pro každou regulární matici $A$ nad tìlesem $T$ platí: 
 $$A^{-1}=\frac{1}{\det A}\cdot(\adj A)$$
-$$A^{-1}_{i,j}=(-1)^{i+j}\frac{\det(A_{ji})}{\det A}$$
+$$(A^{-1})_{i,j}=(-1)^{i+j}\frac{\det(A_{ji})}{\det A}$$
 
 \begin{e}{Dùkaz}{0}{0}
 Z maticového souèinu $A\cdot\adj A$:
@@ -261,9 +261,9 @@ $$
 A =
 \left( \begin{array}{cccc}
     a_{11} & a_{12} & \dots  & a_{1n} \\
-	a_{21} & a_{22} &  \dots  & a_{2n} \\
-	\vdots  &  \vdots  &  \ddots  &  \vdots \\
-	a_{m1} & a_{m2} &  \dots  & a_{mn}
+        a_{21} & a_{22} &  \dots  & a_{2n} \\
+        \vdots  &  \vdots  &  \ddots  &  \vdots \\
+        a_{m1} & a_{m2} &  \dots  & a_{mn}
 \end{array} \right), 
 B = \left( \begin{array}{cccc} b_1 \\b_2 \\ \vdots  \\b_m \end{array} \right)
 $$
@@ -273,10 +273,10 @@ pak má tvar
 $$
 A_i=
 \left( \begin{array}{cccccccc}
-	a_{11} & a_{12} & \dots & a_{1,i-1} & b_1 & a_{1,i+1} & \dots  & a_{1n} \\
-	a_{21} & a_{22} & \dots & a_{2,i-1} & b_2 & a_{2,i+1} & \dots  & a_{2n} \\
-	\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
-	a_{m1} & a_{m2} & \dots & a_{m,i-1} & b_m & a_{m,i+1} & \dots & a_{mn}
+        a_{11} & a_{12} & \dots & a_{1,i-1} & b_1 & a_{1,i+1} & \dots  & a_{1n} \\
+        a_{21} & a_{22} & \dots & a_{2,i-1} & b_2 & a_{2,i+1} & \dots  & a_{2n} \\
+        \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+        a_{m1} & a_{m2} & \dots & a_{m,i-1} & b_m & a_{m,i+1} & \dots & a_{mn}
 \end{array} \right)
 $$
 
@@ -315,6 +315,7 @@ Dále urèíme
 Zkouškou se pøesvìdèíme, že se skuteènì jedná o øešení uvedené soustavy.
 \end{e}
 
+\newpage
 \begin{e}{Report}{0}{Loebel} Determinant, vypocet, minory,... 
 \end{e}
 \begin{e}{Report}{0}{Valtr} geometricky smysl determinantu 
