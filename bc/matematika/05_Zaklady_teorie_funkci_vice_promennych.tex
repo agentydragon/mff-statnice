@@ -10,8 +10,10 @@
 \end{pitemize}
 \end{e}
 
-\subsection{Parciální derivace a totální diferenciál}
 \def\bodx{\boldsymbol{\mathrm{x}}}
+\def\body{\boldsymbol{\mathrm{y}}}
+
+\subsection{Parciální derivace a totální diferenciál}
 Pøi definici derivace pro funkce více promìnnıch mùeme postupovat nìkolika zpùsoby. První monost je uvaovat hodnoty dané funkce pouze na jisté pøímce, konkrétnì na pøímkách rovnobìnıch se souøadnımi osami. Získáme tak v podstatì funkci jedné promìnné, kterou ji derivovat umíme. Nevıhodou však je, e tato derivace (nazıvaná parciální) poskytuje informaci o chování funkce pouze vùèi velice speciálním podmnoinám definièního oboru (pøímkách rovnobìnıch se souøadnımi osami).
 \\
 \obrazekvpravonocap{matematika/obrazky/Parcialni_derivace_graf_vyznam}{fig:parc_derivace}{0.35}{44}{-50}
@@ -169,48 +171,61 @@ mnoiny kadou parciální derivaci nulovou, je na této mnoine konstantní.
 
 \begin{e}{Definice}{0}{Implicitní vs. explicitní zadání funkce}
 Nech $f: \mathbb{R}^n \rightarrow \mathbb{R}$ je funkce zadaná ve tvaru:
-$$y = f(x), x \in \mathbb{R}^n$$
-Toto zadání (kdy je dán vzorec vyjadøující hodnotu závisle promìnné $y$ na hodnotì nezávislé promìnné $x$), nazıváme \textit{explicitním zadáním funkce}.
+$$y = f(\bodx), x \in \mathbb{R}^n$$
+Toto zadání (kdy je dán vzorec vyjadøující hodnotu závisle promìnné $y$ na hodnotì nezávislé promìnné $\bodx$), nazıváme \textit{explicitním zadáním funkce}.
 \\\\
-Nìkdy však mùe bıt závislost $y$ na $x$ (tj. funkce $y$ promìnné $x$) vyjádøena pouze rovnicí s nulovou pravou stranou, ve které na levé stranì vystupují jak $x$ (nezávislé promìnné) tak $y$ (závislé promìnné)
-$$F(x, y) = 0, x \in\mathbb{R}^n~ a~~ y\in\mathbb{R}$$
+Nìkdy však mùe bıt závislost $y$ na $\bodx$ (tj. funkce $y$ promìnné $\bodx$) vyjádøena pouze rovnicí s nulovou pravou stranou, ve které na levé stranì vystupují jak $\bodx$ (nezávislé promìnné) tak $y$ (závislé promìnné)
+$$F(\bodx, y) = 0, \bodx \in\mathbb{R}^n~ a~~ y\in\mathbb{R}$$
 Toto zadání nazıváme \textit{implicitním zadáním funkce}.
 \\\\\footnotesize Naším cílem bude tedy nalézt a popsat mnoinu
-$M_I = \{f[x, y] \in \mathbb{R}^{n+1} : F(x, y) = 0\}$
+$M_I = \{f[\bodx, y] \in \mathbb{R}^{n+1} : F(\bodx, y) = 0\}$
 a urèit, kdy tato mnoina $M_I$ popisuje nìjakou implicitní funkci a za jakıch
 pøedpokladù lze pøejít od implicitnì zadané funkce k explicitními popisu (tj. kdy lze jednu promìnnou vyjádøit jako funkci ostatních promìnnıch).
 \end{e}
 
 \begin{e}{Vìta}{1}{O existenci implicitní funkce (v $R^{n+1}$)  }
-Nech $F : \mathbb{R}^{n+1} \rightarrow \mathbb{R}$ je spojitá v okolí bodu $[\bodx_0, y_0]$, kde $\bodx_0 \in\mathbb{R}^{n}$ a $y_0 \in\mathbb{R}$. Dále
-pøedpokládejme, e funkce $F$ má v okolí bodu $[\bodx_0, y_0]$ spojitou parciální derivaci podle promìnné $y$ a platí
+Nech $F : \mathbb{R}^{n+1} \rightarrow \mathbb{R}$ je spojitá v okolí bodu $[\bodx_0, y_0]$, kde $\bodx_0 \in\mathbb{R}^{n}$ a $y_0 \in\mathbb{R}$ a
+platí: 
 \begin{pitemize}
-\item $\frac{\partial F}{\partial y}(\bodx_0,y_0) \neq 0$,
-\item $F(\bodx_0, y_0) = 0$.
+\item funkce $F$ má v okolí bodu $[\bodx_0, y_0]$ spojitou parciální derivaci podle promìnné $y$,
+\item $F(\bodx_0, y_0) = 0$,
+\item $\frac{\partial F}{\partial y}(\bodx_0,y_0) \neq 0$.
 \end{pitemize}
 Potom rovnice $F(\bodx, y) = 0$ definuje na okolí bodu $[\bodx_0, y_0]$ implicitnì nìjakou funkcí $y = f(\bodx) = f (x_1, x_2, ...,x_n).$
 \end{e}
 
-\begin{e}{Vìta}{1}{O derivaci implicitní funkce (v $R^{n+1}$)}
+\begin{e}{Vìta}{1}{O derivaci implicitní funkce (pro $R^{n+1}$)}
 Nech platí pøedpoklady pøedchozí vìty a $F$ má spojité parciální derivace a do øádu $m$ v okolí bodu $[\bodx_0, y_0]$. Potom funkce $y = f (\bodx)$ (jednoznaènì urèená rovnicí $F(\bodx, y) = 0$) má spojité parciální derivace a do øádu $m$. Speciálnì pro $m = 1$ platí:
 $$\frac{\partial f}{\partial x_i}(\bodx) = -\frac{\frac{\partial F}{\partial x_i}(\bodx, y)}{\frac{\partial F}{\partial y}(\bodx, y)}$$
 \end{e}
 
-\begin{e}{Poznámka}{0}{0}
-Na tomto místì uvedeme malou, ale pro nás dùleitou poznámku z algebry. Mìjme bod $a \in \mathbb{R}^n$ a funkce $F_j, j=1 \ldots n$, $F_j: \mathbb{R}^n \rightarrow \mathbb{R}$, které mají všechny své parciální derivace. Potom determinant
-\begin{equation}
-JF_{j=1}^n(a)= \left|\frac{\partial (F_1, \ldots, F_n)}{\partial (x_1,\ldots,x_n)}\right| = \det
-\left(
-\frac{\partial F_i}{\partial x_j}(a)
-\right)
-_{i = 1, j = 1}^{n,n}
-\end{equation}
-nazveme Jakobiánem funkcí $F_j$ (v bodì $a$) vzhledem k promìnnım $x_1, \ldots, x_n$. Pojem Jakobián lze ekvivalentnì zavést i pomocí vektorovıch funkcí. To zde však nebudeme potøebovat.
+\begin{e}{Poznámka}{0}{Jacobiho matice zobrazení}
+Diferenciál zobrazení $f : \mathbb{R}^m \rightarrow \mathbb{R}^n$ v bode \bodx, kde $f$ má souradnicové funkce $f = (f_1, f_2, . . . , f_n)$, je dán tzv. \textit{Jacobiho maticí} zobrazení $f$ v bode $\bodx$,
+
+
+\[ \left( \frac{\partial f_i}{\partial y_j} \right)_{i,j = 1}^{n,m} (\bodx) = \left( \begin{array}{cccc}
+\frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & \ldots
+&  \frac{\partial f_1}{\partial x_m}\\
+\frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \ldots
+&  \frac{\partial f_2}{\partial x_m}\\
+\vdots & \vdots & \ldots &  \vdots\\
+\frac{\partial f_n}{\partial x_1} & \frac{\partial f_n}{\partial x_2} & \ldots
+&  \frac{\partial f_n}{\partial x_m}
+\end{array} \right)(\bodx)\]
+Je-li tato matice ètvercová, nazıvá se její determinant \textit{jacobiánem}.
 \end{e}
 
-\begin{e}{Vìta}{0}{O implicitních funkcích (pøípad v $R^{n + m}$) \scriptsize(Klazar 2.12)\normalsize}
-Nech $F_j: G \rightarrow \mathbb{R}, j=1 \ldots m$, kde $G \subseteq \mathbb{R}^{n+m}$ je otevøená mnoina. Uvaujme body $x_0 \in \mathbb{R}^n$, $y_0 \in \mathbb{R}^m$ takové, e $[x_0, y_0] \in G$ a $F_j([x_0, y_0]) = 0$ pro všechny $j=1 \ldots m$. Nech kadá funkce $F_j$ má spojité parciální derivace a nech navíc $JF_{j=1}^m([x_0, y_0]) \neq 0$. Potom existuje okolí $U \subseteq \mathbb{R}^n$ bodu $x_0$ a okolí $V \subseteq \mathbb{R}^m$ bodu $y_0$ takové, e pro $\forall x \in U$ existuje právì jedno $y \in V$ takové, e $F_j([x,y]) = 0, j=1 \ldots m$. Navíc, oznaèíme-li $y_j = \varphi_j(x), j=1 \ldots m$, potom $\varphi_j$ má spojité parciální derivace na $U$ a platí:
-$$\frac{\partial \varphi_i}{\partial x_j}(x) = -\frac{\left|\frac{\partial (F_1, \ldots, F_m)}{\partial (y_1,\ldots,y_{i-1},x_j,y_{i+1},\ldots,y_m)}\right|}{\left|\frac{\partial (F_1, \ldots, F_m)}{\partial (y_1,\ldots,y_m)}\right|}$$
+\begin{e}{Vìta}{1}{O implicitních funkcích (zobecnìní pro $R^{n + m}$) \scriptsize(Klazar 2.12)\normalsize}
+Nech $F_i: \mathbb{R}^{n+m} \rightarrow \mathbb{R}$, $i=1...n$. Uvaujme body $\bodx_0 \in \mathbb{R}^m$, $\body_0 \in \mathbb{R}^n$ takové, e $[\bodx_0, \body_0] \in \mathbb{R}^{n+m}$ a platí: 
+\begin{pitemize}
+\item kadá funkce $F_i$ má spojité parciální derivace
+\item všechny $F_i(\bodx_0, \body_0) = 0$
+\item nech navíc $\det \left( \frac{\partial F_i}{\partial y_j} \right)_{i,j = 1}^{n} (\bodx_0, \body_0) \neq 0$. 
+\end{pitemize}
+Potom existuje okolí $U \subseteq \mathbb{R}^m$ bodu $x_0$ a okolí $V \subseteq \mathbb{R}^n$ bodu $\body_0$ takové, e: $$\forall (\bodx,\body) \in U\times V:\forall
+F_i(\bodx,\body) = 0\Leftrightarrow \body=f(\bodx)$$ Navíc $f_i$ má spojité parc.derivace na $U$, potom $f$ má spojité parciální derivace na $U$ a jeho Jacobiho
+matice splòuje:
+$$\left(\frac{\partial f_i}{\partial x_j}\right)^{n,m}_{i,j=1}(\bodx) = -\frac{\left(\frac{\partial F_i}{\partial x_j}\right)^{n,m}_{i,j=1}(\bodx,\body)}{\left(\frac{\partial F_i}{\partial x_j}\right)^{n}_{i,j=1}(\bodx,\body)}$$
 \end{e}
 
 \begin{e}{Vìta}{0}{O inverzních funkcích}

@@ -4,23 +4,23 @@
 Systémové volání je interface mezi OS (kernelspace) a uívatelskımi programy (userspace).
 
 \begin{e}{Definice}{0}{Proces}
-  \emph{Proces} je inštancia vykonávaného programu. Kım program je len súbor
-  inštrukcií, proces je vlastnı \uv{vıkon} tıchto inštrukcií. Proces má vlastní
+  \emph{Proces} je inštancia vykonávaného programu. Proces má vlastní
 \textbf{pid (Process ID), práva (uivatele), adresní prostor (pamì), vlákna a otevøené soubory}.
-
 \end{e}
 
 \obrazekvpravo{informatika/operacne_systemy_a_hw/obrazky/procesy_stavy.png}{Pøechody mezi stavy procesu}{}{0.45}
 \begin{e}{Stavy procesu}{0}{0}
-Poèas ivota sa môe proces nachádza v rôznych stavoch:
+Poèas ivota sa môe proces/vlákno nachádza v rôznych stavoch:
 \begin{pitemize}
-  \item \emph{beiaci}~-- jeden proces na procesor,
-  \item \emph{blokovanı}~-- pri pouití blokujúceho volania~-- I/O disku atï.,
-  \item \emph{pripravenı}~-- skonèilo blokovanie; spotreboval všetok pridelenı èas resp. vrátil riadenie systému, èaká na nové pridelenie procesora,
-  \item \emph{zombie}~-- po ukonèení procesu, keï u nepracuje~-- ale ešte nebol vymazanı.
+  \item \emph{beící}~-- jeden proces/vlákno na procesor,
+  \item \emph{zablokovanı}~-- pri pouití blokujúceho volania~-- I/O disku atï.,
+  \item \emph{pøipravenı}~-- skonèilo blokovanie; spotreboval všetok pridelenı èas resp. vrátil riadenie systému, èaká na nové pridelenie procesora,
+  \item \emph{zombie}~-- po ukonèení procesu, keï u nepracuje~-- ale ešte nebol vymazanı\footnote{taky stav zombie tam neni jenom kvuli vtipnosti; kdyz proces skonci
+svoji cinnost, tak se treba muze cekat na to, az si navratovou hodnotu
+procesu nekdo vyzvedne - a potom se proces muze oznacovat ve stavu
+zombie }.
 \end{pitemize}
 \end{e}
-
 
 \begin{e}{Organizace pamìti procesu}{0}{0}
 
@@ -28,9 +28,8 @@ Pamì procesu (spuštìného programu) lze rozdìlit do nìkolika èástí:
 \begin{pitemize}
 \item \emph{kód programu (text segment)} \\
 vytvoøen pøi pøekladu, souèást spustitelného souboru, nemìnnı a má pevnou délku; obvykle bıvá chránìn proti zápisu
-\item \emph{statická data (data segment)} \\
-data programu, jejich velikost je známa ji pøi pøekladu a jejich pozice se bìhem programu nemìní (je pøipraven kompilátorem a jeho formát je takté zadrátovanı ve spustitelném souboru, u inicializovanıch statickıch dat je tam celı uloenı); v jazyce C jde o globální promìnné a lokální data deklarovaná jako \texttt{static} (promìnné alokované pouze jednou), konstanty
-\item \emph{halda (heap segment)} - vytváøen startovacím modulem (C Runtime library), ukládají se sem dynamicky vznikající objekty (\texttt{malloc, new}) -- neinicializovaná data, i seznam volného místa. \\Halda zjemnuje to, co ti dovoluje spravce virtualni pameti. Ten ti dovoluje taky alokovat pamet a jinak s ni pracovat, ale protoze umi pracovat jen s celymi strankami (treba 4 KB velke), tak proste nekolikabajtove bloky od nej dostat primo nemuzes. A halda prave ty cele alokovane stranky rozdeluje do mensich bloku (postupne z nich ukrajuje, jak volas \texttt{malloc()})... pokud ji volna pamet dojde, alokuje si dalsi stranky... a tak dale.
+\item \emph{statická data (data segment)} -- data programu, jejich velikost je známa ji pøi pøekladu a jejich pozice se bìhem programu nemìní (je pøipraven kompilátorem a jeho formát je takté zadrátovanı ve spustitelném souboru, u inicializovanıch statickıch dat je tam celı uloenı); v jazyce C jde o globální promìnné a lokální data deklarovaná jako \texttt{static} (promìnné alokované pouze jednou), konstanty
+\item \emph{halda (heap segment)} -- vytváøen startovacím modulem (C Runtime library), ukládají se sem dynamicky vznikající objekty (\texttt{malloc, new})  neinicializovaná data, i seznam volného místa. \\Halda zjemnuje to, co ti dovoluje spravce virtualni pameti. Ten ti dovoluje taky alokovat pamet a jinak s ni pracovat, ale protoze umi pracovat jen s celymi strankami (treba 4 KB velke), tak proste nekolikabajtove bloky od nej dostat primo nemuzes. A halda prave ty cele alokovane stranky rozdeluje do mensich bloku (postupne z nich ukrajuje, jak volas \texttt{malloc()})... pokud ji volna pamet dojde, alokuje si dalsi stranky... a tak dale.
 \item \emph{volná pamì} \\
 postupnì jí zaplòuje z jedné strany zásobník a z druhé halda
 \item \emph{zásobník (stack segment)} \\
@@ -83,33 +82,31 @@ Pøi plánování procesoru se v operaèním systému \textit{plánovaè} (anglicky sched
 \end{pitemize}
  Plánovanie pritom môe by \textit{preemptívní} (vìtšinou pomocí pøerušení, bez spolupráce s programem, plnì v reii OS - Windows NT, Linux) alebo \textit{nepreemptivní} (vyaduje spolupráci s programem, kooperatívne~-- Windows 3.x).
 \\\\
-\begin{obecne}{Ciele plánovania (niektoré z nich sú oèividne protichodné):}
+\begin{obecne}{Metriky OS pro plánování procesù:}
 \begin{pitemize}
-        \item Spravodlivos (kady procesor dostane adekvátnu èas èasu CPU)
-        \item Efektívnos (plne vyaenı procesor)
-        \item Minimálna doba odpovede
-        \item Prùchodnost (maximálny poèet spracovanıch procesov)
-        \item Minimálna réia systému
-\end{pitemize}
-\end{obecne}
-
-\begin{obecne}{Kritériá plánovania:}
-\begin{pitemize}
-        \item Viazanos procesu na dané CPU a I/O (presun procesu na inı procesor zaberie ve¾a prostriedkov)
-        \item Proces je dávkovy/interaktívny?
-        \item Priorita procesu (statická (nemenná~-- okrem \uv{renice}) + dynamická, ktorá sa mení v èase kvôli spravodlivosti)
-        \item Ako èasto proces generuje vıpadky stránok (nejakı popis???)
-        \item Kolik skutoèného èasu CPU proces obdrel
+ \item doba odezvy (response time, turnaround) -- do ukonèeni procesu, do prvni odezvy
+ \item propustnost (throughput) -- poèet dokonèenych uloh za jednotku èasu
+ \item vyuiti procesoru (utilization)
+ \item spravedlnost (fairness)
 \end{pitemize}
 \end{obecne}
 
 \begin{obecne}{Algoritmy:}
 \begin{pitemize}
         \item \textbf{First Come First Served (FCFS)}: nepreemptívny, procesy plánovány v poøadí, v jakém pøicházejí, procesy bìí dokud neskonèí
-
+  \begin{center}
+    \includegraphics[width=8cm]{informatika/operacne_systemy_a_hw/obrazky/fcfs.png}
+  \end{center}
         \item \textbf{Round Robin}: preemptívne rozšírenie FCFS, kadı proces má stejné povolené èasové kvantum na bìh, po jeho uplynutí je proces pøesunut na konec fronty
-
-        \item \textbf{Plánovanie s viacerımi frontami}: nieko¾ko front, procesu z $i$-tej fronty je pridelenı procesor a keï vo frontách $1, \dots, i-1$ nie je pripravenı ziadny proces. Ak proces skonèil I/O operáciou, je blokovanı a presunutı do fronty $i-1$, ak skonèil preempciou, je pripravenı a presunutı do fronty $i+1$.
+  \begin{center}
+    \includegraphics[width=8cm]{informatika/operacne_systemy_a_hw/obrazky/round-robin.png}
+  \end{center}
+        \item \textbf{Plánovaní s nìkolika frontami}: kadé frontì je pøiøazena
+nìjaká priorita, bereme procesy s fronty s nejvyšší prioritou. Pokud vyèerpá
+svoje èasové quantum tak jí zaøadíme do fronty o úroveò ní.
+  \begin{center}
+    \includegraphics[width=8cm]{informatika/operacne_systemy_a_hw/obrazky/vice-front.png}
+  \end{center}
 
         \item \textbf{Symmetric multiprocessing (SMP)}: druh víceprocesorovıch systémù, u kterıch jsou všechny procesory v poèítaèi rovnocenné,  fronta CPU èakajúcich na pripravené procesy (aktívne (spotrebováva energiu) vs. pasívne èakanie (špeciálne inštrukcie)), \uv{vzah}/afinita procesov k CPU
         \end{pitemize}

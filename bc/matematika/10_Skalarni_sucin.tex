@@ -14,7 +14,7 @@
 \begin{e}{Definice}{0}{0}
 Nech $V$ je vektorovı prostor nad $\mathbb{C}$. Potom zobrazení (funkce) z kartézského souèinu $V \times V \rightarrow \mathbb{C}$, které dvojici vektorù $x$ a $y$ pøiradí èíslo $\left<x,y\right>$ se nazıvá \emph{skalární souèin}, pokud splòuje následující axiomy (pro všechny $x, x', y \in V$ a $\alpha, \beta \in \mathbb{C}$):
 \begin{penumerate}
-        \item $\left<x,x\right> \ge 0, \,\, \left<x,x\right> =0 \Leftrightarrow x = 0 \hfill \textit{(positivní definitnost)}$
+        \item $\left<x,x\right> \ge 0, \,\, \left<x,x\right> =0 \Leftrightarrow x = \mathbf{0} \hfill \textit{(positivní definitnost)}$
         \item $\left<\alpha x+\beta x', y\right> = \alpha \left<x,y\right> + \beta \left<x',y\right> \hfill \textit{(bilinearita)}$
                 \begin{penumerate}
                         \item $\left<\alpha x,y\right> = \alpha \left<x,y\right>$
@@ -126,7 +126,7 @@ Po dosazení:
 
 \end{e}
 
-\begin{obecne}{Druhı monı dùkaz}
+\begin{obecne}{Druhı monı dùkaz\footnote{tøeba: \url{http://www.youtube.com/watch?v=r2PogGDl8_U}}}
 \noindent Nadefinujeme promìnnou $t\in\mathbb{R}$ a zavedeme funkci
 $$p(t):=\left<u+t\cdot v,u+t\cdot v\right>=||u+tv||^2$$
 
@@ -145,6 +145,14 @@ $$|\left<u,v\right>|\leq ||u||\cdot||v||$$
 
 \begin{e}{Dùsledek}{0}{0}
 Platnost trojúhelníkové nerovnosti pro normy odvozené od skalárního souèinu -- tj. normy odvozené od skalárního souèinu splòují všechny axiomy normy.
+\\\begin{e}{Dùkaz\footnote{http://math.stackexchange.com/questions/91181/proof-for-triangle-inequality-for-vectors}}{0}{0}
+$$\|u+v\|^2=(u+v) \cdot (u+v)=\|u\|^2+2 (u \cdot v) + \|v\|^2  \leq$$
+$$\leq \|u\|^2+2 |u \cdot v| + \|v\|^2 = \|u\|^2+2 |\left<u \cdot v\right>| + \|v\|^2 \leq $$ 
+$$\text{(Cauchy-Schwarz)}$$
+$$\leq\|u\|^2+ 2 \|u\| \cdot \|v\| + \|v\|^2=(\|u\|+ \|v\|)^2$$
+take, $$\|u+v\|^2 \leq (\|u\|+ \|v\|)^2 \implies \|u+v\| \leq \|u \|+ \|v\| .$$
+
+\end{e}
 \end{e}
 
 \begin{e}{Dùsledek}{0}{0}
@@ -292,7 +300,7 @@ tedy vektor $u \in U$, kterı má ze všech vektorù z $U$ nejmenší vzdálenost od $v
 \begin{reportN}{IOI 8.9.2011} 
 - definujte skalarni soucin, rozeberte pripad realnych i komplexnich vektoru
 \\- definujte normu vektoru
-\\- dokazte, ze ||x+y|| <= ||x||+||y||
+\\- dokazte, ze $||x+y|| \leq ||x||+||y||$
 \\\\
-I kdyz jsem se SS (trochu)ucil, tak me docela zarazil ten dukaz trojuhelnikove nerovnosti, protoze pomoci ni jsem definoval normu (mozna chteli definici normy pres skalarni soucin) Tak jsem napsal aspon CSB-nerovnost. Na usni se pak Hladik ptal jestli to umim dokazat a ze tam mam jen CSB-nerovnost, tak jsem aspon strelil od bodku, ze to je proto, ze CSB-nerovnost se v tom dukazu pouzije, coz mi odkyval a slo se dal.
+I kdyz jsem se SS (trochu)ucil, tak me docela zarazil ten dukaz trojuhelnikove nerovnosti, protoze pomoci ni jsem definoval normu (mozna chteli definici normy pres skalarni soucin) Tak jsem napsal aspon CSB-nerovnost. Na usni se pak Hladik ptal jestli to umim dokazat a ze tam mam jen CSB-nerovnost, tak jsem aspon strelil od boku, ze to je proto, ze CSB-nerovnost se v tom dukazu pouzije, coz mi odkyval a slo se dal.
 \end{reportN}
