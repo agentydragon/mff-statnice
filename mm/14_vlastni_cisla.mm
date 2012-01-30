@@ -117,14 +117,20 @@
   </body>
 </html>
 </richcontent>
-<node TEXT="A m&#xe1; n r&#x16f;zn&#xfd;ch vl.&#x10d;&#xed;sel &#x21d2; je diagonizovateln&#xe1;" ID="ID_1474679673" CREATED="1327852334981" MODIFIED="1327853278152" VSHIFT="50"/>
+<node TEXT="A m&#xe1; n r&#x16f;zn&#xfd;ch vl.&#x10d;&#xed;sel &#x21d2; je diagonizovateln&#xe1;" ID="ID_1474679673" CREATED="1327852334981" MODIFIED="1327853278152" VSHIFT="50">
+<node TEXT="&#x21d0; neplat&#xed;!" ID="ID_1727879712" CREATED="1327939756609" MODIFIED="1327939786031" HGAP="270">
+<icon BUILTIN="messagebox_warning"/>
+<hook NAME="FreeNode"/>
+</node>
+</node>
 <node TEXT="A m&#xe1; n LN vl.vektor&#x16f; &#x21d4; je diagonizovateln&#xe1;" ID="ID_1170440140" CREATED="1327852387840" MODIFIED="1327855970574" VSHIFT="-10"/>
+<node TEXT="&#x2200; &#x10d;tvercov&#xe1; symetrick&#xe1; A je diagonizovateln&#xe1;" ID="ID_1944422515" CREATED="1327938476812" MODIFIED="1327938512687"/>
 <node TEXT="&#x10d;tvercov&#xe1; A &#x159;&#xe1;du n, ri je alg.n&#xe1;sobnost &#x3bb;i" ID="ID_28023939" CREATED="1327855778996" MODIFIED="1327856085559" VSHIFT="-20">
-<hook EQUATION="\mathrm{dim}(Ker(\mathbf{A}-\lambda_i I))=r_i \Leftrightarrow A\text{ je diagonizovateln&#xe1;}" NAME="plugins/latex/LatexNodeHook.properties"/>
+<hook EQUATION="\forall \lambda_i:\mathrm{dim}(Ker(\mathbf{A}-\lambda_i I))=r_i \Leftrightarrow A\text{ je diagonizovateln&#xe1;}" NAME="plugins/latex/LatexNodeHook.properties"/>
 <node TEXT="&quot;maj&#xed; b&#xe1;zi z vl.vektor&#x16f;&quot;" ID="ID_1375143592" CREATED="1327858359887" MODIFIED="1327858393824" HGAP="200" VSHIFT="50">
 <hook NAME="FreeNode"/>
 </node>
-<node ID="ID_215284435" CREATED="1327856134059" MODIFIED="1327858607512" HGAP="-190" VSHIFT="80"><richcontent TYPE="NODE">
+<node ID="ID_215284435" CREATED="1327856134059" MODIFIED="1327938598812" HGAP="-160" VSHIFT="80"><richcontent TYPE="NODE">
 
 <html>
   <head>
@@ -136,6 +142,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <hook NAME="FreeNode"/>
 </node>
@@ -159,7 +166,7 @@
 </html>
 </richcontent>
 <hook EQUATION="A&apos;=R^{-1}AR" NAME="plugins/latex/LatexNodeHook.properties"/>
-<node ID="ID_982934053" CREATED="1327858499309" MODIFIED="1327859664059" HGAP="40" VSHIFT="130"><richcontent TYPE="NODE">
+<node ID="ID_982934053" CREATED="1327858499309" MODIFIED="1327936604062" HGAP="40" VSHIFT="130"><richcontent TYPE="NODE">
 
 <html>
   <head>
@@ -175,18 +182,28 @@
   </body>
 </html>
 </richcontent>
-<hook URI="../Plocha/mff-statnice/bc/matematika/obrazky/jordan.png" SIZE="0.8940116" NAME="ExternalObject"/>
+<hook URI="bc/matematika/obrazky/jordan.png" SIZE="0.8986198" NAME="ExternalObject"/>
 <node TEXT="Jordanovy bu&#x148;ky Ji p&#x159;&#xed;slu&#x161;n&#xe9; vl.&#x10d;&#xed;slu &#x3bb;i" ID="ID_725615548" CREATED="1327858957777" MODIFIED="1327860691762" HGAP="30" VSHIFT="-10">
 <hook EQUATION=" \begin{pmatrix}&#xd;&#xa;  \lambda_i &amp; 1 &amp; 0 &amp; \cdots &amp; 0 \\&#xd;&#xa;  0 &amp; \lambda_i &amp; 1 &amp; \cdots &amp; 0 \\&#xd;&#xa;    &amp; \vdots &amp; \ddots  &amp; \ddots &amp; \vdots \\&#xd;&#xa;  0 &amp; 0 &amp;  \cdots &amp; \lambda_i &amp; 1 \\   &#xd;&#xa;  0 &amp; 0 &amp;  \cdots &amp; 0 &amp;\lambda_i \\&#xd;&#xa;\end{pmatrix}" NAME="plugins/latex/LatexNodeHook.properties"/>
-<node TEXT="nen&#xed; diagonizovateln&#xe1;" ID="ID_214753876" CREATED="1327859846777" MODIFIED="1327862479059" HGAP="-190" VSHIFT="100">
+<node TEXT="nen&#xed; diagonizovateln&#xe1;, minid&#x16f;kaz:" ID="ID_214753876" CREATED="1327859846777" MODIFIED="1327938739562" HGAP="-190" VSHIFT="100">
 <hook EQUATION="\mathrm{dim}(Ker(\mathbf{A}-\lambda_i I))=1 \neq r_i=n" NAME="plugins/latex/LatexNodeHook.properties"/>
 </node>
 </node>
-<node TEXT="jde diagonizovat pouze pro&#xa;bu&#x148;ky velikosti 1x1" ID="ID_464409236" CREATED="1327860662012" MODIFIED="1327860692387" VSHIFT="-20"/>
+<node TEXT="jde diagonizovat pouze pro&#xa;bu&#x148;ky velikosti 1x1" ID="ID_464409236" CREATED="1327860662012" MODIFIED="1327938670406" HGAP="30" VSHIFT="-10"/>
+<node TEXT="a&#x17e; na p&#x159;erovn&#xe1;n&#xed; bu&#x148;ek je ur&#x10d;ena jednozna&#x10d;n&#x11b;" ID="ID_1228587492" CREATED="1327938653484" MODIFIED="1327938668109" HGAP="30" VSHIFT="-10"/>
+</node>
+<node TEXT="mocnina matice" ID="ID_1885779460" CREATED="1327936718875" MODIFIED="1327938037062" HGAP="-130" VSHIFT="80">
+<icon BUILTIN="forward"/>
+<hook NAME="FreeNode"/>
+<hook EQUATION="A^k = R^{-1}\Lambda^k R = R^{-1} \begin{pmatrix}&#xa;\lambda_1^k&amp;0&amp;0\\&#xa;0&amp;\ddots&amp;0\\&#xa;0&amp;0&amp;\lambda_n^k&#xa;\end{pmatrix} R" NAME="plugins/latex/LatexNodeHook.properties"/>
+<font BOLD="true"/>
+<node TEXT="Minid&#x16f;kaz:" ID="ID_1531485911" CREATED="1327937876546" MODIFIED="1327938751890" HGAP="-270" VSHIFT="90">
+<hook EQUATION="\footnotesize A^2 = (R^{-1}\Lambda^2 R)^2 =R^{-1}\Lambda R R^{-1}\Lambda R  = R^{-1}\Lambda^2 R " NAME="plugins/latex/LatexNodeHook.properties"/>
 </node>
 </node>
 </node>
-<node POSITION="left" ID="ID_359905477" CREATED="1327855150387" MODIFIED="1327858638168" HGAP="94" VSHIFT="108"><richcontent TYPE="NODE">
+</node>
+<node POSITION="left" ID="ID_359905477" CREATED="1327855150387" MODIFIED="1327936654703" HGAP="94" VSHIFT="108"><richcontent TYPE="NODE">
 
 <html>
   <head>
@@ -205,7 +222,7 @@
   </body>
 </html>
 </richcontent>
-<hook URI="../Plocha/mff-statnice/bc/matematika/obrazky/vlastni_vektor.png" SIZE="0.70244175" NAME="ExternalObject"/>
+<hook URI="bc/matematika/obrazky/vlastni_vektor.png" SIZE="0.74" NAME="ExternalObject"/>
 </node>
 </node>
 </map>

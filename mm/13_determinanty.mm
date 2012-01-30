@@ -18,7 +18,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <hook NAME="MapStyle">
 
@@ -88,7 +87,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <hook NAME="FreeNode"/>
 </node>
@@ -104,7 +102,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <hook NAME="FreeNode"/>
 </node>
@@ -137,7 +134,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node ID="ID_1748319930" CREATED="1327776041169" MODIFIED="1327780212715">
 <icon BUILTIN="forward"/>
@@ -153,7 +149,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="matice m&#xe1; schodn&#xe9; 2 &#x159;&#xe1;dky/sloupce(singul&#xe1;rn&#xed;) &#x21d2; det A = 0" ID="ID_483765680" CREATED="1327776086028" MODIFIED="1327780914606">
@@ -185,7 +180,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <hook NAME="FreeNode"/>
 </node>
@@ -201,7 +195,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <hook EQUATION="\det A = \sum_{\sigma \in S_n}sgn(p) \prod_{i=1}^n a_{i,p(i)}" NAME="plugins/latex/LatexNodeHook.properties"/>
 <node TEXT="m&#xe1; n! s&#x10d;&#xed;tanc&#x16f; tak&#x17e;e se p&#x159;es&#xa;n&#x11b;j ned&#xe1; moc po&#x10d;&#xed;tat" ID="ID_175603465" CREATED="1327774351809" MODIFIED="1327780517903" HGAP="-200" VSHIFT="30">
@@ -225,13 +218,28 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <hook NAME="FreeNode"/>
 <hook EQUATION="\begin{align}&#xd;&#xa;&amp;\text{matice } A_{ij} \text{vznikne odstran&#x11b;n&#xed;m i-t&#xe9;ho &#x159;&#xe1;dku a j-t&#xe9;ho sloupce} \\&#xd;&#xa;&amp;\det A_{ij}\text{ je pak \textbf{subdeterminantem} /\textbf{minorem }  a plat&#xed;:} \\&#xd;&#xa;&amp;\det( A ) = \sum_{j=1}^n a_{i,j}\cdot (-1)^{i+j}\det( A_{ij} ) \\&#xd;&#xa;&amp;(A^{-1})_{i,j}=(-1)^{i+j}\frac{\det(A_\mathbf{ji})}{\det A}&#xd;&#xa;\end{align}" NAME="plugins/latex/LatexNodeHook.properties"/>
 <node TEXT="Adjungovan&#xe1; matice" ID="ID_1154360030" CREATED="1327781707200" MODIFIED="1327781840309" HGAP="-200" VSHIFT="140">
 <icon BUILTIN="info"/>
 <hook EQUATION="\begin{align}&#xd;&#xa;&amp;(\text{adj} A)_{i,j}=(-1)^{i+j}\cdot\det(A_{ji}) \\&#xd;&#xa;&amp;A^{-1}=\frac{1}{\det A}\cdot(\text{adj} A)&#xd;&#xa;\end{align}" NAME="plugins/latex/LatexNodeHook.properties"/>
+</node>
+<node ID="ID_1643306539" CREATED="1327949880078" MODIFIED="1327949903343" HGAP="90" VSHIFT="220"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      D&#367;kaz rozvoje: <b>TODO</b>
+    </p>
+  </body>
+</html>
+
+</richcontent>
+<hook NAME="FreeNode"/>
 </node>
 </node>
 <node POSITION="left" ID="ID_951220376" CREATED="1327781883497" MODIFIED="1327782233950" HGAP="-100" VSHIFT="270"><richcontent TYPE="NODE">
@@ -246,13 +254,12 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <hook NAME="FreeNode"/>
 <hook EQUATION="\begin{align}&#xd;&#xa;&amp;A\mathbf{x}=\mathbf{b}\text{ m&#xe1; &#x159;e&#x161;en&#xed; ve tvaru:} \\&#xd;&#xa;&amp;x_i = \frac{\det A_{i\rightarrow \mathbf{b}}}{\det A} \\&#xd;&#xa;&amp;\footnotesize \text{kde matice } A_{i\rightarrow \mathbf{b}} \text{ vznikne nahrazen&#xed;m i-t&#xe9;ho sloupce vektorem \textbf{b}}&#xd;&#xa;\end{align}" NAME="plugins/latex/LatexNodeHook.properties"/>
 </node>
-<node TEXT="det 3x3 - Sarrusovo pravidlo" POSITION="right" ID="ID_46223129" CREATED="1327775184559" MODIFIED="1327782285903" HGAP="210" VSHIFT="190">
-<hook URI="../Plocha/mff-statnice/bc/matematika/obrazky/sarrusovo_pravidlo.png" SIZE="0.28713778" NAME="ExternalObject"/>
+<node TEXT="det 3x3 - Sarrusovo pravidlo" POSITION="right" ID="ID_46223129" CREATED="1327775184559" MODIFIED="1327949838609" HGAP="210" VSHIFT="190">
+<hook URI="../bc/matematika/obrazky/sarrusovo_pravidlo.png" SIZE="0.27656996" NAME="ExternalObject"/>
 </node>
 </node>
 </map>
