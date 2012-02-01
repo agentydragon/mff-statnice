@@ -142,7 +142,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <hook NAME="FreeNode"/>
 </node>
@@ -166,7 +165,7 @@
 </html>
 </richcontent>
 <hook EQUATION="A&apos;=R^{-1}AR" NAME="plugins/latex/LatexNodeHook.properties"/>
-<node ID="ID_982934053" CREATED="1327858499309" MODIFIED="1327936604062" HGAP="40" VSHIFT="130"><richcontent TYPE="NODE">
+<node ID="ID_982934053" CREATED="1327858499309" MODIFIED="1328127374125" HGAP="40" VSHIFT="130"><richcontent TYPE="NODE">
 
 <html>
   <head>
@@ -182,7 +181,7 @@
   </body>
 </html>
 </richcontent>
-<hook URI="bc/matematika/obrazky/jordan.png" SIZE="0.8986198" NAME="ExternalObject"/>
+<hook URI="../bc/matematika/obrazky/jordan.png" SIZE="1.0" NAME="ExternalObject"/>
 <node TEXT="Jordanovy bu&#x148;ky Ji p&#x159;&#xed;slu&#x161;n&#xe9; vl.&#x10d;&#xed;slu &#x3bb;i" ID="ID_725615548" CREATED="1327858957777" MODIFIED="1327860691762" HGAP="30" VSHIFT="-10">
 <hook EQUATION=" \begin{pmatrix}&#xd;&#xa;  \lambda_i &amp; 1 &amp; 0 &amp; \cdots &amp; 0 \\&#xd;&#xa;  0 &amp; \lambda_i &amp; 1 &amp; \cdots &amp; 0 \\&#xd;&#xa;    &amp; \vdots &amp; \ddots  &amp; \ddots &amp; \vdots \\&#xd;&#xa;  0 &amp; 0 &amp;  \cdots &amp; \lambda_i &amp; 1 \\   &#xd;&#xa;  0 &amp; 0 &amp;  \cdots &amp; 0 &amp;\lambda_i \\&#xd;&#xa;\end{pmatrix}" NAME="plugins/latex/LatexNodeHook.properties"/>
 <node TEXT="nen&#xed; diagonizovateln&#xe1;, minid&#x16f;kaz:" ID="ID_214753876" CREATED="1327859846777" MODIFIED="1327938739562" HGAP="-190" VSHIFT="100">
@@ -203,7 +202,7 @@
 </node>
 </node>
 </node>
-<node POSITION="left" ID="ID_359905477" CREATED="1327855150387" MODIFIED="1327936654703" HGAP="94" VSHIFT="108"><richcontent TYPE="NODE">
+<node POSITION="left" ID="ID_359905477" CREATED="1327855150387" MODIFIED="1328127482296" HGAP="114" VSHIFT="98"><richcontent TYPE="NODE">
 
 <html>
   <head>
@@ -222,7 +221,7 @@
   </body>
 </html>
 </richcontent>
-<hook URI="bc/matematika/obrazky/vlastni_vektor.png" SIZE="0.74" NAME="ExternalObject"/>
+<hook URI="../bc/matematika/obrazky/vlastni_vektor.png" SIZE="0.6912202" NAME="ExternalObject"/>
 </node>
 </node>
 </map>
