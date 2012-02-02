@@ -1,4 +1,4 @@
-﻿1. je komplet v TeXu
+1. je komplet v TeXu
 {IP 9.9.2011}
 Definujte pojmy suprema a maxima.
 Popište, jaký je mezi nimi rozdíl.
@@ -10,13 +10,8 @@ v texu
 
 2 - komplet v texu
 2.4
-{Surynek} Dostal jsem vety o strední hodnote. U tech vet jsem mel jeden dukaz, u druhého ideu a u tretího zacátek triku, který se tam použije (musel bych ješte docela premýšlet, abych to poskládal dohromady). Ale jemu to stacilo (taky zkoušel, jak tomu rozumím). Takže od pana Surynka za 1. 
 2.5
-{IOI 8.9.2011}
-- definujte Tayloruv polynom
-- navrhnete postup na priblizny vypocet sin(5) pomoci TP
 
-Pohoda, rozvoj v nule, dosadit 5 a je to. Na ustni Cepek trochu vrtal do tvaru zbytku a prisel se na to ze ho neumim, ale presel to bez karani jen slovy "podle me to neni ono" a slo se dal.
 
 
 
