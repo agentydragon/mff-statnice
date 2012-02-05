@@ -182,7 +182,7 @@
 </node>
 <node TEXT="dimenze V (dim(V)) je mohutnost n&#x11b;jak&#xe9; jeho b&#xe1;ze" ID="ID_673300399" CREATED="1327431228562" MODIFIED="1327431519546" STYLE="fork"/>
 </node>
-<node ID="ID_595819413" CREATED="1327422392484" MODIFIED="1327782975434" HGAP="-239" VSHIFT="24" STYLE="bubble"><richcontent TYPE="NODE">
+<node ID="ID_595819413" CREATED="1327422392484" MODIFIED="1328402214450" HGAP="-239" VSHIFT="24" STYLE="bubble"><richcontent TYPE="NODE">
 
 <html>
   <head>
@@ -196,10 +196,11 @@
       (v<sub>1</sub>,...,v<sub>n</sub>) je SG V a w=a<sub>1</sub>v<sub>1</sub>+..+a<sub>n</sub>v<sub>n</sub>
     </p>
     <p style="text-align: center">
-      pak pro a<sub>i</sub>=0: (v<sub>1</sub>,...,v<sub>i-1</sub>,w,v<sub>i+1</sub>,...,v<sub>n</sub>) je SG V
+      pak pro a<sub>i</sub>&#8800;0: (v<sub>1</sub>,...,v<sub>i-1</sub>,w,v<sub>i+1</sub>,...,v<sub>n</sub>) je SG V
     </p>
   </body>
 </html>
+
 </richcontent>
 <node TEXT="vektor b&#xe1;ze co se pod&#xed;lel na &#xa;vytvo&#x159;en&#xed; w m&#x16f;&#x17e;eme zam&#x11b;nit s w" ID="ID_73126171" CREATED="1327423143859" MODIFIED="1327423508500" STYLE="fork" HGAP="24" VSHIFT="-15">
 <icon BUILTIN="idea"/>
