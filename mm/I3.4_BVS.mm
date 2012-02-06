@@ -18,7 +18,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <hook NAME="MapStyle">
 
@@ -87,7 +86,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="bin&#xe1;rn&#xed; haldy" ID="ID_1023307323" CREATED="1328472534544" MODIFIED="1328539783140">
 <font BOLD="true"/>
@@ -108,7 +106,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <hook NAME="FreeNode"/>
 </node>
@@ -124,7 +121,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node ID="ID_1369458460" CREATED="1328539865125" MODIFIED="1328539916421"><richcontent TYPE="NODE">
@@ -139,7 +135,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node ID="ID_212900255" CREATED="1328539918531" MODIFIED="1328539941828"><richcontent TYPE="NODE">
@@ -154,7 +149,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node ID="ID_1439233183" CREATED="1328539942468" MODIFIED="1328540517609"><richcontent TYPE="NODE">
 
@@ -171,7 +165,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
@@ -192,7 +185,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
@@ -211,13 +203,86 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="d&#xe1; se v O(n)" ID="ID_1848064858" CREATED="1328540715265" MODIFIED="1328540750812"/>
 </node>
 </node>
-<node TEXT="binomi&#xe1;ln&#xed; haldy - les binomi&#xe1;ln&#xed;ch strom&#x16f;" ID="ID_248980528" CREATED="1328472554708" MODIFIED="1328472620146"/>
-<node TEXT="fibonacciho haldy - vych&#xe1;z&#xed; z binomi&#xe1;ln&#xed;ch" ID="ID_637070135" CREATED="1328472577070" MODIFIED="1328472716548"/>
+<node ID="ID_248980528" CREATED="1328472554708" MODIFIED="1328553591848"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <b>binomi&#225;ln&#237; haldy</b>
+    </p>
+  </body>
+</html>
+
+</richcontent>
+<node ID="ID_1507412825" CREATED="1328553595058" MODIFIED="1328559447926"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <b>Pravidla:</b>&#160;les binomi&#225;ln&#237;ch strom&#367; - ka&#382;d&#253; &#345;&#225;d max.jednou,
+    </p>
+    <p>
+      bim.strom &#345;&#225;du i se skl&#225;d&#225; z ko&#345;ene a i syn&#367; ze strom&#367; 0 a&#382; i-1 - chov&#225; se jako mal&#225; halda
+    </p>
+    <p>
+      -pou&#382;&#237;v&#225; se ukazatelna strom s min.prvkem O(1)
+    </p>
+  </body>
+</html>
+
+</richcontent>
+<hook URI="../bc/informatika/algoritmy_a_ds/obrazky/binomial_heap.png" SIZE="0.5816108" NAME="ExternalObject"/>
+</node>
+<node TEXT="umo&#x17e;&#x148;uje rychlou implemetaci Insert O(log n) (amotizovan&#x11b; O(1)) a Merge (dvou hald) O(log n)" ID="ID_1756586027" CREATED="1328553451999" MODIFIED="1328559320592"/>
+</node>
+<node ID="ID_637070135" CREATED="1328472577070" MODIFIED="1328559356098"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <b>fibonacciho haldy</b>
+    </p>
+  </body>
+</html>
+
+</richcontent>
+<node ID="ID_793396229" CREATED="1328559358641" MODIFIED="1328560624641"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <b>Pravidla:</b>&#160;&#160;les haldov&#253;ch strom&#367;, ka&#382;d&#253; uzel haldy s n prvky m&#225; podstrom velikosti min. F_n+2 m&#225; stupe&#328; max log n
+    </p>
+    <p>
+      -p&#345;i odeb&#237;r&#225;n&#237; prvk&#367; lze oddelit z neko&#345;enov&#233;ho prvku max 1 syna, jinak se oddeli cely uzel do noveho stromu
+    </p>
+    <p>
+      -p&#345;i odebr&#225;n&#237; minima se po&#269;et strom&#367; naopak sni&#382;uje - spojuj&#237; se
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="vych&#xe1;z&#xed; z binomi&#xe1;ln&#xed;ch" ID="ID_890297760" CREATED="1328559459581" MODIFIED="1328559461771"/>
+<node TEXT="Insert je amortizovan&#x11b; O(1) Delete O(log n)" ID="ID_1302546842" CREATED="1328560717406" MODIFIED="1328560762992"/>
+</node>
 </node>
 <node POSITION="right" ID="ID_1696027511" CREATED="1328536783484" MODIFIED="1328537077718"><richcontent TYPE="NODE">
 
@@ -231,7 +296,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <hook URI="../bc/informatika/algoritmy_a_ds/obrazky/tree_rotation2.png" SIZE="0.43422493" NAME="ExternalObject"/>
 </node>
@@ -249,7 +313,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node ID="ID_1050859832" CREATED="1328534133609" MODIFIED="1328537843421"><richcontent TYPE="NODE">
@@ -267,7 +330,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node ID="ID_761318360" CREATED="1328534133609" MODIFIED="1328538648000"><richcontent TYPE="NODE">
@@ -285,7 +347,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node TEXT="- postupujeme od nov&#x11b; p&#x159;idan&#xe9;ho uzlu sm&#x11b;rem nahoru a cestou opravujeme balance uzl&#x16f; podle hloubky podstrom&#x16f;" ID="ID_842056782" CREATED="1328534149468" MODIFIED="1328534795562" VSHIFT="50"/>
 <node ID="ID_140214597" CREATED="1328534133609" MODIFIED="1328538168406"><richcontent TYPE="NODE">
@@ -300,7 +361,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node ID="ID_1504042381" CREATED="1328534133625" MODIFIED="1328538654421"><richcontent TYPE="NODE">
@@ -315,7 +375,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node ID="ID_972238556" CREATED="1328534133625" MODIFIED="1328534133625"><richcontent TYPE="NODE">
@@ -348,7 +407,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
@@ -366,7 +424,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node ID="ID_1254001462" CREATED="1328534661500" MODIFIED="1328536636968" VSHIFT="20"><richcontent TYPE="NODE">
 
@@ -380,7 +437,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node ID="ID_1779147374" CREATED="1328534642734" MODIFIED="1328535174390"><richcontent TYPE="NODE">
@@ -395,7 +451,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node ID="ID_17537509" CREATED="1328534642734" MODIFIED="1328535205375"><richcontent TYPE="NODE">
@@ -410,7 +465,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
@@ -432,7 +486,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="m&#xe1;me v&#xed;ce p&#x159;&#xed;pad&#x16f; ale zase&#xa;jen max 3 rotace (delete)" ID="ID_1370065756" CREATED="1328537217093" MODIFIED="1328537378265" HGAP="-220" VSHIFT="60">
@@ -454,7 +507,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node ID="ID_1990575873" CREATED="1328534756218" MODIFIED="1328536410593" VSHIFT="20"><richcontent TYPE="NODE">
 
@@ -468,7 +520,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node ID="ID_1638429613" CREATED="1328536412812" MODIFIED="1328536424109"><richcontent TYPE="NODE">
@@ -483,7 +534,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node ID="ID_1476123199" CREATED="1328534642812" MODIFIED="1328535585812"><richcontent TYPE="NODE">
@@ -498,7 +548,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node ID="ID_487803211" CREATED="1328534642828" MODIFIED="1328536328359" VSHIFT="10"><richcontent TYPE="NODE">
 
@@ -512,7 +561,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node ID="ID_1656601126" CREATED="1328534642828" MODIFIED="1328536286406"><richcontent TYPE="NODE">
@@ -527,7 +575,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node ID="ID_1791782696" CREATED="1328534642828" MODIFIED="1328536554109" VSHIFT="10"><richcontent TYPE="NODE">
 
@@ -541,7 +588,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <hook URI="../bc/informatika/algoritmy_a_ds/obrazky/RB_case_2.png" SIZE="0.42878518" NAME="ExternalObject"/>
 </node>
@@ -557,7 +603,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
