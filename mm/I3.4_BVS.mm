@@ -219,7 +219,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node ID="ID_1507412825" CREATED="1328553595058" MODIFIED="1328559447926"><richcontent TYPE="NODE">
 
@@ -239,7 +238,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <hook URI="../bc/informatika/algoritmy_a_ds/obrazky/binomial_heap.png" SIZE="0.5816108" NAME="ExternalObject"/>
 </node>
@@ -257,7 +255,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 <node ID="ID_793396229" CREATED="1328559358641" MODIFIED="1328560624641"><richcontent TYPE="NODE">
 
@@ -277,7 +274,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="vych&#xe1;z&#xed; z binomi&#xe1;ln&#xed;ch" ID="ID_890297760" CREATED="1328559459581" MODIFIED="1328559461771"/>
@@ -409,6 +405,7 @@
 </html>
 </richcontent>
 </node>
+<node TEXT="Find,Insert,Delete v&#x17e;dy v O(log n)" ID="ID_1314286557" CREATED="1328564785299" MODIFIED="1328564823572"/>
 </node>
 <node TEXT="RB stromy" POSITION="right" ID="ID_874391020" CREATED="1328472505054" MODIFIED="1328534949937">
 <font BOLD="true"/>
@@ -607,6 +604,218 @@
 </node>
 </node>
 </node>
+</node>
+<node TEXT="Find,Insert,Delete v&#x17e;dy v O(log n)" ID="ID_307960741" CREATED="1328564785299" MODIFIED="1328564823572"/>
+</node>
+<node TEXT="B-Stromy" POSITION="right" ID="ID_1870206936" CREATED="1328562943152" MODIFIED="1328564669607">
+<font BOLD="true"/>
+<node TEXT="Pravidla:" ID="ID_648632699" CREATED="1328563693564" MODIFIED="1328563791360">
+<font BOLD="true"/>
+<node ID="ID_1209275212" CREATED="1328563784355" MODIFIED="1328563784355"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p class="MsoNormal" style="text-align: justify">
+      - ne v&#353;echny vrcholy maj&#237; stejn&#253; po&#269;et syn&#367;
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node ID="ID_1498384649" CREATED="1328563784364" MODIFIED="1328564618559"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p class="MsoNormal" style="text-align: justify">
+      - po&#269;et datov&#253;ch box&#367; v&#160;uzlu je alespo&#328; m/2&#160;a nejv&#253;&#353;e m pro n&#283;jak&#233; m&gt;1
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node ID="ID_1219891465" CREATED="1328563784384" MODIFIED="1328564518661"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p class="MsoNormal" style="text-align: justify">
+      - ko&#345;en stupn&#283; alespo&#328; 2
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node ID="ID_1422111474" CREATED="1328563784402" MODIFIED="1328563784402"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p class="MsoNormal" style="text-align: justify">
+      - v&#353;echny listy ve stejn&#233; hladin&#283;
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+</node>
+<node ID="ID_1647143152" CREATED="1328563930854" MODIFIED="1328563970004"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <b>Insert</b>&#160;prob&#237;h&#225; tak, &#382;e se najde m&#237;sto, kam z&#225;znam vlo&#382;it, pokud nen&#237; uzel pln&#253;, prost&#283; se z&#225;znam vlo&#382;&#237;, jinak se uzel roz&#353;t&#283;p&#237;, p&#367;lka prvk&#367; se d&#225; vlevo, p&#367;lka vpravo a prost&#345;edn&#237; se vlo&#382;&#237; (&#8222;mezi n&#283;&#8220;) do otce. Pokud v otci nen&#237; m&#237;sto, pokra&#269;uje se stejn&#253;m zp&#367;sobem a&#382; do ko&#345;ene, kde se p&#345;&#237;padn&#283; vytvo&#345;&#237; nov&#253; uzel a ud&#283;l&#225; se z n&#283;j ko&#345;en.
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node ID="ID_1897035214" CREATED="1328563930854" MODIFIED="1328564017160"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <b>Delete</b>&#160;prvk&#367; je opa&#269;n&#253; postup, v p&#345;&#237;pad&#283; podte&#269;en&#237; uzlu mus&#237;m p&#345;eb&#237;rat data od sousedn&#237;ch uzl&#367; nebo sl&#233;vat. V redundantn&#237;ch B-stromech nen&#237; nutn&#233; p&#345;i maz&#225;n&#237; odstra&#328;ovat vyhled&#225;vac&#237; kl&#237;&#269; z vnit&#345;n&#237;ch uzl&#367; -- prvek s touto hodnotou se ve strom&#283; u&#382; nebude nach&#225;zet, ale vyhled&#225;vat podle jeho kl&#237;&#269;e je d&#225;l mo&#382;n&#233;.
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="Find,Insert,Delete v&#x17e;dy v O(log n)" ID="ID_573178780" CREATED="1328564785299" MODIFIED="1328564823572"/>
+<node ID="ID_681363009" CREATED="1328563637653" MODIFIED="1328563871997"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      vhodn&#253; pro extern&#237; pam&#283;&#357; proto&#382;e v&#237;ce dat v uzlech sni&#382;uje p&#345;stupy do pam&#283;ti, a pokud m&#225;me data pouze v listech (<b>redundantn&#237; B-Stromy</b>) je to je&#353;t&#283; lep&#353;&#237;
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node ID="ID_217526231" CREATED="1328564077232" MODIFIED="1328564096495"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <b>B+ stromy</b>&#160;jsou m&#237;rn&#253;m vylep&#353;en&#237;m B-strom&#367; pro zrychlen&#237; intervalov&#253;ch dotaz&#367;: v&#353;echny uzly ve stejn&#233; &#250;rovni (a nebo jenom listy) jsou spojeny do spojov&#233;ho seznamu (mo&#382;n&#225; je jednosm&#283;rn&#225; i obousm&#283;rn&#225; varianta).
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node ID="ID_415067705" CREATED="1328564271098" MODIFIED="1328564667423"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <b>B* stromy</b>&#160;(&#345;&#225;du m) jsou &#250;pravou B-strom&#367; na z&#225;klad&#283; vyva&#382;ov&#225;n&#237; str&#225;nek. Druh&#225; podm&#237;nka B-strom&#367; se uprav&#237; tak, &#382;e ka&#382;d&#253; uzel krom&#283; ko&#345;ene m&#225; minim&#225;ln&#283; 2m/3 zapln&#283;n&#237;. P&#345;i vkl&#225;d&#225;n&#237; prvk&#367; se st&#283;pen&#237; odkl&#225;d&#225; op&#283;t do t&#233; doby, dokud nejsou pln&#237; i sourozenci dan&#233;ho listu; potom se &#353;t&#283;p&#237; bu&#271; 2 listy do 3, nebo 3 do 4 (bu&#271; s pomoc&#237; jednoho nebo dvou sousedn&#237;ch sourozenc&#367;). Odeb&#237;r&#225;n&#237; podobn&#283; zahrnuje sl&#233;v&#225;n&#237; 3 uzl&#367; do 2 (nebo 4 do 3). P&#345;i ob&#233;m lze ve slo&#382;it&#283;j&#353;&#237; variant&#283; zapojit je&#353;t&#283; v&#237;ce uzl&#367;.
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+</node>
+<node TEXT="Splay-trees" POSITION="right" ID="ID_1122188780" CREATED="1328564993169" MODIFIED="1328565973312">
+<font BOLD="true"/>
+<node ID="ID_1145903938" CREATED="1328565368661" MODIFIED="1328565637115"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <b>Splay</b>&#160;- zarotuj ur&#269;en&#253; uzel a&#382; do ko&#345;ene
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node ID="ID_624421669" CREATED="1328565501743" MODIFIED="1328565580222"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <b>Insert </b>- vlo&#382; jako v bvs a pak splay na p&#345;idan&#253;
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node ID="ID_1096226297" CREATED="1328565580779" MODIFIED="1328565744415"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <b>Delete</b>&#160;- sma&#382; jako v BVS(nahra&#271; nejlev&#283;j&#353;&#237;m z prav&#233;ho, nebo nejprav&#283;j&#353;&#237;m z lev&#233;ho) a splay na parenta
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="posledn&#xed; p&#x159;istupovan&#xe9; prvky jsou rychle dostupn&#xe9;" ID="ID_1328206016" CREATED="1328565814978" MODIFIED="1328565876556">
+<icon BUILTIN="addition"/>
+</node>
+<node TEXT="nejhor&#x161;&#xed;m p&#x159;&#xed;pad a&#x17e; O(n) jinak O(log n), m&#x11b;n&#xed; se jenom hled&#xe1;n&#xed;m" ID="ID_1247121812" CREATED="1328565276935" MODIFIED="1328565898698">
+<icon BUILTIN="subtraction"/>
+</node>
+<node ID="ID_1932711321" CREATED="1328566088507" MODIFIED="1328566373590"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <b>Optim&#225;n&#237; BVS</b>&#160;- minimalizuj&#237; dobu hled&#225;n&#237; kdy&#382; v&#237;me p&#345;edem co budem hledat &#269;ast&#283;ji
+    </p>
+  </body>
+</html>
+
+</richcontent>
 </node>
 </node>
 </node>
