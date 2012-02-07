@@ -68,7 +68,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<node POSITION="left" ID="ID_346656067" CREATED="1328472518571" MODIFIED="1328538945921"><richcontent TYPE="NODE">
+<node POSITION="left" ID="ID_346656067" CREATED="1328472518571" MODIFIED="1328640962906" HGAP="-180" VSHIFT="510"><richcontent TYPE="NODE">
 
 <html>
   <head>
@@ -89,7 +89,7 @@
 </richcontent>
 <node TEXT="bin&#xe1;rn&#xed; haldy" ID="ID_1023307323" CREATED="1328472534544" MODIFIED="1328539783140">
 <font BOLD="true"/>
-<node ID="ID_510185877" CREATED="1328539041515" MODIFIED="1328539819828" HGAP="-290" VSHIFT="-160">
+<node ID="ID_510185877" CREATED="1328539041515" MODIFIED="1328640966125" HGAP="-130" VSHIFT="-160">
 <icon BUILTIN="idea"/>
 <richcontent TYPE="NODE">
 
@@ -546,7 +546,7 @@
   </body>
 </html>
 </richcontent>
-<node ID="ID_487803211" CREATED="1328534642828" MODIFIED="1328536328359" VSHIFT="10"><richcontent TYPE="NODE">
+<node ID="ID_487803211" CREATED="1328534642828" MODIFIED="1328640841609" VSHIFT="10"><richcontent TYPE="NODE">
 
 <html>
   <head>
@@ -554,10 +554,14 @@
   </head>
   <body>
     <p style="margin-bottom: 0cm">
-      -<font color="#ff0000"><b>str&#253;c</b></font><b>&#160;</b>N <font color="#ff0000"><b>je &#269;erven&#253;</b></font>&#160;&#8594; <b>p&#345;ebarv&#237;me otce a str&#253;ce na cerno</b>&#160;a <font color="#ff0000"><b>d&#283;du</b></font>&#160;na <font color="#ff0000"><b>&#269;erveno</b></font><font color="#000000">&#160;a&#160;&#160;posuneme chybu na d&#283;du</font>
+      -<b><font color="#ff0000">str&#253;c</font>&#160;</b>N <b><font color="#ff0000">je &#269;erven&#253;</font></b>&#160;&#8594; <b>p&#345;ebarv&#237;me otce a str&#253;ce na cerno</b>&#160;a <b><font color="#ff0000">d&#283;du</font></b>&#160;na <b><font color="#ff0000">&#269;erveno</font></b><font color="#000000">&#160; </font>
+    </p>
+    <p style="margin-bottom: 0cm">
+      <font color="#000000">a&#160;&#160;posuneme chybu na d&#283;du</font>
     </p>
   </body>
 </html>
+
 </richcontent>
 </node>
 <node ID="ID_1656601126" CREATED="1328534642828" MODIFIED="1328536286406"><richcontent TYPE="NODE">
@@ -573,7 +577,7 @@
   </body>
 </html>
 </richcontent>
-<node ID="ID_1791782696" CREATED="1328534642828" MODIFIED="1328536554109" VSHIFT="10"><richcontent TYPE="NODE">
+<node ID="ID_1791782696" CREATED="1328534642828" MODIFIED="1328640834546" VSHIFT="10"><richcontent TYPE="NODE">
 
 <html>
   <head>
@@ -581,10 +585,14 @@
   </head>
   <body>
     <p style="margin-bottom: 0cm">
-      <b>N je lev&#253; syn</b>: provedeme pravou rotaci na d&#283;dovi a p&#345;ebarv&#237;me (=pravidla spln&#283;na,konec)
+      <b>N je lev&#253; syn</b>: provedeme pravou rotaci na d&#283;dovi a p&#345;ebarv&#237;me
+    </p>
+    <p style="margin-bottom: 0cm">
+      (=pravidla spln&#283;na,konec)
     </p>
   </body>
 </html>
+
 </richcontent>
 <hook URI="../bc/informatika/algoritmy_a_ds/obrazky/RB_case_2.png" SIZE="0.42878518" NAME="ExternalObject"/>
 </node>
@@ -623,7 +631,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node ID="ID_1498384649" CREATED="1328563784364" MODIFIED="1328564618559"><richcontent TYPE="NODE">
@@ -638,7 +645,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node ID="ID_1219891465" CREATED="1328563784384" MODIFIED="1328564518661"><richcontent TYPE="NODE">
@@ -653,7 +659,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node ID="ID_1422111474" CREATED="1328563784402" MODIFIED="1328563784402"><richcontent TYPE="NODE">
@@ -668,7 +673,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
@@ -684,7 +688,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node ID="ID_1897035214" CREATED="1328563930854" MODIFIED="1328564017160"><richcontent TYPE="NODE">
@@ -699,7 +702,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="Find,Insert,Delete v&#x17e;dy v O(log n)" ID="ID_573178780" CREATED="1328564785299" MODIFIED="1328564823572"/>
@@ -715,7 +717,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node ID="ID_217526231" CREATED="1328564077232" MODIFIED="1328564096495"><richcontent TYPE="NODE">
@@ -730,7 +731,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node ID="ID_415067705" CREATED="1328564271098" MODIFIED="1328564667423"><richcontent TYPE="NODE">
@@ -745,7 +745,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
@@ -763,7 +762,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node ID="ID_624421669" CREATED="1328565501743" MODIFIED="1328565580222"><richcontent TYPE="NODE">
@@ -778,7 +776,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node ID="ID_1096226297" CREATED="1328565580779" MODIFIED="1328565744415"><richcontent TYPE="NODE">
@@ -793,7 +790,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 <node TEXT="posledn&#xed; p&#x159;istupovan&#xe9; prvky jsou rychle dostupn&#xe9;" ID="ID_1328206016" CREATED="1328565814978" MODIFIED="1328565876556">
@@ -814,7 +810,6 @@
     </p>
   </body>
 </html>
-
 </richcontent>
 </node>
 </node>
