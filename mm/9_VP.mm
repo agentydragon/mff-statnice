@@ -1,6 +1,6 @@
 <map version="0.9.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node ID="ID_19708541" CREATED="1327416166015" MODIFIED="1327432329171" COLOR="#18898b" STYLE="fork"><richcontent TYPE="NODE">
+<node ID="ID_19708541" CREATED="1327416166015" MODIFIED="1328744650625" COLOR="#18898b" STYLE="fork"><richcontent TYPE="NODE">
 
 <html>
   <head>
@@ -8,7 +8,7 @@
   </head>
   <body>
     <p style="text-align: center">
-      <b><font color="#000000">VP</font></b><font color="#000000"> </font>
+      <b><font color="#000000">VP</font></b><font color="#000000">&#160;</font>
     </p>
     <p style="text-align: center">
       <font color="#000000">(T,+,*,0,1) t&#283;leso </font>
@@ -21,6 +21,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <font NAME="Liberation Sans" SIZE="12" BOLD="false"/>
 <hook NAME="MapStyle">
@@ -182,7 +183,7 @@
 </node>
 <node TEXT="dimenze V (dim(V)) je mohutnost n&#x11b;jak&#xe9; jeho b&#xe1;ze" ID="ID_673300399" CREATED="1327431228562" MODIFIED="1327431519546" STYLE="fork"/>
 </node>
-<node ID="ID_595819413" CREATED="1327422392484" MODIFIED="1328402214450" HGAP="-239" VSHIFT="24" STYLE="bubble"><richcontent TYPE="NODE">
+<node ID="ID_595819413" CREATED="1327422392484" MODIFIED="1328744832093" HGAP="-239" VSHIFT="24" STYLE="bubble"><richcontent TYPE="NODE">
 
 <html>
   <head>
@@ -221,7 +222,7 @@
 </html>
 </richcontent>
 </node>
-<node ID="ID_1197208381" CREATED="1327420842078" MODIFIED="1327422225156" HGAP="23" VSHIFT="43">
+<node ID="ID_1197208381" CREATED="1327420842078" MODIFIED="1328744874406" HGAP="23" VSHIFT="43">
 <icon BUILTIN="yes"/>
 <richcontent TYPE="NODE">
 
@@ -244,6 +245,7 @@
     </p>
   </body>
 </html>
+
 </richcontent>
 <font NAME="SansSerif" SIZE="12" BOLD="false" ITALIC="false"/>
 <node TEXT="D&#x16f;kaz indukc&#xed; poatupn&#x11b; pomoc&#xed; &#xa;lemmatu o v&#xfd;m&#x11b;n&#x11b;" ID="ID_1945823231" CREATED="1327430571562" MODIFIED="1327430864875" STYLE="fork">
